@@ -20,8 +20,10 @@ import android.view.View
 import android.view.ViewConfiguration
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -38,6 +40,10 @@ class BubbleService : Service() {
         const val WIKI_URL = "https://oldschool.runescape.wiki/"
         const val XP_CALCULATOR_URL = "https://oldschool.tools/calculators/skill"
         const val DPS_CALCULATOR_URL = "https://tools.runescape.wiki/osrs-dps/"
+        // Tool windows: touches outside reach the game (and the window hears of them, ACTION_OUTSIDE); the game keeps
+        // the keyboard, and a window takes it only while you type in it (setWindowTakesKeyboard)
+        const val WINDOW_FLAGS = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH
         const val DPS_WIDTH_FRACTION = 0.6f  // DPS Calculator window: 60% of the screen width in landscape
         const val DPS_ZOOM_PERCENT = 100     // DPS Calculator text size
         const val TEXT_SIZE_WAIT_MS = 700L   // Tool text size: the tools are built again this long after the last − or + tap
@@ -1114,12 +1120,64 @@ class BubbleService : Service() {
             if (canResize) addView(moveCorner().apply { visibility = View.GONE }, FrameLayout.LayoutParams(dp(30), dp(30), Gravity.TOP or Gravity.END))
         }
 
-        return LinearLayout(this).apply {
+        return object : LinearLayout(this) {
+            // Tapping a text box or web page in the window lets it take the keyboard; tapping outside it (the game)
+            // hands the keyboard back, so the game's own typing (the bank search...) works with the window open
+            override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+                when (event.actionMasked) {
+                    MotionEvent.ACTION_OUTSIDE -> { setWindowTakesKeyboard(false); return true }
+                    MotionEvent.ACTION_DOWN -> if (takesTyping(viewAt(this, event.x, event.y))) setWindowTakesKeyboard(true)
+                }
+                return super.dispatchTouchEvent(event)
+            }
+        }.apply {
+            // a tool puts you in a text box itself (the Notepad's new note): the window takes the keyboard too
+            viewTreeObserver.addOnGlobalFocusChangeListener { _, now ->
+                if (now != null && shownWindow === this && now.onCheckIsTextEditor()) setWindowTakesKeyboard(true)
+            }
+            // once the window has the keyboard, show it for the text box you tapped (asked for too early, it's lost)
+            viewTreeObserver.addOnWindowFocusChangeListener { has ->
+                val box = findFocus()
+                if (has && box != null && box.onCheckIsTextEditor()) inputMethods.showSoftInput(box, 0)
+            }
             orientation = LinearLayout.VERTICAL
             setBackgroundColor(Palette.WINDOW)
             addView(topBar, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dp(BAR_HEIGHT_DP)))
             addView(body, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
         }
+    }
+
+    // ---------------- The keyboard ----------------
+
+    // Android gives the keyboard to one window at a time. A tool window sits above the game, so if it could always
+    // take the keyboard, the game's own (the bank search...) couldn't open while it's on screen. So a tool window
+    // starts without it (FLAG_NOT_FOCUSABLE), takes it while you type in it, and gives it back when you tap the game.
+    private val inputMethods by lazy { getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager }
+
+    private fun setWindowTakesKeyboard(on: Boolean) {
+        val window = shownWindow ?: return
+        val params = shownParams ?: return
+        val hasIt = params.flags and WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE == 0
+        if (hasIt == on) return
+        if (!on) inputMethods.hideSoftInputFromWindow(window.windowToken, 0)   // the tool's keyboard goes away
+        params.flags = if (on) params.flags and WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE.inv()
+                       else params.flags or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+        windowManager.updateViewLayout(window, params)
+    }
+
+    // Things you type into: text boxes, and web pages (their search boxes)
+    private fun takesTyping(v: View) = v is EditText || v is WebView || v.onCheckIsTextEditor()
+
+    // The innermost visible view under a point (x, y measured from v's top left)
+    private fun viewAt(v: View, x: Float, y: Float): View {
+        if (v !is ViewGroup) return v
+        for (i in v.childCount - 1 downTo 0) {
+            val c = v.getChildAt(i)
+            val cx = x + v.scrollX - c.left
+            val cy = y + v.scrollY - c.top
+            if (c.visibility == View.VISIBLE && cx >= 0 && cy >= 0 && cx < c.width && cy < c.height) return viewAt(c, cx, cy)
+        }
+        return v
     }
 
     // ---------------- Resizing windows ----------------
@@ -1306,7 +1364,7 @@ class BubbleService : Service() {
                 w,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-                WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
+                WINDOW_FLAGS,
                 PixelFormat.TRANSLUCENT
             ).apply {
                 gravity = Gravity.START or Gravity.TOP
@@ -1343,7 +1401,7 @@ class BubbleService : Service() {
             w,
             h,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-            WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL, // touches outside still reach the game
+            WINDOW_FLAGS, // touches outside still reach the game, and the game keeps the keyboard
             PixelFormat.TRANSLUCENT
         ).apply {
             gravity = Gravity.START or Gravity.TOP
