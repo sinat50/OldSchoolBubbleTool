@@ -21,6 +21,8 @@ Old School Bubble Tool puts a small bubble on top of the game. Tap it to open a 
 
 Tool windows are two inches wide in landscape. Drag the bar at the top to move a window anywhere, and drag the corner at the bottom right to resize it. Each tool remembers its size, and double-tapping the corner puts it back to normal. (The Puzzle Box and Light Box Solvers stay small in the top-right corner.) When the status bar or the navigation bar (the home and back buttons) is showing, windows and the bubble stay clear of it so they can always be dragged, and go back where you left them when it hides, as it does in the game.
 
+Typing in a tool window (a note, a search) brings up the keyboard with just its keys, so the game stays in view; tap the game to put it away. The game's own typing, like the bank search, works with a tool window open.
+
 **Settings** is at the bottom of the long-press menu, and on the app's main screen:
 
 - **Dark mode**: Off, On, or Match phone. Turns the app and every tool window dark, and the websites in the tools too (the OSRS Wiki switches to its own dark look).

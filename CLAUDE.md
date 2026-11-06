@@ -98,6 +98,14 @@ trailer and the ToA demo video; how to update them is in `trailer/README.md`), `
   Windows share one position; each tool remembers its own size per orientation. The Notepad starts at the top,
   sized to fit above the keyboard. A tool can shrink its window to a few buttons in a corner
   (`setWindowCompact`); it stays shrunk when the phone turns.
+- **The keyboard** (v1.2.1, "The keyboard" in `BubbleService`): Android gives it to one window at a time, so a tool
+  window starts without it (`FLAG_NOT_FOCUSABLE`), takes it when you tap a text box or web page in it
+  (`takesTyping`), and hands it back when you tap the game (`ACTION_OUTSIDE`), so the game's bank search still
+  works with a tool open. The keyboard is shown once the window has focus, only right after such a tap
+  (`keyboardJustTaken`; not when the window regains focus later, e.g. back from the Sync camera). Every text box
+  gets `IME_FLAG_NO_EXTRACT_UI`/`NO_FULLSCREEN` when focused (`keyboardBesideTheGame`): sideways, the keyboard
+  would otherwise cover the whole screen with its own text box and the game couldn't be tapped (checked on the
+  owner's phone). New text boxes need nothing extra.
 - **Status bar and navigation bar**: Android draws them over everything, so a window's bar under them can't be
   grabbed. Overlay windows aren't told when they show or hide (window insets don't work for them), so
   `BubbleService.addBarProbes()` adds two invisible strips that Android keeps clear of the bars, read together by
@@ -172,7 +180,7 @@ trailer and the ToA demo video; how to update them is in `trailer/README.md`), `
 ## Checking your work
 
 - Build with `./gradlew.bat assembleDebug`, and run Android's checks with `./gradlew.bat lintDebug` (report in
-  `app/build/reports/lint-results-debug.sarif`). Expected warnings: 93 "SetTextI18n" (text written in the code,
+  `app/build/reports/lint-results-debug.sarif`). Expected warnings: about 85 "SetTextI18n" (text written in the code,
   see `.scratch/lint-text-warnings/`) and 2 "IconXmlAndPng" (the app icon).
 - PC tests: `./gradlew.bat testDebugUnitTest`, in `app/src/test/`: chess (rules and the computer player), the Puzzle Box and Light Box solvers, the ToA
   answers, farming growth times, how quest requirements read and are checked against an account, reading Bubble Tool Sync codes (`SyncCodeTest`), the Zen Garden's save file, placed things and auto rake patterns, keeping windows clear of the bars, and Gear Loadouts (loadouts and older ones' item lists, `LoadoutTest`; the
@@ -223,6 +231,12 @@ Tags use the "v" form (`1.0.3` is the one exception). A published release's tag 
 GitHub creates the new tag on the latest master (that happened to v1.0.5 and was fixed by force-pushing the tag
 back to its commit from Android Studio's terminal, which has the GitHub login). Latest release: v1.2.0 (27 October
 2026, versionCode 12; Bubble Sync with the Bubble Tool Sync plugin, replacing WikiSync). The next release's branch is made when work on it starts.
+
+**v1.2.1** (branch `v1.2.1`, pushed, not released or merged yet; `versionName`/`versionCode` not bumped yet): the
+keyboard handover, no game pictures (Puzzle Box tile summaries, Import my gear from 9 x 8 summaries, Gear Loadouts
+back to screenshots, Quest Helper wiki links), the rename to Old School Bubble Tool, the Fan Content Policy line
+removed, and fixes from a code review of everything since v1.2.0. Its commit messages are the release notes' source.
+Before releasing, ask the owner about the open questions in `.scratch/jagex-response/plan.md`.
 
 ## Plans, to-dos and things to test
 
