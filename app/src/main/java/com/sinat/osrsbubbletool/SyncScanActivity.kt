@@ -53,7 +53,7 @@ class SyncScanActivity : ComponentActivity() {
     private val askCamera = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         if (granted) startCamera()
         else status.text = "The app needs the camera to scan the code. You can allow it in the phone's Settings → Apps → " +
-            "OSRS Bubble Tool → Permissions, or use Paste code on the Bubble Sync page instead."
+            "Old School Bubble Tool → Permissions, or use Paste code on the Bubble Sync page instead."
     }
 
     private fun dp(v: Int) = (v * resources.displayMetrics.density).toInt()

@@ -1,7 +1,7 @@
 # The form players fill in when they tap "Report An Issue" on the app's main screen.
 # The app fills in the "Phone and app" box itself (the field id "device" must match MainActivity.reportIssue).
 name: Report an issue
-description: Something in OSRS Bubble Tool isn't working, or works wrong
+description: Something in Old School Bubble Tool isn't working, or works wrong
 labels: ["bug"]
 body:
   - type: markdown

@@ -1,6 +1,7 @@
 """
 Lists equipment (anything with combat bonuses on the OSRS Wiki) that the app doesn't know yet, in two places:
-  - Gear Loadouts' item list (app/src/main/assets/items/items.tsv, made by build_items.py)
+  - the app's item list (app/src/main/assets/items/items.tsv, made by build_items.py), which Import my gear's colour
+    summaries are made from (dps/gear_summaries.bin)
   - the DPS Calculator's item list (app/src/main/assets/dps/equipment.json, from the wiki's DPS calculator)
 Read-only: it changes nothing. How to bring new items in: docs/gear-items.md.
 The update checker (tools/update-check) runs this too, as its "new-gear" source.
@@ -10,7 +11,7 @@ Usage (from the project folder): python tools/items/check_new_gear.py
 import datetime, json, os, sys, urllib.parse, urllib.request
 
 API = 'https://oldschool.runescape.wiki/api.php'
-AGENT = 'OSRSBubbleTool update check (github.com/sinat50/OSRSBubbleTool)'
+AGENT = 'OldSchoolBubbleTool update check (github.com/sinat50/OldSchoolBubbleTool)'
 ASSETS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'app', 'src', 'main', 'assets')
 
 
@@ -70,7 +71,8 @@ if __name__ == '__main__':
         loadouts, dps = missing_gear()
     except RuntimeError as e:
         sys.exit(str(e))
-    print(f'Not in Gear Loadouts ({len(loadouts)}): fixed by running build_items.py, then build_icons.py')
+    print(f'Not in the item list, so Import my gear can not recognise them yet ({len(loadouts)}): fixed by running '
+          'build_items.py, build_icons.py, then build_gear_summaries.py')
     for i, name, date in loadouts:
         print(f'  {i}\t{name}\t{date}')
     print(f'\nNewer than anything in the DPS Calculator list ({len(dps)}): arrive when the wiki DPS calculator adds them')

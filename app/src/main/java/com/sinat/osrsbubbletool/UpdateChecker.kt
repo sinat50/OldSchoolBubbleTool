@@ -12,8 +12,8 @@ import org.json.JSONObject
 // hour (never in the background), and sends nothing about you or your phone.
 object UpdateChecker {
 
-    private const val LATEST_API = "https://api.github.com/repos/sinat50/OSRSBubbleTool/releases/latest"
-    const val RELEASES_PAGE = "https://github.com/sinat50/OSRSBubbleTool/releases/latest"
+    private const val LATEST_API = "https://api.github.com/repos/sinat50/OldSchoolBubbleTool/releases/latest"
+    const val RELEASES_PAGE = "https://github.com/sinat50/OldSchoolBubbleTool/releases/latest"
 
     enum class State { NOT_CHECKED, UP_TO_DATE, UPDATE_AVAILABLE }
 
@@ -42,7 +42,7 @@ object UpdateChecker {
         Thread {
             try {
                 val c = URL(LATEST_API).openConnection() as HttpURLConnection
-                c.setRequestProperty("User-Agent", "OSRSBubbleTool")
+                c.setRequestProperty("User-Agent", "OldSchoolBubbleTool")
                 c.setRequestProperty("Accept", "application/vnd.github+json")
                 c.connectTimeout = 10_000
                 c.readTimeout = 15_000

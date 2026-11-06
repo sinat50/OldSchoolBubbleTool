@@ -595,7 +595,7 @@ class GameRoomTool(
         addView(b, LinearLayout.LayoutParams(dp(52), ViewGroup.LayoutParams.WRAP_CONTENT))
     }
 
-    // Saves the garden as a PNG in Pictures/OSRS Bubble Tool
+    // Saves the garden as a PNG in Pictures/Old School Bubble Tool
     private fun saveGardenPicture(garden: SandGardenView) {
         val picture = garden.picture() ?: return
         val app = context.applicationContext

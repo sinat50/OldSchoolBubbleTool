@@ -25,8 +25,9 @@ object QuestPuzzles {
         val section: String? = null,                        // shown on guide steps in this section…
         val stepText: String? = null,                       // …or on steps containing this text
         val solver: String? = null,                         // you enter what you see (QuestSolverViews)
-        val link: Pair<String, String>? = null,             // a button that opens a wiki page in the Wiki window
-        val image: String? = null                           // a wiki picture, downloaded once and kept
+        // a button that opens a wiki page in the Wiki window (◀ there comes back to this puzzle).
+        // The app ships no game pictures: a puzzle whose answer is a picture links to the wiki's page for it.
+        val link: Pair<String, String>? = null
     ) {
         val key: String get() = "puzzle_${quest}_$title"
     }
@@ -41,8 +42,6 @@ object QuestPuzzles {
         object PipeMachine : Diagram()
         // A grid of tiles, some lit, with numbered tiles to click in order
         class Pattern(val cols: Int, val rows: Int, val lit: Set<Int>, val clicks: Map<Int, Int>) : Diagram()
-        // Symbols in a row (each drawn from a small bitmap)
-        class Glyphs(val data: String) : Diagram()
     }
 
     class Pillar(val floor: Int, val col: Char, val row: Int)
@@ -116,7 +115,7 @@ object QuestPuzzles {
     // A puzzle the app could solve by itself (reading the screen) with real phone screenshots
     class ScreenshotRequest(val puzzle: String, val better: String, val needed: List<String>)
 
-    const val GITHUB_REPO = "https://github.com/sinat50/OSRSBubbleTool"
+    const val GITHUB_REPO = "https://github.com/sinat50/OldSchoolBubbleTool"
 
     val HELP_WANTED: Map<String, List<ScreenshotRequest>> = mapOf(
         "Icthlarin's Little Helper" to listOf(ScreenshotRequest("Door tiles",
@@ -201,8 +200,8 @@ object QuestPuzzles {
 
         Puzzle("The Blood Moon Rises", "Gilded bookcase",
             intro = "Use the gilded book on the western gilded bookcase and inspect the books. Swap them until the " +
-                "symbols (the Vampyric Houses, in alphabetical order) read like this from left to right:",
-            diagram = Diagram.Glyphs(BOOKCASE_GLYPHS),
+                "symbols (the Vampyric Houses, in alphabetical order) read from left to right as in the wiki's picture:",
+            link = "Bookcase answer on the wiki" to "https://oldschool.runescape.wiki/w/File:The_Blood_Moon_Rises_-_gilded_bookcase_solution.png",
             outro = "Then go through the secret passage to the south."),
 
         Puzzle("The Blood Moon Rises", "Tangle of trees",
@@ -394,7 +393,7 @@ object QuestPuzzles {
             section = "Tomb Raiding"),
         Puzzle("Dragon Slayer II", "Map puzzle",
             intro = "Click a piece to turn it, and drag pieces to swap them, until the map matches the solved picture:",
-            image = "https://oldschool.runescape.wiki/images/Dragon_Slayer_II_map_puzzle_solution.png",
+            link = "Solved map on the wiki" to "https://oldschool.runescape.wiki/w/File:Dragon_Slayer_II_map_puzzle_solution.png",
             stepText = "Return to Dallas with the map pieces"),
 
         Puzzle("Mage Arena II", "Finding the bosses", solver = "mage_arena",
@@ -405,9 +404,6 @@ object QuestPuzzles {
         light(SOTE_HEFIN), light(SOTE_TRAHAEARN), light(SOTE_IORWERTH)
     ) }
 
-    // The eight house symbols on the gilded bookcase, in the solved order. Each is "width:rows", one number
-    // per row (base 36), a bit for each pixel. Traced from the OSRS Wiki's solution picture.
-    const val BOOKCASE_GLYPHS = "21:0,0,9tz4,5kow,2t1c,p9s,5nug,8flo,8fge,8ffi,8g7j,9vgv,9x1r,9x1j,9x1j,jr0n,jr0n,jqx3,jqx2,jpc6,jojq,lrt2,m4g6,b5dy,5lhc,2t1c,1ejk,cmo,1ko,1ks,9vek,lt7i,lt72,lt73,17kzr,166fb,13eo7,13eo7,13hu6,xv66,y0pq,y0po,ybug,j5c,18f4,129s,2h6o,251c,24n4,4a2o,49a8,4cg0,35s,9hc,6bk,0|23:0,0,0,0,35s,35s,9hc,9hc,9hc,b28,b28,b28,b28,b28,b28,b28,buo,c5c,c80,oog,ooo,oos,bx4s,ye66,1w3su,19mou,3rj1a,3rj1b,3rj0v,3rj0v,3r6dr,3qz9r,3quj3,4dbm7,4dbmn,1vfa7,26sla,2clby,2cmpo,17w8s,mh2o,b8io,5m68,c8w,4qo,4qo,4qo,4qo,4qo,1kw,1kw,1kw,0,0,0,0|17:0,0,e8,lc,74,ao,3k,5c,5c,2o,2o,b5c,b3k,nqw,nq0,nq0,nq4,npo,npq,m4u,m4u,m4m,min,min,m67,m68,m68,m74,m76,1bi7,2t4v,2t4v,1ekf,p87,m5y,m5y,9iu,9hy,9hy,9hy,9hy,9hy,9hy,9hy,9hy,9hw,9hg,6bw,6bw,iyw,iyw,cns,11xc,0,0,0|26:1ekg,1ekg,1ekg,1ekg,23uo,23uo,23uo,23uo,23uo,23uo,23uo,2i2o,2ha8,12ps,12ps,12ps,12ps,12ps,1340,2hog,2hog,2hog,5atc,4y68,akg0,l4w0,2f8qo,4ub5s,9ombk,jdbsw,13d4ow,13oge8,9unls,4x534,17mdc,l3pc,akg0,18t1c,jz6ps,jz6rg,jyvcu,7sm4j,83y8,7rb4,7qww,7qww,izgg,izgg,fh1c,fhts,11xc0,10irk,uwhs,8feo,5m9s,5m9s|22:0,0,e8,e8,e8,lc,lc,lc,lc,lc,e0w,e10,13b8,13b8,13b8,qo4,qo6,258m,258m,258m,4ydi,493a,483r,47pj,47pj,5m9q,5m9q,5m9q,2yo,2yo,2yo,2yo,2hwao,2hwcf,2hwcf,18y67,17mlb,l5by,akhq,akjg,4xyw,4x6g,2gog,2go0,2go0,123k,122o,122o,pfk,pfk,pfk,pc0,pc0,1elc,0,0|28:cn4,cn4,cn4,cn4,cn4,cn4,cn4,iyo,iyo,iyo,7jsw,7jsw,7jsw,7jsw,7myo,7myo,ivi8,ivi8,htkw,hv5s,c8w0,ypz4,y70g,y7sw,10bnk,otmo,1xs74,20lc0,20tfk,3w8sg,41sow,7stkw,i3mcg,flsyo,zl0c0,1y23g8,4aypks,26sw6m,ivbvr,3w8z5,1cvn4,40e80,40e80,2rg1s,7qi9s,5h1c0,hedc,h1q8,bf5s,xpq8,xpog,xpmo,1vf9c,1vf9c,18y68,3quio|22:0,0,0,0,avwg,b85c,1ekfz,1y81q,h0xs,9vgg,2gv4,1bhs,bw8,2z0,1hi,cj,cm9,5m8w,18y2o,18wlc,188w0,17uuo,hiwg,hiwg,h69c,h69c,h4o0,h4o0,h4gw,h4gw,h4gw,h4gw,h4gw,h4gw,5vxc,9nk,9nk,9mo,9mo,9mo,9mo,9mo,9mo,9mo,9mo,9mo,3b4,5c,5c,5c,5c,5c,5c,3k,0,0|20:0,0,0,e8,1ds,1ds,1ds,1ds,1e8,1e8,1eg,1eg,1eg,1e0,1e0,2yw,2z0,2z0,2z0,2z0,2zg,658,5y4,5y0,c9k,bvg,oik,1e6m,2sy6,5kli,5gna,b2kj,aw2r,m5b7,alpt,52k1,1k4w,5y0,c9k,c94,c8w,c8w,c8w,cg0,cg0,cg0,cg0,cjk,cjk,cjk,cjk,cjk,5xc,0,0,0"
 
     // ---------------- Map data from the plugin (generated) ----------------
 

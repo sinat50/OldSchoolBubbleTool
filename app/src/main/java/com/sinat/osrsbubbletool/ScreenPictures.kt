@@ -71,7 +71,7 @@ fun cutArea(shot: Bitmap, area: Rect?, minW: Int, minH: Int): Bitmap? {
     return Bitmap.createBitmap(shot, r.left, r.top, r.width(), r.height())
 }
 
-// Saves a picture as a PNG in Pictures/OSRS Bubble Tool, named `name` and the time. Squeezing a big picture into a
+// Saves a picture as a PNG in Pictures/Old School Bubble Tool, named `name` and the time. Squeezing a big picture into a
 // PNG takes a moment, so it's done in the background; the picture is hidden from the gallery until it's fully
 // written, and nothing is left behind if it fails. `done` gets what to tell you, on the main thread. `recycle`: let
 // go of the picture afterwards (when nothing else shows it).
@@ -89,7 +89,7 @@ fun savePictureToPhone(context: Context, picture: Bitmap, name: String, recycle:
             val values = ContentValues().apply {
                 put(MediaStore.Images.Media.DISPLAY_NAME, "$name-${System.currentTimeMillis()}.png")
                 put(MediaStore.Images.Media.MIME_TYPE, "image/png")
-                put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/OSRS Bubble Tool")
+                put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/Old School Bubble Tool")
                 put(MediaStore.Images.Media.IS_PENDING, 1)   // hidden from the gallery until it's fully written
             }
             uri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
@@ -99,7 +99,7 @@ fun savePictureToPhone(context: Context, picture: Bitmap, name: String, recycle:
                 if (!picture.compress(Bitmap.CompressFormat.PNG, 100, it)) throw IllegalStateException("couldn't write the picture")
             }
             resolver.update(uri, ContentValues().apply { put(MediaStore.Images.Media.IS_PENDING, 0) }, null, null)
-            "Saved to Pictures/OSRS Bubble Tool."
+            "Saved to Pictures/Old School Bubble Tool."
         } catch (e: Exception) {
             // don't leave an empty picture behind in the gallery
             uri?.let { try { resolver.delete(it, null, null) } catch (e2: Exception) { } }

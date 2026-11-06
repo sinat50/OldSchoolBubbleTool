@@ -11,7 +11,7 @@ saved, so `tools/quest-helper/` is what replaces it.
 | `QuestData.kt` | Every quest's type, difficulty, quest points, requirements and enemies, plus the 12 achievement diaries. Read by `QuestBook` for the quest list and the requirement lists | Generated (JSON split into pieces of about 13,000 characters) |
 | `QuestGuides.kt` | The step-by-step guides: a `names` set and a `when` with one JSON string per quest (long ones split with `arrayOf(...).joinToString("")`). Only the opened quest's guide is decoded | Generated |
 | `QuestHelperTool.kt` | The tool's pages; `parseGuide` reads a guide's JSON. Also a few **hand-written guides** (`guides` list, e.g. Scrambled!), which win over the generated ones | Hand-written |
-| `QuestPuzzles.kt`, `QuestSolvers.kt`, `QuestSolverViews.kt`, `PuzzleDiagramView.kt` | Puzzle answers, linked to a quest by its name and to steps by `section` or `stepText` | Hand-written |
+| `QuestPuzzles.kt`, `QuestSolvers.kt`, `QuestSolverViews.kt`, `PuzzleDiagramView.kt` | Puzzle answers, linked to a quest by its name and to steps by `section` or `stepText`. No game pictures (Jagex, November 2026): when the answer is a picture, give the puzzle a `link` to the wiki's `File:` page instead (it opens in the Wiki window, and ◀ there comes back to the puzzle) | Hand-written |
 | `QuestBook.kt` | Reads `QuestData` and writes out each requirement (a required quest's name must match its name in the list, or its ▸ can't open its own requirements) | Hand-written |
 
 The plugin is github.com/Zoinkwiz/quest-helper (BSD 2-Clause). Each quest is a Java file in

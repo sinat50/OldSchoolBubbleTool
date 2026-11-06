@@ -8,8 +8,9 @@ import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-// Gear Loadouts' saved loadouts on the PC: a loadout must come back exactly as it was saved, and the setups
-// saved by the older Inventory Setups (only an id and a name) must still open.
+// Gear Loadouts' saved loadouts on the PC: a loadout must come back exactly as it was saved, the setups saved by the
+// older Inventory Setups (only an id and a name) must still open, and the item lists of loadouts saved before
+// screenshots must read as text, part by part, until a scan replaces each part.
 class LoadoutTest {
 
     private fun roundTrip(l: Loadout) = Loadout.fromJson(JSONObject(l.toJson().toString()))
@@ -56,33 +57,6 @@ class LoadoutTest {
     }
 
     @Test
-    fun amountsAreWrittenAsTheGameWritesThem() {
-        // from the game: 99,999 coins show in full in yellow, 100,000 as "100K" in white, 10 million as "10M" in green
-        assertEquals("1", Loadout.shortAmount(1))
-        assertEquals("99999", Loadout.shortAmount(99_999))
-        assertEquals("100K", Loadout.shortAmount(100_000))
-        assertEquals("1250K", Loadout.shortAmount(1_250_999))
-        assertEquals("9999K", Loadout.shortAmount(9_999_999))
-        assertEquals("10M", Loadout.shortAmount(10_000_000))
-        assertEquals("2147M", Loadout.shortAmount(Int.MAX_VALUE))
-        assertEquals(0xFFFFFF00.toInt(), Loadout.amountColour(99_999))
-        assertEquals(0xFFFFFFFF.toInt(), Loadout.amountColour(100_000))
-        assertEquals(0xFF00FF80.toInt(), Loadout.amountColour(10_000_000))
-    }
-
-    @Test
-    fun typedAmountsAreUnderstood() {
-        assertEquals(250, Loadout.parseAmount("250"))
-        assertEquals(1000, Loadout.parseAmount(" 1,000 "))
-        assertEquals(15_000, Loadout.parseAmount("15k"))
-        assertEquals(2_500_000, Loadout.parseAmount("2.5M"))
-        assertNull(Loadout.parseAmount("0"))
-        assertNull(Loadout.parseAmount("lots"))
-        assertNull(Loadout.parseAmount(""))
-        assertNull(Loadout.parseAmount("5b"))   // more than a stack can hold
-    }
-
-    @Test
     fun damagedValuesAreLeftOutRatherThanCrashing() {
         val l = Loadout.fromJson(JSONObject("""{"id":"2","name":"x","sb":9,"inv":[["oops"],null,[385,0]],"eq":{"head":"bad","weapon":[4151]}}"""))
         assertNull(l.spellbook)                         // there are only 4 spellbooks
@@ -92,114 +66,49 @@ class LoadoutTest {
         assertEquals(Stack(4151, 1), l.equipment["weapon"])
     }
 
-    // ---- RuneLite's Inventory Setups exports ----
-
-    // One setup as the plugin's Export Setup writes it (written out by hand from its format): helm of Neitiznot
-    // (10828) on the head, a whip (4151) in the weapon slot (RuneLite's slot 3), 5,000 coins and a rune pouch
-    // in the inventory, the pouch holding 1,000 death runes (560), Lunar spellbook, plus things the app doesn't use
-    private val exported = """{"setup":{"inv":[{"id":995,"q":5000},{"id":12791},null,null,null,null,null,null,null,null,
-        null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"id":385}],
-        "eq":[{"id":10828},null,null,{"id":4151},null,null,null,null,null,null,null,null,null,{"id":-1}],
-        "rp":[{"id":560,"q":1000},null,null],"qv":[{"id":11212,"q":200}],
-        "name":"Slayer","notes":"Bring a cannon","hc":{"value":-1},"fv":true,"sb":2},"layout":[1,2,3]}"""
-
-    private fun ids() = generateSequence(1) { it + 1 }.map { "id$it" }.iterator().let { n -> { _: Int -> n.next() } }
+    private val names = mapOf(12791 to "Rune pouch", 385 to "Shark", 995 to "Coins", 4151 to "Abyssal whip",
+        21944 to "Ruby dragon bolts (e)", 560 to "Death rune", 565 to "Blood rune", 892 to "Rune arrow")
+    private fun nameOf(id: Int) = names[id] ?: "Item $id"
 
     @Test
-    fun aRuneLiteSetupIsReadIntoALoadout() {
-        val l = Loadout.fromRuneLite(exported, ids()).single()
-        assertEquals("Slayer", l.name)
-        assertEquals("Bring a cannon", l.notes)
-        assertEquals(2, l.spellbook)                                    // Lunar
-        assertEquals(Stack(995, 5000), l.inventory[0])
-        assertEquals(Stack(12791, 1), l.inventory[1])                   // no "q" means 1
-        assertNull(l.inventory[2])
-        assertEquals(Stack(385, 1), l.inventory[27])
-        assertEquals(Stack(10828, 1), l.equipment["head"])
-        assertEquals(Stack(4151, 1), l.equipment["weapon"])
-        assertNull(l.equipment["ammo"])                                 // -1 is nothing
-        assertEquals(listOf(Stack(560, 1000), null, null), l.runePouch)
-        assertNull(l.boltPouch)                                         // left out: no bolt pouch
-        assertEquals(Stack(11212, 200), l.quiver)
+    fun anOldItemListReadsAsText() {
+        val l = Loadout("1", "Vorkath")
+        l.inventory[0] = Stack(12791)
+        for (i in 4..7) l.inventory[i] = Stack(385)    // four sharks in four spaces: counted together
+        l.inventory[27] = Stack(995, 1_250_000)
+        l.equipment["weapon"] = Stack(4151)
+        l.equipment["ammo"] = Stack(21944, 87)
+        l.runePouch = mutableListOf(Stack(560, 1000), null, Stack(565, 250))
+        l.quiver = Stack(892, 500)
+        l.spellbook = 2
+        val parts = l.itemLines(::nameOf)
+        assertEquals(listOf("Inventory", "Equipment", "Rune pouch", "Spellbook"), parts.map { it.heading })
+        assertEquals(listOf("Rune pouch", "Shark x 4", "Coins x 1,250,000"), parts[0].lines)
+        // in the game's order, top to bottom: ammo comes before the weapon
+        assertEquals(listOf("Ammo: Ruby dragon bolts (e) x 87", "Weapon: Abyssal whip", "Quiver: Rune arrow x 500"), parts[1].lines)
+        assertEquals(listOf("Death rune x 1,000", "Blood rune x 250"), parts[2].lines)
+        assertEquals(listOf("Lunar"), parts[3].lines)
+        assertEquals("Item 999", nameOf(999))
     }
 
     @Test
-    fun aMassExportFileGivesEverySetup() {
-        val file = """[$exported, {"setup":{"name":"Empty one","inv":[],"eq":[]},"layout":[]}, {"sb":0}]"""
-        val all = Loadout.fromRuneLite(file, ids())
-        assertEquals(listOf("Slayer", "Empty one"), all.map { it.name })   // the last isn't a setup at all
-        assertEquals(listOf("id1", "id2"), all.map { it.id })
-        assertEquals(0, all[1].spellbook)                                     // "sb" left out is the standard spellbook
-    }
-
-    @Test
-    fun noSpellbookAndNonsenseAreHandled() {
-        assertNull(Loadout.fromRuneLite("""{"setup":{"name":"x","inv":[],"sb":4}}""", ids()).single().spellbook)
-        for (bad in listOf("hello", "", "{}", "[]", """{"name":"not a setup"}""")) {
-            try {
-                Loadout.fromRuneLite(bad, ids())
-                throw AssertionError("should not be read: $bad")
-            } catch (_: org.json.JSONException) {
-            } catch (_: IllegalArgumentException) {
-            }
-        }
-    }
-
-    @Test
-    fun exportingAndImportingAgainGivesTheSameLoadout() {
-        val l = Loadout.fromRuneLite(exported, ids()).single()
-        val again = Loadout.fromRuneLite(l.toRuneLite().toString(), ids()).single()
-        assertEquals(l.toJson().put("id", "x").toString(), again.toJson().put("id", "x").toString())
-        // in RuneLite's own layout: 28 inventory spaces, 14 equipment numbers, "q" only above 1, the quiver as a list
-        val setup = l.toRuneLite().getJSONObject("setup")
-        assertEquals(28, setup.getJSONArray("inv").length())
-        assertEquals(14, setup.getJSONArray("eq").length())
-        assertEquals(4151, setup.getJSONArray("eq").getJSONObject(3).getInt("id"))
-        assertFalse(setup.getJSONArray("inv").getJSONObject(1).has("q"))
-        assertEquals(200, setup.getJSONArray("qv").getJSONObject(0).getInt("q"))
-        // a loadout without a spellbook says "none" (4)
-        assertEquals(4, Loadout("a", "b").toRuneLite().getJSONObject("setup").getInt("sb"))
-        // several: a list, like the mass export file
-        assertEquals(2, Loadout.toRuneLite(listOf(l, again)).length())
-    }
-
-    // RuneLite's plugin turns down a setup without a bank tab "layout" ("Invalid setup data", as the owner's first
-    // exported file got): every export has one, 56 squares, and the highlight colour its own exports have
-    @Test
-    fun exportsHaveTheBankTabLayoutRuneLiteNeeds() {
-        val l = Loadout.fromRuneLite(exported, ids()).single()
-        val one = l.toRuneLite()
-        assertEquals(56, one.getJSONArray("layout").length())
-        assertEquals("#FFFF0000", one.getJSONObject("setup").getString("hc"))
-        // the weapon (4151, abyssal whip) is in the third row's first square, as the plugin's Preset layout puts it
-        assertEquals(4151, one.getJSONArray("layout").getInt(16))
-        // an empty loadout still has one, all empty
-        val empty = Loadout("a", "b").toRuneLite().getJSONArray("layout")
-        assertEquals(56, empty.length())
-        assertTrue((0 until 56).all { empty.getInt(it) == -1 })
-        // a noted item is laid out as the item itself
-        val noted = Loadout("n", "noted").apply { inventory[0] = Loadout.Stack(8, 5) }
-        assertEquals(7, noted.toRuneLite { if (it == 8) 7 else it }.getJSONArray("layout").getInt(4))
-    }
-
-    // The owner's own RuneLite export: for each setup, the layout made here is the one RuneLite made (skipped
-    // without the file)
-    @Test
-    fun theLayoutMatchesRuneLitesOwn() {
-        val f = java.io.File(System.getProperty("user.home"), "Documents/Androiddev/osrsbubbletool/gear exports/inventory_setups_VersaceSinat.json")
-        org.junit.Assume.assumeTrue(f.exists())
-        val file = org.json.JSONArray(f.readText())
-        val loadouts = Loadout.fromRuneLite(f.readText(), ids())
-        var compared = 0
-        for (k in 0 until file.length()) {
-            val theirs = file.getJSONObject(k).getJSONArray("layout")
-            val mine = loadouts[k].runeLiteLayout()
-            // (RuneLite drops empty squares at the end, then fills up to 56; a longer one was changed by hand)
-            if (theirs.length() != 56) continue
-            assertEquals("setup ${loadouts[k].name}", (0 until 56).map { theirs.getInt(it) }, mine.toList())
-            compared++
-        }
-        println("compared $compared of ${file.length()} setups")
-        assertTrue(compared > 0)
+    fun eachScreenshotReplacesItsPartOfTheOldList() {
+        val l = Loadout("1", "Vorkath")
+        l.inventory[3] = Stack(385)
+        l.boltPouch = mutableListOf(Stack(21944, 20))
+        l.equipment["weapon"] = Stack(4151)
+        l.quiver = Stack(892, 500)
+        l.runePouch = mutableListOf(Stack(560, 1000))
+        l.spellbook = 1
+        l.forgetInventory()
+        assertEquals(listOf("Equipment", "Rune pouch", "Spellbook"), l.itemLines(::nameOf).map { it.heading })
+        l.forgetEquipment()
+        l.forgetRunePouch()
+        assertTrue(l.hasItems)                         // the spellbook is still listed
+        l.forgetSpellbook()
+        assertFalse(l.hasItems)
+        assertTrue(l.itemLines(::nameOf).isEmpty())
+        // and nothing of the old list is saved any more
+        assertEquals(setOf("id", "name"), l.toJson().keys().asSequence().toSet())
     }
 }

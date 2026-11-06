@@ -47,3 +47,6 @@ tools/gardenbox.png
 
 # Android Studio's code check settings: it rewrites this file by itself, so it stays on this computer only
 /.idea/inspectionProfiles/Project_Default.xml
+
+# Item icons the data scripts download, kept on this computer only (never part of the app)
+/tools/items/icon_cache/

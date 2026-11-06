@@ -20,7 +20,7 @@ import org.json.JSONObject
 
 // The DPS Calculator tool: the wiki's calculator, plus "Import my gear", which reads your equipment tab from the screen
 // and loads it straight into the calculator. It keeps no item pictures: each item is recognised from a 9 x 8 colour
-// summary of its icon (assets/dps/gear_summaries.bin; see InventoryReader.readEquipmentBySummaries and GearImport).
+// summary of its icon (assets/dps/gear_summaries.bin; see GearSummaryReader and GearImport).
 class DpsTool(
     private val context: Context,
     private val capture: CaptureManager,
@@ -78,11 +78,11 @@ class DpsTool(
     }
 
     private val handler = Handler(Looper.getMainLooper())
-    private val recognizer = GearRecognizer.shared(context)   // only for its list of the calculator's items
+    private val calculatorItems = CalculatorItems.shared(context)   // the calculator's item list
     // Items that look exactly alike share an icon (assets/items/canvas.tsv; no pictures are read)
-    private val sharedIcon: Map<Int, Int> by lazy { ItemIcons(context).sharedIcon }
+    private val sharedIcon: Map<Int, Int> by lazy { ItemCatalog.sharedIcons(context) }
     // Every wearable item's icon in brief, read the first time Import is used
-    @Volatile private var summaries: InventoryReader.GearSummaries? = null
+    @Volatile private var summaries: GearSummaryReader.GearSummaries? = null
 
     private var web: WebView? = null
     private var status: TextView? = null
@@ -208,12 +208,12 @@ class DpsTool(
             ?: return Result(null, "Couldn't find your side panel. Make sure the equipment tab is open and not covered, then try again.")
         if (!PanelFinder.tabOpen(pixels, panel, 0, PanelFinder.EQUIPMENT_TAB))
             return Result(null, "Open your equipment tab in the game, then tap Import my gear.")
-        val brief = summaries ?: InventoryReader.GearSummaries(
+        val brief = summaries ?: GearSummaryReader.GearSummaries(
             context.assets.open("dps/gear_summaries.bin").use { it.readBytes() }).also { summaries = it }
-        val worn = InventoryReader.readEquipmentBySummaries(pixels, panel, brief, GearRecognizer.SLOT_ORDER)
+        val worn = GearSummaryReader.readEquipmentBySummaries(pixels, panel, brief, CalculatorItems.SLOT_ORDER)
             ?: return Result(null, "Couldn't read your equipment slots. Make sure the equipment tab is open and not covered, then try again.")
         val gear = GearImport.choose(worn.slots, data, data.lookAlikes(sharedIcon)) { id, slot, name, picture ->
-            recognizer.calculatorItem(id, slot, name, picture)?.id
+            calculatorItems.calculatorItem(id, slot, name, picture)?.id
         }
         // worn, but not something the calculator has
         val missing = worn.slots.filter { (slot, fits) -> fits.isNotEmpty() && gear[slot] == null }.keys
@@ -221,7 +221,7 @@ class DpsTool(
             gear.values.all { it == null } && missing.isEmpty() -> "Nothing is equipped, so the calculator's gear was cleared."
             missing.isEmpty() -> "Loaded your gear into the calculator."
             else -> "Loaded your gear into the calculator. It doesn't have the item in your " +
-                missing.joinToString(", ") { (GearRecognizer.SLOT_LABELS[it] ?: it).lowercase() } + " slot, so that's left empty."
+                missing.joinToString(", ") { (CalculatorItems.SLOT_LABELS[it] ?: it).lowercase() } + " slot, so that's left empty."
         }
         return Result(gear, text)
     }

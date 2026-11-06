@@ -1,39 +1,31 @@
-"""Downloads every item's icon as the game draws it, into app/src/main/assets/items/canvas/, for Gear Loadouts.
+"""Works out which items look exactly alike in the game, into app/src/main/assets/items/canvas.tsv, for the DPS
+Calculator's Import my gear (it can't tell those apart, so it picks one). No pictures go into the app.
 
 Source: RuneLite's item icons (static.runelite.net/cache/item/icon/<id>.png), rendered from the game's own files by
-RuneLite (github.com/runelite/runelite). The pictures are Jagex's artwork, included under Jagex's Fan Content Policy
-like the wiki's. Each is the full 36 x 32 canvas the game draws an item on, with the item exactly where the game puts
-it in an inventory space: so the inventory reader can compare an item at its exact place, whatever is behind a
-see-through side panel. Noted items come drawn on their bank note.
+RuneLite (github.com/runelite/runelite); the pictures are Jagex's. They're downloaded into tools/items/icon_cache/ on
+this computer only (left out of Git, never part of the app), so a later run only fetches new items' icons, and
+tools/dps/build_gear_summaries.py reads them from there too. Two items look exactly alike when their icons are the
+same pixel for pixel.
 
 Run it after build_items.py (it needs items/items.tsv and items/noted.tsv). Icons already there are skipped.
-Afterwards the wiki pictures (items/icons/) are only needed for items drawn differently by stack size (coins,
-arrows...) and items without an icon: the others are removed, and items/shapes.bin is written again for those kept.
 
 Makes:
-  items/canvas/<id>.png  one icon per look: items that look exactly alike (minigame copies...) share the icon of the
-                         lowest ID among them
-  items/canvas.tsv       item ID, then the ID whose icon it uses (only for items sharing another's icon)
-  items/canvas.bin       each icon in brief, for narrowing 20,000 icons down quickly (see InventoryReader): "CNV1",
-                         the number of icons (4 bytes), then for each: its ID (4 bytes), its box on the canvas (left,
-                         top, right, bottom: 1 byte each), SAMPLES points inside it (x, y, red, green, blue: 1 byte
-                         each, from the item's colours, its outline left out), then OUTLINE points on its black outline
-                         (x, y: 1 byte each)
+  items/canvas.tsv   item ID, then the ID of the item it looks just like (the lowest ID among them; only for items
+                     that look like another)
 
 Usage: python3 build_icons.py path/to/app/src/main/assets
 """
-import hashlib, os, struct, sys, urllib.request
+import hashlib, os, sys, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from PIL import Image   # (pip install pillow)
 
 assets = sys.argv[1]
-AGENT = 'OSRSBubbleTool item icon builder (github.com/sinat50/OSRSBubbleTool)'
+AGENT = 'OldSchoolBubbleTool item icon builder (github.com/sinat50/OldSchoolBubbleTool)'
 ICON = 'https://static.runelite.net/cache/item/icon/{}.png'
-SAMPLES = 24
-OUTLINE = 12
 
 folder = os.path.join(assets, 'items')
-canvas = os.path.join(folder, 'canvas')
+# the icons, on this computer only (see above)
+canvas = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'icon_cache')
 os.makedirs(canvas, exist_ok=True)
 
 ids = set()
@@ -87,83 +79,7 @@ for item_id in sorted(ids):
     else:
         first_with[key] = item_id
 with open(tsv, 'w', encoding='utf-8', newline='\n') as out:
-    out.write('# Item ID, then the ID whose icon (in items/canvas/) it uses, for items that look exactly alike\n')
+    out.write('# Item ID, then the ID of the item it looks exactly like in the game (from RuneLite icons). Built by tools/items/build_icons.py\n')
     for a in sorted(shared):
         out.write(f'{a}\t{shared[a]}\n')
-
-# The blank bank note every noted icon is drawn on: the pixels that are the same colour in nearly all noted icons.
-# A noted icon's colour points are taken from the item drawn on it, not from the note (the same on every note, so
-# points there can't tell notes apart: the reader's narrowing down once lost a noted rune platebody that way).
-noted_ids = set()
-for line in open(os.path.join(folder, 'noted.tsv'), encoding='utf-8'):
-    if not line.startswith('#') and line.strip():
-        noted_ids.add(int(line.split('\t')[1]))
-from collections import Counter
-note_counts = {}
-noted_files = [i for i in first_with.values() if i in noted_ids]
-for item_id in noted_files:
-    px = Image.open(os.path.join(canvas, f'{item_id}.png')).convert('RGBA').load()
-    for y in range(32):
-        for x in range(36):
-            note_counts.setdefault((x, y), Counter())[px[x, y]] += 1
-note_template = {p: c.most_common(1)[0][0] for p, c in note_counts.items() if c.most_common(1)[0][1] >= 0.8 * len(noted_files)}
-print(f'blank note: {len(note_template)} pixels shared by the {len(noted_files)} noted icons')
-
-def summary(item_id):
-    im = Image.open(os.path.join(canvas, f'{item_id}.png')).convert('RGBA')
-    w, h = im.size
-    px = im.load()
-    solid = [(x, y) for y in range(h) for x in range(w) if px[x, y][3] > 128]
-    if not solid:
-        return None
-    dark = lambda p: sum(px[p][:3]) < 30
-    inside = [p for p in solid if not dark(p)]
-    if item_id in noted_ids:
-        drawn = [p for p in inside if note_template.get(p) != px[p]]
-        if len(drawn) >= SAMPLES:
-            inside = drawn
-    outline = [p for p in solid if dark(p)]
-    xs = [p[0] for p in solid]; ys = [p[1] for p in solid]
-    def spread(points, n):
-        # points spread evenly through the list (row by row), so they cover the whole item
-        if not points:
-            return []
-        return [points[int(i * len(points) / n)] for i in range(min(n, len(points)))]
-    picks = spread(inside, SAMPLES)
-    rim = spread(outline, OUTLINE)
-    out = struct.pack('>I', item_id) + bytes([min(xs), min(ys), max(xs), max(ys), len(picks), len(rim)])
-    for p in picks:
-        out += bytes([p[0], p[1]]) + bytes(px[p][:3])
-    for p in rim:
-        out += bytes([p[0], p[1]])
-    return out
-
-entries = [e for e in (summary(i) for i in sorted(first_with.values())) if e]
-with open(os.path.join(folder, 'canvas.bin'), 'wb') as out:
-    out.write(b'CNV1' + struct.pack('>I', len(entries)))
-    for e in entries:
-        out.write(e)
-size = sum(os.path.getsize(os.path.join(canvas, f)) for f in os.listdir(canvas))
-print(f'items/canvas: {len(first_with)} icons ({len(shared)} items share one), {size / 1048576:.1f} MB; '
-      f'canvas.bin {os.path.getsize(os.path.join(folder, "canvas.bin")) // 1024} KB')
-
-# The wiki's pictures still needed: items drawn differently by stack size (several pictures), and items without an icon
-has_icon = set(first_with.values()) | set(shared)
-keep = set()
-for line in open(os.path.join(folder, 'items.tsv'), encoding='utf-8'):
-    if line.startswith('#') or not line.strip():
-        continue
-    parts = line.rstrip('\n').split('\t')
-    pictures = [p for p in parts[3].split('|') if p]
-    if len(pictures) > 1 or int(parts[0]) not in has_icon:
-        keep.update(pictures)
-icons = os.path.join(folder, 'icons')
-removed = 0
-for f in os.listdir(icons):
-    if f not in keep:
-        os.remove(os.path.join(icons, f))
-        removed += 1
-print(f'items/icons: {removed} wiki pictures no longer needed removed, {len(os.listdir(icons))} kept')
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from item_shapes import write_shapes
-write_shapes(folder, keep)
+print(f'items/canvas.tsv: {len(shared)} items look exactly like another ({len(first_with)} different icons)')

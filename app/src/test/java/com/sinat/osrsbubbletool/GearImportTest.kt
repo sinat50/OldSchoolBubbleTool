@@ -14,7 +14,7 @@ class GearImportTest {
 
     private val assets = File("src/main/assets")
     private val items by lazy { ItemData(File(assets, "items/items.tsv").readText(), File(assets, "items/noted.tsv").readText()) }
-    private val summaries by lazy { InventoryReader.GearSummaries(File(assets, "dps/gear_summaries.bin").readBytes()) }
+    private val summaries by lazy { GearSummaryReader.GearSummaries(File(assets, "dps/gear_summaries.bin").readBytes()) }
     private val alike by lazy {
         items.lookAlikes(File(assets, "items/canvas.tsv").readLines().filter { !it.startsWith("#") && it.isNotBlank() }
             .associate { it.split('\t').let { p -> p[0].toInt() to p[1].toInt() } })
@@ -32,13 +32,13 @@ class GearImportTest {
     // expected (Amulet of glory(1) for Amulet of glory) is right: the calculator gives them the same stats.
     private fun imported(file: File): Map<String, String> {
         val p = Shot(file)
-        val worn = InventoryReader.readEquipmentBySummaries(p, PanelFinder.findPanel(p)!!, summaries, GearRecognizer.SLOT_ORDER)!!
+        val worn = GearSummaryReader.readEquipmentBySummaries(p, PanelFinder.findPanel(p)!!, summaries, CalculatorItems.SLOT_ORDER)!!
         return GearImport.choose(worn.slots, items, alike) { id, _, _, _ -> id }.mapValues { (_, id) -> id?.let { items[it]?.name } ?: "" }
     }
 
     private fun check(file: File, expected: Map<String, String>): List<String> {
         val got = imported(file)
-        return GearRecognizer.SLOT_ORDER.mapNotNull { slot ->
+        return CalculatorItems.SLOT_ORDER.mapNotNull { slot ->
             val want = expected[slot] ?: ""
             val name = got[slot] ?: ""
             val ok = if (want.isEmpty()) name.isEmpty() else name == want || (name.startsWith(want) && !name.contains("(broken)"))

@@ -1,6 +1,6 @@
 package com.sinat.osrsbubbletool
 
-// The DPS Calculator's Import my gear: from what the equipment tab was read as (InventoryReader.readEquipmentBySummaries)
+// The DPS Calculator's Import my gear: from what the equipment tab was read as (GearSummaryReader.readEquipmentBySummaries)
 // to the calculator's item for each slot. No Android parts, so it's tested on the PC (GearImportTest).
 object GearImport {
 
@@ -18,7 +18,7 @@ object GearImport {
     fun choose(slots: Map<String, List<Pair<Int, Float>>>, data: ItemData, alike: Map<Int, Int>,
                calculatorId: (id: Int, slot: String, name: String, picture: String?) -> Int?): Map<String, Int?> {
         val out = LinkedHashMap<String, Int?>()
-        for (slot in GearRecognizer.SLOT_ORDER) {
+        for (slot in CalculatorItems.SLOT_ORDER) {
             val fits = slots[slot].orEmpty()
             if (fits.isEmpty()) { out[slot] = null; continue }
             // each guess as the item to pick for its icon (charged before uncharged), with its best fit

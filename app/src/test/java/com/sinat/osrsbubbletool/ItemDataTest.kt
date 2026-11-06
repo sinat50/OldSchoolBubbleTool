@@ -6,7 +6,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.io.File
 
-// The item list Gear Loadouts uses (assets/items/items.tsv), on the PC. Expected answers are from the game
+// The item list (assets/items/items.tsv: Import my gear and older Gear Loadouts' item lists), on the PC. Expected answers are from the game
 // and the OSRS Wiki, not from the code: item IDs as RuneLite uses them, and the pictures coins show in the game
 // (1, 2, 3, 4, 5, 25, 100, 250, 1,000 and 10,000 coins each look fuller).
 class ItemDataTest {
@@ -65,19 +65,6 @@ class ItemDataTest {
     }
 
     @Test
-    fun searchFindsByWordsAndPutsNameStartsFirst() {
-        val found = items.search("prayer pot")
-        assertTrue(found.isNotEmpty())
-        assertTrue(found.first().name.startsWith("Prayer potion"))
-        // all typed words count, in any order and case
-        assertTrue(items.search("WHIP abyssal").any { it.id == 4151 })
-        // with a slot, only items worn there
-        assertTrue(items.search("whip", slot = "weapon").all { it.slot == "weapon" })
-        assertTrue(items.search("shark", slot = "head").none { it.name == "Shark" })
-        assertTrue(items.search("   ").isEmpty())
-    }
-
-    @Test
     fun notedItemsHaveTheirOwnIds() {
         // the noted IDs as the game has them (a shark is 385, a noted shark 386)
         assertEquals(386, items.notedOf(385))
@@ -97,23 +84,8 @@ class ItemDataTest {
         assertNull(items[12791]?.variant)
         assertEquals("Last Man Standing", items[23650]?.variant)
         assertNull(items[2434]?.variant)   // a potion dose isn't a copy
-        val pouches = items.search("rune pouch").filter { it.name == "Rune pouch" }
-        assertEquals(12791, pouches.first().id)
-        assertEquals(pouches.size, pouches.map { it.variant }.toSet().size)   // each copy listed once
     }
 
-    @Test
-    fun runePouchesAndHowManyRunesTheyHold() {
-        assertEquals(3, items.runePouchSize(12791))    // Rune pouch
-        assertEquals(4, items.runePouchSize(27281))    // Divine rune pouch
-        assertNull(items.runePouchSize(385))           // a shark
-        assertNull(items.runePouchSize(12792))         // a noted ID isn't a pouch that holds runes
-    }
-
-    // Reading an icon: the item to offer first. The Avernic defender (22322) and its Last Man Standing copy (24186)
-    // share one icon (canvas.tsv: the reader reports 22322 for both): the defender itself is offered, not the copy. Its
-    // broken version (22441, a crack apart) read only a little better than the whole one (1 apart) offers the whole
-    // one first; read clearly better (5 apart), it stays first.
     @Test
     fun anIconReadingOffersTheItemPeopleUse() {
         val alike = items.lookAlikes(mapOf(24186 to 22322))

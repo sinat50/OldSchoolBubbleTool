@@ -38,7 +38,7 @@ import org.json.JSONObject
 class TeleportFinderTool(private val context: Context, private val openSync: () -> Unit = {}) {
 
     companion object {
-        private const val USER_AGENT = "OSRSBubbleTool/1.0 (personal Android app)"
+        private const val USER_AGENT = "OldSchoolBubbleTool/1.0 (personal Android app)"
         private const val API = "https://oldschool.runescape.wiki/api.php"
         private const val RESULTS = 25   // results in the list (it scrolls)
     }

@@ -97,7 +97,7 @@ class ScreenCapturer(
         val r = newReader(w, h)
         reader = r
         display = p.createVirtualDisplay(
-            "OSRS Bubble Tool capture", w, h, dpi,
+            "Old School Bubble Tool capture", w, h, dpi,
             DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
             r.surface, null, handler
         ) ?: throw IllegalStateException("couldn't start screen capture")

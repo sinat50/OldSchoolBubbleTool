@@ -1,46 +1,45 @@
-# Gear Loadouts and DPS Calculator: updating the item lists
+# DPS Calculator: updating the item lists
 
-The two tools have separate item lists from separate sources. Last done 26 October 2026 (the DPS calculator's October gear).
+Import my gear uses two item lists from separate sources. Gear Loadouts keeps screenshots and needs no item list
+(only loadouts saved before November 2026 use `items.tsv`, for their items' names). No game pictures go into the app.
+Last done 26 October 2026 (the DPS calculator's October gear).
 
 | List | Used for | From | Built by |
 | --- | --- | --- | --- |
-| `assets/items/items.tsv`, `noted.tsv`, `icons/`, `shapes.bin` | Gear Loadouts: every item's ID, name, slot, wiki picture | OSRS Wiki item tables (API "bucket" queries) | `tools/items/build_items.py` |
-| `assets/items/canvas/`, `canvas.tsv`, `canvas.bin` | Gear Loadouts' screen reading (`canvas.tsv` also tells Import my gear which items look exactly alike) | RuneLite's item icons (static.runelite.net) | `tools/items/build_icons.py` |
-| `assets/dps/gear_summaries.bin` | The DPS tool's Import my gear: every wearable item's icon as 9 x 8 colour squares (no pictures) | RuneLite's item icons | `tools/dps/build_gear_summaries.py`, after `build_items.py` and `build_icons.py` (new items need a summary too) |
-| `assets/dps/equipment.json`, `dps/icons/` | The DPS tool's own item list: which items the calculator can take | The wiki DPS calculator repository (weirdgloop/osrs-dps-calc) at `GearIcons.COMMIT` | `tools/dps/build_equipment_json.py`, `tools/dps/fetch_pictures.py` |
+| `assets/items/items.tsv`, `noted.tsv` | Every item's ID, name, slot and wiki picture name: naming what Import my gear read, and which items the summaries are made for | OSRS Wiki item tables (API "bucket" queries); noted IDs from RuneLite | `tools/items/build_items.py` |
+| `assets/items/canvas.tsv` | Which items look exactly alike (Import my gear picks one) | RuneLite's item icons (static.runelite.net), kept in `tools/items/icon_cache/` on the PC only | `tools/items/build_icons.py` |
+| `assets/dps/gear_summaries.bin` | Every wearable item's icon as 9 x 8 colour squares (no pictures) | RuneLite's item icons | `tools/dps/build_gear_summaries.py`, after `build_items.py` and `build_icons.py` (new items need a summary too) |
+| `assets/dps/equipment.json` | The calculator's own item list: which items it can take | The wiki DPS calculator repository (weirdgloop/osrs-dps-calc) at `CalculatorItems.COMMIT` | `tools/dps/build_equipment_json.py` |
 
 ## Is anything new?
 
 The update checker's `new-gear` source lists equipment on the wiki that either list lacks, grouped by release
-date (the same check as `python tools/items/check_new_gear.py`, read-only, about a minute). Gear Loadouts' missing
-items always show until they're added. The DPS Calculator's can't be added until the wiki's calculator has them,
+date (the same check as `python tools/items/check_new_gear.py`, read-only, about a minute). Items missing from the
+item list always show until they're added. The DPS Calculator's can't be added until the wiki's calculator has them,
 so once seen, `--checked new-gear` hides those released before that day (newer gear still shows). The `dps-items`
 source says when the calculator's own item list changes.
 
-## Gear Loadouts (any time the check lists items)
+## The item list (any time the check lists items)
 
-1. `python -I tools/items/build_items.py app/src/main/assets` (about 6½ minutes: it fetches all ~15,000 wiki
-   pictures again, which the next step trims back to ~1,750).
-2. **Right after**, `python -I tools/items/build_icons.py app/src/main/assets` (needs `pip install pillow`).
-3. Run `check_new_gear.py` again: the Gear Loadouts list should be empty. RuneLite's icons for brand-new items can
-   lag a few days; those items still work with their wiki picture, and a later rerun picks the icons up.
-4. Build and run the PC tests (`InventoryReaderTest` and friends use the owner's screenshots, skipped without them).
-5. Git shows "LF will be replaced by CRLF" for the `.tsv` files: harmless.
+1. `python -I tools/items/build_items.py app/src/main/assets` (a minute or two: text only).
+2. **Right after**, `python -I tools/items/build_icons.py app/src/main/assets` (needs `pip install pillow`; only new
+   items' icons are downloaded, into `tools/items/icon_cache/`).
+3. `python tools/dps/build_gear_summaries.py`, so Import my gear can recognise the new items.
+4. Run `check_new_gear.py` again: the item list's part should be empty. RuneLite's icons for brand-new items can
+   lag a few days; a later rerun picks them up.
+5. Build and run the PC tests (`GearImportTest` uses the owner's screenshots, skipped without them).
+6. Git shows "LF will be replaced by CRLF" for the `.tsv` files: harmless.
 
 ## DPS Calculator (only when the calculator itself has the items)
 
 The DPS tool loads your gear into the wiki's calculator by item ID, so an item the calculator doesn't know can't
-be used there, whatever the app knows. Until the calculator adds new gear, Import my gear reads it (through Gear
-Loadouts' icons) and says "Read as X, which the calculator doesn't have": that's correct, nothing to fix.
+be used there, whatever the app knows. Until the calculator adds new gear, Import my gear leaves that slot empty and
+says the calculator doesn't have it: that's correct, nothing to fix.
 
 When the update checker reports `dps-items` (the repository's `cdn/json/equipment.json` changed after
-`GearIcons.COMMIT`): move `COMMIT` in `GearIcons.kt` to the newest commit, then run `build_equipment_json.py` and
-`fetch_pictures.py` as in `tools/README.md`. Commits that only change the calculator's code (most of them) need
+`CalculatorItems.COMMIT`): move `COMMIT` in `CalculatorItems.kt` to the newest commit, then run
+`build_equipment_json.py` as in `tools/README.md`. Commits that only change the calculator's code (most of them) need
 nothing: the app shows the live calculator.
-
-If a picture's name changes only in capital letters ("Blood moon" → "Blood Moon"), Windows keeps the file but Git
-still holds the old spelling. Record the rename (`git rm --cached` the old path, `git add` the new one), and if the
-build then says "Duplicate resources", build again or use Build → Clean Project (a stale build cache).
 
 ## History
 
@@ -50,3 +49,7 @@ build then says "Duplicate resources", build again or use Build → Clean Projec
 - 26 Oct 2026: DPS calculator moved to 741f2f2 (24 October list): 25 new entries (Ascension crossbows and bolts,
   Obligator, Rondache, Zorya's tome, Living record, Imbued ancient capes, locked Dizana's quiver), and 43 item
   names and pictures recapitalised (Moon armour, "of Ruin", Scythe of Vitur...). `wiki_icons.txt` unchanged.
+- 5 Nov 2026: no more game pictures. Gear Loadouts keeps screenshots, so `items/canvas/`, `items/icons/`,
+  `items/spellbooks/`, `canvas.bin`, `shapes.bin` and `dps/icons/` were removed (68 MB of assets down to 4 MB),
+  with `fetch_pictures.py`, `wiki_icons.txt` and `item_shapes.py`. RuneLite's icons now stay in
+  `tools/items/icon_cache/` on the PC, for `canvas.tsv` and the gear summaries.

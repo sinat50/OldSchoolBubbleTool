@@ -9,7 +9,7 @@ Example: python tools/wiki_diff.py "Hunters' Rumours/Strategies" 15326217
 import json, re, sys, html, urllib.request, urllib.parse
 
 API = 'https://oldschool.runescape.wiki/api.php'
-AGENT = 'OSRSBubbleTool update check (github.com/sinat50/OSRSBubbleTool)'
+AGENT = 'OldSchoolBubbleTool update check (github.com/sinat50/OldSchoolBubbleTool)'
 
 
 def get(params):

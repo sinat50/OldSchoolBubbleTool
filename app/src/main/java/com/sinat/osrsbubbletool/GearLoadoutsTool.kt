@@ -1,18 +1,16 @@
 package com.sinat.osrsbubbletool
 
-import android.content.ClipData
-import android.content.ClipboardManager
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
-import android.text.Editable
 import android.text.InputType
-import android.text.TextWatcher
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -25,8 +23,7 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.core.content.edit
-import androidx.core.view.isNotEmpty
-import com.sinat.osrsbubbletool.Loadout.Stack
+import com.sinat.osrsbubbletool.GuidedScan.Part
 import com.sinat.osrsbubbletool.Palette.BUTTON_BROWN
 import com.sinat.osrsbubbletool.Palette.DARK_BROWN
 import com.sinat.osrsbubbletool.Palette.DEEP_RED
@@ -34,75 +31,46 @@ import com.sinat.osrsbubbletool.Palette.PAPER
 import com.sinat.osrsbubbletool.Palette.PARCHMENT
 import com.sinat.osrsbubbletool.Palette.ROW_BROWN
 import java.io.File
+import java.util.concurrent.Executors
 import org.json.JSONArray
 
-// Gear Loadouts: your inventory, equipment, rune pouch, bolt pouch, quiver and spellbook for a trip, saved
-// under a name and shown like RuneLite's Inventory Setups plugin. Tap a square to put an item in it. Setups
-// exported from that plugin can be imported, and loadouts exported back to it.
-// (It replaced Inventory Setups, which saved pictures of the screen; those pictures are still shown.)
-// Scan Current Loadout fills in the spellbook and an open rune pouch (LoadoutReader), the equipment when its tab is open
-// (GearRecognizer, shared with the DPS Calculator) and the inventory when its tab is open (InventoryReader), in a
-// guided scan (see below).
-// hideWindow and showWindow close and reopen this tool's window, so Android's file chooser
-// (which open under the floating windows) can be seen; setWindowCompact shrinks the window to a checklist in a
-// corner while the scan looks at the game.
+// Gear Loadouts: screenshots of your inventory, equipment, rune pouch and spellbook for a trip, saved under a name
+// with your notes, to look at while you gear up. Scan Current Loadout takes them: the window shrinks to a checklist
+// in a corner while the guided scan (GuidedScan) watches the game, and saves each part as you open it. Nothing on the
+// screenshots is read or recognised, and the app comes with no game pictures: they're your own screen, kept on your
+// phone (files/setups/<id>/, backed up with the app).
+// (It was Inventory Setups, which saved pictures of areas you set by hand; those pictures are still shown. From v1.0.9
+// to v1.2.0 it listed the items it read instead: those lists are shown as text until a scan replaces them.)
+// setWindowCompact shrinks the window to the checklist while the scan looks at the game.
 class GearLoadoutsTool(
     private val context: Context,
     private val capture: CaptureManager,
-    private val setWindowCompact: (Int) -> Unit,
-    private val hideWindow: () -> Unit,
-    private val showWindow: () -> Unit
+    private val setWindowCompact: (Int) -> Unit
 ) {
 
     companion object {
-        private const val SEARCH_WAIT_MS = 150L   // search after typing stops for this long
-        private const val MAX_RESULTS = 40
-        private const val EXPORT_FILE_NAME = "inventory_setups_gear_loadouts.json"
-        private val SLOT_LABELS = Loadout.SLOT_LABELS
-    }
-
-    // The pictures Inventory Setups saved for a setup, in files/setups/<id>/
-    private enum class OldPicture(val label: String, val fileName: String) {
-        INVENTORY("Inventory", "inventory.png"),
-        EQUIPMENT("Equipment", "equipment.png"),
-        RUNE_POUCH("Rune pouch", "rune_pouch.png"),
-        SPELLBOOK("Spellbook", "spellbook.png")
-    }
-
-    // A square in a loadout that can hold an item
-    private sealed class Place {
-        data class Inventory(val index: Int) : Place()
-        data class Worn(val slot: String) : Place()
-        data class RunePouch(val index: Int) : Place()
-        data class BoltPouch(val index: Int) : Place()
-        data object Quiver : Place()
+        private const val PICTURE_QUALITY = 90       // WebP: the screenshots look the same, at a fraction of a PNG's size
+        private const val MAX_PICTURE_HEIGHT = 360   // dp: a screenshot is shown no taller than this
+        private const val SPELLBOOK_SIZE = 44        // dp: the spellbook button's screenshot, about as big as in the game
     }
 
     private val handler = Handler(Looper.getMainLooper())
-    // the readers' details go to the phone's log (adb logcat -s GearLoadouts) only in a debug build
+    // the scan's details go to the phone's log (adb logcat -s GearLoadouts) only in a debug build
     private val debugBuild = (context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0
     // (the settings file and folder keep Inventory Setups' names, so its setups carry over)
     private val prefs = context.getSharedPreferences("inventory_setups", Context.MODE_PRIVATE)
     private val folder = File(context.filesDir, "setups")
-    private val icons = ItemIcons(context)
     private val loadouts = loadLoadouts()
-    private var items: ItemData? = null
+    private var items: ItemData? = null       // item names, only loaded for loadouts that still list items
+    // screenshots are written one at a time, away from the main thread, in the order they were taken
+    private val writer = Executors.newSingleThreadExecutor()
 
     private var root: FrameLayout? = null
     private var current: Loadout? = null      // the loadout being viewed, or null for the list
-    private var picking: Place? = null        // the square an item is being picked for
-    private var importing = false             // showing the RuneLite import page
-    private var listMessage: String? = null   // shown once at the top of the list (after an import or a save)
     private var deleteArmed = false
     private var nameField: EditText? = null
     private var notesField: EditText? = null
-    private var pendingSearch: Runnable? = null
-    private var readMessage: String? = null     // what the last Scan Current Loadout found, shown on the loadout once
-    // The readers' other guesses after Scan Current Loadout (item IDs, best first), offered first when you tap that square:
-    // by slot ("head") for equipment, "inv5" for inventory space 6. Only for the loadout read, until the bubble closes.
-    private var guessesFor: String? = null
-    private var guesses: Map<String, List<Int>> = emptyMap()
-    private var unsure: Set<String> = emptySet()   // the squares (keys as above) read without a clear fit: ringed
+    private var readMessage: String? = null   // what the last Scan Current Loadout saved, shown on the loadout once
 
     private fun dp(value: Int) = (value * context.resources.displayMetrics.density).toInt()
 
@@ -116,32 +84,15 @@ class GearLoadoutsTool(
             isFocusableInTouchMode = true
         }
         root = r
-        LoadoutFileActivity.listener = fileAnswers
         showList()
-        ItemCatalog.get(context) { data ->
-            items = data
-            // redraw what's showing, now with item pictures
-            val l = current
-            val p = picking
-            when {
-                importing -> {}
-                l == null -> showList()
-                p == null -> showLoadout(l)
-                else -> showPicker(l, p)
-            }
-        }
         return r
     }
 
-    // The ◀ button: from picking an item, back to the loadout; from a loadout or the import page, back to the list
+    // The ◀ button: from a loadout, back to the list
     fun goBack() {
-        if (importing) { showList(); return }
-        val l = current ?: return
-        if (picking != null) showLoadout(l)
-        else {
-            saveTyping()
-            showList()
-        }
+        if (current == null) return
+        saveTyping()
+        showList()
     }
 
     fun onWindowClosed() {
@@ -150,10 +101,9 @@ class GearLoadoutsTool(
     }
 
     fun destroy() {
-        if (LoadoutFileActivity.listener === fileAnswers) LoadoutFileActivity.listener = null
         stopScan()
-        pendingSearch?.let { handler.removeCallbacks(it) }
         saveTyping()
+        writer.shutdown()   // (screenshots already taken are still written)
     }
 
     // ---------------- Small building blocks ----------------
@@ -207,68 +157,31 @@ class GearLoadoutsTool(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
     }
 
-    // A square showing one stack (or empty, with a faint label)
-    private fun slot(stack: Stack?, emptyLabel: String? = null, onClick: (() -> Unit)? = null) = ItemSlotView(context).apply {
-        val shown = stack?.let { items?.shown(it.id) }
-        val item = shown?.first
-        picture = item?.let { icons.forStack(stack.id, it, stack.amount, shown.second) }
-        // a noted item's icon is drawn on its note already; without one, the note is drawn round the item's picture
-        noted = shown?.second == true && stack?.let { icons.canvas(it.id) } == null
-        amount = stack?.amount ?: 1
-        label = when {
-            stack == null -> emptyLabel
-            item == null -> "?"        // an item the list doesn't know (newer than the app)
-            else -> null
-        }
-        contentDescription = stack?.let { stackName(it) } ?: emptyLabel
-        if (onClick != null) setOnClickListener { onClick() }
-    }
-
-    // A stack's item name, "(noted)" after it for a noted item
-    private fun stackName(s: Stack): String {
-        val (item, noted) = items?.shown(s.id) ?: return "Item ${s.id}"
-        return if (noted) "${item.name} (noted)" else item.name
-    }
-
     // ---------------- The list of loadouts ----------------
 
     private fun showList() {
         current = null
-        picking = null
-        importing = false
         nameField = null
         notesField = null
 
         val list = column().apply { setPadding(dp(10), dp(10), dp(10), dp(10)) }
-        listMessage?.let { list.addView(label(it, bold = true), fullWidth()) }
-        listMessage = null
-        list.addView(button("+ New loadout") { createLoadout() }, fullWidth(if (list.isNotEmpty()) 8 else 0))
-        val runeLite = LinearLayout(context).apply { orientation = LinearLayout.HORIZONTAL }
-        runeLite.addView(button("Import from RuneLite") { showImport() }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-        if (loadouts.any { it.hasItems }) {
-            runeLite.addView(button("Save all as a file") { saveAllToFile() }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
-                .apply { leftMargin = dp(6) })
-        }
-        list.addView(runeLite, fullWidth(6))
+        list.addView(button("+ New loadout") { createLoadout() }, fullWidth())
         if (loadouts.isEmpty()) {
-            list.addView(label("No loadouts yet. Tap New loadout, then tap a square to put an item in it."), fullWidth(10))
+            list.addView(label("No loadouts yet. Tap New loadout, then Scan Current Loadout to save screenshots of " +
+                "your inventory, equipment, rune pouch and spellbook."), fullWidth(10))
         }
         for (l in loadouts) {
             val row = LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
-                setPadding(dp(8), dp(6), dp(12), dp(6))
+                setPadding(dp(12), dp(10), dp(12), dp(10))
                 background = GradientDrawable().apply {
                     setColor(ROW_BROWN)
                     cornerRadius = dp(6).toFloat()
                 }
                 setOnClickListener { showLoadout(l) }
             }
-            // its weapon, or else the first thing in its inventory, as its picture
-            val shown = l.equipment["weapon"] ?: l.inventory.firstOrNull { it != null }
-            row.addView(slot(shown).apply { square = Color.TRANSPARENT }, LinearLayout.LayoutParams(dp(36), dp(36)))
-            row.addView(label(l.name, 15f), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
-                .apply { leftMargin = dp(8) })
+            row.addView(label(l.name, 15f), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
             list.addView(row, fullWidth(8))
         }
         setContent(ScrollView(context).apply { addView(list) })
@@ -285,10 +198,7 @@ class GearLoadoutsTool(
 
     private fun showLoadout(l: Loadout) {
         current = l
-        picking = null
-        importing = false
         deleteArmed = false
-        pendingSearch?.let { handler.removeCallbacks(it) }
 
         val page = column().apply { setPadding(dp(10), dp(10), dp(10), dp(10)) }
 
@@ -300,81 +210,54 @@ class GearLoadoutsTool(
         }
         page.addView(nameField, fullWidth())
 
-        if (items == null) page.addView(label("Loading items…"), fullWidth(8))
-
-        // Fill this loadout from the game (the guided scan); a line under it says what happened, when there's news
+        // Take the screenshots from the game (the guided scan); a line under it says what happened, when there's news
         val readStatus = label(readMessage ?: "").apply { visibility = if (readMessage == null) View.GONE else View.VISIBLE }
         readMessage = null
         page.addView(button("Scan Current Loadout") { startScan(l, readStatus) }, fullWidth(8))
         page.addView(readStatus, fullWidth(4))
 
-        // Left: inventory and pouches. Right: equipment and spellbook. Side by side if the window is wide enough.
-        val left = column()
-        left.addView(label("Inventory", 14f, bold = true))
-        val inventory = SlotGrid(context, 4, dp(44), dp(3))
-        for (row in 0 until 7) inventory.addRow((0 until 4).map { c ->
-            val i = row * 4 + c
-            slot(l.inventory[i]) { showPicker(l, Place.Inventory(i)) }.apply { unsure = guessesFor == l.id && "inv$i" in this@GearLoadoutsTool.unsure }
-        })
-        left.addView(inventory, fullWidth(4))
-        runePouchSize(l)?.let { size ->
-            left.addView(label("Rune pouch", 14f, bold = true), fullWidth(10))
-            val grid = SlotGrid(context, 4, dp(44), dp(3))
-            grid.addRow((0 until size).map { i -> slot(l.runePouch?.getOrNull(i)) { showPicker(l, Place.RunePouch(i)) } })
-            left.addView(grid, fullWidth(4))
-        }
-        boltPouchSize(l)?.let { size ->
-            left.addView(label("Bolt pouch", 14f, bold = true), fullWidth(10))
-            val grid = SlotGrid(context, 4, dp(44), dp(3))
-            grid.addRow((0 until size).map { i -> slot(l.boltPouch?.getOrNull(i)) { showPicker(l, Place.BoltPouch(i)) } })
-            left.addView(grid, fullWidth(4))
+        val pictures = Part.entries.mapNotNull { part -> pictureFile(l, part)?.let { part to it } }.toMap()
+        if (pictures.isEmpty() && !l.hasItems) {
+            page.addView(label("Tap Scan Current Loadout, then open your inventory, equipment and rune pouch in the game. " +
+                "Each one is saved as a screenshot as it shows."), fullWidth(10))
         }
 
-        val right = column()
-        right.addView(label("Equipment", 14f, bold = true))
-        val worn = SlotGrid(context, 3, dp(44), dp(3))
-        fun w(slot: String) = slot(l.equipment[slot], SLOT_LABELS[slot]) { showPicker(l, Place.Worn(slot)) }
-            .apply { unsure = guessesFor == l.id && slot in this@GearLoadoutsTool.unsure }
-        val quiver = if (hasQuiver(l)) slot(l.quiver, "Quiver") { showPicker(l, Place.Quiver) } else null
-        worn.addRow(listOf(null, w("head"), quiver))
-        worn.addRow(listOf(w("cape"), w("neck"), w("ammo")))
-        worn.addRow(listOf(w("weapon"), w("body"), w("shield")))
-        worn.addRow(listOf(null, w("legs"), null))
-        worn.addRow(listOf(w("hands"), w("feet"), w("ring")))
-        right.addView(worn, fullWidth(4))
-
-        right.addView(label("Spellbook", 14f, bold = true), fullWidth(10))
-        val bookRow = LinearLayout(context).apply {
-            orientation = LinearLayout.HORIZONTAL
-            gravity = Gravity.CENTER_VERTICAL
-        }
-        val bookSlot = ItemSlotView(context)
-        val bookName = label("")
-        fun showBook() {
-            val b = l.spellbook
-            bookSlot.picture = b?.let { icons.spellbook(it) }
-            bookSlot.label = if (b == null) "–" else null
-            bookName.text = (b?.let { Loadout.SPELLBOOKS[it] } ?: "Not set") + " (tap to change)"
-        }
-        showBook()
-        val nextBook = View.OnClickListener {
-            // not set → Standard → Ancient → Lunar → Arceuus → not set
-            l.spellbook = when (val b = l.spellbook) {
-                null -> 0
-                Loadout.SPELLBOOKS.lastIndex -> null
-                else -> b + 1
+        // Inventory on the left and equipment on the right, side by side if the window is wide enough; the rune
+        // pouch and spellbook under them the same way
+        fun part(p: Part): View? {
+            val file = pictures[p] ?: return null
+            return column().apply {
+                addView(label(p.label, 14f, bold = true))
+                addView(picture(file, small = p == Part.SPELLBOOK), if (p == Part.SPELLBOOK)
+                    LinearLayout.LayoutParams(dp(SPELLBOOK_SIZE), dp(SPELLBOOK_SIZE)).apply { topMargin = dp(4) } else fullWidth(4))
             }
-            saveLoadouts()
-            showBook()
         }
-        bookSlot.setOnClickListener(nextBook)
-        bookName.setOnClickListener(nextBook)
-        bookRow.addView(bookSlot, LinearLayout.LayoutParams(dp(44), dp(44)))
-        bookRow.addView(bookName, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            .apply { leftMargin = dp(8) })
-        right.addView(bookRow, fullWidth(4))
+        fun pair(a: View?, b: View?) {
+            when {
+                a != null && b != null -> page.addView(TwoColumns(context, a, b, dp(130), dp(12)), fullWidth(10))
+                a != null -> page.addView(a, fullWidth(10))
+                b != null -> page.addView(b, fullWidth(10))
+            }
+        }
+        pair(part(Part.INVENTORY), part(Part.EQUIPMENT))
+        pair(part(Part.RUNE_POUCH), part(Part.SPELLBOOK))
 
-        page.addView(TwoColumns(context, left, right, dp(130), dp(12)), fullWidth(10))
+        // A loadout saved before screenshots: its items as text, until a scan replaces each part
+        if (l.hasItems) {
+            page.addView(label("Saved items", 14f, bold = true), fullWidth(14))
+            page.addView(label("Saved before Gear Loadouts kept screenshots. Scan Current Loadout replaces each part " +
+                "with its screenshot.", 11f).apply { setTextColor(Palette.FADED) }, fullWidth(2))
+            val data = items
+            if (data == null) {
+                page.addView(label("Loading item names…"), fullWidth(6))
+                ItemCatalog.get(context) { loaded -> items = loaded; if (current === l && scan.progress == null) showLoadout(l) }
+            } else {
+                for (list in l.itemLines { id -> data.shown(id)?.let { (item, noted) -> if (noted) "${item.name} (noted)" else item.name } ?: "Item $id" }) {
+                    page.addView(label(list.heading, 13f, bold = true), fullWidth(8))
+                    page.addView(label(list.lines.joinToString("\n"), 13f), fullWidth(2))
+                }
+            }
+        }
 
         page.addView(label("Notes", 14f, bold = true), fullWidth(12))
         notesField = textBox("Anything to remember for this trip").apply {
@@ -385,20 +268,6 @@ class GearLoadoutsTool(
         }
         page.addView(notesField, fullWidth(4))
 
-        // Pictures saved by Inventory Setups, before it became Gear Loadouts
-        val old = OldPicture.entries.mapNotNull { p -> oldPictureFile(l, p).takeIf { it.exists() }?.let { p to it } }
-        if (old.isNotEmpty()) {
-            page.addView(label("Saved pictures", 14f, bold = true), fullWidth(14))
-            for ((p, file) in old) {
-                page.addView(label(p.label), fullWidth(6))
-                page.addView(ImageView(context).apply {
-                    adjustViewBounds = true
-                    scaleType = ImageView.ScaleType.FIT_CENTER
-                    setImageBitmap(decodeForScreen(file))
-                }, fullWidth(4))
-            }
-        }
-
         val deleteButton = button("Delete loadout", DEEP_RED) {}
         deleteButton.setOnClickListener {
             if (!deleteArmed) {
@@ -408,43 +277,19 @@ class GearLoadoutsTool(
                 deleteLoadout(l)
             }
         }
-        // Back to RuneLite: its Inventory Setups panel imports a setup from the computer's clipboard
-        if (l.hasItems) {
-            page.addView(label("To RuneLite", 14f, bold = true), fullWidth(14))
-            val sendRow = LinearLayout(context).apply { orientation = LinearLayout.HORIZONTAL }
-            val sendNote = label(exportMessage ?: "")
-            exportMessage = null
-            sendRow.addView(button("Copy") {
-                saveTyping()
-                copyToClipboard(l.name, l.toRuneLite(::plainId).toString())
-                sendNote.text = "Copied. Get it to your computer (a message to yourself works), copy it there, then " +
-                    "click the import button in RuneLite's Inventory Setups panel."
-            }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-            sendRow.addView(button("Export Setup") { saveTyping(); exportToFile(l) }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
-                .apply { leftMargin = dp(6) })
-            page.addView(sendRow, fullWidth(4))
-            page.addView(sendNote, fullWidth(4))
-        }
-
         page.addView(deleteButton, fullWidth(20))
 
         setContent(ScrollView(context).apply { addView(page) })
     }
 
-    // How many runes the loadout's rune pouch holds (4 for the divine one), or null if it has none
-    private fun runePouchSize(l: Loadout): Int? {
-        val pouch = l.inventory.filterNotNull().firstNotNullOfOrNull { items?.runePouchSize(it.id) }
-        if (pouch == null && l.runePouch == null) return null
-        return maxOf(pouch ?: 3, l.runePouch?.size ?: 0)
+    // A saved screenshot, as big as fits (the spellbook button small, as in the game)
+    private fun picture(file: File, small: Boolean) = ImageView(context).apply {
+        adjustViewBounds = true
+        scaleType = ImageView.ScaleType.FIT_CENTER
+        if (!small) maxHeight = dp(MAX_PICTURE_HEIGHT)
+        setImageBitmap(decodeForScreen(file))
+        contentDescription = file.nameWithoutExtension.replace('_', ' ')
     }
-
-    private fun boltPouchSize(l: Loadout): Int? {
-        val has = l.inventory.filterNotNull().any { items?.get(it.id)?.name?.lowercase()?.contains("bolt pouch") == true }
-        return if (has || l.boltPouch != null) maxOf(4, l.boltPouch?.size ?: 0) else null
-    }
-
-    private fun hasQuiver(l: Loadout) = l.quiver != null ||
-        (l.equipment.values + l.inventory.filterNotNull()).any { items?.get(it.id)?.name?.lowercase()?.contains("quiver") == true }
 
     // Name and notes are saved when you leave the loadout (and when Done is tapped on the name)
     private fun saveTyping() {
@@ -461,182 +306,35 @@ class GearLoadoutsTool(
     private fun deleteLoadout(l: Loadout) {
         loadouts.remove(l)
         saveLoadouts()
-        File(folder, l.id).deleteRecursively()
+        val gone = File(folder, l.id)
+        writer.execute { gone.deleteRecursively() }   // (after any screenshot still being written)
         current = null
         showList()
     }
 
-    // ---------------- Putting an item in a square ----------------
-
-    private fun stackAt(l: Loadout, p: Place): Stack? = when (p) {
-        is Place.Inventory -> l.inventory[p.index]
-        is Place.Worn -> l.equipment[p.slot]
-        is Place.RunePouch -> l.runePouch?.getOrNull(p.index)
-        is Place.BoltPouch -> l.boltPouch?.getOrNull(p.index)
-        Place.Quiver -> l.quiver
-    }
-
-    private fun put(l: Loadout, p: Place, s: Stack?) {
-        // you've checked it
-        if (p is Place.Inventory) unsure = unsure - "inv${p.index}"
-        if (p is Place.Worn) unsure = unsure - p.slot
-        fun MutableList<Stack?>?.with(i: Int): MutableList<Stack?> =
-            (this ?: mutableListOf()).also { list -> while (list.size <= i) list.add(null); list[i] = s }
-        when (p) {
-            is Place.Inventory -> l.inventory[p.index] = s
-            is Place.Worn -> if (s == null) l.equipment.remove(p.slot) else l.equipment[p.slot] = s
-            is Place.RunePouch -> l.runePouch = l.runePouch.with(p.index)
-            is Place.BoltPouch -> l.boltPouch = l.boltPouch.with(p.index)
-            Place.Quiver -> l.quiver = s
-        }
-        saveLoadouts()
-    }
-
-    private fun placeName(p: Place) = when (p) {
-        is Place.Inventory -> "Inventory space ${p.index + 1}"
-        is Place.Worn -> "${SLOT_LABELS[p.slot]} slot"
-        is Place.RunePouch -> "Rune pouch"
-        is Place.BoltPouch -> "Bolt pouch"
-        Place.Quiver -> "Quiver"
-    }
-
-    // Worn squares only offer items worn there (a quiver holds ammunition)
-    private fun slotFilter(p: Place) = when (p) {
-        is Place.Worn -> p.slot
-        Place.Quiver -> "ammo"
-        else -> null
-    }
-
-    private fun showPicker(l: Loadout, p: Place) {
-        saveTyping()
-        current = l
-        picking = p
-        nameField = null
-        notesField = null
-
-        val page = column().apply { setPadding(dp(10), dp(10), dp(10), dp(10)) }
-        page.addView(label(placeName(p), 15f, bold = true))
-
-        val now = stackAt(l, p)
-        val amountBox = textBox("Amount").apply {
-            setText((now?.amount ?: 1).toString())
-            setSingleLine()
-            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
-            imeOptions = EditorInfo.IME_ACTION_DONE
-            setOnEditorActionListener { view, _, _ -> hideKeyboard(view); true }
-        }
-        fun typedAmount() = Loadout.parseAmount(amountBox.text.toString()) ?: 1
-
-        // What's there now, with its amount
-        val nowRow = LinearLayout(context).apply {
-            orientation = LinearLayout.HORIZONTAL
-            gravity = Gravity.CENTER_VERTICAL
-        }
-        nowRow.addView(slot(now), LinearLayout.LayoutParams(dp(44), dp(44)))
-        nowRow.addView(label(now?.let { stackName(it) } ?: "Empty"),
-            LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { leftMargin = dp(8) })
-        // an item that can be noted (in the inventory): switch between it and its noted version
-        val other = now?.takeIf { p is Place.Inventory }?.let { s -> items?.let { it.notedOf(s.id) ?: it.plainOf(s.id) } }
-        if (now != null && other != null) {
-            val isNoted = items?.plainOf(now.id) != null
-            nowRow.addView(button(if (isNoted) "Unnote" else "Note") { put(l, p, Stack(other, now.amount)); showPicker(l, p) },
-                LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-                    .apply { leftMargin = dp(6) })
-        }
-        page.addView(nowRow, fullWidth(6))
-
-        val amountRow = LinearLayout(context).apply {
-            orientation = LinearLayout.HORIZONTAL
-            gravity = Gravity.CENTER_VERTICAL
-        }
-        amountRow.addView(label("Amount"))
-        amountRow.addView(amountBox, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
-            .apply { leftMargin = dp(8) })
-        if (now != null) {
-            amountRow.addView(button("Set amount") { put(l, p, Stack(now.id, typedAmount())); showLoadout(l) },
-                LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-                    .apply { leftMargin = dp(6) })
-            amountRow.addView(button("Empty", DEEP_RED) { put(l, p, null); showLoadout(l) },
-                LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-                    .apply { leftMargin = dp(6) })
-        }
-        page.addView(amountRow, fullWidth(6))
-
-        val filter = slotFilter(p)
-        val search = textBox(if (filter != null) "Search ${SLOT_LABELS[filter]?.lowercase()} items" else "Search items").apply {
-            setSingleLine()
-            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
-            imeOptions = EditorInfo.IME_ACTION_SEARCH
-            setOnEditorActionListener { view, _, _ -> hideKeyboard(view); true }
-        }
-        page.addView(search, fullWidth(10))
-
-        val results = column()
-        page.addView(results, fullWidth(6))
-        fun showResults(text: String) {
-            results.removeAllViews()
-            val data = items
-            if (data == null) { results.addView(label("Loading items…")); return }
-            if (text.isBlank()) { results.addView(label("Type part of an item's name.")); return }
-            val found = data.search(text, filter, MAX_RESULTS)
-            if (found.isEmpty()) results.addView(label("No items found."))
-            for (item in found) {
-                results.addView(itemRow(item) {
-                    hideKeyboard(search)
-                    put(l, p, Stack(item.id, typedAmount()))
-                    showLoadout(l)
-                }, fullWidth(4))
-            }
-        }
-        // After Scan Current Loadout, the readers' other guesses for this square (tap one if it guessed wrong)
-        val key = when (p) { is Place.Worn -> p.slot; is Place.Inventory -> "inv${p.index}"; else -> null }
-        val others = if (key != null && guessesFor == l.id) guesses[key].orEmpty() else emptyList()
-        val data = items
-        if (others.isNotEmpty() && data != null) {
-            val guessed = column()
-            guessed.addView(label("Other guesses from the screen", 13f, bold = true))
-            for (id in others) {
-                val item = data[id] ?: continue
-                if (item.id == now?.id) continue
-                guessed.addView(itemRow(item) {
-                    put(l, p, Stack(item.id, typedAmount()))
-                    showLoadout(l)
-                }, fullWidth(4))
-            }
-            page.addView(guessed, page.indexOfChild(search), fullWidth(8))
-        }
-        showResults("")
-        search.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-            override fun afterTextChanged(s: Editable?) {
-                pendingSearch?.let { handler.removeCallbacks(it) }
-                val text = s?.toString().orEmpty()
-                pendingSearch = Runnable { if (picking == p) showResults(text) }.also { handler.postDelayed(it, SEARCH_WAIT_MS) }
-            }
-        })
-
-        setContent(ScrollView(context).apply { addView(page) })
-    }
-
-    // ---------------- Reading from the game ----------------
+    // ---------------- Taking the screenshots ----------------
     //
     // One tap: the window shrinks to a checklist in a corner (spellbook, inventory, rune pouch, equipment) while the
-    // guided scan (GuidedScan) looks at the game; each part ticks off as it's read and goes straight into the loadout.
+    // guided scan looks at the game; each part ticks off as it's saved.
 
-    private val reading = GameReading(context, icons, debugBuild)
-    private var scanning: Loadout? = null   // the loadout being filled by the scan
-    private val scan = GuidedScan(capture, reading, debugBuild, object : GuidedScan.Listener {
-        override fun read(look: GuidedScan.Look) {
-            val l = scanning ?: return
-            look.book?.let { l.spellbook = it }
-            look.pouch?.let { pouch -> l.runePouch = pouch.toMutableList<Stack?>().also { while (it.size < 3) it.add(null) } }
-            look.inventory?.let { applyInventory(l, it) }
-            if (look.noPouch) l.runePouch = null
-            look.gear?.let { applyGear(l, it) }
+    private var scanning: Loadout? = null   // the loadout the scan saves into
+    private val scan = GuidedScan(capture, debugBuild, object : GuidedScan.Listener {
+        override fun saved(part: Part, picture: Bitmap) {
+            val l = scanning ?: run { picture.recycle(); return }
+            // the screenshot replaces that part of an item list saved before screenshots
+            when (part) {
+                Part.INVENTORY -> l.forgetInventory()
+                Part.EQUIPMENT -> l.forgetEquipment()
+                Part.RUNE_POUCH -> l.forgetRunePouch()
+                Part.SPELLBOOK -> l.forgetSpellbook()
+            }
             saveLoadouts()
+            val dir = File(folder, l.id)
+            writer.execute { writePicture(dir, part, picture) }
             updateChecklist()
         }
+
+        override fun looked() = updateChecklist()
 
         override fun finished() = finishScan()
     })
@@ -644,8 +342,6 @@ class GearLoadoutsTool(
     private fun startScan(l: Loadout, status: TextView) {
         if (scan.progress != null) return
         fun say(text: String) { status.text = text; status.visibility = View.VISIBLE }
-        val data = items
-        if (data == null) { say("Still loading items, try again in a moment."); return }
         if (!capture.isActive) {
             say("Waiting for screen-capture permission...")
             capture.request { ok ->
@@ -656,17 +352,17 @@ class GearLoadoutsTool(
         }
         saveTyping()
         scanning = l
-        scan.start(data)
+        scan.start()
         showChecklist()
         setWindowCompact(BubbleService.COMPACT_TOP_LEFT)
     }
 
-    // The checklist shown while scanning: each part, ticked once read, or what to open for it
+    // The checklist shown while scanning: each part, ticked once saved, or what to open for it
     private var checklistLines: TextView? = null
 
     private fun showChecklist() {
         val page = column().apply { setPadding(dp(10), dp(8), dp(10), dp(8)) }
-        page.addView(label("Reading from the game", 14f, bold = true))
+        page.addView(label("Saving from the game", 14f, bold = true))
         val lines = label("", 13f)
         checklistLines = lines
         page.addView(lines, fullWidth(4))
@@ -678,48 +374,33 @@ class GearLoadoutsTool(
 
     private fun updateChecklist() {
         val sc = scan.progress ?: return
+        fun has(p: Part) = p in sc.saved
         val pouchLine = when {
-            sc.pouch?.isEmpty() == true -> "\u2713 Rune pouch: empty"
-            sc.pouch != null -> "\u2713 Rune pouch"
-            sc.hasPouch == false -> "\u2713 Rune pouch: none in your inventory"
-            else -> "\u2022 Rune pouch: tap it, Open"
+            has(Part.RUNE_POUCH) -> "✓ Rune pouch"
+            else -> sc.pouchSecondsLeft(System.currentTimeMillis())?.let { "• Rune pouch, if you have one: tap it, Open (finishing in $it s)" }
+                ?: "• Rune pouch, if you have one: tap it, Open"
         }
         checklistLines?.text = listOf(
-            if (sc.book != null) "\u2713 Spellbook" else "\u2022 Spellbook: keep the side panel open",
-            when {
-                sc.inventory?.isEmpty == true ->"\u2713 Inventory: empty"
-                sc.inventory != null -> "\u2713 Inventory"
-                else -> "\u2022 Inventory: open its tab"
-            },
+            if (has(Part.SPELLBOOK)) "✓ Spellbook" else "• Spellbook: keep the side panel open",
+            if (has(Part.INVENTORY)) "✓ Inventory" else "• Inventory: open its tab",
             pouchLine,
-            if (sc.gear != null) "\u2713 Equipment" else "\u2022 Equipment: open its tab"
+            if (has(Part.EQUIPMENT)) "✓ Equipment" else "• Equipment: open its tab"
         ).joinToString("\n")
     }
 
-    // Back to the loadout, saying what was read and what wasn't
+    // Back to the loadout, saying what was saved and what wasn't (once every screenshot is written)
     private fun finishScan() {
         val sc = scan.stop() ?: return
         val l = scanning ?: return
         scanning = null
         checklistLines = null
         setWindowCompact(BubbleService.COMPACT_OFF)
-        val read = listOfNotNull(
-            sc.book?.let { "${Loadout.SPELLBOOKS[it]} spellbook" },
-            sc.inventory?.let { "inventory" },
-            sc.gear?.let { "equipment" },
-            sc.pouch?.let { if (it.isEmpty()) "rune pouch (empty)" else "rune pouch" }
-        )
-        val missing = listOfNotNull(
-            if (sc.book == null) "spellbook" else null,
-            if (sc.inventory == null) "inventory" else null,
-            if (sc.gear == null) "equipment" else null,
-            if (sc.pouch == null && sc.hasPouch != false) "rune pouch" else null
-        )
-        val toCheck = (sc.inventory?.unsure?.count { it } ?: 0) + (sc.gear?.unsure?.size ?: 0)
-        readMessage = (if (read.isEmpty()) "Nothing read. " else "Read: ${read.joinToString(", ")}. ") +
-            (if (toCheck > 0) "Check the $toCheck ringed square${if (toCheck == 1) "" else "s"}: tap one for other guesses. " else "") +
-            (if (missing.isEmpty()) "" else "Not read: ${missing.joinToString(", ")} (tap Scan Current Loadout again).")
-        if (current == l && picking == null && !importing) showLoadout(l)
+        val order = listOf(Part.INVENTORY, Part.EQUIPMENT, Part.RUNE_POUCH, Part.SPELLBOOK)
+        val saved = order.filter { it in sc.saved }.map { it.label.lowercase() }
+        val missing = order.filter { it !in sc.saved && it != Part.RUNE_POUCH }.map { it.label.lowercase() }
+        readMessage = (if (saved.isEmpty()) "Nothing saved. " else "Saved: ${saved.joinToString(", ")}. ") +
+            (if (missing.isEmpty()) "" else "Not saved: ${missing.joinToString(", ")} (tap Scan Current Loadout again).")
+        writer.execute { handler.post { if (current === l && scan.progress == null) showLoadout(l) } }
     }
 
     // Stops a scan without a word (the window closed, or the bubble is closing)
@@ -729,182 +410,33 @@ class GearLoadoutsTool(
         checklistLines = null
     }
 
-    private fun applyGear(l: Loadout, gear: GameReading.GearReading) {
-        for ((slot, ids) in gear.slots) {
-            val id = ids.firstOrNull()
-            if (id == null) l.equipment.remove(slot)
-            else l.equipment[slot] = Stack(id, if (slot == "ammo") gear.ammoAmount ?: 1 else 1)
-        }
-        keepGuesses(l, gear.slots.filterValues { it.size > 1 }, gear.unsure, inventory = false)
+    // ---------------- The screenshots on the phone ----------------
+
+    // A part's screenshot: a scan's (.webp), or Inventory Setups' (.png); null if it has none
+    private fun pictureFile(l: Loadout, part: Part): File? {
+        val dir = File(folder, l.id)
+        return File(dir, "${part.file}.webp").takeIf { it.exists() } ?: File(dir, "${part.file}.png").takeIf { it.exists() }
     }
 
-    private fun applyInventory(l: Loadout, inventory: GameReading.InventoryReading) {
-        for (i in 0 until Loadout.INVENTORY_SIZE) {
-            val id = inventory.spaces.getOrNull(i)?.firstOrNull()
-            l.inventory[i] = id?.let { Stack(it, inventory.amounts[i] ?: 1) }
-        }
-        keepGuesses(l, inventory.spaces.withIndex().filter { (it.value?.size ?: 0) > 1 }.associate { "inv${it.index}" to it.value!! },
-            inventory.unsure.withIndex().filter { it.value }.map { "inv${it.index}" }.toSet(), inventory = true)
-    }
-
-    // Adds a reading's other guesses to the ones kept for this loadout (an inventory read keeps the equipment's), and
-    // which squares it wasn't sure of (a new reading of the same squares replaces those)
-    private fun keepGuesses(l: Loadout, more: Map<String, List<Int>>, notSure: Set<String>, inventory: Boolean) {
-        val same = guessesFor == l.id
-        guesses = (if (same) guesses else emptyMap()) + more
-        val replaced = unsure.filter { it.startsWith("inv") != inventory }   // the other reading's rings stay
-        unsure = (if (same) replaced.toSet() else emptySet()) + notSure
-        guessesFor = l.id
-    }
-
-    // ---------------- RuneLite: import and export ----------------
-
-    private fun showImport() {
-        importing = true
-        current = null
-        picking = null
-
-        val page = column().apply { setPadding(dp(10), dp(10), dp(10), dp(10)) }
-        page.addView(label("Import from RuneLite", 15f, bold = true))
-        page.addView(label("One setup: in RuneLite's Inventory Setups panel, right-click the setup and choose Export " +
-            "Setup. Send the copied text to your phone (a message to yourself works), then paste it here.\n\n" +
-            "Every setup: right-click the panel's import button, choose Mass Export Setups, put the file on your phone " +
-            "and pick it with Pick a file."), fullWidth(6))
-
-        val status = label("", bold = true)
-        val box = textBox("Paste the exported setup here").apply {
-            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
-            minLines = 3
-            maxLines = 6
-            gravity = Gravity.TOP or Gravity.START
-        }
-        page.addView(box, fullWidth(10))
-
-        val buttons = LinearLayout(context).apply { orientation = LinearLayout.HORIZONTAL }
-        fun add(b: View) = buttons.addView(b, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
-            .apply { if (buttons.isNotEmpty()) leftMargin = dp(6) })
-        add(button("Paste") {
-            val text = context.getSystemService(ClipboardManager::class.java).primaryClip
-                ?.takeIf { it.itemCount > 0 }?.getItemAt(0)?.coerceToText(context)?.toString()
-            if (text.isNullOrBlank()) status.text = "Nothing to paste (or Android didn't allow it): long-press the box and choose Paste."
-            else { box.setText(text); status.text = "" }
-        })
-        add(button("Import") {
-            hideKeyboard(box)
-            if (!importText(box.text.toString())) status.text = "That isn't a setup exported from RuneLite's Inventory Setups."
-        })
-        page.addView(buttons, fullWidth(6))
-        page.addView(button("Pick a file") { pickFile() }, fullWidth(6))
-        importProblem?.let { status.text = it; importProblem = null }
-        page.addView(status, fullWidth(8))
-
-        setContent(ScrollView(context).apply { addView(page) })
-    }
-
-    // Adds every setup in the text; false if there were none. One setup opens; several go to the list.
-    private fun importText(text: String): Boolean {
-        val stamp = System.currentTimeMillis()
-        val found = try { Loadout.fromRuneLite(text) { i -> "$stamp-$i" } } catch (_: Exception) { return false }
-        loadouts.addAll(found)
-        saveLoadouts()
-        if (found.size == 1) showLoadout(found[0])
-        else {
-            listMessage = "Imported ${found.size} setups from RuneLite."
-            showList()
-        }
-        return true
-    }
-
-    private fun pickFile() {
-        hideWindow()
-        LoadoutFileActivity.open(context)
-    }
-
-    // The file chooser's answers (see LoadoutFileActivity: they come to whichever tool is there by then)
-    private var importProblem: String? = null   // shown once on the import page
-    private val fileAnswers = object : LoadoutFileActivity.Listener {
-        override fun opened(text: String?) {
-            showWindow()
-            if (text != null && !importText(text)) {
-                importProblem = "That file isn't a RuneLite Inventory Setups export."
-                showImport()
-            }
-        }
-
-        override fun saved(ok: Boolean) {
-            val one = exporting
-            exporting = null
-            val open = current
-            if (one != null && open != null) {
-                // one loadout exported from its own page: say so there
-                if (ok) exportMessage = "Saved. On your computer, right-click the import button in RuneLite's " +
-                    "Inventory Setups panel and choose Mass Import Setups, then pick this file."
-                if (open.id == one) showLoadout(open)
-            } else {
-                if (ok) listMessage = "Saved your loadouts. On your computer, right-click the import button in " +
-                    "RuneLite's Inventory Setups panel and choose Mass Import Setups."
-                if (current == null) showList()
-            }
-            showWindow()
+    // Writes a screenshot (on the writer thread), in place of the part's older one, then lets it go
+    private fun writePicture(dir: File, part: Part, picture: Bitmap) {
+        try {
+            dir.mkdirs()
+            // written under another name first, so a half-written file is never shown
+            val temp = File(dir, "${part.file}.tmp")
+            temp.outputStream().use { picture.compress(webp(), PICTURE_QUALITY, it) }
+            val file = File(dir, "${part.file}.webp")
+            if (!temp.renameTo(file)) { file.delete(); temp.renameTo(file) }
+            File(dir, "${part.file}.png").delete()   // Inventory Setups' older one
+        } catch (_: Exception) {
+            // the phone is out of space, say: that part just isn't saved
+        } finally {
+            picture.recycle()
         }
     }
 
-    // Every loadout with items in it, as one file RuneLite's Inventory Setups can import (right-click its
-    // import button, Mass Import Setups)
-    private fun saveAllToFile() {
-        val chosen = loadouts.filter { it.hasItems }
-        hideWindow()
-        LoadoutFileActivity.save(context, EXPORT_FILE_NAME, Loadout.toRuneLite(chosen, ::plainId).toString())
-    }
-
-    private fun copyToClipboard(label: String, text: String) {
-        context.getSystemService(ClipboardManager::class.java).setPrimaryClip(ClipData.newPlainText(label, text))
-    }
-
-    // One loadout as a file, saved wherever you choose (the same as Save all as a file, for just this one). It's
-    // saved in the same form, a list of setups, so RuneLite's Mass Import Setups (and this tool's import) reads it.
-    private var exporting: String? = null        // the loadout being saved (its id), while the file chooser is up
-    private var exportMessage: String? = null    // shown under the loadout's To RuneLite buttons once, after saving
-
-    private fun exportToFile(l: Loadout) {
-        exporting = l.id
-        hideWindow()
-        LoadoutFileActivity.save(context, exportFileName(l.name), Loadout.toRuneLite(listOf(l), ::plainId).toString())
-    }
-
-    // A noted item's own ID, for RuneLite's bank tab layout (the same ID for anything else)
-    private fun plainId(id: Int) = items?.plainOf(id) ?: id
-
-    // A file name from the loadout's name: letters, numbers, spaces, dashes and underscores kept, the rest left out
-    private fun exportFileName(name: String): String {
-        val safe = name.filter { it.isLetterOrDigit() || it == ' ' || it == '-' || it == '_' }.trim().take(60)
-        return (safe.ifEmpty { "loadout" }) + ".json"
-    }
-
-    // One item to pick: its picture and name
-    private fun itemRow(item: ItemData.Item, onClick: () -> Unit) = LinearLayout(context).apply {
-        orientation = LinearLayout.HORIZONTAL
-        gravity = Gravity.CENTER_VERTICAL
-        setPadding(dp(4), dp(2), dp(8), dp(2))
-        background = GradientDrawable().apply {
-            setColor(ROW_BROWN)
-            cornerRadius = dp(6).toFloat()
-        }
-        setOnClickListener { onClick() }
-        addView(ItemSlotView(context).apply {
-            picture = icons.forStack(item.id, item, 1, false)
-            square = Color.TRANSPARENT
-        }, LinearLayout.LayoutParams(dp(36), dp(36)))
-        val names = column()
-        names.addView(label(item.name, 14f))
-        // a copy from a minigame or quest says which ("Last Man Standing")
-        item.variant?.let { names.addView(label(it, 11f).apply { setTextColor(Palette.FADED) }) }
-        addView(names, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { leftMargin = dp(8) })
-    }
-
-    // ---------------- Inventory Setups' old pictures ----------------
-
-    private fun oldPictureFile(l: Loadout, p: OldPicture) = File(File(folder, l.id), p.fileName)
+    @Suppress("DEPRECATION")
+    private fun webp() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) Bitmap.CompressFormat.WEBP_LOSSY else Bitmap.CompressFormat.WEBP
 
     // Saved pictures are full size; shown on screen, half size is plenty on high-resolution phones
     private fun decodeForScreen(file: File): Bitmap? {
@@ -937,5 +469,48 @@ class GearLoadoutsTool(
         val array = JSONArray()
         loadouts.forEach { array.put(it.toJson()) }
         prefs.edit { putString("list", array.toString()) }
+    }
+}
+
+// Two columns side by side when the window is wide enough for both (minColumn each), otherwise one under
+// the other. Gear Loadouts puts the inventory on the left and the equipment on the right, as there's
+// little height to spare with the phone sideways.
+@SuppressLint("ViewConstructor")
+class TwoColumns(context: Context, private val left: View, private val right: View,
+                 private val minColumn: Int, private val gap: Int) : ViewGroup(context) {
+    init {
+        addView(left)
+        addView(right)
+    }
+
+    private var sideBySide = false
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val width = MeasureSpec.getSize(widthMeasureSpec)
+        sideBySide = width >= minColumn * 2 + gap
+        val any = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
+        if (sideBySide) {
+            val half = MeasureSpec.makeMeasureSpec((width - gap) / 2, MeasureSpec.EXACTLY)
+            left.measure(half, any)
+            right.measure(half, any)
+            setMeasuredDimension(width, maxOf(left.measuredHeight, right.measuredHeight))
+        } else {
+            val full = MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY)
+            left.measure(full, any)
+            right.measure(full, any)
+            setMeasuredDimension(width, left.measuredHeight + gap + right.measuredHeight)
+        }
+    }
+
+    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+        if (sideBySide) {
+            left.layout(0, 0, left.measuredWidth, left.measuredHeight)
+            val x = r - l - right.measuredWidth
+            right.layout(x, 0, r - l, right.measuredHeight)
+        } else {
+            left.layout(0, 0, left.measuredWidth, left.measuredHeight)
+            val y = left.measuredHeight + gap
+            right.layout(0, y, right.measuredWidth, y + right.measuredHeight)
+        }
     }
 }

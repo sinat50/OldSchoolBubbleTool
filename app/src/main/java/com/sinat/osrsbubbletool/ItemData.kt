@@ -1,11 +1,11 @@
 package com.sinat.osrsbubbletool
 
-// Every item in the game: its ID, name, equipment slot and picture, for Gear Loadouts. Read from
+// Every item in the game: its ID, name, equipment slot and the name of its wiki picture (text only: the app keeps no
+// item pictures), for the DPS Calculator's Import my gear and the item lists of older Gear Loadouts. Read from
 // assets/items/items.tsv, made by tools/items/build_items.py from the OSRS Wiki's item tables (text under
-// CC BY-NC-SA 3.0; the full notice is on the app's Legal screen). The pictures are in assets/items/icons/.
-// No Android parts, so it can be tested on a computer.
+// CC BY-NC-SA 3.0; the full notice is on the app's Legal screen). No Android parts, so it can be tested on a computer.
 //
-// Each line of the file: ID, name, slot (empty if it isn't worn), picture file(s). Items drawn differently
+// Each line of the file: ID, name, slot (empty if it isn't worn), picture name(s). Items drawn differently
 // by stack size (coins, arrows...) list several pictures, separated by "|"; the number at the end of each
 // name ("Coins 250.png") is the smallest stack that picture is for. Last, the item's wiki page if it isn't
 // its name: copies of an item from a minigame or quest have their own page ("Rune pouch (Last Man Standing)").
@@ -83,20 +83,6 @@ class ItemData(tsv: String, notedTsv: String = "") {
     // For a noted ID, the item's own ID (null if id isn't a noted item)
     fun plainOf(id: Int): Int? = plainId[id]
 
-    // Which item each picture shows (picture name to item), among the items `only` lets through: the item itself
-    // before its minigame and quest copies, then the oldest (lowest ID)
-    fun byPicture(only: (Item) -> Boolean = { true }): Map<String, Item> = HashMap<String, Item>().also { map ->
-        for (item in all) if (only(item)) for (pic in item.pictures) {
-            val had = map[pic]
-            if (had == null || (had.variant != null && item.variant == null) ||
-                ((had.variant == null) == (item.variant == null) && item.id < had.id)) map[pic] = item
-        }
-    }
-
-    // Whether a stack is a rune pouch that holds runes (any kind, divine too; a noted pouch holds nothing), and how
-    // many runes it holds (null if it isn't one)
-    fun runePouchSize(id: Int): Int? = byId[id]?.name?.lowercase()?.takeIf { "rune pouch" in it }?.let { if ("divine" in it) 4 else 3 }
-
     // Of items that look exactly alike, the one to pick: the item itself before its minigame and quest copies, a
     // charged (or whole) item before its uncharged (or broken) look-alike, then the lowest ID
     fun preferred(ids: Collection<Int>): Int = ids.minWith(compareBy<Int>({ shown(it)?.first?.variant != null },
@@ -129,23 +115,4 @@ class ItemData(tsv: String, notedTsv: String = "") {
     // The item to show for an ID, and whether it's noted (null if the ID is unknown)
     fun shown(id: Int): Pair<Item, Boolean>? =
         byId[id]?.let { it to false } ?: plainId[id]?.let { plain -> byId[plain]?.let { it to true } }
-
-    // Items whose name has all the typed words in it (any case), best matches first: names that start with
-    // what you typed, then shorter names, the item itself before its minigame and quest copies. Items that
-    // look the same and share a name (several IDs for one thing) are listed once. With a slot, only items
-    // worn there.
-    fun search(text: String, slot: String? = null, limit: Int = 50): List<Item> {
-        val words = text.lowercase().split(' ').filter { it.isNotEmpty() }
-        if (words.isEmpty()) return emptyList()
-        val first = words.joinToString(" ")
-        val seen = HashSet<String>()
-        return all.asSequence()
-            .filter { slot == null || it.slot == slot }
-            .filter { item -> val name = item.name.lowercase(); words.all { it in name } }
-            .sortedWith(compareBy<Item>({ !it.name.lowercase().startsWith(first) }, { it.name.length }, { it.name },
-                { it.variant != null }, { it.variant }, { it.id }))
-            .filter { seen.add(it.name + "\t" + it.variant + "\t" + it.pictures.firstOrNull()) }
-            .take(limit)
-            .toList()
-    }
 }

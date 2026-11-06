@@ -356,7 +356,7 @@ class BubbleService : Service() {
             NotificationChannel(channelId, "Tool bubble", NotificationManager.IMPORTANCE_LOW)
         )
         val notification = Notification.Builder(this, channelId)
-            .setContentTitle("OSRS Bubble Tool")
+            .setContentTitle("Old School Bubble Tool")
             .setContentText(
                 if (capturing) "Screen capture is on. Long-press the bubble → Close bubble to turn it off."
                 else "Long-press the bubble for the tool menu"
@@ -1015,8 +1015,7 @@ class BubbleService : Service() {
         Tool.LIGHT_BOX -> LightBoxTool(toolContext, windowManager, capture, ::setOverlaysVisible) { hideToolWindow() }.let { t ->
             ToolParts(t::buildView, onBack = null, onRotated = t::onRotated, onDestroy = t::destroy, isBusy = t::isGuiding)
         }
-        Tool.INVENTORY_SETUPS -> GearLoadoutsTool(toolContext, capture, ::setWindowCompact, hideWindow = { hideToolWindow() },
-            showWindow = { if (shownWindow == null) openTool(Tool.INVENTORY_SETUPS) }).let { t ->
+        Tool.INVENTORY_SETUPS -> GearLoadoutsTool(toolContext, capture, ::setWindowCompact).let { t ->
             ToolParts(t::buildView, t::goBack, onClosed = t::onWindowClosed, onDestroy = t::destroy)
         }
         Tool.ZULRAH -> ZulrahTool(toolContext).let { t -> ToolParts(t::buildView, t::goBack) }
@@ -1626,7 +1625,7 @@ class BubbleService : Service() {
         toolParts.values.forEach { it.onDestroy() }
         AppSettings.prefs(this).unregisterOnSharedPreferenceChangeListener(settingsChanged)
         capture.shutdown()
-        GearRecognizer.releaseShared()
+        CalculatorItems.releaseShared()
         windowManager.removeView(bubble)
         barProbes.forEach { windowManager.removeView(it) }
         webViews.forEach { (it.parent as? ViewGroup)?.removeView(it); it.destroy() }

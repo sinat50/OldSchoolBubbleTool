@@ -37,7 +37,7 @@ class MainActivity : Activity() {
     companion object {
         private const val REQUEST_NOTIFICATIONS = 1
 
-        // The BSD 2-Clause licence conditions and disclaimer (used by the Zulrah, ToA Puzzle Helper, RuneLite, Teleport Finder, Quest Helper and Gear Loadouts credits)
+        // The BSD 2-Clause licence conditions and disclaimer (used by the Zulrah, ToA Puzzle Helper, RuneLite, Teleport Finder and Quest Helper credits)
         private const val BSD_TERMS =
             "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\n" +
                 "1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n\n" +
@@ -162,7 +162,7 @@ class MainActivity : Activity() {
             orientation = LinearLayout.VERTICAL
             gravity = Gravity.CENTER
             addView(logo, LinearLayout.LayoutParams(dp(logoSize), dp(logoSize)))
-            addView(label("OSRS Bubble Tool", if (landscape) 18f else 22f, bold = true).apply { gravity = Gravity.CENTER },
+            addView(label("Old School Bubble Tool", if (landscape) 18f else 22f, bold = true).apply { gravity = Gravity.CENTER },
                 matchWidth(if (landscape) 2 else 10))
             addView(label("Tap Start Bubble, then open Old School RuneScape.\n\n" +
                 "Tap the bubble to open or hide a tool.\n" +
@@ -246,7 +246,7 @@ class MainActivity : Activity() {
     // Opens GitHub's "new issue" page with the app's report form (.github/ISSUE_TEMPLATE/report_an_issue.yml),
     // its "Phone and app" box already filled in. The player sees everything before sending it, and can change it.
     private fun reportIssue() {
-        val address = "https://github.com/sinat50/OSRSBubbleTool/issues/new".toUri().buildUpon()
+        val address = "https://github.com/sinat50/OldSchoolBubbleTool/issues/new".toUri().buildUpon()
             .appendQueryParameter("template", "report_an_issue.yml")
             .appendQueryParameter("device", deviceDetails())
             .build()
@@ -457,13 +457,12 @@ class MainActivity : Activity() {
         }
 
         section("Jagex",
-            "Created using intellectual property belonging to Jagex Limited under the terms of Jagex's Fan Content Policy. " +
-            "This content is not endorsed by or affiliated with Jagex.\n\n" +
             "Old School RuneScape and RuneScape are trademarks of Jagex Limited. Item, monster and game pictures are (c) Jagex Limited. " +
-            "The item pictures and other game pictures in the app were taken from the OSRS Wiki, " +
-            "the OSRS Wiki DPS calculator and RuneLite; they are Jagex's. The Puzzle Box Solver's colour summaries of " +
-            "each tile were worked out from the OSRS Wiki's solved puzzle pictures.\n\n" +
-            "OSRS Bubble Tool is free and has no ads or paid features. It is not affiliated with Jagex, RuneLite, the " +
+            "The app comes with no game pictures. The Puzzle Box Solver's colour summaries of each tile were worked out " +
+            "from the OSRS Wiki's solved puzzle pictures, and Import my gear's colour summaries of each item from " +
+            "RuneLite's item icons; those pictures are Jagex's. Gear Loadouts' screenshots are your own screen, kept on " +
+            "your phone.\n\n" +
+            "Old School Bubble Tool is free and has no ads or paid features. It is not endorsed by or affiliated with Jagex, RuneLite, the " +
             "RuneLite plugin authors credited below, or the Old School RuneScape Wiki.")
 
         section("Privacy",
@@ -477,10 +476,10 @@ class MainActivity : Activity() {
             "Your settings, notes, timers, loadouts and synced account are saved on the phone, and go into your phone's normal Android backup if you have that on. Nothing else is stored or sent.")
 
         section("This app's licence",
-            "OSRS Bubble Tool is free software: (c) 2026 sinat50, licensed under the GNU General Public License, version 3 " +
+            "Old School Bubble Tool is free software: (c) 2026 sinat50, licensed under the GNU General Public License, version 3 " +
             "or any later version (gnu.org/licenses/gpl-3.0). You can use, change and share it; if you share a changed " +
             "version, share its source code under the same licence. It comes with no warranty. Its source code is at " +
-            "github.com/sinat50/OSRSBubbleTool.\n\n" +
+            "github.com/sinat50/OldSchoolBubbleTool.\n\n" +
             "That covers the app's own code. What it includes from others keeps its own terms, listed below.")
         fullText("gpl-3.0.txt")
 
@@ -498,7 +497,7 @@ class MainActivity : Activity() {
             "Attribution-NonCommercial-ShareAlike 3.0 licence (creativecommons.org/licenses/by-nc-sa/3.0). " +
             "They have been shortened and reformatted for the app, and anything adapted from them is shared under the same licence. " +
             "(The wiki's pictures aren't under this licence: they're Jagex's, see above.) It includes:\n\n" +
-            "\u2022 Gear Loadouts: every item's name, ID and equipment slot, from the wiki's item pages\n" +
+            "\u2022 DPS Calculator's Import my gear and older Gear Loadouts' item lists: every item's name, ID and equipment slot, from the wiki's item pages\n" +
             "\u2022 Quest Helper: some puzzle answers from the wiki's quick guides (such as Lunar Diplomacy's)\n" +
             "\u2022 Hunter Rumours: rumour lists, locations, travel and equipment from the pages Hunters' Rumours and Hunters' Rumours/Strategies\n" +
             "\u2022 Teleport Finder: search suggestions, where NPCs, monsters and places are on the map, monster levels, and descriptions of some teleport destinations\n" +
@@ -516,7 +515,7 @@ class MainActivity : Activity() {
 
         section("RuneLite",
             "Farming growth times based on RuneLite's Time Tracking plugin. Teleport Finder: newer teleport destinations " +
-            "and the list of dungeon entrances, from RuneLite's world map. Gear Loadouts: which items can be noted, and their noted item IDs, from RuneLite's item list (github.com/runelite/runelite), and which items have a second ID when worn, from its item manager (for the bank tab layout in exports); its item icons, exactly as the game draws them, as published by RuneLite (static.runelite.net; the pictures are (c) Jagex Ltd). Bubble Sync: each quest's RuneLite quest ID, from RuneLite's quest list.\n\n" +
+            "and the list of dungeon entrances, from RuneLite's world map. Older Gear Loadouts' item lists: which items can be noted, and their noted item IDs, from RuneLite's item list (github.com/runelite/runelite). Import my gear: which items look exactly alike, worked out from RuneLite's item icons (static.runelite.net; the pictures are (c) Jagex Ltd and aren't included). Bubble Sync: each quest's RuneLite quest ID, from RuneLite's quest list.\n\n" +
             "Copyright (c) 2016-2017, Adam <Adam@sigterm.info>\nCopyright (c) 2018-2019, Abex\n" +
             "Copyright (c) 2018, NotFoxtrot <https://github.com/NotFoxtrot>\nCopyright (c) 2018, Morgan Lewis <https://github.com/MESLewis>\n" +
             "Copyright (c) 2020, Arman S <https://github.com/Rman887>\n" +
@@ -572,12 +571,6 @@ class MainActivity : Activity() {
         section("Quest Helper",
             "Quest guides, quest requirements and achievement diary tasks adapted from the Quest Helper RuneLite plugin (github.com/Zoinkwiz/quest-helper), and which game values record each diary task (for Bubble Sync).\n\n" +
             QuestGuides.COPYRIGHTS.joinToString("\n") + "\nAll rights reserved.\n\n" +
-            BSD_TERMS, size = 11f)
-
-        section("Gear Loadouts",
-            "The loadout layout follows the Inventory Setups RuneLite plugin's setup screen, and import and export use its " +
-            "setup format and default bank tab layout, so setups move between the plugin and the app (github.com/dillydill123/inventory-setups).\n\n" +
-            "Copyright (c) 2019, dillydill123\nAll rights reserved.\n\n" +
             BSD_TERMS, size = 11f)
 
         section("Zen Garden: wood",

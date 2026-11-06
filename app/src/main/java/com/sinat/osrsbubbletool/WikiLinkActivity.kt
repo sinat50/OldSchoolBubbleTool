@@ -15,7 +15,7 @@ import androidx.core.net.toUri
 // normal browser, as if this app wasn't installed. If Android doesn't say which app sent a
 // link, it's treated as the game while the bubble is on. It's invisible and closes straight away.
 //
-// Android only sends wiki links here if you allow it: Settings > Apps > OSRS Bubble Tool >
+// Android only sends wiki links here if you allow it: Settings > Apps > Old School Bubble Tool >
 // Open by default > Add link (the app's Permissions screen has a button for this).
 // Only real OSRS Wiki pages may open in the bubble's Wiki window. Android only sends this app wiki links on its own,
 // but another app can aim a link straight at it (and claim to be the game), so every address is checked here.

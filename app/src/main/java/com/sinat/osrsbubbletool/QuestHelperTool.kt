@@ -562,8 +562,10 @@ class QuestHelperTool(
         addView(label(p.quest, 11f).apply { setTextColor(FADED) }, full(1))
         if (p.intro.isNotEmpty()) addView(label(p.intro, 13f), full(8))
         p.solver?.let { solverViews.build(it, this) }
-        p.link?.let { (text, url) -> addView(button("🔗 $text", BLUE) { openWiki(url) }, full(8)) }
-        p.image?.let { addView(wikiImage(it), full(8)) }
+        p.link?.let { (text, url) ->
+            addView(button("🔗 $text", BLUE) { openWiki(url) }, full(8))
+            addView(label("Opens in the Wiki window. Tap ◀ there to come back here.", 10f).apply { setTextColor(FADED) }, full(2))
+        }
 
         if (p.table.isNotEmpty()) {
             addView(card(ROW_BROWN) {
@@ -614,41 +616,6 @@ class QuestHelperTool(
         } else {
             p.outro?.let { addView(label(it, 13f), full(8)) }
         }
-    }
-
-    // A picture from the wiki that comes with the app (assets/quest_images/, put there by
-    // tools/dps/fetch_pictures.py: add new ones there too). It works offline.
-    private fun wikiImage(url: String): View = LinearLayout(context).apply {
-        orientation = LinearLayout.VERTICAL
-        val name = url.substringAfterLast('/')
-        // decoded once and kept, no wider than the screen (it's redrawn on every tap)
-        val bitmap = decodedImages[name] ?: decodeScaled("quest_images/$name")?.also { decodedImages[name] = it }
-        if (bitmap == null) {
-            addView(label("The picture for this puzzle is missing.", 12f).apply { setTextColor(FADED) })
-            return@apply
-        }
-        addView(android.widget.ImageView(context).apply {
-            setImageBitmap(bitmap)
-            adjustViewBounds = true
-            scaleType = android.widget.ImageView.ScaleType.FIT_CENTER
-        }, full())
-        addView(label("Picture: OSRS Wiki", 10f).apply { setTextColor(FADED); gravity = Gravity.END }, full(2))
-    }
-
-    private val decodedImages = HashMap<String, android.graphics.Bitmap>()
-
-    // Reads a picture that came with the app, made smaller if it's much wider than the screen
-    private fun decodeScaled(asset: String): android.graphics.Bitmap? = try {
-        val bounds = android.graphics.BitmapFactory.Options().apply { inJustDecodeBounds = true }
-        context.assets.open(asset).use { android.graphics.BitmapFactory.decodeStream(it, null, bounds) }
-        var sample = 1
-        val maxWidth = context.resources.displayMetrics.widthPixels
-        while (bounds.outWidth / (sample * 2) >= maxWidth) sample *= 2
-        context.assets.open(asset).use {
-            android.graphics.BitmapFactory.decodeStream(it, null, android.graphics.BitmapFactory.Options().apply { inSampleSize = sample })
-        }
-    } catch (e: Exception) {
-        null
     }
 
     private fun tableRow(a: String, b: String, bold: Boolean): View = LinearLayout(context).apply {

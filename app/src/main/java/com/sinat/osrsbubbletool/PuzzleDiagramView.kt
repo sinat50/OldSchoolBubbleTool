@@ -33,7 +33,6 @@ class PuzzleDiagramView(context: Context, private val diagram: QuestPuzzles.Diag
         // the other colours used while drawing, read once here rather than on every draw
         private val C_2B2B30 = "#2B2B30".toColorInt()
         private val C_3667E0 = "#3667E0".toColorInt()
-        private val C_3B2622 = "#3B2622".toColorInt()
         private val C_3C3D44 = "#3C3D44".toColorInt()
         private val C_3CD6E0 = "#3CD6E0".toColorInt()
         private val C_3DBB4A = "#3DBB4A".toColorInt()
@@ -42,7 +41,6 @@ class PuzzleDiagramView(context: Context, private val diagram: QuestPuzzles.Diag
         private val C_6E6E76 = "#6E6E76".toColorInt()
         private val C_9A9AA3 = "#9A9AA3".toColorInt()
         private val C_B03A2E = "#B03A2E".toColorInt()
-        private val C_B8862E = "#B8862E".toColorInt()
         private val C_B89A63 = "#B89A63".toColorInt()
         private val C_C8C8D0 = "#C8C8D0".toColorInt()
         private val C_C9A04A = "#C9A04A".toColorInt()
@@ -52,7 +50,6 @@ class PuzzleDiagramView(context: Context, private val diagram: QuestPuzzles.Diag
         private val C_D845C8 = "#D845C8".toColorInt()
         private val C_DCC99C = "#DCC99C".toColorInt()
         private val C_E03A2F = "#E03A2F".toColorInt()
-        private val C_E0A43A = "#E0A43A".toColorInt()
         private val C_E4E4EA = "#E4E4EA".toColorInt()
         private val C_E8D24A = "#E8D24A".toColorInt()
         private val C_E9DAB5 = "#E9DAB5".toColorInt()
@@ -67,8 +64,7 @@ class PuzzleDiagramView(context: Context, private val diagram: QuestPuzzles.Diag
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val w = MeasureSpec.getSize(widthMeasureSpec)
-        // a row of book symbols is wide and short; everything else is roughly square
-        setMeasuredDimension(w, (w * if (diagram is QuestPuzzles.Diagram.Glyphs) 0.42f else 0.95f).toInt())
+        setMeasuredDimension(w, (w * 0.95f).toInt())   // every diagram is roughly square
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -80,7 +76,6 @@ class PuzzleDiagramView(context: Context, private val diagram: QuestPuzzles.Diag
             is QuestPuzzles.Diagram.Power -> drawPower(canvas, diagram)
             QuestPuzzles.Diagram.PipeMachine -> drawPipeMachine(canvas)
             is QuestPuzzles.Diagram.Pattern -> drawPattern(canvas, diagram)
-            is QuestPuzzles.Diagram.Glyphs -> drawGlyphs(canvas, diagram)
         }
         if (diagram is QuestPuzzles.Diagram.Light || diagram is QuestPuzzles.Diagram.Tiles) drawNorth(canvas)
     }
@@ -423,40 +418,6 @@ class PuzzleDiagramView(context: Context, private val diagram: QuestPuzzles.Diag
                 canvas.drawText("$n", x + cell / 2, y + cell / 2 + cell * 0.14f, text)
                 text.color = INK
             }
-        }
-    }
-
-    // ---------------- The Blood Moon Rises bookcase symbols ----------------
-
-    private var parsedGlyphs: List<Pair<Int, List<Long>>>? = null
-
-    private fun drawGlyphs(canvas: Canvas, d: QuestPuzzles.Diagram.Glyphs) {
-        val glyphs = parsedGlyphs ?: d.data.split("|").map { part ->
-            val (w, rows) = part.split(":")
-            w.toInt() to rows.split(",").map { it.toLong(36) }
-        }.also { parsedGlyphs = it }   // (read once: the diagram never changes)
-        val n = glyphs.size
-        val gap = 4 * density
-        val bookW = (width - 16 * density - gap * (n - 1)) / n
-        val bookH = height - 16 * density
-        val maxRows = glyphs.maxOf { it.second.size }
-        val px = min(bookW * 0.85f / glyphs.maxOf { it.first }, bookH * 0.8f / maxRows)
-        for ((k, g) in glyphs.withIndex()) {
-            val (w, rows) = g
-            val bx = 8 * density + k * (bookW + gap); val by = 8 * density
-            fill.color = C_3B2622
-            canvas.drawRoundRect(RectF(bx, by, bx + bookW, by + bookH), 3 * density, 3 * density, fill)
-            fill.color = C_B8862E
-            canvas.drawRect(bx, by + bookH * 0.06f, bx + bookW, by + bookH * 0.1f, fill)
-            canvas.drawRect(bx, by + bookH * 0.9f, bx + bookW, by + bookH * 0.94f, fill)
-            val gx = bx + (bookW - w * px) / 2f; val gy = by + (bookH - rows.size * px) / 2f
-            fill.color = C_E0A43A
-            for ((y, bits) in rows.withIndex()) for (x in 0 until w) {
-                if ((bits shr x) and 1L == 1L) canvas.drawRect(gx + x * px, gy + y * px, gx + (x + 1) * px + 0.5f, gy + (y + 1) * px + 0.5f, fill)
-            }
-            text.textSize = 10 * density; text.typeface = Typeface.DEFAULT_BOLD; text.color = C_E9DAB5
-            canvas.drawText("${k + 1}", bx + bookW / 2, by + bookH - 2 * density, text)
-            text.color = INK
         }
     }
 

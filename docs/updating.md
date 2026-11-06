@@ -9,10 +9,9 @@ no notes yet, write them (in `docs/<tool>.md`) the first time you update it, and
 | `teleports`, `dungeons`, `obstacles` | Teleport Finder | `docs/teleport-finder.md` |
 | `quest-helper`, `new-quests` | Quest Helper | `docs/quest-helper.md` (new quests only arrive once the Quest Helper plugin has them) |
 | `quest-helper`, `new-quests` | Bubble Sync | After any quest or diary change, run `tools/quest-helper/sync_tables.py` (`docs/quest-helper.md`, "After adding a quest or changing a diary"). A new skill or a new diary area also needs a new code format in the Bubble Tool Sync plugin (`C:\Users\Tanis\IdeaProjects\BubbleToolSync`, its `CLAUDE.md`) and in `AccountSync.kt`, both at once |
-| `dps-items`, `item-pictures` | DPS Calculator | `docs/gear-items.md` (DPS section) |
+| `dps-items` | DPS Calculator | `docs/gear-items.md` (DPS section) |
 | `puzzle-pictures` | Puzzle Box Solver | Run `python tools/puzzle-box/build_tile_fingerprints.py` (a new puzzle box: add it to the list at the top of that script first) |
-| `quest-pictures` | Quest Helper | Delete the changed picture from `assets/quest_images/`, run `tools/dps/fetch_pictures.py` |
-| `new-gear` | Gear Loadouts, DPS Calculator item lists | `docs/gear-items.md` |
+| `new-gear` | DPS Calculator item lists | `docs/gear-items.md` |
 | `toa` | ToA Puzzle Helper | `docs/toa-helper.md` (answers in `ToaPuzzles.kt`) |
 | `hunter-rumours` | Hunter Rumours | `docs/hunter-rumours.md` |
 | `zulrah` | Zulrah Helper | No notes yet. Rotations are hand-written in `ZulrahTool.kt` |

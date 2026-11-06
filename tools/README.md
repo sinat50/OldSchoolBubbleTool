@@ -34,14 +34,16 @@ git clone https://github.com/Varzeki/golems-dont-die        # obstacles.gz (BSD 
 runs them against one or more versions of `walks.txt` and prints how many results are guesses and every
 place whose top result changed. Build and run instructions are at the top of the file.
 
-## Gear Loadouts item list (`items/`)
+## Item list (`items/`)
 
-No downloads needed first: the script reads the OSRS Wiki's item tables through the wiki's API.
+Text only, for the DPS Calculator's Import my gear (and the item lists of loadouts saved before Gear Loadouts kept
+screenshots). No pictures go into the app. No downloads needed first: the scripts read the OSRS Wiki's item tables
+through the wiki's API, and RuneLite's item icons.
 
 | Script | Makes | Notes |
 | --- | --- | --- |
-| `build_items.py` | `items/items.tsv`, `items/noted.tsv`, `items/icons/` | `python3 build_items.py app/src/main/assets` (from the project folder). Every item's ID, name, equipment slot and picture(s) from the OSRS Wiki, and noted IDs from RuneLite's item list. Skips pictures already there. About 8 minutes the first time (15,000 pictures), seconds after. |
-| `build_icons.py` | `items/canvas/`, `items/canvas.tsv`, `items/canvas.bin`, `items/shapes.bin` | `python3 build_icons.py app/src/main/assets`, **right after** `build_items.py`. Every item's icon exactly as the game draws it (RuneLite's, 36 x 32, noted ones on their note), for showing items and reading the inventory at each item's exact place. Then removes the wiki pictures no longer needed (keeps stack-size pictures like coins) and writes `shapes.bin` for those kept. About 15 minutes the first time (21,000 icons), seconds after. |
+| `build_items.py` | `items/items.tsv`, `items/noted.tsv` | `python3 build_items.py app/src/main/assets` (from the project folder). Every item's ID, name, equipment slot and picture name from the OSRS Wiki, and noted IDs from RuneLite's item list. A minute or two. |
+| `build_icons.py` | `items/canvas.tsv` | `python3 build_icons.py app/src/main/assets`, **right after** `build_items.py` (needs Pillow). Which items look exactly alike in the game, from RuneLite's item icons, which it keeps in `tools/items/icon_cache/` on this computer only (left out of Git, never in the app) so later runs only fetch new ones. About 15 minutes with an empty cache (21,000 icons), seconds after. |
 
 ## Quest Helper (`quest-helper/`)
 
@@ -65,16 +67,12 @@ are not saved. A new puzzle box only needs a new line in the script's `PUZZLES` 
 
 ```
 git clone https://github.com/weirdgloop/osrs-dps-calc       # GPL-3.0
-cd osrs-dps-calc && git checkout <GearIcons.COMMIT>
+cd osrs-dps-calc && git checkout <CalculatorItems.COMMIT>
 ```
 
 | Script | Makes | Notes |
 | --- | --- | --- |
 | `build_equipment_json.py` | `dps/equipment.json` | `python3 build_equipment_json.py osrs-dps-calc equipment.json` |
-| `build_gear_summaries.py` | `dps/gear_summaries.bin` | `python tools/dps/build_gear_summaries.py` (from the project folder). Every wearable item's icon (RuneLite's) as 9 x 8 colour squares, for Import my gear, which keeps no item pictures. The owner's limit is 9 x 8 at the most. Run it after the item lists change (`tools/items/`). `GearImportTest` checks it on the owner's screenshots. |
-| `fetch_pictures.py` | `dps/icons/`, `quest_images/` | `python3 fetch_pictures.py app/src/main/assets` (from the project folder). Downloads every game picture the app comes with: item pictures from the repository at `GearIcons.COMMIT` (the "wiki" ones from the OSRS Wiki), and the quest pictures from the wiki. Skips ones already there and removes ones no longer needed, so run it after rebuilding `equipment.json`. About 30 seconds. |
+| `build_gear_summaries.py` | `dps/gear_summaries.bin` | `python tools/dps/build_gear_summaries.py` (from the project folder). Every wearable item's icon (RuneLite's, from `tools/items/icon_cache/` or downloaded) as 9 x 8 colour squares, for Import my gear, which keeps no item pictures. The owner's limit is 9 x 8 at the most. Run it after the item lists change (`tools/items/`). `GearImportTest` checks it on the owner's screenshots. |
 
-`wiki_icons.txt` lists the item pictures the repository has out of date at the pinned version;
-`fetch_pictures.py` gets those from the OSRS Wiki instead. If you move to a newer version, update `COMMIT` in
-`GearIcons.kt`, rebuild `equipment.json`, check whether those pictures are still out of date, then run
-`fetch_pictures.py`.
+If you move to a newer version of the repository, update `COMMIT` in `CalculatorItems.kt`, then rebuild `equipment.json`.

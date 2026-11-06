@@ -55,12 +55,6 @@
             android:taskAffinity=""
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name=".LoadoutFileActivity"
-            android:exported="false"
-            android:excludeFromRecents="true"
-            android:taskAffinity=""
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
             android:name=".SyncScanActivity"
             android:exported="false"
             android:excludeFromRecents="true"
@@ -88,7 +82,7 @@
             android:taskAffinity=""
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <!-- Wiki links. Not "verified" (autoVerify): the wiki isn't this app's website, so links only come
-                 here if you turn it on in Settings > Apps > OSRS Bubble Tool > Open by default. -->
+                 here if you turn it on in Settings > Apps > Old School Bubble Tool > Open by default. -->
             <intent-filter android:autoVerify="false">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />

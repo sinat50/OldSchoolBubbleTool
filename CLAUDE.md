@@ -1,8 +1,10 @@
-# OSRS Bubble Tool: notes for working on this project
+# Old School Bubble Tool: notes for working on this project
 
 A free, ad-free Android app for Old School RuneScape mobile: a floating bubble over the game that opens
-small tool windows. Kotlin, Android Views (no Compose), one app module. Package `com.sinat.osrsbubbletool`.
-GitHub: sinat50/OSRSBubbleTool. Licence: GPL-3.0-or-later (`LICENSE`; the included wiki content, BSD parts and
+small tool windows. Kotlin, Android Views (no Compose), one app module. Package `com.sinat.osrsbubbletool` (kept
+when the app was renamed from "OSRS Bubble Tool" in v1.2.1, so updates install over it; don't put "OSRS" back in any
+name players see).
+GitHub: sinat50/OldSchoolBubbleTool. Licence: GPL-3.0-or-later (`LICENSE`; the included wiki content, BSD parts and
 game pictures keep their own terms). The README is the user-facing description of every tool.
 
 ## At the start of every new chat
@@ -32,7 +34,7 @@ When a change has been dealt with, or the owner says it doesn't matter, mark it 
   being worked on, from the release branch's name (`git branch --show-current`, e.g. `v1.0.8 Zen Garden: ...`), not
   `versionName`, which still shows the last release until it's bumped at release time.
 - When committing, remind them that brand-new files sit under "Unversioned Files" in the Commit window and
-  are NOT ticked by default (a commit once left out `AssetDownloader.kt` and `GearIcons.kt`).
+  are NOT ticked by default (a commit once left out two new files).
 - Android Studio's commit check ("Analyze code") lists warnings and grammar flags; they don't block a commit.
 
 ## Where things are
@@ -48,9 +50,9 @@ Code: `app/src/main/java/com/sinat/osrsbubbletool/` (one file per tool, roughly)
 | `LightBoxTool.kt`, `LightBoxReader.kt`, `LightBoxGuideOverlay.kt` | Light Box Solver |
 | `GuideWindow.kt`, `ScreenPictures.kt` | Shared: the see-through guide windows both solvers draw in; and working with screen pictures (`forEachPatch`, `cutArea`, `savePictureToPhone`) |
 | `ToaPuzzleTool.kt`, `ToaPuzzles.kt`, `ToaReader.kt`, `HetReader.kt`, `ToaMaps.kt` | ToA Puzzle Helper: the five Path of Scabaras puzzles and the Path of Het's mirrors (`HetReader` tells its three rooms apart; `ToaMaps` draws the maps). **Read `docs/toa-helper.md` before changing these.** |
-| `DpsTool.kt`, `GearImport.kt`, `GearRecognizer.kt`, `GearIcons.kt`, `PanelFinder.kt` | DPS Calculator (wiki web page) and Import my gear: read from `dps/gear_summaries.bin` alone (`InventoryReader.readEquipmentBySummaries`: 9 x 8 colour squares per item, no pictures, the owner's limit), then `GearImport` picks each slot's calculator item (bolts enchanted; Ruby, Diamond, Dragonstone and Onyx bolts first when the kinds fit almost equally, as the amount covers the gem tips) and it loads straight into the calculator, with no checking step (owner's decision, November 2026). `GearRecognizer` is only used for the calculator's item list here (Gear Loadouts still uses it as a backup). `PanelFinder` (shared with Gear Loadouts) finds the side panel by its black outline, only with the 14 tab buttons beside it (a dark floor can outline a bigger box), tells which tab is open (its button is red), and finds the spellbook button and an open rune pouch |
-| `GearLoadoutsTool.kt`, `Loadout.kt`, `ItemData.kt`, `ItemPictures.kt`, `GameReading.kt`, `GuidedScan.kt`, `LoadoutReader.kt`, `InventoryReader.kt`, `LoadoutFileActivity.kt` | Gear Loadouts (was Inventory Setups; the `Tool` name and its settings file keep the old name): a loadout's items and the RuneLite Inventory Setups format (`Loadout`), every item in the game (`ItemData`, `ItemCatalog`), item pictures and the square slots (`ItemIcons`, `ItemSlotView`, `SlotGrid`), Scan Current Loadout (`GuidedScan`: the scan loop; `GameReading`: loading the comparison pictures and deciding which readings to trust; `LoadoutReader`: spellbook, rune pouch (an empty one by its X marks), the game's digits and the K and M after big amounts; `InventoryReader`: the 28 inventory spaces, each RuneLite icon compared at its exact place (narrowed down with `canvas.bin`), the wiki's stack pictures by each item's outline as a backup; the equipment the same way at each slot's place (`readEquipment`), the DPS tool's `GearRecognizer` only if that finds nothing), the file chooser for import/export. Plan: `.scratch/gear-loadouts/`; test screenshots: `Documents\Androiddev\loadout_shots\` (`LoadoutReaderTest`, `InventoryReaderTest`; `DigitsTest` draws amounts itself, `GuidedScanTest` checks the scan's "believe an empty reading on the second look") |
-| `RegionOverlay.kt`, `PuzzleAreaOverlay.kt` | The "set area by hand" frames |
+| `DpsTool.kt`, `GearImport.kt`, `GearSummaryReader.kt`, `CalculatorItems.kt`, `ItemData.kt`, `ItemCatalog.kt`, `PanelFinder.kt` | DPS Calculator (wiki web page) and Import my gear: read from `dps/gear_summaries.bin` alone (`GearSummaryReader`: 9 x 8 colour squares per item, no pictures, the owner's limit; an empty slot by its missing black outline), then `GearImport` picks each slot's calculator item (bolts enchanted; Ruby, Diamond, Dragonstone and Onyx bolts first when the kinds fit almost equally, as the amount covers the gem tips) and it loads straight into the calculator, with no checking step (owner's decision, November 2026). `CalculatorItems`: the calculator's item list (`equipment.json`, and the `COMMIT` it's pinned to); `ItemData`/`ItemCatalog`: every item's name and slot (`items.tsv`) and which look exactly alike (`canvas.tsv`). `PanelFinder` (shared with Gear Loadouts) finds the side panel by its black outline, only with the 14 tab buttons beside it (a dark floor can outline a bigger box), tells which tab is open (its button is red), and finds the spellbook button and an open rune pouch |
+| `GearLoadoutsTool.kt`, `Loadout.kt`, `GuidedScan.kt` | Gear Loadouts (was Inventory Setups; the `Tool` name and its settings file keep the old name): screenshots of the inventory, equipment, rune pouch and spellbook button with notes, nothing recognised (owner's decision, November 2026: no item pictures, no RuneLite import/export). Scan Current Loadout (`GuidedScan`) saves each part from the side panel or the pouch's window (`PanelFinder`) once it shows on two looks in a row; the rune pouch is optional (8 s wait after the rest). Pictures in `files/setups/<id>/` (`<part>.webp`; Inventory Setups' `.png` still shown). `Loadout` keeps the name and notes, plus the item lists of loadouts saved by v1.0.9 to v1.2.0, shown as text (`itemLines`) until a scan replaces each part (`forget...`). Old plan: `.scratch/gear-loadouts/` |
+| `PuzzleAreaOverlay.kt` | The Puzzle Box Solver's "set area by hand" frame |
 | `TeleportFinderTool.kt`, `TeleportData.kt`, `WalkMap.kt` | Teleport Finder (Beta): wiki lookup, teleport list, walking-route search |
 | `QuestHelperTool.kt`, `QuestData.kt`, `QuestGuides.kt`, `QuestBook.kt`, `QuestPuzzles.kt`, `QuestSolvers.kt`, `QuestSolverViews.kt`, `PuzzleDiagramView.kt` | Quest Helper (Beta), from the Quest Helper RuneLite plugin (`PuzzleDiagramView` draws the puzzle answer maps). **Read `docs/quest-helper.md` before adding or changing quests**: `QuestData.kt` and `QuestGuides.kt` are changed only with `tools/quest-helper/quest_files.py` |
 | `HunterRumourTool.kt`, `HunterRumours.kt` | Hunter Rumours |
@@ -75,10 +77,8 @@ Data: `app/src/main/assets/` (how to run the scripts: `tools/README.md`)
 | `dungeons.txt` | `tools/teleport-finder/build_dungeons.py` | RuneLite world map `DungeonLocation.java` |
 | `entrances.tsv` | (older, kept only as a fallback for straight-line estimates) | |
 | `dps/equipment.json` | `tools/dps/build_equipment_json.py` | OSRS Wiki DPS calculator repository |
-| `items/items.tsv`, `items/noted.tsv` (each notable item's noted ID), `items/icons/` (1,769 wiki pictures: stacks drawn differently by size, items too new for RuneLite) | `tools/items/build_items.py` | OSRS Wiki item tables (every item's ID, name, slot, picture), for Gear Loadouts (`ItemData`); noted IDs from RuneLite's `gameval/ItemID.java` |
-| `items/canvas/` (14,766 icons, 10.3 MB), `items/canvas.tsv`, `items/canvas.bin` (each icon in brief, 2.2 MB), `items/shapes.bin` (the wiki pictures in brief) | `tools/items/build_icons.py` (run after build_items.py) | RuneLite's item icons (static.runelite.net), exactly as the game draws them: shown in loadouts, and read at each item's exact place (`InventoryReader`) |
-| `dps/empty_slots.png` | cut from a game screenshot | what empty equipment slots look like |
-| `dps/icons/` (4,991 item pictures, 2.6 MB; now only Gear Loadouts' backup reader uses them), `quest_images/` | `tools/dps/fetch_pictures.py` | DPS calculator repository at `GearIcons.COMMIT`; OSRS Wiki |
+| `items/items.tsv`, `items/noted.tsv` (each notable item's noted ID) | `tools/items/build_items.py` | OSRS Wiki item tables (every item's ID, name, slot, picture name: text only), for Import my gear and older loadouts' item lists (`ItemData`); noted IDs from RuneLite's `gameval/ItemID.java` |
+| `items/canvas.tsv` (which items look exactly alike) | `tools/items/build_icons.py` (run after build_items.py) | RuneLite's item icons (static.runelite.net), kept in `tools/items/icon_cache/` on the PC only (in `.gitignore`), never in the app |
 | `dps/gear_summaries.bin` (every wearable item's icon as 9 x 8 colour squares, 1.2 MB) | `tools/dps/build_gear_summaries.py` | RuneLite's item icons |
 | `puzzle_tiles.bin` (each puzzle box tile as 8 x 8 average colours, 34 KB; the pictures aren't kept) | `tools/puzzle-box/build_tile_fingerprints.py` | OSRS Wiki's solved puzzle pictures |
 
@@ -109,12 +109,16 @@ trailer and the ToA demo video; how to update them is in `trailer/README.md`), `
   readings taken mid-turn, placing, dragging, resizing, the bubble), tested on the PC (`ScreenBarsTest`); the
   service holds the current `Bars` and moves the windows. Checked on the emulator (October 2026) sideways and
   upright: bubble and windows stop exactly at the bars.
-- **Game pictures come with the app** (owner's decision), in `assets/dps/icons/` and
-  `assets/quest_images/`. (The Puzzle Box Solver now ships colour summaries instead of pictures: Jagex replied in
-  November 2026 that the app isn't permitted under the Fan Content Policy, and the rest is still being worked through.) They're Jagex's artwork, included under Jagex's Fan Content Policy; if Jagex objects,
-  the fallback is downloading them instead (tried in v1.0.6 test builds: slow, from GitHub or jsDelivr).
-  `MainActivity.removeOldDownloads()` deletes those old downloaded copies once. The DPS tool no longer loads any item
-  pictures: Import my gear reads `dps/gear_summaries.bin` the first time it's used.
+- **Game pictures and Jagex** (read `.scratch/jagex-response/plan.md` first): Jagex replied in November 2026 that
+  the app isn't permitted under its Fan Content Policy and "OSRS" can't be in its name. **Add no new game pictures**
+  (item, quest, map or screenshot). Tools are moving to colour summaries worked out from the pictures, never the
+  pictures themselves, at most 9 x 8 squares per item icon (the owner's limit): done for the Puzzle Box Solver
+  (`puzzle_tiles.bin`) and the DPS tool's Import my gear (`dps/gear_summaries.bin`, read the first time it's used;
+  the DPS tool loads no pictures). Gear Loadouts keeps the player's own screenshots instead of item pictures. The
+  Quest Helper ships no pictures: a puzzle whose answer is a picture has a wiki link (`Puzzle.link`; ◀ in the Wiki
+  window comes back to the puzzle). The app ships no game pictures at all (November 2026). The owner hasn't replied to
+  Jagex yet: don't contact Jagex. `MainActivity.removeOldDownloads()` deletes pictures that v1.0.6 test builds
+  downloaded.
 - **Dark mode**: every screen's colours come from `Palette` (tools import its `PARCHMENT`, `DARK_BROWN`...
   directly), read when a view is built. Switching it makes `BubbleService.rebuildToolWindows()` destroy and
   rebuild all tools (the open window reopens; the Wiki keeps its page); the main screen redraws in its own
@@ -129,7 +133,7 @@ trailer and the ToA demo video; how to update them is in `trailer/README.md`), `
   font scale multiplied by the setting (so every `textSize` in sp grows; dp sizes and drawn pictures don't).
   Changing it rebuilds the tools like dark mode, 0.7 s after the last − or + tap (`TEXT_SIZE_WAIT_MS`). The web
   text size multiplies each page's own `textZoom`.
-- **Backups**: only shared preferences and `files/setups/` (Inventory Setups pictures) are backed up or moved to
+- **Backups**: only shared preferences and `files/setups/` (Gear Loadouts' screenshots, WebP to stay small) are backed up or moved to
   a new phone (Android stops backing up an app entirely past 25 MB).
 - **Screen capture** pauses itself 3 seconds after the last use and is asked for once per bubble session. Each
   picture (`grab`) is one bitmap; with single-app sharing it's placed where the game sits on screen. The Puzzle
@@ -171,9 +175,8 @@ trailer and the ToA demo video; how to update them is in `trailer/README.md`), `
   `app/build/reports/lint-results-debug.sarif`). Expected warnings: 93 "SetTextI18n" (text written in the code,
   see `.scratch/lint-text-warnings/`) and 2 "IconXmlAndPng" (the app icon).
 - PC tests: `./gradlew.bat testDebugUnitTest`, in `app/src/test/`: chess (rules and the computer player), the Puzzle Box and Light Box solvers, the ToA
-  answers, farming growth times, how quest requirements read and are checked against an account, reading Bubble Tool Sync codes (`SyncCodeTest`), the Zen Garden's save file, placed things and auto rake patterns, keeping windows clear of the bars, and Gear Loadouts (items, loadouts and the RuneLite format; the
-  screen readers on the owner's screenshots at other screen sizes and brightness, skipped without them; amounts
-  drawn from the game's font) (expected answers worked out by hand or from the game, never copied from the code); `GearImportTest` the DPS tool's Import my gear from the summaries alone, on the owner's equipment screenshots (`loadout_shots` and `Documents\Androiddev\gear_lookalike_shots`, at three brightness settings, described in its `notes.md`), `PuzzleScreenshotsTest` the owner's puzzle box screenshots at three brightness settings (`Documents\Androiddev\puzzle_shots`, described in its `notes.md`; the solver finds the puzzle by the lines between tiles, which keep no blue at any brightness), `ToaReaderTest` needs recordings, `HetReaderTest` the owner's Path of Het screenshots and `HetReplayTest` pictures cut from a recorded Watch run (see `docs/toa-helper.md`). The real
+  answers, farming growth times, how quest requirements read and are checked against an account, reading Bubble Tool Sync codes (`SyncCodeTest`), the Zen Garden's save file, placed things and auto rake patterns, keeping windows clear of the bars, and Gear Loadouts (loadouts and older ones' item lists, `LoadoutTest`; the
+  scan's two-looks rule and rune pouch countdown, `GuidedScanTest`; the item list, `ItemDataTest`) (expected answers worked out by hand or from the game, never copied from the code); `GearImportTest` the DPS tool's Import my gear from the summaries alone, on the owner's equipment screenshots (`loadout_shots` and `Documents\Androiddev\gear_lookalike_shots`, at three brightness settings, described in its `notes.md`), `PuzzleScreenshotsTest` the owner's puzzle box screenshots at three brightness settings (`Documents\Androiddev\puzzle_shots`, described in its `notes.md`; the solver finds the puzzle by the lines between tiles, which keep no blue at any brightness), `ToaReaderTest` needs recordings, `HetReaderTest` the owner's Path of Het screenshots and `HetReplayTest` pictures cut from a recorded Watch run (see `docs/toa-helper.md`). The real
   `org.json` is added for tests only (Android's own isn't on the PC). Code with Android parts gets a pure version
   to test (like `FarmingTimers.finishTime` taking the tick offset as a number). `TeleportData.kt` and `WalkMap.kt` have no Android parts, so routes are
   tested with `tools/teleport-finder/test/` (see its README section).
@@ -212,9 +215,9 @@ Each release is worked on in its own branch (named like `v1.0.9`), then merged i
    the release branch) and push.
 4. Build → Generate Signed App Bundle or APK → APK → release, with the key from the Keys folder.
 5. GitHub → Releases → new release, tag `vX.Y.Z` (the update checker reads the tag), not a pre-release,
-   attach `OSRSBubbleTool-X.Y.Z.apk`. End the notes with: "Created using intellectual property belonging to
-   Jagex Limited under the terms of Jagex's Fan Content Policy. This content is not endorsed by or affiliated with
-   Jagex. Free software, GPL-3.0-or-later; credits in the README." (Jagex wants that line wherever people get the app.)
+   attach `OldSchoolBubbleTool-X.Y.Z.apk`. The notes end with "Free software, GPL-3.0-or-later; credits in the
+   README." No Fan Content Policy line: the owner removed it everywhere in v1.2.1 (November 2026), since Jagex says
+   the app isn't covered by that policy.
 
 Tags use the "v" form (`1.0.3` is the one exception). A published release's tag stays as it is: renaming it on
 GitHub creates the new tag on the latest master (that happened to v1.0.5 and was fixed by force-pushing the tag

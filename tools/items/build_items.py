@@ -1,33 +1,29 @@
-"""Builds the item list and item pictures Gear Loadouts uses, into app/src/main/assets/items/.
+"""Builds the item list, into app/src/main/assets/items/: text only, for the DPS Calculator's Import my gear and the
+item lists of older Gear Loadouts. No pictures are downloaded or kept (the app comes with no game pictures).
 
 Source: the OSRS Wiki's item tables (oldschool.runescape.wiki, text under CC BY-NC-SA 3.0), read through the
-wiki's API: "infobox_item" (every item version: ID, name, picture) and "infobox_bonuses" (which equipment slot
-it goes in). The pictures are Jagex's artwork from the wiki, included under Jagex's Fan Content Policy.
+wiki's API: "infobox_item" (every item version: ID, name, picture name) and "infobox_bonuses" (which equipment slot
+it goes in).
 
 Makes:
-  items/items.tsv  one line per item ID: ID, name, equipment slot (empty if it isn't worn), picture file(s),
+  items/items.tsv  one line per item ID: ID, name, equipment slot (empty if it isn't worn), picture name(s),
                    and the wiki page if it isn't the item's name (minigame and quest copies have their own page).
                    Items whose picture changes with the stack size (coins, arrows...) list several pictures,
                    separated by "|"; the number at the end of each name ("Coins 250.png") is the smallest stack
                    it's for.
-  items/spellbooks/ the spellbook tab pictures, 0.png to 3.png (standard, Ancient, Lunar, Arceuus).
-  items/icons/     every picture named in items.tsv. Characters Windows can't have in a file name are "_"
-                   ("Guam in a box?.png" is saved as "Guam in a box_.png").
+                   (Characters Windows can't have in a file name are "_": "Guam in a box?.png" is written
+                   "Guam in a box_.png". The DPS tool matches items to the calculator's by these names.)
+  items/noted.tsv  each item that can be noted, and its noted version's ID.
 
-Run it again after a game update to pick up new items. Pictures already there are skipped; pictures no longer
-needed are removed. Takes a few minutes the first time (about 16,000 pictures).
+Run it again after a game update to pick up new items, then tools/items/build_icons.py.
 
 Usage: python3 build_items.py path/to/app/src/main/assets
 """
 import html, json, os, re, sys, urllib.parse, urllib.request
-from concurrent.futures import ThreadPoolExecutor
 
 assets = sys.argv[1]
-AGENT = 'OSRSBubbleTool item list builder (github.com/sinat50/OSRSBubbleTool)'
+AGENT = 'OldSchoolBubbleTool item list builder (github.com/sinat50/OldSchoolBubbleTool)'
 API = 'https://oldschool.runescape.wiki/api.php'
-PICTURES = 'https://oldschool.runescape.wiki/images/'
-# Follows renamed pictures, which the address above doesn't (slower, so only tried second)
-RENAMED = 'https://oldschool.runescape.wiki/w/Special:Redirect/file/'
 # The slot names the app uses (the same as the DPS tool's), from the wiki's names
 SLOTS = {'head': 'head', 'cape': 'cape', 'neck': 'neck', 'ammo': 'ammo', 'weapon': 'weapon', '2h': 'weapon',
          'body': 'body', 'shield': 'shield', 'legs': 'legs', 'hands': 'hands', 'feet': 'feet', 'ring': 'ring'}
@@ -77,7 +73,7 @@ def file_name(picture):
     safe = re.sub(r'[\\/:*?"<>|]', '_', picture)
     return saved_as.setdefault(safe.lower(), safe)
 
-lines, pictures = {}, {}
+lines = {}
 for r in items:
     page = r.get('page_name', '')
     name = clean(r.get('item_name') or page)
@@ -92,58 +88,19 @@ for r in items:
             continue   # a few pages hold notes instead of an ID ("beta", "N/A")
         if item_id not in lines:   # the first row wins if two pages claim one ID
             stored = [file_name(f) for f in files]
-            pictures.update(zip(stored, files))   # only pictures an item uses are downloaded
             # the wiki page, when it isn't the item's name: copies of an item from a minigame or quest are on
             # their own page ("Rune pouch (Last Man Standing)") but have the same name in the game
             page_note = clean(page) if clean(page) != name else ''
             lines[item_id] = '\t'.join([str(item_id), name, slot or '', '|'.join(stored), page_note])
 
 folder = os.path.join(assets, 'items')
-icons = os.path.join(folder, 'icons')
-os.makedirs(icons, exist_ok=True)
+os.makedirs(folder, exist_ok=True)
 with open(os.path.join(folder, 'items.tsv'), 'w', encoding='utf-8', newline='\n') as out:
-    out.write('# OSRS item IDs, names, equipment slots and pictures, from the OSRS Wiki (CC BY-NC-SA 3.0). '
+    out.write('# OSRS item IDs, names, equipment slots and picture names, from the OSRS Wiki (CC BY-NC-SA 3.0). '
               'Built by tools/items/build_items.py\n')
     for item_id in sorted(lines):
         out.write(lines[item_id] + '\n')
 print(len(lines), 'item IDs,', sum(1 for l in lines.values() if l.split('\t')[2]), 'worn items')
-
-wanted = pictures   # saved name: wiki name
-for f in os.listdir(icons):
-    if f not in wanted:
-        os.remove(os.path.join(icons, f))   # no longer needed
-
-def save(item):
-    name, picture = item
-    path = os.path.join(icons, name)
-    if os.path.exists(path):
-        return True
-    for address in (PICTURES, RENAMED):
-        try:
-            data = fetch(address + urllib.parse.quote(picture.replace(' ', '_')))
-            if data[:8] == b'\x89PNG\r\n\x1a\n':   # only keep real pictures
-                open(path, 'wb').write(data)
-                return True
-        except Exception:
-            pass
-    print('  could not get', picture)
-    return False
-
-with ThreadPoolExecutor(8) as pool:   # gentle on the wiki
-    ok = sum(pool.map(save, wanted.items()))
-size = sum(os.path.getsize(os.path.join(icons, f)) for f in os.listdir(icons))
-print(f'items/icons: {ok} of {len(wanted)} pictures, {size / 1048576:.1f} MB')
-
-# The spellbook tab's four pictures (Gear Loadouts shows the loadout's spellbook with them),
-# saved as items/spellbooks/0.png to 3.png in RuneLite's order: standard, Ancient, Lunar, Arceuus
-books = os.path.join(folder, 'spellbooks')
-os.makedirs(books, exist_ok=True)
-for number, picture in enumerate(['Standard spellbook.png', 'Ancient spellbook.png', 'Lunar spellbook.png', 'Arceuus spellbook.png']):
-    data = fetch(PICTURES + urllib.parse.quote(picture.replace(' ', '_')))
-    if data[:8] != b'\x89PNG\r\n\x1a\n':
-        sys.exit('Could not get ' + picture)
-    open(os.path.join(books, f'{number}.png'), 'wb').write(data)
-print('items/spellbooks: 4 pictures')
 
 # Noted items: each item that can be noted, and its noted version's ID (a noted item is its own item in the game,
 # drawn on a bank note). From RuneLite's list of the game's item IDs (github.com/runelite/runelite,
@@ -164,9 +121,3 @@ with open(os.path.join(folder, 'noted.tsv'), 'w', encoding='utf-8', newline='\n'
     for plain, noted in noted_pairs:
         out.write(f'{plain}\t{noted}\n')
 print('items/noted.tsv:', len(noted_pairs), 'notable items')
-
-# Each picture's shape and colours in brief (items/shapes.bin, see item_shapes.py). build_icons.py, run next, keeps
-# only the pictures still needed and writes this again for them.
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from item_shapes import write_shapes
-write_shapes(folder, wanted)

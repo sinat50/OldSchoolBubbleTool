@@ -26,7 +26,7 @@ PUZZLES = [
     ('Theatre of Blood', 'Theatre_of_Blood_puzzle_solved.png'),
 ]
 WIKI = 'https://oldschool.runescape.wiki/images/'
-AGENT = 'OSRSBubbleTool picture builder (github.com/sinat50/OSRSBubbleTool)'
+AGENT = 'OldSchoolBubbleTool picture builder (github.com/sinat50/OldSchoolBubbleTool)'
 GRID, SAMPLE, INNER = 5, 8, 0.7
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'app', 'src', 'main', 'assets', 'puzzle_tiles.bin')
 
