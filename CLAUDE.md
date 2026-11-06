@@ -229,14 +229,10 @@ Each release is worked on in its own branch (named like `v1.0.9`), then merged i
 
 Tags use the "v" form (`1.0.3` is the one exception). A published release's tag stays as it is: renaming it on
 GitHub creates the new tag on the latest master (that happened to v1.0.5 and was fixed by force-pushing the tag
-back to its commit from Android Studio's terminal, which has the GitHub login). Latest release: v1.2.0 (27 October
-2026, versionCode 12; Bubble Sync with the Bubble Tool Sync plugin, replacing WikiSync). The next release's branch is made when work on it starts.
-
-**v1.2.1** (branch `v1.2.1`, pushed, not released or merged yet; `versionName`/`versionCode` not bumped yet): the
-keyboard handover, no game pictures (Puzzle Box tile summaries, Import my gear from 9 x 8 summaries, Gear Loadouts
-back to screenshots, Quest Helper wiki links), the rename to Old School Bubble Tool, the Fan Content Policy line
-removed, and fixes from a code review of everything since v1.2.0. Its commit messages are the release notes' source.
-Before releasing, ask the owner about the open questions in `.scratch/jagex-response/plan.md`.
+back to its commit from Android Studio's terminal, which has the GitHub login). Latest release: v1.2.1 (6 November
+2026, versionCode 13; the rename to Old School Bubble Tool, no game pictures, the keyboard handover). Older releases
+(v1.0.0 to v1.2.0) were turned back into drafts that day, hidden from the public (owner's decision; their tags stay). The next
+release's branch is made when work on it starts.
 
 ## Plans, to-dos and things to test
 
