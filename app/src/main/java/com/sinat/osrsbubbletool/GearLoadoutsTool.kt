@@ -247,16 +247,21 @@ class GearLoadoutsTool(
             page.addView(label("Saved items", 14f, bold = true), fullWidth(14))
             page.addView(label("Saved before Gear Loadouts kept screenshots. Scan Current Loadout replaces each part " +
                 "with its screenshot.", 11f).apply { setTextColor(Palette.FADED) }, fullWidth(2))
-            val data = items
-            if (data == null) {
-                page.addView(label("Loading item names…"), fullWidth(6))
-                ItemCatalog.get(context) { loaded -> items = loaded; if (current === l && scan.progress == null) showLoadout(l) }
-            } else {
+            val itemsBox = column()
+            page.addView(itemsBox, fullWidth())
+            fun fillItems(data: ItemData) {
+                itemsBox.removeAllViews()
                 for (list in l.itemLines { id -> data.shown(id)?.let { (item, noted) -> if (noted) "${item.name} (noted)" else item.name } ?: "Item $id" }) {
-                    page.addView(label(list.heading, 13f, bold = true), fullWidth(8))
-                    page.addView(label(list.lines.joinToString("\n"), 13f), fullWidth(2))
+                    itemsBox.addView(label(list.heading, 13f, bold = true), fullWidth(8))
+                    itemsBox.addView(label(list.lines.joinToString("\n"), 13f), fullWidth(2))
                 }
             }
+            val data = items
+            if (data == null) {
+                itemsBox.addView(label("Loading item names…"), fullWidth(6))
+                // only the list is filled in when the names arrive, so a name or note being typed isn't lost
+                ItemCatalog.get(context) { loaded -> items = loaded; if (current === l) fillItems(loaded) }
+            } else fillItems(data)
         }
 
         page.addView(label("Notes", 14f, bold = true), fullWidth(12))
@@ -318,19 +323,24 @@ class GearLoadoutsTool(
     // guided scan looks at the game; each part ticks off as it's saved.
 
     private var scanning: Loadout? = null   // the loadout the scan saves into
+    private var writeFailed = false         // a screenshot of this scan couldn't be written (used on the writer thread only)
     private val scan = GuidedScan(capture, debugBuild, object : GuidedScan.Listener {
         override fun saved(part: Part, picture: Bitmap) {
             val l = scanning ?: run { picture.recycle(); return }
-            // the screenshot replaces that part of an item list saved before screenshots
-            when (part) {
-                Part.INVENTORY -> l.forgetInventory()
-                Part.EQUIPMENT -> l.forgetEquipment()
-                Part.RUNE_POUCH -> l.forgetRunePouch()
-                Part.SPELLBOOK -> l.forgetSpellbook()
-            }
-            saveLoadouts()
             val dir = File(folder, l.id)
-            writer.execute { writePicture(dir, part, picture) }
+            writer.execute {
+                if (writePicture(dir, part, picture)) handler.post {
+                    // once it's safely written, the screenshot replaces that part of an item list saved before
+                    // screenshots (if it couldn't be written, the old list stays)
+                    when (part) {
+                        Part.INVENTORY -> l.forgetInventory()
+                        Part.EQUIPMENT -> l.forgetEquipment()
+                        Part.RUNE_POUCH -> l.forgetRunePouch()
+                        Part.SPELLBOOK -> l.forgetSpellbook()
+                    }
+                    saveLoadouts()
+                } else writeFailed = true
+            }
             updateChecklist()
         }
 
@@ -398,9 +408,17 @@ class GearLoadoutsTool(
         val order = listOf(Part.INVENTORY, Part.EQUIPMENT, Part.RUNE_POUCH, Part.SPELLBOOK)
         val saved = order.filter { it in sc.saved }.map { it.label.lowercase() }
         val missing = order.filter { it !in sc.saved && it != Part.RUNE_POUCH }.map { it.label.lowercase() }
-        readMessage = (if (saved.isEmpty()) "Nothing saved. " else "Saved: ${saved.joinToString(", ")}. ") +
+        val message = (if (saved.isEmpty()) "Nothing saved. " else "Saved: ${saved.joinToString(", ")}. ") +
             (if (missing.isEmpty()) "" else "Not saved: ${missing.joinToString(", ")} (tap Scan Current Loadout again).")
-        writer.execute { handler.post { if (current === l && scan.progress == null) showLoadout(l) } }
+        // (after every screenshot of this scan is written, so the page shows them all)
+        writer.execute {
+            val failed = writeFailed
+            writeFailed = false
+            handler.post {
+                readMessage = if (failed) "Couldn't save the screenshots. Is the phone's storage full?" else message
+                if (current === l && scan.progress == null) showLoadout(l)
+            }
+        }
     }
 
     // Stops a scan without a word (the window closed, or the bubble is closing)
@@ -418,18 +436,23 @@ class GearLoadoutsTool(
         return File(dir, "${part.file}.webp").takeIf { it.exists() } ?: File(dir, "${part.file}.png").takeIf { it.exists() }
     }
 
-    // Writes a screenshot (on the writer thread), in place of the part's older one, then lets it go
-    private fun writePicture(dir: File, part: Part, picture: Bitmap) {
-        try {
+    // Writes a screenshot (on the writer thread), in place of the part's older one, then lets it go.
+    // False if it couldn't be written.
+    private fun writePicture(dir: File, part: Part, picture: Bitmap): Boolean {
+        return try {
             dir.mkdirs()
             // written under another name first, so a half-written file is never shown
             val temp = File(dir, "${part.file}.tmp")
-            temp.outputStream().use { picture.compress(webp(), PICTURE_QUALITY, it) }
+            val written = temp.outputStream().use { picture.compress(webp(), PICTURE_QUALITY, it) }
+            if (!written) { temp.delete(); return false }
             val file = File(dir, "${part.file}.webp")
-            if (!temp.renameTo(file)) { file.delete(); temp.renameTo(file) }
+            if (!temp.renameTo(file)) { file.delete(); if (!temp.renameTo(file)) { temp.delete(); return false } }
             File(dir, "${part.file}.png").delete()   // Inventory Setups' older one
+            true
         } catch (_: Exception) {
             // the phone is out of space, say: that part just isn't saved
+            File(dir, "${part.file}.tmp").delete()
+            false
         } finally {
             picture.recycle()
         }

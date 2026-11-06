@@ -473,7 +473,10 @@ class MainActivity : Activity() {
             "Finder sends your search words to the wiki; and when the app opens it asks GitHub whether there's a newer " +
             "version (you can turn that off in Settings). Bubble Sync uses the camera only while you scan the Bubble Tool " +
             "Sync plugin's QR code, and the account it reads (name, levels, quests and diary tasks) stays on the phone. " +
-            "Your settings, notes, timers, loadouts and synced account are saved on the phone, and go into your phone's normal Android backup if you have that on. Nothing else is stored or sent.")
+            "Screenshots are read on the phone and let go straight away. The only ones kept are pictures you save " +
+            "with Save picture to phone, and Gear Loadouts' screenshots of your inventory, equipment, rune pouch and " +
+            "spellbook, kept inside the app for your loadouts.\n\n" +
+            "Your settings, notes, timers, loadouts (with their screenshots) and synced account are saved on the phone, and go into your phone's normal Android backup if you have that on. Nothing else is stored or sent.")
 
         section("This app's licence",
             "Old School Bubble Tool is free software: (c) 2026 sinat50, licensed under the GNU General Public License, version 3 " +

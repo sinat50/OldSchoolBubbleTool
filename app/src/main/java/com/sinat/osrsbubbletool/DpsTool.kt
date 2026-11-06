@@ -30,7 +30,8 @@ class DpsTool(
         const val CAPTURE_DELAY_MS = 500L
 
         // Puts gear into the calculator's saved session, then reloads the page to show it.
-        // __GEAR__ is replaced with {"head": 1234, "cape": null, ...}
+        // __GEAR__ is replaced with {"head": 1234, "cape": null, ...}, and __DONE__ with what to say once it's saved
+        // (said through an alert, which the status line shows, so it only appears if loading worked)
         // How the calculator saves (src/state/RootStore.ts in weirdgloop/osrs-dps-calc, November 2026): under
         // 'dps-calc-state' in its localforage store, only once something on the page has changed, so a page nobody has
         // touched has nothing saved: then a session with just this gear is made (format version 13, which the calculator
@@ -72,6 +73,7 @@ class DpsTool(
                     q.onsuccess = function() { res(); };
                     q.onerror = function() { rej(q.error); };
                 });
+                alert(__DONE__);
                 location.reload();
             } catch (e) { alert("Couldn't load your gear into the calculator. Open the calculator once, then try again."); } })();
         """
@@ -229,8 +231,10 @@ class DpsTool(
     private fun loadIntoCalculator(gear: Map<String, Int?>, done: String) {
         val json = JSONObject()
         for ((slot, id) in gear) json.put(slot, id ?: JSONObject.NULL)
-        showStatus(done)
-        web?.evaluateJavascript(LOAD_GEAR_JS.replace("__GEAR__", json.toString()), null)
+        showStatus("Loading your gear into the calculator...")
+        // (the page says when it's done, or what went wrong, through onJsAlert)
+        web?.evaluateJavascript(LOAD_GEAR_JS.replace("__GEAR__", json.toString())
+            .replace("__DONE__", JSONObject.quote(done)), null)
         // clear it after a moment, unless something else is showing by then (an error, or a new import)
         handler.postDelayed({ if (status?.text?.toString() == done) showStatus(null) }, 6000)
     }

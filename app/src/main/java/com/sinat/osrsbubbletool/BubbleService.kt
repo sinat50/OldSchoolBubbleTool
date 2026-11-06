@@ -20,6 +20,7 @@ import android.view.View
 import android.view.ViewConfiguration
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -1131,12 +1132,17 @@ class BubbleService : Service() {
         }.apply {
             // a tool puts you in a text box itself (the Notepad's new note): the window takes the keyboard too
             viewTreeObserver.addOnGlobalFocusChangeListener { _, now ->
+                if (now is EditText) keyboardBesideTheGame(now)
                 if (now != null && shownWindow === this && now.onCheckIsTextEditor()) setWindowTakesKeyboard(true)
             }
-            // once the window has the keyboard, show it for the text box you tapped (asked for too early, it's lost)
+            // once the window has the keyboard, show it for the text box you tapped (asked for too early, it's lost).
+            // Only right after a tap handed it over: not when the window gets it back later (from the Sync camera,
+            // say), which would pop the keyboard up for a box you'd finished with.
             viewTreeObserver.addOnWindowFocusChangeListener { has ->
+                if (!has || !keyboardJustTaken) return@addOnWindowFocusChangeListener
+                keyboardJustTaken = false
                 val box = findFocus()
-                if (has && box != null && box.onCheckIsTextEditor()) inputMethods.showSoftInput(box, 0)
+                if (box != null && box.onCheckIsTextEditor()) inputMethods.showSoftInput(box, 0)
             }
             orientation = LinearLayout.VERTICAL
             setBackgroundColor(Palette.WINDOW)
@@ -1152,15 +1158,30 @@ class BubbleService : Service() {
     // starts without it (FLAG_NOT_FOCUSABLE), takes it while you type in it, and gives it back when you tap the game.
     private val inputMethods by lazy { getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager }
 
+    // The window was just handed the keyboard by a tap, and hasn't shown it yet
+    private var keyboardJustTaken = false
+
     private fun setWindowTakesKeyboard(on: Boolean) {
         val window = shownWindow ?: return
         val params = shownParams ?: return
         val hasIt = params.flags and WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE == 0
         if (hasIt == on) return
+        keyboardJustTaken = on
         if (!on) inputMethods.hideSoftInputFromWindow(window.windowToken, 0)   // the tool's keyboard goes away
         params.flags = if (on) params.flags and WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE.inv()
                        else params.flags or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
         windowManager.updateViewLayout(window, params)
+    }
+
+    // With the phone sideways, the keyboard normally covers the whole screen with its own big text box, so you can't
+    // tap the game to put it away. Every text box in a tool window asks for just the keys instead, typing straight
+    // into the box in the window (done when it's tapped, before the keyboard opens, so every tool's boxes get it).
+    // Web pages already ask for this themselves.
+    private fun keyboardBesideTheGame(box: EditText) {
+        val wanted = box.imeOptions or EditorInfo.IME_FLAG_NO_EXTRACT_UI or EditorInfo.IME_FLAG_NO_FULLSCREEN
+        if (box.imeOptions == wanted) return
+        box.imeOptions = wanted
+        inputMethods.restartInput(box)   // (in case the keyboard already read the old setting)
     }
 
     // Things you type into: text boxes, and web pages (their search boxes)
