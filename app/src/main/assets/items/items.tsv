@@ -1,4 +1,4 @@
-# OSRS item IDs, names, equipment slots and pictures, from the OSRS Wiki (CC BY-NC-SA 3.0). Built by tools/items/build_items.py
+# OSRS item IDs, names, equipment slots and picture names, from the OSRS Wiki (CC BY-NC-SA 3.0). Built by tools/items/build_items.py
 0	Dwarf remains		Dwarf remains.png	
 1	Toolkit		Toolkit.png	
 2	Steel cannonball		Steel cannonball.png	
@@ -780,13 +780,13 @@
 1271	Adamant pickaxe	weapon	Adamant pickaxe.png	
 1273	Mithril pickaxe	weapon	Mithril pickaxe.png	
 1275	Rune pickaxe	weapon	Rune pickaxe.png	
-1277	Bronze sword	weapon	Bronze sword.png	
-1279	Iron sword	weapon	Iron sword.png	
-1281	Steel sword	weapon	Steel sword.png	
-1283	Black sword	weapon	Black sword.png	
-1285	Mithril sword	weapon	Mithril sword.png	
-1287	Adamant sword	weapon	Adamant sword.png	
-1289	Rune sword	weapon	Rune sword.png	
+1277	Bronze shortsword	weapon	Bronze shortsword.png	
+1279	Iron shortsword	weapon	Iron shortsword.png	
+1281	Steel shortsword	weapon	Steel shortsword.png	
+1283	Black shortsword	weapon	Black shortsword.png	
+1285	Mithril shortsword	weapon	Mithril shortsword.png	
+1287	Adamant shortsword	weapon	Adamant shortsword.png	
+1289	Rune shortsword	weapon	Rune shortsword.png	
 1291	Bronze longsword	weapon	Bronze longsword.png	
 1293	Iron longsword	weapon	Iron longsword.png	
 1295	Steel longsword	weapon	Steel longsword.png	
@@ -4086,7 +4086,7 @@
 6599	White halberd	weapon	White halberd.png	
 6601	White mace	weapon	White mace.png	
 6603	White magic staff	weapon	White magic staff.png	
-6605	White sword	weapon	White sword.png	
+6605	White shortsword	weapon	White shortsword.png	
 6607	White longsword	weapon	White longsword.png	
 6609	White 2h sword	weapon	White 2h sword.png	
 6611	White scimitar	weapon	White scimitar.png	
@@ -4799,7 +4799,7 @@
 7668	Gadderhammer	weapon	Gadderhammer.png	
 7671	Boxing gloves	weapon	Boxing gloves (red).png	
 7673	Boxing gloves	weapon	Boxing gloves (blue).png	
-7675	Wooden sword	weapon	Wooden sword.png	
+7675	Wooden shortsword	weapon	Wooden shortsword.png	
 7676	Wooden shield	shield	Wooden shield (Weapons rack).png	Wooden shield (Weapons rack)
 7677	Treasure stone		Treasure stone.png	
 7678	Prize key		Prize key.png	
@@ -5743,9 +5743,9 @@
 9698	Blank fire rune		Blank fire rune.png	
 9699	Fire rune		Fire rune (The Slug Menace).png	Fire rune (The Slug Menace)
 9702	Stick		Stick (animation item).png	Stick (animation item)
-9703	Training sword	weapon	Training sword.png	
+9703	Training shortsword	weapon	Training shortsword.png	
 9704	Training shield	shield	Training shield.png	
-9705	Training bow	weapon	Training bow.png	
+9705	Training shortbow	weapon	Training shortbow.png	
 9706	Training arrows	ammo	Training arrows 1.png|Training arrows 2.png|Training arrows 3.png|Training arrows 4.png|Training arrows 5.png	
 9712	Spell		Spell (unobtainable item).png	Spell (unobtainable item)
 9715	Slashed book		Slashed book.png	
@@ -8380,7 +8380,7 @@
 19767	Challenge scroll (medium)		Clue scroll (medium).png	Challenge scroll
 19768	Clue scroll (medium)		Clue scroll (medium).png	Clue scroll (medium) - BMJ UIF LFCBC TFMMFS
 19769	Challenge scroll (medium)		Clue scroll (medium).png	Challenge scroll
-19770	Clue scroll (medium)		Clue scroll (medium).png	Clue scroll (medium) - HQNM LZM STSNQ
+19770	Clue scroll (medium)		Clue scroll (medium).png	Clue scroll (medium) - BZOSZHM GZQKZM
 19771	Challenge scroll (medium)		Clue scroll (medium).png	Challenge scroll
 19772	Clue scroll (medium)		Clue scroll (medium).png	Clue scroll (medium) - GUHCHO
 19773	Challenge scroll (medium)		Clue scroll (medium).png	Challenge scroll
@@ -8426,7 +8426,7 @@
 19813	Clue scroll (elite)		Clue scroll (elite).png	Clue scroll (elite) - 10.54N 20.50W
 19814	Clue scroll (easy)		Clue scroll (easy).png	Clue scroll (easy) - Dig where only the skilled, wealthy, or brave can choose not to visit again
 19815	Casket (easy)		Casket (discontinued).png	Casket (discontinued)
-19816	Clue scroll (easy)		Clue scroll (easy).png	Clue scroll (easy) - I wonder how many bronze swords he has handed out
+19816	Clue scroll (easy)		Clue scroll (easy).png	Clue scroll (easy) - I wonder how many bronze shortswords he has handed out
 19817	Clue scroll (easy)		Clue scroll (easy).png	Clue scroll (easy) - Strength potions with red spiders' eggs
 19818	Clue scroll (easy)		Clue scroll (easy).png	Clue scroll (easy) - Monk's residence in the far west See robe storage device
 19819	Clue scroll (easy)		Clue scroll (easy).png	Clue scroll (easy) - Surrounded by white walls and gems
@@ -8803,6 +8803,7 @@
 20544	Reward casket (hard)		Reward casket (hard).png	
 20545	Reward casket (medium)		Reward casket (medium).png	
 20546	Reward casket (easy)		Reward casket (easy).png	
+20547	Monkfish		Monkfish (Last Man Standing).png	Monkfish (Last Man Standing)
 20548	Super energy(4)		Super energy(4) (Last Man Standing).png	Super energy (Last Man Standing)
 20549	Super energy(3)		Super energy(3) (Last Man Standing).png	Super energy (Last Man Standing)
 20550	Super energy(2)		Super energy(2) (Last Man Standing).png	Super energy (Last Man Standing)
@@ -9060,7 +9061,7 @@
 21000	Twisted buckler	shield	Twisted buckler.png	
 21003	Elder maul	weapon	Elder maul.png	
 21006	Kodai wand	weapon	Kodai wand.png	
-21009	Dragon sword	weapon	Dragon sword.png	
+21009	Dragon shortsword	weapon	Dragon shortsword.png	
 21012	Dragon hunter crossbow	weapon	Dragon hunter crossbow.png	
 21015	Dinh's bulwark	weapon	Dinh's bulwark.png	
 21018	Ancestral hat	head	Ancestral hat.png	
@@ -12646,7 +12647,7 @@
 28023	Dragon dagger (p+)(cr)	weapon	Dragon dagger (p+)(cr).png	Dragon dagger (cr)
 28025	Dragon dagger (p++)(cr)	weapon	Dragon dagger (p++)(cr).png	Dragon dagger (cr)
 28027	Dragon mace (cr)	weapon	Dragon mace (cr).png	
-28029	Dragon sword (cr)	weapon	Dragon sword (cr).png	
+28029	Dragon shortsword (cr)	weapon	Dragon shortsword (cr).png	
 28031	Dragon scimitar (cr)	weapon	Dragon scimitar (cr).png	
 28033	Dragon longsword (cr)	weapon	Dragon longsword (cr).png	
 28035	Dragon warhammer (cr)	weapon	Dragon warhammer (cr).png	
@@ -14755,380 +14756,380 @@
 32432	Charred key		Charred key.png	
 32433	Void orb		Void orb.png	
 32434	Holy sheet		Holy sheet.png	
-32435	Crate of adamantite ore	weapon	Crate of adamantite ore (Aldarin).png	
-32436	Crate of crab paste	weapon	Crate of crab paste (Aldarin).png	
-32437	Crate of crystal seeds	weapon	Crate of crystal seeds (Aldarin).png	
-32438	Crate of daggers	weapon	Crate of daggers (Aldarin).png	
-32439	Crate of dyes	weapon	Crate of dyes.png	
-32440	Crate of furs	weapon	Crate of furs (Aldarin).png	
-32441	Crate of jewellery	weapon	Crate of jewellery (Aldarin).png	
-32442	Crate of lead ore	weapon	Crate of lead ore (Aldarin).png	
-32443	Crate of monkfish	weapon	Crate of monkfish (Aldarin).png	
-32444	Crate of nickel ore	weapon	Crate of nickel ore (Aldarin).png	
-32445	Crate of pest remains	weapon	Crate of pest remains (Aldarin).png	
-32446	Crate of platebodies	weapon	Crate of platebodies (Aldarin).png	
-32447	Crate of spears	weapon	Crate of spears (Aldarin).png	
-32448	Crate of arrowtips	weapon	Crate of arrowtips (Ardougne).png	
-32449	Crate of bananas	weapon	Crate of bananas (Ardougne).png	
-32450	Crate of crystal seeds	weapon	Crate of crystal seeds (Ardougne).png	
-32451	Crate of fish	weapon	Crate of fish (Ardougne).png	
-32452	Crate of furs	weapon	Crate of furs (Ardougne).png	
-32453	Crate of gold ore	weapon	Crate of gold ore (Ardougne).png	
-32454	Crate of halberds	weapon	Crate of halberds (Ardougne).png	
-32455	Crate of jewellery	weapon	Crate of jewellery (Ardougne).png	
-32456	Crate of poison	weapon	Crate of poison.png	
-32457	Crate of rabbit meat	weapon	Crate of rabbit meat.png	
-32458	Crate of red coral	weapon	Crate of red coral (Ardougne).png	
-32459	Crate of runes	weapon	Crate of runes (Ardougne).png	
-32460	Crate of salamanders	weapon	Crate of salamanders.png	
-32461	Crate of sand	weapon	Crate of sand (Ardougne).png	
-32462	Crate of silk	weapon	Crate of silk (Ardougne).png	
-32463	Crate of spices	weapon	Crate of spices (Ardougne).png	
-32464	Crate of bear meat	weapon	Crate of bear meat (Brimhaven).png	
-32465	Crate of beer	weapon	Crate of beer (Brimhaven).png	
-32466	Crate of cacti	weapon	Crate of cacti (Brimhaven).png	
-32467	Crate of camphor logs	weapon	Crate of camphor logs (Brimhaven).png	
-32468	Crate of compost	weapon	Crate of compost.png	
-32469	Crate of fish	weapon	Crate of fish (Brimhaven).png	
-32470	Crate of gems	weapon	Crate of gems (Brimhaven).png	
-32471	Crate of iron bars	weapon	Crate of iron bars.png	
-32472	Crate of jewellery	weapon	Crate of jewellery (Brimhaven).png	
-32473	Crate of machinery parts	weapon	Crate of machinery parts (Brimhaven).png	
-32474	Crate of rum	weapon	Crate of rum (Brimhaven).png	
-32475	Crate of sandstone	weapon	Crate of sandstone (Brimhaven).png	
-32476	Crate of silver ore	weapon	Crate of silver ore (Brimhaven).png	
-32477	Crate of spices	weapon	Crate of spices (Brimhaven).png	
-32478	Crate of vodka	weapon	Crate of vodka (Brimhaven).png	
-32479	Crate of wine	weapon	Crate of wine (Brimhaven).png	
-32480	Crate of gold bars	weapon	Crate of gold bars (Cairn Isle).png	
-32481	Crate of secret stuff	weapon	Crate of secret stuff (Cairn Isle).png	
-32482	Crate of arrowtips	weapon	Crate of arrowtips (Catherby).png	
-32483	Crate of bait	weapon	Crate of bait.png	
-32484	Crate of feathers	weapon	Crate of feathers.png	
-32485	Crate of bananas	weapon	Crate of bananas (Catherby).png	
-32486	Crate of coconuts	weapon	Crate of coconuts (Catherby).png	
-32487	Crate of furs	weapon	Crate of furs (Catherby).png	
-32488	Crate of glassmaking supplies	weapon	Crate of glassmaking supplies.png	
-32489	Crate of gold ore	weapon	Crate of gold ore (Catherby).png	
-32490	Crate of grog	weapon	Crate of grog.png	
-32491	Crate of javelins	weapon	Crate of javelins (Catherby).png	
-32492	Crate of jewellery	weapon	Crate of jewellery (Catherby).png	
-32493	Crate of karambwans	weapon	Crate of karambwans (Catherby).png	
-32494	Crate of pineapples	weapon	Crate of pineapples (Catherby).png	
-32495	Crate of potatoes	weapon	Crate of potatoes.png	
-32496	Crate of seeds	weapon	Crate of seeds (Catherby).png	
-32497	Crate of silk	weapon	Crate of silk (Catherby).png	
-32498	Crate of silver ore	weapon	Crate of silver ore (Catherby).png	
-32499	Crate of vials	weapon	Crate of vials.png	
-32500	Crate of astral runes	weapon	Crate of astral runes (Civitas illa Fortis).png	
-32501	Crate of books	weapon	Crate of books (Civitas illa Fortis).png	
-32502	Crate of coral	weapon	Crate of coral (Civitas illa Fortis).png	
-32503	Crate of fish	weapon	Crate of fish (Civitas illa Fortis).png	
-32504	Crate of fruit	weapon	Crate of fruit (Civitas illa Fortis).png	
-32505	Crate of gems	weapon	Crate of gems (Civitas illa Fortis).png	
-32506	Crate of historical artefacts	weapon	Crate of historical artefacts.png	
-32507	Crate of nickel ore	weapon	Crate of nickel ore (Civitas illa Fortis).png	
-32508	Crate of oranges	weapon	Crate of oranges.png	
-32509	Crate of ores	weapon	Crate of ores (Civitas illa Fortis).png	
-32510	Crate of pineapples	weapon	Crate of pineapples (Civitas illa Fortis).png	
-32511	Crate of red coral	weapon	Crate of red coral (Civitas illa Fortis).png	
-32512	Crate of runes	weapon	Crate of runes (Civitas illa Fortis).png	
-32513	Crate of seeds	weapon	Crate of seeds (Civitas illa Fortis).png	
-32514	Crate of ship parts	weapon	Crate of ship parts (Civitas illa Fortis).png	
-32515	Crate of spices	weapon	Crate of spices (Civitas illa Fortis).png	
-32516	Crate of staffs	weapon	Crate of staffs (Civitas illa Fortis).png	
-32517	Crate of tokens	weapon	Crate of tokens.png	
-32518	Crate of vegetables	weapon	Crate of vegetables (Civitas illa Fortis).png	
-32519	Crate of arrowtips	weapon	Crate of arrowtips (Corsair Cove).png	
-32520	Crate of bear meat	weapon	Crate of bear meat (Corsair Cove).png	
-32521	Crate of beer	weapon	Crate of beer (Corsair Cove).png	
-32522	Crate of daggers	weapon	Crate of daggers (Corsair Cove).png	
-32523	Crate of fish	weapon	Crate of fish (Corsair Cove).png	
-32524	Crate of gems	weapon	Crate of gems (Corsair Cove).png	
-32525	Crate of khali brews	weapon	Crate of khali brews.png	
-32526	Crate of peg legs	weapon	Crate of peg legs.png	
-32527	Crate of platebodies	weapon	Crate of platebodies (Corsair Cove).png	
-32528	Crate of rum	weapon	Crate of rum (Corsair Cove).png	
-32529	Crate of scimitars	weapon	Crate of scimitars (Corsair Cove).png	
-32530	Crate of ship parts	weapon	Crate of ship parts (Corsair Cove).png	
-32531	Crate of swords	weapon	Crate of swords (Corsair Cove).png	
-32532	Crate of alpaca wool	weapon	Crate of alpaca wool.png	
-32533	Crate of camphor logs	weapon	Crate of camphor logs (Deepfin Point).png	
-32534	Crate of fabrics	weapon	Crate of fabrics (Deepfin Point).png	
-32535	Crate of fruit	weapon	Crate of fruit (Deepfin Point).png	
-32536	Crate of furs	weapon	Crate of furs (Deepfin Point).png	
-32537	Crate of granite	weapon	Crate of granite (Deepfin Point).png	
-32538	Crate of javelins	weapon	Crate of javelins (Deepfin Point).png	
-32539	Crate of logs	weapon	Crate of logs (Deepfin Point).png	
-32540	Crate of machinery parts	weapon	Crate of machinery parts (Deepfin Point).png	
-32541	Crate of mahogany logs	weapon	Crate of mahogany logs (Deepfin Point).png	
-32542	Crate of pest remains	weapon	Crate of pest remains (Deepfin Point).png	
-32543	Crate of pickaxes	weapon	Crate of pickaxes.png	
-32544	Crate of planks	weapon	Crate of planks (Deepfin Point).png	
-32545	Crate of suqah hides	weapon	Crate of suqah hides.png	
-32546	Crate of warhammers	weapon	Crate of warhammers (Deepfin Point).png	
-32547	Crate of bananas	weapon	Crate of bananas (Entrana).png	
-32548	Crate of barley	weapon	Crate of barley.png	
-32549	Crate of sand	weapon	Crate of sand (Entrana).png	
-32550	Crate of adamantite ore	weapon	Crate of adamantite ore (Etceteria).png	
-32551	Crate of fish	weapon	Crate of fish (Etceteria).png	
-32552	Crate of fruit	weapon	Crate of fruit (Etceteria).png	
-32553	Crate of iron ore	weapon	Crate of iron ore.png	
-32554	Crate of monkfish	weapon	Crate of monkfish (Etceteria).png	
-32555	Crate of onions	weapon	Crate of onions.png	
-32556	Crate of planks	weapon	Crate of planks (Etceteria).png	
-32557	Crate of swords	weapon	Crate of swords (Etceteria).png	
-32558	Crate of warhammers	weapon	Crate of warhammers (Etceteria).png	
-32559	Crate of yak hair	weapon	Crate of yak hair.png	
-32560	Crate of fish	weapon	Crate of fish (Hosidius).png	
-32561	Crate of lead ore	weapon	Crate of lead ore (Hosidius).png	
-32562	Crate of rope	weapon	Crate of rope (Hosidius).png	
-32563	Crate of xerician fabrics	weapon	Crate of xerician fabrics (Hosidius).png	
-32564	Crate of fish	weapon	Crate of fish (Jatizso).png	
-32565	Crate of flax	weapon	Crate of flax (Jatizso).png	
-32566	Crate of logs	weapon	Crate of logs (Jatizso).png	
-32567	Crate of bear meat	weapon	Crate of bear meat (Land's End).png	
-32568	Crate of fish	weapon	Crate of fish (Land's End).png	
-32569	Crate of furs	weapon	Crate of furs (Land's End).png	
-32570	Crate of gems	weapon	Crate of gems (Land's End).png	
-32571	Crate of kebbit fur	weapon	Crate of kebbit fur (Land's End).png	
-32572	Crate of meat	weapon	Crate of meat (Land's End).png	
-32573	Crate of ores	weapon	Crate of ores (Land's End).png	
-32574	Crate of secret things	weapon	Crate of secret things.png	
-32575	Crate of swords	weapon	Crate of swords (Land's End).png	
-32576	Crate of vegetables	weapon	Crate of vegetables (Land's End).png	
-32577	Crate of wine	weapon	Crate of wine (Land's End).png	
-32578	Crate of antelope fur	weapon	Crate of antelope fur (Lunar Isle).png	
-32579	Crate of berries	weapon	Crate of berries (Lunar Isle).png	
-32580	Crate of coal	weapon	Crate of coal (Lunar Isle).png	
-32581	Crate of crystal seeds	weapon	Crate of crystal seeds (Lunar Isle).png	
-32582	Crate of fish	weapon	Crate of fish (Lunar Isle).png	
-32583	Crate of furs	weapon	Crate of furs (Lunar Isle).png	
-32584	Crate of kebbit fur	weapon	Crate of kebbit fur (Lunar Isle).png	
-32585	Crate of logs	weapon	Crate of logs (Lunar Isle).png	
-32586	Crate of potions	weapon	Crate of potions (Lunar Isle).png	
-32587	Crate of red coral	weapon	Crate of red coral (Lunar Isle).png	
-32588	Crate of bananas	weapon	Crate of bananas (Musa Point).png	
-32589	Crate of beer glasses	weapon	Crate of beer glasses.png	
-32590	Crate of cocktails	weapon	Crate of cocktails (Musa Point).png	
-32591	Crate of eye patches	weapon	Crate of eye patches.png	
-32592	Crate of fish	weapon	Crate of fish (Musa Point).png	
-32593	Crate of high importance	weapon	Crate of high importance.png	
-32594	Crate of honey	weapon	Crate of honey (Musa Point).png	
-32595	Crate of lobsters	weapon	Crate of lobsters.png	
-32596	Crate of logs	weapon	Crate of logs (Musa Point).png	
-32597	Crate of mahogany logs	weapon	Crate of mahogany logs (Musa Point).png	
-32598	Crate of meat	weapon	Crate of meat (Musa Point).png	
-32599	Crate of rotten bananas	weapon	Crate of rotten bananas.png	
-32600	Crate of secret stuff	weapon	Crate of secret stuff (Musa Point).png	
-32601	Crate of ship parts	weapon	Crate of ship parts (Musa Point).png	
-32602	Crate of silk	weapon	Crate of silk (Musa Point).png	
-32603	Crate of coal	weapon	Crate of coal (Neitiznot).png	
-32604	Crate of mahogany logs	weapon	Crate of mahogany logs (Neitiznot).png	
-32605	Crate of sand	weapon	Crate of sand (Neitiznot).png	
-32606	Crate of fabrics	weapon	Crate of fabrics (Piscatoris).png	
-32607	Crate of fish	weapon	Crate of fish (Piscatoris).png	
-32608	Crate of flax	weapon	Crate of flax (Piscatoris).png	
-32609	Crate of furs	weapon	Crate of furs (Piscatoris).png	
-32610	Crate of potions	weapon	Crate of potions (Piscatoris).png	
-32611	Crate of vodka	weapon	Crate of vodka (Piscatoris).png	
-32612	Crate of angler outfit pieces	weapon	Crate of angler outfit pieces.png	
-32613	Crate of arrowtips	weapon	Crate of arrowtips (Port Khazard).png	
-32614	Crate of bows	weapon	Crate of bows (Port Khazard).png	
-32615	Crate of bread	weapon	Crate of bread.png	
-32616	Crate of chainbodies	weapon	Crate of chainbodies.png	
-32617	Crate of coal	weapon	Crate of coal (Port Khazard).png	
-32618	Crate of crab paste	weapon	Crate of crab paste (Port Khazard).png	
-32619	Crate of fruit	weapon	Crate of fruit (Port Khazard).png	
-32620	Crate of gunpowder	weapon	Crate of gunpowder.png	
-32621	Crate of herbs	weapon	Crate of herbs (Port Khazard).png	
-32622	Crate of huasca	weapon	Crate of huasca.png	
-32623	Crate of kyatt teeth	weapon	Crate of kyatt teeth.png	
-32624	Crate of planks	weapon	Crate of planks (Port Khazard).png	
-32625	Crate of platebodies	weapon	Crate of platebodies (Port Khazard).png	
-32626	Crate of red coral	weapon	Crate of red coral (Port Khazard).png	
-32627	Crate of scimitars	weapon	Crate of scimitars (Port Khazard).png	
-32628	Crate of secret stuff	weapon	Crate of secret stuff (Port Khazard).png	
-32629	Crate of spears	weapon	Crate of spears (Port Khazard).png	
-32630	Crate of swamp paste	weapon	Crate of swamp paste (Port Khazard).png	
-32631	Crate of vodka	weapon	Crate of vodka (Port Khazard).png	
-32632	Crate of antelope meat	weapon	Crate of antelope meat.png	
-32633	Crate of astral runes	weapon	Crate of astral runes (Port Piscarilius).png	
-32634	Crate of books	weapon	Crate of books (Port Piscarilius).png	
-32635	Crate of cannonballs	weapon	Crate of cannonballs.png	
-32636	Crate of coal	weapon	Crate of coal (Port Piscarilius).png	
-32637	Crate of fabrics	weapon	Crate of fabrics (Port Piscarilius).png	
-32638	Crate of furs	weapon	Crate of furs (Port Piscarilius).png	
-32639	Crate of gems	weapon	Crate of gems (Port Piscarilius).png	
-32640	Crate of gin	weapon	Crate of gin.png	
-32641	Crate of honey	weapon	Crate of honey (Port Piscarilius).png	
-32642	Crate of jewellery	weapon	Crate of jewellery (Port Piscarilius).png	
-32643	Crate of kebbit fur	weapon	Crate of kebbit fur (Port Piscarilius).png	
-32644	Crate of mahogany logs	weapon	Crate of mahogany logs (Port Piscarilius).png	
-32645	Crate of planks	weapon	Crate of planks (Port Piscarilius).png	
-32646	Crate of platebodies	weapon	Crate of platebodies (Port Piscarilius).png	
-32647	Crate of red coral	weapon	Crate of red coral (Port Piscarilius).png	
-32648	Crate of seeds	weapon	Crate of seeds (Port Piscarilius).png	
-32649	Crate of wine	weapon	Crate of wine (Port Piscarilius).png	
-32650	Crate of antelope fur	weapon	Crate of antelope fur (Port Roberts).png	
-32651	Crate of berries	weapon	Crate of berries (Port Roberts).png	
-32652	Crate of bows	weapon	Crate of bows (Port Roberts).png	
-32653	Crate of coral	weapon	Crate of coral (Port Roberts).png	
-32654	Crate of fabrics	weapon	Crate of fabrics (Port Roberts).png	
-32655	Crate of fish	weapon	Crate of fish (Port Roberts).png	
-32656	Crate of flax	weapon	Crate of flax (Port Roberts).png	
-32657	Crate of furs	weapon	Crate of furs (Port Roberts).png	
-32658	Crate of gems	weapon	Crate of gems (Port Roberts).png	
-32659	Crate of honey	weapon	Crate of honey (Port Roberts).png	
-32660	Crate of jewellery	weapon	Crate of jewellery (Port Roberts).png	
-32661	Crate of logs	weapon	Crate of logs (Port Roberts).png	
-32662	Crate of meat	weapon	Crate of meat (Port Roberts).png	
-32663	Crate of nickel ore	weapon	Crate of nickel ore (Port Roberts).png	
-32664	Crate of ores	weapon	Crate of ores (Port Roberts).png	
-32665	Crate of red coral	weapon	Crate of red coral (Port Roberts).png	
-32666	Crate of runes	weapon	Crate of runes (Port Roberts).png	
-32667	Crate of seeds	weapon	Crate of seeds (Port Roberts).png	
-32668	Crate of silk	weapon	Crate of silk (Port Roberts).png	
-32669	Crate of silver ore	weapon	Crate of silver ore (Port Roberts).png	
-32670	Crate of staffs	weapon	Crate of staffs (Port Roberts).png	
-32671	Crate of teak logs	weapon	Crate of teak logs (Port Roberts).png	
-32672	Crate of wine	weapon	Crate of wine (Port Roberts).png	
-32673	Crate of amulets	weapon	Crate of amulets.png	
-32674	Crate of beer	weapon	Crate of beer (Port Sarim).png	
-32675	Crate of books	weapon	Crate of books (Port Sarim).png	
-32676	Crate of cacti	weapon	Crate of cacti (Port Sarim).png	
-32677	Crate of camphor logs	weapon	Crate of camphor logs (Port Sarim).png	
-32678	Crate of coconuts	weapon	Crate of coconuts (Port Sarim).png	
-32679	Crate of fish	weapon	Crate of fish (Port Sarim).png	
-32680	Crate of flax	weapon	Crate of flax (Port Sarim).png	
-32681	Crate of honey	weapon	Crate of honey (Port Sarim).png	
-32682	Crate of jewellery	weapon	Crate of jewellery (Port Sarim).png	
-32683	Crate of kebabs	weapon	Crate of kebabs.png	
-32684	Crate of logs	weapon	Crate of logs (Port Sarim).png	
-32685	Crate of nothing sinister	weapon	Crate of nothing sinister.png	
-32686	Crate of pest remains	weapon	Crate of pest remains (Port Sarim).png	
-32687	Crate of red coral	weapon	Crate of red coral (Port Sarim).png	
-32688	Crate of runes	weapon	Crate of runes (Port Sarim).png	
-32689	Crate of seeds	weapon	Crate of seeds (Port Sarim).png	
-32690	Crate of spices	weapon	Crate of spices (Port Sarim).png	
-32691	Crate of sunbeam ale	weapon	Crate of sunbeam ale.png	
-32692	Crate of swords	weapon	Crate of swords (Port Sarim).png	
-32693	Crate of arrowtips	weapon	Crate of arrowtips (Port Tyras).png	
-32694	Crate of chinchompas	weapon	Crate of chinchompas.png	
-32695	Crate of coal	weapon	Crate of coal (Port Tyras).png	
-32696	Crate of fabrics	weapon	Crate of fabrics (Port Tyras).png	
-32697	Crate of fish	weapon	Crate of fish (Port Tyras).png	
-32698	Crate of fruit	weapon	Crate of fruit (Port Tyras).png	
-32699	Crate of furs	weapon	Crate of furs (Port Tyras).png	
-32700	Crate of herbs	weapon	Crate of herbs (Port Tyras).png	
-32701	Crate of mithril ore	weapon	Crate of mithril ore.png	
-32702	Crate of ores	weapon	Crate of ores (Port Tyras).png	
-32703	Crate of platebodies	weapon	Crate of platebodies (Port Tyras).png	
-32704	Crate of seeds	weapon	Crate of seeds (Port Tyras).png	
-32705	Crate of shields	weapon	Crate of shields (Port Tyras).png	
-32706	Crate of snakeskin	weapon	Crate of snakeskin.png	
-32707	Crate of swords	weapon	Crate of swords (Port Tyras).png	
-32708	Crate of vegetables	weapon	Crate of vegetables (Port Tyras).png	
-32709	Crate of astral runes	weapon	Crate of astral runes (Prifddinas).png	
-32710	Crate of books	weapon	Crate of books (Prifddinas).png	
-32711	Crate of clothes	weapon	Crate of clothes (Prifddinas).png	
-32712	Crate of fish	weapon	Crate of fish (Prifddinas).png	
-32713	Crate of halberds	weapon	Crate of halberds (Prifddinas).png	
-32714	Crate of herbs	weapon	Crate of herbs (Prifddinas).png	
-32715	Crate of logs	weapon	Crate of logs (Prifddinas).png	
-32716	Crate of ores	weapon	Crate of ores (Prifddinas).png	
-32717	Crate of potions	weapon	Crate of potions (Prifddinas).png	
-32718	Crate of silk	weapon	Crate of silk (Prifddinas).png	
-32719	Crate of spices	weapon	Crate of spices (Prifddinas).png	
-32720	Crate of xerician fabrics	weapon	Crate of xerician fabrics (Prifddinas).png	
-32721	Crate of astral runes	weapon	Crate of astral runes (Red Rock).png	
-32722	Crate of battleaxes	weapon	Crate of battleaxes (Red Rock).png	
-32723	Crate of coal	weapon	Crate of coal (Red Rock).png	
-32724	Crate of fish	weapon	Crate of fish (Red Rock).png	
-32725	Crate of furs	weapon	Crate of furs (Red Rock).png	
-32726	Crate of granite	weapon	Crate of granite (Red Rock).png	
-32727	Crate of herbs	weapon	Crate of herbs (Red Rock).png	
-32728	Crate of karambwans	weapon	Crate of karambwans (Red Rock).png	
-32729	Crate of ores	weapon	Crate of ores (Red Rock).png	
-32730	Crate of protective clothing	weapon	Crate of protective clothing.png	
-32731	Crate of runes	weapon	Crate of runes (Red Rock).png	
-32732	Crate of ship parts	weapon	Crate of ship parts (Red Rock).png	
-32733	Crate of spices	weapon	Crate of spices (Red Rock).png	
-32734	Crate of adamantite ore	weapon	Crate of adamantite ore (Rellekka).png	
-32735	Crate of beer	weapon	Crate of beer (Rellekka).png	
-32736	Crate of dragon bitter	weapon	Crate of dragon bitter.png	
-32737	Crate of fabrics	weapon	Crate of fabrics (Rellekka).png	
-32738	Crate of fish	weapon	Crate of fish (Rellekka).png	
-32739	Crate of halberds	weapon	Crate of halberds (Rellekka).png	
-32740	Crate of lead ore	weapon	Crate of lead ore (Rellekka).png	
-32741	Crate of monkfish	weapon	Crate of monkfish (Rellekka).png	
-32742	Crate of pies	weapon	Crate of pies.png	
-32743	Crate of planks	weapon	Crate of planks (Rellekka).png	
-32744	Crate of redwood logs	weapon	Crate of redwood logs.png	
-32745	Crate of rope	weapon	Crate of rope (Rellekka).png	
-32746	Crate of ship parts	weapon	Crate of ship parts (Rellekka).png	
-32747	Crate of teak logs	weapon	Crate of teak logs (Rellekka).png	
-32748	Crate of wine	weapon	Crate of wine (Rellekka).png	
-32749	Crate of calquat	weapon	Crate of calquat.png	
-32750	Crate of cocktails	weapon	Crate of cocktails (Ruins of Unkah).png	
-32751	Crate of coral	weapon	Crate of coral (Ruins of Unkah).png	
-32752	Crate of fish	weapon	Crate of fish (Ruins of Unkah).png	
-32753	Crate of fishing supplies	weapon	Crate of fishing supplies.png	
-32754	Crate of javelins	weapon	Crate of javelins (Ruins of Unkah).png	
-32755	Crate of planks	weapon	Crate of planks (Ruins of Unkah).png	
-32756	Crate of runes	weapon	Crate of runes (Ruins of Unkah).png	
-32757	Crate of ship parts	weapon	Crate of ship parts (Ruins of Unkah).png	
-32758	Crate of beer	weapon	Crate of beer (Sunset Coast).png	
-32759	Crate of fabrics	weapon	Crate of fabrics (Sunset Coast).png	
-32760	Crate of fish	weapon	Crate of fish (Sunset Coast).png	
-32761	Crate of maces	weapon	Crate of maces (Sunset Coast).png	
-32762	Crate of warhammers	weapon	Crate of warhammers (Sunset Coast).png	
-32763	Crate of wine	weapon	Crate of wine (Sunset Coast).png	
-32764	Crate of arrowtips	weapon	Crate of arrowtips (The Pandemonium).png	
-32765	Crate of bananas	weapon	Crate of bananas (The Pandemonium).png	
-32766	Crate of battleaxes	weapon	Crate of battleaxes (The Pandemonium).png	
-32767	Crate of cacti	weapon	Crate of cacti (The Pandemonium).png	
-32768	Crate of coral	weapon	Crate of coral (The Pandemonium).png	
-32769	Crate of gold bars	weapon	Crate of gold bars (The Pandemonium).png	
-32770	Crate of granite	weapon	Crate of granite (The Pandemonium).png	
-32771	Crate of meat	weapon	Crate of meat (The Pandemonium).png	
-32772	Crate of pineapples	weapon	Crate of pineapples (The Pandemonium).png	
-32773	Crate of platebodies	weapon	Crate of platebodies (The Pandemonium).png	
-32774	Crate of rum	weapon	Crate of rum (The Pandemonium).png	
-32775	Crate of sea shells	weapon	Crate of sea shells.png	
-32776	Crate of spices	weapon	Crate of spices (The Pandemonium).png	
-32777	Crate of steel bars	weapon	Crate of steel bars.png	
-32778	Crate of swamp paste	weapon	Crate of swamp paste (The Pandemonium).png	
-32779	Crate of wax	weapon	Crate of wax.png	
-32780	Crate of bananas	weapon	Crate of bananas (The Summer Shore).png	
-32781	Crate of cacti	weapon	Crate of cacti (The Summer Shore).png	
-32782	Crate of gems	weapon	Crate of gems (The Summer Shore).png	
-32783	Crate of javelins	weapon	Crate of javelins (The Summer Shore).png	
-32784	Crate of jewellery	weapon	Crate of jewellery (The Summer Shore).png	
-32785	Crate of leather	weapon	Crate of leather.png	
-32786	Crate of meat	weapon	Crate of meat (The Summer Shore).png	
-32787	Crate of nickel ore	weapon	Crate of nickel ore (The Summer Shore).png	
-32788	Crate of pest remains	weapon	Crate of pest remains (The Summer Shore).png	
-32789	Crate of pineapples	weapon	Crate of pineapples (The Summer Shore).png	
-32790	Crate of potions	weapon	Crate of potions (The Summer Shore).png	
-32791	Crate of rope	weapon	Crate of rope (The Summer Shore).png	
-32792	Crate of sandstone	weapon	Crate of sandstone (The Summer Shore).png	
-32793	Crate of shields	weapon	Crate of shields (The Summer Shore).png	
-32794	Crate of coral	weapon	Crate of coral (Void Knights' Outpost).png	
-32795	Crate of dragonhide	weapon	Crate of dragonhide.png	
-32796	Crate of granite	weapon	Crate of granite (Void Knights' Outpost).png	
-32797	Crate of herbs	weapon	Crate of herbs (Void Knights' Outpost).png	
-32798	Crate of logs	weapon	Crate of logs (Void Knights' Outpost).png	
-32799	Crate of maces	weapon	Crate of maces (Void Knights' Outpost).png	
-32800	Crate of ores	weapon	Crate of ores (Void Knights' Outpost).png	
-32801	Crate of platebodies	weapon	Crate of platebodies (Void Knights' Outpost).png	
-32802	Crate of potions	weapon	Crate of potions (Void Knights' Outpost).png	
-32803	Crate of runes	weapon	Crate of runes (Void Knights' Outpost).png	
-32804	Crate of seeds	weapon	Crate of seeds (Void Knights' Outpost).png	
-32805	Crate of spears	weapon	Crate of spears (Void Knights' Outpost).png	
-32806	Crate of wrath runes	weapon	Crate of wrath runes.png	
-32807	Crate of ship parts	weapon	Crate of ship parts (Pandemonium).png	Crate of ship parts (Pandemonium)
-32808	Crate of looty	weapon	Crate of looty.png	
+32435	Crate of adamantite ore		Crate of adamantite ore (Aldarin).png	
+32436	Crate of crab paste		Crate of crab paste (Aldarin).png	
+32437	Crate of crystal seeds		Crate of crystal seeds (Aldarin).png	
+32438	Crate of daggers		Crate of daggers (Aldarin).png	
+32439	Crate of dyes		Crate of dyes.png	
+32440	Crate of furs		Crate of furs (Aldarin).png	
+32441	Crate of jewellery		Crate of jewellery (Aldarin).png	
+32442	Crate of lead ore		Crate of lead ore (Aldarin).png	
+32443	Crate of monkfish		Crate of monkfish (Aldarin).png	
+32444	Crate of nickel ore		Crate of nickel ore (Aldarin).png	
+32445	Crate of pest remains		Crate of pest remains (Aldarin).png	
+32446	Crate of platebodies		Crate of platebodies (Aldarin).png	
+32447	Crate of spears		Crate of spears (Aldarin).png	
+32448	Crate of arrowtips		Crate of arrowtips (Ardougne).png	
+32449	Crate of bananas		Crate of bananas (Ardougne).png	
+32450	Crate of crystal seeds		Crate of crystal seeds (Ardougne).png	
+32451	Crate of fish		Crate of fish (Ardougne).png	
+32452	Crate of furs		Crate of furs (Ardougne).png	
+32453	Crate of gold ore		Crate of gold ore (Ardougne).png	
+32454	Crate of halberds		Crate of halberds (Ardougne).png	
+32455	Crate of jewellery		Crate of jewellery (Ardougne).png	
+32456	Crate of poison		Crate of poison.png	
+32457	Crate of rabbit meat		Crate of rabbit meat.png	
+32458	Crate of red coral		Crate of red coral (Ardougne).png	
+32459	Crate of runes		Crate of runes (Ardougne).png	
+32460	Crate of salamanders		Crate of salamanders.png	
+32461	Crate of sand		Crate of sand (Ardougne).png	
+32462	Crate of silk		Crate of silk (Ardougne).png	
+32463	Crate of spices		Crate of spices (Ardougne).png	
+32464	Crate of bear meat		Crate of bear meat (Brimhaven).png	
+32465	Crate of beer		Crate of beer (Brimhaven).png	
+32466	Crate of cacti		Crate of cacti (Brimhaven).png	
+32467	Crate of camphor logs		Crate of camphor logs (Brimhaven).png	
+32468	Crate of compost		Crate of compost.png	
+32469	Crate of fish		Crate of fish (Brimhaven).png	
+32470	Crate of gems		Crate of gems (Brimhaven).png	
+32471	Crate of iron bars		Crate of iron bars.png	
+32472	Crate of jewellery		Crate of jewellery (Brimhaven).png	
+32473	Crate of machinery parts		Crate of machinery parts (Brimhaven).png	
+32474	Crate of rum		Crate of rum (Brimhaven).png	
+32475	Crate of sandstone		Crate of sandstone (Brimhaven).png	
+32476	Crate of silver ore		Crate of silver ore (Brimhaven).png	
+32477	Crate of spices		Crate of spices (Brimhaven).png	
+32478	Crate of vodka		Crate of vodka (Brimhaven).png	
+32479	Crate of wine		Crate of wine (Brimhaven).png	
+32480	Crate of gold bars		Crate of gold bars (Cairn Isle).png	
+32481	Crate of secret stuff		Crate of secret stuff (Cairn Isle).png	
+32482	Crate of arrowtips		Crate of arrowtips (Catherby).png	
+32483	Crate of bait		Crate of bait.png	
+32484	Crate of feathers		Crate of feathers.png	
+32485	Crate of bananas		Crate of bananas (Catherby).png	
+32486	Crate of coconuts		Crate of coconuts (Catherby).png	
+32487	Crate of furs		Crate of furs (Catherby).png	
+32488	Crate of glassmaking supplies		Crate of glassmaking supplies.png	
+32489	Crate of gold ore		Crate of gold ore (Catherby).png	
+32490	Crate of grog		Crate of grog.png	
+32491	Crate of javelins		Crate of javelins (Catherby).png	
+32492	Crate of jewellery		Crate of jewellery (Catherby).png	
+32493	Crate of karambwans		Crate of karambwans (Catherby).png	
+32494	Crate of pineapples		Crate of pineapples (Catherby).png	
+32495	Crate of potatoes		Crate of potatoes.png	
+32496	Crate of seeds		Crate of seeds (Catherby).png	
+32497	Crate of silk		Crate of silk (Catherby).png	
+32498	Crate of silver ore		Crate of silver ore (Catherby).png	
+32499	Crate of vials		Crate of vials.png	
+32500	Crate of astral runes		Crate of astral runes (Civitas illa Fortis).png	
+32501	Crate of books		Crate of books (Civitas illa Fortis).png	
+32502	Crate of coral		Crate of coral (Civitas illa Fortis).png	
+32503	Crate of fish		Crate of fish (Civitas illa Fortis).png	
+32504	Crate of fruit		Crate of fruit (Civitas illa Fortis).png	
+32505	Crate of gems		Crate of gems (Civitas illa Fortis).png	
+32506	Crate of historical artefacts		Crate of historical artefacts.png	
+32507	Crate of nickel ore		Crate of nickel ore (Civitas illa Fortis).png	
+32508	Crate of oranges		Crate of oranges.png	
+32509	Crate of ores		Crate of ores (Civitas illa Fortis).png	
+32510	Crate of pineapples		Crate of pineapples (Civitas illa Fortis).png	
+32511	Crate of red coral		Crate of red coral (Civitas illa Fortis).png	
+32512	Crate of runes		Crate of runes (Civitas illa Fortis).png	
+32513	Crate of seeds		Crate of seeds (Civitas illa Fortis).png	
+32514	Crate of ship parts		Crate of ship parts (Civitas illa Fortis).png	
+32515	Crate of spices		Crate of spices (Civitas illa Fortis).png	
+32516	Crate of staffs		Crate of staffs (Civitas illa Fortis).png	
+32517	Crate of tokens		Crate of tokens.png	
+32518	Crate of vegetables		Crate of vegetables (Civitas illa Fortis).png	
+32519	Crate of arrowtips		Crate of arrowtips (Corsair Cove).png	
+32520	Crate of bear meat		Crate of bear meat (Corsair Cove).png	
+32521	Crate of beer		Crate of beer (Corsair Cove).png	
+32522	Crate of daggers		Crate of daggers (Corsair Cove).png	
+32523	Crate of fish		Crate of fish (Corsair Cove).png	
+32524	Crate of gems		Crate of gems (Corsair Cove).png	
+32525	Crate of khali brews		Crate of khali brews.png	
+32526	Crate of peg legs		Crate of peg legs.png	
+32527	Crate of platebodies		Crate of platebodies (Corsair Cove).png	
+32528	Crate of rum		Crate of rum (Corsair Cove).png	
+32529	Crate of scimitars		Crate of scimitars (Corsair Cove).png	
+32530	Crate of ship parts		Crate of ship parts (Corsair Cove).png	
+32531	Crate of swords		Crate of swords (Corsair Cove).png	
+32532	Crate of alpaca wool		Crate of alpaca wool.png	
+32533	Crate of camphor logs		Crate of camphor logs (Deepfin Point).png	
+32534	Crate of fabrics		Crate of fabrics (Deepfin Point).png	
+32535	Crate of fruit		Crate of fruit (Deepfin Point).png	
+32536	Crate of furs		Crate of furs (Deepfin Point).png	
+32537	Crate of granite		Crate of granite (Deepfin Point).png	
+32538	Crate of javelins		Crate of javelins (Deepfin Point).png	
+32539	Crate of logs		Crate of logs (Deepfin Point).png	
+32540	Crate of machinery parts		Crate of machinery parts (Deepfin Point).png	
+32541	Crate of mahogany logs		Crate of mahogany logs (Deepfin Point).png	
+32542	Crate of pest remains		Crate of pest remains (Deepfin Point).png	
+32543	Crate of pickaxes		Crate of pickaxes.png	
+32544	Crate of planks		Crate of planks (Deepfin Point).png	
+32545	Crate of suqah hides		Crate of suqah hides.png	
+32546	Crate of warhammers		Crate of warhammers (Deepfin Point).png	
+32547	Crate of bananas		Crate of bananas (Entrana).png	
+32548	Crate of barley		Crate of barley.png	
+32549	Crate of sand		Crate of sand (Entrana).png	
+32550	Crate of adamantite ore		Crate of adamantite ore (Etceteria).png	
+32551	Crate of fish		Crate of fish (Etceteria).png	
+32552	Crate of fruit		Crate of fruit (Etceteria).png	
+32553	Crate of iron ore		Crate of iron ore.png	
+32554	Crate of monkfish		Crate of monkfish (Etceteria).png	
+32555	Crate of onions		Crate of onions.png	
+32556	Crate of planks		Crate of planks (Etceteria).png	
+32557	Crate of swords		Crate of swords (Etceteria).png	
+32558	Crate of warhammers		Crate of warhammers (Etceteria).png	
+32559	Crate of yak hair		Crate of yak hair.png	
+32560	Crate of fish		Crate of fish (Hosidius).png	
+32561	Crate of lead ore		Crate of lead ore (Hosidius).png	
+32562	Crate of rope		Crate of rope (Hosidius).png	
+32563	Crate of xerician fabrics		Crate of xerician fabrics (Hosidius).png	
+32564	Crate of fish		Crate of fish (Jatizso).png	
+32565	Crate of flax		Crate of flax (Jatizso).png	
+32566	Crate of logs		Crate of logs (Jatizso).png	
+32567	Crate of bear meat		Crate of bear meat (Land's End).png	
+32568	Crate of fish		Crate of fish (Land's End).png	
+32569	Crate of furs		Crate of furs (Land's End).png	
+32570	Crate of gems		Crate of gems (Land's End).png	
+32571	Crate of kebbit fur		Crate of kebbit fur (Land's End).png	
+32572	Crate of meat		Crate of meat (Land's End).png	
+32573	Crate of ores		Crate of ores (Land's End).png	
+32574	Crate of secret things		Crate of secret things.png	
+32575	Crate of swords		Crate of swords (Land's End).png	
+32576	Crate of vegetables		Crate of vegetables (Land's End).png	
+32577	Crate of wine		Crate of wine (Land's End).png	
+32578	Crate of antelope fur		Crate of antelope fur (Lunar Isle).png	
+32579	Crate of berries		Crate of berries (Lunar Isle).png	
+32580	Crate of coal		Crate of coal (Lunar Isle).png	
+32581	Crate of crystal seeds		Crate of crystal seeds (Lunar Isle).png	
+32582	Crate of fish		Crate of fish (Lunar Isle).png	
+32583	Crate of furs		Crate of furs (Lunar Isle).png	
+32584	Crate of kebbit fur		Crate of kebbit fur (Lunar Isle).png	
+32585	Crate of logs		Crate of logs (Lunar Isle).png	
+32586	Crate of potions		Crate of potions (Lunar Isle).png	
+32587	Crate of red coral		Crate of red coral (Lunar Isle).png	
+32588	Crate of bananas		Crate of bananas (Musa Point).png	
+32589	Crate of beer glasses		Crate of beer glasses.png	
+32590	Crate of cocktails		Crate of cocktails (Musa Point).png	
+32591	Crate of eye patches		Crate of eye patches.png	
+32592	Crate of fish		Crate of fish (Musa Point).png	
+32593	Crate of high importance		Crate of high importance.png	
+32594	Crate of honey		Crate of honey (Musa Point).png	
+32595	Crate of lobsters		Crate of lobsters.png	
+32596	Crate of logs		Crate of logs (Musa Point).png	
+32597	Crate of mahogany logs		Crate of mahogany logs (Musa Point).png	
+32598	Crate of meat		Crate of meat (Musa Point).png	
+32599	Crate of rotten bananas		Crate of rotten bananas.png	
+32600	Crate of secret stuff		Crate of secret stuff (Musa Point).png	
+32601	Crate of ship parts		Crate of ship parts (Musa Point).png	
+32602	Crate of silk		Crate of silk (Musa Point).png	
+32603	Crate of coal		Crate of coal (Neitiznot).png	
+32604	Crate of mahogany logs		Crate of mahogany logs (Neitiznot).png	
+32605	Crate of sand		Crate of sand (Neitiznot).png	
+32606	Crate of fabrics		Crate of fabrics (Piscatoris).png	
+32607	Crate of fish		Crate of fish (Piscatoris).png	
+32608	Crate of flax		Crate of flax (Piscatoris).png	
+32609	Crate of furs		Crate of furs (Piscatoris).png	
+32610	Crate of potions		Crate of potions (Piscatoris).png	
+32611	Crate of vodka		Crate of vodka (Piscatoris).png	
+32612	Crate of angler outfit pieces		Crate of angler outfit pieces.png	
+32613	Crate of arrowtips		Crate of arrowtips (Port Khazard).png	
+32614	Crate of bows		Crate of bows (Port Khazard).png	
+32615	Crate of bread		Crate of bread.png	
+32616	Crate of chainbodies		Crate of chainbodies.png	
+32617	Crate of coal		Crate of coal (Port Khazard).png	
+32618	Crate of crab paste		Crate of crab paste (Port Khazard).png	
+32619	Crate of fruit		Crate of fruit (Port Khazard).png	
+32620	Crate of gunpowder		Crate of gunpowder.png	
+32621	Crate of herbs		Crate of herbs (Port Khazard).png	
+32622	Crate of huasca		Crate of huasca.png	
+32623	Crate of kyatt teeth		Crate of kyatt teeth.png	
+32624	Crate of planks		Crate of planks (Port Khazard).png	
+32625	Crate of platebodies		Crate of platebodies (Port Khazard).png	
+32626	Crate of red coral		Crate of red coral (Port Khazard).png	
+32627	Crate of scimitars		Crate of scimitars (Port Khazard).png	
+32628	Crate of secret stuff		Crate of secret stuff (Port Khazard).png	
+32629	Crate of spears		Crate of spears (Port Khazard).png	
+32630	Crate of swamp paste		Crate of swamp paste (Port Khazard).png	
+32631	Crate of vodka		Crate of vodka (Port Khazard).png	
+32632	Crate of antelope meat		Crate of antelope meat.png	
+32633	Crate of astral runes		Crate of astral runes (Port Piscarilius).png	
+32634	Crate of books		Crate of books (Port Piscarilius).png	
+32635	Crate of cannonballs		Crate of cannonballs.png	
+32636	Crate of coal		Crate of coal (Port Piscarilius).png	
+32637	Crate of fabrics		Crate of fabrics (Port Piscarilius).png	
+32638	Crate of furs		Crate of furs (Port Piscarilius).png	
+32639	Crate of gems		Crate of gems (Port Piscarilius).png	
+32640	Crate of gin		Crate of gin.png	
+32641	Crate of honey		Crate of honey (Port Piscarilius).png	
+32642	Crate of jewellery		Crate of jewellery (Port Piscarilius).png	
+32643	Crate of kebbit fur		Crate of kebbit fur (Port Piscarilius).png	
+32644	Crate of mahogany logs		Crate of mahogany logs (Port Piscarilius).png	
+32645	Crate of planks		Crate of planks (Port Piscarilius).png	
+32646	Crate of platebodies		Crate of platebodies (Port Piscarilius).png	
+32647	Crate of red coral		Crate of red coral (Port Piscarilius).png	
+32648	Crate of seeds		Crate of seeds (Port Piscarilius).png	
+32649	Crate of wine		Crate of wine (Port Piscarilius).png	
+32650	Crate of antelope fur		Crate of antelope fur (Port Roberts).png	
+32651	Crate of berries		Crate of berries (Port Roberts).png	
+32652	Crate of bows		Crate of bows (Port Roberts).png	
+32653	Crate of coral		Crate of coral (Port Roberts).png	
+32654	Crate of fabrics		Crate of fabrics (Port Roberts).png	
+32655	Crate of fish		Crate of fish (Port Roberts).png	
+32656	Crate of flax		Crate of flax (Port Roberts).png	
+32657	Crate of furs		Crate of furs (Port Roberts).png	
+32658	Crate of gems		Crate of gems (Port Roberts).png	
+32659	Crate of honey		Crate of honey (Port Roberts).png	
+32660	Crate of jewellery		Crate of jewellery (Port Roberts).png	
+32661	Crate of logs		Crate of logs (Port Roberts).png	
+32662	Crate of meat		Crate of meat (Port Roberts).png	
+32663	Crate of nickel ore		Crate of nickel ore (Port Roberts).png	
+32664	Crate of ores		Crate of ores (Port Roberts).png	
+32665	Crate of red coral		Crate of red coral (Port Roberts).png	
+32666	Crate of runes		Crate of runes (Port Roberts).png	
+32667	Crate of seeds		Crate of seeds (Port Roberts).png	
+32668	Crate of silk		Crate of silk (Port Roberts).png	
+32669	Crate of silver ore		Crate of silver ore (Port Roberts).png	
+32670	Crate of staffs		Crate of staffs (Port Roberts).png	
+32671	Crate of teak logs		Crate of teak logs (Port Roberts).png	
+32672	Crate of wine		Crate of wine (Port Roberts).png	
+32673	Crate of amulets		Crate of amulets.png	
+32674	Crate of beer		Crate of beer (Port Sarim).png	
+32675	Crate of books		Crate of books (Port Sarim).png	
+32676	Crate of cacti		Crate of cacti (Port Sarim).png	
+32677	Crate of camphor logs		Crate of camphor logs (Port Sarim).png	
+32678	Crate of coconuts		Crate of coconuts (Port Sarim).png	
+32679	Crate of fish		Crate of fish (Port Sarim).png	
+32680	Crate of flax		Crate of flax (Port Sarim).png	
+32681	Crate of honey		Crate of honey (Port Sarim).png	
+32682	Crate of jewellery		Crate of jewellery (Port Sarim).png	
+32683	Crate of kebabs		Crate of kebabs.png	
+32684	Crate of logs		Crate of logs (Port Sarim).png	
+32685	Crate of nothing sinister		Crate of nothing sinister.png	
+32686	Crate of pest remains		Crate of pest remains (Port Sarim).png	
+32687	Crate of red coral		Crate of red coral (Port Sarim).png	
+32688	Crate of runes		Crate of runes (Port Sarim).png	
+32689	Crate of seeds		Crate of seeds (Port Sarim).png	
+32690	Crate of spices		Crate of spices (Port Sarim).png	
+32691	Crate of sunbeam ale		Crate of sunbeam ale.png	
+32692	Crate of swords		Crate of swords (Port Sarim).png	
+32693	Crate of arrowtips		Crate of arrowtips (Port Tyras).png	
+32694	Crate of chinchompas		Crate of chinchompas.png	
+32695	Crate of coal		Crate of coal (Port Tyras).png	
+32696	Crate of fabrics		Crate of fabrics (Port Tyras).png	
+32697	Crate of fish		Crate of fish (Port Tyras).png	
+32698	Crate of fruit		Crate of fruit (Port Tyras).png	
+32699	Crate of furs		Crate of furs (Port Tyras).png	
+32700	Crate of herbs		Crate of herbs (Port Tyras).png	
+32701	Crate of mithril ore		Crate of mithril ore.png	
+32702	Crate of ores		Crate of ores (Port Tyras).png	
+32703	Crate of platebodies		Crate of platebodies (Port Tyras).png	
+32704	Crate of seeds		Crate of seeds (Port Tyras).png	
+32705	Crate of shields		Crate of shields (Port Tyras).png	
+32706	Crate of snakeskin		Crate of snakeskin.png	
+32707	Crate of swords		Crate of swords (Port Tyras).png	
+32708	Crate of vegetables		Crate of vegetables (Port Tyras).png	
+32709	Crate of astral runes		Crate of astral runes (Prifddinas).png	
+32710	Crate of books		Crate of books (Prifddinas).png	
+32711	Crate of clothes		Crate of clothes (Prifddinas).png	
+32712	Crate of fish		Crate of fish (Prifddinas).png	
+32713	Crate of halberds		Crate of halberds (Prifddinas).png	
+32714	Crate of herbs		Crate of herbs (Prifddinas).png	
+32715	Crate of logs		Crate of logs (Prifddinas).png	
+32716	Crate of ores		Crate of ores (Prifddinas).png	
+32717	Crate of potions		Crate of potions (Prifddinas).png	
+32718	Crate of silk		Crate of silk (Prifddinas).png	
+32719	Crate of spices		Crate of spices (Prifddinas).png	
+32720	Crate of xerician fabrics		Crate of xerician fabrics (Prifddinas).png	
+32721	Crate of astral runes		Crate of astral runes (Red Rock).png	
+32722	Crate of battleaxes		Crate of battleaxes (Red Rock).png	
+32723	Crate of coal		Crate of coal (Red Rock).png	
+32724	Crate of fish		Crate of fish (Red Rock).png	
+32725	Crate of furs		Crate of furs (Red Rock).png	
+32726	Crate of granite		Crate of granite (Red Rock).png	
+32727	Crate of herbs		Crate of herbs (Red Rock).png	
+32728	Crate of karambwans		Crate of karambwans (Red Rock).png	
+32729	Crate of ores		Crate of ores (Red Rock).png	
+32730	Crate of protective clothing		Crate of protective clothing.png	
+32731	Crate of runes		Crate of runes (Red Rock).png	
+32732	Crate of ship parts		Crate of ship parts (Red Rock).png	
+32733	Crate of spices		Crate of spices (Red Rock).png	
+32734	Crate of adamantite ore		Crate of adamantite ore (Rellekka).png	
+32735	Crate of beer		Crate of beer (Rellekka).png	
+32736	Crate of dragon bitter		Crate of dragon bitter.png	
+32737	Crate of fabrics		Crate of fabrics (Rellekka).png	
+32738	Crate of fish		Crate of fish (Rellekka).png	
+32739	Crate of halberds		Crate of halberds (Rellekka).png	
+32740	Crate of lead ore		Crate of lead ore (Rellekka).png	
+32741	Crate of monkfish		Crate of monkfish (Rellekka).png	
+32742	Crate of pies		Crate of pies.png	
+32743	Crate of planks		Crate of planks (Rellekka).png	
+32744	Crate of redwood logs		Crate of redwood logs.png	
+32745	Crate of rope		Crate of rope (Rellekka).png	
+32746	Crate of ship parts		Crate of ship parts (Rellekka).png	
+32747	Crate of teak logs		Crate of teak logs (Rellekka).png	
+32748	Crate of wine		Crate of wine (Rellekka).png	
+32749	Crate of calquat		Crate of calquat.png	
+32750	Crate of cocktails		Crate of cocktails (Ruins of Unkah).png	
+32751	Crate of coral		Crate of coral (Ruins of Unkah).png	
+32752	Crate of fish		Crate of fish (Ruins of Unkah).png	
+32753	Crate of fishing supplies		Crate of fishing supplies.png	
+32754	Crate of javelins		Crate of javelins (Ruins of Unkah).png	
+32755	Crate of planks		Crate of planks (Ruins of Unkah).png	
+32756	Crate of runes		Crate of runes (Ruins of Unkah).png	
+32757	Crate of ship parts		Crate of ship parts (Ruins of Unkah).png	
+32758	Crate of beer		Crate of beer (Sunset Coast).png	
+32759	Crate of fabrics		Crate of fabrics (Sunset Coast).png	
+32760	Crate of fish		Crate of fish (Sunset Coast).png	
+32761	Crate of maces		Crate of maces (Sunset Coast).png	
+32762	Crate of warhammers		Crate of warhammers (Sunset Coast).png	
+32763	Crate of wine		Crate of wine (Sunset Coast).png	
+32764	Crate of arrowtips		Crate of arrowtips (The Pandemonium).png	
+32765	Crate of bananas		Crate of bananas (The Pandemonium).png	
+32766	Crate of battleaxes		Crate of battleaxes (The Pandemonium).png	
+32767	Crate of cacti		Crate of cacti (The Pandemonium).png	
+32768	Crate of coral		Crate of coral (The Pandemonium).png	
+32769	Crate of gold bars		Crate of gold bars (The Pandemonium).png	
+32770	Crate of granite		Crate of granite (The Pandemonium).png	
+32771	Crate of meat		Crate of meat (The Pandemonium).png	
+32772	Crate of pineapples		Crate of pineapples (The Pandemonium).png	
+32773	Crate of platebodies		Crate of platebodies (The Pandemonium).png	
+32774	Crate of rum		Crate of rum (The Pandemonium).png	
+32775	Crate of sea shells		Crate of sea shells.png	
+32776	Crate of spices		Crate of spices (The Pandemonium).png	
+32777	Crate of steel bars		Crate of steel bars.png	
+32778	Crate of swamp paste		Crate of swamp paste (The Pandemonium).png	
+32779	Crate of wax		Crate of wax.png	
+32780	Crate of bananas		Crate of bananas (The Summer Shore).png	
+32781	Crate of cacti		Crate of cacti (The Summer Shore).png	
+32782	Crate of gems		Crate of gems (The Summer Shore).png	
+32783	Crate of javelins		Crate of javelins (The Summer Shore).png	
+32784	Crate of jewellery		Crate of jewellery (The Summer Shore).png	
+32785	Crate of leather		Crate of leather.png	
+32786	Crate of meat		Crate of meat (The Summer Shore).png	
+32787	Crate of nickel ore		Crate of nickel ore (The Summer Shore).png	
+32788	Crate of pest remains		Crate of pest remains (The Summer Shore).png	
+32789	Crate of pineapples		Crate of pineapples (The Summer Shore).png	
+32790	Crate of potions		Crate of potions (The Summer Shore).png	
+32791	Crate of rope		Crate of rope (The Summer Shore).png	
+32792	Crate of sandstone		Crate of sandstone (The Summer Shore).png	
+32793	Crate of shields		Crate of shields (The Summer Shore).png	
+32794	Crate of coral		Crate of coral (Void Knights' Outpost).png	
+32795	Crate of dragonhide		Crate of dragonhide.png	
+32796	Crate of granite		Crate of granite (Void Knights' Outpost).png	
+32797	Crate of herbs		Crate of herbs (Void Knights' Outpost).png	
+32798	Crate of logs		Crate of logs (Void Knights' Outpost).png	
+32799	Crate of maces		Crate of maces (Void Knights' Outpost).png	
+32800	Crate of ores		Crate of ores (Void Knights' Outpost).png	
+32801	Crate of platebodies		Crate of platebodies (Void Knights' Outpost).png	
+32802	Crate of potions		Crate of potions (Void Knights' Outpost).png	
+32803	Crate of runes		Crate of runes (Void Knights' Outpost).png	
+32804	Crate of seeds		Crate of seeds (Void Knights' Outpost).png	
+32805	Crate of spears		Crate of spears (Void Knights' Outpost).png	
+32806	Crate of wrath runes		Crate of wrath runes.png	
+32807	Crate of ship parts		Crate of ship parts (Pandemonium).png	Crate of ship parts (Pandemonium)
+32808	Crate of looty		Crate of looty.png	
 32809	Bull shark jaw		Bull shark jaw.png	
 32810	Hammerhead shark jaw		Hammerhead shark jaw.png	
 32811	Tiger shark jaw		Tiger shark jaw.png	
@@ -15198,77 +15199,77 @@
 32907	Ironwood logs		Ironwood logs.png	
 32910	Rosewood logs		Rosewood logs.png	
 32921	Jar of Feathers		Jar of Feathers.png	
-32924	Crate of arrowtips	weapon	Crate of arrowtips (Rellekka).png	
-32925	Crate of clothes	weapon	Crate of clothes (Void Knights' Outpost).png	
+32924	Crate of arrowtips		Crate of arrowtips (Rellekka).png	
+32925	Crate of clothes		Crate of clothes (Void Knights' Outpost).png	
 32926	Serving platter		Serving platter.png	
 32928	Lovley jubbly bib	neck	Lovley jubbly bib.png	
 32930	Beer belly sweater	body	Beer belly sweater.png	
 32932	Jad jumper	body	Jad jumper.png	
 32934	Christmas dinner	weapon	Christmas dinner.png	
-32936	Crate of furs	weapon	Crate of furs (Aldarin).png	
-32937	Crate of fish	weapon	Crate of fish (Ardougne).png	
-32938	Crate of fish	weapon	Crate of fish (Ardougne).png	
-32939	Crate of fish	weapon	Crate of fish (Ardougne).png	
-32941	Crate of red coral	weapon	Crate of red coral (Ardougne).png	
-32942	Crate of fish	weapon	Crate of fish (Brimhaven).png	
-32943	Crate of spices	weapon	Crate of spices (Brimhaven).png	
-32944	Crate of jewellery	weapon	Crate of jewellery (Brimhaven).png	
-32945	Crate of bait	weapon	Crate of bait.png	
-32946	Crate of coconuts	weapon	Crate of coconuts (Catherby).png	
-32947	Crate of arrowtips	weapon	Crate of arrowtips (Catherby).png	
-32948	Crate of pineapples	weapon	Crate of pineapples (Civitas illa Fortis).png	
-32949	Crate of logs	weapon	Crate of logs (Deepfin Point).png	
-32950	Crate of planks	weapon	Crate of planks (Deepfin Point).png	
-32951	Crate of logs	weapon	Crate of logs (Deepfin Point).png	
-32952	Crate of alpaca wool	weapon	Crate of alpaca wool.png	
-32953	Crate of planks	weapon	Crate of planks (Deepfin Point).png	
-32954	Crate of fabrics	weapon	Crate of fabrics (Deepfin Point).png	
-32955	Crate of planks	weapon	Crate of planks (Deepfin Point).png	
-32956	Crate of logs	weapon	Crate of logs (Deepfin Point).png	
-32957	Crate of planks	weapon	Crate of planks (Deepfin Point).png	
-32958	Crate of fish	weapon	Crate of fish (Land's End).png	
-32959	Crate of fish	weapon	Crate of fish (Land's End).png	
-32960	Crate of gems	weapon	Crate of gems (Land's End).png	
-32961	Crate of fish	weapon	Crate of fish (Lunar Isle).png	
-32962	Crate of fish	weapon	Crate of fish (Lunar Isle).png	
-32963	Crate of potions	weapon	Crate of potions (Lunar Isle).png	
-32964	Crate of furs	weapon	Crate of furs (Piscatoris).png	
-32965	Crate of swamp paste	weapon	Crate of swamp paste (Port Khazard).png	
-32966	Crate of planks	weapon	Crate of planks (Port Piscarilius).png	
-32967	Crate of books	weapon	Crate of books (Port Piscarilius).png	
-32968	Crate of books	weapon	Crate of books (Port Piscarilius).png	
-32969	Crate of jewellery	weapon	Crate of jewellery (Port Piscarilius).png	
-32970	Crate of jewellery	weapon	Crate of jewellery (Port Piscarilius).png	
-32971	Crate of planks	weapon	Crate of planks (Port Piscarilius).png	
-32972	Crate of furs	weapon	Crate of furs (Port Piscarilius).png	
-32973	Crate of fish	weapon	Crate of fish (Port Roberts).png	
-32974	Crate of fish	weapon	Crate of fish (Port Roberts).png	
-32975	Crate of silk	weapon	Crate of silk (Port Roberts).png	
-32976	Crate of fish	weapon	Crate of fish (Port Roberts).png	
-32977	Crate of logs	weapon	Crate of logs (Port Sarim).png	
-32978	Crate of swords	weapon	Crate of swords (Port Sarim).png	
-32979	Crate of fish	weapon	Crate of fish (Port Sarim).png	
-32980	Crate of fish	weapon	Crate of fish (Port Sarim).png	
-32981	Crate of seeds	weapon	Crate of seeds (Port Sarim).png	
-32982	Crate of swords	weapon	Crate of swords (Port Tyras).png	
-32983	Crate of platebodies	weapon	Crate of platebodies (Port Tyras).png	
-32984	Crate of swords	weapon	Crate of swords (Port Tyras).png	
-32985	Crate of ores	weapon	Crate of ores (Port Tyras).png	
-32986	Crate of logs	weapon	Crate of logs (Prifddinas).png	
-32987	Crate of potions	weapon	Crate of potions (Prifddinas).png	
-32988	Crate of fish	weapon	Crate of fish (Red Rock).png	
-32989	Crate of fish	weapon	Crate of fish (Red Rock).png	
-32990	Crate of runes	weapon	Crate of runes (Red Rock).png	
-32991	Crate of fish	weapon	Crate of fish (Red Rock).png	
-32992	Crate of planks	weapon	Crate of planks (Rellekka).png	
-32993	Crate of teak logs	weapon	Crate of teak logs (Rellekka).png	
-32994	Crate of runes	weapon	Crate of runes (Ruins of Unkah).png	
-32995	Crate of cocktails	weapon	Crate of cocktails (Ruins of Unkah).png	
-32997	Crate of rum	weapon	Crate of rum (The Pandemonium).png	
-32998	Crate of javelins	weapon	Crate of javelins (The Summer Shore).png	
-32999	Crate of potions	weapon	Crate of potions (Void Knights' Outpost).png	
-33000	Crate of ores	weapon	Crate of ores (Void Knights' Outpost).png	
-33001	Crate of potions	weapon	Crate of potions (Void Knights' Outpost).png	
+32936	Crate of furs		Crate of furs (Aldarin).png	
+32937	Crate of fish		Crate of fish (Ardougne).png	
+32938	Crate of fish		Crate of fish (Ardougne).png	
+32939	Crate of fish		Crate of fish (Ardougne).png	
+32941	Crate of red coral		Crate of red coral (Ardougne).png	
+32942	Crate of fish		Crate of fish (Brimhaven).png	
+32943	Crate of spices		Crate of spices (Brimhaven).png	
+32944	Crate of jewellery		Crate of jewellery (Brimhaven).png	
+32945	Crate of bait		Crate of bait.png	
+32946	Crate of coconuts		Crate of coconuts (Catherby).png	
+32947	Crate of arrowtips		Crate of arrowtips (Catherby).png	
+32948	Crate of pineapples		Crate of pineapples (Civitas illa Fortis).png	
+32949	Crate of logs		Crate of logs (Deepfin Point).png	
+32950	Crate of planks		Crate of planks (Deepfin Point).png	
+32951	Crate of logs		Crate of logs (Deepfin Point).png	
+32952	Crate of alpaca wool		Crate of alpaca wool.png	
+32953	Crate of planks		Crate of planks (Deepfin Point).png	
+32954	Crate of fabrics		Crate of fabrics (Deepfin Point).png	
+32955	Crate of planks		Crate of planks (Deepfin Point).png	
+32956	Crate of logs		Crate of logs (Deepfin Point).png	
+32957	Crate of planks		Crate of planks (Deepfin Point).png	
+32958	Crate of fish		Crate of fish (Land's End).png	
+32959	Crate of fish		Crate of fish (Land's End).png	
+32960	Crate of gems		Crate of gems (Land's End).png	
+32961	Crate of fish		Crate of fish (Lunar Isle).png	
+32962	Crate of fish		Crate of fish (Lunar Isle).png	
+32963	Crate of potions		Crate of potions (Lunar Isle).png	
+32964	Crate of furs		Crate of furs (Piscatoris).png	
+32965	Crate of swamp paste		Crate of swamp paste (Port Khazard).png	
+32966	Crate of planks		Crate of planks (Port Piscarilius).png	
+32967	Crate of books		Crate of books (Port Piscarilius).png	
+32968	Crate of books		Crate of books (Port Piscarilius).png	
+32969	Crate of jewellery		Crate of jewellery (Port Piscarilius).png	
+32970	Crate of jewellery		Crate of jewellery (Port Piscarilius).png	
+32971	Crate of planks		Crate of planks (Port Piscarilius).png	
+32972	Crate of furs		Crate of furs (Port Piscarilius).png	
+32973	Crate of fish		Crate of fish (Port Roberts).png	
+32974	Crate of fish		Crate of fish (Port Roberts).png	
+32975	Crate of silk		Crate of silk (Port Roberts).png	
+32976	Crate of fish		Crate of fish (Port Roberts).png	
+32977	Crate of logs		Crate of logs (Port Sarim).png	
+32978	Crate of swords		Crate of swords (Port Sarim).png	
+32979	Crate of fish		Crate of fish (Port Sarim).png	
+32980	Crate of fish		Crate of fish (Port Sarim).png	
+32981	Crate of seeds		Crate of seeds (Port Sarim).png	
+32982	Crate of swords		Crate of swords (Port Tyras).png	
+32983	Crate of platebodies		Crate of platebodies (Port Tyras).png	
+32984	Crate of swords		Crate of swords (Port Tyras).png	
+32985	Crate of ores		Crate of ores (Port Tyras).png	
+32986	Crate of logs		Crate of logs (Prifddinas).png	
+32987	Crate of potions		Crate of potions (Prifddinas).png	
+32988	Crate of fish		Crate of fish (Red Rock).png	
+32989	Crate of fish		Crate of fish (Red Rock).png	
+32990	Crate of runes		Crate of runes (Red Rock).png	
+32991	Crate of fish		Crate of fish (Red Rock).png	
+32992	Crate of planks		Crate of planks (Rellekka).png	
+32993	Crate of teak logs		Crate of teak logs (Rellekka).png	
+32994	Crate of runes		Crate of runes (Ruins of Unkah).png	
+32995	Crate of cocktails		Crate of cocktails (Ruins of Unkah).png	
+32997	Crate of rum		Crate of rum (The Pandemonium).png	
+32998	Crate of javelins		Crate of javelins (The Summer Shore).png	
+32999	Crate of potions		Crate of potions (Void Knights' Outpost).png	
+33000	Crate of ores		Crate of ores (Void Knights' Outpost).png	
+33001	Crate of potions		Crate of potions (Void Knights' Outpost).png	
 33002	Holy moleys	feet	Holy moleys.png	
 33004	Kharidian quest lamp		Kharidian quest lamp.png	
 33005	Myreque quest lamp		Myreque quest lamp.png	
@@ -16033,6 +16034,14 @@
 34600	Stray puppy		Stray puppy (A Ruff Situation, 3).png	Stray puppy (A Ruff Situation)
 34602	Stuffed dog		Stuffed dog.png	
 34607	Imbued ancient cape (Deadman)	cape	Imbued ancient cape (Deadman).png	
+34609	Karil's leatherskirt	legs	Karil's leatherskirt.png	Karil's leatherskirt (Pete Kayer's Challenges)
+34611	Bandos chestplate	body	Bandos chestplate.png	Bandos chestplate (Pete Kayer's Challenges)
+34613	Fighter torso	body	Fighter torso.png	Fighter torso (Pete Kayer's Challenges)
+34615	Black d'hide shield	shield	Black d'hide shield.png	Black d'hide shield (Pete Kayer's Challenges)
+34617	Torva full helm	head	Torva full helm.png	Torva full helm (Pete Kayer's Challenges)
+34619	Abyssal tentacle	weapon	Abyssal tentacle.png	Abyssal tentacle (Pete Kayer's Challenges)
+34621	Dragon boots	feet	Dragon boots.png	Dragon boots (Pete Kayer's Challenges)
+34623	Anglerfish		Anglerfish.png	Anglerfish (Pete Kayer's Challenges)
 34625	Imbued ancient max cape	cape	Imbued ancient max cape.png	
 34627	Imbued ancient max hood	head	Imbued ancient max hood.png	
 34629	Imbued ancient max cape (broken)	cape	Imbued ancient max cape (broken).png	Imbued ancient max cape
@@ -16073,3 +16082,26 @@
 34727	Zorya's tome (uncharged)	weapon	Zorya's tome (uncharged).png	Zorya's tome
 34729	Alliance log		Alliance log.png	
 34730	Leftovers		Leftovers.png	
+34732	Candy onion		Candy onion.png	
+34734	Sugar		Sugar.png	
+34736	Molten sugar		Molten sugar.png	
+34738	Old onion		Old onion.png	
+34740	Vampyre monocle	head	Vampyre monocle.png	
+34742	Vampyre costume top	body	Vampyre costume top.png	
+34744	Vampyre costume bottom	legs	Vampyre costume bottom.png	
+34746	Vampyre costume cape	cape	Vampyre costume cape.png	
+34748	Antique lamp		Antique lamp (Black Knights' Fortress).png	Antique lamp (Black Knights' Fortress)
+34749	Antique lamp		Antique lamp (Demon Slayer).png	Antique lamp (Demon Slayer)
+34750	Antique lamp		Antique lamp (Ernest the Chicken).png	Antique lamp (Ernest the Chicken)
+34751	Antique lamp		Antique lamp (Mudfoot's Big Adventure).png	Antique lamp (Mudfoot's Big Adventure)
+34752	Mudfoot		Mudfoot (item).png	Mudfoot (item)
+34753	Mudfoot		Mudfoot (item).png	Mudfoot (item)
+34754	Antique lamp		Antique lamp (Romeo & Juliet).png	Antique lamp (Romeo & Juliet)
+34755	Antique lamp		Antique lamp (Shield of Arrav).png	Antique lamp (Shield of Arrav)
+34756	Letter		Letter (Jack Holland).png	Letter (Jack Holland)
+34757	Newspaper cutting		Newspaper cutting.png	
+34758	Bloody knife		Bloody knife (The Writing's on the Wall).png	Bloody knife (The Writing's on the Wall)
+34759	Human head		Human head.png	
+34760	Letter		Letter (Bernard Holland).png	Letter (Bernard Holland)
+34761	Certificate		Certificate (The Writing's on the Wall).png	Certificate (The Writing's on the Wall)
+34762	Amulet of sight	neck	Amulet of sight.png	

@@ -1,6 +1,6 @@
 # Hunter Rumours: updating its data
 
-How to bring in wiki edits after the update checker reports `hunter-rumours`. Last done 24 October 2026.
+How to bring in wiki edits after the update checker reports `hunter-rumours`. Last done 6 November 2026.
 
 ## Where the data is
 
@@ -29,3 +29,5 @@ Everything is hand-written in `HunterRumours.kt` (no build script), adapted from
 
 - 24 Oct 2026: the game's new Net trap item (7 October update) replaced the rope + small fishing net for
   salamanders and swamp lizards (`NET_TRAP`). The Slayer ring to Wyrmscraig Cavern for goats was already in.
+- 6 Nov 2026: nothing to change. The main page only gained an old (2025) change-history entry; the Strategies
+  page reworded everything and reworked the master rumour block lists, which the app doesn't show.

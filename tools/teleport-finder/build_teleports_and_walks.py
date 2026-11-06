@@ -62,6 +62,10 @@ PREFIX = {'Spirit tree': 'Spirit tree: ', 'Gnome glider': 'Gnome glider: ', 'Que
           'Charter ship': 'Charter ship: ', 'Magic carpet': 'Magic carpet: ', 'Hot air balloon': 'Balloon: ',
           'Magic mushtree': 'Mushtree: ', 'Minecart': 'Minecart: ', 'Canoe': 'Canoe: '}
 
+# the menu key in front of a network's names ("3: Mos Le'Harmless", and since November 2026 also letters,
+# "D: Civitas illa Fortis" on the charter ships), which players don't need to see
+MENU_KEY = r'^(\d+|[A-Z]): '
+
 out, seen, stats = [], set(), collections.Counter()
 for fn, cat, how in FILES:
     for r, section in read(fn):
@@ -75,7 +79,7 @@ for fn, cat, how in FILES:
                 continue
             name = 'Fairy ring ' + name.replace(' ', '') if len(name) <= 5 else 'Fairy ring: ' + name.title()
         elif cat in PREFIX:
-            name = PREFIX[cat] + re.sub(r'^\d+: ', '', name)
+            name = PREFIX[cat] + re.sub(MENU_KEY, '', name)
         name = re.sub(r'\s+', ' ', name)
         req = '; '.join(v for v in [r.get('Skills', '').replace(';', '; '), r.get('Quests', '').replace(';', '; ')] if v)
         # your house can be in several places, so house teleports can't be ranked
@@ -93,26 +97,30 @@ for fn, cat, how in FILES:
         stats[cat] += 1
         out.append([name, cat, x, y, p, req, how])
 
-# Corrections: where the game really puts you (checked against crowdsourced landing spots or the walking map)
+# Corrections: where the game really puts you (checked against crowdsourced landing spots or the walking map).
+# Name: (x, y, plane). Empty since November 2026: Shortest Path now has the three corrected spots that were here
+# (Games necklace to the Corporeal Beast, Pharaoh's sceptre to Jalsavrah, Drakan's medallion to Slepe).
 FIX = {
-    # Shortest Path has 2965 4254; players land at the Corporeal Beast cave, 2965 4382 (plane 2)
-    'Games necklace: Corporeal Beast': (2965, 4382, 2),
-    # the Pyramid Plunder lobby is up on plane 3 (plane 0 there is solid)
-    "Pharaoh's sceptre: Jalsavrah": (1934, 4428, 3),
-    # "takes players to the entrance of the Sisterhood Sanctuary" (OSRS Wiki): that's on plane 1, 57 tiles from
-    # the Nightmare. Plane 0 there is a closed-off pocket.
-    "Drakan's medallion: Slepe": (3808, 9700, 1),
 }
 for row in out:
     if row[0] in FIX:
         row[2], row[3], row[4] = FIX[row[0]]
 
+# Notes shown under teleports that Shortest Path has, kept from when they were hand-added here
+HOW = {
+    'Spider cave teleport': 'Scroll. Lands at the Morytania Spider Cave entrance (Araxxor)',
+    'Colossal wyrm teleport scroll': 'Scroll',
+    'Chasm teleport scroll': 'Scroll. Lands at the bottom of the Chasm of Fire',
+    'Ardeaglais teleport': 'Scroll dropped by the Mad Angel',
+    "Drakan's medallion: Castle Drakan": "Unlock by inspecting the shrine by the castle's front door (during The Blood Moon Rises)",
+}
+for row in out:
+    if row[0] in HOW and not row[6]:
+        row[6] = HOW[row[0]]
+
 # Additions the plugin doesn't have yet. Landing tiles from RuneLite's world map
 # (github.com/runelite/runelite, BSD 2-Clause), checked to be open tiles on the walking map.
 ADD = [
-    ['Spider cave teleport', 'Item', 3658, 3403, 0, 'Priest in Peril', 'Scroll. Lands at the Morytania Spider Cave entrance (Araxxor)'],
-    ['Colossal wyrm teleport scroll', 'Item', 1641, 2921, 0, 'Children of the Sun', 'Scroll'],
-    ['Chasm teleport scroll', 'Item', 1311, 9882, 0, '', 'Scroll. Lands by the Voice of Yama at the bottom of the Chasm of Fire'],
     ["Ghommal's hilt: God Wars Dungeon", 'Item', 2898, 3709, 0, '', 'Combat Achievements reward, 3 a day'],
     ["Ghommal's hilt: Mor Ul Rek", 'Item', 2554, 5130, 0, '', 'Combat Achievements reward'],
     ['Ape Atoll Teleport (Arceuus)', 'Spell', 2771, 9102, 0, '90 Magic', 'Arceuus spellbook. Lands in the Ape Atoll Dungeon'],
@@ -120,8 +128,6 @@ ADD = [
     ['Lumbridge Graveyard Teleport', 'Spell', 3241, 3194, 0, '6 Magic', 'Arceuus spellbook'],
     ['Lumbridge Graveyard tablet', 'Item', 3241, 3194, 0, '', ''],
     ['Slayer ring: Wyrmscraig Cavern', 'Item', 2581, 8633, 0, 'Fallen From Grace', ''],
-    ['Ardeaglais teleport', 'Item', 2543, 2216, 0, 'Fallen From Grace', 'Scroll dropped by the Mad Angel'],
-    ["Drakan's medallion: Castle Drakan", 'Item', 3557, 3358, 0, '', "Unlock by inspecting the shrine by the castle's front door (during The Blood Moon Rises)"],
     # Not in Shortest Path or RuneLite yet, and the wiki only says "Cam Torum": the spot is estimated, in the
     # middle of the city by the bank. Needs Perilous Moons up to killing the Sulphur Nagua (OSRS Wiki).
     ['Calcified moth', 'Item', 1447, 9566, 1, 'Perilous Moons', 'Crush it. Lands in Cam Torum (exact spot estimated)'],
@@ -166,7 +172,7 @@ for fn in WALK_FILES:
             continue
         what = re.sub(r'\s+\d+$', '', r.get('menuOption menuTarget objectID', '')).strip()
         if fn in ('ships.tsv', 'boats.tsv') and r.get('Display info'):
-            what = 'Boat to ' + re.sub(r'^\d+: ', '', r['Display info'])
+            what = 'Boat to ' + re.sub(MENU_KEY, '', r['Display info'])
         dur = r.get('Duration', '')
         ticks = int(dur) if dur.isdigit() else (8 if fn in ('ships.tsv', 'boats.tsv') else 2)
         far = 1 if layer(a[0], a[1]) != layer(b[0], b[1]) or max(abs(a[0] - b[0]), abs(a[1] - b[1])) > 30 else 0

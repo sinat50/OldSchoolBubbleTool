@@ -11,7 +11,7 @@ class CalculatorItems private constructor(context: Context) {
     companion object {
         // The version of the DPS calculator's repository the item list comes from
         // (tools/dps/build_equipment_json.py and the update check read it from here)
-        @Suppress("unused") const val COMMIT = "741f2f2d49da14bf872b7534fc9e1cb50d67bceb"
+        @Suppress("unused") const val COMMIT = "3bedf51035522a9de85c06330e425efef9e85337"
 
         @Volatile private var sharedOne: CalculatorItems? = null
 
