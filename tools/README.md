@@ -55,6 +55,12 @@ Bubble Tool Sync plugin's code. Run it after adding a quest or changing a diary:
 tools/quest-helper/sync_tables.py QUEST_HELPER_FOLDER QUEST_JAVA` (a clone of the Quest Helper plugin and RuneLite's
 `Quest.java`; details at the top of the script and in `docs/quest-helper.md`).
 
+## Puzzle Box Solver (`puzzle-box/`)
+
+`python tools/puzzle-box/build_tile_fingerprints.py` (from the project folder; needs Pillow and numpy) makes
+`puzzle_tiles.bin`: each puzzle's tiles as 8 x 8 average colours, read from the OSRS Wiki's solved pictures, which
+are not saved. A new puzzle box only needs a new line in the script's `PUZZLES` list. `PuzzleTilesTest` checks the file.
+
 ## DPS Calculator gear import (`dps/`)
 
 ```
@@ -65,7 +71,8 @@ cd osrs-dps-calc && git checkout <GearIcons.COMMIT>
 | Script | Makes | Notes |
 | --- | --- | --- |
 | `build_equipment_json.py` | `dps/equipment.json` | `python3 build_equipment_json.py osrs-dps-calc equipment.json` |
-| `fetch_pictures.py` | `dps/icons/`, `puzzles/`, `quest_images/` | `python3 fetch_pictures.py app/src/main/assets` (from the project folder). Downloads every game picture the app comes with: item pictures from the repository at `GearIcons.COMMIT` (the "wiki" ones from the OSRS Wiki), and the solved puzzle and quest pictures from the wiki. Skips ones already there and removes ones no longer needed, so run it after rebuilding `equipment.json`. About 30 seconds. |
+| `build_gear_summaries.py` | `dps/gear_summaries.bin` | `python tools/dps/build_gear_summaries.py` (from the project folder). Every wearable item's icon (RuneLite's) as 9 x 8 colour squares, for Import my gear, which keeps no item pictures. The owner's limit is 9 x 8 at the most. Run it after the item lists change (`tools/items/`). `GearImportTest` checks it on the owner's screenshots. |
+| `fetch_pictures.py` | `dps/icons/`, `quest_images/` | `python3 fetch_pictures.py app/src/main/assets` (from the project folder). Downloads every game picture the app comes with: item pictures from the repository at `GearIcons.COMMIT` (the "wiki" ones from the OSRS Wiki), and the quest pictures from the wiki. Skips ones already there and removes ones no longer needed, so run it after rebuilding `equipment.json`. About 30 seconds. |
 
 `wiki_icons.txt` lists the item pictures the repository has out of date at the pinned version;
 `fetch_pictures.py` gets those from the OSRS Wiki instead. If you move to a newer version, update `COMMIT` in

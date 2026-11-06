@@ -470,6 +470,143 @@ object InventoryReader {
         return Equipment(slots, ammo, gamma)
     }
 
+    // ---------------- The equipment tab from the gear summaries (Import my gear) ----------------
+    //
+    // The DPS Calculator's Import my gear keeps no item pictures: each wearable item's icon comes in brief instead
+    // (assets/dps/gear_summaries.bin, made by tools/dps/build_gear_summaries.py): 9 x 8 squares of 4 x 4 game pixels,
+    // each with the item's average colour there and how much of the square it covers. Each slot on screen is shrunk
+    // to the same squares at the item's exact place, and compared with every item for that slot: a square the item
+    // half covers should look half item, half the slot's stone behind it.
+
+    class GearSummaries(bytes: ByteArray) {
+        val count: Int
+        val ids: IntArray
+        val slots: IntArray          // index into the slot list the file was made with (GearRecognizer.SLOT_ORDER)
+        val cells: ByteArray         // SUMMARY_BYTES an icon: red, green, blue, cover for each square
+
+        init {
+            val b = ByteBuffer.wrap(bytes)
+            require(b.remaining() >= 8 && b.get() == 'G'.code.toByte() && b.get() == 'S'.code.toByte() &&
+                b.get() == 'M'.code.toByte() && b.get() == '1'.code.toByte()) { "not a gear summaries file" }
+            count = b.int
+            ids = IntArray(count); slots = IntArray(count)
+            cells = ByteArray(count * SUMMARY_BYTES)
+            for (i in 0 until count) {
+                ids[i] = b.int
+                slots[i] = b.get().toInt() and 0xFF
+                b.get(cells, i * SUMMARY_BYTES, SUMMARY_BYTES)
+            }
+        }
+    }
+
+    private const val SQUARES_X = 9
+    private const val SQUARES_Y = 8
+    private const val SQUARE = 4                 // game pixels a side
+    private const val SQUARES = SQUARES_X * SQUARES_Y
+    private const val SUMMARY_BYTES = SQUARES * 4
+    private const val SUMMARY_SHORTLIST = 12     // per slot, used to find the brightness setting
+    private const val SUMMARY_GUESSES = 5        // kept per slot
+    private const val OUTLINE_BLACK = 40         // r + g + b below this on screen: an item's black outline
+    private const val MIN_OUTLINE = 15           // game pixels of it in a slot with an item in it
+
+    // One way of laying the squares on a slot (a half-pixel grid and a nudge): each square's colour on screen (-1 where
+    // an amount's digits cover most of it)
+    private class Squares(val r: FloatArray, val g: FloatArray, val b: FloatArray, val used: BooleanArray)
+
+    private fun squaresOf(grid: CanvasGrid, dx: Int, dy: Int): Squares {
+        val r = FloatArray(SQUARES); val g = FloatArray(SQUARES); val b = FloatArray(SQUARES); val used = BooleanArray(SQUARES)
+        for (sq in 0 until SQUARES) {
+            val x0 = dx + (sq % SQUARES_X) * SQUARE; val y0 = dy + (sq / SQUARES_X) * SQUARE
+            var sr = 0; var sg = 0; var sb = 0; var n = 0
+            for (y in y0 until y0 + SQUARE) for (x in x0 until x0 + SQUARE) {
+                val a = y * GRID_W + x
+                if (grid.text[a]) continue
+                val c = grid.rgb[a]
+                sr += (c shr 16) and 0xFF; sg += (c shr 8) and 0xFF; sb += c and 0xFF; n++
+            }
+            if (n * 2 < SQUARE * SQUARE) continue
+            r[sq] = sr.toFloat() / n; g[sq] = sg.toFloat() / n; b[sq] = sb.toFloat() / n; used[sq] = true
+        }
+        return Squares(r, g, b, used)
+    }
+
+    // The slot's stone round the item: the middle colour of the grid's outer ring (no item reaches it)
+    private fun stoneOf(grid: CanvasGrid): IntArray {
+        val rs = ArrayList<Int>(); val gs = ArrayList<Int>(); val bs = ArrayList<Int>()
+        for (a in grid.rgb.indices) {
+            val x = a % GRID_W; val y = a / GRID_W
+            if ((x != 0 && x != GRID_W - 1 && y != 0 && y != GRID_H - 1) || grid.text[a]) continue
+            val c = grid.rgb[a]
+            rs.add((c shr 16) and 0xFF); gs.add((c shr 8) and 0xFF); bs.add(c and 0xFF)
+        }
+        if (rs.isEmpty()) return intArrayOf(0, 0, 0)
+        return intArrayOf(rs.sorted()[rs.size / 2], gs.sorted()[gs.size / 2], bs.sorted()[bs.size / 2])
+    }
+
+    // How far an item's summary is from the slot (the best of the ways of laying the squares): the average colour
+    // difference per square, each square the item's colour where it covers it and the stone elsewhere
+    // solidOnly: only the squares the item covers completely (for finding the brightness setting: the stone round an
+    // item isn't changed by it, and blurs the answer)
+    private fun summaryFit(ways: List<Squares>, stone: IntArray, g: GearSummaries, i: Int, lut: IntArray, solidOnly: Boolean = false): Float {
+        var best = Float.MAX_VALUE
+        val base = i * SUMMARY_BYTES
+        for (w in ways) {
+            var sum = 0f; var n = 0
+            for (sq in 0 until SQUARES) {
+                if (!w.used[sq]) continue
+                val k = base + sq * 4
+                if (solidOnly && (g.cells[k + 3].toInt() and 0xFF) < 255) continue
+                val cover = (g.cells[k + 3].toInt() and 0xFF) / 255f
+                val pr = cover * lut[g.cells[k].toInt() and 0xFF] + (1 - cover) * stone[0]
+                val pg = cover * lut[g.cells[k + 1].toInt() and 0xFF] + (1 - cover) * stone[1]
+                val pb = cover * lut[g.cells[k + 2].toInt() and 0xFF] + (1 - cover) * stone[2]
+                sum += abs(pr - w.r[sq]) + abs(pg - w.g[sq]) + abs(pb - w.b[sq])
+                n++
+            }
+            if (n > 0 && sum / (3f * n) < best) best = sum / (3f * n)
+        }
+        return best
+    }
+
+    // What's worn, read from the gear summaries: each slot's best guesses (icon's item ID to fit, best first) and the
+    // brightness setting found. slotOrder: the slot list the file was made with. Null if the panel can't be looked at.
+    // An empty slot has no guesses.
+    fun readEquipmentBySummaries(p: PixelSource, panel: Box, g: GearSummaries, slotOrder: List<String>): Equipment? {
+        val ways = HashMap<String, List<Squares>>()
+        val stones = HashMap<String, IntArray>()
+        for ((slot, at) in EQUIPMENT_PLACES) {
+            val grids = canvasGridsAt(p, panel, at.first, at.second) ?: return null
+            ways[slot] = grids.flatMap { grid -> (0..2 * NUDGE).flatMap { dy -> (0..2 * NUDGE).map { dx -> squaresOf(grid, dx, dy) } } }
+            stones[slot] = stoneOf(grids[0])
+            // an empty slot: no black outline in it (the owner's screenshots: empty slots 0-1 pixels, worn items 37+)
+            val g0 = grids[0]
+            if (g0.dark.indices.count { !g0.text[it] && g0.dark[it] < OUTLINE_BLACK } < MIN_OUTLINE) ways.remove(slot)
+        }
+        val bySlot = ways.keys.associateWith { slot -> (0 until g.count).filter { slotOrder.getOrNull(g.slots[it]) == slot } }
+        fun rank(slot: String, lut: IntArray, among: List<Int>, solidOnly: Boolean = false) =
+            among.map { it to summaryFit(ways.getValue(slot), stones.getValue(slot), g, it, lut, solidOnly) }.sortedBy { it.second }
+
+        // the brightness setting: the one the likeliest items fit best, over all slots
+        // (the likeliest at a dark, middle and bright setting, as for the inventory)
+        val likely = bySlot.mapValues { (slot, all) ->
+            floatArrayOf(0.9f, 1.2f, 1.5f).flatMap { gm -> rank(slot, shading(gm), all).take(SUMMARY_SHORTLIST).map { it.first } }.distinct()
+        }
+        var gamma = 1.2f
+        var bestTotal = Float.MAX_VALUE
+        for (gm in GAMMAS) {
+            val lut = shading(gm)
+            var total = 0f
+            for ((slot, few) in likely) total += rank(slot, lut, few, solidOnly = true).firstOrNull()?.second?.takeIf { it < Float.MAX_VALUE } ?: 0f
+            if (total < bestTotal) { bestTotal = total; gamma = gm }
+        }
+        val lut = shading(gamma)
+        val slots = EQUIPMENT_PLACES.keys.associateWith { slot ->
+            bySlot[slot]?.let { all -> rank(slot, lut, all).take(SUMMARY_GUESSES).map { (i, fit) -> g.ids[i] to fit } } ?: emptyList()
+        }
+        debugLog?.invoke("summaries, brightness $gamma: " + slots.entries.joinToString { (k, v) -> "$k ${v.take(2).joinToString { "${it.first} %.1f".format(it.second) }}" })
+        return Equipment(slots, null, gamma)
+    }
+
     // ---------------- Trusting a reading ----------------
 
     // Whether a reading of the inventory tab (read()) can be trusted as the inventory: its items fit well. The inventory

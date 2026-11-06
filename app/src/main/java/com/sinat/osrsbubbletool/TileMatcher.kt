@@ -1,6 +1,7 @@
 package com.sinat.osrsbubbletool
 
 import android.graphics.Bitmap
+import java.nio.ByteBuffer
 import kotlin.math.abs
 import kotlin.math.max
 
@@ -13,6 +14,7 @@ object TileMatcher {
 
     private const val SAMPLE = 8       // each tile is shrunk to 8 x 8 colours for comparing
     private const val INNER = 0.7f     // only the middle 70% of each tile is compared (ignores edges)
+    private const val TILE_BYTES = SAMPLE * SAMPLE * 3
 
     // board[position] = the tile sitting at that position (positions and tiles are numbered
     // left to right, top to bottom, 0-24). Tile 24 is the empty space.
@@ -24,14 +26,18 @@ object TileMatcher {
         val correctedPositions: List<Int>  // tiles that were swapped to make the layout solvable
     )
 
-    // Reference features are worked out once per puzzle and kept
-    private val referenceCache = mutableMapOf<String, Array<FloatArray>>()
-
-    // Runs in the background. One at a time, since the remembered solved pictures are shared.
-    @Synchronized
+    // Runs in the background. Compares the tiles on screen with each puzzle's colour summaries.
     fun identify(scan: Bitmap, puzzles: List<PuzzleReferences.Puzzle>): Result? {
+        val pixels = IntArray(scan.width * scan.height)
+        scan.getPixels(pixels, 0, scan.width, 0, 0, scan.width, scan.height)
+        return identify(pixels, scan.width, scan.height, puzzles)
+    }
+
+    // The same with plain pixels (so it can be tested on the PC)
+    fun identify(pixels: IntArray, width: Int, height: Int, puzzles: List<PuzzleReferences.Puzzle>): Result? {
         if (puzzles.isEmpty()) return null
-        val scanned = features(scan)
+        val scanned = features(pixels, width, height)
+        val ranks = ranks(scanned)
 
         var bestName = ""
         var bestBoard = IntArray(TILES)
@@ -39,9 +45,10 @@ object TileMatcher {
         var bestDiff = Float.MAX_VALUE
 
         for (puzzle in puzzles) {
-            val reference = referenceCache.getOrPut(puzzle.name) { features(tileArea(puzzle.image)) }
+            val reference = puzzle.tiles
+            val evened = inOrder(ranks, reference)
             val cost = Array(TILES) { pos ->
-                DoubleArray(TILES) { tile -> difference(scanned[pos], reference[tile]).toDouble() }
+                DoubleArray(TILES) { tile -> difference(evened[pos], reference[tile]).toDouble() }
             }
             val board = assign(cost)
             var total = 0.0
@@ -93,54 +100,50 @@ object TileMatcher {
         return best
     }
 
-    // The wiki pictures include the puzzle window's brown frame around the tiles.
-    // This finds the inner edge of the frame on each side (the strongest straight edge
-    // near that side) and returns just the tile area.
-    private fun tileArea(image: Bitmap): Bitmap {
-        val w = image.width
-        val h = image.height
-        if (w < 20 || h < 20) return image
-        val pixels = IntArray(w * h)
-        image.getPixels(pixels, 0, w, 0, 0, w, h)
-        val lum = IntArray(w * h) { i ->
-            val c = pixels[i]
-            (((c shr 16) and 0xFF) * 3 + ((c shr 8) and 0xFF) * 6 + (c and 0xFF)) / 10
+    // The game's brightness setting (and a phone's night mode or colour settings) changes the tiles' colours, and
+    // not evenly: at the lowest brightness, dark colours lose about a third and light ones a tenth (measured on the
+    // owner's phone, November 2026). What it doesn't change is which colours are darker than which. So the colours
+    // on screen are lined up from darkest to lightest (red, green and blue separately), and each one takes the
+    // puzzle's colour in the same place in its line-up: the darkest red on screen becomes the puzzle's darkest
+    // red, and so on. ranks[colour][i] = where value i of the scanned tiles comes in that line-up.
+    private fun ranks(scanned: Array<FloatArray>): Array<IntArray> {
+        val values = TILES * SAMPLE * SAMPLE
+        return Array(3) { colour ->
+            val value = FloatArray(values) { i -> scanned[i / (SAMPLE * SAMPLE)][(i % (SAMPLE * SAMPLE)) * 3 + colour] }
+            val order = (0 until values).sortedBy { value[it] }
+            IntArray(values).also { rank -> order.forEachIndexed { place, i -> rank[i] = place } }
         }
-        fun columnEdge(x: Int): Int {
-            var sum = 0
-            for (y in 0 until h) sum += abs(lum[y * w + x] - lum[y * w + x - 1])
-            return sum
-        }
-        fun rowEdge(y: Int): Int {
-            var sum = 0
-            for (x in 0 until w) sum += abs(lum[y * w + x] - lum[(y - 1) * w + x])
-            return sum
-        }
-        fun strongest(from: Int, to: Int, edge: (Int) -> Int): Int {
-            var bestAt = from
-            var bestValue = -1
-            for (i in from..to) {
-                val v = edge(i)
-                if (v > bestValue) { bestValue = v; bestAt = i }
+    }
+
+    // The scanned tiles in the reference puzzle's colours, by line-up (see ranks). The puzzle's own empty
+    // corner tile is left out: the wiki picture shows that part of the picture, the screen shows an empty space.
+    private fun inOrder(ranks: Array<IntArray>, reference: Array<FloatArray>): Array<FloatArray> {
+        val perTile = SAMPLE * SAMPLE
+        val result = Array(TILES) { FloatArray(TILE_BYTES) }
+        for (colour in 0 until 3) {
+            val sorted = FloatArray((TILES - 1) * perTile)
+            var n = 0
+            for (tile in 0 until TILES) {
+                if (tile == EMPTY) continue
+                for (k in 0 until perTile) sorted[n++] = reference[tile][k * 3 + colour]
             }
-            return bestAt
+            sorted.sort()
+            val rank = ranks[colour]
+            val last = rank.size - 1
+            for (i in rank.indices) {
+                // the same place in the puzzle's line-up (which has one tile fewer), between two values if need be
+                val at = rank[i].toFloat() / last * (sorted.size - 1)
+                val low = at.toInt()
+                val high = minOf(low + 1, sorted.size - 1)
+                val value = sorted[low] + (sorted[high] - sorted[low]) * (at - low)
+                result[i / perTile][(i % perTile) * 3 + colour] = value
+            }
         }
-
-        val left = strongest(max(1, (w * 0.02f).toInt()), (w * 0.15f).toInt(), ::columnEdge)
-        val right = strongest((w * 0.85f).toInt(), (w * 0.98f).toInt(), ::columnEdge)
-        val top = strongest(max(1, (h * 0.02f).toInt()), (h * 0.15f).toInt(), ::rowEdge)
-        val bottom = strongest((h * 0.85f).toInt(), (h * 0.98f).toInt(), ::rowEdge)
-
-        if (right - left < w / 2 || bottom - top < h / 2) return image
-        return Bitmap.createBitmap(image, left, top, right - left, bottom - top)
+        return result
     }
 
     // Shrinks each of the 25 tiles to an 8 x 8 grid of average colours
-    private fun features(image: Bitmap): Array<FloatArray> {
-        val w = image.width
-        val h = image.height
-        val pixels = IntArray(w * h)
-        image.getPixels(pixels, 0, w, 0, 0, w, h)
+    private fun features(pixels: IntArray, w: Int, h: Int): Array<FloatArray> {
         val tileW = w / GRID.toFloat()
         val tileH = h / GRID.toFloat()
 
@@ -178,6 +181,20 @@ object TileMatcher {
                 }
             }
             result
+        }
+    }
+
+    // Reads assets/puzzle_tiles.bin (made by tools/puzzle-box/build_tile_fingerprints.py; the layout is written there).
+    fun readPuzzles(bytes: ByteArray): List<PuzzleReferences.Puzzle> {
+        val b = ByteBuffer.wrap(bytes)
+        require(b.remaining() >= 5 && b.get() == 'P'.code.toByte() && b.get() == 'Z'.code.toByte() &&
+            b.get() == 'L'.code.toByte() && b.get() == '1'.code.toByte()) { "not a puzzle tiles file" }
+        return List(b.get().toInt() and 0xFF) {
+            val name = ByteArray(b.get().toInt() and 0xFF).also { b.get(it) }.toString(Charsets.UTF_8)
+            PuzzleReferences.Puzzle(name, Array(TILES) {
+                val colours = ByteArray(TILE_BYTES).also { b.get(it) }
+                FloatArray(TILE_BYTES) { i -> (colours[i].toInt() and 0xFF).toFloat() }
+            })
         }
     }
 

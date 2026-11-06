@@ -2,9 +2,7 @@ package com.sinat.osrsbubbletool
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.drawable.GradientDrawable
 import android.os.Handler
@@ -14,11 +12,10 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.edit
-import androidx.core.graphics.toColorInt
+import androidx.core.graphics.get
 import java.util.Locale
 import kotlin.math.abs
 
@@ -51,19 +48,14 @@ class PuzzleBoxTool(
     private var styleButtons: List<TextView> = emptyList()
     private val references = PuzzleReferences(context)
     private var status: TextView? = null
-    private var image: ImageView? = null
     private var scanButton: TextView? = null
     private var areaButton: TextView? = null
     private var destroyed = false
     private var hiddenForPicture = false   // the bubble and window are hidden while a picture is about to be taken
 
-    // Kept so you can tap the result to compare with the full screenshot
-    private var lastFullView: Bitmap? = null
-    private var lastPuzzleView: Bitmap? = null
-    private var showingFull = false
-
     // Guiding state
     private var lastArea: Rect? = null        // where the tiles are, in screenshot pixels
+    private var lastFrame = IntArray(0)       // the frame's colours around them when found (PuzzleFinder.frameColours)
     private var puzzleName = ""
     private var solution: List<Int> = emptyList()
     private var step = 0
@@ -139,12 +131,6 @@ class PuzzleBoxTool(
             setPadding(0, dp(6), 0, dp(6))
         }
 
-        image = ImageView(context).apply {
-            adjustViewBounds = true
-            scaleType = ImageView.ScaleType.FIT_CENTER
-            setOnClickListener { toggleFullView() }
-        }
-
         return LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
             setBackgroundColor(Palette.PARCHMENT)
@@ -152,8 +138,6 @@ class PuzzleBoxTool(
             addView(scanButton, LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
             addView(status, LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
-            addView(image, LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
             addView(styleRow, LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
@@ -234,14 +218,15 @@ class PuzzleBoxTool(
     }
 
     // What a scan found. rough: where the puzzle roughly is (null = not found); area: the tiles, lined up
-    // exactly; puzzle: the tiles cut out (null = off the screen); the two views are what the window shows.
-    private class Scan(val shot: Bitmap, val rough: Rect?, val area: Rect?, val lined: Boolean, val fitConfidence: Float,
-                       val puzzle: Bitmap?, val fullView: Bitmap?, val puzzleView: Bitmap?)
+    // exactly; puzzle: the tiles cut out (null = off the screen); frame: the frame's colours around them.
+    // (Nothing is shown in the window: the screenshot is let go once the tiles are read.)
+    private class Scan(val rough: Rect?, val area: Rect?, val lined: Boolean, val fitConfidence: Float,
+                       val puzzle: Bitmap?, val frame: IntArray = IntArray(0))
 
     // The slow part of a scan (background thread): line the grid up and cut out the tiles
     private fun prepare(shot: Bitmap, found: Rect?): Scan {
         val rough = found ?: puzzleArea.savedArea(shot.width, shot.height)
-            ?: return Scan(shot, null, null, false, 0f, null, null, null)
+            ?: return Scan(null, null, false, 0f, null)
 
         // Line the grid up exactly. When the puzzle was found by its frame, that's already
         // exact, so the line-up is only used if it agrees closely.
@@ -256,16 +241,13 @@ class PuzzleBoxTool(
         val lined = found != null || fitWorked
         val confidence = fit?.confidence ?: 0f
 
-        val puzzle = crop(shot, area) ?: return Scan(shot, rough, area, lined, confidence, null, null, null)
-        return Scan(shot, rough, area, lined, confidence, puzzle, drawFrames(shot, rough, area), drawGrid(puzzle))
+        val puzzle = crop(shot, area) ?: return Scan(rough, area, lined, confidence, null)
+        return Scan(rough, area, lined, confidence, puzzle, PuzzleFinder.frameColours(BitmapPixels(shot), area))
     }
 
     private fun showResult(scan: Scan, id: Int) {
         if (scan.rough == null) {
             scanning = false
-            lastFullView = null
-            lastPuzzleView = null
-            image?.setImageBitmap(scan.shot)
             status?.text = "Couldn't find the puzzle. Make sure it's open and not covered, then scan again. " +
                 "If it still isn't found, use Set area by hand."
             return
@@ -278,11 +260,7 @@ class PuzzleBoxTool(
             return
         }
         lastArea = Rect(area)
-
-        lastFullView = scan.fullView
-        lastPuzzleView = scan.puzzleView
-        showingFull = false
-        image?.setImageBitmap(lastPuzzleView)
+        lastFrame = scan.frame
 
         val lined = scan.lined
         if (!lined) {
@@ -292,12 +270,12 @@ class PuzzleBoxTool(
             status?.text = "Reading the tiles..."
         }
 
-        // Identify the tiles by comparing them with the wiki's solved pictures
+        // Identify the tiles by comparing them with each puzzle's colour summaries
         references.load { puzzles, error ->
-            if (destroyed || id != planId) return@load   // stopped while the pictures were downloading
+            if (destroyed || id != planId) return@load   // stopped while the file was being read
             if (puzzles == null) {
                 scanning = false
-                status?.text = "Couldn't read the solved puzzle pictures: $error."
+                status?.text = "Couldn't read the puzzle data: $error."
                 return@load
             }
             identify(puzzle, puzzles) { match ->
@@ -321,16 +299,11 @@ class PuzzleBoxTool(
 
     private fun showMatch(match: TileMatcher.Result, lined: Boolean) {
         scanning = false   // (solving takes over from here)
-        // (the picture is gone if the window was closed mid-scan: carry on without it)
-        lastPuzzleView?.let { puzzleView ->
-            lastPuzzleView = drawLabels(puzzleView, match.board, match.correctedPositions)
-            if (!showingFull) image?.setImageBitmap(lastPuzzleView)
-        }
 
         val diff = String.format(Locale.US, "%.1f", match.difference)
         val gridNote = if (lined) "" else " (Grid wasn't lined up, so the reading may be off.)"
         val fixNote = if (match.correctedPositions.isEmpty()) "" else
-            " Two look-alike tiles were swapped to make it solvable (outlined in orange)."
+            " Two look-alike tiles were swapped to make it solvable."
 
         if (match.solvable) {
             status?.text = "${match.puzzleName} (difference $diff).$gridNote$fixNote Working out the moves..."
@@ -439,7 +412,7 @@ class PuzzleBoxTool(
                 return
             }
             // While re-planning, still notice if the puzzle is closed, so the guide doesn't linger
-            val gone = capture.sample { !PuzzleFinder.frameVisible(it, area) }
+            val gone = capture.sample { !PuzzleFinder.frameVisible(it, area, lastFrame) }
             if (gone == true && ++misses >= GONE_READS) {
                 stopGuide("The puzzle was closed. Tap Scan puzzle to start again.")
                 return
@@ -451,7 +424,7 @@ class PuzzleBoxTool(
         // -2 = the puzzle's frame is gone (closed); -1 = can't tell (a tile is sliding);
         // null = screen unchanged
         val empty = capture.sample {
-            if (!PuzzleFinder.frameVisible(it, area)) -2
+            if (!PuzzleFinder.frameVisible(it, area, lastFrame)) -2
             else if (finished) -3 else PuzzleFinder.emptySpace(it, area, guide.coveredTiles)
         }
         if (empty == -2) {
@@ -507,7 +480,7 @@ class PuzzleBoxTool(
     private fun replanNow(area: Rect) {
         val shot = capture.grab() ?: return   // wait for a fresh picture
         // the puzzle closed just after the move: there's nothing to read (the tiles would be read from the game)
-        if (!PuzzleFinder.frameVisible(LightBoxReader.Pixels(shot), area)) {
+        if (!PuzzleFinder.frameVisible(BitmapPixels(shot), area, lastFrame)) {
             stopGuide("The puzzle was closed. Tap Scan puzzle to start again.")
             return
         }
@@ -535,7 +508,7 @@ class PuzzleBoxTool(
         }
     }
 
-    // Reads the tiles by comparing them with the solved pictures. It takes a moment, so it's done in the
+    // Reads the tiles by comparing them with the colour summaries. It takes a moment, so it's done in the
     // background (on the main thread it could make the game stutter). onDone runs on the main thread.
     private fun identify(puzzle: Bitmap, puzzles: List<PuzzleReferences.Puzzle>, onDone: (TileMatcher.Result?) -> Unit) {
         Thread {
@@ -553,95 +526,18 @@ class PuzzleBoxTool(
         handler.postDelayed({ if (id == planId) stopGuide("Puzzle solved! Scan again for another one.") }, SOLVED_SHOW_MS)
     }
 
-    // ---------------- Pictures in the window ----------------
-
-    // Writes each tile's solved position on top of it (1-24, a dot for the empty space).
-    // Tiles in `highlight` get an orange outline.
-    private fun drawLabels(source: Bitmap, board: IntArray, highlight: List<Int>): Bitmap {
-        val out = source.copy(Bitmap.Config.ARGB_8888, true)
-        val canvas = Canvas(out)
-        val tileW = out.width / GRID.toFloat()
-        val tileH = out.height / GRID.toFloat()
-        val text = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = Color.WHITE
-            textSize = tileH * 0.4f
-            textAlign = Paint.Align.CENTER
-            isFakeBoldText = true
-        }
-        val outline = Paint(text).apply {
-            color = Color.BLACK
-            style = Paint.Style.STROKE
-            strokeWidth = text.textSize / 6
-        }
-        val box = Paint().apply {
-            color = "#FF8C1A".toColorInt()
-            style = Paint.Style.STROKE
-            strokeWidth = maxOf(2f, tileW / 12)
-        }
-        for (pos in highlight) {
-            val left = (pos % GRID) * tileW
-            val top = (pos / GRID) * tileH
-            val inset = box.strokeWidth / 2
-            canvas.drawRect(left + inset, top + inset, left + tileW - inset, top + tileH - inset, box)
-        }
-        for (pos in 0 until GRID * GRID) {
-            val label = if (board[pos] == TileMatcher.EMPTY) "•" else "${board[pos] + 1}"
-            val x = (pos % GRID) * tileW + tileW / 2
-            val y = (pos / GRID) * tileH + tileH / 2 - (text.descent() + text.ascent()) / 2
-            canvas.drawText(label, x, y, outline)
-            canvas.drawText(label, x, y, text)
-        }
-        return out
-    }
-
-    // Full screenshot with the search area (blue) and the tiles used (gold) drawn on it
-    private fun drawFrames(shot: Bitmap, rough: Rect, detected: Rect?): Bitmap {
-        val out = shot.copy(Bitmap.Config.ARGB_8888, true)
-        val canvas = Canvas(out)
-        val stroke = maxOf(2f, out.width / 300f)
-        canvas.drawRect(rough, Paint().apply {
-            color = "#3FA9F5".toColorInt()
-            style = Paint.Style.STROKE
-            strokeWidth = stroke
-        })
-        detected?.let {
-            canvas.drawRect(it, Paint().apply {
-                color = "#E8C766".toColorInt()
-                style = Paint.Style.STROKE
-                strokeWidth = stroke
-            })
-        }
-        return out
-    }
-
-    private fun toggleFullView() {
-        val full = lastFullView ?: return
-        val puzzle = lastPuzzleView ?: return
-        showingFull = !showingFull
-        image?.setImageBitmap(if (showingFull) full else puzzle)
+    // Reads a few pixels straight from a picture (LightBoxReader.Pixels copies the whole picture first,
+    // which is only worth it when most of it is looked at)
+    private class BitmapPixels(private val bitmap: Bitmap) : LightBoxReader.PixelSource {
+        override val width get() = bitmap.width
+        override val height get() = bitmap.height
+        override fun rgb(x: Int, y: Int) = bitmap[x, y]
     }
 
     private fun crop(shot: Bitmap, area: Rect): Bitmap? {
         val r = Rect(area)
         if (!r.intersect(0, 0, shot.width, shot.height) || r.width() < GRID || r.height() < GRID) return null
         return Bitmap.createBitmap(shot, r.left, r.top, r.width(), r.height())
-    }
-
-    // Draws the 5 x 5 grid on top of the cut-out puzzle, so you can check the alignment
-    private fun drawGrid(source: Bitmap): Bitmap {
-        val out = source.copy(Bitmap.Config.ARGB_8888, true)
-        val canvas = Canvas(out)
-        val paint = Paint().apply {
-            color = "#E8C766".toColorInt()
-            strokeWidth = maxOf(1f, out.width / 150f)
-        }
-        for (i in 1 until GRID) {
-            val x = out.width * i / GRID.toFloat()
-            val y = out.height * i / GRID.toFloat()
-            canvas.drawLine(x, 0f, x, out.height.toFloat(), paint)
-            canvas.drawLine(0f, y, out.width.toFloat(), y, paint)
-        }
-        return out
     }
 
     // Screen capture was turned off (for example from the status bar)
@@ -659,12 +555,6 @@ class PuzzleBoxTool(
             puzzleArea.hide()
             areaButton?.text = "Set area by hand"
         }
-        // Let go of the scan pictures. The move guide over the game doesn't need them: it
-        // keeps working from what it read, and checks the screen afresh as you move tiles.
-        lastFullView = null
-        lastPuzzleView = null
-        showingFull = false
-        image?.setImageDrawable(null)
     }
 
     fun onRotated() {
@@ -681,7 +571,6 @@ class PuzzleBoxTool(
     fun destroy() {
         destroyed = true
         capture.removeStopListener(captureStopped)
-        lastFullView = null; lastPuzzleView = null   // the last scan's pictures (about 10 MB each)
         // closed down in the half second before a picture: show the bubble and window again, since the
         // step that would have done it is cancelled below
         if (hiddenForPicture) { setOverlaysVisible(true); hiddenForPicture = false }

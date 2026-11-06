@@ -5,7 +5,8 @@ The two tools have separate item lists from separate sources. Last done 26 Octob
 | List | Used for | From | Built by |
 | --- | --- | --- | --- |
 | `assets/items/items.tsv`, `noted.tsv`, `icons/`, `shapes.bin` | Gear Loadouts: every item's ID, name, slot, wiki picture | OSRS Wiki item tables (API "bucket" queries) | `tools/items/build_items.py` |
-| `assets/items/canvas/`, `canvas.tsv`, `canvas.bin` | Gear Loadouts' screen reading, and the DPS tool's Import my gear (which reads gear the same way) | RuneLite's item icons (static.runelite.net) | `tools/items/build_icons.py` |
+| `assets/items/canvas/`, `canvas.tsv`, `canvas.bin` | Gear Loadouts' screen reading (`canvas.tsv` also tells Import my gear which items look exactly alike) | RuneLite's item icons (static.runelite.net) | `tools/items/build_icons.py` |
+| `assets/dps/gear_summaries.bin` | The DPS tool's Import my gear: every wearable item's icon as 9 x 8 colour squares (no pictures) | RuneLite's item icons | `tools/dps/build_gear_summaries.py`, after `build_items.py` and `build_icons.py` (new items need a summary too) |
 | `assets/dps/equipment.json`, `dps/icons/` | The DPS tool's own item list: which items the calculator can take | The wiki DPS calculator repository (weirdgloop/osrs-dps-calc) at `GearIcons.COMMIT` | `tools/dps/build_equipment_json.py`, `tools/dps/fetch_pictures.py` |
 
 ## Is anything new?

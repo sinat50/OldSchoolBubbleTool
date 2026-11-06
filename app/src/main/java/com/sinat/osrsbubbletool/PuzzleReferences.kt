@@ -1,37 +1,23 @@
 package com.sinat.osrsbubbletool
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Handler
 import android.os.Looper
 
-// The solved picture of every puzzle box, from the OSRS Wiki. They come with the app (assets/puzzles/,
-// put there by tools/dps/fetch_pictures.py: add a new puzzle there too).
+// What the solver knows about every puzzle box: a short colour summary of each tile, not the pictures. They come with
+// the app (assets/puzzle_tiles.bin, made by tools/puzzle-box/build_tile_fingerprints.py: add a new puzzle there).
 class PuzzleReferences(context: Context) {
 
-    class Puzzle(val name: String, val image: Bitmap)
-
-    companion object {
-        // Puzzle name to the wiki's picture of it solved
-        private val PUZZLES = listOf(
-            "Castle" to "Castle_puzzle_solved.png",
-            "Tree" to "Tree_puzzle_solved.png",
-            "Troll" to "Troll_puzzle_solved.png",
-            "Zulrah" to "Zulrah_puzzle_solved.png",
-            "Cerberus" to "Cerberus_puzzle_solved.png",
-            "Gnome child" to "Gnome_child_puzzle_solved.png",
-            "Theatre of Blood" to "Theatre_of_Blood_puzzle_solved.png"
-        )
-    }
+    // tiles[tile] = the tile's 8 x 8 average colours, in tile order (left to right, top to bottom; 24 is the empty space)
+    class Puzzle(val name: String, val tiles: Array<FloatArray>)
 
     private val mainHandler = Handler(Looper.getMainLooper())
     private val assets = context.applicationContext.assets
     private var loaded: List<Puzzle>? = null
-    private var waiting: MutableList<(List<Puzzle>?, String?) -> Unit>? = null   // asked while the pictures are being read
+    private var waiting: MutableList<(List<Puzzle>?, String?) -> Unit>? = null   // asked while the file is being read
 
-    // Reads all the solved pictures (the first time, in the background).
-    // Calls onDone on the main thread with the puzzles, or with an error message. (Asked again while they're still
+    // Reads the file (the first time, in the background).
+    // Calls onDone on the main thread with the puzzles, or with an error message. (Asked again while it's still
     // being read, it waits for that same reading instead of starting another.)
     fun load(onDone: (List<Puzzle>?, String?) -> Unit) {
         loaded?.let { onDone(it, null); return }
@@ -42,13 +28,9 @@ class PuzzleReferences(context: Context) {
             var puzzles: List<Puzzle>? = null
             var error: String? = null
             try {
-                puzzles = PUZZLES.map { (name, fileName) ->
-                    val image = assets.open("puzzles/$fileName").use { BitmapFactory.decodeStream(it) }
-                        ?: throw IllegalStateException("the $name picture couldn't be read")
-                    Puzzle(name, image)
-                }
+                puzzles = TileMatcher.readPuzzles(assets.open("puzzle_tiles.bin").use { it.readBytes() })
             } catch (e: Exception) {
-                error = e.message ?: "a picture is missing"
+                error = e.message ?: "the file is missing"
             }
             mainHandler.post {
                 loaded = puzzles

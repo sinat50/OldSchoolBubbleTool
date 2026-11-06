@@ -460,8 +460,9 @@ class MainActivity : Activity() {
             "Created using intellectual property belonging to Jagex Limited under the terms of Jagex's Fan Content Policy. " +
             "This content is not endorsed by or affiliated with Jagex.\n\n" +
             "Old School RuneScape and RuneScape are trademarks of Jagex Limited. Item, monster and game pictures are (c) Jagex Limited. " +
-            "The solved puzzle pictures, item pictures and other game pictures in the app were taken from the OSRS Wiki, " +
-            "the OSRS Wiki DPS calculator and RuneLite; they are Jagex's.\n\n" +
+            "The item pictures and other game pictures in the app were taken from the OSRS Wiki, " +
+            "the OSRS Wiki DPS calculator and RuneLite; they are Jagex's. The Puzzle Box Solver's colour summaries of " +
+            "each tile were worked out from the OSRS Wiki's solved puzzle pictures.\n\n" +
             "OSRS Bubble Tool is free and has no ads or paid features. It is not affiliated with Jagex, RuneLite, the " +
             "RuneLite plugin authors credited below, or the Old School RuneScape Wiki.")
 
@@ -504,10 +505,10 @@ class MainActivity : Activity() {
             "\u2022 ToA Puzzle Helper: the outline of the Path of Het room, traced from the wiki's map")
 
         section("OSRS Wiki DPS calculator",
-            "DPS Calculator gear import: the item list and item pictures come from the OSRS Wiki DPS calculator's " +
+            "DPS Calculator gear import: the item list comes from the OSRS Wiki DPS calculator's " +
             "repository (github.com/weirdgloop/osrs-dps-calc), which is licensed under the GNU General Public License v3.0 " +
-            "(gnu.org/licenses/gpl-3.0). That list is itself made from the OSRS Wiki. The item pictures come from that " +
-            "repository too, with a few from the OSRS Wiki. Item pictures are (c) Jagex Ltd.", size = 11f)
+            "(gnu.org/licenses/gpl-3.0). That list is itself made from the OSRS Wiki. Gear is recognised from short colour " +
+            "summaries of each item, worked out from RuneLite's item icons (static.runelite.net), which are (c) Jagex Ltd.", size = 11f)
 
         section("Websites",
             "The OSRS Wiki, Real-time Prices, the DPS calculator, the XP calculator (oldschool.tools) and the Shooting Star Tracker (07.gg) " +

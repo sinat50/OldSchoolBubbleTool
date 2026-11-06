@@ -999,12 +999,11 @@ class BubbleService : Service() {
         Tool.XP_CALCULATOR -> webPage(XP_CALCULATOR_URL, XP_CALCULATOR_ZOOM_PERCENT)
         Tool.SHOOTING_STARS -> webPage(SHOOTING_STARS_URL, SHOOTING_STARS_ZOOM_PERCENT)
         Tool.PRICES -> webPage(PRICES_URL, PRICES_ZOOM_PERCENT)
-        Tool.DPS_CALCULATOR -> DpsTool(toolContext, windowManager, capture, ::setOverlaysVisible).let { t ->
+        Tool.DPS_CALCULATOR -> DpsTool(toolContext, capture, ::setOverlaysVisible).let { t ->
             var web: WebView? = null
             ToolParts(
                 buildView = { t.buildView(buildWebView(DPS_CALCULATOR_URL, DPS_ZOOM_PERCENT).also { web = it }) },
-                onBack = { web?.let { if (it.canGoBack()) it.goBack() } },
-                onClosed = t::onWindowClosed, onRotated = t::onRotated, onDestroy = t::destroy
+                onBack = { web?.let { if (it.canGoBack()) it.goBack() } }
             )
         }
         Tool.PUZZLE_BOX -> PuzzleBoxTool(toolContext, windowManager, capture, ::setOverlaysVisible) { hideToolWindow() }.let { t ->

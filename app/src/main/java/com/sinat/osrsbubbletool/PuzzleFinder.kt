@@ -1,16 +1,22 @@
 package com.sinat.osrsbubbletool
 
 import android.graphics.Rect
+import com.sinat.osrsbubbletool.PanelFinder.Box
 import kotlin.math.abs
+import kotlin.math.roundToInt
 
-// Finds an open puzzle box on the screen by its wooden frame, and spots the empty space quickly.
-// The frame and the empty space are interface pictures, so the game's brightness setting
-// doesn't change their colours.
+// Finds an open puzzle box on the screen by the lines between its tiles, and spots the empty space quickly.
+// The game's brightness setting changes the colour of the lines and the frame (checked on the owner's phone,
+// November 2026), but not the empty space, which is always the same dark brown.
 object PuzzleFinder {
 
     private const val GRID = 5
+    private const val MIN_LINE = 40          // a line between tiles is at least this long (in half-size pixels)
+    private const val MAX_LINE_WIDTH = 8     // and at most this thick
+    private const val FRAME_SPOTS_NEEDED = 8 // of the 12 spots around the tiles, for the frame to count as there
+    private const val FRAME_CHANGE = 40      // how much a frame spot's colour may change (red + green + blue)
 
-    // The frame's dark wood (the empty space and the lines between tiles are the same colour)
+    // The empty space's dark brown, which the game's brightness setting doesn't change
     private fun isWood(c: Int): Boolean {
         val r = (c shr 16) and 0xFF
         val g = (c shr 8) and 0xFF
@@ -18,73 +24,127 @@ object PuzzleFinder {
         return b < 14 && r in 28..100 && g in 15..65 && r * 10 >= g * 14
     }
 
-    // Where the 5 x 5 tiles are, found from the frame around them, or null if there's no puzzle box
-    fun findTiles(p: LightBoxReader.PixelSource): Rect? {
-        // 1. Patches of frame-coloured wood, on a half-size grid to keep it quick
-        val w = p.width / 2
-        val h = p.height / 2
-        val mask = BooleanArray(w * h)
-        for (y in 0 until h) for (x in 0 until w) mask[y * w + x] = isWood(p.rgb(x * 2, y * 2))
-
-        // 2. Roughly-square patches: one of them is the frame (with the lines between tiles)
-        val patches = ArrayList<Rect>()
-        forEachPatch(mask, w, h) { patch ->
-            val bw = (patch.maxX - patch.minX + 1) * 2
-            val bh = (patch.maxY - patch.minY + 1) * 2
-            if (bw >= 100 && bh >= 0.85f * bw && bh <= 1.15f * bw) {
-                patches.add(Rect(patch.minX * 2, patch.minY * 2, (patch.maxX + 1) * 2, (patch.maxY + 1) * 2))
-            }
-            true
-        }
-
-        // 3. The biggest patch whose sides are as thick as the puzzle's frame (a bigger dark-brown square in
-        //    the game, like a wall in shadow, is skipped)
-        for (outer in patches.sortedByDescending { it.width() * it.height() }) {
-            tilesInside(p, outer)?.let { return it }
-        }
-        return null
+    // The lines between the tiles: dark brown with no blue in it. The brightness setting makes them darker or
+    // lighter (about 30,16,0 at its lowest, 53,33,0 at 50%, 94,70,0 at its highest), but never adds blue.
+    private fun isLine(c: Int): Boolean {
+        val r = (c shr 16) and 0xFF
+        val g = (c shr 8) and 0xFF
+        val b = c and 0xFF
+        return b <= 6 && r in 22..115 && g * 100 >= r * 40 && g * 100 <= r * 85
     }
 
-    // The tiles inside a patch of frame-coloured wood, or null if its sides aren't as thick as the puzzle's frame
-    private fun tilesInside(p: LightBoxReader.PixelSource, outer: Rect): Rect? {
-        // How thick the frame is on each side: walk inwards until the wood ends.
-        // Five lines per side, and the middle answer is used (one may cross the empty space).
-        fun thickness(side: Int): Int {
-            val runs = IntArray(5)
-            for (k in 0 until 5) {
-                val t = 0.1f + 0.2f * k
-                var x: Int; var y: Int; val dx: Int; val dy: Int
-                when (side) {
-                    0 -> { x = outer.left + 1; y = (outer.top + outer.height() * t).toInt(); dx = 1; dy = 0 }
-                    1 -> { x = outer.right - 2; y = (outer.top + outer.height() * t).toInt(); dx = -1; dy = 0 }
-                    2 -> { x = (outer.left + outer.width() * t).toInt(); y = outer.top + 1; dx = 0; dy = 1 }
-                    else -> { x = (outer.left + outer.width() * t).toInt(); y = outer.bottom - 2; dx = 0; dy = -1 }
-                }
-                var n = 0
-                while (n < outer.width() / 3 && x in 0 until p.width && y in 0 until p.height &&
-                    (n < 3 || isWood(p.rgb(x, y)))) {
-                    x += dx; y += dy; n++
-                }
-                runs[k] = n
+    // Where the 5 x 5 tiles are, or null if there's no puzzle box. Found by the lines between the tiles, which
+    // works at any brightness. (It used to be found by the frame's colour, which only worked near 50% brightness
+    // and once mistook a frame-coloured corner of a wall in the Tombs of Amascut for a tiny puzzle.)
+    fun findTiles(p: LightBoxReader.PixelSource): Rect? = findBox(p)?.toRect()
+
+    // The same as a plain box (so it can be tested on the PC)
+    // The 4 lines each way between the tiles are evenly spaced, with the same spacing across and down, each about
+    // 5 tiles long (a bit more when the frame is the same colour), and crossing each other.
+    fun findBox(p: LightBoxReader.PixelSource): Box? {
+        // 1. Line-coloured pixels, on a half-size grid to keep it quick
+        val w = p.width / 2
+        val h = p.height / 2
+        if (w < 20 || h < 20) return null
+        val mask = BooleanArray(w * h)
+        for (y in 0 until h) for (x in 0 until w) mask[y * w + x] = isLine(p.rgb(x * 2, y * 2))
+
+        // 2. The longest straight run of them down each column and along each row
+        val downLength = IntArray(w); val downStart = IntArray(w)
+        val run = IntArray(w)
+        for (y in 0 until h) for (x in 0 until w) {
+            run[x] = if (mask[y * w + x]) run[x] + 1 else 0
+            if (run[x] > downLength[x]) { downLength[x] = run[x]; downStart[x] = y - run[x] + 1 }
+        }
+        val acrossLength = IntArray(h); val acrossStart = IntArray(h)
+        for (y in 0 until h) {
+            var n = 0
+            for (x in 0 until w) {
+                n = if (mask[y * w + x]) n + 1 else 0
+                if (n > acrossLength[y]) { acrossLength[y] = n; acrossStart[y] = x - n + 1 }
             }
-            runs.sort()
-            return runs[2]
         }
-        val left = thickness(0); val right = thickness(1); val topT = thickness(2); val bottom = thickness(3)
-        val size = outer.width()
-        for (t in intArrayOf(left, right, topT, bottom)) {
-            if (t < size * 0.03f || t > size * 0.12f) return null   // doesn't look like the puzzle frame
+
+        // 3. Sets of 4 evenly spaced lines each way, matched up: same spacing, and crossing each other
+        val downs = evenlySpaced(lines(downLength, downStart))
+        val acrosses = evenlySpaced(lines(acrossLength, acrossStart))
+        var best: Box? = null
+        var bestSpacing = 0f
+        for ((sx, vertical) in downs) for ((sy, horizontal) in acrosses) {
+            if (abs(sx - sy) > 0.06f * sx) continue
+            val left = vertical[0].middle - sx
+            val right = vertical[3].middle + sx
+            val top = horizontal[0].middle - sy
+            val bottom = horizontal[3].middle + sy
+            if (vertical.any { it.start > top + sy * 0.6f || it.end < bottom - sy * 0.6f }) continue
+            if (horizontal.any { it.start > left + sx * 0.6f || it.end < right - sx * 0.6f }) continue
+            if (sx > bestSpacing) {   // the biggest, if there's ever more than one
+                bestSpacing = sx
+                best = Box((left * 2 + 1).roundToInt(), (top * 2 + 1).roundToInt(),
+                    (right * 2 + 1).roundToInt(), (bottom * 2 + 1).roundToInt())
+            }
         }
-        return Rect(outer.left + left, outer.top + topT, outer.right - right, outer.bottom - bottom)
+        return best
+    }
+
+    // A line between tiles: where its middle is, and where it starts and ends (half-size pixels)
+    private class Line(val middle: Float, val start: Int, val end: Int) {
+        val length get() = end - start
+    }
+
+    // Lines from the longest run in each column (or row): the strongest first, each with the columns beside it
+    // that are nearly as long. Too thick to be a line (the empty space beside a line, say) is left out.
+    private fun lines(length: IntArray, start: IntArray): List<Line> {
+        val used = BooleanArray(length.size)
+        val found = ArrayList<Line>()
+        for (x in length.indices.sortedByDescending { length[it] }) {
+            if (length[x] < MIN_LINE) break
+            if (used[x]) continue
+            val peak = length[x]
+            var a = x
+            var b = x
+            while (a - 1 >= 0 && !used[a - 1] && length[a - 1] * 10 >= peak * 7) a--
+            while (b + 1 < length.size && !used[b + 1] && length[b + 1] * 10 >= peak * 7) b++
+            for (i in maxOf(0, a - 2)..minOf(length.size - 1, b + 2)) used[i] = true
+            if (b - a + 1 > MAX_LINE_WIDTH) continue
+            val starts = (a..b).map { start[it] }.sorted()
+            val ends = (a..b).map { start[it] + length[it] }.sorted()
+            found.add(Line((a + b) / 2f, starts[starts.size / 2], ends[ends.size / 2]))
+        }
+        return found.sortedBy { it.middle }
+    }
+
+    // Every set of 4 lines with even spacing that are each about 5 spacings long, with the spacing
+    private fun evenlySpaced(lines: List<Line>): List<Pair<Float, List<Line>>> {
+        val sets = ArrayList<Pair<Float, List<Line>>>()
+        for (i in lines.indices) for (j in i + 1 until lines.size) {
+            val spacing = (lines[j].middle - lines[i].middle) / 3f
+            if (spacing < 10f) continue
+            val tolerance = maxOf(1.5f, spacing * 0.04f)
+            val set = ArrayList<Line>(4)
+            for (n in 0 until 4) {
+                val want = lines[i].middle + n * spacing
+                val nearest = lines.minByOrNull { abs(it.middle - want) } ?: break
+                if (abs(nearest.middle - want) > tolerance) break
+                set.add(nearest)
+            }
+            if (set.size < 4) continue
+            if (set.any { it.length < 4.3f * spacing || it.length > 6.6f * spacing }) continue
+            sets.add(spacing to set)
+        }
+        return sets
     }
 
     // Which space (0-24) is empty, checked from 9 pixels in each tile: the empty space is plain
     // dark wood. Returns -1 if there isn't exactly one (a tile is mid-slide, or something covers it).
     // Tiles in `covered` have a guide dot in the middle, so they're read from a ring of 8 pixels
     // around the dot instead.
-    fun emptySpace(p: LightBoxReader.PixelSource, tiles: Rect, covered: Set<Int> = emptySet()): Int {
-        val tileW = tiles.width() / GRID.toFloat()
-        val tileH = tiles.height() / GRID.toFloat()
+    fun emptySpace(p: LightBoxReader.PixelSource, tiles: Rect, covered: Set<Int> = emptySet()) =
+        emptySpace(p, tiles.box(), covered)
+
+    fun emptySpace(p: LightBoxReader.PixelSource, tiles: Box, covered: Set<Int> = emptySet()): Int {
+        val tileW = tiles.width / GRID.toFloat()
+        val tileH = tiles.height / GRID.toFloat()
         var found = -1
         for (pos in 0 until GRID * GRID) {
             val col = pos % GRID
@@ -110,25 +170,57 @@ object PuzzleFinder {
         return found
     }
 
-    // Is the wooden frame still there around these tiles? (It disappears when the puzzle closes.)
-    fun frameVisible(p: LightBoxReader.PixelSource, tiles: Rect): Boolean {
-        val out = tiles.width() * 0.035f   // the middle of the frame, just outside the tiles
-        var wood = 0
+    // The frame's colour at 12 spots around the tiles, read when the puzzle is found, so frameVisible can tell
+    // whether it's still there (the brightness setting changes the frame's colour, so it can't be fixed in the
+    // code). A spot off the screen is -1.
+    fun frameColours(p: LightBoxReader.PixelSource, tiles: Rect) = frameColours(p, tiles.box())
+
+    fun frameColours(p: LightBoxReader.PixelSource, tiles: Box): IntArray {
+        val spots = frameSpots(tiles)
+        return IntArray(spots.size / 2) { i ->
+            val x = spots[i * 2]
+            val y = spots[i * 2 + 1]
+            if (x in 0 until p.width && y in 0 until p.height) p.rgb(x, y) and 0xFFFFFF else -1
+        }
+    }
+
+    // Is the wooden frame still there around these tiles, looking as it did when the puzzle was found?
+    // (It disappears when the puzzle closes.)
+    fun frameVisible(p: LightBoxReader.PixelSource, tiles: Rect, colours: IntArray) = frameVisible(p, tiles.box(), colours)
+
+    fun frameVisible(p: LightBoxReader.PixelSource, tiles: Box, colours: IntArray): Boolean {
+        val spots = frameSpots(tiles)
+        var same = 0
+        for (i in colours.indices) {
+            val x = spots[i * 2]
+            val y = spots[i * 2 + 1]
+            if (colours[i] < 0 || x !in 0 until p.width || y !in 0 until p.height) continue
+            val c = p.rgb(x, y)
+            val was = colours[i]
+            val change = abs(((c shr 16) and 0xFF) - ((was shr 16) and 0xFF)) +
+                abs(((c shr 8) and 0xFF) - ((was shr 8) and 0xFF)) + abs((c and 0xFF) - (was and 0xFF))
+            if (change <= FRAME_CHANGE) same++
+        }
+        return same >= FRAME_SPOTS_NEEDED
+    }
+
+    // 12 spots in the middle of the frame, just outside the tiles (3 on each side), as x, y, x, y...
+    private fun frameSpots(tiles: Box): IntArray {
+        val out = tiles.width * 0.035f
+        val spots = IntArray(24)
+        var i = 0
         for (t in FRACTIONS) {
-            val x = tiles.left + tiles.width() * t
-            val y = tiles.top + tiles.height() * t
-            val spots = arrayOf(
-                floatArrayOf(tiles.left - out, y), floatArrayOf(tiles.right + out, y),
-                floatArrayOf(x, tiles.top - out), floatArrayOf(x, tiles.bottom + out)
-            )
-            for (s in spots) {
-                val px = s[0].toInt()
-                val py = s[1].toInt()
-                if (px in 0 until p.width && py in 0 until p.height && isWood(p.rgb(px, py))) wood++
+            val x = tiles.left + tiles.width * t
+            val y = tiles.top + tiles.height * t
+            for ((sx, sy) in listOf(tiles.left - out to y, tiles.right + out to y, x to tiles.top - out, x to tiles.bottom + out)) {
+                spots[i++] = sx.toInt()
+                spots[i++] = sy.toInt()
             }
         }
-        return wood >= 8   // of 12 spots
+        return spots
     }
+
+    private fun Rect.box() = Box(left, top, right, bottom)
 
     private val FRACTIONS = floatArrayOf(0.25f, 0.5f, 0.75f)
     private val GRID_SPOTS = FRACTIONS.flatMap { fy -> FRACTIONS.map { fx -> fx to fy } }

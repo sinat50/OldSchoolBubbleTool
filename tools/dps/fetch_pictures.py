@@ -5,11 +5,10 @@ They're Jagex's artwork, included under Jagex's Fan Content Policy (see the app'
   dps/equipment.json, from the OSRS Wiki DPS calculator's repository (github.com/weirdgloop/osrs-dps-calc)
   at the commit pinned in GearIcons.kt (COMMIT). Ones marked "wiki" (out of date in the repository) come
   from the OSRS Wiki instead, or the repository's copy if the wiki doesn't have them.
-- puzzles/: the solved puzzle box pictures for the Puzzle Box Solver, from the OSRS Wiki.
 - quest_images/: pictures the Quest Helper shows with a puzzle's answer, from the OSRS Wiki.
 
-Run it again after rebuilding equipment.json (new items) or adding a picture to PUZZLES or QUEST_IMAGES
-below (and in PuzzleReferences.kt / QuestPuzzles.kt). Pictures already there are skipped; pictures no longer
+Run it again after rebuilding equipment.json (new items) or adding a picture to QUEST_IMAGES
+below (and in QuestPuzzles.kt). Pictures already there are skipped; pictures no longer
 needed are removed.
 
 Usage: python3 fetch_pictures.py path/to/app/src/main/assets
@@ -25,8 +24,6 @@ COMMIT = re.search(r'COMMIT = "([0-9a-f]{40})"', gear_icons).group(1)
 WIKI = 'https://oldschool.runescape.wiki/images/'
 GITHUB = f'https://raw.githubusercontent.com/weirdgloop/osrs-dps-calc/{COMMIT}/cdn/equipment/'
 JSDELIVR = f'https://cdn.jsdelivr.net/gh/weirdgloop/osrs-dps-calc@{COMMIT}/cdn/equipment/'
-PUZZLES = ['Castle_puzzle_solved.png', 'Tree_puzzle_solved.png', 'Troll_puzzle_solved.png', 'Zulrah_puzzle_solved.png',
-           'Cerberus_puzzle_solved.png', 'Gnome_child_puzzle_solved.png', 'Theatre_of_Blood_puzzle_solved.png']
 QUEST_IMAGES = ['Dragon_Slayer_II_map_puzzle_solution.png']
 AGENT = 'OSRSBubbleTool picture builder (github.com/sinat50/OSRSBubbleTool)'
 
@@ -74,5 +71,4 @@ for name, wiki in from_wiki.items():
     icons[name] = ([WIKI + q(name.replace(' ', '_'))] if wiki else []) + repo
 
 build('dps/icons', icons, 32)
-build('puzzles', {n: [WIKI + n] for n in PUZZLES}, 4)
 build('quest_images', {n: [WIKI + n] for n in QUEST_IMAGES}, 4)
