@@ -24,13 +24,13 @@ class DiaryItemsTest {
     @Test
     fun notSyncedListsEveryTasksItemsOnce() {
         // the pickaxe (tasks 1 and 3) is listed once; the water runes are added up (2 + 6) though written two ways
-        assertEquals(listOf("Any pickaxe", "Water runes (8)", "Law rune", "Coins (1000)", "Food"), list(null))
+        assertEquals(listOf("Any pickaxe", "Water runes (8)", "Law rune", "Coins (1,000)", "Food"), list(null))
     }
 
     @Test
     fun finishedTasksAreLeftOut() {
         // tasks 1, 2 and 4 done: the pickaxe is still needed for task 3, the water runes only for task 5
-        assertEquals(listOf("Any pickaxe", "Coins (1000)", "Water rune (6)", "Food"), list(listOf(true, true, false, true, false)))
+        assertEquals(listOf("Any pickaxe", "Coins (1,000)", "Water rune (6)", "Food"), list(listOf(true, true, false, true, false)))
     }
 
     @Test

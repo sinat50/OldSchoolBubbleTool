@@ -2,6 +2,7 @@ package com.sinat.osrsbubbletool
 
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.Locale
 import kotlin.math.floor
 import kotlin.math.max
 
@@ -89,7 +90,8 @@ object QuestBook {
                 if (amount != null) entry.counted = true
             }
         }
-        return items.values.map { if (it.counted && it.total > 1) "${it.name} (${it.total})" else it.name }
+        // amounts written with thousands commas, like the rest of the Quest Helper ("Coins (30,105)")
+        return items.values.map { if (it.counted && it.total > 1) "${it.name} (${"%,d".format(Locale.US, it.total)})" else it.name }
     }
     private val AMOUNT = Regex("""(.*) \(([\d,]+)\)""")
 
