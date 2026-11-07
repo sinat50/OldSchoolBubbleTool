@@ -69,7 +69,7 @@ Typing in a tool window (a note, a search) brings up the keyboard with just its 
 - Tools that look things up (like Teleport Finder searches) ask the OSRS Wiki for them directly.
 - What some tools compare your screen with (the Puzzle Box Solver's short colour summaries of each tile, and Import my gear's of each item) comes with the app, so nothing needs downloading and those tools work offline. The app comes with no game pictures.
 - Each time you open the app, it checks GitHub for a newer version. The button in the top right says **Up To Date** or **Update Available** and opens the latest release page. Nothing about you is sent (GitHub sees your internet address, as with any website). You can turn this off in Settings.
-- Found a problem? **Report An Issue** in the top left of the main screen opens a short report form on GitHub (you'll need a free GitHub account), with your phone model, Android version, screen size and the app's version already filled in. You see everything before you send it, and can change or remove any of it.
+- Found a problem? **Report An Issue** in the top left of the main screen lets you pick the [Discord](https://discord.gg/MM6mFmkGh) or GitHub. GitHub opens a short report form (you'll need a free GitHub account), with your phone model, Android version, screen size and the app's version already filled in. You see everything before you send it, and can change or remove any of it.
 - **Buy me a coffee**, under Start Bubble on the main screen, opens the developer's Ko-fi page in your browser, if you'd like to say thanks. Nothing about you is sent, and the app stays free and ad-free either way.
 
 ## Permissions
