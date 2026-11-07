@@ -41,7 +41,7 @@ object SyncTables {
         "Current Affairs" to 7105,
         "The Curse of Arrav" to 3937,
         "Curse of the Empty Lord" to 20,
-        "Daddy's Home" to 21,
+        "Daddy's Home" to 17229,
         "Darkness of Hallowvale" to 22,
         "Death on the Isle" to 3711,
         "Death Plateau" to 23,
@@ -218,6 +218,11 @@ object SyncTables {
         "Recipe for Disaster - King Awowogei" to 2315,
         "Recipe for Disaster - Culinaromancer" to 2316,
     )
+
+    // Counting the code's quests: these IDs are miniquests, these are Recipe for Disaster's parts (not
+    // counted), and every other ID is a quest, even one the app doesn't know yet
+    val MINIQUEST_IDS: Set<Int> = setOf(4, 5, 20, 41, 43, 49, 59, 78, 84, 89, 90, 135, 164, 166, 2306, 3250, 3451, 5194, 17027)
+    val QUEST_PART_IDS: Set<Int> = setOf(2307, 2308, 2309, 2310, 2311, 2312, 2313, 2314, 2315, 2316)
 
     val DIARY_TASKS: Map<String, String> = mapOf(
         "Ardougne|Easy" to "p0.0 p0.1 p0.2 p0.4 p0.5 p0.6 p0.7 p0.9 p0.11 p0.12",

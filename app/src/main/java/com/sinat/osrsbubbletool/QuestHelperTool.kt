@@ -350,10 +350,10 @@ class QuestHelperTool(
     private fun questList(column: LinearLayout) {
         val data = sync.cached
         if (data != null) {
-            val quests = QuestBook.quests.filter { !it.miniquest }
-            val done = quests.count { data.questState(it.name) == Account.FINISHED }
-            column.addView(label("Quest points: ${QuestBook.questPoints(data)}   ·   Quests done: $done of ${quests.size}",
-                12f, bold = true), full(8))
+            val quests = QuestBook.tally(data, miniquests = false)
+            val miniquests = QuestBook.tally(data, miniquests = true)
+            column.addView(label("Quest points: ${QuestBook.questPoints(data)}   ·   Quests done: ${quests.done} of ${quests.total}" +
+                "   ·   Miniquests: ${miniquests.done} of ${miniquests.total}", 12f, bold = true), full(8))
         }
 
         val field = EditText(context).apply {

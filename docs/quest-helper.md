@@ -43,6 +43,16 @@ helpers: the panel title is the task's name, its display condition the bit). It 
 `SyncCodeTest` fails if a quest or task is missing. Four tasks the script can't link by itself are in its `FIXES`.
 A brand-new quest only gets an ID once RuneLite's `Quest.java` has it.
 
+**Quests done and Miniquests done** (Bubble Sync page, top of the Quest Helper) are counted from every quest in the
+code, not from the app's list: the plugin sends every quest its RuneLite knows, so a new quest counts as soon as
+RuneLite has it, with no app or plugin update (November 2026). `SyncTables.MINIQUEST_IDS` and `QUEST_PART_IDS`
+(Recipe for Disaster's 10 parts, not counted) sort them; every other ID is a quest. The miniquests are the app's
+`"t":"M"` quests plus the script's `EXTRA_MINIQUESTS` (ones RuneLite has but Quest Helper doesn't). The script
+prints the RuneLite quests it counts as quests that the app doesn't have: if one of them is a **miniquest**, add it
+to `EXTRA_MINIQUESTS`, as the counts are otherwise off by one. Check against the wiki's Quests/List (187 quests and
+19 miniquests in November 2026). Daddy's Home is a quest in the game though Quest Helper calls it a miniquest
+(`quests/daddys-home.json`); if a new Quest Helper download brings it back as a miniquest, `put` that file again.
+
 ## QuestData entry (from the plugin's Java)
 
 ```json

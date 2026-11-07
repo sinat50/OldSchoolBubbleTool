@@ -108,6 +108,14 @@ object QuestBook {
     private var pointsFor: Account? = null
     private var points = 0
 
+    // Quests (or miniquests) done, out of how many: counted from the scanned code when it has the counts (every
+    // quest the game has, even ones the app doesn't know yet), otherwise from the app's own quest list
+    fun tally(data: Account, miniquests: Boolean): Account.Tally {
+        (if (miniquests) data.miniquestTally else data.questTally)?.let { return it }
+        val list = quests.filter { it.miniquest == miniquests }
+        return Account.Tally(list.count { data.questState(it.name) == Account.FINISHED }, list.size)
+    }
+
     fun combatLevel(data: Account): Int? {
         fun l(s: String) = data.level(s)
         val att = l("Attack") ?: return null; val str = l("Strength") ?: return null
