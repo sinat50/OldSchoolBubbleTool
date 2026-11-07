@@ -230,9 +230,9 @@ Each release is worked on in its own branch (named like `v1.0.9`), then merged i
 
 Tags use the "v" form (`1.0.3` is the one exception). A published release's tag stays as it is: renaming it on
 GitHub creates the new tag on the latest master (that happened to v1.0.5 and was fixed by force-pushing the tag
-back to its commit from Android Studio's terminal, which has the GitHub login). Latest release: v1.2.1 (6 November
-2026, versionCode 13; the rename to Old School Bubble Tool, no game pictures, the keyboard handover). Older releases
-(v1.0.0 to v1.2.0) were turned back into drafts that day, hidden from the public (owner's decision; their tags stay). The next
+back to its commit from Android Studio's terminal, which has the GitHub login). Latest release: v1.2.2 (7 November
+2026, versionCode 14; Tears of Guthix Worlds, diary items still needed, separate quest and miniquest counts). v1.2.1
+(6 November 2026) renamed the app and dropped the game pictures; older releases (v1.0.0 to v1.2.0) were turned back into drafts that day, hidden from the public (owner's decision; their tags stay). The next
 release's branch is made when work on it starts.
 
 ## Plans, to-dos and things to test
