@@ -1,8 +1,8 @@
 # Teleport Finder: updating its data
 
 How to rebuild the Teleport Finder's data after the update checker reports `teleports` (Shortest Path),
-`dungeons` (RuneLite) or `obstacles` (Golems Don't Die). Last done 6 November 2026 (Shortest Path 375ce2c,
-6 November), in about 15 minutes all told. The scripts are described in `tools/README.md`; this is the whole
+`dungeons` (RuneLite) or `obstacles` (Golems Don't Die). Last done 7 November 2026 (Shortest Path a4aa30a,
+7 November), in about 15 minutes all told. The scripts are described in `tools/README.md`; this is the whole
 routine, in order.
 
 ## The files
@@ -96,3 +96,11 @@ top answer became the Games necklace.
   Hosidius" and the minecarts). The diary cape's Lumbridge spot is now Mikasi (game change, upstream #929; no
   format change). Joins 1588 → 1867, nearly all inside the Vampyrium, newly reachable. Guesses 23 → 22
   (Thermonuclear smoke devil got a real route); Chasm of Fire black demons now best by the Chasm scroll.
+- 7 Nov 2026: 14 upstream commits. Teleports 512 → 545: Ring of returning (one line per respawn point, noted
+  "Takes you to your respawn point only", since Shortest Path lists them all), the Perfected quetzal whistle(i),
+  the Camelot tablet's Seers' Village spot, the Kourend Castle and Civitas illa Fortis tablets, the Mokhaiotl
+  waystone, and the Bounty Hunter, Mastering Mixology and Sorceress's Garden minigame teleports. The Revenant cave
+  teleport now has its three entrances. Shortest Path now has the Wyrmscraig Cavern slayer ring and the calcified
+  moth, so both were removed from `ADD`. The moth lands at 1439 9550 (our guess was 1447 9566), and Shortest Path
+  checks the quest stage itself, so it lists no quest: the "needs Perilous Moons" note moved to `HOW`. Collision map
+  unchanged; joins 1867 → 1889; still 22 guesses, no top result changed.
