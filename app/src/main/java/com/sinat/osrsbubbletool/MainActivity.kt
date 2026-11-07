@@ -468,7 +468,7 @@ class MainActivity : Activity() {
         section("Privacy",
             "The app has no analytics, no ads and no account of its own, and the developer never receives anything from it. " +
             "It talks to the internet only when you use a tool that needs it: the OSRS Wiki, the DPS and XP calculators, " +
-            "GE Prices, the Shooting Star Tracker and Tears of Guthix load in the app like a browser (they see your internet address and may " +
+            "GE Prices, the Shooting Star Tracker and Tears of Guthix Worlds load in the app like a browser (they see your internet address and may " +
             "set cookies, as in any browser); the Teleport " +
             "Finder sends your search words to the wiki; and when the app opens it asks GitHub whether there's a newer " +
             "version (you can turn that off in Settings). Bubble Sync uses the camera only while you scan the Bubble Tool " +
@@ -514,7 +514,7 @@ class MainActivity : Activity() {
 
         section("Websites",
             "The OSRS Wiki, Real-time Prices, the DPS calculator, the XP calculator (oldschool.tools), the Shooting Star Tracker (07.gg) and " +
-            "Tears of Guthix (togcrowdsourcing.com, crowdsourced with the ToG Crowdsourcing RuneLite plugin) " +
+            "Tears of Guthix Worlds (togcrowdsourcing.com, crowdsourced with the ToG Crowdsourcing RuneLite plugin) " +
             "are websites run by their own owners. The app opens them as they are, like a browser.")
 
         section("RuneLite",

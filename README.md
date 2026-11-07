@@ -26,7 +26,7 @@ Typing in a tool window (a note, a search) brings up the keyboard with just its 
 **Settings** is at the bottom of the long-press menu, and on the app's main screen:
 
 - **Dark mode**: Off, On, or Match phone. Turns the app and every tool window dark, and the websites in the tools too (the OSRS Wiki switches to its own dark look).
-- **Tool text size** and **Web page text size**: make the writing bigger or smaller in the app's own tools, and in the Wiki, DPS Calculator, XP Calculator, GE Prices, Shooting Star Tracker and Tears of Guthix.
+- **Tool text size** and **Web page text size**: make the writing bigger or smaller in the app's own tools, and in the Wiki, DPS Calculator, XP Calculator, GE Prices, Shooting Star Tracker and Tears of Guthix Worlds.
 - **Bubble**: its size (Small, Normal, Large), fading to see-through when you're not using it, how long to hold it for the menu, and whether it vibrates when the menu opens.
 - **Windows**: how wide tool windows open in landscape (Narrow, Normal, Wide), and a button that puts every window back to its normal size and place.
 - **Tools in the menu**: untick the tools you don't use to keep the menu short.
@@ -45,7 +45,7 @@ Typing in a tool window (a note, a search) brings up the keyboard with just its 
 | **XP Calculator** | [oldschool.tools](https://oldschool.tools) calculators, with dropdown menus that work inside the window. |
 | **DPS Calculator** | The OSRS Wiki DPS calculator. **Import my gear** finds your equipment tab by itself, recognises your worn equipment and loads it straight into the calculator. It copes with any brightness setting, tells look-alikes such as a black d'hide body and a black chainbody apart, and picks the item you're most likely wearing (a normal Fire cape over a broken one). Bolts are always loaded enchanted. It recognises each item from a short colour summary of its icon, so no item pictures are needed for it. |
 | **Shooting Star Tracker** | Live shooting star locations from [07.gg](https://07.gg/trackers/shooting-star). |
-| **Tears of Guthix** | This week's Tears of Guthix stream orders for each world, from [ToG Crowdsourcing](https://togcrowdsourcing.com/). |
+| **Tears of Guthix Worlds** | This week's Tears of Guthix stream orders for each world, from [ToG Crowdsourcing](https://togcrowdsourcing.com/). |
 | **Zulrah Helper** | A tap-along rotation guide, like the RuneLite plugin: Zulrah's colour and position, where to stand, and which prayer to use, with the possible next phases underneath. |
 | **Timers** | Farming and birdhouse timers. Tap **Planted** after a run and get a notification when it's ready. Covers herbs, trees, fruit trees, hardwoods, allotments, hops, seaweed and more. Growth times follow the game's growth ticks, and timers survive closing the app and restarting the phone. |
 | **GE Prices** | The OSRS Wiki [Real-time Prices](https://prices.runescape.wiki/osrs/) site. |
@@ -63,7 +63,7 @@ Typing in a tool window (a note, a search) brings up the keyboard with just its 
 - Timers don't keep anything running. Android wakes the app once when a timer is due.
 - On Android 14 and newer you can share just the game instead of the whole screen, so your notifications and other apps are never captured.
 - Screenshots are processed on the phone and never saved. Each screenshot is let go as soon as it has been read. Only pictures you choose to keep are stored: with **Save picture to phone**, and Gear Loadouts' screenshots of your inventory, equipment, rune pouch and spellbook, kept inside the app for your loadouts.
-- The app has no ads, no analytics and no account of its own, and the developer never receives anything from it. The website tools (the OSRS Wiki, the DPS and XP calculators, GE Prices, the Shooting Star Tracker and Tears of Guthix) load those sites directly, the same as a browser would: they see your internet address and may set cookies, as in any browser.
+- The app has no ads, no analytics and no account of its own, and the developer never receives anything from it. The website tools (the OSRS Wiki, the DPS and XP calculators, GE Prices, the Shooting Star Tracker and Tears of Guthix Worlds) load those sites directly, the same as a browser would: they see your internet address and may set cookies, as in any browser.
 - Bubble Sync uses the camera only while you're scanning the Bubble Tool Sync plugin's QR code. The account it reads (name, levels, quests and diary tasks) stays on the phone.
 - Your settings, notes, timers, loadouts and synced account are saved on the phone, and go into your phone's normal Android backup if you have that on. Nothing else is stored or sent.
 - Tools that look things up (like Teleport Finder searches) ask the OSRS Wiki for them directly.
