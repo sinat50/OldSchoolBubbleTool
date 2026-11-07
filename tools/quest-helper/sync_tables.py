@@ -1,6 +1,8 @@
 """
 Makes SyncTables.kt: what the app needs to read a Bubble Tool Sync code (the RuneLite plugin's QR code).
   - each quest's RuneLite quest ID (the plugin sends quests by ID, the app knows them by name)
+  - which IDs are miniquests, and which are Recipe for Disaster's parts, so "Quests done" and "Miniquests done"
+    are counted from everything the plugin sends: a quest the app doesn't know yet still counts (as a quest)
   - each achievement diary task's place in the code: one bit of a diary varp, or (Karamja) a varbit
 
 From the project folder, with the Quest Helper plugin and RuneLite's Quest.java downloaded somewhere:
@@ -46,6 +48,12 @@ FIXES = {
     ('Karamja', 'Hard', 'Eat Oomlie Wrap'): ('ATJUN_HARD_OOMLIE', 1),                    # notEatenWrap (== 0)
     ('Varrock', 'Medium', 'Leave Varrock in a Balloon'): ('VARROCK_ACHIEVEMENT_DIARY', 27),   # notBalloon
 }
+
+
+# Miniquests RuneLite knows but the app's quest list doesn't have (Quest Helper has no guide for them), checked on
+# the OSRS Wiki's Quests/List (November 2026). Any other RuneLite entry the app doesn't know is counted as a quest,
+# so a brand-new miniquest goes here until the app has it.
+EXTRA_MINIQUESTS = ['The Frozen Door', 'Into the Tombs', 'The Fractured Archive']
 
 
 def fix_code(name, n):
@@ -112,6 +120,23 @@ def main():
         problems.append(f'expected 10 Recipe for Disaster parts in Quest.java, found {len(parts)}')
     ids += [(n, int(i)) for i, n in parts]
 
+    # Miniquests (the app's, plus the ones only RuneLite has) and the parts, for counting what the code holds
+    miniquests = sorted(i for n, i in ids if any(q['n'] == n and q.get('t') == 'M' for q in data['quests']))
+    app_names = {simple(q['n']) for q in data['quests']}
+    for n in EXTRA_MINIQUESTS:
+        if simple(n) in app_names:
+            problems.append(f"now in the app's quest list (remove it from EXTRA_MINIQUESTS): {n}")
+        elif simple(n) not in runelite:
+            problems.append(f'miniquest not in Quest.java: {n}')
+        else:
+            miniquests.append(runelite[simple(n)])
+    miniquests.sort()
+    part_ids = sorted(int(i) for i, n in parts)
+    sorted_out = {simple(n) for n in EXTRA_MINIQUESTS} | app_names | {simple(n) for i, n in parts}
+    with open(quest_java, encoding='utf-8') as f:
+        new_ones = [n for i, n in re.findall(r'^\s+[A-Z_0-9]+\((\d+),\s*"([^"]+)"', f.read(), re.M)
+                    if simple(n) not in sorted_out]
+
     # Diary tasks, matched by the task name (the app's names are Quest Helper's panel titles)
     diaries = []
     folder = os.path.join(helper, 'src', 'main', 'java', 'com', 'questhelper', 'helpers', 'achievementdiaries')
@@ -151,7 +176,12 @@ def main():
         '    val QUEST_IDS: Map<String, Int> = mapOf(',
     ]
     lines += [f'        "{quest_files.kotlin(n)}" to {i},' for n, i in ids]
-    lines += ['    )', '', '    val DIARY_TASKS: Map<String, String> = mapOf(']
+    lines += ['    )', '',
+              "    // Counting the code's quests: these IDs are miniquests, these are Recipe for Disaster's parts (not",
+              "    // counted), and every other ID is a quest, even one the app doesn't know yet",
+              '    val MINIQUEST_IDS: Set<Int> = setOf(' + ', '.join(map(str, miniquests)) + ')',
+              '    val QUEST_PART_IDS: Set<Int> = setOf(' + ', '.join(map(str, part_ids)) + ')',
+              '', '    val DIARY_TASKS: Map<String, String> = mapOf(']
     lines += [f'        "{k}" to "{v}",' for k, v in diaries]
     lines += ['    )', '}', '']
     with open(OUT, 'w', encoding='utf-8', newline='\r\n') as f:
@@ -160,7 +190,9 @@ def main():
     tasks = sum(len(v.split()) for _, v in diaries)
     known = sum(len([c for c in v.split() if c != '-']) for _, v in diaries)
     print(f'{len(ids) - len(parts)} of {len(data["quests"])} quests have an ID (and {len(parts)} Recipe for Disaster parts); '
-          f'{known} of {tasks} diary tasks have a bit')
+          f'{known} of {tasks} diary tasks have a bit; {len(miniquests)} miniquests')
+    if new_ones:
+        print('  in RuneLite but not the app, counted as quests: ' + ', '.join(new_ones))
     for p in problems:
         print('  ' + p)
 

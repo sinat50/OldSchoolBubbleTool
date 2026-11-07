@@ -2,6 +2,7 @@ package com.sinat.osrsbubbletool
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
@@ -36,6 +37,8 @@ class MainActivity : Activity() {
 
     companion object {
         private const val REQUEST_NOTIFICATIONS = 1
+        // The app's Discord server (also in the README and at the top of every release's notes)
+        private const val DISCORD_INVITE = "https://discord.gg/MM6mFmkGh"
 
         // The BSD 2-Clause licence conditions and disclaimer (used by the Zulrah, ToA Puzzle Helper, RuneLite, Teleport Finder and Quest Helper credits)
         private const val BSD_TERMS =
@@ -191,7 +194,7 @@ class MainActivity : Activity() {
             // top left: "Report An Issue"; top right: "Up To Date" or "Update Available"
             addView(LinearLayout(this@MainActivity).apply {
                 orientation = LinearLayout.HORIZONTAL
-                addView(button("Report An Issue") { reportIssue() }.compact())
+                addView(button("Report An Issue") { chooseWhereToReport() }.compact())
                 addView(View(this@MainActivity), LinearLayout.LayoutParams(0, 1, 1f))
                 if (AppSettings.checksUpdates(this@MainActivity))
                     addView(button("") { openReleasePage() }.compact().also { updateButton = it; styleUpdateButton() })
@@ -240,6 +243,31 @@ class MainActivity : Activity() {
             startActivity(Intent(Intent.ACTION_VIEW, "https://ko-fi.com/sinat50".toUri()))
         } catch (e: Exception) {
             Toast.makeText(this, "Couldn't open a browser", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // "Report An Issue": a small box asking where to report it, GitHub (the report form) or the Discord server (a chat, the same link as the README's and the release notes')
+    private fun chooseWhereToReport() {
+        var box: AlertDialog? = null
+        val choices = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(dp(20), dp(18), dp(20), dp(18))
+            addView(label("Report An Issue", 17f, bold = true))
+            addView(label("Where would you like to tell us about it?", 13f), matchWidth(6))
+            addView(button("GitHub") { box?.dismiss(); reportIssue() }, matchWidth(14))
+            addView(button("Discord") { box?.dismiss(); openDiscord() }, matchWidth(8))
+        }
+        box = AlertDialog.Builder(this).setView(choices).create().apply {
+            window?.setBackgroundDrawable(GradientDrawable().apply { setColor(PARCHMENT); cornerRadius = dp(10).toFloat() })
+            show()
+        }
+    }
+
+    private fun openDiscord() {
+        try {
+            startActivity(Intent(Intent.ACTION_VIEW, DISCORD_INVITE.toUri()))
+        } catch (e: Exception) {
+            Toast.makeText(this, "Couldn't open Discord or a browser", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -468,7 +496,7 @@ class MainActivity : Activity() {
         section("Privacy",
             "The app has no analytics, no ads and no account of its own, and the developer never receives anything from it. " +
             "It talks to the internet only when you use a tool that needs it: the OSRS Wiki, the DPS and XP calculators, " +
-            "GE Prices and the Shooting Star Tracker load in the app like a browser (they see your internet address and may " +
+            "GE Prices, the Shooting Star Tracker and Tears of Guthix Worlds load in the app like a browser (they see your internet address and may " +
             "set cookies, as in any browser); the Teleport " +
             "Finder sends your search words to the wiki; and when the app opens it asks GitHub whether there's a newer " +
             "version (you can turn that off in Settings). Bubble Sync uses the camera only while you scan the Bubble Tool " +
@@ -513,7 +541,8 @@ class MainActivity : Activity() {
             "summaries of each item, worked out from RuneLite's item icons (static.runelite.net), which are (c) Jagex Ltd.", size = 11f)
 
         section("Websites",
-            "The OSRS Wiki, Real-time Prices, the DPS calculator, the XP calculator (oldschool.tools) and the Shooting Star Tracker (07.gg) " +
+            "The OSRS Wiki, Real-time Prices, the DPS calculator, the XP calculator (oldschool.tools), the Shooting Star Tracker (07.gg) and " +
+            "Tears of Guthix Worlds (togcrowdsourcing.com, crowdsourced with the ToG Crowdsourcing RuneLite plugin) " +
             "are websites run by their own owners. The app opens them as they are, like a browser.")
 
         section("RuneLite",

@@ -61,6 +61,29 @@ class SyncCodeTest {
     }
 
     @Test
+    fun countsQuestsAndMiniquestsFromTheWholeCode() {
+        // ID 17 (started) is a miniquest and ID 300 (not started) a Recipe for Disaster part: that leaves one quest,
+        // ID 0, finished
+        val a = SyncCode.read(code(), questIds, diaryTasks, miniquestIds = setOf(17), partIds = setOf(300))
+        assertEquals(1, a.questTally!!.done); assertEquals(1, a.questTally!!.total)
+        assertEquals(0, a.miniquestTally!!.done); assertEquals(1, a.miniquestTally!!.total)
+        // with nothing marked, all three count as quests, even ID 300, which the app's list doesn't need to know
+        val b = SyncCode.read(code(), mapOf(), diaryTasks, miniquestIds = setOf(), partIds = setOf())
+        assertEquals(1, b.questTally!!.done); assertEquals(3, b.questTally!!.total)
+        assertEquals(0, b.miniquestTally!!.total)
+        assertEquals(b.questTally, QuestBook.tally(b, miniquests = false))
+    }
+
+    @Test
+    fun knowsEveryMiniquestAndRecipeForDisasterPart() {
+        // The game has 19 miniquests (OSRS Wiki, Quests/List, November 2026) and Recipe for Disaster has 10 parts
+        assertEquals(19, SyncTables.MINIQUEST_IDS.size)
+        assertEquals(10, SyncTables.QUEST_PART_IDS.size)
+        // Daddy's Home is a quest in the game, not a miniquest
+        assertTrue(SyncTables.QUEST_IDS.getValue("Daddy's Home") !in SyncTables.MINIQUEST_IDS)
+    }
+
+    @Test
     fun readsDiaryTasks() {
         // bit 0 set, bit 1 not, bit 3 set; Karamja varbit 0 at 5 (done at 5), varbit 7 at 4 (not yet); unknown task
         assertEquals(listOf(true, false, true, true, false, false), read().diaryTasks("Ardougne", "Easy"))

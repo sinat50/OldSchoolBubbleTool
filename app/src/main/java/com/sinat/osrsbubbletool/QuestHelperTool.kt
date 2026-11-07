@@ -272,6 +272,7 @@ class QuestHelperTool(
     private var openDiary: String? = null      // a diary region's page
     private var openTier = 0
     private var showDetails = false
+    private var showItems = false   // a diary tier's "Items you still need" list is open
     private var openPuzzle: QuestPuzzles.Puzzle? = null   // a puzzle solution, opened from a quest
     private val solverViews = QuestSolverViews(context) { show() }
     private var showPuzzles = false
@@ -302,7 +303,7 @@ class QuestHelperTool(
         if (showHelp) { showHelp = false; show(keepScroll = false); return }
         if (openPuzzle != null) { openPuzzle = null; show(keepScroll = false); return }
         if (openQuest != null || openDiary != null) {
-            openQuest = null; openDiary = null; showDetails = false; expanded.clear()
+            openQuest = null; openDiary = null; closeSections()
             show(keepScroll = false)
         }
     }
@@ -329,8 +330,19 @@ class QuestHelperTool(
     }
 
     private fun openQuestPage(name: String) {
-        openQuest = name; openDiary = null; openPuzzle = null; showDetails = false; showPuzzles = false; showHelp = false; expanded.clear()
+        openQuest = name; openDiary = null; openPuzzle = null; showHelp = false; closeSections()
         show(keepScroll = false)
+    }
+
+    // A new page (or diary tier) starts with every fold-out section closed
+    private fun closeSections() {
+        showDetails = false; showItems = false; showPuzzles = false; expanded.clear()
+    }
+
+    // A ▾ button that opens a section underneath it; the same button (now ▴) closes it again
+    private fun LinearLayout.foldOut(open: Boolean, closedText: String, openText: String, flip: () -> Unit, section: () -> View) {
+        addView(smallButton(if (open) openText else closedText) { flip(); show() }, full(6))
+        if (open) addView(section(), full(4))
     }
 
     // ---------------- The main list: quests or diaries ----------------
@@ -350,10 +362,10 @@ class QuestHelperTool(
     private fun questList(column: LinearLayout) {
         val data = sync.cached
         if (data != null) {
-            val quests = QuestBook.quests.filter { !it.miniquest }
-            val done = quests.count { data.questState(it.name) == Account.FINISHED }
-            column.addView(label("Quest points: ${QuestBook.questPoints(data)}   ·   Quests done: $done of ${quests.size}",
-                12f, bold = true), full(8))
+            val quests = QuestBook.tally(data, miniquests = false)
+            val miniquests = QuestBook.tally(data, miniquests = true)
+            column.addView(label("Quest points: ${QuestBook.questPoints(data)}   ·   Quests done: ${quests.done} of ${quests.total}" +
+                "   ·   Miniquests: ${miniquests.done} of ${miniquests.total}", 12f, bold = true), full(8))
         }
 
         val field = EditText(context).apply {
@@ -650,11 +662,9 @@ class QuestHelperTool(
         column.addView(summary(q.name, requirements), full(6))
 
         // Before you start
-        column.addView(smallButton(if (showDetails) "Hide requirements ▴" else "Requirements & rewards ▾") {
-            showDetails = !showDetails
-            show()
-        }, full(6))
-        if (showDetails) column.addView(detailsCard(q, requirements), full(4))
+        column.foldOut(showDetails, "Requirements & rewards ▾", "Hide requirements ▴", { showDetails = !showDetails }) {
+            detailsCard(q, requirements)
+        }
         val puzzles = QuestPuzzles.forQuest(q.name)
         if (puzzles.isNotEmpty()) {
             column.addView(smallButton("🧩 Puzzle solutions (${puzzles.size}) " + if (showPuzzles) "▴" else "▾") {
@@ -822,7 +832,7 @@ class QuestHelperTool(
                     }
                 }, full(2))
                 setOnClickListener {
-                    openDiary = diary.region; openQuest = null; expanded.clear(); showDetails = false
+                    openDiary = diary.region; openQuest = null; closeSections()
                     // open at the first tier you haven't finished
                     openTier = diary.tiers.indexOfFirst { t ->
                         val done = data?.diaryTasks(diary.region, t.tier)
@@ -848,7 +858,7 @@ class QuestHelperTool(
                 val done = data?.diaryTasks(region, tier.tier)
                 val finished = done != null && done.count { it } >= tier.tasks.size
                 addView(tabButton(tier.tier + if (finished) " ✓" else "", i == openTier) {
-                    openTier = i; expanded.clear(); showDetails = false; show(keepScroll = false)
+                    openTier = i; closeSections(); show(keepScroll = false)
                 }.apply { textSize = 11f },
                     LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply {
                         if (i > 0) leftMargin = dp(2); if (i < diary.tiers.size - 1) rightMargin = dp(2)
@@ -868,12 +878,8 @@ class QuestHelperTool(
         }, full(8))
 
         // Everything the tier needs, and its rewards
-        addView(smallButton(if (showDetails) "Hide requirements ▴" else "All requirements & rewards ▾") {
-            showDetails = !showDetails
-            show()
-        }, full(6))
-        if (showDetails) {
-            addView(card(ROW_BROWN) {
+        foldOut(showDetails, "All requirements & rewards ▾", "Hide requirements ▴", { showDetails = !showDetails }) {
+            card(ROW_BROWN) {
                 addView(label("To do every ${tier.tier} task you need", 12f, bold = true))
                 if (tier.requirements.isEmpty()) addView(label("Nothing special", 12f), full(2))
                 reqRows(this, tier.requirements, data, 0, "$region/${tier.tier}")
@@ -881,7 +887,20 @@ class QuestHelperTool(
                     addView(label("Rewards", 12f, bold = true), full(10))
                     tier.rewards.forEach { addView(label("• $it", 12f), full(1)) }
                 }
-            }, full(4))
+            }
+        }
+
+        // The items for the tasks you haven't done yet (every task's, if your account isn't synced), each once.
+        // Just the items: which task each is for is in the task's own card ("Bring:")
+        val items = QuestBook.itemsStillNeeded(tier, done)
+        if (items.isNotEmpty()) {
+            val title = if (done == null) "Items for every task" else "Items you still need"
+            foldOut(showItems, "$title (${items.size}) ▾", "Hide items ▴", { showItems = !showItems }) {
+                card(ROW_BROWN) {
+                    addView(label(title, 12f, bold = true))
+                    items.forEach { addView(label("• $it", 12f), full(1)) }
+                }
+            }
         }
 
         if (done != null) {

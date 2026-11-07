@@ -21,8 +21,14 @@ class Account(
     val diaries: Map<String, Map<String, List<Boolean>>>,   // region -> tier -> each task done?
     val readAt: Long,                                       // when the plugin read it (milliseconds since 1970)
     val name: String = "",                                  // the account's name in the game
-    val questPoints: Int? = null                            // the game's own total (null: add up the quests instead)
+    val questPoints: Int? = null,                           // the game's own total (null: add up the quests instead)
+    // How many quests and miniquests you've finished, out of every one the plugin sent (so a quest the app doesn't
+    // know yet still counts). null: count the app's own quest list instead (QuestBook.tally)
+    val questTally: Tally? = null,
+    val miniquestTally: Tally? = null
 ) {
+    class Tally(val done: Int, val total: Int)
+
     companion object {
         const val NOT_STARTED = 0
         const val IN_PROGRESS = 1
@@ -56,8 +62,11 @@ object SyncCode {
 
     // Reads a code into an Account. questIds: name -> RuneLite quest ID; diaryTasks: "Region|Tier" -> each task's
     // place in the code (see SyncTables). Throws BadCode if it isn't a Bubble Tool Sync code this app can read.
+    // miniquestIds and partIds: which quest IDs are miniquests, and which are Recipe for Disaster's parts (not
+    // counted); every other ID counts as a quest.
     fun read(text: String, questIds: Map<String, Int> = SyncTables.QUEST_IDS,
-             diaryTasks: Map<String, String> = SyncTables.DIARY_TASKS): Account {
+             diaryTasks: Map<String, String> = SyncTables.DIARY_TASKS,
+             miniquestIds: Set<Int> = SyncTables.MINIQUEST_IDS, partIds: Set<Int> = SyncTables.QUEST_PART_IDS): Account {
         val code = clean(text)
         if (!code.startsWith("BTS")) throw BadCode("That isn't a Bubble Tool Sync code.")
         if (!code.startsWith(PREFIX)) throw BadCode("This code is from a newer Bubble Tool Sync plugin. Update the app to read it.")
@@ -67,7 +76,7 @@ object SyncCode {
             throw BadCode("The code is damaged. Scan it again.")
         }
         try {
-            return unpack(bytes, questIds, diaryTasks)
+            return unpack(bytes, questIds, diaryTasks, miniquestIds, partIds)
         } catch (e: IndexOutOfBoundsException) {
             throw BadCode("The code is cut short. Scan it again.")
         } catch (e: BadCode) {
@@ -88,7 +97,8 @@ object SyncCode {
     // of a file it saved (the plugin's exported file, opened and saved again)
     fun clean(text: String): String = text.trim().removePrefix("\uFEFF").trim()
 
-    private fun unpack(b: ByteArray, questIds: Map<String, Int>, diaryTasks: Map<String, String>): Account {
+    private fun unpack(b: ByteArray, questIds: Map<String, Int>, diaryTasks: Map<String, String>,
+                       miniquestIds: Set<Int>, partIds: Set<Int>): Account {
         var at = 0
         fun byte() = b[at++].toInt() and 0xFF
         fun int(): Long = (0 until 4).fold(0L) { n, _ -> (n shl 8) or byte().toLong() }
@@ -131,6 +141,17 @@ object SyncCode {
         val quests = HashMap<String, Int>()
         for ((questName, questId) in questIds) stateOf[questId]?.let { quests[questName] = it }
 
+        // Quests and miniquests done, counted from every ID in the code (it holds every quest the plugin's
+        // RuneLite knows, so a brand-new quest counts here before the app has its guide)
+        var questsDone = 0; var questsTotal = 0; var miniDone = 0; var miniTotal = 0
+        for ((questId, state) in stateOf) {
+            when (questId) {
+                in partIds -> {}
+                in miniquestIds -> { miniTotal++; if (state == Account.FINISHED) miniDone++ }
+                else -> { questsTotal++; if (state == Account.FINISHED) questsDone++ }
+            }
+        }
+
         // Each diary task: "p<varp>.<bit>" is that bit of that varp; "k<varbit>.<n>" is that Karamja varbit
         // reaching n; "-" isn't known (counted as not done)
         val diaries = HashMap<String, HashMap<String, List<Boolean>>>()
@@ -148,7 +169,8 @@ object SyncCode {
                 }
             }
         }
-        return Account(quests, levels, diaries, readAt, name, questPoints)
+        return Account(quests, levels, diaries, readAt, name, questPoints,
+            Account.Tally(questsDone, questsTotal), Account.Tally(miniDone, miniTotal))
     }
 }
 

@@ -110,7 +110,7 @@ class SettingsTool(private val context: Context, private val onRedraw: () -> Uni
         addView(stepper({ AppSettings.textSize(context) }, AppSettings.TEXT_MIN, AppSettings.TEXT_MAX) {
             prefs.edit { putInt(AppSettings.TEXT_SIZE, it) }
         }, full(4))
-        note("For the Wiki, DPS Calculator, XP Calculator, GE Prices and Shooting Star Tracker. You can also pinch a page to zoom it.")
+        note("For the Wiki, DPS Calculator, XP Calculator, GE Prices, Shooting Star Tracker and Tears of Guthix Worlds. You can also pinch a page to zoom it.")
 
         // ---- Bubble ----
         section("Bubble")

@@ -113,7 +113,13 @@ HOW = {
     'Chasm teleport scroll': 'Scroll. Lands at the bottom of the Chasm of Fire',
     'Ardeaglais teleport': 'Scroll dropped by the Mad Angel',
     "Drakan's medallion: Castle Drakan": "Unlock by inspecting the shrine by the castle's front door (during The Blood Moon Rises)",
+    # Shortest Path checks the quest stage itself, so it lists no quest: this says what's needed (OSRS Wiki)
+    'Calcified moth': 'Crush it. Lands in Cam Torum. Needs Perilous Moons up to killing the Sulphur Nagua',
 }
+# The ring takes you to your respawn point only; Shortest Path lists every respawn point it can be
+for row in out:
+    if row[0].startswith('Ring of returning:'):
+        HOW[row[0]] = 'Takes you to your respawn point only'
 for row in out:
     if row[0] in HOW and not row[6]:
         row[6] = HOW[row[0]]
@@ -127,10 +133,6 @@ ADD = [
     ['Ape Atoll tablet (Arceuus)', 'Item', 2771, 9102, 0, '', 'Lands in the Ape Atoll Dungeon'],
     ['Lumbridge Graveyard Teleport', 'Spell', 3241, 3194, 0, '6 Magic', 'Arceuus spellbook'],
     ['Lumbridge Graveyard tablet', 'Item', 3241, 3194, 0, '', ''],
-    ['Slayer ring: Wyrmscraig Cavern', 'Item', 2581, 8633, 0, 'Fallen From Grace', ''],
-    # Not in Shortest Path or RuneLite yet, and the wiki only says "Cam Torum": the spot is estimated, in the
-    # middle of the city by the bank. Needs Perilous Moons up to killing the Sulphur Nagua (OSRS Wiki).
-    ['Calcified moth', 'Item', 1447, 9566, 1, 'Perilous Moons', 'Crush it. Lands in Cam Torum (exact spot estimated)'],
 ]
 names = {r[0] for r in out}
 for a in ADD:

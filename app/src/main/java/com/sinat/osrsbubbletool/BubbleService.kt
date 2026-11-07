@@ -50,6 +50,8 @@ class BubbleService : Service() {
         const val TEXT_SIZE_WAIT_MS = 700L   // Tool text size: the tools are built again this long after the last − or + tap
         const val SHOOTING_STARS_URL = "https://07.gg/trackers/shooting-star"
         const val SHOOTING_STARS_ZOOM_PERCENT = 85  // Shooting Star Tracker text size
+        const val TEARS_OF_GUTHIX_URL = "https://togcrowdsourcing.com/"   // this week's stream orders, by world
+        const val TEARS_OF_GUTHIX_ZOOM_PERCENT = 85 // Tears of Guthix Worlds text size
         const val PRICES_URL = "https://prices.runescape.wiki/osrs/"
         const val PRICES_ZOOM_PERCENT = 85          // GE Prices text size
         const val ZULRAH_WIDTH_INCHES = 1.2f // the Zulrah Helper window is thinner
@@ -245,6 +247,7 @@ class BubbleService : Service() {
         XP_CALCULATOR("XP Calculator"),
         DPS_CALCULATOR("DPS Calculator"),
         SHOOTING_STARS("Shooting Star Tracker"),
+        TEARS_OF_GUTHIX("Tears of Guthix Worlds"),
         ZULRAH("Zulrah Helper"),
         FARMING("Timers"),
         PRICES("GE Prices"),
@@ -999,6 +1002,7 @@ class BubbleService : Service() {
         )
         Tool.XP_CALCULATOR -> webPage(XP_CALCULATOR_URL, XP_CALCULATOR_ZOOM_PERCENT)
         Tool.SHOOTING_STARS -> webPage(SHOOTING_STARS_URL, SHOOTING_STARS_ZOOM_PERCENT)
+        Tool.TEARS_OF_GUTHIX -> webPage(TEARS_OF_GUTHIX_URL, TEARS_OF_GUTHIX_ZOOM_PERCENT)
         Tool.PRICES -> webPage(PRICES_URL, PRICES_ZOOM_PERCENT)
         Tool.DPS_CALCULATOR -> DpsTool(toolContext, capture, ::setOverlaysVisible).let { t ->
             var web: WebView? = null

@@ -2,6 +2,7 @@ package com.sinat.osrsbubbletool
 
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.Locale
 import kotlin.math.floor
 import kotlin.math.max
 
@@ -69,6 +70,31 @@ object QuestBook {
         return (quests to diaries).also { loaded = it }
     }
 
+    // Every item the tier's unfinished tasks need (all tasks if the account isn't synced: done = null), each once,
+    // in the order the tasks come. The same item for two tasks is listed once, and amounts are added up
+    // ("Water runes (2)" and "Water rune (6)": "Water runes (8)"), as each task uses up its own. Items are matched
+    // ignoring capitals and a plural "s", as Quest Helper writes some both ways.
+    fun itemsStillNeeded(tier: DiaryTier, done: List<Boolean>?): List<String> {
+        // counted: an amount was given for it somewhere (runes, coins...), so the amounts are added up;
+        // otherwise it's a tool or gear (a pickaxe, food, combat gear) and listed once, however many tasks use it
+        class Entry(val name: String, var total: Int = 0, var counted: Boolean = false)
+        val items = LinkedHashMap<String, Entry>()
+        tier.tasks.forEachIndexed { i, task ->
+            if (done?.getOrNull(i) == true) return@forEachIndexed
+            for (item in task.items) {
+                val m = AMOUNT.matchEntire(item)
+                val name = m?.groupValues?.get(1) ?: item
+                val amount = m?.groupValues?.get(2)?.replace(",", "")?.toIntOrNull()
+                val entry = items.getOrPut(name.lowercase().removeSuffix("s")) { Entry(name) }
+                entry.total += amount ?: 1
+                if (amount != null) entry.counted = true
+            }
+        }
+        // amounts written with thousands commas, like the rest of the Quest Helper ("Coins (30,105)")
+        return items.values.map { if (it.counted && it.total > 1) "${it.name} (${"%,d".format(Locale.US, it.total)})" else it.name }
+    }
+    private val AMOUNT = Regex("""(.*) \(([\d,]+)\)""")
+
     private fun strings(a: JSONArray?): List<String> = if (a == null) emptyList() else List(a.length()) { a.getString(it) }
 
     private fun reqs(a: JSONArray?): List<Req> {
@@ -107,6 +133,14 @@ object QuestBook {
     }
     private var pointsFor: Account? = null
     private var points = 0
+
+    // Quests (or miniquests) done, out of how many: counted from the scanned code when it has the counts (every
+    // quest the game has, even ones the app doesn't know yet), otherwise from the app's own quest list
+    fun tally(data: Account, miniquests: Boolean): Account.Tally {
+        (if (miniquests) data.miniquestTally else data.questTally)?.let { return it }
+        val list = quests.filter { it.miniquest == miniquests }
+        return Account.Tally(list.count { data.questState(it.name) == Account.FINISHED }, list.size)
+    }
 
     fun combatLevel(data: Account): Int? {
         fun l(s: String) = data.level(s)

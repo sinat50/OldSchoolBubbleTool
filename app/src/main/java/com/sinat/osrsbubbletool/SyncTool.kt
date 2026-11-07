@@ -95,10 +95,11 @@ class SyncTool(
             addView(card {
                 addView(label(data.name.ifEmpty { "Your account" }, 15f, bold = true))
                 addView(label("Read in RuneLite " + ago(data.readAt), 11f).apply { setTextColor(FADED) }, full(1))
-                val quests = QuestBook.quests.filter { !it.miniquest }
-                val done = quests.count { data.questState(it.name) == Account.FINISHED }
+                val quests = QuestBook.tally(data, miniquests = false)
+                val miniquests = QuestBook.tally(data, miniquests = true)
                 val tiers = QuestBook.diaries.flatMap { d -> d.tiers.map { t -> data.diaryTasks(d.region, t.tier) } }
-                addView(stat("Quests done", "$done / ${quests.size}"), full(8))
+                addView(stat("Quests done", "${quests.done} / ${quests.total}"), full(8))
+                addView(stat("Miniquests done", "${miniquests.done} / ${miniquests.total}"), full(2))
                 addView(stat("Quest points", "${QuestBook.questPoints(data)}"), full(2))
                 QuestBook.combatLevel(data)?.let { addView(stat("Combat level", "$it"), full(2)) }
                 addView(stat("Total level", "${data.levels.values.sum()}"), full(2))

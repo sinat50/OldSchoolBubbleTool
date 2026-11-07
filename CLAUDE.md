@@ -223,7 +223,8 @@ Each release is worked on in its own branch (named like `v1.0.9`), then merged i
    the release branch) and push.
 4. Build → Generate Signed App Bundle or APK → APK → release, with the key from the Keys folder.
 5. GitHub → Releases → new release, tag `vX.Y.Z` (the update checker reads the tag), not a pre-release,
-   attach `OldSchoolBubbleTool-X.Y.Z.apk`. The notes end with "Free software, GPL-3.0-or-later; credits in the
+   attach `OldSchoolBubbleTool-X.Y.Z.apk`. The notes start with the Discord line, as in the README
+   (`💬 Questions, ideas or bugs? [Join the Discord](https://discord.gg/MM6mFmkGh)`), and end with "Free software, GPL-3.0-or-later; credits in the
    README." No Fan Content Policy line: the owner removed it everywhere in v1.2.1 (November 2026), since Jagex says
    the app isn't covered by that policy.
 
