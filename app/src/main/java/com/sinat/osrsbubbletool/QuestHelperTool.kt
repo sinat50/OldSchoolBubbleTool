@@ -272,6 +272,7 @@ class QuestHelperTool(
     private var openDiary: String? = null      // a diary region's page
     private var openTier = 0
     private var showDetails = false
+    private var showItems = false   // a diary tier's "Items you still need" list is open
     private var openPuzzle: QuestPuzzles.Puzzle? = null   // a puzzle solution, opened from a quest
     private val solverViews = QuestSolverViews(context) { show() }
     private var showPuzzles = false
@@ -302,7 +303,7 @@ class QuestHelperTool(
         if (showHelp) { showHelp = false; show(keepScroll = false); return }
         if (openPuzzle != null) { openPuzzle = null; show(keepScroll = false); return }
         if (openQuest != null || openDiary != null) {
-            openQuest = null; openDiary = null; showDetails = false; expanded.clear()
+            openQuest = null; openDiary = null; showDetails = false; showItems = false; expanded.clear()
             show(keepScroll = false)
         }
     }
@@ -822,7 +823,7 @@ class QuestHelperTool(
                     }
                 }, full(2))
                 setOnClickListener {
-                    openDiary = diary.region; openQuest = null; expanded.clear(); showDetails = false
+                    openDiary = diary.region; openQuest = null; expanded.clear(); showDetails = false; showItems = false
                     // open at the first tier you haven't finished
                     openTier = diary.tiers.indexOfFirst { t ->
                         val done = data?.diaryTasks(diary.region, t.tier)
@@ -848,7 +849,7 @@ class QuestHelperTool(
                 val done = data?.diaryTasks(region, tier.tier)
                 val finished = done != null && done.count { it } >= tier.tasks.size
                 addView(tabButton(tier.tier + if (finished) " ✓" else "", i == openTier) {
-                    openTier = i; expanded.clear(); showDetails = false; show(keepScroll = false)
+                    openTier = i; expanded.clear(); showDetails = false; showItems = false; show(keepScroll = false)
                 }.apply { textSize = 11f },
                     LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply {
                         if (i > 0) leftMargin = dp(2); if (i < diary.tiers.size - 1) rightMargin = dp(2)
@@ -882,6 +883,23 @@ class QuestHelperTool(
                     tier.rewards.forEach { addView(label("• $it", 12f), full(1)) }
                 }
             }, full(4))
+        }
+
+        // The items for the tasks you haven't done yet (every task's, if your account isn't synced), each once.
+        // Just the items: which task each is for is in the task's own card ("Bring:")
+        val items = QuestBook.itemsStillNeeded(tier, done)
+        if (items.isNotEmpty()) {
+            val title = if (done == null) "Items for every task" else "Items you still need"
+            addView(smallButton(if (showItems) "Hide items ▴" else "$title (${items.size}) ▾") {
+                showItems = !showItems
+                show()
+            }, full(6))
+            if (showItems) {
+                addView(card(ROW_BROWN) {
+                    addView(label(title, 12f, bold = true))
+                    items.forEach { addView(label("• $it", 12f), full(1)) }
+                }, full(4))
+            }
         }
 
         if (done != null) {
