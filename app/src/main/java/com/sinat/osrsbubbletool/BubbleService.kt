@@ -250,6 +250,7 @@ class BubbleService : Service() {
         TEARS_OF_GUTHIX("Tears of Guthix Worlds"),
         ZULRAH("Zulrah Helper"),
         FARMING("Timers"),
+        IDLE_NOTIFIER("Idle Notifier"),   // buzzes when your character stops working
         PRICES("GE Prices"),
         CALCULATOR("Calculator"),
         NOTES("Notepad"),
@@ -1030,6 +1031,11 @@ class BubbleService : Service() {
         }
         Tool.FARMING -> FarmingTool(toolContext).let { t ->
             ToolParts(t::buildView, onBack = null, onClosed = t::onWindowClosed, onDestroy = t::destroy)
+        }
+        // (closing the window while it watches keeps it watching; tap the bubble to see how it's going, or to stop)
+        Tool.IDLE_NOTIFIER -> IdleNotifierTool(toolContext, windowManager, capture, ::setWindowCompact) { hideToolWindow() }.let { t ->
+            ToolParts(t::buildView, onBack = null, onClosed = t::onWindowClosed, onRotated = t::onRotated, onDestroy = t::destroy,
+                isBusy = t::isWatching)
         }
         Tool.QUESTS -> QuestHelperTool(toolContext, openWiki = { url -> openWikiLink(url, returnTo = Tool.QUESTS) },
             hideWindow = { hideToolWindow() }, openSync = { openSync(Tool.QUESTS) }).let { t ->

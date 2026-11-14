@@ -112,14 +112,40 @@ class ScreenCapturer(
     // Called whenever a tool uses the capture: makes sure it's running, and pauses it again
     // once nothing has used it for a few seconds
     private fun touch() {
-        if (paused) {
-            val d = display
-            val r = reader
-            if (d != null && r != null) {
-                d.surface = r.surface
-                paused = false
-            }
+        uses++
+        resume()
+        handler.removeCallbacks(pauseWhenIdle)
+        handler.postDelayed(pauseWhenIdle, IDLE_PAUSE_MS)
+    }
+
+    private fun resume() {
+        if (!paused) return
+        val d = display ?: return
+        val r = reader ?: return
+        d.surface = r.surface
+        paused = false
+    }
+
+    // Times the capture was used since the last rest()
+    private var uses = 0
+
+    // For a tool that looks only now and then (the Idle Notifier, once a second): pauses the capture straight after
+    // its look instead of 3 seconds later, so Android isn't copying every screen frame in between. Left running if
+    // another tool used it since this one's last rest (a puzzle guide or ToA Watch looking many times a second).
+    fun rest() {
+        val alone = uses <= 1
+        uses = 0
+        if (alone && !paused && display != null) {
+            handler.removeCallbacks(pauseWhenIdle)
+            pause()
         }
+    }
+
+    // Starts the capture again a moment before that tool's next look, so a fresh picture is ready by then. (Not
+    // counted as a use; it still pauses by itself after a few seconds if no look follows.)
+    fun wake() {
+        if (display == null) return
+        resume()
         handler.removeCallbacks(pauseWhenIdle)
         handler.postDelayed(pauseWhenIdle, IDLE_PAUSE_MS)
     }
@@ -338,6 +364,7 @@ class ScreenCapturer(
     private fun cleanUp() {
         handler.removeCallbacks(pauseWhenIdle)
         paused = false
+        uses = 0
         display?.release()
         display = null
         reader?.close()

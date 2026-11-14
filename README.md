@@ -48,6 +48,7 @@ Typing in a tool window (a note, a search) brings up the keyboard with just its 
 | **Tears of Guthix Worlds** | This week's Tears of Guthix stream orders for each world, from [ToG Crowdsourcing](https://togcrowdsourcing.com/). |
 | **Zulrah Helper** | A tap-along rotation guide, like the RuneLite plugin: Zulrah's colour and position, where to stand, and which prayer to use, with the possible next phases underneath. |
 | **Timers** | Farming and birdhouse timers. Tap **Planted** after a run and get a notification when it's ready. Covers herbs, trees, fruit trees, hardwoods, allotments, hops, seaweed and more. Growth times follow the game's growth ticks, and timers survive closing the app and restarting the phone. |
+| **Idle Notifier** | Buzzes when your character stops working, so you can put the phone down while skilling. Tap **Set up**, zoom until your character is as tall as the box drawn over the game, and tap **Start**. It then looks at your character once a second and gives one alert (your choice of 8 sounds from a dropdown, with a volume slider, plus three short vibrations you can turn off; or **Silent**, vibration only) after about 8 seconds of standing still, then waits until you've worked again before the next. Works without the XP counter. It only watches the screen: nothing is ever tapped. If you zoom in or out, set it up again. If it stops by itself (the phone turned, or screen capture ended), it gives one long buzz. |
 | **GE Prices** | The OSRS Wiki [Real-time Prices](https://prices.runescape.wiki/osrs/) site. |
 | **Calculator** | A basic calculator that understands OSRS shorthand like 1.5m and 250k. |
 | **Notepad** | Write, save and read notes without leaving the game. |
@@ -58,7 +59,7 @@ Typing in a tool window (a note, a search) brings up the keyboard with just its 
 
 ## Battery and privacy
 
-- The screen is only captured when you use a tool that needs it (the Puzzle Box and Light Box Solvers, the ToA Puzzle Helper's screen reading, Gear Loadouts' Scan Current Loadout and DPS gear import). Capture pauses itself whenever no tool is using it. The ToA Puzzle Helper's Watches look at the screen while they're on (the matching one a few times a second, the Path of Het one every second or two), so they use more battery than the other tools; tap Stop when you're done.
+- The screen is only captured when you use a tool that needs it (the Puzzle Box and Light Box Solvers, the ToA Puzzle Helper's screen reading, Gear Loadouts' Scan Current Loadout and DPS gear import). Capture pauses itself whenever no tool is using it. The ToA Puzzle Helper's Watches look at the screen while they're on (the matching one a few times a second, the Path of Het one every second or two), and the Idle Notifier once a second while it watches (only the box around your character and a thin sample around it), so they use more battery than the other tools; tap Stop when you're done.
 - Website tools pause while their window is closed.
 - Timers don't keep anything running. Android wakes the app once when a timer is due.
 - On Android 14 and newer you can share just the game instead of the whole screen, so your notifications and other apps are never captured.

@@ -95,6 +95,11 @@ class CaptureManager(
     // Looks at the newest screen image without making a picture of it (quick). Null if nothing changed.
     fun <T> sample(block: (ScreenCapturer.Frame) -> T): T? = capturer.sample(block)
 
+    // For a tool that looks once in a while: pause straight after a look, and start again just before the next
+    // (see ScreenCapturer.rest and wake)
+    fun rest() = capturer.rest()
+    fun wake() = capturer.wake()
+
     // Turns capture off for good (when the bubble closes)
     fun shutdown() {
         shuttingDown = true
