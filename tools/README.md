@@ -76,3 +76,19 @@ cd osrs-dps-calc && git checkout <CalculatorItems.COMMIT>
 | `build_gear_summaries.py` | `dps/gear_summaries.bin` | `python tools/dps/build_gear_summaries.py` (from the project folder). Every wearable item's icon (RuneLite's, from `tools/items/icon_cache/` or downloaded) as 9 x 8 colour squares, for Import my gear, which keeps no item pictures. The owner's limit is 9 x 8 at the most. Run it after the item lists change (`tools/items/`). `GearImportTest` checks it on the owner's screenshots. |
 
 If you move to a newer version of the repository, update `COMMIT` in `CalculatorItems.kt`, then rebuild `equipment.json`.
+
+## Mastering Mixology (`mixology/`)
+
+`python tools/mixology/build_name_shapes.py` (from the project folder; needs Pillow and numpy) makes
+`mixology/names.tsv`: each potion name's shape (its width and ink per column) written in RuneLite's copy of the game
+font (`runescape.ttf`, BSD 2-Clause, downloaded at the commit in the script and not saved; no font goes into the
+app). The tool reads the Potion Orders box by these shapes. The script checks every name is still told apart at
+three phone sizes and stops if not. A new potion needs its name in the script's `NAMES` and in `MixologyData.kt`.
+`MixologyReaderTest` checks it on the owner's screenshots.
+
+`python tools/mixology/build_potion_summaries.py` (needs Pillow) makes `mixology/potions.tsv`: each Mixology potion's
+inventory icon, without and with a cork, as 9 x 8 colour squares (the same idea as `dps/gear_summaries.bin`), from
+RuneLite's item icons (`tools/items/icon_cache/` if they're there, otherwise downloaded and not saved; no pictures go
+into the app). The tool's bag tags recognise the potions in your inventory by these. The item IDs are the ones the
+Mastering Mixology plugin tags; the script stops if two kinds look too alike in the squares the tool compares.
+`MixologyBagTest` checks it on the owner's recording.

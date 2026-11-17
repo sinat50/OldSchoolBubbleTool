@@ -243,6 +243,7 @@ class BubbleService : Service() {
         PUZZLE_BOX("Puzzle Box Solver"),
         LIGHT_BOX("Light Box Solver"),
         TOA_PUZZLES("ToA Puzzle Helper"),
+        MIXOLOGY("Mastering Mixology"),   // recipes beside the orders and dots on the levers
         INVENTORY_SETUPS("Gear Loadouts"),   // (named Inventory Setups before; the name stays, it's saved in settings)
         XP_CALCULATOR("XP Calculator"),
         DPS_CALCULATOR("DPS Calculator"),
@@ -1036,6 +1037,10 @@ class BubbleService : Service() {
         Tool.IDLE_NOTIFIER -> IdleNotifierTool(toolContext, windowManager, capture, ::setWindowCompact) { hideToolWindow() }.let { t ->
             ToolParts(t::buildView, onBack = null, onClosed = t::onWindowClosed, onRotated = t::onRotated, onDestroy = t::destroy,
                 isBusy = t::isWatching)
+        }
+        // (closing the window keeps it watching; tap the bubble to see what it sees, or to stop)
+        Tool.MIXOLOGY -> MixologyTool(toolContext, windowManager, capture) { hideToolWindow() }.let { t ->
+            ToolParts(t::buildView, onBack = null, onRotated = t::onRotated, onDestroy = t::destroy, isBusy = t::isWatching)
         }
         Tool.QUESTS -> QuestHelperTool(toolContext, openWiki = { url -> openWikiLink(url, returnTo = Tool.QUESTS) },
             hideWindow = { hideToolWindow() }, openSync = { openSync(Tool.QUESTS) }).let { t ->

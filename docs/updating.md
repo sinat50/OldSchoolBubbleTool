@@ -16,6 +16,7 @@ no notes yet, write them (in `docs/<tool>.md`) the first time you update it, and
 | `hunter-rumours` | Hunter Rumours | `docs/hunter-rumours.md` |
 | `zulrah` | Zulrah Helper | No notes yet. Rotations are hand-written in `ZulrahTool.kt` |
 | `farming` | Timers | No notes yet. Crops and growth times are hand-written in `FarmingTimers.kt` (tested by the farming PC tests) |
+| (not watched) | Mastering Mixology | A new or renamed potion: add it to `POTIONS` in `MixologyData.kt` and to the list in `tools/mixology/build_name_shapes.py`, run the script (`tools/README.md`), and check its own "told apart" report; `MixologyReaderTest` checks both lists match. For the bag tags, also add its two item IDs (without and with a cork) to `POTIONS` in `tools/mixology/build_potion_summaries.py` and run it: it makes `mixology/potions.tsv` (each potion's icon as 9 x 8 colour squares, from RuneLite's item icons; no pictures are kept) and stops if two kinds look too alike; rerun it too if the game redraws a potion (`MixologyBagTest` checks the file against `MixologyData.kt` and the owner's recording). The recipes and item IDs come from the Mastering Mixology plugin (github.com/hex-agon/mastering-mixology; last read at commit `10f4ced`, see `.scratch/mixology/plugin-features.md`) |
 | (not watched: DroidFish rarely changes) | Chess (Game Room) | `docs/chess.md`, "Updating the engine" |
 | `game-updates` | Everything | Read the posts; anything a tool needs goes through that tool's row above |
 

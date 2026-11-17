@@ -85,7 +85,7 @@ object GearSummaryReader {
     }
 
     // How the game draws a colour value at a brightness setting
-    private fun shading(gamma: Float) = IntArray(256) { v -> (0.94f * 255f * (v / 255f).pow(gamma)).roundToInt().coerceIn(0, 255) }
+    internal fun shading(gamma: Float) = IntArray(256) { v -> (0.94f * 255f * (v / 255f).pow(gamma)).roundToInt().coerceIn(0, 255) }
 
     // ---------------- The gear summaries ----------------
 

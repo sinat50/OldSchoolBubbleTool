@@ -70,6 +70,10 @@ object PanelFinder {
         return buttons >= MIN_TAB_BUTTONS
     }
 
+    // Whether a side panel found earlier is still there: its tab buttons are still beside it (a few pixels each, far
+    // cheaper than finding it again)
+    fun stillThere(p: LightBoxReader.PixelSource, panel: Box): Boolean = hasTabButtons(p, panel)
+
     private const val MIN_TAB_BUTTONS = 11   // of 14 (a few can be covered: a tooltip, a highlighted tab)
 
     const val INVENTORY_TAB = 0   // its row (in column 0)
