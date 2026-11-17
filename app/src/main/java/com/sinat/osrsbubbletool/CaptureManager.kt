@@ -95,6 +95,9 @@ class CaptureManager(
     // Looks at the newest screen image without making a picture of it (quick). Null if nothing changed.
     fun <T> sample(block: (ScreenCapturer.Frame) -> T): T? = capturer.sample(block)
 
+    // The newest screen image copied into `store`, for reading on another thread (see ScreenCapturer.copy)
+    fun copy(store: ScreenCapturer.FrameStore): ScreenCapturer.Frame? = capturer.copy(store)
+
     // For a tool that looks once in a while: pause straight after a look, and start again just before the next
     // (see ScreenCapturer.rest and wake)
     fun rest() = capturer.rest()

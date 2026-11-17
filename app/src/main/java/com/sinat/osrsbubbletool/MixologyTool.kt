@@ -5,8 +5,10 @@ import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.Handler
+import android.os.HandlerThread
 import android.os.Looper
 import android.os.PowerManager
+import android.os.Process
 import android.os.SystemClock
 import android.os.VibrationEffect
 import android.os.Vibrator
@@ -75,12 +77,14 @@ class MixologyTool(
     private var orders: List<MixologyReader.Order?> = emptyList()
     private val dots = MixologyLevers.Dots()             // which lever dots are shown, and its rules
     private var compass: MixologyLevers.Compass? = null  // the compass, where it was last found
-    private val bag = MixologyBag.Watch()                // the potions tagged in the inventory, and its rules
+    // The bag (MixologyBag.Watch) is read on the worker thread (see "The worker thread" below); these are what its
+    // last look found, kept here on the main thread: the potions tagged, whether the inventory was open, and where
+    // the side panel is
+    private var bagSeen = BagSeen(emptyList(), false, null)
     private var compassSearchedAt = 0L
     // The stations (MixologyStations): which station each order needs, the progress bar of the station working now,
     // and what the bag says is done and where to go next
     private var stations: List<MixologyStations.Station?> = emptyList()
-    private val glow = MixologyStations.Glow()                 // the green round it, less the potion's own
     private var stationWatch: MixologyStations.Watch? = null  // made for the box's scale (screen pixels per game pixel)
     private var watchScale = 0.0
     private var bar: MixologyStations.Bar? = null             // the working station's bar, last seen here
@@ -211,13 +215,8 @@ class MixologyTool(
         if (running) {
             h.addView(text(status.ifEmpty { "Starting..." }, 13f), full())
         } else {
-            h.addView(text("Writes each order's recipe after its name and over each potion in your inventory, and " +
-                "puts a dot on each lever: M = Mox, A = Aga, L = Lye. For the lever dots, face the camera south or " +
-                "north, tilted high. With your inventory open, a finished order says \"done!\" and an arrow marks " +
-                "the order to take to its station next (both stay when you close it), and a flashing yellow arrow " +
-                "shows over that station when the lever table, or that station and one other, is on screen. A white frame (and a buzz) shows when to tap the Alembic " +
-                "or Agitator: tap as soon as it shows. The Alembic's comes a moment before its sparkle, after a " +
-                "countdown (the sparkle itself is too late). It only watches the screen; it never taps anything."), full())
+            h.addView(text("Shows each order's recipe, marks the levers and your potions, points to the next " +
+                "station, and tells you when to tap the Alembic or Agitator. Face the camera north or south."), full())
         }
         h.addView(row(
             button("Recipes: " + if (showRecipes) "on" else "off") { showRecipes = !showRecipes; redraw(); show() },
@@ -254,6 +253,8 @@ class MixologyTool(
         }
         running = true
         status = ""
+        worker?.quit()
+        worker = Worker()   // a fresh thread for the screen reading, with a fresh bag and glow
         forget()
         boxSeenAt = SystemClock.uptimeMillis()   // look quickly at first
         capture.matchScreenSize()
@@ -271,6 +272,8 @@ class MixologyTool(
 
     private fun stop(message: String?) {
         running = false
+        worker?.quit()   // (a look under way finishes on it and is thrown away)
+        worker = null
         handler.removeCallbacks(lookRunnable)
         handler.removeCallbacks(wakeRunnable)
         if (resting) { capture.wake(); resting = false }   // (leave it as other tools expect it)
@@ -289,7 +292,12 @@ class MixologyTool(
         dots.forget()
         compass = null
         compassSearchedAt = 0L
-        bag.forget()
+        // (the bag's own memory is on the worker: forgotten at the start of its next look; a look under way now is
+        // thrown away when it's back)
+        bagSeen = BagSeen(emptyList(), false, null)
+        bagHideDue = false
+        bagForgetDue = true
+        lookGen++
         stationsGone()
         stations = emptyList()
         used.clear()
@@ -306,7 +314,7 @@ class MixologyTool(
     // No station to follow now (the box is gone, the game hidden): its bar, signal and plan go
     private fun stationsGone() {
         stationWatch?.reset()
-        glow.reset()
+        glowResetDue = true   // (the glow is on the worker: reset at the start of its next look)
         alembic.reset()
         bar = null
         working = false
@@ -322,36 +330,108 @@ class MixologyTool(
         arrow = null
     }
 
-    private val lookRunnable = object : Runnable {
-        override fun run() {
-            if (!running || destroyed) return
-            val looked = lookOnce()
-            val now = SystemClock.uptimeMillis()
-            val away = now - boxSeenAt > AWAY_AFTER_MS
-            if (!looked && away && retries < RETRIES) {
-                // just woke and no fresh picture yet: try again shortly
-                retries++
-                handler.postDelayed(this, RETRY_MS)
-                return
+    // ---------------- The worker thread ----------------
+    //
+    // The screen is read on a thread of its own, so the bubble, the windows and the drawing over the game stay smooth
+    // (reading it on the main thread took about a sixth of that thread's time, November 2026). Who does what:
+    //  - the main thread: the timing of the looks, copying the newest screen picture (ScreenCapturer.copy: one
+    //    quick block copy), and everything the tool keeps and draws (box, dots, stations, plan, arrow, overlay);
+    //  - the worker thread: the readers (MixologyReader, MixologyLevers, MixologyStations, MixologyStationLooks) on
+    //    that copy, plus the two things that keep their own memory from look to look while reading the screen: the
+    //    bag (MixologyBag.Watch) and the green round a station's bar (MixologyStations.Glow). Only the worker ever
+    //    touches those two; the main thread keeps what the bag's last look found (`bagSeen`) and asks for them to
+    //    be cleared with `bagHideDue`, `bagForgetDue` and `glowResetDue`, done at the start of the next look.
+    // What a look needs from the tool (the box and bar last seen, the dots shown, the settings...) is handed over
+    // as fixed values when the look is sent, and what it found comes back to the main thread, where it's used as
+    // before. Only one look is ever under way: the next one is timed from the end of the last (as it always was),
+    // and the copy isn't written again until the worker has finished with it.
+    private class Worker {
+        val thread = HandlerThread("Mixology looks", Process.THREAD_PRIORITY_DISPLAY).apply { start() }
+        val handler = Handler(thread.looper)
+        val store = ScreenCapturer.FrameStore()   // the copy of the screen (main thread writes, worker reads)
+        val bag = MixologyBag.Watch()              // worker thread only
+        val glow = MixologyStations.Glow()         // worker thread only
+        var busy = false                           // main thread only: a look is under way on the worker
+
+        // Stops the thread once the look it may be doing is finished (its result is then thrown away)
+        fun quit() { thread.quitSafely() }
+    }
+
+    // What the bag's last look found, handed back to the main thread (the lists are never changed afterwards)
+    private class BagSeen(val tags: List<MixologyBag.Tag>, val open: Boolean, val panel: PanelFinder.Box?) {
+        constructor(watch: MixologyBag.Watch) : this(watch.tags, watch.open, watch.panel)
+    }
+
+    private var worker: Worker? = null
+    private var lookGen = 0               // goes up when everything is forgotten: a look sent before that is ignored
+    private var bagHideDue = false        // for the worker's next look: hide the bag's tags first,
+    private var bagForgetDue = false      // or forget the bag entirely,
+    private var glowResetDue = false      // and start the green round the bar afresh
+
+    // Sends a look to the worker: `read` runs there on the copied screen, `use` back on the main thread with what
+    // it found (not if the tool stopped, or forgot everything, meanwhile). The next look is timed when it's back.
+    private fun <T : Any> send(w: Worker, read: () -> T, use: (T) -> Unit) {
+        val gen = lookGen
+        val hide = bagHideDue
+        val forgetBag = bagForgetDue
+        val resetGlow = glowResetDue
+        bagHideDue = false; bagForgetDue = false; glowResetDue = false
+        w.busy = true
+        w.handler.post {
+            if (forgetBag) w.bag.forget() else if (hide) w.bag.hide()
+            if (resetGlow) w.glow.reset()
+            // (an odd picture that trips a reader: skip this look rather than crash, as ScreenCapturer.grab does)
+            val found = try { read() } catch (e: RuntimeException) { null }
+            handler.post {
+                if (worker !== w) return@post   // stopped meanwhile (a new start has its own worker and looks)
+                w.busy = false
+                if (!running || destroyed) return@post
+                if (found != null && gen == lookGen) use(found)
+                afterLook(true)
             }
-            retries = 0
-            if (away) {
-                // Not in the lab (or the game hidden, or the screen off): look now and then, resting in between
-                capture.rest()
-                resting = true
-                handler.postDelayed(wakeRunnable, AWAY_MS - WAKE_AHEAD_MS)
-                handler.postDelayed(this, AWAY_MS)
-            } else {
-                // While a station works, about 12 looks a second (only at its bar, mostly): the Alembic's moment
-                // lasts 0.6 s
-                // While the table moves on the screen, 10 looks a second, so the lever dots keep up
-                // Just after a station finished: the next (full) look soon, for the arrow to the next station
-                handler.postDelayed(this, when {
-                    working || bagDue -> MixologyStations.Watch.FAST_MS
-                    showDots && SystemClock.uptimeMillis() < dotsMovingUntil -> FOLLOW_EVERY_MS
-                    else -> LOOK_MS
-                })
+        }
+    }
+
+    private val lookRunnable = Runnable {
+        if (running && !destroyed) {
+            when (lookOnce()) {
+                Began.NO_PICTURE -> afterLook(false)
+                Began.DONE -> afterLook(true)
+                Began.SENT -> {}   // the worker has it: the next look is timed when it's back (send)
             }
+        }
+    }
+
+    // How a look began: no new picture, done already (nothing to read), or sent to the worker
+    private enum class Began { NO_PICTURE, DONE, SENT }
+
+    // Times the next look, after one (`looked` = false when there was no new picture)
+    private fun afterLook(looked: Boolean) {
+        val now = SystemClock.uptimeMillis()
+        val away = now - boxSeenAt > AWAY_AFTER_MS
+        if (!looked && away && retries < RETRIES) {
+            // just woke and no fresh picture yet: try again shortly
+            retries++
+            handler.postDelayed(lookRunnable, RETRY_MS)
+            return
+        }
+        retries = 0
+        if (away) {
+            // Not in the lab (or the game hidden, or the screen off): look now and then, resting in between
+            capture.rest()
+            resting = true
+            handler.postDelayed(wakeRunnable, AWAY_MS - WAKE_AHEAD_MS)
+            handler.postDelayed(lookRunnable, AWAY_MS)
+        } else {
+            // While a station works, about 12 looks a second (only at its bar, mostly): the Alembic's moment
+            // lasts 0.6 s
+            // While the table moves on the screen, 10 looks a second, so the lever dots keep up
+            // Just after a station finished: the next (full) look soon, for the arrow to the next station
+            handler.postDelayed(lookRunnable, when {
+                working || bagDue -> MixologyStations.Watch.FAST_MS
+                showDots && SystemClock.uptimeMillis() < dotsMovingUntil -> FOLLOW_EVERY_MS
+                else -> LOOK_MS
+            })
         }
     }
 
@@ -361,18 +441,28 @@ class MixologyTool(
 
     private fun screenOn() = context.getSystemService(PowerManager::class.java)?.isInteractive ?: true
 
-    // One look. False when there was no new picture (nothing changed on screen, or the capture only just woke).
-    private fun lookOnce(): Boolean {
+    // Nothing to tag now: the tags go at once here, and in the bag's own memory on the worker's next look
+    private fun hideBag() {
+        bagSeen = BagSeen(emptyList(), false, bagSeen.panel)
+        bagHideDue = true
+    }
+
+    // One look: copies the screen and sends the reading to the worker (SENT), or, with the game not on screen,
+    // clears what's drawn (DONE). NO_PICTURE when there was no new picture (nothing changed on screen, or the capture
+    // only just woke).
+    private fun lookOnce(): Began {
+        val w = worker ?: return Began.DONE
+        if (w.busy) return Began.SENT   // (can't happen: the next look is only timed once the last is back)
         if (capture.gameHidden || !screenOn()) {
             // (the recipes too: they'd be left drawn over whatever is on the screen instead of the game)
             box = null
             orders = emptyList()
             dots.hide()
-            bag.hide()
+            hideBag()
             stationsGone()
             redraw()
             setStatus("The game isn't on screen.")
-            return true
+            return Began.DONE
         }
         val now = SystemClock.uptimeMillis()
         val b0 = box
@@ -382,12 +472,18 @@ class MixologyTool(
             // the table moves on the screen, only the funnels (near where they were) and the compass (where it was)
             val last = bar
             val near = compass
-            val fast = capture.sample { frame ->
-                val found = if (working) MixologyStations.findBar(frame, b0.scale, last) else null
-                val green = if (working) glow.look(frame, found, now) else 0
-                // The bar gone: is the station's potion back in the bag, finished? (Then it's done now.) The bag is
-                // only read on these few looks at the end of a station's work.
-                if (working && found == null && finishedAtStart != null && showStations) bag.look(frame, now, potions, soon = true)
+            val isWorking = working
+            // The bar gone: is the station's potion back in the bag, finished? (Then it's done now.) The bag is
+            // only read on these few looks at the end of a station's work.
+            val bagCheck = isWorking && finishedAtStart != null && showStations
+            val fullRow = dots.fullRow
+            val shown = dots.levers
+            val frame = capture.copy(w.store) ?: return Began.NO_PICTURE
+            send(w, read = {
+                // (on the worker thread: only the copy, the values above and the worker's own bag and glow)
+                val found = if (isWorking) MixologyStations.findBar(frame, b0.scale, last) else null
+                val green = if (isWorking) w.glow.look(frame, found, now) else 0
+                if (bagCheck && found == null) w.bag.look(frame, now, potions, soon = true)
                 var row: MixologyLevers.Levers? = null
                 var still = false
                 var needle: MixologyLevers.Compass? = null
@@ -396,25 +492,27 @@ class MixologyTool(
                     // third of that but found rows of rings the whole-screen search doesn't (24 of 650 frames of
                     // play_2, some doubtful), and only the whole-screen search is checked against the owner's
                     // pictures from outside the lab.
-                    row = MixologyLevers.find(frame, last = dots.fullRow)
-                    if (row == null) still = dots.levers?.let { MixologyLevers.stillThere(frame, it) } ?: false
+                    row = MixologyLevers.find(frame, last = fullRow)
+                    if (row == null) still = shown?.let { MixologyLevers.stillThere(frame, it) } ?: false
                     if ((row != null || still) && near != null) needle = MixologyLevers.findCompass(frame, b0.scale, near)
                 }
-                FastLook(found, green, row, still, needle)
-            } ?: return false
-            if (working) stationLook(now, b0.scale, fast.bar, fast.green, backInBag(fast.bar))
-            if (followDots) {
-                // (no compass where it was: the full look searches for it; the dots go meanwhile, as in a full look)
-                if (fast.levers != null || fast.stillThere) compass = fast.compass
-                dots.look(now, fast.levers, fast.compass, fast.stillThere)
-                noteRowMoved(now, fast.levers)
-                // The station arrow follows the table too
-                if (showStations && showArrow) placeArrow(now, fast.levers, fast.compass, null, false, null, false, null)
-            }
-            redraw()
-            return true
+                FastLook(found, green, row, still, needle, BagSeen(w.bag))
+            }, use = { fast ->
+                // (back on the main thread)
+                bagSeen = fast.bag
+                if (isWorking) stationLook(now, b0.scale, fast.bar, fast.green, backInBag(fast.bar))
+                if (followDots) {
+                    // (no compass where it was: the full look searches for it; the dots go meanwhile, as in a full look)
+                    if (fast.levers != null || fast.stillThere) compass = fast.compass
+                    dots.look(now, fast.levers, fast.compass, fast.stillThere)
+                    noteRowMoved(now, fast.levers)
+                    // The station arrow follows the table too
+                    if (showStations && showArrow) placeArrow(now, fast.levers, fast.compass, null, false, null, false, null)
+                }
+                redraw()
+            })
+            return Began.SENT
         }
-        fullLookAt = now
         val wantDots = showDots
         val wantTags = showTags
         val wantStations = showStations
@@ -422,15 +520,27 @@ class MixologyTool(
         val tiltKnown = tilt.degrees != null || lookTilts.known
         // With the lever table off the screen, the stations are looked for by themselves (MixologyStationLooks.
         // readWithoutTable): only when an arrow is wanted, that is a station to go to next and none working
-        val wantFree = wantArrow && !working && plan?.nextStation != null
+        val noNext = plan?.nextStation == null
+        val wantFree = wantArrow && !working && !noNext
         val lastBar = bar
+        val lastBox = box
+        val near = compass
+        val fullRow = dots.fullRow
+        val shown = dots.levers
+        // What decides whether the bag is read on this look (`soon`, below)
+        val isWorking = working
+        val due = bagDue
+        val waitingForPotion = finishedAtStart != null
         // Where the tool's own window and arrow are now: the stations aren't looked for under them
         val window = if (wantArrow) ownWindow() else null
         val arrowNow = arrow
         val searchCompass = now - compassSearchedAt >= COMPASS_EVERY_MS
-        val seen = capture.sample { frame ->
+        fullLookAt = now
+        val frame = capture.copy(w.store) ?: return Began.NO_PICTURE
+        send(w, read = {
+            // (on the worker thread: only the copy, the values above and the worker's own bag and glow)
             // The order box: near where it was first, then anywhere on the left
-            val b = MixologyReader.findOrderBox(frame, box)
+            val b = MixologyReader.findOrderBox(frame, lastBox)
             var read: List<MixologyReader.Order?> = emptyList()
             var row: MixologyLevers.Levers? = null
             var needle: MixologyLevers.Compass? = null
@@ -450,16 +560,16 @@ class MixologyTool(
                 // The levers: only looked for in the lab (with the order box on screen), never elsewhere
                 // (also for the arrow over the next station, which is placed from the funnels)
                 if (wantDots || wantArrow) {
-                    row = MixologyLevers.find(frame, last = dots.fullRow)
+                    row = MixologyLevers.find(frame, last = fullRow)
                     // No row, but dots on screen: they only stay if the funnels (or their rings) are still where
                     // they were
-                    if (row == null) still = dots.levers?.let { MixologyLevers.stillThere(frame, it) } ?: false
+                    if (row == null) still = shown?.let { MixologyLevers.stillThere(frame, it) } ?: false
                     // (with the camera's tilt known, the compass is read on every look: a turn makes the tilt
                     // stale, table on screen or not)
                     if (row != null || still || (wantArrow && tiltKnown) || wantFree) {
                         // The compass, on every look that needs it: where it was last time, or (now and then)
                         // anywhere in the top right
-                        needle = compass?.let { MixologyLevers.findCompass(frame, b.scale, it) }
+                        needle = near?.let { MixologyLevers.findCompass(frame, b.scale, it) }
                         if (needle == null && searchCompass && (row != null || still || wantFree)) {
                             needle = MixologyLevers.findCompass(frame, b.scale)
                             searched = true
@@ -470,23 +580,23 @@ class MixologyTool(
                 if (wantStations) {
                     st = MixologyStations.stationsOf(frame, b, read)
                     found = MixologyStations.findBar(frame, b.scale, lastBar)
-                    green = glow.look(frame, found, now)
+                    green = w.glow.look(frame, found, now)
                 }
                 // The bag: only in the lab too. Its own rules keep this cheap (MixologyBag.Watch): most looks only
                 // check a few pixels, and it's read once a second. Read on every full look (`soon`) only while a
                 // potion arriving would change where to go next: no station to go to (you're mixing a potion or
                 // delivering), a station just finished or its bar just went, or one just started (so what's in the
                 // bag then is known).
-                val soon = wantStations && (bagDue || (!working && found != null) ||
-                    (working && found == null && finishedAtStart != null) || (!working && plan?.nextStation == null))
-                if (wantTags || wantStations) bag.look(frame, now, potions, soon) else bag.hide()
+                val soon = wantStations && (due || (!isWorking && found != null) ||
+                    (isWorking && found == null && waitingForPotion) || (!isWorking && noNext))
+                if (wantTags || wantStations) w.bag.look(frame, now, potions, soon) else w.bag.hide()
                 // The Alembic and the Retort by their looks, for the camera's tilt (so the arrow needn't wait for a
                 // station to work): only with the funnels found and the compass read exactly, and never under the
                 // game's interface, this tool's window or arrow, or a working station's bar
                 val r = row
                 val n = needle
                 if (wantArrow && n != null && n.exact && (r != null || wantFree)) {
-                    val skip = ArrayList(MixologyStations.interfaceAreas(b, n, bag.panel, b.scale, frame.width, frame.height))
+                    val skip = ArrayList(MixologyStations.interfaceAreas(b, n, w.bag.panel, b.scale, frame.width, frame.height))
                     if (window != null) skip.add(window)
                     if (arrowNow != null) skip.add(MixologyStations.Area(arrowNow.left, arrowNow.top, arrowNow.right, arrowNow.bottom))
                     found?.let {
@@ -503,19 +613,24 @@ class MixologyTool(
                     }
                 }
             }
-            Look(b, read, row, needle, searched, still, st, found, green, looked, looks, lookedFree, sight)
-        } ?: return false
+            Look(b, read, row, needle, searched, still, st, found, green, looked, looks, lookedFree, sight, BagSeen(w.bag))
+        }, use = { seen -> useLook(now, seen) })
+        return Began.SENT
+    }
 
+    // A full look's findings, back on the main thread
+    private fun useLook(now: Long, seen: Look) {
+        bagSeen = seen.bag
         bagDue = false
         if (seen.box == null) {
             box = null
             orders = emptyList()
             dots.hide()
-            bag.hide()
+            hideBag()
             stationsGone()
             redraw()
             setStatus("No Potion Orders box on screen. Go to the Mastering Mixology lab.")
-            return true
+            return
         }
         box = seen.box
         boxSeenAt = now
@@ -546,13 +661,12 @@ class MixologyTool(
             else -> "Watching the orders. Lever dots show when the table with the three funnels is on screen, " +
                 "with the camera facing south or north."
         })
-        return true
     }
 
     // What a fast look saw: the working station's bar and its green, and the row of funnels, whether the last row is
-    // still there, and the compass
+    // still there, and the compass; and the bag as it is after the look
     private class FastLook(val bar: MixologyStations.Bar?, val green: Int, val levers: MixologyLevers.Levers?,
-                           val stillThere: Boolean, val compass: MixologyLevers.Compass?)
+                           val stillThere: Boolean, val compass: MixologyLevers.Compass?, val bag: BagSeen)
 
     // Whether the table is moving on the screen (the camera follows the character, and turns and zooms): the row's
     // middle more than MOVED_BY of a spacing from where the last look saw it, or the row lost after being seen. Then
@@ -577,13 +691,13 @@ class MixologyTool(
     // anywhere, not only where it was), with no row, whether the last row's funnels are still there, each order's
     // station, a working station's bar with the green round it, and whether the Alembic and the Retort were looked
     // for (`looked`) with the tilts their looks gave (`looks`); the same with no lever table on screen (`lookedFree`,
-    // `sight`)
+    // `sight`); and the bag as it is after the look
     private class Look(val box: MixologyReader.Box?, val orders: List<MixologyReader.Order?>,
                        val levers: MixologyLevers.Levers?, val compass: MixologyLevers.Compass?,
                        val searched: Boolean, val stillThere: Boolean,
                        val stations: List<MixologyStations.Station?>, val bar: MixologyStations.Bar?, val green: Int,
                        val looked: Boolean, val looks: MixologyStationLooks.Read?,
-                       val lookedFree: Boolean, val sight: MixologyStationLooks.Sight?)
+                       val lookedFree: Boolean, val sight: MixologyStationLooks.Sight?, val bag: BagSeen)
 
     // After a look at the station's bar: follows the station's work (MixologyStations.Watch), buzzes once when the
     // quick-time moment starts, and notes which station finished a potion
@@ -591,7 +705,7 @@ class MixologyTool(
     // inventory open): one more finished potion of its kind than when the station started
     private fun backInBag(found: MixologyStations.Bar?): Boolean {
         val before = finishedAtStart ?: return false
-        if (!working || found != null || !bag.open) return false
+        if (!working || found != null || !bagSeen.open) return false
         return finishedOf(bagNow(), inStation) > before
     }
 
@@ -610,11 +724,13 @@ class MixologyTool(
         if (found != null) bar = found else if (!s.working) bar = null
         // The station just started on: the one the arrow pointed at (the plan from just before, while the potion was
         // still in the bag). The Retort has no quick-time moment, and a green potion pulsing in it looks like one
-        // (play_5.mp4 at 64 s), so it gets no signal. Unknown (inventory closed) = signal as usual.
+        // (play_5.mp4 at 64 s), so it gets no signal. Unknown (inventory closed) = signal as usual: the plan kept
+        // from the bag as last seen is only a guess of where the potion went, so it isn't used for this. Once the
+        // bar's place on the screen names its station (placeArrow, `namedStation`), that's used instead.
         // (the potion can leave the bag a look or two before the bar shows, and by then the plan has moved on to
         // the next potion: `sent` remembers where this one went)
         if (s.working && !working) {
-            workingAt = sent.justSent(now) ?: plan?.nextStation
+            workingAt = sent.justSent(now) ?: plan?.nextStation?.takeIf { bagSeen.open }
             // The potion handed over: the one the plan sent there. With the inventory closed it leaves the bag
             // worked out here (with it open, the bag itself shows that).
             val potion = sent.justSentPotion(now) ?: plan?.nextOrder?.let { orders.getOrNull(it)?.name }
@@ -623,8 +739,8 @@ class MixologyTool(
             // (the potion that left the bag is in the station now: the next plan mustn't take it for one just sent)
             sent.stationStarted()
             // (the bag was read on this look, as a station started: `soon`)
-            finishedAtStart = if (bag.open) finishedOf(bagNow(), potion) else null
-            if (!bag.open && potion != null) lastBag = lastBag?.let { b ->
+            finishedAtStart = if (bagSeen.open) finishedOf(bagNow(), potion) else null
+            if (!bagSeen.open && potion != null) lastBag = lastBag?.let { b ->
                 val i = b.indexOfFirst { !it.finished && it.potion == potion }
                 if (i < 0) b else b.filterIndexed { j, _ -> j != i }
             }
@@ -641,8 +757,10 @@ class MixologyTool(
         if (s.working && b != null && atAlembic) {
             alembic.look(now, b.fill)
             if (alembic.buzzNow && buzz) vibrate()
+            // (counted from when the screen was copied: the reading on the worker has taken a few ms since)
             val wait = alembic.cueInMs
-            if (wait in 1..MixologyStations.Watch.FAST_MS) handler.postDelayed(alembicCue, wait)
+            if (wait in 1..MixologyStations.Watch.FAST_MS)
+                handler.postDelayed(alembicCue, (wait - (SystemClock.uptimeMillis() - now)).coerceAtLeast(0L))
         } else if (!s.working) alembic.reset()
         tapNow = if (atAlembic) alembic.tapNow && bar != null else s.tapNow && bar != null && !retort
         if (s.started && buzz && !retort && !atAlembic) vibrate()
@@ -653,7 +771,7 @@ class MixologyTool(
             val potion = inStation
             if (potion != null) {
                 made.add(MixologyStations.Made(potion, station))
-                if (!bag.open) lastBag = lastBag?.plus(MixologyStations.Carried(potion, true))
+                if (!bagSeen.open) lastBag = lastBag?.plus(MixologyStations.Carried(potion, true))
             } else used.add(station)
             byOrder = true
             byOrderBag = null
@@ -681,7 +799,7 @@ class MixologyTool(
             used.clear(); made.clear(); usedFor = names; byOrder = false; lastBag = null
         }
         if (working) return
-        val carried = if (bag.open) bagNow().also { lastBag = it } else lastBag
+        val carried = if (bagSeen.open) bagNow().also { lastBag = it } else lastBag
         if (carried == null) { plan = null; sent.unseen(); return }
         val unfinished = carried.filter { !it.finished }.map { it.potion }
         if (byOrder) { if (byOrderBag == null) byOrderBag = unfinished else if (unfinished != byOrderBag) byOrder = false }
@@ -692,12 +810,12 @@ class MixologyTool(
         }
         val next = MixologyStations.plan(wanted, carried, used, made, byOrder)
         plan = next
-        if (bag.open) sent.planned(now, next.nextStation, unfinished.size, next.nextOrder?.let { wanted[it]?.potion })
+        if (bagSeen.open) sent.planned(now, next.nextStation, unfinished.size, next.nextOrder?.let { wanted[it]?.potion })
         else sent.unseen()
     }
 
     // The Mixology potions in the inventory now, in its order
-    private fun bagNow(): List<MixologyStations.Carried> = bag.tags.mapNotNull { t ->
+    private fun bagNow(): List<MixologyStations.Carried> = bagSeen.tags.mapNotNull { t ->
         MixologyData.POTIONS.firstOrNull { it.recipe == t.recipe }?.let { MixologyStations.Carried(it.name, t.finished) }
     }
 
@@ -724,7 +842,9 @@ class MixologyTool(
         lookTilts.compass(needle?.angle)
         if (row != null && needle != null && barSeen != null) {
             val named = tilt.bar(row, needle, barSeen, screenW, screenH)
-            if (working && named != null) namedStation = named
+            // The bar's place names its station (right for 712 of 712 looks in the recordings): that beats where the
+            // plan sent the potion, which is a guess with the inventory closed or if the player went elsewhere
+            if (working && named != null) { namedStation = named; workingAt = named }
         }
         if (looked && row != null && needle != null) lookTilts.look(row, needle, looks, screenW, screenH)
         val before = arrowRow
@@ -745,7 +865,7 @@ class MixologyTool(
             // arrow stays where the last full look put it, a third of a second at most.)
             if (!full) { if (wasBySight) { arrow = arrowBefore; arrowBySight = true }; return }
             val placed = sights.spot(now, station, screenW, screenH) ?: return
-            val areas = MixologyStations.interfaceAreas(b, needle, bag.panel, b.scale, screenW, screenH) + listOfNotNull(ownWindow())
+            val areas = MixologyStations.interfaceAreas(b, needle, bagSeen.panel, b.scale, screenW, screenH) + listOfNotNull(ownWindow())
             val over = MixologyStations.arrowClearOf(MixologyStations.arrowOver(placed.spot, placed.spacing, b.scale), placed.keep)
             val under = MixologyStations.arrowClearOf(MixologyStations.arrowUnder(placed.spot, placed.spacing, b.scale), placed.keep)
             arrow = when {
@@ -759,7 +879,7 @@ class MixologyTool(
         if (!steady) return
         val spot = lookTilts.spot(row, needle, station, screenW, screenH)
             ?: tilt.spot(row, needle, station, screenW, screenH) ?: return
-        val areas = MixologyStations.interfaceAreas(b, needle, bag.panel, b.scale, screenW, screenH) +
+        val areas = MixologyStations.interfaceAreas(b, needle, bagSeen.panel, b.scale, screenW, screenH) +
             MixologyStations.tableArea(row) + listOfNotNull(ownWindow())
         val over = MixologyStations.arrowOver(spot, row.spacing, b.scale)
         val under = MixologyStations.arrowUnder(spot, row.spacing, b.scale)
@@ -811,7 +931,7 @@ class MixologyTool(
             overlay.countdownFor(b2, secondsLeft, COUNT_FROM_S) else null
         val l = dots.levers
         val spots = if (showDots && l != null) overlay.dotsFor(l, dots.north, dp(7).toFloat(), dp(16).toFloat()) else emptyList()
-        val tags = if (showTags && b != null) bag.tags.map { overlay.tagFor(it) } else emptyList()
+        val tags = if (showTags && b != null) bagSeen.tags.map { overlay.tagFor(it) } else emptyList()
         overlay.set(recipes, spots, tags, sig, count, arrow.takeIf { showStations && showArrow && b != null })
     }
 
@@ -836,6 +956,8 @@ class MixologyTool(
         destroyed = true
         capture.removeStopListener(captureStopped)
         running = false
+        worker?.quit()
+        worker = null
         handler.removeCallbacksAndMessages(null)
         overlay.hide()
     }
