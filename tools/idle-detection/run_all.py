@@ -34,6 +34,16 @@ RECORDINGS = [
     ("fishing_1", OWN + r"\fishing_1", "idle:0-12,active:13-87,idle:88-110,active:110-176,idle:177-204"),
     ("cooking_1", E + r"\afk_recordings\cooking_1.mp4", "active:0-86,idle:88-119"),
     ("combat_1", E + r"\afk_recordings\combat_1.mp4", "active:0-535,idle:540-618"),
+    # 17 November 2026: someone lit a fire under the owner; chopping (camera turned at 5-9 s) until 17 s, then
+    # standing in the fire's smoke, with players walking through the box until 25 s (notes.md there)
+    ("fire_1", OWN + r"\fire_1", "active:0-17,idle:17.5-37"),
+    # the same day, with the app running: alone at the guide's size on a fire. Chopping 7-12.5 s, then tending the
+    # fire (a log at 13.3 s and one at 19.3 s, standing still between them: not scored either way), standing from
+    # about 22 s (notes.md there)
+    ("fire_2", OWN + r"\fire_2", "active:6-13,idle:22-55.5"),
+    # recorded with the Idle Notifier running on the phone (watching from 37 s and 19.5 s; notes.md in each folder)
+    ("forestry_1", OWN + r"\forestry_1\forestry_1.mp4", "active:37-63.5,idle:64-71,active:72-115.5,idle:117-131"),
+    ("potions_1", OWN + r"\potions_1\potions_1.mp4", "idle:73-90,idle:132.5-154"),
 ]
 YOUTUBE = ["d5gX9_OnOIY_bows", "PFfTIk3TGtg_cooking", "NxYN7xq7_Ec_amethyst", "Og1Z66lLSg4_amethyst_plain",
            "71uCRP1E8hw_runedragons", "UkXVqPOR13g_blackdragons", "NH5nqh8cIpE_tempoross"]
@@ -53,6 +63,13 @@ GUIDE = {
                   (143, 230), (169, 90), (196, 210)],
     "cooking_1": [(0, 300), (9, 280), (25, 300), (44, 60), (51, 250), (63, 130), (74, 80), (100, 230)],
     "combat_1": 60,                               # zoomed out the whole way, seen from above
+    # These three are given the guide's own 162 px, which is what the app watched, whatever the character's
+    # size really was: fire_1's character is about 210 px tall (head 405, feet 615), forestry_1's about 100,
+    # potions_1's about 270
+    "fire_1": 162,
+    "fire_2": [(0, None), (5, 162)],              # Start tapped at about 5 s (the guide box goes)
+    "forestry_1": [(0, None), (37, 162)],
+    "potions_1": [(0, None), (19.5, 162)],
     # The YouTube clips are cut every 10-40 s; the stretches with a menu or a stopwatch over the game are None
     "d5gX9_OnOIY_bows": [(0, 300), (27, None), (57, 290), (63, 170), (71, None), (82, 520), (104, None),
                          (136, 560), (144, 250), (160, None), (173, 300), (197, None), (243, 260), (264, None),

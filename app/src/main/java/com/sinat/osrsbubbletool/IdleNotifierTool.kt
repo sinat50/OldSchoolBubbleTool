@@ -26,6 +26,7 @@ import android.widget.ScrollView
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.core.content.edit
+import kotlin.random.Random
 
 // Idle Notifier: buzzes when your character stops working, so you can put the phone down while skilling. You zoom until
 // your character fits a box drawn over the game, tap Start, and from then on it looks at the screen once a second
@@ -38,12 +39,25 @@ class IdleNotifierTool(
     private val hideWindow: () -> Unit
 ) {
     companion object {
-        const val LOOK_EVERY_MS = 1_000L    // one look a second: as good as two on the recordings, for half the work
+        const val LOOK_EVERY_MS = 1_000L    // one look a second on average: as good as two on the recordings, for half the work
+        // Each gap is picked at random within this much either side of a second. Looking exactly once a second can
+        // line up with the game: Spin Flax waves the arms in a loop of exactly 1 s, so every look caught them in the
+        // same spot and they seemed still; uneven gaps catch each animation at a different moment every time
+        // (.scratch/afk-alert/animations.md). Never under 0.85 s, so each look still has one about a second old to
+        // compare with (IdleWatch.COMPARE_AFTER is 0.8 s).
+        const val LOOK_SPREAD_MS = 150L
         const val FIRST_LOOK_MS = 600L      // after Start, wait for the guide box to leave the screen
         const val WAKE_AHEAD_MS = 200L      // the capture rests between looks and starts again this long before one
         const val RETRY_MS = 100L           // no fresh picture yet after waking: try again this much later,
         const val RETRIES = 3               // at most this many times (then the screen really hasn't changed)
         const val SILENT = "Silent"
+
+        // The Wait slider: about how many seconds after you stop the alert goes off, from SHORTEST_WAIT to LONGEST_WAIT.
+        // The detector itself takes about 5 (IdleWatch: half its 8 seconds of looks quiet); anything longer is waited on
+        // top (IdleWatch.extraWait). The long end is for minigames like Tempoross, where you stand a few seconds between jobs.
+        const val SHORTEST_WAIT = 5
+        const val LONGEST_WAIT = 15
+        const val DETECTOR_WAIT = 5
 
         // The alert sounds (made by the owner for the app, in res/raw), in the order the Sound dropdown lists
         // them. "Silent" comes last: no sound, and the vibration is always on so the alert can't be missed.
@@ -96,6 +110,10 @@ class IdleNotifierTool(
         get() = prefs.getInt("volume", 100).coerceIn(5, 100)
         set(v) = prefs.edit { putInt("volume", v) }
     private val vibrateOn get() = vibrateSetting || soundName == SILENT
+    // The Wait slider's seconds (5 to start with: the owner's choice, 17 November 2026, like RuneLite's 5 s)
+    private var waitSeconds: Int
+        get() = prefs.getInt("wait_seconds", SHORTEST_WAIT).coerceIn(SHORTEST_WAIT, LONGEST_WAIT)
+        set(v) = prefs.edit { putInt("wait_seconds", v) }
 
     private var player: MediaPlayer? = null   // the sound playing now, if any
 
@@ -172,6 +190,7 @@ class IdleNotifierTool(
                 ), full())
                 if (soundListOpen) h.addView(soundList(), full())
                 if (soundName != SILENT) h.addView(volumeSlider(), full())
+                h.addView(waitSlider(), full())
                 h.addView(button("Test alert") { alert() }, full())
             }
             Mode.SETTING_ZOOM -> {
@@ -180,7 +199,7 @@ class IdleNotifierTool(
                 h.addView(row(button("Start") { startWatching() }, button("Cancel") { stop(null) }), full())
             }
             Mode.WATCHING -> {
-                h.addView(text("Watching since $startedAt. It buzzes after about 8 seconds of standing still, " +
+                h.addView(text("Watching since $startedAt. It buzzes after about $waitSeconds seconds of standing still, " +
                     "then waits until you've worked again."), full())
                 if (alerts > 0) h.addView(text("Alerted $alerts time" + (if (alerts == 1) "" else "s") + ", last at $lastAlertAt."), full())
                 h.addView(text("If you zoom in or out, tap Stop and set it up again."), full())
@@ -242,6 +261,7 @@ class IdleNotifierTool(
         note = null
         alerts = 0
         startedAt = clock()
+        watch.extraWait = (waitSeconds - DETECTOR_WAIT).toDouble()
         watch.start()
         capture.matchScreenSize()
         show()
@@ -252,8 +272,8 @@ class IdleNotifierTool(
         handler.postDelayed(lookRunnable, FIRST_LOOK_MS)
     }
 
-    // Once a second: look, let the capture rest, and wake it just before the next look (battery: in between,
-    // Android isn't copying every frame of the screen for nothing)
+    // About once a second (the gaps are a little uneven, see LOOK_SPREAD_MS): look, let the capture rest, and wake it
+    // just before the next look (battery: in between, Android isn't copying every frame of the screen for nothing)
     private val lookRunnable = object : Runnable {
         override fun run() {
             if (mode != Mode.WATCHING || destroyed) return
@@ -263,8 +283,9 @@ class IdleNotifierTool(
                 return
             }
             capture.rest()
-            handler.postDelayed(wakeRunnable, LOOK_EVERY_MS - WAKE_AHEAD_MS)
-            handler.postDelayed(this, LOOK_EVERY_MS)
+            val gap = LOOK_EVERY_MS + Random.nextLong(-LOOK_SPREAD_MS, LOOK_SPREAD_MS + 1)
+            handler.postDelayed(wakeRunnable, gap - WAKE_AHEAD_MS)
+            handler.postDelayed(this, gap)
         }
     }
 
@@ -336,6 +357,25 @@ class IdleNotifierTool(
                 }
                 override fun onStartTrackingTouch(bar: SeekBar) {}
                 override fun onStopTrackingTouch(bar: SeekBar) { playSound() }
+            })
+        }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+    }
+
+    // How long you stand still before the alert, 5 to 15 seconds, a second at a time
+    private fun waitSlider() = LinearLayout(context).apply {
+        orientation = LinearLayout.HORIZONTAL
+        gravity = Gravity.CENTER_VERTICAL
+        val label = text("Wait: $waitSeconds s", 13f)
+        addView(label, LinearLayout.LayoutParams(dp(96), ViewGroup.LayoutParams.WRAP_CONTENT))
+        addView(SeekBar(context).apply {
+            max = LONGEST_WAIT - SHORTEST_WAIT     // 0..10 on the bar = 5..15 s
+            progress = waitSeconds - SHORTEST_WAIT
+            setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(bar: SeekBar, value: Int, fromUser: Boolean) {
+                    if (fromUser) { waitSeconds = value + SHORTEST_WAIT; label.text = "Wait: $waitSeconds s" }
+                }
+                override fun onStartTrackingTouch(bar: SeekBar) {}
+                override fun onStopTrackingTouch(bar: SeekBar) {}
             })
         }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
     }

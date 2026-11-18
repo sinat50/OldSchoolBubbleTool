@@ -63,6 +63,10 @@ tools/quest-helper/sync_tables.py QUEST_HELPER_FOLDER QUEST_JAVA` (a clone of th
 `puzzle_tiles.bin`: each puzzle's tiles as 8 x 8 average colours, read from the OSRS Wiki's solved pictures, which
 are not saved. A new puzzle box only needs a new line in the script's `PUZZLES` list. `PuzzleTilesTest` checks the file.
 
+`python tools/puzzle-box/get_test_pictures.py` downloads the same solved pictures into `puzzle-box/picture_cache/`
+(in `.gitignore`: PC only, never in the app) for `PuzzleAllBoxesTest`, which draws every puzzle, shuffled, over the
+owner's Troll screenshots at three brightness settings and runs the solver on them. Run it again after adding a puzzle.
+
 ## DPS Calculator gear import (`dps/`)
 
 ```

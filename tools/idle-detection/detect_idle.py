@@ -25,7 +25,18 @@ Once per look (about one a second):
    it from a few pixels, so that's the app's job: after a camera move it should show the guide box again
    for a moment, so the player sees whether the character still fits.
 3. A look is quiet when under GUIDE_QUIET % of the box changed. You're IDLE once at least half the looks
-   over the last 8 seconds were quiet (people walking past make the other half busy).
+   over the last 8 seconds were quiet, and at least 3 of them (people walking past make the other half busy).
+   3b. Smoke and fire on your own square (17 November 2026, the fire_1 recording: someone lit a fire under
+   the owner, and its smoke column kept 5-25% of the box changing after the chopping stopped, so no alert
+   ever came). Smoke is see-through grey: it makes what's behind it lighter or darker but hardly changes
+   which COLOUR it is, where a moving body or tool swaps one colour for another (dark armour for green
+   grass). So each busy look also gets a second reading: the share of the box whose colour balance changed
+   (red minus green, green minus blue), solid change only as before. While you work it's learned whether
+   your work shows in that reading (COLOUR_BUSY, 4%, in three quarters of the looks over 8 seconds) and how
+   strongly (the middle reading of those looks); only then, a look whose colour reading is under COLOUR_QUIET
+   (2%) and under a third of that level counts as quiet too, whatever the first reading says.
+   Work that never showed in colour (learned afresh after every camera move) is judged by the first
+   reading alone, exactly as before.
 4. One ALERT (the buzz) for each idle stretch: it goes off the first time you're idle, and can't go off
    again until the box was busy in three quarters of the looks over 8 seconds (you worked again). A camera
    move alone doesn't count. The XP counter isn't needed (the owner's rule: don't rely on XP); where it's
@@ -156,6 +167,7 @@ QUIET_SHARE = 0.25      # a look is quiet when the box changed less than this sh
 QUIET_MAX = 3.0         # ...and less than this many %
 WINDOW = 8.0            # seconds of looks considered for idle
 QUIET_MOST = 0.5        # idle when this share of the looks in WINDOW were quiet
+QUIET_LEAST = 3         # ...and at least this many of them (two quiet looks are too few to go by)
 REARM = 0.75            # after an alert, the next one waits until you've clearly been active again: this
                         # share of the looks in WINDOW were busy in your character's own box (or see
                         # REARM_MIDDLE while it hasn't been found; or XP came in, where the counter shows). Standing sway is busy
@@ -178,9 +190,29 @@ GUIDE_QUIET = 3.0       # a look is quiet when under this % of the character's b
                         # is 0-4%, mostly under 2.5; the slackest work measured, stringing bows, 5-35%)
 GUIDE_FULL = 175        # up to this height (pixels at 1080 tall) the box is compared at full size, above
                         # it at half size: about 30,000 pixels a look at most either way
+COLOUR = 1.0            # 1 = also read how much of the box changed COLOUR, not just brightness (step 3b at
+                        # the top): smoke, shadows and a dimmed screen lighten or darken, a moving body swaps
+                        # colours. Measured on fire_1 (box 162 px, full size): chopping 8-19% (two looks of 14
+                        # under 2%), standing in a fire's smoke 0.3-2% (5-8% when someone walks through); on
+                        # fire_2 (alone, flames and smoke at the feet): chopping 3.3-18%, standing 0-2.3%
+COLOUR_CHANGED = 40     # (red - green) and (green - blue) together moved this much = the pixel changed colour
+COLOUR_BUSY = 4.0       # % of the box that changed colour: your work shows in colour when three quarters of
+                        # the looks over WINDOW reach this. It was 8 at first, from fire_1 alone (chopping in a
+                        # crowd: 8-19%); on the phone that never switched the rule on: fire_2, the character
+                        # alone at the guide's size, chops at 3.6-9% (two looks 16-18%). At 5 fire_2 is missed at
+                        # some look timings; at 2 potions_1's alerts come 4 s sooner (hands-only work starts
+                        # to count); with no learning at all three YouTube clips get other alerts.
+COLOUR_DROP = 0.33      # ...and a quiet look must also be under this share of your work's own colour level
+                        # (the middle reading of the looks it was learned from). Without it, work that only
+                        # just shows in colour (2-5%) sat right on the COLOUR_QUIET line: forestry_1 with the
+                        # box 1.4 x too big (a small character in a big, half-size box) got a wrong buzz.
+COLOUR_QUIET = 2.0      # ...and from then on a look under this % is quiet. (At 3 the unedited mining video,
+                        # where nobody ever stops, got a wrong alert: a purple robe in a brown cave changes
+                        # little colour. At 1.5 fire_1's margin gets thin.)
 THIN = 8                # the camera check reads every THIN-th pixel each way of the half-size picture
 GUESS = 1.0             # 1 = until the character is found, watch a standard box at the middle (quiet there
                         # counts too: if you're already idle after a camera move, nothing moves to be found)
+PROBE = None            # for research: a function given (seconds, the box now, the box a second before) each look
 XP_RECENT = 6.0         # XP within this many seconds = active
 XP_GAIN_PIXELS = 60
 NUMBER_WHITE = 600
@@ -282,6 +314,14 @@ def read(im):
 def solid(changed):
     """Changed pixels whose 3 x 3 neighbourhood all changed (drops outlines a pixel or two wide)."""
     return ndimage.binary_erosion(changed, structure=np.ones((3, 3)))
+
+
+def colour_moved(now, before):
+    """Pixels whose colour balance changed between two looks: (red - green) and (green - blue) together
+    moved more than COLOUR_CHANGED. Getting lighter or darker by the same amount in all three (smoke, a
+    shadow, the screen dimming) doesn't count."""
+    d = now - before
+    return np.abs(d[..., 0] - d[..., 1]) + np.abs(d[..., 1] - d[..., 2]) > COLOUR_CHANGED
 
 
 def find_character(heat, looks, mx, my, near, inside=False, least=12, join=0, fill=0.0):
@@ -602,6 +642,9 @@ def run_guide(frames, guide):
     history = deque()            # (time, half-size search area, full-size close-up) for the last second or so
     looks = deque()              # (time, quiet?) within WINDOW, since the last camera move
     work = deque()               # (time, quiet?) within WINDOW, camera moves or not: for "worked again"
+    tints = deque()              # (time, the colour reading) within WINDOW, since the last camera move
+    colour_works = False         # has your work been seen to show in the colour reading (step 3b)?
+    colour_level = 0.0           # ...and how much of the box it changes colour in (%), in a middling look
     last_xp, prev_xp = -1e9, None
     out, boxes_found, idle_moments = [], [], []
     armed = True                 # may the alert go off? False from an alert until you've worked again
@@ -636,14 +679,15 @@ def run_guide(frames, guide):
         now = guide_height(guide, t)
         if now is None:
             # the guide doesn't cover this moment: nothing is watched, and everything starts afresh after it
-            history.clear(); looks.clear(); work.clear()
-            height, box, was_idle = None, None, False
+            history.clear(); looks.clear(); work.clear(); tints.clear()
+            height, box, was_idle, colour_works = None, None, False, False
             out.append((t, np.nan, "active", "off")); continue
         if now != height:
             # the guide was set (again): a new box, and the looks so far were of another one
             height = now
             box, close_up = guide_box(height)
-            history.clear(); looks.clear()
+            history.clear(); looks.clear(); tints.clear()
+            colour_works = False
             if len(boxes_found) < 40:
                 boxes_found.append((t, on_screen(box, close_up),
                                     None if isinstance(im, tuple) or len(boxes_found) >= 8 else im.crop(SEARCH)))
@@ -675,22 +719,41 @@ def run_guide(frames, guide):
                 int((sx0 - SEARCH[0]) / SHRINK / THIN):int((sx1 - SEARCH[0]) / SHRINK / THIN) + 1] = False
         if thin[outside].mean() > CAMERA_MOVED:
             looks.clear()         # you're here: an alert that hasn't gone off yet has to wait again
+            tints.clear()         # ...and what was learned about colour was for another view
+            colour_works = False
             out.append((t, np.nan, "active", "camera")); continue
 
         # 1. and 3. How much of the character's box changed (solid change only)
         # (Also comparing with 2 seconds back was tried, in case an animation repeating every 1.2 s hid from
         # a 1-second comparison: it lifted standing sway as much as it lifted zoomed-in harpoon fishing.)
+        if PROBE:
+            PROBE(t, part(look), part(older))
         moved = np.abs(part(look) - part(older)).sum(axis=2) > PIXEL_CHANGED
         firm = solid(moved)[1:-1, 1:-1]
         reading = 100.0 * firm.mean()
-        looks.append((t, reading < GUIDE_QUIET))
-        work.append((t, reading < GUIDE_QUIET))
+        quiet = reading < GUIDE_QUIET
+        # 3b. How much of it changed colour (not read on a quiet look: nothing changed much at all)
+        if COLOUR:
+            tint = 0.0 if quiet else 100.0 * solid(colour_moved(part(look), part(older)))[1:-1, 1:-1].mean()
+            if colour_works and tint < min(COLOUR_QUIET, COLOUR_DROP * colour_level):
+                quiet = True      # only smoke, flames, shadow or the like is moving
+            tints.append((t, tint))
+            while tints[0][0] < t - WINDOW:
+                tints.popleft()
+            if tints[-1][0] - tints[0][0] >= WINDOW * 0.8 and len(tints) >= 5 \
+                    and sum(c >= COLOUR_BUSY for _, c in tints) >= REARM * len(tints):
+                colour_works = True
+                colour_level = sorted(c for _, c in tints)[len(tints) // 2]   # the middle one: your work's level
+        looks.append((t, quiet))
+        work.append((t, quiet))
         for kept in (looks, work):
             while kept[0][0] < t - WINDOW:
                 kept.popleft()
+        # (at least QUIET_LEAST quiet looks: with gaps in a recording, or looks that failed, 2 quiet looks out of
+        # 4 said "idle" in the middle of chopping, woodcutting_1 at 155 s with the test bench's random gaps)
         enough = looks[-1][0] - looks[0][0] >= WINDOW * 0.8
         share_quiet = sum(q for _, q in looks) / len(looks)
-        idle = enough and share_quiet >= QUIET_MOST and t - last_xp >= XP_RECENT
+        idle = enough and share_quiet >= QUIET_MOST and sum(q for _, q in looks) >= QUIET_LEAST             and t - last_xp >= XP_RECENT
 
         # 4. One alert for each idle stretch. "Worked again" = the box busy in three quarters of the looks
         # over the last 8 seconds. Looks during a camera move aren't counted, but they don't wipe out the

@@ -50,3 +50,6 @@ tools/gardenbox.png
 
 # Item icons the data scripts download, kept on this computer only (never part of the app)
 /tools/items/icon_cache/
+
+# Solved puzzle box pictures for the PC test PuzzleAllBoxesTest, kept on this computer only (never part of the app)
+/tools/puzzle-box/picture_cache/

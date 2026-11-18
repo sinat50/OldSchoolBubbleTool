@@ -16,12 +16,14 @@ object PuzzleFinder {
     private const val FRAME_SPOTS_NEEDED = 8 // of the 12 spots around the tiles, for the frame to count as there
     private const val FRAME_CHANGE = 40      // how much a frame spot's colour may change (red + green + blue)
 
-    // The empty space's dark brown, which the game's brightness setting doesn't change
+    // The empty space's dark brown, which the game's brightness setting doesn't change: exactly 55,28,0 on the
+    // owner's screenshots at every brightness. Kept close to that, as a picture can have a plain brown just like
+    // it (the Tree puzzle's trunk is 79,37,3 at the lowest brightness, and was taken for a second empty space).
     private fun isWood(c: Int): Boolean {
         val r = (c shr 16) and 0xFF
         val g = (c shr 8) and 0xFF
         val b = c and 0xFF
-        return b < 14 && r in 28..100 && g in 15..65 && r * 10 >= g * 14
+        return b <= 8 && r in 45..65 && g in 20..36
     }
 
     // The lines between the tiles: dark brown with no blue in it. The brightness setting makes them darker or
@@ -107,8 +109,12 @@ object PuzzleFinder {
             while (b + 1 < length.size && !used[b + 1] && length[b + 1] * 10 >= peak * 7) b++
             for (i in maxOf(0, a - 2)..minOf(length.size - 1, b + 2)) used[i] = true
             if (b - a + 1 > MAX_LINE_WIDTH) continue
-            val starts = (a..b).map { start[it] }.sorted()
-            val ends = (a..b).map { start[it] + length[it] }.sorted()
+            // Where it starts and ends, from the columns about as long as the longest: a dark picture beside the
+            // line can be line-coloured in places too (Theatre of Blood at the lowest brightness), and those shorter
+            // columns would make the line look cut short
+            val own = (a..b).filter { length[it] * 10 >= peak * 9 }
+            val starts = own.map { start[it] }.sorted()
+            val ends = own.map { start[it] + length[it] }.sorted()
             found.add(Line((a + b) / 2f, starts[starts.size / 2], ends[ends.size / 2]))
         }
         return found.sortedBy { it.middle }
@@ -170,6 +176,65 @@ object PuzzleFinder {
         return found
     }
 
+    // Each tile's colour at 8 spots, clear of the guide's outlines along the tiles' edges and its dots in their
+    // middles: 8 colours per tile, tile 0 first. Compared look to look, they
+    // show tiles that moved even when the empty space ended up where it was (a fast player going round a square of
+    // 4 tiles within one game tick).
+    fun tileLooks(p: LightBoxReader.PixelSource, tiles: Rect) = tileLooks(p, tiles.box())
+
+    fun tileLooks(p: LightBoxReader.PixelSource, tiles: Box): IntArray {
+        val tileW = tiles.width / GRID.toFloat()
+        val tileH = tiles.height / GRID.toFloat()
+        val out = IntArray(GRID * GRID * LOOK_SPOTS.size)
+        for (pos in 0 until GRID * GRID) for ((i, spot) in LOOK_SPOTS.withIndex()) {
+            val x = (tiles.left + (pos % GRID + spot.first) * tileW).toInt()
+            val y = (tiles.top + (pos / GRID + spot.second) * tileH).toInt()
+            out[pos * LOOK_SPOTS.size + i] = if (x in 0 until p.width && y in 0 until p.height) p.rgb(x, y) and 0xFFFFFF else -1
+        }
+        return out
+    }
+
+    // The tiles whose look changed between two tileLooks: a spot's red + green + blue moved by more than 12. The
+    // screen picture is exact, so small changes are real, and Theatre of Blood's dark tiles at the lowest brightness
+    // differ by as little as 11 to 16 at these spots (measured on the PC test's screens, November 2026).
+    fun changedTiles(before: IntArray, after: IntArray): Set<Int> {
+        val changed = HashSet<Int>()
+        for (i in before.indices) {
+            val a = before[i]; val b = after[i]
+            if (a < 0 || b < 0) continue
+            val change = abs(((a shr 16) and 0xFF) - ((b shr 16) and 0xFF)) +
+                abs(((a shr 8) and 0xFF) - ((b shr 8) and 0xFF)) + abs((a and 0xFF) - (b and 0xFF))
+            if (change > 12) changed += i / LOOK_SPOTS.size
+        }
+        return changed
+    }
+
+    // How many planned moves were made, now that the empty space has gone from `from` to `to` and these tiles look
+    // different (changedTiles since the last move; null if not known). 0 = it wasn't the plan (read the tiles again).
+    //
+    // Several moves can happen between two looks (a fast player, several moves in one game tick), so the empty space
+    // can be up to `lookahead` moves along the plan. But the same place can come up more than once in a plan, and the
+    // tiles tell the cases apart (both found with the emulator's practice puzzle, November 2026):
+    // - a player who taps the last tile back (an undo) leaves the empty space where the plan would have it some moves
+    //   later; then nothing changed on the plan's way there, only the two tiles of the undo;
+    // - the plan going round a square of 4 tiles brings the empty space back where it was; then only the tiles show
+    //   that anything happened.
+    // So the empty space being at a planned place counts only if nothing changed off the plan's way there, and, for a
+    // place more than one move along, something on the way did change (tiles that look alike may not show a change,
+    // so not all of them need to).
+    fun movesMade(solution: List<Int>, step: Int, from: Int, to: Int, changed: Set<Int>?, lookahead: Int): Int {
+        if (from == to && changed.isNullOrEmpty()) return 0
+        for (k in 0 until minOf(lookahead, solution.size - step)) {
+            if (solution[step + k] != to) continue
+            if (changed == null) { if (from != to) return k + 1 else continue }
+            val onTheWay = solution.subList(step, step + k).toSet()
+            if (!(onTheWay + from + to).containsAll(changed)) continue
+            if (k > 0 && onTheWay.none { it in changed }) continue
+            return k + 1
+        }
+        return 0
+    }
+
     // The frame's colour at 12 spots around the tiles, read when the puzzle is found, so frameVisible can tell
     // whether it's still there (the brightness setting changes the frame's colour, so it can't be fixed in the
     // code). A spot off the screen is -1.
@@ -224,6 +289,10 @@ object PuzzleFinder {
 
     private val FRACTIONS = floatArrayOf(0.25f, 0.5f, 0.75f)
     private val GRID_SPOTS = FRACTIONS.flatMap { fy -> FRACTIONS.map { fx -> fx to fy } }
+    // A quarter of the way in from each corner, and 0.16 in from the middle of each side: outside the biggest guide
+    // dot (0.28 of a tile from the middle; these are 0.34 or more) and inside the thickest outline (0.10)
+    private val LOOK_SPOTS = listOf(0.25f to 0.25f, 0.75f to 0.25f, 0.25f to 0.75f, 0.75f to 0.75f,
+        0.5f to 0.16f, 0.16f to 0.5f, 0.84f to 0.5f, 0.5f to 0.84f)
     // Just inside the tile's edge, clear of the biggest guide dot (radius 0.28 of a tile)
     private val RING = listOf(0.15f to 0.15f, 0.5f to 0.13f, 0.85f to 0.15f, 0.13f to 0.5f,
         0.87f to 0.5f, 0.15f to 0.85f, 0.5f to 0.87f, 0.85f to 0.85f)

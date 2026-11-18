@@ -1,5 +1,6 @@
 package com.sinat.osrsbubbletool
 
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Assume.assumeTrue
 import org.junit.Test
@@ -24,12 +25,14 @@ class IdleWatchReplayTest {
     }
 
     // Plays a recording's pictures, about one a second from `from` seconds on, and gives back the alert times
-    private fun alerts(name: String, characterHeight: Int, from: Double = 0.0): List<Double> {
+    // (extraWait: the Wait slider's seconds on top of the detector's own 5)
+    private fun alerts(name: String, characterHeight: Int, from: Double = 0.0, extraWait: Double = 0.0): List<Double> {
         val dir = File(folder, name)
         val files = dir.listFiles { f -> f.name.startsWith("f_") && f.name.endsWith(".png") }?.sortedBy { it.name }
         assumeTrue("no recording at $dir", !files.isNullOrEmpty())
         val ms = files!!.map { it.name.substring(2, it.name.length - 4).toLong() }
         val watch = IdleWatch(characterHeight / 1080.0)
+        watch.extraWait = extraWait
         val found = ArrayList<Double>()
         var next = from
         for ((i, f) in files.withIndex()) {
@@ -49,6 +52,39 @@ class IdleWatchReplayTest {
         assertTrue("no alert while chopping", at.none { it in 11.5..56.0 })
         assertTrue("alert for the first standing", at.any { it <= 11.5 })
         assertTrue("alert for the last standing, soon enough", at.any { it in 57.0..72.0 })
+    }
+
+    @Test
+    fun fire1() {
+        // someone lit a fire under the character (pictures taken from the video, 2 a second: notes.md in its folder).
+        // Chopping until about 17 s (the camera turned at 5-9 s), then standing in the fire's smoke to the end (37 s),
+        // with other players walking through the box until 25 s. The box is the guide's own (the app's): the smoke
+        // alone keeps 5-25% of it changing, and only the colour reading (IdleWatch, step 3b) tells it from work.
+        // Both ways of landing one look a second on the pictures.
+        for (from in listOf(0.0, 0.5)) {
+            val at = alerts("fire_1", 162, from)
+            assertTrue("no alert while chopping", at.none { it < 17.5 })
+            assertTrue("alert for the standing in the smoke", at.any { it in 25.0..33.0 })
+            assertEquals("one alert", 1, at.size)
+        }
+    }
+
+    @Test
+    fun fire2() {
+        // alone, at the guide's size, standing on a fire (bright flames and smoke at the feet), recorded with the app
+        // running: it never alerted. Start at about 5 s; chopping 7-12.5 s; then tending the fire (bending down with a
+        // log at 13.3 s and at 19.3 s, standing still in between); standing from about 22 s to the end (55.5 s).
+        // The flames and smoke keep 1.5-13% of the box changing, but hardly any of it changes colour (0-2.3%).
+        for (from in listOf(5.0, 5.5)) {
+            val at = alerts("fire_2", 162, from)
+            assertTrue("no alert while chopping", at.none { it < 14.0 })
+            assertTrue("alert for the standing, soon enough", at.any { it <= 30.0 })
+            assertEquals("one alert", 1, at.size)
+        }
+        // with the Wait slider at 15 s (10 more): the smoke mustn't break the wait, so the alert comes 10 s later
+        val late = alerts("fire_2", 162, 5.0, extraWait = 10.0)
+        assertEquals("one alert with the longest wait", 1, late.size)
+        assertTrue("about 10 s later", late[0] in 32.0..36.0)
     }
 
     @Test

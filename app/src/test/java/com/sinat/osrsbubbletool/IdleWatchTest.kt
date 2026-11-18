@@ -67,6 +67,32 @@ class IdleWatchTest {
     }
 
     @Test
+    fun aLongerWaitPutsTheAlertOffByThatMuch() {
+        // the Wait setting: 15 s adds 10 seconds after the detector first says idle (made-up screens: a look every
+        // second, so exactly 10 looks later than with no extra wait)
+        fun alertAt(extra: Double): Int {
+            val watch = IdleWatch()
+            watch.extraWait = extra
+            run(watch, 0, working(20))
+            val said = run(watch, 20, List(40) { still })
+            assertEquals(1, said.count { it == "alert" })
+            return said.indexOf("alert")
+        }
+        assertEquals(alertAt(0.0) + 10, alertAt(10.0))
+        assertEquals(alertAt(0.0) + 3, alertAt(3.0))
+    }
+
+    @Test
+    fun workingDuringTheLongerWaitCancelsIt() {
+        // idle for a few seconds, then back to work before the extra 10 seconds are up: no alert at all
+        val watch = IdleWatch()
+        watch.extraWait = 10.0
+        run(watch, 0, working(20))
+        val said = run(watch, 20, List(10) { still } + working(20))
+        assertFalse(said.contains("alert"))
+    }
+
+    @Test
     fun anUnchangedScreenCountsAsStill() {
         // the capture has no new picture when nothing on screen changed at all
         val watch = IdleWatch()
@@ -131,6 +157,49 @@ class IdleWatchTest {
         val said = run(watch, 20, List(3) { still } + listOf(turned, still) + List(20) { still })
         val at = said.indexOf("alert")
         assertTrue("alerted $at s after stopping", at >= 5 + 6)   // at least about 6 s of looks after the turn
+    }
+
+    // Smoke on your own square (someone lit a fire under you): work that swaps colours in the box (green and red
+    // here), then the box only getting lighter and darker, as see-through grey smoke does to what's behind it
+    private val colourWork = List(20) { if (it % 2 == 0) screen(0x408020) else screen(0x903030) }
+    private fun smoke(seconds: Int) = List(seconds) { if (it % 2 == 0) screen(0x505050) else screen(0x909090) }
+
+    @Test
+    fun smokeOverYouAfterColourfulWorkStillAlerts() {
+        val watch = IdleWatch()
+        assertFalse(run(watch, 0, colourWork).contains("alert"))
+        val said = run(watch, 20, smoke(40))
+        assertEquals(1, said.count { it == "alert" })
+        // the first smoky look still differs in colour from the last look of work; from the next one on they're quiet,
+        // and 5 of the 9 looks in 8 seconds are quiet at the sixth
+        assertEquals(5, said.indexOf("alert"))
+        // working again in the smoke, then stopping again: a second alert, and none while working
+        val back = run(watch, 60, colourWork)
+        val again = run(watch, 80, smoke(20))
+        assertFalse(back.contains("alert"))
+        assertEquals(1, again.count { it == "alert" })
+    }
+
+    @Test
+    fun lighterAndDarkerAloneIsStillWorkIfThatsAllYourWorkEverShowed() {
+        // work that never changed the box's colours (grey on grey) isn't judged by colour: it never alerts
+        // (workingNeverAlerts is the same thing from the start; here after a stretch of standing and an alert)
+        val watch = IdleWatch()
+        run(watch, 0, working(20))
+        run(watch, 20, List(20) { still })
+        val said = run(watch, 40, working(60))
+        assertFalse(said.contains("alert"))
+    }
+
+    @Test
+    fun aCameraMoveForgetsWhatWasLearnedAboutColour() {
+        // colourful work, the camera turns, then the box only gets lighter and darker: from the new view nothing says
+        // that's not your work, so no alert
+        val watch = IdleWatch()
+        run(watch, 0, colourWork)
+        val turned = screen(0x408020, 0xA0A0A0)
+        val said = run(watch, 20, listOf(turned, screen(0x408020)) + smoke(40))
+        assertFalse(said.contains("alert"))
     }
 
     @Test
