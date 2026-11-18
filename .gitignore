@@ -53,3 +53,13 @@ tools/gardenbox.png
 
 # Solved puzzle box pictures for the PC test PuzzleAllBoxesTest, kept on this computer only (never part of the app)
 /tools/puzzle-box/picture_cache/
+
+# The Puzzle Box practice app for the emulator (tools/puzzle-sim): kept on this computer only
+/tools/puzzle-sim/
+
+# Notes for working on the app (Claude's instructions and settings, the tools' "how to update" notes): kept on this
+# computer only (owner's decision, November 2026)
+/CLAUDE.md
+/.claude/
+/docs/*
+!/docs/logo.png
