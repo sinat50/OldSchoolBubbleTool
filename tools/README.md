@@ -9,7 +9,7 @@ checker's wiki edits): `python tools/wiki_diff.py "Page title" OLD_REVISION_NUMB
 
 ## Teleport Finder (`teleport-finder/`)
 
-The full update routine, step by step, with the route check: `docs/teleport-finder.md`.
+The steps below rebuild the data; check a few routes in the app afterwards.
 
 Sources to download first:
 
@@ -49,19 +49,23 @@ through the wiki's API, and RuneLite's item icons.
 
 `quest_files.py` shows, adds and replaces quests in `QuestData.kt` and `QuestGuides.kt` (the app's code folder),
 from one JSON file per quest kept in `quest-helper/quests/`. Each file is written by hand from the Quest Helper
-plugin's Java, following `docs/quest-helper.md`. `python tools/quest-helper/quest_files.py` (from the project
+plugin's Java. `python tools/quest-helper/quest_files.py` (from the project
 folder) lists its commands.
 
 `sync_tables.py` makes `SyncTables.kt` for Bubble Sync: each quest's RuneLite ID and each diary task's place in the
 Bubble Tool Sync plugin's code. Run it after adding a quest or changing a diary: `python
 tools/quest-helper/sync_tables.py QUEST_HELPER_FOLDER QUEST_JAVA` (a clone of the Quest Helper plugin and RuneLite's
-`Quest.java`; details at the top of the script and in `docs/quest-helper.md`).
+`Quest.java`; details at the top of the script).
 
 ## Puzzle Box Solver (`puzzle-box/`)
 
 `python tools/puzzle-box/build_tile_fingerprints.py` (from the project folder; needs Pillow and numpy) makes
 `puzzle_tiles.bin`: each puzzle's tiles as 8 x 8 average colours, read from the OSRS Wiki's solved pictures, which
 are not saved. A new puzzle box only needs a new line in the script's `PUZZLES` list. `PuzzleTilesTest` checks the file.
+
+`python tools/puzzle-box/get_test_pictures.py` downloads the same solved pictures into `puzzle-box/picture_cache/`
+(in `.gitignore`: PC only, never in the app) for `PuzzleAllBoxesTest`, which draws every puzzle, shuffled, over the
+owner's Troll screenshots at three brightness settings and runs the solver on them. Run it again after adding a puzzle.
 
 ## DPS Calculator gear import (`dps/`)
 
@@ -76,3 +80,19 @@ cd osrs-dps-calc && git checkout <CalculatorItems.COMMIT>
 | `build_gear_summaries.py` | `dps/gear_summaries.bin` | `python tools/dps/build_gear_summaries.py` (from the project folder). Every wearable item's icon (RuneLite's, from `tools/items/icon_cache/` or downloaded) as 9 x 8 colour squares, for Import my gear, which keeps no item pictures. The owner's limit is 9 x 8 at the most. Run it after the item lists change (`tools/items/`). `GearImportTest` checks it on the owner's screenshots. |
 
 If you move to a newer version of the repository, update `COMMIT` in `CalculatorItems.kt`, then rebuild `equipment.json`.
+
+## Mastering Mixology (`mixology/`)
+
+`python tools/mixology/build_name_shapes.py` (from the project folder; needs Pillow and numpy) makes
+`mixology/names.tsv`: each potion name's shape (its width and ink per column) written in RuneLite's copy of the game
+font (`runescape.ttf`, BSD 2-Clause, downloaded at the commit in the script and not saved; no font goes into the
+app). The tool reads the Potion Orders box by these shapes. The script checks every name is still told apart at
+three phone sizes and stops if not. A new potion needs its name in the script's `NAMES` and in `MixologyData.kt`.
+`MixologyReaderTest` checks it on the owner's screenshots.
+
+`python tools/mixology/build_potion_summaries.py` (needs Pillow) makes `mixology/potions.tsv`: each Mixology potion's
+inventory icon, without and with a cork, as 9 x 8 colour squares (the same idea as `dps/gear_summaries.bin`), from
+RuneLite's item icons (`tools/items/icon_cache/` if they're there, otherwise downloaded and not saved; no pictures go
+into the app). The tool's bag tags recognise the potions in your inventory by these. The item IDs are the ones the
+Mastering Mixology plugin tags; the script stops if two kinds look too alike in the squares the tool compares.
+`MixologyBagTest` checks it on the owner's recording.

@@ -112,14 +112,40 @@ class ScreenCapturer(
     // Called whenever a tool uses the capture: makes sure it's running, and pauses it again
     // once nothing has used it for a few seconds
     private fun touch() {
-        if (paused) {
-            val d = display
-            val r = reader
-            if (d != null && r != null) {
-                d.surface = r.surface
-                paused = false
-            }
+        uses++
+        resume()
+        handler.removeCallbacks(pauseWhenIdle)
+        handler.postDelayed(pauseWhenIdle, IDLE_PAUSE_MS)
+    }
+
+    private fun resume() {
+        if (!paused) return
+        val d = display ?: return
+        val r = reader ?: return
+        d.surface = r.surface
+        paused = false
+    }
+
+    // Times the capture was used since the last rest()
+    private var uses = 0
+
+    // For a tool that looks only now and then (the Idle Notifier, once a second): pauses the capture straight after
+    // its look instead of 3 seconds later, so Android isn't copying every screen frame in between. Left running if
+    // another tool used it since this one's last rest (a puzzle guide or ToA Watch looking many times a second).
+    fun rest() {
+        val alone = uses <= 1
+        uses = 0
+        if (alone && !paused && display != null) {
+            handler.removeCallbacks(pauseWhenIdle)
+            pause()
         }
+    }
+
+    // Starts the capture again a moment before that tool's next look, so a fresh picture is ready by then. (Not
+    // counted as a use; it still pauses by itself after a few seconds if no look follows.)
+    fun wake() {
+        if (display == null) return
+        resume()
         handler.removeCallbacks(pauseWhenIdle)
         handler.postDelayed(pauseWhenIdle, IDLE_PAUSE_MS)
     }
@@ -311,15 +337,57 @@ class ScreenCapturer(
             null
         } ?: return null
         image.use {
-            val plane = image.planes[0]
-            if (singleApp()) {
-                val (w, h, _) = screenSize()
-                if (image.width <= w && image.height <= h) {
-                    val (ox, oy) = contentOffset(image.width, image.height)
-                    return block(Frame(plane.buffer, plane.rowStride, plane.pixelStride, w, h, ox, oy, image.width, image.height))
-                }
+            return block(frameOf(image, image.planes[0].buffer))
+        }
+    }
+
+    // A Frame over these pixels (the image's own, or a copy of them laid out the same way), placed where the game
+    // sits on the screen when only the game is shared
+    private fun frameOf(image: android.media.Image, buffer: java.nio.ByteBuffer): Frame {
+        val plane = image.planes[0]
+        if (singleApp()) {
+            val (w, h, _) = screenSize()
+            if (image.width <= w && image.height <= h) {
+                val (ox, oy) = contentOffset(image.width, image.height)
+                return Frame(buffer, plane.rowStride, plane.pixelStride, w, h, ox, oy, image.width, image.height)
             }
-            return block(Frame(plane.buffer, plane.rowStride, plane.pixelStride, image.width, image.height))
+        }
+        return Frame(buffer, plane.rowStride, plane.pixelStride, image.width, image.height)
+    }
+
+    // Where `copy` keeps its copy of the screen: made once and reused. One per thread that reads the copies, and
+    // never written while that thread may still be reading the last one (the tool using it makes sure of that).
+    class FrameStore {
+        internal var buffer: java.nio.ByteBuffer? = null
+    }
+
+    // Like `sample`, but the newest screen image is copied into `store` first (one quick block copy, 2 or 3 ms for
+    // the whole screen) and the Frame returned reads the copy. So another thread can read it for as long as it
+    // likes: the capture's own image is let go at once, and the capture can pause, rest or change size meanwhile
+    // without pulling the pixels from under it. Null if nothing changed (as `sample`).
+    fun copy(store: FrameStore): Frame? {
+        touch()
+        if (!visible) { drain(); return null }
+        val r = reader ?: return null
+        val image = try {
+            r.acquireLatestImage()
+        } catch (e: Exception) {
+            null
+        } ?: return null
+        image.use {
+            return try {
+                val src = image.planes[0].buffer.duplicate()
+                src.position(0)
+                val size = src.remaining()
+                val out = store.buffer?.takeIf { it.capacity() >= size }
+                    ?: java.nio.ByteBuffer.allocateDirect(size).also { store.buffer = it }
+                out.clear()
+                out.put(src)
+                out.clear()   // (the Frame reads by position, so the whole buffer is left open to it)
+                frameOf(image, out)
+            } catch (e: RuntimeException) {
+                null   // an odd picture from the phone: skip it rather than crash
+            }
         }
     }
 
@@ -338,6 +406,7 @@ class ScreenCapturer(
     private fun cleanUp() {
         handler.removeCallbacks(pauseWhenIdle)
         paused = false
+        uses = 0
         display?.release()
         display = null
         reader?.close()

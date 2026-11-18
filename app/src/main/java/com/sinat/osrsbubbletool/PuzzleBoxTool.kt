@@ -63,6 +63,11 @@ class PuzzleBoxTool(
     private var candidateEmpty = -1
     private var candidateSince = 0L
     private var candidateSeen = 0
+    private var looksAtMove: IntArray? = null   // the tiles' looks since the last move (PuzzleFinder.tileLooks)
+    private var latestLooks: IntArray? = null   // the tiles' looks on the newest screen (a look is skipped while the
+                                                // screen hasn't changed, so this is kept)
+    private var roundTrip = 0                  // moves that look made round and back to the same empty space...
+    private var roundTripSeen = 0              // ...and on how many looks in a row
     private var lastSeen = 0L
     private var tracking = false
     private var solving = false
@@ -344,6 +349,9 @@ class PuzzleBoxTool(
         step = 0
         currentEmpty = emptyPosition
         candidateEmpty = -1
+        looksAtMove = null
+        latestLooks = null
+        roundTrip = 0
         lastSeen = SystemClock.uptimeMillis()
         if (firstTime) guide.show(area)
         updateGuide()
@@ -425,7 +433,11 @@ class PuzzleBoxTool(
         // null = screen unchanged
         val empty = capture.sample {
             if (!PuzzleFinder.frameVisible(it, area, lastFrame)) -2
-            else if (finished) -3 else PuzzleFinder.emptySpace(it, area, guide.coveredTiles)
+            else if (finished) -3
+            else {
+                latestLooks = PuzzleFinder.tileLooks(it, area)
+                PuzzleFinder.emptySpace(it, area, guide.coveredTiles)
+            }
         }
         if (empty == -2) {
             // closed: clear everything off the screen straight away
@@ -453,21 +465,46 @@ class PuzzleBoxTool(
                 candidateSeen++
             }
         }
+        // the empty space still where it was (or the screen unchanged since it was seen there)
+        if (empty == currentEmpty || (empty == null && candidateEmpty == currentEmpty)) {
+            checkRoundTrip(latestLooks)
+            return
+        }
         if (candidateEmpty == -1 || candidateEmpty == currentEmpty) return
         if (candidateSeen < 2 && now - candidateSince < SETTLE_MS) return
-        onEmptyMoved(candidateEmpty)
+        onEmptyMoved(candidateEmpty, latestLooks)
     }
 
-    // After a move, the empty space sits where the tapped tile was
-    private fun onEmptyMoved(newEmpty: Int) {
-        val remaining = solution.size - step
-        for (k in 0 until minOf(LOOKAHEAD, remaining)) {
-            if (solution[step + k] == newEmpty) {
-                step += k + 1
-                currentEmpty = newEmpty
-                if (step >= solution.size) finish() else updateGuide()
-                return
-            }
+    // The empty space is where it was, but did tiles move? A fast player can go round a square of 4 tiles within one
+    // game tick, and the empty space ends where it started (found on the emulator's practice puzzle, November 2026).
+    // Counts once the same change is seen on two looks in a row (an unchanged screen counts as another look).
+    private fun checkRoundTrip(looks: IntArray?) {
+        if (looks == null) return
+        val before = looksAtMove
+        if (before == null) { looksAtMove = looks; return }
+        val made = PuzzleFinder.movesMade(solution, step, currentEmpty, currentEmpty,
+            PuzzleFinder.changedTiles(before, looks), LOOKAHEAD)
+        if (made == 0) { roundTrip = 0; return }
+        if (made != roundTrip) { roundTrip = made; roundTripSeen = 1; return }
+        if (++roundTripSeen < 2) return
+        roundTrip = 0
+        looksAtMove = looks
+        step += made
+        if (step >= solution.size) finish() else updateGuide()
+    }
+
+    // After a move, the empty space sits where the tapped tile was. `looks` = the tiles' looks now, to tell how
+    // many planned moves were made (PuzzleFinder.movesMade)
+    private fun onEmptyMoved(newEmpty: Int, looks: IntArray?) {
+        val before = looksAtMove
+        val changed = if (before != null && looks != null) PuzzleFinder.changedTiles(before, looks) else null
+        val made = PuzzleFinder.movesMade(solution, step, currentEmpty, newEmpty, changed, LOOKAHEAD)
+        looksAtMove = looks
+        if (made > 0) {
+            step += made
+            currentEmpty = newEmpty
+            if (step >= solution.size) finish() else updateGuide()
+            return
         }
         // A different move was made: read the tiles again and work out a new plan from here
         currentEmpty = newEmpty

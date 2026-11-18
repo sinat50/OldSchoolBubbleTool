@@ -40,7 +40,7 @@ class MainActivity : Activity() {
         // The app's Discord server (also in the README and at the top of every release's notes)
         private const val DISCORD_INVITE = "https://discord.gg/MM6mFmkGh"
 
-        // The BSD 2-Clause licence conditions and disclaimer (used by the Zulrah, ToA Puzzle Helper, RuneLite, Teleport Finder and Quest Helper credits)
+        // The BSD 2-Clause licence conditions and disclaimer (used by the Zulrah, ToA Puzzle Helper, Mastering Mixology, RuneLite, Teleport Finder and Quest Helper credits)
         private const val BSD_TERMS =
             "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\n" +
                 "1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n\n" +
@@ -583,6 +583,18 @@ class MainActivity : Activity() {
             "Copyright (c) 2019, Ron Young <https://github.com/raiyni>\nAll rights reserved.\n\n" +
             BSD_TERMS,
             size = 11f)
+
+        section("Mastering Mixology",
+            "Each potion's recipe and the lever colours, from the Mastering Mixology RuneLite plugin by Hexagon " +
+            "(github.com/hex-agon/mastering-mixology), used under the BSD 2-Clause License. The potion names are " +
+            "recognised by their shapes, worked out on a computer from the game font in RuneLite " +
+            "(github.com/runelite/runelite), used under the BSD 2-Clause License (Copyright (c) 2016-2017, Adam); " +
+            "the font itself isn't in the app. The potions in your inventory are recognised by colour summaries of " +
+            "each potion (a few squares of colour, not pictures), worked out from RuneLite's item icons " +
+            "(static.runelite.net), which are (c) Jagex Ltd and aren't in the app; which items are the potions is " +
+            "from the same plugin.\n\n" +
+            "Copyright (c) 2024, hexagon@fking.work\nAll rights reserved.\n\n" +
+            BSD_TERMS, size = 11f)
 
         section("Teleport Finder",
             "Teleport destinations, the walking map, and the doors, ladders, cave entrances, boats, portals and levers that join places, from the Shortest Path RuneLite plugin " +

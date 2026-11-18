@@ -2204,7 +2204,7 @@
 3511	Casket (easy)		Casket (discontinued).png	Casket (discontinued)
 3512	Clue scroll (easy)		Clue scroll (easy).png	Clue scroll (easy) - Search the drawers in a house in Draynor Village
 3513	Clue scroll (easy)		Clue scroll (easy).png	Clue scroll (easy) - Speak to the staff of Sinclair mansion
-3514	Clue scroll (easy)		Clue scroll (easy).png	Clue scroll (easy) - Someone watching the fights in the Emir's Arena
+3514	Clue scroll (easy)		Clue scroll (easy).png	Clue scroll (easy) - Someone watching the fights at the Emir's Arena
 3515	Clue scroll (easy)		Clue scroll (easy).png	Clue scroll (easy) - Search for a crate in Varrock Castle
 3516	Clue scroll (easy)		Clue scroll (easy).png	Clue scroll (easy) - Brother Galahad's house
 3517	Casket (easy)		Casket (discontinued).png	Casket (discontinued)
@@ -5924,7 +5924,7 @@
 10004	Hunter potion(1)		Hunter potion(1).png	Hunter potion
 10006	Bird snare		Bird snare.png	
 10008	Box trap		Box trap.png	
-10010	Butterfly net	weapon	Butterfly net.png	
+10010	Insect net	weapon	Insect net.png	
 10012	Butterfly jar		Butterfly jar.png	
 10014	Black warlock		Black warlock (item).png	Black warlock (item)
 10016	Snowy knight		Snowy knight (item).png	Snowy knight (item)
@@ -6624,7 +6624,7 @@
 11254	Ninja impling jar		Ninja impling jar.png	
 11256	Dragon impling jar		Dragon impling jar.png	
 11258	Jar generator		Jar generator.png	
-11259	Magic butterfly net	weapon	Magic butterfly net.png	
+11259	Magic insect net	weapon	Magic insect net.png	
 11260	Impling jar		Impling jar.png	
 11262	Imp repellent		Imp repellent.png	
 11264	Anchovy oil		Anchovy oil.png	
@@ -12200,7 +12200,7 @@
 27182	Saradomin chaps	legs	Saradomin chaps (Last Man Standing).png	Saradomin chaps (Last Man Standing)
 27183	3rd Age mage hat	head	3rd Age mage hat (Last Man Standing).png	3rd Age mage hat (Last Man Standing)
 27184	Ancient godsword	weapon	Ancient godsword (Last Man Standing).png	Ancient godsword (Last Man Standing)
-27185	Rune defender	shield	Rune defender.png	Rune defender (Last Man Standing)
+27185	Rune defender	shield	Rune defender (Last Man Standing).png	Rune defender (Last Man Standing)
 27186	Zaryte crossbow	weapon	Zaryte crossbow (Last Man Standing).png	Zaryte crossbow (Last Man Standing)
 27187	Bow of Faerdhinen (c)	weapon	Bow of Faerdhinen (c) (Last Man Standing).png	Bow of Faerdhinen (c) (Last Man Standing)
 27188	Light ballista	weapon	Light ballista (Last Man Standing).png	Light ballista (Last Man Standing)
@@ -16105,3 +16105,20 @@
 34760	Letter		Letter (Bernard Holland).png	Letter (Bernard Holland)
 34761	Certificate		Certificate (The Writing's on the Wall).png	Certificate (The Writing's on the Wall)
 34762	Amulet of sight	neck	Amulet of sight.png	
+34766	Painted shortsword	weapon	Painted shortsword.png	
+34769	Painted kiteshield	shield	Painted kiteshield.png	
+34772	Painted shortbow	weapon	Painted shortbow.png	
+34775	Bee box		Bee box.png	
+34777	Bee hunter's hat	head	Bee hunter's hat.png	
+34779	Wasp sting		Wasp sting.png	
+34781	Killer wasp sting		Killer wasp sting.png	
+34783	Brown feather		Brown feather.png	
+34785	Black feather		Black feather.png	
+34787	Wasp dart		Wasp dart.png	
+34789	Killer wasp dart		Killer wasp dart.png	
+34791	Bea's supplies		Bea's supplies.png	
+34793	Fresh leaves		Fresh leaves.png	
+34795	Dew-covered branch		Dew-covered branch.png	
+34797	Restorative dew		Restorative dew.png	
+34799	Strong sticks		Strong sticks.png	
+34801	Pink snelm	head	Pink snelm.png	

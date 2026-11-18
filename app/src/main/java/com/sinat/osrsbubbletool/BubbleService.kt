@@ -243,6 +243,7 @@ class BubbleService : Service() {
         PUZZLE_BOX("Puzzle Box Solver"),
         LIGHT_BOX("Light Box Solver"),
         TOA_PUZZLES("ToA Puzzle Helper"),
+        MIXOLOGY("Mastering Mixology"),   // recipes beside the orders and dots on the levers
         INVENTORY_SETUPS("Gear Loadouts"),   // (named Inventory Setups before; the name stays, it's saved in settings)
         XP_CALCULATOR("XP Calculator"),
         DPS_CALCULATOR("DPS Calculator"),
@@ -250,6 +251,7 @@ class BubbleService : Service() {
         TEARS_OF_GUTHIX("Tears of Guthix Worlds"),
         ZULRAH("Zulrah Helper"),
         FARMING("Timers"),
+        IDLE_NOTIFIER("Idle Notifier"),   // buzzes when your character stops working
         PRICES("GE Prices"),
         CALCULATOR("Calculator"),
         NOTES("Notepad"),
@@ -1030,6 +1032,15 @@ class BubbleService : Service() {
         }
         Tool.FARMING -> FarmingTool(toolContext).let { t ->
             ToolParts(t::buildView, onBack = null, onClosed = t::onWindowClosed, onDestroy = t::destroy)
+        }
+        // (closing the window while it watches keeps it watching; tap the bubble to see how it's going, or to stop)
+        Tool.IDLE_NOTIFIER -> IdleNotifierTool(toolContext, windowManager, capture, ::setWindowCompact) { hideToolWindow() }.let { t ->
+            ToolParts(t::buildView, onBack = null, onClosed = t::onWindowClosed, onRotated = t::onRotated, onDestroy = t::destroy,
+                isBusy = t::isWatching)
+        }
+        // (closing the window keeps it watching; tap the bubble to see what it sees, or to stop)
+        Tool.MIXOLOGY -> MixologyTool(toolContext, windowManager, capture) { hideToolWindow() }.let { t ->
+            ToolParts(t::buildView, onBack = null, onRotated = t::onRotated, onDestroy = t::destroy, isBusy = t::isWatching)
         }
         Tool.QUESTS -> QuestHelperTool(toolContext, openWiki = { url -> openWikiLink(url, returnTo = Tool.QUESTS) },
             hideWindow = { hideToolWindow() }, openSync = { openSync(Tool.QUESTS) }).let { t ->
