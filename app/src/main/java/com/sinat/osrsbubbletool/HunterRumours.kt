@@ -41,8 +41,8 @@ object HunterRumours {
     val BOX_TRAP = Method("Box trap",
         listOf("Box traps (one for each trap you can lay)"),
         listOf("Knife with teak logs or celastrus bark, for tick manipulation", "Hunter's spear or a ranged weapon, to deal with strays"))
-    val BUTTERFLY = Method("Butterfly net",
-        listOf("Butterfly net or magic butterfly net (not needed once you're 10+ levels above the creature)"),
+    val BUTTERFLY = Method("Insect net",
+        listOf("Insect net or magic insect net (not needed once you're 10+ levels above the creature)"),
         listOf("Butterfly jars, only if you want to keep them"))
     val MOTH = Method("Bare-handed",
         listOf("Nothing: moth rumours are only given once you can catch them bare-handed"),
