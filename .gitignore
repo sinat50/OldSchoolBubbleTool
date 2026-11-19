@@ -63,3 +63,6 @@ tools/gardenbox.png
 /.claude/
 /docs/*
 !/docs/logo.png
+
+# Reads the game cache for the Idle Notifier research: kept on the owner's computer only
+/tools/idle-detection/cache_animations.py
