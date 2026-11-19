@@ -1,0 +1,332 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder barbariantraining; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Barbarian Training",
+  "items": [
+   "Any seed that can be planted directly",
+   "Any sapling you can plant",
+   "Spade",
+   "Any bow",
+   "Oak logs",
+   "Tinderbox",
+   "Any axe",
+   "Feathers",
+   "Knife",
+   "Hammer",
+   "Bronze bar (2)",
+   "Logs (3)",
+   "Attack potion (2)",
+   "Roe",
+   "Anti-dragon shield or DFS",
+   "Combat gear"
+  ],
+  "rec": [
+   "Games necklace (5)",
+   "Catherby teleport for fishing"
+  ],
+  "enemies": [
+   "Mithril Dragon (level 304)"
+  ],
+  "rewards": [],
+  "sec": [
+   {
+    "n": "Barbarian Fishing",
+    "st": [
+     {
+      "t": "Talk to Otto in his hut north-west of Baxtorian Falls about fishing.",
+      "s": [
+       "You think so?",
+       "What can I learn about the use of a fishing rod?"
+      ]
+     },
+     {
+      "t": "Search the bed in Otto's hut."
+     },
+     {
+      "t": "Fish from one of the fishing spots near Otto's hut.",
+      "i": [
+       "Barbarian rod",
+       "Feathers"
+      ]
+     },
+     {
+      "t": "Return to Otto and tell him about your success.",
+      "s": [
+       "I've fished with a barbarian rod!"
+      ]
+     }
+    ],
+    "i": [
+     "Feathers"
+    ],
+    "tr": [
+     "Games necklace",
+     "Catherby teleport for fishing"
+    ]
+   },
+   {
+    "n": "Barbarian Herblore",
+    "st": [
+     {
+      "t": "Talk to Otto in his hut north-west of Baxtorian Falls about herblore.",
+      "s": [
+       "What was that secret knowledge of herblore we talked of?"
+      ]
+     },
+     {
+      "t": "Fish from one of the fishing spots near Otto's hut.",
+      "i": [
+       "Barbarian rod"
+      ]
+     },
+     {
+      "t": "Dissect the fish with a knife until you get some roe.",
+      "i": [
+       "Knife",
+       "Leaping trout/salmon/sturgeon"
+      ]
+     },
+     {
+      "t": "Use roe on an attack potion (2).",
+      "i": [
+       "Roe",
+       "Attack potion (2)"
+      ]
+     },
+     {
+      "t": "Talk to Otto in his hut north-west of Baxtorian Falls.",
+      "s": [
+       "I've made a barbarian potion!"
+      ],
+      "i": [
+       "Attack mix (2)"
+      ]
+     }
+    ],
+    "i": [
+     "Attack potion (2)",
+     "Knife",
+     "Barbarian rod",
+     "Feathers"
+    ]
+   },
+   {
+    "n": "Barbarian Harpooning",
+    "st": [
+     {
+      "t": "Talk to Otto in his hut north-west of Baxtorian Falls about barehand fishing.",
+      "s": [
+       "You think so?",
+       "Please teach me of your cunning with harpoons."
+      ]
+     },
+     {
+      "t": "Go to a fishing spot that needs a harpoon, such as on the Catherby shore. With no harpoon in your inventory or equipped, fish there with your bare hands."
+     },
+     {
+      "t": "Return to Otto in his hut north-west of Baxtorian Falls.",
+      "s": [
+       "Barbarian Outpost.",
+       "I've fished with my hands!"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Barbarian Planting",
+    "st": [
+     {
+      "t": "Talk to Otto in his hut north-west of Baxtorian Falls about farming.",
+      "s": [
+       "You think so?",
+       "How can I use my strength in the ways of agriculture?"
+      ]
+     },
+     {
+      "t": "Plant a seed in a patch WITHOUT a dibber. This can fail, so bring multiple and preferably use cheap seeds.",
+      "i": [
+       "Any seed that can be planted directly (9)"
+      ]
+     },
+     {
+      "t": "Return to Otto in his hut north-west of Baxtorian Falls.",
+      "s": [
+       "I've planted seeds with my fists!"
+      ]
+     }
+    ],
+    "i": [
+     "Any seed that can be planted directly"
+    ]
+   },
+   {
+    "n": "Barb Plant Pot Smashing",
+    "st": [
+     {
+      "t": "Talk to Otto in his hut north-west of Baxtorian Falls about advanced farming.",
+      "s": [
+       "Are there any other fist related farming activities I can learn?"
+      ]
+     },
+     {
+      "t": "Plant a sapling in a tree or fruit tree patch.",
+      "i": [
+       "Any sapling you can plant",
+       "Spade"
+      ]
+     },
+     {
+      "t": "Return to Otto in his hut north-west of Baxtorian Falls.",
+      "s": [
+       "I've smashed a pot whilst farming!"
+      ]
+     }
+    ],
+    "i": [
+     "Any sapling you can plant",
+     "Spade"
+    ]
+   },
+   {
+    "n": "Barbarian Firemaking",
+    "st": [
+     {
+      "t": "Talk to Otto in his hut north-west of Baxtorian Falls about firemaking.",
+      "s": [
+       "You think so?",
+       "I'm ready for your firemaking wisdom. Please instruct me."
+      ]
+     },
+     {
+      "t": "Use a bow on some oak logs to light it.",
+      "i": [
+       "Any bow",
+       "Oak logs"
+      ]
+     },
+     {
+      "t": "Return to Otto in his hut north-west of Baxtorian Falls.",
+      "s": [
+       "I've set fire to logs with a bow!"
+      ]
+     }
+    ],
+    "i": [
+     "Any bow",
+     "Oak logs"
+    ]
+   },
+   {
+    "n": "Barbarian Smithing",
+    "st": [
+     {
+      "t": "Talk to Otto in his hut north-west of Baxtorian Falls about spears.",
+      "s": [
+       "Tell me more about the use of spears."
+      ]
+     },
+     {
+      "t": "Make a bronze spear on the anvil south of Otto.",
+      "i": [
+       "Bronze bar",
+       "Logs",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Talk to Otto in his hut north-west of Baxtorian Falls.",
+      "s": [
+       "I've created a spear!"
+      ]
+     },
+     {
+      "t": "Talk to Otto in his hut north-west of Baxtorian Falls about hastae.",
+      "s": [
+       "Tell me more about the use of spears.",
+       "What of the one-handed spears of which you spoke?"
+      ]
+     },
+     {
+      "t": "Make a bronze hasta on the anvil south of Otto.",
+      "i": [
+       "Bronze bar",
+       "Logs",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Talk to Otto in his hut north-west of Baxtorian Falls.",
+      "s": [
+       "I've created a hasta!"
+      ]
+     }
+    ],
+    "i": [
+     "Hammer",
+     "Bronze bar (2)",
+     "Logs (2)"
+    ]
+   },
+   {
+    "n": "Barbarian Pyremaking",
+    "st": [
+     {
+      "t": "Talk to Otto in his hut north-west of Baxtorian Falls about advanced firemaking.",
+      "s": [
+       "I have completed firemaking with a bow. What follows this?"
+      ]
+     },
+     {
+      "t": "Bring a teleport you can use at once, as there is no exit close to where you arrive. Jump into the whirlpool north of Otto. Be prepared to fight mithril dragons.",
+      "i": [
+       "Combat gear",
+       "Anti-dragon shield or DFS",
+       "Teleport"
+      ]
+     },
+     {
+      "t": "Climb down the stairs. There are brutal green dragons there, so have antifire protection and Protect from Magic on!"
+     },
+     {
+      "t": "Climb up the stairs to the south-east. Be ready to fight the mithril dragons!"
+     },
+     {
+      "t": "Kill mithril dragons until you get some chewed bones."
+     },
+     {
+      "t": "Pick up the chewed bones.",
+      "i": [
+       "Chewed bones"
+      ]
+     },
+     {
+      "t": "Go to the patch of burnt ground by the lake, north of Otto's hut. Use your logs on it to construct a pyre ship, then light it.",
+      "i": [
+       "Logs",
+       "Chewed bones",
+       "Tinderbox",
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Return to Otto and tell him about the succesful pyre-making.",
+      "s": [
+       "I've created a pyre ship!"
+      ]
+     }
+    ],
+    "i": [
+     "Logs",
+     "Tinderbox",
+     "Any axe",
+     "Combat gear",
+     "Anti-dragon shield or DFS"
+    ],
+    "c": 1,
+    "e": [
+     "Mithril Dragon (level 304)"
+    ]
+   }
+  ]
+ }
+}

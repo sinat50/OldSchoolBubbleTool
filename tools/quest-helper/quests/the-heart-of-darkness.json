@@ -1,0 +1,438 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder theheartofdarkness; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Heart of Darkness",
+  "items": [
+   "Coins (30)",
+   "Combat gear",
+   "Food (10)",
+   "Prayer potions (2)"
+  ],
+  "rec": [
+   "Quetzal feed (10)",
+   "Limestone brick (3)",
+   "Soft clay (4)",
+   "Stamina potions",
+   "Civitas illa fortis teleport"
+  ],
+  "enemies": [
+   "Several Emissary Brawlers (levels 74 and 86)",
+   "Several Emissary Conjurers (level 71)",
+   "Prince Itzla Arkan (level 167)",
+   "Amoxliatl (level 263)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "8,000 Mining XP",
+   "8,000 Thieving XP",
+   "8,000 Slayer XP",
+   "8,000 Agility XP",
+   "Access to Tapoyauik"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Prince Itzla Arkan at the Teomat. You can travel here using Renu the quetzal.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Travel on Renu to the Quetzacalli Gorge."
+     },
+     {
+      "t": "Talk to the Bartender in the pub in the Gorge.",
+      "s": [
+       "I'd like to rent the basement room.",
+       "I'll take it."
+      ],
+      "i": [
+       "Coins (30)"
+      ]
+     },
+     {
+      "t": "Rest in the bed in the south-eastern room of the pub."
+     },
+     {
+      "t": "Talk to Prince Itzla Arkan in the bedroom."
+     },
+     {
+      "t": "Talk to the shopkeeper east of the pub.",
+      "s": [
+       "I hear you can offer help to those in need."
+      ]
+     },
+     {
+      "t": "Return to Prince Itzla Arkan in the bedroom."
+     }
+    ],
+    "i": [
+     "Coins (30)"
+    ],
+    "c": 1,
+    "e": [
+     "Prince Itzla Arkan (level 167)"
+    ]
+   },
+   {
+    "n": "The Tower",
+    "st": [
+     {
+      "t": "Optional: if you brought 10 quetzal feed, 3 limestone bricks and 4 soft clay, build the landing site in the north of the salvager overlook before going to the tower. Otherwise, skip this step.",
+      "i": [
+       "Quetzal feed (10)",
+       "Limestone brick (3)",
+       "Soft clay (4)"
+      ]
+     },
+     {
+      "t": "If you're still at the pub, go through the large gate to the north. Run east past the proudspire to the Tower of Ascension, south-east of the salvager overlook. Talk to the prince just outside the tower's entrance.",
+      "s": [
+       "Alright, I'll get mingling."
+      ]
+     },
+     {
+      "t": "Talk to Felius outside the tower."
+     },
+     {
+      "t": "Talk to Caritta outside the tower."
+     },
+     {
+      "t": "Talk to Sergius outside the tower."
+     },
+     {
+      "t": "Talk to Nova outside the tower."
+     },
+     {
+      "t": "Make sure no pet is following you, then talk to the prince at the Tower of Ascension to the south-east of the salvager overlook again.",
+      "s": [
+       "Could you remind me what Ximoua is?"
+      ]
+     },
+     {
+      "t": "Talk to Forebearer Janus inside the tower."
+     },
+     {
+      "t": "Climb up the staircase in the tower to the first challenge."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Food (10)"
+    ],
+    "tr": [
+     "Quetzal feed (10)"
+    ],
+    "r": [
+     "Stamina potions",
+     "Limestone brick (3)",
+     "Soft clay (4)"
+    ],
+    "c": 1
+   },
+   {
+    "n": "First Trial",
+    "st": [
+     {
+      "t": "Pickpocket one of the emissary ascended."
+     },
+     {
+      "t": "Use the key to open the gate in the south-east corner of the room.",
+      "i": [
+       "Tower key"
+      ]
+     },
+     {
+      "t": "Search the south-east chest for a book and some paper."
+     },
+     {
+      "t": "Read the book."
+     },
+     {
+      "t": "Search the south-west chest."
+     },
+     {
+      "t": "Open the chest using the code from the book: the first letter of each white word, in order."
+     },
+     {
+      "t": "Read the poem."
+     },
+     {
+      "t": "Talk to the prince in the room and ask him to translate the words in the poem.",
+      "s": [
+       "Makt.",
+       "Takam.",
+       "Silam.",
+       "Thanks! Could you translate another?"
+      ]
+     },
+     {
+      "t": "Open the north-west chest."
+     },
+     {
+      "t": "Solve the arrow puzzle by tapping them in the right order. The four white words in the poem give the order: Makt is Up, Takam is Right, Uitt is Down and Silam is Left."
+     },
+     {
+      "t": "Inspect one of the scraps to combine them."
+     },
+     {
+      "t": "Read the completed note."
+     },
+     {
+      "t": "Talk to Janus on this floor and tell him the passcode from the note. Do not go downstairs to speak to him, as that resets the trial.",
+      "s": [
+       "About that passphrase...",
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Second Trial",
+    "st": [
+     {
+      "t": "Talk to Forebearer Janus, ready to fight.",
+      "s": [
+       "Yes! I'm ready."
+      ]
+     },
+     {
+      "t": "Defeat the waves of enemies. Use Protect from Melee. You can heal yourself and the prince using bandages from the chests in the area."
+     },
+     {
+      "t": "Talk to Forebearer Janus again to progress to the third trial.",
+      "s": [
+       "Yes.",
+       "Proceed to the next trial."
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Third Trial",
+    "st": [
+     {
+      "t": "Talk to the prince in the room."
+     },
+     {
+      "t": "Talk to Tenoch.",
+      "s": [
+       "Interrogate Tenoch.",
+       "Tell me about the Final Dawn."
+      ]
+     },
+     {
+      "t": "Talk to Silia.",
+      "s": [
+       "Interrogate Silia.",
+       "Tell me about the Final Dawn."
+      ]
+     },
+     {
+      "t": "Talk to Adrius.",
+      "s": [
+       "Interrogate Adrius.",
+       "Tell me about the Final Dawn."
+      ]
+     },
+     {
+      "t": "Talk to Eleuia.",
+      "s": [
+       "Interrogate Eleuia.",
+       "Tell me about the Final Dawn."
+      ]
+     },
+     {
+      "t": "The guilty emissary is the one who mentions Mictl when you ask \"Tell me about the Final Dawn.\" Talk to them again and choose to accuse them. If nobody mentions Mictl, leave the floor and come back.",
+      "s": [
+       "Tell me about the Final Dawn.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Janus to go to the final trial, ready for a fight.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Final Trial",
+    "st": [
+     {
+      "t": "Defeat the prince. Use Protect from Melee. He will protect from any special attacks you do. He can do a sword swipe to turn off your prayers. Simply re-activate them straight away. If he says he's doing a slam attack, step on the tile behind him to dodge it."
+     },
+     {
+      "t": "Talk to Janus to wrap up the final trial."
+     }
+    ]
+   },
+   {
+    "n": "Cult",
+    "st": [
+     {
+      "t": "Talk to Janus at the bottom of the tower."
+     },
+     {
+      "t": "Make sure you have 4 free inventory slots, then search the chest in the south of the tower for some emissary robes."
+     },
+     {
+      "t": "Talk to the prince to have him follow you."
+     },
+     {
+      "t": "Wear all the emissary robes, then enter the temple to the east of the tower for a cutscene.",
+      "i": [
+       "Emissary robes"
+      ]
+     },
+     {
+      "t": "Talk to the prince in the temple.",
+      "i": [
+       "Emissary robes"
+      ]
+     },
+     {
+      "t": "Talk to Forebearer Fides in the temple.",
+      "i": [
+       "Emissary robes"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "The Old Ones",
+    "st": [
+     {
+      "t": "Go down the stairs south-east of the temple. Be equipped for a fight."
+     },
+     {
+      "t": "Take a pickaxe from the nearby barrel."
+     },
+     {
+      "t": "Mine the nearby rocks.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Pull the lever in the south-east of the area. Make sure to avoid the wall spikes."
+     },
+     {
+      "t": "Climb down the ledge east of the lever."
+     },
+     {
+      "t": "From the bottom of the ledge, run east past the frost crabs, then north along the middle path to avoid the floor spike traps. Climb across the icy ledge at the north end."
+     },
+     {
+      "t": "Pull the lever in the north-east room. Avoid the floor traps."
+     },
+     {
+      "t": "Jump over the frozen platforms to the north-west, and climb down the ledge there."
+     },
+     {
+      "t": "Pull the third lever in the north-west room."
+     },
+     {
+      "t": "Pull the final lever in the south-west, near the gate."
+     },
+     {
+      "t": "Pull the chain to unlock a shortcut."
+     },
+     {
+      "t": "Only if you left the area after unlocking the shortcut: climb down the shortcut chain to the west of the entrance. Otherwise, skip this step."
+     },
+     {
+      "t": "Go west through the gate you just opened. Inspect the air markings in the north-east of the area."
+     },
+     {
+      "t": "Inspect the earth markings in the south-east of the area."
+     },
+     {
+      "t": "Search the urn with an air symbol on it near to the earth markings in the south-east of the area."
+     },
+     {
+      "t": "Search the urn with an earth symbol on it near to the earth markings in the south-east of the area."
+     },
+     {
+      "t": "Inspect the water markings in the south-west of the area."
+     },
+     {
+      "t": "Inspect the fire markings in the north-west of the area."
+     },
+     {
+      "t": "Search the urn with an fire symbol on it near to the water markings in the south-west of the area."
+     },
+     {
+      "t": "Search the urn with an water symbol on it near to the water markings in the south-west of the area."
+     },
+     {
+      "t": "Fix the broken water statue in the west of the area.",
+      "i": [
+       "Water icon"
+      ]
+     },
+     {
+      "t": "Fix the broken fire statue in the west of the area.",
+      "i": [
+       "Fire icon"
+      ]
+     },
+     {
+      "t": "Fix the broken earth statue in the west of the area.",
+      "i": [
+       "Earth icon"
+      ]
+     },
+     {
+      "t": "Fix the broken air statue in the west of the area.",
+      "i": [
+       "Air icon"
+      ]
+     },
+     {
+      "t": "Activate the first statue in the order, in the west of the room. It's the element whose markings say Zema."
+     },
+     {
+      "t": "Activate the second statue in the order, in the west of the room. It's the element whose markings say Oma."
+     },
+     {
+      "t": "Activate the third statue in the order, in the west of the room. It's the element whose markings say Yeya."
+     },
+     {
+      "t": "Activate the fourth statue in the order, in the west of the room. It's the element whose markings say Naui."
+     },
+     {
+      "t": "Enter the door to the west, ready for the boss."
+     },
+     {
+      "t": "Defeat Amoxliatl. Use Protect from Magic. Ice spikes will appear on the floor, move off the tile to avoid them. She may disable your prayers and shoot an icicle at you. Simply turn back on Protect from Magic. Ice blocks may appear. Use melee to destroy them all before they explode and heal the boss."
+     },
+     {
+      "t": "Talk to Servius, Teokan of Ralos in the palace in Civitas illa Fortis to complete the quest."
+     }
+    ],
+    "i": [
+     "Combat gear"
+    ],
+    "tr": [
+     "Civitas illa fortis teleport"
+    ],
+    "r": [
+     "Food (10)",
+     "Prayer potions"
+    ],
+    "c": 1,
+    "e": [
+     "Amoxliatl (level 263)"
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,107 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Restless Ghost",
+  "items": [],
+  "rec": [
+   "Lumbridge teleports (2)",
+   "Necklace of passage"
+  ],
+  "enemies": [
+   "A skeleton (level 13) you can run away from"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "1,125 Prayer XP",
+   "Ghostspeak amulet"
+  ],
+  "sec": [
+   {
+    "n": "Talk to Father Aereck",
+    "st": [
+     {
+      "t": "Talk to Father Aereck in the Lumbridge Church.",
+      "s": [
+       "I'm looking for a quest!",
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Get a ghostspeak amulet",
+    "st": [
+     {
+      "t": "Talk to Father Urhney, west of the Lumbridge Swamp.",
+      "s": [
+       "Father Aereck sent me to talk to you.",
+       "He's got a ghost haunting his graveyard."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Talk to the ghost",
+    "st": [
+     {
+      "t": "Open the coffin in the Lumbridge Graveyard to spawn the ghost.",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "If the ghost didn't appear when you opened the coffin, search the coffin to make it appear. Otherwise, skip this step.",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Speak to the Ghost that appears whilst wearing your Ghostspeak Amulet.",
+      "s": [
+       "Yep, now tell me what the problem is.",
+       "Yep, clever aren't I?.",
+       "Yes, ok. Do you know WHY you're a ghost?",
+       "Yes, ok. Do you know why you're a ghost?"
+      ],
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Return the ghost's skull",
+    "st": [
+     {
+      "t": "Enter the Wizards' Tower basement, south of Draynor village."
+     },
+     {
+      "t": "Search the Altar. A skeleton (level 13) will appear and attack you, but you can just run away."
+     },
+     {
+      "t": "Leave the basement.",
+      "i": [
+       "Ghost's skull"
+      ]
+     },
+     {
+      "t": "Open the ghost's coffin in the Lumbridge graveyard.",
+      "i": [
+       "Ghost's skull"
+      ]
+     },
+     {
+      "t": "Use the ghost's skull on the open coffin to finish the quest. If nothing happens, search the coffin.",
+      "i": [
+       "Ghost's skull"
+      ]
+     }
+    ],
+    "c": 1,
+    "e": [
+     "A skeleton (level 13) you can run away from"
+    ]
+   }
+  ]
+ }
+}

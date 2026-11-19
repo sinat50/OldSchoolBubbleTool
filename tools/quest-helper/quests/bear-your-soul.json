@@ -1,0 +1,83 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Bear Your Soul",
+  "items": [
+   "Spade",
+   "Dusty key, or another way to get into the deep Taverley Dungeon"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "A Soul Bearer"
+  ],
+  "sec": [
+   {
+    "n": "Find the Soul journey book",
+    "st": [
+     {
+      "t": "Go to the Arceuus library and find The Soul journey book in one of the bookcases, then read it. You can ask Biblia for help locating it."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Talk to Aretha",
+    "st": [
+     {
+      "t": "Talk to Aretha at the Soul Altar, in the far north-east of Arceuus.",
+      "s": [
+       "I've been reading your book...",
+       "Yes please."
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Dig up the Soul Bearer",
+    "st": [
+     {
+      "t": "Go to the Arceuus church, east of the library. Climb up a staircase to get inside, then climb down the inner staircase to the courtyard in the centre. Dig anywhere there for the Damaged soul bearer.",
+      "i": [
+       "Spade"
+      ]
+     }
+    ],
+    "i": [
+     "Spade"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Have the Soul Bearer repaired",
+    "st": [
+     {
+      "t": "Go to Taverley Dungeon, or teleport to the Key Master directly.",
+      "i": [
+       "Damaged soul bearer",
+       "Dusty key, or another way to get into the deep Taverley Dungeon"
+      ]
+     },
+     {
+      "t": "Go through the gate into the deep part of Taverley Dungeon with your dusty key, or by another way in. Enter the cave in the hellhound area at the north end to reach the Key Master.",
+      "i": [
+       "Damaged soul bearer",
+       "Dusty key, or another way to get into the deep Taverley Dungeon"
+      ]
+     },
+     {
+      "t": "Talk to Key Master in the Cerberus' Lair.",
+      "i": [
+       "Damaged soul bearer"
+      ]
+     }
+    ],
+    "i": [
+     "Dusty key, or another way to get into the deep Taverley Dungeon"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

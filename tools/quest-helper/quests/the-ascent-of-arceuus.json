@@ -1,0 +1,122 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Ascent of Arceuus",
+  "items": [],
+  "rec": [
+   "Combat gear",
+   "Access to Fairy Rings",
+   "Battlefront teleports (2)",
+   "Xeric's Talisman",
+   "Skills necklace"
+  ],
+  "enemies": [
+   "5 Tormented Souls (level 16)",
+   "Trapped Soul (level 30)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "1,500 Hunter XP",
+   "500 Runecraft XP",
+   "2000 x Coins",
+   "A Kharedst's Memoirs page"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Mori, just north of the pub in the centre of Arceuus.",
+      "s": [
+       "What can I do to help?",
+       "We should let someone know about this.",
+       "Yes.",
+       "Of course I'll help."
+      ]
+     },
+     {
+      "t": "Climb the stairs in Kourend Castle and talk to Councillor Andrews on the east side of the first floor.",
+      "s": [
+       "There's been a death in Arceuus."
+      ]
+     },
+     {
+      "t": "Return to Mori in Arceuus.",
+      "s": [
+       "What should we do now?"
+      ]
+     },
+     {
+      "t": "Go to the Tower of Magic, just west of the Arceuus Library, ready to fight some level 16 Tormented Souls. Enter it, speaking to the Tower Mage outside the doors if you aren't let in.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Defeat the tormented souls.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Go up the stairs in the Tower of Magic."
+     },
+     {
+      "t": "Upstairs, talk to Asteros Arceuus, the son of Lord Trobin Arceuus. If he has nothing new to say, talk to Lord Trobin instead."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "5 Tormented Souls (level 16)"
+    ]
+   },
+   {
+    "n": "Freeing a Soul",
+    "st": [
+     {
+      "t": "Go to the centre of Mount Karuulm and take the elevator down. Talk to Kaal-Ket-Jor in the dungeon below."
+     },
+     {
+      "t": "Leave the dungeon. Inspect the ancient grave south-east of Mount Karuulm, just west of the Battlefront and south of the water source. A Battlefront teleport takes you right there.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Follow the tracks west from the grave, inspecting each thing in turn: a bush to the north-west, a plant further west, another plant further west, a tree stump further west, then a plant to the south."
+     },
+     {
+      "t": "Inspect the final plant and kill the Trapped Soul (level 30) which appears.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Return to Kaal-Ket-Jor."
+     }
+    ],
+    "i": [
+     "Combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "Trapped Soul (level 30)"
+    ]
+   },
+   {
+    "n": "Saving Arceuus",
+    "st": [
+     {
+      "t": "Inspect the rocks around the Dark Altar, north of Arceuus, until you find a device. Fairy ring CIS or a games necklace to Wintertodt gets you close."
+     },
+     {
+      "t": "Talk to Lord Trobin Arceuus to finish the quest."
+     }
+    ]
+   }
+  ]
+ }
+}

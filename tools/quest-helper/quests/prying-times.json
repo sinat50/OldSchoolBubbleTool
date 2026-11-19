@@ -1,0 +1,144 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder pryingtimes; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Prying Times",
+  "items": [
+   "Hammer",
+   "Steel bar",
+   "Redberry pie",
+   "Captain's log"
+  ],
+  "rec": [],
+  "enemies": [
+   "Drink Troll (level 14) (can be ignored)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "800 Sailing XP",
+   "1,000 Smithing XP",
+   "25 x Sawmill Coupon (oak plank)",
+   "Unlimited Crowbars from the crate of crowbars",
+   "Ability to chart forgotten drinks"
+  ],
+  "sec": [
+   {
+    "n": "Looty!",
+    "st": [
+     {
+      "t": "Talk to 'Squawking' Steve Beanie behind the Pandemonium bar to start the quest. You can travel there via Captain Tobias on Port Sarim docks for 30gp.",
+      "s": [
+       "Any word from Old Grog?",
+       "Yes."
+      ],
+      "i": [
+       "Captain's log"
+      ]
+     },
+     {
+      "t": "Sail to Port Sarim."
+     },
+     {
+      "t": "With both hands empty, pick up the cargo from the ledger table on the docks of Port Sarim."
+     },
+     {
+      "t": "Board your ship."
+     },
+     {
+      "t": "Place the cargo in the cargo hold of your ship."
+     },
+     {
+      "t": "Sail to the Pandemonium."
+     },
+     {
+      "t": "Pickup the cargo from the cargo hold of your ship."
+     },
+     {
+      "t": "Deliver the cargo to the ledger table on the docks of the Pandemonium."
+     },
+     {
+      "t": "Let 'Squawking' Steve Beanie behind the bar know you delivered the looty.",
+      "s": [
+       "I delivered that cargo for you."
+      ]
+     }
+    ],
+    "i": [
+     "Captain's log"
+    ]
+   },
+   {
+    "n": "A key!",
+    "st": [
+     {
+      "t": "Get the key from Thurgo in the shed near Mudskipper's Point.",
+      "s": [
+       "I need some help with a 'special key'.",
+       "So, can you help me make a crowbar?",
+       "Can you help me make another crowbar?",
+       "Yes."
+      ],
+      "i": [
+       "Hammer",
+       "Steel bar",
+       "Redberry pie"
+      ]
+     },
+     {
+      "t": "Give the 'key' to 'Squawking' Steve Beanie behind the Pandemonium bar. You can travel there via Captain Tobias on Port Sarim docks for 30gp.",
+      "s": [
+       "I made that 'special key' you needed."
+      ],
+      "i": [
+       "Crowbar"
+      ]
+     },
+     {
+      "t": "Sail to the crate north-west of Pandemonium.",
+      "i": [
+       "Crowbar"
+      ]
+     },
+     {
+      "t": "If the crowbar isn't in your inventory, take it out of your ship's cargo hold. Then, still aboard your ship, open the Sealed crate with the crowbar.",
+      "i": [
+       "Crowbar"
+      ]
+     },
+     {
+      "t": "Drink the stout. Warning: you will be attacked by a level 14 Drink Troll.",
+      "i": [
+       "Bottle of fish bladder stout"
+      ]
+     },
+     {
+      "t": "Kill the Drink Troll, or log out."
+     },
+     {
+      "t": "Tell 'Squawking' Steve Beanie behind the Pandemonium bar the key works.",
+      "s": [
+       "About that crate..."
+      ],
+      "i": [
+       "Crowbar"
+      ]
+     },
+     {
+      "t": "Open Steve's crate in the corner behind the bar.",
+      "i": [
+       "Crowbar"
+      ]
+     }
+    ],
+    "i": [
+     "Hammer",
+     "Steel bar",
+     "Redberry pie"
+    ],
+    "c": 1,
+    "e": [
+     "Drink Troll (level 14) (can be ignored)"
+    ]
+   }
+  ]
+ }
+}

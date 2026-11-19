@@ -1,0 +1,328 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder cabinfever; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Cabin Fever",
+  "items": [],
+  "rec": [
+   "Food"
+  ],
+  "enemies": [
+   "Able to survive multiple pirates (level 57) attacking you"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "7,000 Smithing XP",
+   "7,000 Crafting XP",
+   "7,000 Agility XP",
+   "10000 x Coins",
+   "The Book o' Piracy",
+   "Access to Mos Le'Harmless",
+   "Access to Cave Horrors and the ability to receive them as a Slayer Task.",
+   "Charter Ship prices are now halved.",
+   "Ability to play the Trouble Brewing minigame."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Bill Teach in The Green Ghost inn in Port Phasmatys.",
+      "s": [
+       "Yes.",
+       "Yes, I've always wanted to be a pirate!",
+       "Yes, I am a woman of my word.",
+       "Yes, I am a man of my word."
+      ]
+     },
+     {
+      "t": "Go to the Port Phasmatys docks, board the easternmost ship and talk to Bill Teach.",
+      "s": [
+       "Let's go Cap'n!"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Sabotage",
+    "st": [
+     {
+      "t": "Climb down the ladder into the ship's hull and search the repair locker for 4 ropes.",
+      "i": [
+       "Rope (4)"
+      ]
+     },
+     {
+      "t": "Search the gun locker for 1 fuse.",
+      "i": [
+       "Fuse"
+      ]
+     },
+     {
+      "t": "Pick up the tinderbox nearby.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Go up to the deck."
+     },
+     {
+      "t": "Climb the climbing net."
+     },
+     {
+      "t": "Use a rope on the hoisted sail.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Use the fuse on the pirate's powder barrel.",
+      "i": [
+       "Fuse"
+      ]
+     },
+     {
+      "t": "Use the tinderbox on the fuse.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Climb the climbing net."
+     },
+     {
+      "t": "Use a rope on the hoisted sail.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Talk to Bill Teach."
+     }
+    ]
+   },
+   {
+    "n": "Repair",
+    "st": [
+     {
+      "t": "Enter the ship's hull."
+     },
+     {
+      "t": "Search the repair locker for repair items.",
+      "i": [
+       "Hammer",
+       "Repair plank (6)",
+       "Tacks (30)",
+       "Swamp paste (3)"
+      ]
+     },
+     {
+      "t": "Repair one of the 3 holes in the hull: use a repair plank on it with a hammer in your inventory. Each hole takes 2 planks and 10 tacks.",
+      "i": [
+       "Hammer",
+       "Repair plank (2)",
+       "Tacks (10)"
+      ]
+     },
+     {
+      "t": "Waterproof the hole you just repaired with swamp paste. Then repair and waterproof the next hole the same way, until all 3 holes are done.",
+      "i": [
+       "Swamp paste"
+      ]
+     },
+     {
+      "t": "Go up to the deck."
+     },
+     {
+      "t": "Talk to Bill Teach."
+     }
+    ]
+   },
+   {
+    "n": "Plunder the pirates",
+    "st": [
+     {
+      "t": "Climb the climbing net."
+     },
+     {
+      "t": "Use a rope on the hoisted sail.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Enter the ship's hull to loot it."
+     },
+     {
+      "t": "Plunder the chest, loot the crate and ransack the barrel for 10 plunder. Switch world after looting to make plunder respawn instantly.",
+      "i": [
+       "Plunder (10)"
+      ]
+     },
+     {
+      "t": "Climb out of the pirate ship's hull. If you have no rope, pick up the one on the pirate ship's deck. Climb the climbing net and use a rope on the hoisted sail to swing back to Bill's ship, then climb down into Bill's hull."
+     },
+     {
+      "t": "Add the plunder to the plunder storage.",
+      "i": [
+       "Plunder"
+      ]
+     },
+     {
+      "t": "Go up to the deck."
+     },
+     {
+      "t": "Talk to Bill Teach."
+     }
+    ]
+   },
+   {
+    "n": "Repair the cannon",
+    "st": [
+     {
+      "t": "Climb down the ladder into the ship's hull and search the gun locker for a cannon barrel.",
+      "i": [
+       "Cannon barrel"
+      ]
+     },
+     {
+      "t": "Go up to the deck and repair the cannon."
+     },
+     {
+      "t": "Repair the cannon.",
+      "i": [
+       "Cannon barrel"
+      ]
+     },
+     {
+      "t": "Talk to Bill Teach."
+     }
+    ]
+   },
+   {
+    "n": "Fire canisters",
+    "st": [
+     {
+      "t": "Climb down the ladder into the ship's hull and search the gun locker for a ram rod, 3 fuses, and canisters.",
+      "i": [
+       "Ramrod",
+       "Fuse",
+       "A few canister"
+      ]
+     },
+     {
+      "t": "Go up to the deck to fire the cannon."
+     },
+     {
+      "t": "Get some gunpowder from the barrel next to the cannon."
+     },
+     {
+      "t": "Use the gunpowder on the cannon.",
+      "i": [
+       "Gunpowder"
+      ]
+     },
+     {
+      "t": "Use the ramrod on the cannon.",
+      "i": [
+       "Ramrod"
+      ]
+     },
+     {
+      "t": "Use the canister on the cannon.",
+      "i": [
+       "Canister"
+      ]
+     },
+     {
+      "t": "Use the fuse on the cannon.",
+      "i": [
+       "Fuse"
+      ]
+     },
+     {
+      "t": "Fire the cannon!",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "After each shot, use the ramrod on the cannon to clean it. Then load and fire again: gunpowder, ramrod, canister, fuse, tinderbox. Repeat 3-4 times, until you're told to stop. If the cannon breaks, get a new barrel from the gun locker and repair it. If you loaded it wrongly, long-press the cannon, choose Empty-Out Cannon, then clean it with the ramrod before you load it again.",
+      "i": [
+       "Ramrod",
+       "Gunpowder",
+       "Canister",
+       "Fuse",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Talk to Bill Teach."
+     }
+    ]
+   },
+   {
+    "n": "Fire cannon balls",
+    "st": [
+     {
+      "t": "Climb down the ladder into the ship's hull."
+     },
+     {
+      "t": "Search the gun locker for a ram rod, 3 fuses, and cannon balls.",
+      "i": [
+       "Ramrod",
+       "A few fuses",
+       "A few Cannon balls"
+      ]
+     },
+     {
+      "t": "Go up to the deck to fire the cannon."
+     },
+     {
+      "t": "Get some gunpowder."
+     },
+     {
+      "t": "Use the gunpowder on the cannon.",
+      "i": [
+       "Gunpowder"
+      ]
+     },
+     {
+      "t": "Use the ramrod on the cannon.",
+      "i": [
+       "Ramrod"
+      ]
+     },
+     {
+      "t": "Use the cannon ball on the cannon.",
+      "i": [
+       "Cannon ball"
+      ]
+     },
+     {
+      "t": "Use the fuse on the cannon.",
+      "i": [
+       "Fuse"
+      ]
+     },
+     {
+      "t": "Fire the cannon!",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "After each shot, use the ramrod on the cannon to clean it. Then load and fire again: gunpowder, ramrod, cannon ball, fuse, tinderbox. Keep firing until you've hit the enemy ship 3 times and Bill tells you to stop. If the cannon breaks, get a new barrel from the gun locker and repair it. If you loaded it wrongly, long-press the cannon, choose Empty-Out Cannon, then clean it with the ramrod before you load it again. Quest completed!",
+      "i": [
+       "Ramrod",
+       "Gunpowder",
+       "Cannon ball",
+       "Fuse",
+       "Tinderbox"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

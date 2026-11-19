@@ -1,0 +1,227 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder anightatthetheatre; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "A Night at the Theatre",
+  "items": [
+   "Ivandis/Blisterwood flail",
+   "Saw",
+   "Ghostspeak amulet",
+   "An axe",
+   "Combat gear",
+   "Food"
+  ],
+  "rec": [
+   "Drakan's Medallion",
+   "Spider cave teleport (2)",
+   "Anti-venom",
+   "Antipoison",
+   "Access to fairy rings"
+  ],
+  "enemies": [
+   "Vyrewatch (level 105)",
+   "Several venomous spiders (level 87 and 123)",
+   "Hespori (level 302)",
+   "All ToB Bosses"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "4 x Antique Lamp (20,000 Exp. Any Combat Skill, excluding prayer)"
+  ],
+  "sec": [
+   {
+    "n": "Memories of a \"Friend\"",
+    "st": [
+     {
+      "t": "Speak with the Mysterious Stranger in Ver Sinhaza.",
+      "s": [
+       "What's all this really about?",
+       "What's this thing you need from me?",
+       "Yes."
+      ],
+      "i": [
+       "Saw"
+      ]
+     },
+     {
+      "t": "Enter the crypts north east of the Mysterious Stranger.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Saw",
+       "Ivandis/Blisterwood flail",
+       "Combat gear",
+       "Food"
+      ]
+     },
+     {
+      "t": "Kill a vyrewatch for a key. You must have your flail equipped in order to damage the vyrewatches.",
+      "i": [
+       "Ivandis/Blisterwood flail",
+       "Combat gear",
+       "Food"
+      ]
+     },
+     {
+      "t": "Unlock the crypt gate with the key.",
+      "i": [
+       "Crypt key",
+       "Saw"
+      ]
+     },
+     {
+      "t": "Search the coffin.",
+      "i": [
+       "Saw"
+      ]
+     },
+     {
+      "t": "Return to the Mysterious Stranger with Ranis' head.",
+      "s": [
+       "I managed to recover Ranis' head."
+      ],
+      "i": [
+       "Ranis' Head"
+      ]
+     },
+     {
+      "t": "Speak to the Mysterious Stranger some more.",
+      "s": [
+       "So what are we doing with Ranis' head?",
+       "So about that memory..."
+      ]
+     },
+     {
+      "t": "Enter the spider cave south of Port Phasmatys.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Search the skeleton found near the Egg Sac at the end of the cave."
+     },
+     {
+      "t": "Read the Sticky note.",
+      "i": [
+       "Stick note"
+      ]
+     },
+     {
+      "t": "Leave the spider cave the way you came in. In Slepe, go down the ladder south of the graveyard into the Sisterhood Sanctuary. Follow the corridor a little north, a long way east, around the bend to the south-east, then north, east and north again to the stairs. Climb them and speak with Daer Krand in the north east corner of the main room.",
+      "s": [
+       "Got any sulphuric acid?"
+      ]
+     },
+     {
+      "t": "Return to the spider cave south of Port Phasmatys then use the Sulphuric acid on the Egg sac at the end of the cave.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Sulphuric acid"
+      ]
+     },
+     {
+      "t": "Speak with the Mysterious Stranger in Ver Sinhaza again with the spider eggs retrieved from the Egg sac. Use the Drakan's Medallion tele to get to Ver Sinhaza quickly.",
+      "s": [
+       "I found some of those eggs."
+      ],
+      "i": [
+       "Strange spider eggs"
+      ]
+     },
+     {
+      "t": "Watch cutscenes."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Food",
+     "Ivandis/Blisterwood flail",
+     "Saw",
+     "Anti-venom",
+     "Drakan's Medallion",
+     "Spider cave teleport"
+    ],
+    "c": 1,
+    "e": [
+     "Vyrewatch (level 105)"
+    ]
+   },
+   {
+    "n": "In Touch with Nature",
+    "st": [
+     {
+      "t": "Go to the Nature Grotto in the Mort Myre Swamp and speak with the Nature Spirit inside. Use fairy ring BIP (with 50 agility) to get there quickly.",
+      "i": [
+       "Ghostspeak amulet",
+       "Combat gear",
+       "Food",
+       "Antipoison",
+       "An axe"
+      ]
+     },
+     {
+      "t": "Leave the grotto and go to the island directly east of it: walk west, north, then east around the swamp to the stepping stone on the island's west side and cross it. Be prepared to fight Hespori. The fight is similar to what you would expect from the Hespori fight in the Farming Guild. Activate Hespori when ready.",
+      "i": [
+       "Combat gear",
+       "Food",
+       "Antipoison",
+       "An axe"
+      ]
+     },
+     {
+      "t": "Fight Hespori."
+     },
+     {
+      "t": "Chop Hespori to obtain Hespori bark.",
+      "i": [
+       "An axe"
+      ]
+     },
+     {
+      "t": "Speak with the Mysterious Stranger in Ver Sinhaza again with the Hespori bark. Use the Drakan's Medallion tele to get to Ver Sinhaza quickly.",
+      "s": [
+       "I found a hespori."
+      ],
+      "i": [
+       "Hespori bark"
+      ]
+     },
+     {
+      "t": "Watch cutscenes."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Food",
+     "Ghostspeak amulet",
+     "An axe",
+     "Antipoison",
+     "Drakan's Medallion"
+    ],
+    "c": 1,
+    "e": [
+     "Hespori (level 302)"
+    ]
+   },
+   {
+    "n": "Theatre of Blood",
+    "st": [
+     {
+      "t": "Complete the Theatre of Blood.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Speak with the Mysterious Stranger in Ver Sinhaza and watch the cutscenes to finish the quest.",
+      "s": [
+       "Did you manage to get any useful memories from Verzik?"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

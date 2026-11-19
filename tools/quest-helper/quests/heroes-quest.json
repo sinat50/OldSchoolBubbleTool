@@ -1,0 +1,360 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder heroesquest; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Heroes' Quest",
+  "items": [
+   "Fishing rod",
+   "Fishing bait",
+   "Harralander potion (unf)",
+   "Any pickaxe",
+   "Ice gloves/Smiths gloves (i)",
+   "Black full helm",
+   "Black platebody",
+   "Black platelegs",
+   "A ranged or magic attack method",
+   "Dusty key (obtainable in quest)"
+  ],
+  "rec": [
+   "Weapons, armour and food for the Ice Queen",
+   "Varrock teleport",
+   "Anti-dragon shield",
+   "Burthorpe teleport (2)",
+   "Taverley teleport (2)",
+   "Varrock teleport (2)",
+   "Port Sarim teleport (Explorer's ring 2/3/4, Amulet of Glory to Draynor) (2)",
+   "Brimhaven teleport, or travel by boat from Ardougne/Port Sarim for 30gp"
+  ],
+  "enemies": [
+   "Ice Queen (level 111) for ice gloves",
+   "Entrana firebird (level 2)",
+   "Grip (level 26)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "3,075 Attack XP",
+   "3,075 Defence XP",
+   "3,075 Strength XP",
+   "2,075 Ranged XP",
+   "3,075 Hitpoints XP",
+   "2,725 Fishing XP",
+   "2,825 Cooking XP",
+   "1,575 Woodcutting XP",
+   "1,575 Firemaking XP",
+   "2,275 Smithing XP",
+   "2,275 Mining XP",
+   "1,325 Herblore XP",
+   "Access to the Hero's Guild.",
+   "Ability to use the Fountain of Rune.",
+   "Ability to use Charge Dragonstone Jewellery scrolls.",
+   "Ability to purchase and equip Dragon Battleaxes and Maces."
+  ],
+  "sec": [
+   {
+    "n": "Start the quest",
+    "st": [
+     {
+      "t": "Talk to Achietties outside the Heroes' Guild, south of Burthorpe.",
+      "s": [
+       "I'm a hero, may I apply to join?",
+       "I'll start looking for all those things then."
+      ]
+     }
+    ],
+    "i": [
+     "Burthorpe teleport"
+    ]
+   },
+   {
+    "n": "Get the Lava Eel",
+    "st": [
+     {
+      "t": "You need to get an oily rod. Talk to Gerrant in Port Sarim to get some slime.",
+      "s": [
+       "I want to find out how to catch a lava eel."
+      ]
+     },
+     {
+      "t": "Combine the harralander potion (unf) with the blamish snail slime.",
+      "i": [
+       "Harralander potion (unf)",
+       "Blamish snail slime"
+      ]
+     },
+     {
+      "t": "Use the Blamish oil on your fishing rod.",
+      "i": [
+       "Blamish oil",
+       "Fishing rod"
+      ]
+     },
+     {
+      "t": "Go to Taverley Dungeon. With 70 Agility, squeeze through the obstacle pipe to reach the blue dragons. Otherwise you need a dusty key. If you don't have one, go through the dungeon to the Black Knights' Base, kill the Jailer on its east side for a jail key, use it on the south door and talk to Velrak. Ask him about good places to explore and say yes to the key. Don't ask for a reward. Then use the dusty key on the gate to the deeper part of the dungeon.",
+      "i": [
+       "Oily fishing rod",
+       "Fishing bait",
+       "Dusty Key"
+      ]
+     },
+     {
+      "t": "Fish a lava eel from the lava south of the blue dragons.",
+      "i": [
+       "Oily fishing rod",
+       "Fishing bait"
+      ]
+     },
+     {
+      "t": "Cook the Lava Eel at a range. You cannot fail this.",
+      "i": [
+       "Raw lava eel"
+      ]
+     }
+    ],
+    "i": [
+     "Harralander potion (unf)",
+     "Fishing rod",
+     "Fishing bait",
+     "Dusty Key"
+    ],
+    "tr": [
+     "Port Sarim teleport (Explorer's ring 2/3/4, Amulet of Glory to Draynor)",
+     "Taverley teleport"
+    ]
+   },
+   {
+    "n": "Thieves' armband (Black Arm Gang)",
+    "st": [
+     {
+      "t": "Do this section only if you joined the Black Arm Gang in Shield of Arrav. If you joined the Phoenix Gang, skip to \"Thieves' armband (Phoenix Gang)\". You need a partner: another player who joined the Phoenix Gang. Talk to Katrine at the Black Arm Gang base in south west Varrock.",
+      "s": [
+       "Is there any way I can get the rank of master thief?"
+      ]
+     },
+     {
+      "t": "Try to enter the gang's house in east Brimhaven, along the fence just south of the Agility Arena.",
+      "s": [
+       "Four leaved clover."
+      ]
+     },
+     {
+      "t": "Talk to Trobert inside.",
+      "s": [
+       "So can you help me get Scarface Pete's candlesticks?",
+       "I volunteer to undertake that mission!"
+      ]
+     },
+     {
+      "t": "Equip your black armour and enter the mansion in the north west of Brimhaven.",
+      "i": [
+       "Id papers",
+       "Black full helm",
+       "Black platebody",
+       "Black platelegs"
+      ]
+     },
+     {
+      "t": "Talk to Grip.",
+      "i": [
+       "Id papers"
+      ]
+     },
+     {
+      "t": "Get a miscellaneous key from Grip, then give it to your partner.",
+      "s": [
+       "So what do my duties involve?",
+       "Anything I can do now?"
+      ]
+     },
+     {
+      "t": "Go into the room north-east of the entrance and wait for your partner to reach the room behind its east wall. Then search the cupboard to lure Grip in, and close the door once he's inside. Your partner should kill him.",
+      "s": [
+       "He won't notice me having a quick look."
+      ]
+     },
+     {
+      "t": "Pick up Grip's keyring",
+      "i": [
+       "Grip's keyring"
+      ]
+     },
+     {
+      "t": "Go to the north-west part of the mansion and use Grip's keyring on the treasure room door.",
+      "i": [
+       "Grip's keyring"
+      ]
+     },
+     {
+      "t": "Search the chest in the treasure room for two candlesticks."
+     },
+     {
+      "t": "Give one of Pete's candlesticks to your partner. Afterwards, return to Katrine with Pete's candlestick",
+      "s": [
+       "I have a candlestick now."
+      ],
+      "i": [
+       "Pete's candlestick"
+      ]
+     }
+    ],
+    "i": [
+     "Black full helm",
+     "Black platebody",
+     "Black platelegs"
+    ],
+    "tr": [
+     "Varrock teleport (2)",
+     "Brimhaven teleport, or travel by boat from Ardougne/Port Sarim for 30gp"
+    ],
+    "c": 1,
+    "e": [
+     "Grip (level 26)"
+    ]
+   },
+   {
+    "n": "Thieves' armband (Phoenix Gang)",
+    "st": [
+     {
+      "t": "Do this section only if you joined the Phoenix Gang in Shield of Arrav. If you joined the Black Arm Gang, skip to \"Get ice gloves\". You need a partner: another player who joined the Black Arm Gang. Head into the Phoenix Gang's base in south Varrock."
+     },
+     {
+      "t": "Talk to Straven."
+     },
+     {
+      "t": "Talk to Alfonse the Waiter in the restaurant in Brimhaven.",
+      "s": [
+       "Do you sell Gherkins?"
+      ],
+      "i": [
+       "A ranged or magic attack method"
+      ]
+     },
+     {
+      "t": "You'll need your partner to give you a miscellaneous key.",
+      "i": [
+       "Miscellaneous key"
+      ]
+     },
+     {
+      "t": "Talk to Charlie the Cook in the back of the restaurant.",
+      "s": [
+       "I'm looking for a gherkin...",
+       "I want to steal Scarface Pete's candlesticks."
+      ]
+     },
+     {
+      "t": "Push the wall panel next to the range to enter Pete's garden."
+     },
+     {
+      "t": "Cross the garden and go in through the mansion's east door. Inside, use the miscellaneous key on the door to the north.",
+      "i": [
+       "Miscellaneous key"
+      ]
+     },
+     {
+      "t": "Wait for your partner to lure Grip into the room next to yours, and kill him with magic/ranged. Afterwards, trade your partner for a candlestick."
+     },
+     {
+      "t": "Bring the candlestick back to Straven."
+     }
+    ],
+    "i": [
+     "A ranged or magic attack method"
+    ],
+    "tr": [
+     "Varrock teleport (2)",
+     "Brimhaven teleport, or travel by boat from Ardougne/Port Sarim for 30gp"
+    ],
+    "c": 1,
+    "e": [
+     "Grip (level 26)"
+    ]
+   },
+   {
+    "n": "Get ice gloves",
+    "st": [
+     {
+      "t": "Head to White Wolf Mountain, and mine a rockslide in the northern part.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Take the south east ladder down."
+     },
+     {
+      "t": "Follow the tunnel south, then go up the ladder there."
+     },
+     {
+      "t": "Take the east ladder down."
+     },
+     {
+      "t": "Follow the path around until you reach a ladder, then climb it."
+     },
+     {
+      "t": "Take the north ladder down."
+     },
+     {
+      "t": "Kill the Ice Queen for ice gloves."
+     }
+    ],
+    "i": [
+     "Any pickaxe"
+    ],
+    "tr": [
+     "Taverley teleport"
+    ],
+    "c": 1,
+    "e": [
+     "Ice Queen (level 111) for ice gloves"
+    ]
+   },
+   {
+    "n": "Get fire feather",
+    "st": [
+     {
+      "t": "Bank your weapons and armour, but keep the ice gloves. Then travel to Entrana with the monks in Port Sarim.",
+      "i": [
+       "Ice gloves/Smiths gloves (i)"
+      ]
+     },
+     {
+      "t": "Equip your ice gloves. Kill the Entrana firebird near the Law Altar in the north of Entrana, then pick up the fire feather.",
+      "i": [
+       "Ice gloves/Smiths gloves (i)"
+      ]
+     }
+    ],
+    "i": [
+     "Ice gloves/Smiths gloves (i)"
+    ],
+    "tr": [
+     "Port Sarim teleport (Explorer's ring 2/3/4, Amulet of Glory to Draynor)"
+    ],
+    "c": 1,
+    "e": [
+     "Entrana firebird (level 2)"
+    ]
+   },
+   {
+    "n": "Finish off",
+    "st": [
+     {
+      "t": "Bring Achietties all the items to finish.",
+      "i": [
+       "Fire feather",
+       "Thieves' armband",
+       "Lava eel"
+      ]
+     }
+    ],
+    "i": [
+     "Fire feather",
+     "Thieves' armband",
+     "Lava eel"
+    ],
+    "tr": [
+     "Burthorpe teleport"
+    ]
+   }
+  ]
+ }
+}

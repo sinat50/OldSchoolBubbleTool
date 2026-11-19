@@ -1,0 +1,219 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder shieldofarrav; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Shield of Arrav",
+  "items": [
+   "Coins (20)"
+  ],
+  "rec": [],
+  "enemies": [
+   "Jonny the beard (level 2)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "600 x Coins"
+  ],
+  "sec": [
+   {
+    "n": "Phoenix Gang: Locating the Phoenix Gang",
+    "st": [
+     {
+      "t": "Phoenix Gang route: follow the Phoenix Gang sections. For the Black Arm Gang, skip to Black Arm Gang: Start quest. Your partner must join the other gang, and you can't change gang once accepted. Talk to Reldo in the Varrock Castle library.",
+      "s": [
+       "I'm in search of a quest.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Search the bookcase with a blue and white book on its top shelf, on the east side of the short bookcases in the middle of the room, for a book, then read it.",
+      "i": [
+       "Book"
+      ]
+     },
+     {
+      "t": "Talk to Reldo again.",
+      "s": [
+       "Okay, I've read that book about the Shield of Arrav."
+      ]
+     },
+     {
+      "t": "Talk to Baraek in the Varrock Square.",
+      "s": [
+       "Can you tell me where I can find the Phoenix Gang?",
+       "Okay. Have 20 gold coins."
+      ],
+      "i": [
+       "Coins (20)"
+      ]
+     },
+     {
+      "t": "Go down the ladder into the Phoenix Gang's base in south-east Varrock, a short walk south-west of Aubury's rune shop."
+     },
+     {
+      "t": "Talk to Straven.",
+      "s": [
+       "I know who you are!",
+       "I'd like to offer you my services."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Phoenix Gang: Joining the gang",
+    "st": [
+     {
+      "t": "Go back up to the surface."
+     },
+     {
+      "t": "Kill Jonny the Beard in the Blue Moon Inn in Varrock."
+     },
+     {
+      "t": "Pick up the Intel Report.",
+      "i": [
+       "Intel report"
+      ]
+     },
+     {
+      "t": "Return to the Phoenix Gang's base."
+     },
+     {
+      "t": "Talk to Straven again."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Jonny the beard (level 2)"
+    ]
+   },
+   {
+    "n": "Phoenix Gang: Returning the shield",
+    "st": [
+     {
+      "t": "Search the chest in the Phoenix base for half of the Shield of Arrav."
+     },
+     {
+      "t": "Trade your weapon store key to your partner. If you can't trade, use the key on them to drop it at their feet. AFTERWARDS, talk to Curator Haig in the Varrock Museum.",
+      "i": [
+       "Broken shield"
+      ]
+     },
+     {
+      "t": "Trade one of your certificate halves for the other half with another player. If you cannot trade, use the certificate on them to drop it at their feet. They can do the same for you."
+     },
+     {
+      "t": "Use the two certificate halves together to create the certificate.",
+      "i": [
+       "Half certificate"
+      ]
+     },
+     {
+      "t": "Talk to King Roald in Varrock Castle to finish the quest.",
+      "i": [
+       "Certificate"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Black Arm Gang: Start quest",
+    "st": [
+     {
+      "t": "Black Arm Gang route: follow the Black Arm Gang sections, not the Phoenix Gang ones. Your partner must join the other gang, and you can't change gang once accepted. Talk to Reldo in the Varrock Castle library. If you already did this and the next two steps in the Phoenix Gang section, skip to Charlie the Tramp.",
+      "s": [
+       "I'm in search of a quest.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Search the bookcase with a blue and white book on its top shelf, on the east side of the short bookcases in the middle of the room, for a book, then read it."
+     },
+     {
+      "t": "Talk to Reldo again.",
+      "s": [
+       "Okay, I've read that book about the Shield of Arrav."
+      ]
+     },
+     {
+      "t": "To start the quest as the Black Arm Gang, talk to Charlie the Tramp in south Varrock to start.",
+      "s": [
+       "Is there anything down this alleyway?",
+       "I'm looking for the Black Arm Gang.",
+       "Do you think they would let me join?"
+      ]
+     },
+     {
+      "t": "Talk to Katrine down the alley to the west.",
+      "s": [
+       "I've heard you're the Black Arm Gang.",
+       "I'd rather not reveal my sources.",
+       "I want to become a member of your gang.",
+       "Well, you can give me a try can't you?",
+       "Ok, no problem."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Black Arm Gang: Get the phoenix crossbows",
+    "st": [
+     {
+      "t": "Get the weapon storeroom key from another player. If you cannot trade, have them use the key on you to drop it at your feet."
+     },
+     {
+      "t": "Take the weapon store key to the Phoenix Weapon Storeroom, a short walk south of Aubury's rune shop in south-east Varrock, and go up the ladder inside.",
+      "i": [
+       "Weapon store key"
+      ]
+     },
+     {
+      "t": "Kill the Weaponsmaster, or have someone else kill him."
+     },
+     {
+      "t": "Pick up TWO phoenix crossbows",
+      "i": [
+       "Phoenix crossbow (2)"
+      ]
+     },
+     {
+      "t": "Return to Katrine with the crossbows.",
+      "i": [
+       "Phoenix crossbow (2)"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Black Arm Gang: Return the shield",
+    "st": [
+     {
+      "t": "Go up the stairs in the Black Arm Gang base."
+     },
+     {
+      "t": "Search the cupboard for half of the Shield of Arrav."
+     },
+     {
+      "t": "Talk to Curator Haig in the Varrock Museum.",
+      "i": [
+       "Broken shield"
+      ]
+     },
+     {
+      "t": "Trade one of your certificate halves for the other half with another player. If you cannot trade, use the certificate on them to drop it at their feet. They can do the same for you."
+     },
+     {
+      "t": "Use the two certificate halves together to create the certificate.",
+      "i": [
+       "Half certificate"
+      ]
+     },
+     {
+      "t": "Talk to King Roald in Varrock Castle to finish the quest.",
+      "i": [
+       "Certificate"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

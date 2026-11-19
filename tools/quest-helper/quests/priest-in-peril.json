@@ -1,0 +1,183 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder priestinperil; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Priest in Peril",
+  "items": [
+   "Rune or Pure Essence (50)",
+   "Bucket"
+  ],
+  "rec": [
+   "Ranged or melee weapon + armour",
+   "Varrock teleports (3)",
+   "Essence pouches for carrying essence"
+  ],
+  "enemies": [
+   "Temple Guardian (level 30). You cannot use Magic. Rings of recoil will not award the kill.",
+   "Monk of Zamorak (level 30)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "1,406 Prayer XP",
+   "Wolfbane Dagger",
+   "Access to Canifis and Morytania"
+  ],
+  "sec": [
+   {
+    "n": "Start the quest",
+    "st": [
+     {
+      "t": "Speak to King Roald in Varrock Castle.",
+      "s": [
+       "I'm looking for a quest!",
+       "Yes, I think I've heard of it.",
+       "Yes.",
+       "I'll get going."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Go to the temple",
+    "st": [
+     {
+      "t": "Go to the temple east of Varrock by the river and tap the large door.",
+      "s": [
+       "Roald sent me to check on Drezel.",
+       "Sure. I'm a helpful person!"
+      ],
+      "i": [
+       "Ranged or melee weapon + armour"
+      ]
+     },
+     {
+      "t": "Climb down the trapdoor just north of the temple door. Kill the Temple Guardian (level 30). It is immune to magic so you will need to use either ranged or melee.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Return to King Roald.",
+      "s": [
+       "About that job I'm doing..."
+      ]
+     }
+    ],
+    "i": [
+     "Ranged or melee weapon + armour"
+    ],
+    "c": 1,
+    "e": [
+     "Temple Guardian (level 30). You cannot use Magic. Rings of recoil will not award the kill."
+    ]
+   },
+   {
+    "n": "Return to the temple",
+    "st": [
+     {
+      "t": "Return to the temple.",
+      "i": [
+       "Bucket",
+       "As much essence as you can carry, you'll need to bring 50 UNNOTED in total",
+       "Combat gear, ranged or mage to safespot"
+      ]
+     },
+     {
+      "t": "Kill a Monk of Zamorak (level 30) for a golden key. You can safespot using the pews.",
+      "i": [
+       "Golden key"
+      ]
+     },
+     {
+      "t": "Talk to Drezel on the top floor of the temple.",
+      "s": [
+       "So, what now?",
+       "Yes, of course."
+      ]
+     }
+    ],
+    "i": [
+     "Ranged or melee weapon + armour",
+     "Bucket",
+     "As much essence as you can carry, you'll need to bring 50 UNNOTED in total"
+    ],
+    "c": 1,
+    "e": [
+     "Monk of Zamorak (level 30)"
+    ]
+   },
+   {
+    "n": "Freeing Drezel",
+    "st": [
+     {
+      "t": "Go down the ladder and the stairs to the ground floor and leave the temple. Go down the trapdoor just north of it, where you killed the Temple Guardian.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Go to the central room, and study the monuments to find which has a key on it. Use the Golden Key on it.",
+      "i": [
+       "Golden key"
+      ]
+     },
+     {
+      "t": "Use the bucket on the well in the central room.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Go back up to the top floor of the temple."
+     },
+     {
+      "t": "Open the cell door.",
+      "i": [
+       "Iron key"
+      ]
+     },
+     {
+      "t": "Talk to Drezel to bless the water.",
+      "i": [
+       "Murky water"
+      ]
+     },
+     {
+      "t": "Use the blessed water on the coffin.",
+      "i": [
+       "Blessed water"
+      ]
+     },
+     {
+      "t": "Talk to Drezel again."
+     }
+    ],
+    "i": [
+     "Ranged or melee weapon + armour",
+     "Bucket",
+     "As much essence as you can carry, you'll need to bring 50 UNNOTED in total"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Curing the Salve",
+    "st": [
+     {
+      "t": "Talk to Drezel in the east of the underground temple area.",
+      "i": [
+       "As much essence as you can carry, you'll need to bring 50 UNNOTED in total"
+      ]
+     },
+     {
+      "t": "Bring Drezel 50 UNNOTED rune/pure essence in the underground of the Salve Temple to finish the quest!",
+      "i": [
+       "Rune/Pure essence (50)"
+      ]
+     }
+    ],
+    "i": [
+     "Rune or Pure Essence (50)"
+    ]
+   }
+  ]
+ }
+}

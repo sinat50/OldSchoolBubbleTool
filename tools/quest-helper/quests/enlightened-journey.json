@@ -1,0 +1,161 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder enlightenedjourney; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Enlightened Journey",
+  "items": [
+   "Papyrus (3)",
+   "Ball of wool",
+   "Sack of potatoes (10)",
+   "Empty sack (8)",
+   "Unlit candle",
+   "Yellow dye",
+   "Red dye",
+   "Silk (10)",
+   "Bowl",
+   "Logs (10)",
+   "Tinderbox",
+   "Willow branches (12)"
+  ],
+  "rec": [
+   "Draynor/Port Sarim teleport"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "2,000 Crafting XP",
+   "3,000 Farming XP",
+   "1,500 Woodcutting XP",
+   "4,000 Firemaking XP",
+   "Bomber Jacket",
+   "Bomber Cap",
+   "Access to the Hot Air Balloon transport system.",
+   "Ability to make origami balloons."
+  ],
+  "sec": [
+   {
+    "n": "Making a balloon",
+    "st": [
+     {
+      "t": "Bank all weapons and armour you have, and go to Port Sarim to get a boat to Entrana."
+     },
+     {
+      "t": "Talk to Auguste on Entrana, just north of the Herblore shop, 3 times.",
+      "s": [
+       "Yes! Sign me up.",
+       "Umm, yes. What's your point?",
+       "Yes."
+      ],
+      "i": [
+       "Papyrus (3)",
+       "Ball of wool"
+      ]
+     },
+     {
+      "t": "Use papyrus on a ball of wool.",
+      "i": [
+       "Papyrus",
+       "Ball of wool"
+      ]
+     },
+     {
+      "t": "Use a candle on the balloon.",
+      "i": [
+       "Unlit candle",
+       "Balloon structure"
+      ]
+     },
+     {
+      "t": "Talk to Auguste again.",
+      "s": [
+       "Yes, I have them here."
+      ],
+      "i": [
+       "Origami balloon"
+      ]
+     },
+     {
+      "t": "Talk to Auguste with 2 papyrus and a sack of potatoes.",
+      "s": [
+       "Yes, I have them here."
+      ],
+      "i": [
+       "Papyrus (2)",
+       "Sack of potatoes (10)"
+      ]
+     },
+     {
+      "t": "Talk to Auguste after the flash mob."
+     },
+     {
+      "t": "Fill your empty sacks on the sand pit south of Auguste.",
+      "i": [
+       "Empty sack (8)"
+      ]
+     },
+     {
+      "t": "Give Auguste the sandbags, silk, dyes, and bowl.",
+      "s": [
+       "Yes, I want to give you some items.",
+       "Dye.",
+       "Sandbags.",
+       "Silk.",
+       "Bowl."
+      ],
+      "i": [
+       "Sandbag (8)",
+       "Silk (10)",
+       "Red dye",
+       "Yellow dye",
+       "Bowl"
+      ]
+     }
+    ],
+    "i": [
+     "Papyrus (3)",
+     "Ball of wool",
+     "Unlit candle",
+     "Sack of potatoes (10)",
+     "Empty sack (8)",
+     "Yellow dye",
+     "Red dye",
+     "Silk (10)",
+     "Bowl"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Flying",
+    "st": [
+     {
+      "t": "Get 12 willow branches and use them on the platform next to Auguste to make the basket.",
+      "i": [
+       "Willow branches (12)"
+      ]
+     },
+     {
+      "t": "Talk to Auguste to fly. The next step lists every button to press. If you crash, you need 10 more logs and a tinderbox, then talk to Auguste on Entrana to try again. You don't have to rebuild the balloon.",
+      "s": [
+       "Okay."
+      ],
+      "i": [
+       "Logs (10)",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Navigate the balloon with these buttons. Screen 1: drop a sandbag, burn a log, relax 9 times, pull the red rope, relax 2 times, pull the brown rope, relax 5 times. Screen 2: burn a log, relax, burn a log, relax 10 times, burn a log, relax 5 times. Screen 3: relax 7 times, pull the red rope, pull the brown rope, relax 3 times, burn a log, relax 4 times, pull the brown rope."
+     },
+     {
+      "t": "Talk to Auguste in Taverley to finish the quest."
+     }
+    ],
+    "i": [
+     "Willow branches (12)",
+     "Logs (10)",
+     "Tinderbox"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

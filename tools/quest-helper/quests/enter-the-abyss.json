@@ -1,0 +1,73 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Enter the Abyss",
+  "items": [],
+  "rec": [
+   "Teleport to Edgeville",
+   "Teleports to Varrock (2)",
+   "Teleport to Wizards' Tower",
+   "Teleport to Ardougne"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1,000 Runecraft XP",
+   "A small rune pouch",
+   "Ability to enter The Abyss"
+  ],
+  "sec": [
+   {
+    "n": "Helping the Zamorakians",
+    "st": [
+     {
+      "t": "Talk to the Mage of Zamorak in the Wilderness north of Edgeville. BRING NOTHING AS YOU CAN BE KILLED BY OTHER PLAYERS HERE."
+     },
+     {
+      "t": "Talk to the Mage of Zamorak in the Chaos Temple in south east Varrock.",
+      "s": [
+       "Where do you get your runes from?",
+       "Maybe I could make it worth your while?",
+       "Yes, but I can still help you as well.",
+       "I did it so that I could then steal their secrets.",
+       "Deal.",
+       "But I'm a loyal servant of Zamorak as well!",
+       "Okay, fine. I don't really serve Zamorak.",
+       "Because I can still help you."
+      ]
+     },
+     {
+      "t": "Teleport to the essence mine with Aubury in south east Varrock.",
+      "s": [
+       "Can you teleport me to the Rune Essence Mine?"
+      ],
+      "i": [
+       "Scrying orb"
+      ]
+     },
+     {
+      "t": "Teleport to the essence mine with Sedridor in the Wizard Tower's basement.",
+      "s": [
+       "Can you teleport me to the Rune Essence Mine?"
+      ],
+      "i": [
+       "Scrying orb"
+      ]
+     },
+     {
+      "t": "Teleport to the essence mine with Wizard Cromperty in East Ardougne.",
+      "s": [
+       "Can you teleport me to the Rune Essence Mine?"
+      ],
+      "i": [
+       "Scrying orb"
+      ]
+     },
+     {
+      "t": "Talk to the Mage of Zamorak in the Chaos Temple in south east Varrock again. If the miniquest doesn't finish, talk to him once more."
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

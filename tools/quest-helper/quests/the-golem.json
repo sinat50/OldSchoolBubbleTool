@@ -1,0 +1,187 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Golem",
+  "items": [
+   "Soft clay (4)",
+   "Vial",
+   "Pestle and mortar",
+   "Papyrus"
+  ],
+  "rec": [
+   "Varrock teleport",
+   "Digsite teleport",
+   "Necklace of passage to Eagle's Eyrie",
+   "Waterskins"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "1,000 Thieving XP",
+   "1,000 Crafting XP",
+   "2 x Rubies (by using a chisel and hammer on the throne)",
+   "2 x Emeralds (by using a chisel and hammer on the throne)",
+   "2 x Sapphires (by using a chisel and hammer on the throne)",
+   "Ability to take the Carpet ride from Shantay Pass to Uzer."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to the Golem in Uzer to start the quest. A necklace of passage to Eagle's Eyrie is a quick way there.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Use 4 soft clay on the Golem in Uzer.",
+      "i": [
+       "Soft clay (4)"
+      ]
+     },
+     {
+      "t": "Pick up the letter on the floor in Uzer and read it.",
+      "i": [
+       "Letter"
+      ]
+     },
+     {
+      "t": "Enter the Uzer ruins. You can drop the Letter you just read."
+     },
+     {
+      "t": "Pick up the strange implement in the north west corner of the ruin.",
+      "i": [
+       "Strange implement"
+      ]
+     }
+    ],
+    "i": [
+     "Soft clay (4)"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Finding the statuette",
+    "st": [
+     {
+      "t": "Talk to Elissa in the north east of the Digsite.",
+      "s": [
+       "I found a letter in the desert with your name on."
+      ]
+     },
+     {
+      "t": "Search the bookcase in the south east corner of the Digsite Exam Centre."
+     },
+     {
+      "t": "Read Varmen's notes.",
+      "i": [
+       "Varmen's notes"
+      ]
+     },
+     {
+      "t": "Talk to Curator Haig in the Varrock Museum. You can drop Varmen's notes.",
+      "s": [
+       "I'm looking for a statuette recovered from the city of Uzer.",
+       "I want to open a portal to the lair of an elder-demon."
+      ]
+     },
+     {
+      "t": "Pickpocket Curator Haig for the Display cabinet key."
+     },
+     {
+      "t": "Go up to the first floor of the Varrock Museum.",
+      "i": [
+       "Display cabinet key"
+      ]
+     },
+     {
+      "t": "Long-press the golem statue's display case and choose Open. It's the second case from the west in the northernmost row.",
+      "i": [
+       "Display cabinet key"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Opening the portal",
+    "st": [
+     {
+      "t": "Enter the Uzer ruins. A necklace of passage to Eagle's Eyrie is a quick way there.",
+      "i": [
+       "Statuette",
+       "Pestle and mortar",
+       "Vial",
+       "Papyrus"
+      ]
+     },
+     {
+      "t": "Use the statue on the empty alcove.",
+      "i": [
+       "Statuette"
+      ]
+     },
+     {
+      "t": "Turn each of the statuettes until they all point north, towards the double doors."
+     },
+     {
+      "t": "Enter the portal."
+     },
+     {
+      "t": "Leave the throne room through the portal to the south. Then climb back up the stairs you came down to leave the ruins."
+     },
+     {
+      "t": "Talk to the Golem in Uzer."
+     },
+     {
+      "t": "Pick up some black mushrooms next to the stairs east of the Golem."
+     },
+     {
+      "t": "Grind the mushrooms into a vial.",
+      "i": [
+       "Pestle and mortar",
+       "Black mushroom",
+       "Vial"
+      ]
+     },
+     {
+      "t": "Steal a feather from the desert phoenix north of Uzer. A necklace of passage to Eagle's Eyrie is a quick way there."
+     },
+     {
+      "t": "Use the phoenix feather on the ink.",
+      "i": [
+       "Phoenix feather",
+       "Black mushroom ink"
+      ]
+     },
+     {
+      "t": "Use the phoenix quill on the papyrus.",
+      "i": [
+       "Phoenix quill pen",
+       "Papyrus"
+      ]
+     },
+     {
+      "t": "Use the strange implement on the Golem in Uzer.",
+      "i": [
+       "Strange implement"
+      ]
+     },
+     {
+      "t": "Use the golem program on the Golem in Uzer.",
+      "i": [
+       "Golem program"
+      ]
+     }
+    ],
+    "i": [
+     "Vial",
+     "Pestle and mortar",
+     "Papyrus"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

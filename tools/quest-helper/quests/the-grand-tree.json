@@ -1,0 +1,213 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder thegrandtree; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Grand Tree",
+  "items": [
+   "Coins to enter the Stronghold if you didn't help Femi previously (1000)"
+  ],
+  "rec": [
+   "Combat gear. Safespotting is possible.",
+   "Food",
+   "Prayer potions",
+   "Energy restoration",
+   "Access to Fairy Rings",
+   "Transport to the Grand Tree"
+  ],
+  "enemies": [
+   "Black demon (level 172) (can be safespotted)"
+  ],
+  "rewards": [
+   "5 Quest points",
+   "18,400 Attack XP",
+   "7,900 Agility XP",
+   "2,150 Magic XP",
+   "Ability to use the Spirit Tree in the Tree Gnome Stronghold."
+  ],
+  "sec": [
+   {
+    "n": "Getting started",
+    "st": [
+     {
+      "t": "Talk to King Narnode Shareen in the Grand Tree(Make sure to have two empty inventory slots to start the quest).",
+      "s": [
+       "You seem worried, what's up?",
+       "I'd be happy to help!"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Hazelmere",
+    "st": [
+     {
+      "t": "Go up to Hazelmere, on the island east of Yanille. Fairy ring CLS or minigame teleport near Yanille.",
+      "i": [
+       "Translation Book",
+       "Bark Sample"
+      ]
+     },
+     {
+      "t": "Talk to Hazelmere.",
+      "i": [
+       "Translation Book",
+       "Bark Sample"
+      ]
+     }
+    ],
+    "i": [
+     "Bark Sample",
+     "Translation Book"
+    ]
+   },
+   {
+    "n": "Investigation",
+    "st": [
+     {
+      "t": "Return to King Narnode in the Grand Tree.",
+      "s": [
+       "I think so!",
+       "None of the above.",
+       "A man came to me with the King's seal.",
+       "I gave the man Daconia rocks.",
+       "And Daconia rocks will kill the tree!"
+      ]
+     },
+     {
+      "t": "Leave the Grand Tree and head south. At the bottom of the incline, turn east and climb the ladder up to Glough's house."
+     },
+     {
+      "t": "Talk to Glough."
+     },
+     {
+      "t": "Talk to King Narnode again in the Grand Tree."
+     },
+     {
+      "t": "Talk to Charlie on the top floor of the Grand Tree."
+     },
+     {
+      "t": "Return to Glough's house and search the cupboard for Glough's Journal."
+     },
+     {
+      "t": "Confront Glough about his journal."
+     },
+     {
+      "t": "Talk to Charlie."
+     },
+     {
+      "t": "Talk to King Narnode outside Charlie's cell."
+     },
+     {
+      "t": "Talk to the gnome glider pilot on top of the Grand Tree and travel to Karamja to escape.",
+      "s": [
+       "Take me to Karamja please!"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Karamja",
+    "st": [
+     {
+      "t": "The glider crashes near the shipyard. Run east past the jogres to the shipyard gate, open it and answer the worker.",
+      "s": [
+       "Glough sent me.",
+       "Ka.",
+       "Lu.",
+       "Min."
+      ]
+     },
+     {
+      "t": "Get the Lumber order from the Foreman on the southern docks. You can either kill him or talk to him. If you talk to him, answer his questions with these lines.",
+      "s": [
+       "Sadly his wife is no longer with us!",
+       "He loves worm holes.",
+       "Anita."
+      ]
+     }
+    ],
+    "i": [
+     "Coins to enter the Stronghold if you didn't help Femi previously (1000)"
+    ]
+   },
+   {
+    "n": "Tuzo",
+    "st": [
+     {
+      "t": "Return to the Grand Tree. You can't walk in through the Stronghold's main gate. Talk to Femi outside it to be snuck in, which costs 1,000 coins if you didn't help her earlier. If you've finished Tree Gnome Village, you can use a Spirit Tree instead, such as the one at the Grand Exchange. Show the lumber order to King Narnode, then talk to Charlie on the top floor of the Grand Tree.",
+      "i": [
+       "Lumber order"
+      ]
+     },
+     {
+      "t": "Go up the stairs in Anita's house, west of the Grand Tree, and talk to her.",
+      "s": [
+       "I suppose so."
+      ]
+     },
+     {
+      "t": "Search the chest in Glough's house.",
+      "i": [
+       "Glough's key"
+      ]
+     },
+     {
+      "t": "Take the invasion plans to King Narnode in the Grand Tree.",
+      "i": [
+       "Invasion plans"
+      ]
+     },
+     {
+      "t": "Go up the ladder to Glough's house, then climb the tree on the east side of the room, by the chest, to reach the watchtower.",
+      "i": [
+       "Twigs (T)",
+       "Twigs (U)",
+       "Twigs (Z)",
+       "Twigs (O)"
+      ]
+     },
+     {
+      "t": "Use the twigs on the four pillars to spell TUZO, starting from the far left. Return to King Narnode if you lost any.",
+      "i": [
+       "Twigs (T)",
+       "Twigs (U)",
+       "Twigs (Z)",
+       "Twigs (O)"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Defeat the Black Demon",
+    "st": [
+     {
+      "t": "Go down the trap door. Be prepared for the fight against a Black Demon (level 172)."
+     },
+     {
+      "t": "Glough appears when you come down: finish the whole chat without tapping anything else. The Black Demon (level 172) then attacks. Run at once to the tile directly north of the ladder you came down. The demon gets stuck behind the rocks in front of you, so attack it with Ranged, Magic or a halberd. Kill it within 10 minutes or it leaves."
+     },
+     {
+      "t": "Talk to King Narnode deeper in the cave."
+     },
+     {
+      "t": "Search the roots under the Grand Tree until you find the Daconia stone. If you lose the rock, it will be in the same root again."
+     },
+     {
+      "t": "Give the Daconia stone to King Narnode under the Grand Tree.",
+      "i": [
+       "Daconia stone"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear. Safespotting is possible.",
+     "Food",
+     "Prayer potions"
+    ],
+    "c": 1,
+    "e": [
+     "Black demon (level 172) (can be safespotted)"
+    ]
+   }
+  ]
+ }
+}

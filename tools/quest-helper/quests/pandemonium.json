@@ -1,0 +1,226 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder pandemonium; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Pandemonium",
+  "items": [
+   "Hammer",
+   "Saw"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "300 Sailing XP",
+   "25 x Sawmill Coupon (wood plank)",
+   "2 x Repair kits",
+   "Spyglass",
+   "Access to the Sailing Skill",
+   "Access to Pandemonium",
+   "Your very own mighty ship!"
+  ],
+  "sec": [
+   {
+    "n": "You got the job!",
+    "st": [
+     {
+      "t": "Talk to Will or Anne on the docks of Port Sarim to start the quest.",
+      "s": [
+       "Yes.",
+       "Okay."
+      ]
+     },
+     {
+      "t": "Talk to Will or Anne on the docks to board the ship."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "What's the job?",
+    "st": [
+     {
+      "t": "Talk to Will or Anne on the boat to hear about the job."
+     },
+     {
+      "t": "Navigate using the helm."
+     },
+     {
+      "t": "Raise your sails: tap the sails on the ship, or tap them under Facilities in the Sailing side panel."
+     },
+     {
+      "t": "Tap the water or the minimap to steer. Sail south through the Bay of Sarim until you're east of the Karamja Shipyard, where the wreck is. When Will says you've arrived, lower the sails."
+     },
+     {
+      "t": "Talk to Will or Anne on the boat to learn about the other part of your job."
+     },
+     {
+      "t": "Deploy the Salvaging Hook."
+     },
+     {
+      "t": "Watch the salvaging cutscene."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "You lost the job!",
+    "st": [
+     {
+      "t": "You wash up on the Pandemonium after the cutscene, so if you're there, tap Done. If you've left it, travel back with Captain Tobias on Port Sarim dock for 30 coins.",
+      "s": [
+       "Yes please.",
+       "I'd like to go to the Pandemonium."
+      ]
+     },
+     {
+      "t": "Talk to 'Squawking' Steve Beanie behind the bar to learn about where you are."
+     },
+     {
+      "t": "Talk to 'Squawking' Steve Beanie about Will and Anne."
+     },
+     {
+      "t": "Talk to Ribs near the door to learn about the map.",
+      "s": [
+       "No, tell me about him.",
+       "Now's not really the time for tales."
+      ]
+     },
+     {
+      "t": "Ask 'Squawking' Steve Beanie behind the bar about Will and Anne's location.",
+      "s": [
+       "About Will and Anne...",
+       "Do you have any idea where Will and Anne might have gone?"
+      ]
+     },
+     {
+      "t": "Ask Junior Jim by the docks about getting a ship.",
+      "s": [
+       "I think I might have lost a cup here."
+      ],
+      "i": [
+       "Old cup"
+      ]
+     },
+     {
+      "t": "Hand over the cup to Junior Jim and receive your mighty vessel!",
+      "s": [
+       "I think I might have lost a cup here."
+      ],
+      "i": [
+       "Old cup"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Your mighty vessel",
+    "st": [
+     {
+      "t": "Talk to Junior Jim to enter the shipyard."
+     },
+     {
+      "t": "Pick up a saw from the crate of saws."
+     },
+     {
+      "t": "Pick up a hammer from the crate of hammers."
+     },
+     {
+      "t": "Board your vessel."
+     },
+     {
+      "t": "Build the Cargo Hold."
+     },
+     {
+      "t": "Disembark your vessel."
+     },
+     {
+      "t": "Leave the shipyard using the portal."
+     },
+     {
+      "t": "Talk to Junior Jim to get a log book."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "You got the job... again!",
+    "st": [
+     {
+      "t": "Talk to Junior Jim for a new job."
+     },
+     {
+      "t": "Board your ship, or reclaim it with a shipwright/ teleport it to you at your preferred dock."
+     },
+     {
+      "t": "Navigate using the helm."
+     },
+     {
+      "t": "Raise your sails: tap the sails under Facilities in the Sailing side panel."
+     },
+     {
+      "t": "Sail north past the shipyard to Port Sarim. Dock by tapping the buoy just south of the southernmost dock."
+     },
+     {
+      "t": "Let go of the helm."
+     },
+     {
+      "t": "Leave your ship."
+     },
+     {
+      "t": "Take off your weapon and shield first: you need empty hands to carry cargo. Then pick up the cargo from the ledger table at the western end of the dock."
+     },
+     {
+      "t": "Board your ship."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Deliver the cargo.",
+    "st": [
+     {
+      "t": "Deposit the crate into your cargo hold."
+     },
+     {
+      "t": "Navigate using the helm."
+     },
+     {
+      "t": "Raise your sails: tap the sails under Facilities in the Sailing side panel."
+     },
+     {
+      "t": "Sail south back to the Pandemonium's docks and stop inside the ring of buoys there."
+     },
+     {
+      "t": "Let go of the helm."
+     },
+     {
+      "t": "Pick up the cargo from your ship's cargo hold."
+     },
+     {
+      "t": "Leave your ship."
+     },
+     {
+      "t": "Deliver the cargo at the ledger table on the docks."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Finishing up",
+    "st": [
+     {
+      "t": "Tell Junior Jim about your delivery."
+     },
+     {
+      "t": "Meet 'Squawking' Steve Beanie and Old Grog at the bar."
+     },
+     {
+      "t": "Talk to 'Squawking' Steve Beanie to finish the quest."
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

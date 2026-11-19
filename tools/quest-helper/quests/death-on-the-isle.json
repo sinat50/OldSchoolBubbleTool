@@ -1,0 +1,295 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder deathontheisle; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Death on the Isle",
+  "items": [],
+  "rec": [],
+  "enemies": [
+   "2 unlosable fights"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "10,000 Thieving XP",
+   "7,500 Agility XP",
+   "5,000 Crafting XP",
+   "The ability to use a Costume Needle (obtainable by speaking to the Costumer)",
+   "The ability to unlock the North Aldarin teleport destination via the pendant of ates"
+  ],
+  "sec": [
+   {
+    "n": "Getting the right fit",
+    "st": [
+     {
+      "t": "Talk to Patzi at the entrance to Villa Lucens on the island of Aldarin to start the quest.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Go north to the house just west of the Aldarin General Store and enter it through the window on its south side to steal a butler's uniform. If the Wandering Guard bothers you, wait until he steps away before entering."
+     },
+     {
+      "t": "Steal the butler's uniform from the wardrobe."
+     },
+     {
+      "t": "Leave the house with the butler's uniform.",
+      "i": [
+       "Butler's uniform"
+      ]
+     },
+     {
+      "t": "Return to Patzi after stealing the butler's uniform.",
+      "i": [
+       "Butler's uniform"
+      ]
+     },
+     {
+      "t": "Equip the Butler's uniform pieces and talk to the Head Butler up the stone stairs and to the south.",
+      "s": [
+       "I am."
+      ],
+      "i": [
+       "Butler's uniform"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Inside Villa Lucens",
+    "st": [
+     {
+      "t": "Head inside the villa and talk to Patzi."
+     },
+     {
+      "t": "Introduce yourself to Constantinius."
+     },
+     {
+      "t": "Introduce yourself to Cozyac."
+     },
+     {
+      "t": "Introduce yourself to Pavo."
+     },
+     {
+      "t": "Introduce yourself to Xocotla."
+     },
+     {
+      "t": "Return to Patzi with the information you've gathered."
+     },
+     {
+      "t": "Leave the villa by its east exit. The cellar entrance is just north of that exit. Go down, walk all the way south and investigate the Antique wine against the south wall."
+     },
+     {
+      "t": "Check on the man in the south-eastern part of the cellar."
+     },
+     {
+      "t": "Explain your innocence to the guards Stradius and Hutza."
+     }
+    ],
+    "i": [
+     "Butler's uniform shirt",
+     "Butler's uniform pants"
+    ]
+   },
+   {
+    "n": "Playing detective",
+    "st": [
+     {
+      "t": "Enter the cellar again to begin your investigation."
+     },
+     {
+      "t": "Investigate the Jug by the entrance stairs."
+     },
+     {
+      "t": "Investigate the Small box in the south room."
+     },
+     {
+      "t": "Investigate the Broken stool in the south room."
+     },
+     {
+      "t": "Investigate the Wine storage in the east room."
+     },
+     {
+      "t": "Investigate the Broken pottery in the east room."
+     },
+     {
+      "t": "Investigate Livius in the east room."
+     },
+     {
+      "t": "Leave the cellar."
+     },
+     {
+      "t": "Interrogate Constantinius."
+     },
+     {
+      "t": "Interrogate Cozyac."
+     },
+     {
+      "t": "Interrogate Pavo."
+     },
+     {
+      "t": "Interrogate Xocotla."
+     },
+     {
+      "t": "Interrogate Patzi and Adala."
+     },
+     {
+      "t": "Return to the guards with the information you've found so far.",
+      "s": [
+       "I think I've found everything there is to find so far. What now?"
+      ]
+     },
+     {
+      "t": "Pickpocket Adala until you find Wine labels.",
+      "i": [
+       "Wine labels"
+      ]
+     },
+     {
+      "t": "Pickpocket Cozyac until you find a threatening note.",
+      "i": [
+       "Threatening note"
+      ]
+     },
+     {
+      "t": "Pickpocket Pavo until you find a drinking flask.",
+      "i": [
+       "Drinking flask"
+      ]
+     },
+     {
+      "t": "Pickpocket Xocotla until you find a shipping contract.",
+      "i": [
+       "Shipping contract"
+      ]
+     },
+     {
+      "t": "Inspect the Wine labels in your inventory.",
+      "i": [
+       "Wine labels"
+      ]
+     },
+     {
+      "t": "Inspect the Threatening note in your inventory.",
+      "i": [
+       "Threatening note"
+      ]
+     },
+     {
+      "t": "Inspect the Drinking flask in your inventory.",
+      "i": [
+       "Drinking flask"
+      ]
+     },
+     {
+      "t": "Inspect the Shipping contract in your inventory.",
+      "i": [
+       "Shipping contract"
+      ]
+     },
+     {
+      "t": "Return to the guards with the stolen items.",
+      "s": [
+       "I think I've found everything there is to find so far. What now?"
+      ],
+      "i": [
+       "Wine labels",
+       "Threatening note",
+       "Drinking flask",
+       "Shipping contract"
+      ]
+     },
+     {
+      "t": "Talk to the guards to tell them you're ready to make an accusation.",
+      "s": [
+       "I'm ready."
+      ]
+     },
+     {
+      "t": "The guards gather everyone on the villa's top floor. Go up there if you aren't there already, and interrogate Constantinius.",
+      "s": [
+       "No."
+      ]
+     },
+     {
+      "t": "Interrogate Xocotla.",
+      "s": [
+       "No."
+      ]
+     },
+     {
+      "t": "Interrogate Cozyac.",
+      "s": [
+       "No."
+      ]
+     },
+     {
+      "t": "Interrogate Pavo.",
+      "s": [
+       "No."
+      ]
+     },
+     {
+      "t": "Accuse Adala of the crime, ready for a fight you cannot lose.",
+      "s": [
+       "Accuse Adala."
+      ]
+     },
+     {
+      "t": "Talk to Adala to get her confession."
+     },
+     {
+      "t": "Talk to the guards about Adala."
+     }
+    ]
+   },
+   {
+    "n": "The show must go on",
+    "st": [
+     {
+      "t": "Go down the stairs to the villa's ground floor and take the southern path down the steps around the cliffs. Climb the loose rocks south-east of the villa, then climb down the next loose rocks to reach the guards. Talk to Stradius at the backstage of the theatre."
+     },
+     {
+      "t": "Head down the stairs to the east and go in through the backstage entrance, then talk to the Costumer in the theatre cellar."
+     },
+     {
+      "t": "Search the crate next to the stairs."
+     },
+     {
+      "t": "Search the bookshelf on the west wall."
+     },
+     {
+      "t": "Search the costume rack to the north."
+     },
+     {
+      "t": "Talk to the Costumer about what you found. Keep talking until you've asked about all four topics.",
+      "s": [
+       "What can you tell me about the actors?",
+       "What's the crate of poison for?",
+       "It seems one of the costumes has a stain on it.",
+       "Did you know there was a hidden passage in here?"
+      ]
+     },
+     {
+      "t": "Report back to Stradius near the theatre and accuse Naiatli. If her name isn't in the list, choose \"More options...\" first.",
+      "s": [
+       "More options...",
+       "Naiatli."
+      ]
+     },
+     {
+      "t": "Talk to Stradius to enter the theatre."
+     },
+     {
+      "t": "Confront Naiatli, attacking her when she runs away. When Clodius appears, attack him instead."
+     },
+     {
+      "t": "Talk to Naiatli."
+     },
+     {
+      "t": "Talk to Stradius and Hutza on the ground floor of the villa to finish the quest."
+     }
+    ]
+   }
+  ]
+ }
+}

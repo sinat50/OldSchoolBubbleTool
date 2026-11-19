@@ -1,0 +1,321 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Great Brain Robbery",
+  "items": [
+   "Fishbowl helmet",
+   "Diving apparatus",
+   "10 Wooden cats, or 10 planks and 10 furs to make them",
+   "Plank (8)",
+   "Hammer",
+   "Nails (200)",
+   "Holy symbol",
+   "Ring of Charos",
+   "No pet following you or in your inventory"
+  ],
+  "rec": [
+   "Ectophial or Mos le'harmless teleport",
+   "Monastery teleport",
+   "Fenkenstrain's Castle teleport",
+   "Watermelon seeds to plant on Harmony for Hard Morytania Diary (3)",
+   "Combat gear for safespotting",
+   "Food",
+   "Prayer potion"
+  ],
+  "enemies": [
+   "Barrelchest (level 190, safespottable)",
+   "4 Sorebones (level 57)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "6,000 Prayer XP",
+   "2,000 Crafting XP",
+   "2,000 Construction XP",
+   "Barrelchest Anchor",
+   "5,000 Exp Reward Lamp (Any skill above 30)",
+   "Prayer Book"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Cross the gangplank to Bill Teach's ship at Port Phasmatys and talk to him to travel to Mos Le'Harmless. Talk to Brother Tranquility near the dock, and keep talking to him on Harmony until the chat ends.",
+      "s": [
+       "Yes.",
+       "Yes, please."
+      ]
+     },
+     {
+      "t": "Leave the windmill and head north. Wear your fishbowl helmet and diving apparatus, pull the saradomin statue, then enter it. Plant the watermelon seeds in the patch first if you brought them for the Hard Morytania Diary.",
+      "i": [
+       "Fishbowl helmet",
+       "Diving apparatus",
+       "Hammer",
+       "Plank (4)",
+       "Nails (100)"
+      ]
+     },
+     {
+      "t": "Enter the water."
+     },
+     {
+      "t": "Repair the stairs to the east.",
+      "i": [
+       "Hammer",
+       "Plank (4)",
+       "Nails (100)"
+      ]
+     },
+     {
+      "t": "Climb up the stairs to the east."
+     },
+     {
+      "t": "Climb up the ladder."
+     },
+     {
+      "t": "Peer through the nearby peephole."
+     },
+     {
+      "t": "Return to Brother Tranquility."
+     }
+    ],
+    "i": [
+     "Plank (4)",
+     "Nails (100)",
+     "Hammer",
+     "Fishbowl helmet",
+     "Diving apparatus",
+     "Holy symbol",
+     "No pet following you or in your inventory"
+    ]
+   },
+   {
+    "n": "Protecting the windmill",
+    "st": [
+     {
+      "t": "Search the south west bookcase in the Edgeville Monastery.",
+      "s": [
+       "Monastery"
+      ],
+      "i": [
+       "Holy symbol"
+      ]
+     },
+     {
+      "t": "Read the prayer book.",
+      "i": [
+       "Prayer book"
+      ]
+     },
+     {
+      "t": "Wear your holy symbol and return to Harmony: take Bill Teach's ship from Port Phasmatys to Mos Le'Harmless, then talk to Brother Tranquility near the dock to be taken there.",
+      "i": [
+       "Prayer book",
+       "Holy symbol"
+      ]
+     },
+     {
+      "t": "Keep your holy symbol on. Inside the windmill on Harmony, long-press the prayer book and choose Recite prayer.",
+      "i": [
+       "Prayer book",
+       "Holy symbol"
+      ]
+     },
+     {
+      "t": "Talk to Brother Tranquility again."
+     }
+    ],
+    "i": [
+     "Holy symbol"
+    ]
+   },
+   {
+    "n": "Finding a Doctor",
+    "st": [
+     {
+      "t": "In Fenkenstrain's Castle, go up either staircase, go through the metal gate into the jail cell in the middle of the room, and climb the ladder there. Talk to Dr. Fenkenstrain at the top."
+     },
+     {
+      "t": "Wear your Ring of Charos and keep it on for this section. Talk to Rufus in Canifis' food store.",
+      "s": [
+       "Talk about the meat shipment"
+      ],
+      "i": [
+       "Ring of Charos"
+      ]
+     },
+     {
+      "t": "Either buy 10 wooden cats from the G.E., or make them on a clockmaker's bench in your POH.",
+      "s": [
+       "Wooden cat"
+      ],
+      "i": [
+       "10 Wooden cats, or 10 planks and 10 furs to make them"
+      ]
+     },
+     {
+      "t": "Return to Dr. Fenkenstrain and build the crate next to him.",
+      "i": [
+       "Ring of Charos",
+       "Plank (4)",
+       "Nails (100)",
+       "Hammer",
+       "Wooden cat (10)",
+       "Crate part (6)",
+       "Wolf whistle"
+      ]
+     },
+     {
+      "t": "Add a bottom to the crate.",
+      "i": [
+       "Plank (4)",
+       "Nails (100)",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Fill the crate next to Fenkenstrain with wooden cats.",
+      "i": [
+       "Wooden cat (10)"
+      ]
+     },
+     {
+      "t": "Blow the wolf whistle.",
+      "i": [
+       "Wolf whistle",
+       "Ring of Charos"
+      ]
+     },
+     {
+      "t": "Return to Dr. Fenkenstrain and place the shipping order on the crate..",
+      "i": [
+       "Shipping order"
+      ]
+     }
+    ],
+    "i": [
+     "Ring of Charos",
+     "10 Wooden cats, or 10 planks and 10 furs to make them",
+     "Plank (4)",
+     "Nails (100)",
+     "Hammer"
+    ]
+   },
+   {
+    "n": "Saving the Monks",
+    "st": [
+     {
+      "t": "Talk to Dr. Fenkenstrain in the Harmony Windmill basement."
+     },
+     {
+      "t": "Leave the windmill basement and wear your fishbowl helmet and diving apparatus. Go north to the shipwreck and search the locker on the ship for a fuse.",
+      "i": [
+       "Fishbowl helmet",
+       "Diving apparatus"
+      ]
+     },
+     {
+      "t": "Climb the ship's ladder."
+     },
+     {
+      "t": "Take a tinderbox.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Take a keg.",
+      "i": [
+       "Keg"
+      ]
+     },
+     {
+      "t": "Climb down the ship's ladder."
+     },
+     {
+      "t": "Use the keg on the church's door.",
+      "i": [
+       "Keg"
+      ]
+     },
+     {
+      "t": "Use the fuse on the keg.",
+      "i": [
+       "Fuse"
+      ]
+     },
+     {
+      "t": "Light the fuse.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Kill sorebones in the church until you have a cranial clamp, brain tongs, 3 bell jars and 30 skull staples.",
+      "i": [
+       "Cranial clamp",
+       "Brain tongs",
+       "Bell jar (3)",
+       "Skull staple (30)"
+      ]
+     },
+     {
+      "t": "Return to Dr. Fenkenstrain in the Harmony Windmill basement.",
+      "i": [
+       "Hammer",
+       "Cranial clamp",
+       "Brain tongs",
+       "Bell jar (3)",
+       "Skull staple (30)"
+      ]
+     },
+     {
+      "t": "Talk to Brother Tranquility on Harmony."
+     }
+    ],
+    "i": [
+     "Hammer",
+     "Fishbowl helmet",
+     "Diving apparatus",
+     "Combat gear for safespotting"
+    ],
+    "c": 1,
+    "e": [
+     "4 Sorebones (level 57)"
+    ]
+   },
+   {
+    "n": "Defeating a Barrelchest",
+    "st": [
+     {
+      "t": "Enter the church, ready to fight Barrelchest. If after initially entering you leave then re-enter, the Barrelchest will get stuck and you can safespot it from the door.",
+      "i": [
+       "Fishbowl helmet",
+       "Diving apparatus",
+       "Combat gear for safespotting"
+      ]
+     },
+     {
+      "t": "Confront Migor."
+     },
+     {
+      "t": "Defeat the barrelchest. You can safespot it from the door if you leave and re-enter the instance."
+     },
+     {
+      "t": "Pick up the anchor the Barrelchest dropped, then talk to Brother Tranquility on Harmony to complete the quest."
+     }
+    ],
+    "i": [
+     "Fishbowl helmet",
+     "Diving apparatus",
+     "Combat gear for safespotting"
+    ],
+    "c": 1,
+    "e": [
+     "Barrelchest (level 190, safespottable)"
+    ]
+   }
+  ]
+ }
+}

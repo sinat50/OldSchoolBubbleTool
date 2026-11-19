@@ -1,0 +1,72 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Witch's Potion",
+  "items": [
+   "Onion",
+   "Burnt meat",
+   "Eye of newt"
+  ],
+  "rec": [],
+  "enemies": [
+   "Rat (level 1)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "325 Magic XP"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Hetty in Rimmington.",
+      "s": [
+       "I am in search of a quest.",
+       "Yes."
+      ],
+      "i": [
+       "Onion",
+       "Eye of newt",
+       "Burnt meat"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Getting a rat's tail",
+    "st": [
+     {
+      "t": "Kill a rat in the house to the west for a rat tail.",
+      "i": [
+       "Rat's tail"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Make the potion",
+    "st": [
+     {
+      "t": "Bring the ingredients to Hetty.",
+      "i": [
+       "Onion",
+       "Eye of newt",
+       "Burnt meat",
+       "Rat's tail"
+      ]
+     },
+     {
+      "t": "Drink from the cauldron to finish off the quest."
+     }
+    ],
+    "i": [
+     "Rat's tail",
+     "Onion",
+     "Burnt meat",
+     "Eye of newt"
+    ]
+   }
+  ]
+ }
+}

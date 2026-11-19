@@ -1,0 +1,219 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder templeoftheeye; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Temple of the Eye",
+  "items": [
+   "Bucket of water",
+   "Chisel",
+   "Pickaxe"
+  ],
+  "rec": [
+   "Teleport to Varrock",
+   "Teleport to Al Kharid"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "9,210 Runecraft XP",
+   "Medium pouch",
+   "Access to the Guardians of the Rift minigame"
+  ],
+  "sec": [
+   {
+    "n": "An Eye for a Favour",
+    "st": [
+     {
+      "t": "Talk to Wizard Persten east of the Al Kharid gate.",
+      "s": [
+       "What's a wizard doing in Al Kharid?",
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Teleport to Varrock"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Herbert and the Dark Mage",
+    "st": [
+     {
+      "t": "Talk to the Mage of Zamorak at the chaos altar in south-east Varrock.",
+      "s": [
+       "I need your help with an amulet."
+      ],
+      "i": [
+       "Eye Amulet"
+      ]
+     },
+     {
+      "t": "Talk to Tea Seller near the Varrock east gate.",
+      "s": [
+       "Could I have a strong cup of tea?"
+      ]
+     },
+     {
+      "t": "Give the strong tea to the Mage of Zamorak in the Varrock chaos temple.",
+      "s": [
+       "Could you help me with that amulet now?",
+       "Yes.",
+       "Could you help me with that amulet now?"
+      ],
+      "i": [
+       "Strong Cup of Tea",
+       "Bucket of water",
+       "Eye Amulet"
+      ]
+     },
+     {
+      "t": "Talk to the Dark Mage in the Abyss. If you've left the Abyss, get back by talking to the Mage of Zamorak in the Wilderness north of Edgeville, and bring only quest items, as other players can kill you there.",
+      "s": [
+       "I need your help with an amulet.",
+       "Could you teleport me to the Abyss?"
+      ],
+      "i": [
+       "Eye Amulet",
+       "Bucket of water"
+      ]
+     },
+     {
+      "t": "Touch the six rune energies around the rift (earth, cosmic, death, nature, law and fire) to find their order, which differs per player. A right one turns white and the game says it reacts strangely to your touch. A wrong one does not respond and the order starts again, so touch the ones you've already found again, in order, before you try a new one. Write the order down as you go."
+     },
+     {
+      "t": "Talk to the Dark Mage in the Abyss again to get the Abyssal Incantation.",
+      "i": [
+       "Eye Amulet"
+      ],
+      "s": [
+       "I need your help with an amulet."
+      ]
+     }
+    ],
+    "i": [
+     "Bucket of water",
+     "Eye Amulet"
+    ],
+    "tr": [
+     "Teleport to Al Kharid"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Help from Some Wizards",
+    "st": [
+     {
+      "t": "Enter the fire rift to leave the Abyss, then take the portal out of the Fire Altar. You come out just east of Wizard Persten, who is east of the Al Kharid gate. Talk to her.",
+      "s": [
+       "About that incantation..."
+      ],
+      "i": [
+       "Eye Amulet",
+       "Abyssal Incantation"
+      ]
+     },
+     {
+      "t": "Talk to Wizard Persten again if the chat has ended, and say yes when she offers to teleport you to the Wizards' Tower.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Abyssal Incantation"
+      ]
+     },
+     {
+      "t": "Climb down the ladder to the Wizards' Tower basement and bring the Abyssal Incantation to Sedridor.",
+      "s": [
+       "I need your help with an incantation."
+      ],
+      "i": [
+       "Abyssal Incantation"
+      ]
+     },
+     {
+      "t": "Speak to Wizard Traiborn on the Wizards' Tower 1st floor.",
+      "s": [
+       "I need your apprentices to help with an incantation."
+      ]
+     },
+     {
+      "t": "Get puzzle from Apprentice Felix."
+     },
+     {
+      "t": "Get puzzle from Apprentice Tamara."
+     },
+     {
+      "t": "Get puzzle from Apprentice Cordelia."
+     },
+     {
+      "t": "Tell Wizard Traiborn the solution to his puzzle is: 11",
+      "s": [
+       "I think I know what a thingummywut is!"
+      ]
+     }
+    ],
+    "i": [
+     "Abyssal Incantation"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Enter the Gate",
+    "st": [
+     {
+      "t": "Speak to Archmage Sedridor in the Wizard's Tower basement."
+     },
+     {
+      "t": "Speak to Archmage Sedridor to begin the incantation.",
+      "s": [
+       "Let's do it.",
+       "So we're ready to perform the incantation?"
+      ]
+     },
+     {
+      "t": "Watch the cutscene as the portal opens. If it doesn't take you through, enter the portal in the Wizards' Tower basement."
+     },
+     {
+      "t": "Talk to Apprentice Felix."
+     },
+     {
+      "t": "Talk to Apprentice Tamara."
+     },
+     {
+      "t": "Talk to Apprentice Cordelia."
+     },
+     {
+      "t": "Speak with Wizard Persten."
+     },
+     {
+      "t": "Experience the vision."
+     },
+     {
+      "t": "Listen as Wizard Persten and the apprentices go over what they found. If the talk doesn't start by itself, talk to Wizard Persten."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Guardians of the Rift",
+    "st": [
+     {
+      "t": "Complete the Guardians of the Rift tutorial.",
+      "i": [
+       "Pickaxe",
+       "Chisel"
+      ]
+     },
+     {
+      "t": "Speak to Archmage Sedridor in the Wizard's Tower basement to finish the quest."
+     }
+    ],
+    "i": [
+     "Pickaxe",
+     "Chisel"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

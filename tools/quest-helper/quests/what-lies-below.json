@@ -1,0 +1,145 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "What Lies Below",
+  "items": [
+   "Bowl",
+   "Chaos runes (15)",
+   "Access to the Chaos Altar"
+  ],
+  "rec": [
+   "Chronicle for teleports to south of Varrock"
+  ],
+  "enemies": [
+   "5 outlaws (level 32)",
+   "King Roald (level 47)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "8,000 Runecraft XP",
+   "2,000 Defence XP",
+   "The Beacon Ring",
+   "Access to a shortcut to the Chaos Altar"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Rat Burgiss south of Varrock.",
+      "s": [
+       "Yes.",
+       "Shall I get them back for you?",
+       "Of course! Tell me what you need me to do."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Help Rat",
+    "st": [
+     {
+      "t": "Go to the outlaws' camp just west of the Grand Exchange and kill 5 outlaws for intel. Put the intel into the folder Rat gave you.",
+      "i": [
+       "Folder",
+       "Rat's paper (5)"
+      ]
+     },
+     {
+      "t": "Return to Rat Burgiss south of Varrock.",
+      "i": [
+       "Full folder"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Help Surok",
+    "st": [
+     {
+      "t": "Talk to Surok Magis in the Varrock Library.",
+      "s": [
+       "Go on, then!"
+      ],
+      "i": [
+       "Letter to Surok"
+      ]
+     },
+     {
+      "t": "Travel to the chaos altar with the wand and 15 chaos runes. You can either enter with a chaos talisman, or use the abyss.",
+      "i": [
+       "Wand",
+       "Chaos runes (15)",
+       "Access to the Chaos Altar"
+      ]
+     },
+     {
+      "t": "Use the wand on the chaos altar.",
+      "i": [
+       "Wand",
+       "Chaos runes (15)"
+      ]
+     },
+     {
+      "t": "Return to Surok Magis in the Varrock Library with the wand and a bowl.",
+      "s": [
+       "I have the things you wanted!"
+      ],
+      "i": [
+       "Infused wand",
+       "Bowl"
+      ]
+     }
+    ],
+    "i": [
+     "Chaos runes (15)",
+     "Access to the Chaos Altar",
+     "Bowl",
+     "Wand"
+    ]
+   },
+   {
+    "n": "Defeat Surok",
+    "st": [
+     {
+      "t": "Return to Rat Burgiss south of Varrock.",
+      "s": [
+       "Yes! I have a letter for you."
+      ],
+      "i": [
+       "Surok's letter"
+      ]
+     },
+     {
+      "t": "Talk to Zaff in the Varrock staff shop.",
+      "s": [
+       "Rat Burgiss sent me!"
+      ]
+     },
+     {
+      "t": "Prepare to fight King Roald (level 47), then go talk to Surok Magis in the Varrock Library.",
+      "s": [
+       "Bring it on!"
+      ],
+      "i": [
+       "Beacon ring"
+      ]
+     },
+     {
+      "t": "Fight King Roald. When he's almost dead and your character says \"Now would be a good time to summon Zaff!\", long-press the beacon ring and choose Operate.",
+      "i": [
+       "Beacon ring"
+      ]
+     },
+     {
+      "t": "Return to Rat Burgiss south of Varrock to finish the quest."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "King Roald (level 47)"
+    ]
+   }
+  ]
+ }
+}

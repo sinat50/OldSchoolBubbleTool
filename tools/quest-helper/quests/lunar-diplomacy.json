@@ -1,0 +1,615 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder lunardiplomacy; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Lunar Diplomacy",
+  "items": [
+   "Bullseye lantern",
+   "Tinderbox",
+   "Guam leaf",
+   "Marrentill",
+   "Dramen staff",
+   "Access to the Air Altar",
+   "Access to the Earth Altar",
+   "Access to the Fire Altar",
+   "Access to the Water Altar",
+   "Any pickaxe",
+   "Pestle and mortar",
+   "Hammer",
+   "Thread",
+   "Needle",
+   "Spade"
+  ],
+  "rec": [
+   "Combat gear",
+   "Combat runes",
+   "Moonclan Teleport"
+  ],
+  "enemies": [
+   "Multiple Suqah (level 111)",
+   "Me (level 79)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "5,000 Magic XP",
+   "5,000 Runecraft XP",
+   "50 x Astral Runes",
+   "A Seal of Passage",
+   "A set of Lunar Equipment",
+   "Access to Lunar Island",
+   "Access to the Lunar Spellbook",
+   "Access to the Astral Altar"
+  ],
+  "sec": [
+   {
+    "n": "Investigating",
+    "st": [
+     {
+      "t": "Talk to Lokar Searunner on Rellekka's docks.",
+      "s": [
+       "Yes.",
+       "You've been away from these parts a while?",
+       "Why did you leave?",
+       "Why not, I've always wondered what the state of my innards are!"
+      ]
+     },
+     {
+      "t": "Talk to Brundt in Rellekka's longhall.",
+      "s": [
+       "Ask about a Seal of Passage."
+      ]
+     },
+     {
+      "t": "Return to Lokar Searunner on Rellekka's docks.",
+      "s": [
+       "Arrr! Yar! Let's be on our way, yar!"
+      ],
+      "i": [
+       "Seal of passage"
+      ]
+     },
+     {
+      "t": "Climb up to the ship."
+     },
+     {
+      "t": "Equip the seal of passage, then talk to Captain Bentley.",
+      "s": [
+       "Can we sail to Lunar Isle now?"
+      ],
+      "i": [
+       "Seal of passage"
+      ]
+     }
+    ],
+    "i": [
+     "Bullseye lantern",
+     "Tinderbox"
+    ]
+   },
+   {
+    "n": "The curse",
+    "st": [
+     {
+      "t": "Go down to talk to 'Birds-Eye' Jack."
+     },
+     {
+      "t": "Go upstairs to talk to Bentley again.",
+      "s": [
+       "Perhaps it's the Navigator's fault?"
+      ]
+     },
+     {
+      "t": "Go down to talk to 'Birds-Eye' Jack again."
+     },
+     {
+      "t": "Go up to the main deck and talk to 'Eagle-eye' Shultz at the north end of the ship."
+     },
+     {
+      "t": "Go to the bottom deck to talk to 'Beefy' Burns."
+     },
+     {
+      "t": "Go to the top deck to talk to 'Lecherous' Lee."
+     },
+     {
+      "t": "Go down to the deck to talk to First mate 'Davey-boy'."
+     },
+     {
+      "t": "Go up to the Cabin Boy."
+     },
+     {
+      "t": "If your bullseye lantern is lit, extinguish it first. Then use the emerald lens on the lantern.",
+      "i": [
+       "Emerald lens",
+       "Bullseye lantern"
+      ]
+     },
+     {
+      "t": "Light the emerald lantern.",
+      "i": [
+       "Tinderbox",
+       "Emerald lantern"
+      ]
+     },
+     {
+      "t": "Go to the top deck and use the lit emerald lantern on the east cannon to remove its symbol. If that doesn't work, try the other cannon.",
+      "s": [
+       "Rub away!"
+      ],
+      "i": [
+       "Emerald lantern"
+      ]
+     },
+     {
+      "t": "Go to the main deck and use the lit emerald lantern on the wallchart in the south room to remove its symbol.",
+      "s": [
+       "Rub away!"
+      ],
+      "i": [
+       "Emerald lantern"
+      ]
+     },
+     {
+      "t": "Use the emerald lantern on the chest in the north of the bottom deck.",
+      "s": [
+       "Rub away!"
+      ],
+      "i": [
+       "Emerald lantern"
+      ]
+     },
+     {
+      "t": "Use the emerald lantern on the pillar next to the kitchen of the bottom deck.",
+      "s": [
+       "Rub away!"
+      ],
+      "i": [
+       "Emerald lantern"
+      ]
+     },
+     {
+      "t": "Use the emerald lantern on the crate in the kitchen of the bottom deck.",
+      "s": [
+       "Rub away!"
+      ],
+      "i": [
+       "Emerald lantern"
+      ]
+     },
+     {
+      "t": "Talk to Captain Bentley to set sail."
+     }
+    ],
+    "i": [
+     "Bullseye lantern",
+     "Tinderbox"
+    ]
+   },
+   {
+    "n": "Starting diplomacy",
+    "st": [
+     {
+      "t": "Enter the town on Lunar Isle."
+     },
+     {
+      "t": "Talk to the Oneiromancer in the south east of Lunar Isle.",
+      "i": [
+       "Seal of passage"
+      ]
+     },
+     {
+      "t": "Talk to Baba Yaga in the chicken-legged house in the north of Lunar Isle's town.",
+      "s": [
+       "The Oneiromancer told me you may be able to help..."
+      ],
+      "i": [
+       "Seal of passage"
+      ]
+     },
+     {
+      "t": "Leave Baba Yaga's house and fill the vial with water at the sink just south-east of it.",
+      "i": [
+       "Empty vial"
+      ]
+     },
+     {
+      "t": "Add guam to the vial of water.",
+      "i": [
+       "Empty vial",
+       "Guam leaf"
+      ]
+     },
+     {
+      "t": "Add marrentill to the guam vial.",
+      "i": [
+       "Marrentill",
+       "Guam vial"
+      ]
+     },
+     {
+      "t": "Kill the Suqah outside the town on Lunar Isle for a tooth. You'll also need 4 hides for later, so pick them up."
+     },
+     {
+      "t": "Grind the suqah tooth.",
+      "i": [
+       "Suqah tooth",
+       "Pestle and mortar"
+      ]
+     },
+     {
+      "t": "Add the ground tooth to the guam-marr potion.",
+      "i": [
+       "Ground tooth",
+       "Guam-marr vial"
+      ]
+     },
+     {
+      "t": "Return to the Oneiromancer with the waking sleep vial."
+     }
+    ],
+    "i": [
+     "Guam leaf",
+     "Marrentill",
+     "Pestle and mortar",
+     "Seal of passage",
+     "Combat gear"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Making the staff",
+    "st": [
+     {
+      "t": "Enter the Air Altar and use a dramen staff on it.",
+      "i": [
+       "Access to the Air Altar",
+       "Dramen staff"
+      ]
+     },
+     {
+      "t": "Enter the Fire Altar and use a partially made lunar staff on it.",
+      "i": [
+       "Access to the Fire Altar",
+       "Lunar staff - pt1"
+      ]
+     },
+     {
+      "t": "Enter the Water Altar and use the partially made lunar staff on it.",
+      "i": [
+       "Access to the Water Altar",
+       "Lunar staff - pt2"
+      ]
+     },
+     {
+      "t": "Enter the Earth Altar and use a partially made lunar staff on it.",
+      "i": [
+       "Access to the Earth Altar",
+       "Lunar staff - pt3"
+      ]
+     },
+     {
+      "t": "Talk to Lokar Searunner on Rellekka's docks and choose Go now. Climb up to the ship, talk to Captain Bentley to sail to Lunar Isle, then climb down to the island. Bring the staff to the Oneiromancer in the south east of Lunar Isle.",
+      "s": [
+       "Go now."
+      ],
+      "i": [
+       "Lunar staff",
+       "Seal of passage"
+      ]
+     }
+    ],
+    "i": [
+     "Dramen staff",
+     "Access to the Air Altar",
+     "Access to the Fire Altar",
+     "Access to the Water Altar",
+     "Access to the Earth Altar"
+    ]
+   },
+   {
+    "n": "Making the helmet",
+    "st": [
+     {
+      "t": "Enter the mine in the north east of Lunar Isle.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Mine a lunar ore from one of the stalagmites in the area. (Tip: Grab 3 extra ores to save time during The Fremennik Exiles quest)",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Smelt the ore at a furnace, or cast Superheat Item on it. The closest furnace and anvil are in Rellekka.",
+      "i": [
+       "Lunar ore"
+      ]
+     },
+     {
+      "t": "Make the lunar helmet on an anvil.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Lunar bar",
+       "Hammer"
+      ]
+     }
+    ],
+    "i": [
+     "Any pickaxe",
+     "Hammer"
+    ]
+   },
+   {
+    "n": "Getting the cape",
+    "st": [
+     {
+      "t": "Talk to Pauline Polaris in the west of Lunar Isle's town.",
+      "s": [
+       "Pauline?",
+       "Jane Blud-Hagic-Maid"
+      ],
+      "i": [
+       "Seal of passage"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Getting the amulet",
+    "st": [
+     {
+      "t": "Talk to Meteora in the south of Lunar Isle's town.",
+      "i": [
+       "Seal of passage"
+      ]
+     },
+     {
+      "t": "Kill the Suqah outside the town for a special tiara. You'll also need 4 hides for making clothes, so pick them up."
+     },
+     {
+      "t": "Return the tiara to Meteora in the south of Lunar Isle's town.",
+      "i": [
+       "Seal of passage",
+       "A special tiara"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Getting the ring",
+    "st": [
+     {
+      "t": "Talk to Selene in the west of Lunar Isle's town.",
+      "s": [
+       "I'm looking for a ring."
+      ],
+      "i": [
+       "Seal of passage"
+      ]
+     },
+     {
+      "t": "Leave the town and run south, then west past the two bridges. In the far south-west of Lunar Isle, dig on the blue flowers furthest west. Read the message to the end, or you won't get the ring.",
+      "i": [
+       "Spade"
+      ]
+     }
+    ],
+    "i": [
+     "Spade"
+    ]
+   },
+   {
+    "n": "Making the clothing",
+    "st": [
+     {
+      "t": "Have Rimae in the east of Lunar Isle's town tan 4 suqah hides, and craft them into the torso, gloves, boots and legs.",
+      "s": [
+       "You know the ceremonial clothes?",
+       "That seems like a fair deal."
+      ],
+      "i": [
+       "Seal of passage",
+       "Suqah hide (4)",
+       "Coins (400)",
+       "Needle",
+       "Thread"
+      ]
+     }
+    ],
+    "i": [
+     "Coins (400)",
+     "Needle",
+     "Thread",
+     "Suqah hide (4)"
+    ]
+   },
+   {
+    "n": "Return to Oneiromancer",
+    "st": [
+     {
+      "t": "Bring all the items to the Oneiromancer in the south east of Lunar Isle.",
+      "i": [
+       "Seal of passage",
+       "Lunar amulet",
+       "Lunar boots",
+       "Lunar cape",
+       "Lunar gloves",
+       "Lunar helm",
+       "Lunar legs",
+       "Lunar ring",
+       "Lunar torso"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Entering the Dreamland",
+    "st": [
+     {
+      "t": "Use the waking sleep potion on the kindling",
+      "i": [
+       "Waking sleep vial",
+       "Kindling"
+      ]
+     },
+     {
+      "t": "Equip your lunar equipment, some combat runes, and light the Brazier in the west of Lunar Isle's town.",
+      "i": [
+       "Seal of passage",
+       "Tinderbox",
+       "Soaked kindling",
+       "Lunar helm",
+       "Lunar torso",
+       "Lunar legs",
+       "Lunar boots",
+       "Lunar gloves",
+       "Lunar cape",
+       "Lunar amulet",
+       "Lunar ring",
+       "Lunar staff"
+      ]
+     },
+     {
+      "t": "Add the soaked kindling to the Brazier in the west of Lunar Isle's town.",
+      "i": [
+       "Seal of passage",
+       "Soaked kindling",
+       "Lunar helm",
+       "Lunar torso",
+       "Lunar legs",
+       "Lunar boots",
+       "Lunar gloves",
+       "Lunar cape",
+       "Lunar amulet",
+       "Lunar ring",
+       "Lunar staff"
+      ]
+     },
+     {
+      "t": "Talk to the Ethereal Being."
+     }
+    ],
+    "i": [
+     "Tinderbox"
+    ]
+   },
+   {
+    "n": "Racing challenge",
+    "st": [
+     {
+      "t": "From the centre of the Dream World, go on the yellow-green platform to the east for the race challenge."
+     },
+     {
+      "t": "Talk to the Ethereal Expert. Be prepared to race!",
+      "s": [
+       "Ok."
+      ]
+     },
+     {
+      "t": "Race to the end of the course to win!"
+     }
+    ]
+   },
+   {
+    "n": "Number challenge",
+    "st": [
+     {
+      "t": "From the centre of the Dream World, go on the pink platform to the south-east for the number challenge."
+     },
+     {
+      "t": "Talk to the Ethereal Numerator to begin the challenge."
+     },
+     {
+      "t": "Complete the numbers challenge."
+     }
+    ]
+   },
+   {
+    "n": "Mimic challenge",
+    "st": [
+     {
+      "t": "From the centre of the Dream World, go on the teal platform to the south, just west of the pink one, for the mimic challenge."
+     },
+     {
+      "t": "Talk to the Ethereal Mimic. Watch which emote he does (cry, bow, dance, wave or think) and do the same one from your Emotes tab. He then teleports: long-press him and choose Talk-to (a plain tap can step you onto the platform and restart the challenge), then copy the next emote. After 5 correct emotes he sends you back.",
+      "s": [
+       "Suppose I may as well have a go."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Chance challenge",
+    "st": [
+     {
+      "t": "From the centre of the Dream World, go on the green and yellow platform to the south-west for the chance challenge."
+     },
+     {
+      "t": "Talk to the Ethereal Fluke, then solve the dice challenge."
+     }
+    ]
+   },
+   {
+    "n": "Memory challenge",
+    "st": [
+     {
+      "t": "From the centre of the Dream World, go on the white platform to the north-west for the memory challenge."
+     },
+     {
+      "t": "Talk to the Ethereal Guide, then solve the memory puzzle."
+     }
+    ]
+   },
+   {
+    "n": "Tree challenge",
+    "st": [
+     {
+      "t": "From the centre of the Dream World, go on the blue platform to the north-north-east for the trees challenge."
+     },
+     {
+      "t": "Talk to Ethereal Perceptive to begin. Cut 20 logs and deposit them on the log piles faster than he does.",
+      "s": [
+       "Ok, let's go!"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Final challenge",
+    "st": [
+     {
+      "t": "Talk to the Ethereal Being. Be prepared to fight.",
+      "s": [
+       "Of course. I'm ready."
+      ]
+     },
+     {
+      "t": "Fight your dream self, the level 79 enemy called Me. It attacks with melee and teleports you around the arena now and then."
+     },
+     {
+      "t": "Go back to the centre of the Dream World and talk to the Ethereal Being, then read My Life on the lectern there to return to Lunar Isle.",
+      "s": [
+       "Yes"
+      ]
+     },
+     {
+      "t": "Talk to the Oneiromancer in the south east of Lunar Isle to finish the quest! (Remember to equip the seal of passage)",
+      "i": [
+       "Seal of passage"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear"
+    ],
+    "c": 1
+   }
+  ]
+ }
+}

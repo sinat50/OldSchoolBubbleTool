@@ -1,0 +1,153 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder theeyesofglouphrie; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Eyes of Glouphrie",
+  "items": [
+   "Bucket of sap",
+   "Mud rune",
+   "Maple logs",
+   "Oak logs",
+   "Hammer",
+   "Saw",
+   "Pestle and mortar"
+  ],
+  "rec": [],
+  "enemies": [
+   "Evil creature (x6)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "12,000 Magic XP",
+   "2,500 Woodcutting XP",
+   "6,000 Runecraft XP",
+   "250 Construction XP",
+   "A Crystal Saw Seed"
+  ],
+  "sec": [
+   {
+    "n": "Learning",
+    "st": [
+     {
+      "t": "Go talk to Brimstail in his cave in west Tree Gnome Stronghold.",
+      "s": [
+       "What's that cute creature wandering around?",
+       "Yes, that sounds fascinating...",
+       "Oh, yes I love a bit of History.",
+       "Of course!",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Inspect the singing bowl in the west room."
+     },
+     {
+      "t": "Attempt to unlock oaknock's machine in the north of the cave."
+     },
+     {
+      "t": "Talk to Brimstail again.",
+      "s": [
+       "I've had a look in the other room now.",
+       "Of course, I'd love to!"
+      ]
+     },
+     {
+      "t": "Go to Hazelmere's hut east of Yanille (Fairy Ring CLS), climb the ladder and talk to him upstairs."
+     },
+     {
+      "t": "Talk to Brimstail.",
+      "s": [
+       "I've visited Hazelmere, he told me all sorts of interesting things."
+      ]
+     },
+     {
+      "t": "Use the pestle and mortar on some mud runes.",
+      "i": [
+       "Pestle and mortar",
+       "Mud rune"
+      ]
+     },
+     {
+      "t": "Use the ground mud runes on the bucket of sap.",
+      "i": [
+       "Ground mud runes",
+       "Bucket of sap"
+      ]
+     },
+     {
+      "t": "Use the magic glue on oaknock's machine in the north of the cave.",
+      "i": [
+       "Magic glue",
+       "Oak logs",
+       "Maple logs",
+       "Saw",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Talk to Brimstail.",
+      "s": [
+       "I think I've fixed the machine now!"
+      ]
+     },
+     {
+      "t": "Talk to Brimstail twice more for more discs. If you need more and he won't give you any, drop your discs and talk to him again. You can also swap discs at the exchanger next to the machine.",
+      "s": [
+       "I can't work out what to do with these discs!"
+      ]
+     },
+     {
+      "t": "Unlock the machine."
+     },
+     {
+      "t": "Operate the machine."
+     }
+    ],
+    "i": [
+     "Bucket of sap",
+     "Mud rune",
+     "Maple logs",
+     "Oak logs",
+     "Hammer",
+     "Saw",
+     "Pestle and mortar"
+    ]
+   },
+   {
+    "n": "Kill the spies",
+    "st": [
+     {
+      "t": "Talk to Brimstail again.",
+      "s": [
+       "Phew! I've got that machine working now. What do I need to do now?"
+      ]
+     },
+     {
+      "t": "Kill the evil creature next to Brimstail."
+     },
+     {
+      "t": "Kill the evil creature next to the Stronghold's entrance. It must die inside the walls: if you killed it outside, wait for it to reappear and kill it again. Wait for its death animation to finish before you leave."
+     },
+     {
+      "t": "Kill the evil creature next to the Stronghold's Spirit Tree."
+     },
+     {
+      "t": "Kill the evil creature by the giant tortoises north-west of the Grand Tree, in the pen north of the swamp."
+     },
+     {
+      "t": "Kill the evil creature at the top of the Grand Tree."
+     },
+     {
+      "t": "Kill the evil creature next to Narnode."
+     },
+     {
+      "t": "Talk to King Narnode to finish the quest."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Evil creature (x6)"
+    ]
+   }
+  ]
+ }
+}

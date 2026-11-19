@@ -1,0 +1,267 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Holy Grail",
+  "items": [
+   "Excalibur"
+  ],
+  "rec": [
+   "Camelot Teleports (3)",
+   "Ardougne Teleport (2)",
+   "Draynor Teleport Tablet",
+   "Falador Teleport",
+   "Coins (60)",
+   "Antipoison",
+   "Food",
+   "A weapon and armour (melee recommended)"
+  ],
+  "enemies": [
+   "Black Knight Titan (level 120)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "11,000 Prayer XP",
+   "15,300 Defence XP",
+   "Access to the Fisher Realm.",
+   "Ability to put King Arthur picture on the wall in the POH."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to King Arthur in Camelot Castle to start the quest.",
+      "s": [
+       "Tell me of this quest.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Go up the main staircase in Camelot Castle and talk to Merlin in the east room, the one with the cauldron."
+     }
+    ]
+   },
+   {
+    "n": "Getting the Napkin",
+    "st": [
+     {
+      "t": "Head to Port Sarim and talk to a monk of Entrana for passage to Entrana. Bank all combat gear."
+     },
+     {
+      "t": "Talk to the High Priest in the chapel on Entrana.",
+      "s": [
+       "Ask about the Holy Grail Quest",
+       "Ok, I will go searching."
+      ]
+     },
+     {
+      "t": "Talk to Galahad in his house west of McGrubor's Woods.",
+      "s": [
+       "I seek an item from the realm of the Fisher King."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Getting the Magic Whistles",
+    "st": [
+     {
+      "t": "Travel to Draynor Manor.",
+      "i": [
+       "Holy Table Napkin"
+      ]
+     },
+     {
+      "t": "Enter Draynor Manor.",
+      "i": [
+       "Holy Table Napkin"
+      ]
+     },
+     {
+      "t": "Go up the stairs in Draynor Manor.",
+      "i": [
+       "Holy Table Napkin"
+      ]
+     },
+     {
+      "t": "Go up the second set of stairs in Draynor Manor.",
+      "i": [
+       "Holy Table Napkin"
+      ]
+     },
+     {
+      "t": "On this top floor, go to the room south of Professor Oddenstein and open its door.",
+      "i": [
+       "Holy Table Napkin"
+      ]
+     },
+     {
+      "t": "Pickup 2 Magic Whistles.",
+      "i": [
+       "Holy Table Napkin"
+      ]
+     }
+    ],
+    "i": [
+     "Holy Table Napkin"
+    ],
+    "tr": [
+     "Draynor Teleport Tablet"
+    ]
+   },
+   {
+    "n": "Fisher King Realm Pt.1",
+    "st": [
+     {
+      "t": "Bring Excalibur. If you don't own it, get it from the Lady of the Lake in Taverley for 500 coins. Take the boat from Ardougne docks to Brimhaven for 30 coins, then go north-west of Brimhaven to the tower on the peninsula, near the gold mine.",
+      "s": [
+       "I'd like to go to Brimhaven."
+      ],
+      "i": [
+       "Magic Whistles (2)",
+       "Excalibur"
+      ]
+     },
+     {
+      "t": "Blow the whistle once you are underneath of the tower.",
+      "i": [
+       "Magic Whistle (2)",
+       "Excalibur"
+      ]
+     },
+     {
+      "t": "Kill the Black Knight Titan with Excalibur. Melee is recommended as it has high Ranged and Magic defence. (You only need to deal the killing blow with excalibur!)",
+      "i": [
+       "Magic Whistles (2)",
+       "Excalibur"
+      ]
+     },
+     {
+      "t": "Talk to the fisherman by the river. After talking to him walk West to the castle.",
+      "s": [
+       "Any idea how to get into the castle?"
+      ]
+     },
+     {
+      "t": "Pickup the grail bell outside of the castle. If it's not there, return to the fisherman and finish the conversation.",
+      "s": [
+       "Any idea how to get into the castle?"
+      ],
+      "i": [
+       "Grail Bell"
+      ]
+     },
+     {
+      "t": "Ring the grail bell while standing directly north of the broken castle wall (Where you picked up the bell)",
+      "i": [
+       "Grail Bell"
+      ]
+     },
+     {
+      "t": "Go up the western staircase inside the castle."
+     },
+     {
+      "t": "Talk to The Fisher King and choose both options. If you leave without asking both, you'll have to kill the Black Knight Titan again.",
+      "s": [
+       "I seek the Holy Grail.",
+       "You don't look too well."
+      ]
+     }
+    ],
+    "i": [
+     "Magic Whistles (2)",
+     "Excalibur"
+    ],
+    "r": [
+     "Coins (30)",
+     "Antipoison"
+    ],
+    "c": 1,
+    "e": [
+     "Black Knight Titan (level 120)"
+    ]
+   },
+   {
+    "n": "Finding Percival",
+    "st": [
+     {
+      "t": "Blow a magic whistle to leave the Fisher Realm, or teleport out. Keep both whistles. Return to Camelot and talk to King Arthur with a free inventory space.",
+      "i": [
+       "Empty Inventory Spot"
+      ]
+     },
+     {
+      "t": "Keep the magic gold feather in your inventory. Travel to the Goblin Village, north of Falador. Long-press the sacks in the house on the east side of the village and choose Open.",
+      "s": [
+       "Come with me, I shall make you a king."
+      ],
+      "i": [
+       "Magic Whistles (2)"
+      ]
+     }
+    ],
+    "i": [
+     "Empty Inventory Spot",
+     "Magic Whistles (2)"
+    ]
+   },
+   {
+    "n": "Fisher King Realm Pt.2",
+    "st": [
+     {
+      "t": "Take the boat from Ardougne docks to Brimhaven for 30 coins and go back to the tower north-west of Brimhaven, near the gold mine. With fairy rings, code B.J.R. takes you straight to the Fisher Realm instead.",
+      "s": [
+       "I'd like to go to Brimhaven."
+      ],
+      "i": [
+       "Magic Whistle",
+       "Magic gold feather"
+      ]
+     },
+     {
+      "t": "Blow the whistle once you are underneath of the tower.",
+      "i": [
+       "Magic Whistle"
+      ]
+     },
+     {
+      "t": "Open the door to the castle and enter."
+     },
+     {
+      "t": "Go up the stairs to the east."
+     },
+     {
+      "t": "Climb the ladder on the second floor."
+     },
+     {
+      "t": "Pickup the Holy grail.",
+      "i": [
+       "Holy Grail"
+      ]
+     }
+    ],
+    "i": [
+     "Magic Whistle"
+    ],
+    "r": [
+     "Coins (30)",
+     "Antipoison"
+    ]
+   },
+   {
+    "n": "Finishing up",
+    "st": [
+     {
+      "t": "Return to Camelot and talk to King Arthur",
+      "i": [
+       "Holy Grail"
+      ]
+     }
+    ],
+    "i": [
+     "Holy Grail"
+    ]
+   }
+  ]
+ }
+}

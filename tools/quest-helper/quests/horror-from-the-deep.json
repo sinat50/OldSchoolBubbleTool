@@ -1,0 +1,187 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Horror from the Deep",
+  "items": [
+   "Fire rune",
+   "Air rune",
+   "Water rune",
+   "Earth rune",
+   "Any sword you're willing to lose",
+   "Any arrow",
+   "Molten glass",
+   "Tinderbox",
+   "Hammer",
+   "Steel nails (60)",
+   "Plank (2)",
+   "Swamp tar",
+   "20+ casts of each element spell"
+  ],
+  "rec": [
+   "Games necklace",
+   "Magic combat gear",
+   "Food",
+   "Prayer potions"
+  ],
+  "enemies": [
+   "Dagannoth (level 100)",
+   "Dagannoth Mother (level 100)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "4,662 Magic XP",
+   "4,662 Strength XP",
+   "4,662 Ranged XP",
+   "A damaged God Book of your choice.",
+   "Access to The Lighthouse",
+   "Ability to receive Dagannoth as a Slayer task."
+  ],
+  "sec": [
+   {
+    "n": "Saving Jossik",
+    "st": [
+     {
+      "t": "Talk to Larrissa outside the Lighthouse north of the Barbarian Outpost. You can get here by Fairy Ring (alp), by jumping over the bassalt rocks from the Barbarian Outpost, or from the Fremennik Province.",
+      "s": [
+       "With what?",
+       "But how can I help?",
+       "Okay, I'll help!"
+      ]
+     },
+     {
+      "t": "Use a plank on the bridge east of the Lighthouse.",
+      "i": [
+       "Plank",
+       "Steel nails (30)",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Jump across the gap in the bridge, then use your second plank on the far side.",
+      "i": [
+       "Plank",
+       "Steel nails (30)",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Talk to Gunnjorn in the Barbarian Agility Course south of the lighthouse."
+     },
+     {
+      "t": "Unlock the Lighthouse.",
+      "i": [
+       "Lighthouse key"
+      ]
+     },
+     {
+      "t": "Enter the Lighthouse."
+     },
+     {
+      "t": "Go to the top of the lighthouse."
+     },
+     {
+      "t": "Use swamp tar on the lighting mechanism.",
+      "i": [
+       "Swamp tar"
+      ]
+     },
+     {
+      "t": "Use a tinderbox on the lighting mechanism.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Use molten glass on the lighting mechanism.",
+      "i": [
+       "Molten glass"
+      ]
+     },
+     {
+      "t": "Go to the basement of the lighthouse."
+     },
+     {
+      "t": "Use an air rune on the strange wall.",
+      "i": [
+       "Air rune"
+      ]
+     },
+     {
+      "t": "Use a water rune on the strange wall.",
+      "i": [
+       "Water rune"
+      ]
+     },
+     {
+      "t": "Use an earth rune on the strange wall.",
+      "i": [
+       "Earth rune"
+      ]
+     },
+     {
+      "t": "Use a fire rune on the strange wall.",
+      "i": [
+       "Fire rune"
+      ]
+     },
+     {
+      "t": "Use an arrow on the strange wall. Ogre arrows, training arrows and bolts won't work.",
+      "i": [
+       "Any arrow"
+      ]
+     },
+     {
+      "t": "Use a sword on the strange wall. You will lose it.",
+      "i": [
+       "Any sword you're willing to lose"
+      ]
+     }
+    ],
+    "i": [
+     "Hammer",
+     "Steel nails (60)",
+     "Plank (2)",
+     "Molten glass",
+     "Tinderbox",
+     "Swamp tar",
+     "Fire rune",
+     "Air rune",
+     "Water rune",
+     "Earth rune",
+     "Any sword you're willing to lose",
+     "Any arrow",
+     "20+ casts of each element spell"
+    ]
+   },
+   {
+    "n": "Defeating the dagannoths",
+    "st": [
+     {
+      "t": "Ready for fighting, go through the eastern part of the strange wall and climb down the ladder."
+     },
+     {
+      "t": "Talk to Jossik."
+     },
+     {
+      "t": "Defeat the dagannoth."
+     },
+     {
+      "t": "Defeat the Dagannoth mother. She can only be hurt by air spells when white, water spells when blue, earth spells when brown, fire spells when red, melee when orange and ranged when green.",
+      "i": [
+       "Magic combat gear",
+       "20+ casts of each element spell"
+      ]
+     }
+    ],
+    "i": [
+     "20+ casts of each element spell"
+    ],
+    "c": 1,
+    "e": [
+     "Dagannoth (level 100)",
+     "Dagannoth Mother (level 100)"
+    ]
+   }
+  ]
+ }
+}

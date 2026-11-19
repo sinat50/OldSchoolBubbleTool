@@ -1,0 +1,214 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder spiritsoftheelid; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Spirits of the Elid",
+  "items": [
+   "Air Rune",
+   "Law Rune",
+   "Needle",
+   "Thread (2)",
+   "Crush Weapon Style",
+   "Stab Weapon Style",
+   "Slash Weapon Style",
+   "Light source",
+   "Knife",
+   "Rope",
+   "Any Pickaxe",
+   "Any bow",
+   "Arrows for bow"
+  ],
+  "rec": [
+   "Combat Gear",
+   "Waterskins",
+   "Necklace of Passage",
+   "Spear or Hasta for the 3 weapon styles",
+   "Coins for magic carpet",
+   "Food"
+  ],
+  "enemies": [
+   "Black Golem, Grey Golem, White Golem (Level 75)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "8,000 Prayer XP",
+   "1,000 Thieving XP",
+   "1,000 Magic XP",
+   "Access to Nardah's Fountain and Shrine"
+  ],
+  "sec": [
+   {
+    "n": "Starting Off",
+    "st": [
+     {
+      "t": "Speak to Awusah the Mayor in Nardah.",
+      "s": [
+       "I am an adventurer in search of quests.",
+       "Any idea how you got this curse?",
+       "Yes.",
+       "Ok I will have a look around and see what I can do."
+      ]
+     },
+     {
+      "t": "Speak to Ghaslor the Elder, just north of Awusah.",
+      "s": [
+       "I am trying to find out the cause of this town's curse.",
+       "River spirits, what are they?"
+      ]
+     },
+     {
+      "t": "Open and search the cupboard in the north-west corner of the house that is north of the fountain."
+     },
+     {
+      "t": "Use the needle and thread on the torn robes (both top and bottom).",
+      "i": [
+       "Needle",
+       "Torn Robe (bottom)"
+      ]
+     },
+     {
+      "t": "Cast the Telekinetic Grab spell on the ancestral key on the table, on the east side of the same house.",
+      "i": [
+       "Air Rune",
+       "Law Rune"
+      ]
+     }
+    ],
+    "i": [
+     "Air Rune",
+     "Law Rune",
+     "Needle",
+     "Thread (2)"
+    ]
+   },
+   {
+    "n": "The Golems",
+    "st": [
+     {
+      "t": "Follow the River Elid north from Nardah until it comes out of a cave as a waterfall, or use a necklace of passage to Eagle's Eyrie and go south-west. Use the rope on the root over the cave to enter.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Equip the Robes of Elidinis and use the ancestral key on the door.",
+      "i": [
+       "Ancestral Key",
+       "Robe of Elidinis (top)",
+       "Robe of Elidinis (bottom)"
+      ]
+     },
+     {
+      "t": "Head east from the door you just opened to the three doors. Open the south one and fight the White Golem (level-75). You can only damage the Golem with the stab attack style.",
+      "i": [
+       "Stab Weapon Style"
+      ]
+     },
+     {
+      "t": "Open the southern door again. Clear the Water Channel, then leave the room."
+     },
+     {
+      "t": "Open the door to the east and fight the Grey Golem (level-75). You can only damage the Golem with the slash attack style.",
+      "i": [
+       "Slash Weapon Style"
+      ]
+     },
+     {
+      "t": "Open the eastern door again. Clear the Water Channel with your pickaxe, then leave the room.",
+      "i": [
+       "Any Pickaxe"
+      ]
+     },
+     {
+      "t": "Open the door to the north-east and fight the Black Golem (level-75). You can only damage the Golem with the crush attack style.",
+      "i": [
+       "Crush Weapon Style"
+      ]
+     },
+     {
+      "t": "Open the north-eastern door again. Clear the Water Channel by shooting the target, then leave the room.",
+      "i": [
+       "Any bow",
+       "Arrows for bow"
+      ]
+     },
+     {
+      "t": "Open the door to the north near the lake."
+     },
+     {
+      "t": "Talk to the Water Spirits on the north side of the lake.",
+      "s": [
+       "I come as an emissary from the people of Nardah.",
+       "Is there anything they can do to get their fountain working again?"
+      ]
+     }
+    ],
+    "i": [
+     "Ancestral Key",
+     "Robe of Elidinis (top)",
+     "Robe of Elidinis (bottom)",
+     "Rope",
+     "Any Pickaxe",
+     "Any bow",
+     "Arrows for bow",
+     "Crush Weapon Style",
+     "Stab Weapon Style",
+     "Slash Weapon Style"
+    ],
+    "c": 1
+   },
+   {
+    "n": "The Genie",
+    "st": [
+     {
+      "t": "Return to Nardah and speak to Awusah the Mayor."
+     },
+     {
+      "t": "Take the shoes near the doorway then leave Awusah's house.",
+      "i": [
+       "Shoes"
+      ]
+     },
+     {
+      "t": "Use a knife on the shoes to cut out the sole.",
+      "i": [
+       "Knife",
+       "Shoes"
+      ]
+     },
+     {
+      "t": "Go west from the Nardah general store to the crevice. Use your rope on it to climb down, with a light source in your inventory.",
+      "i": [
+       "Rope",
+       "Light source"
+      ]
+     },
+     {
+      "t": "Talk to the Genie in the Crevice.",
+      "s": [
+       "I'm after a statue that was thrown down here.",
+       "Maybe I can make a deal for it?",
+       "Ok I agree to the deal."
+      ]
+     },
+     {
+      "t": "Talk to the Genie again with the sole.",
+      "i": [
+       "Sole"
+      ]
+     },
+     {
+      "t": "Return to Nardah and use the statuette on the statuette plinth in the northern house.",
+      "i": [
+       "Statuette"
+      ]
+     }
+    ],
+    "i": [
+     "Knife",
+     "Rope",
+     "Light source"
+    ]
+   }
+  ]
+ }
+}

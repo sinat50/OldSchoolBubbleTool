@@ -1,0 +1,218 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder biohazard; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Biohazard",
+  "items": [
+   "Gas mask"
+  ],
+  "rec": [
+   "Teleport to Ardougne (3)",
+   "Teleport to Rimmington",
+   "Teleport to Varrock",
+   "Coins (30)"
+  ],
+  "enemies": [
+   "Mourner (level 13)"
+  ],
+  "rewards": [
+   "3 Quest points",
+   "1,250 Thieving XP",
+   "Full West Ardougne Access",
+   "Combat Training Camp Access"
+  ],
+  "sec": [
+   {
+    "n": "Start the quest",
+    "st": [
+     {
+      "t": "Talk to Elena in her house west of the northern Ardougne bank.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Gas mask"
+    ]
+   },
+   {
+    "n": "Getting back into West Ardougne",
+    "st": [
+     {
+      "t": "Talk to Jerico in his house south of the northern Ardougne bank"
+     },
+     {
+      "t": "Get bird feed from the cupboard in Jerico's house."
+     },
+     {
+      "t": "Get a pigeon cage from behind Jerico's house.",
+      "i": [
+       "Pigeon cage"
+      ]
+     },
+     {
+      "t": "Go to the small watchtower on the West Ardougne wall, by the big gates into West Ardougne, just west of Ardougne Castle. Stand in the corner where the two spiked fences meet and use the bird feed on the fence.",
+      "i": [
+       "Bird feed",
+       "Pigeon cage"
+      ]
+     },
+     {
+      "t": "Open the Pigeon cage next to the watchtower.",
+      "i": [
+       "Pigeon cage"
+      ]
+     },
+     {
+      "t": "Wear your gas mask, then talk to Omart, south of the watchtower, to enter West Ardougne.",
+      "s": [
+       "Okay, lets do it.",
+       "Okay, let's do it."
+      ],
+      "i": [
+       "Gas mask"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Getting the Distillator",
+    "st": [
+     {
+      "t": "Squeeze through the fence to enter the Mourner's Headquarters yard in the north east of West Ardougne."
+     },
+     {
+      "t": "Pick up the rotten apple in the yard.",
+      "i": [
+       "Rotten apple"
+      ]
+     },
+     {
+      "t": "Use the rotten apple on the cauldron.",
+      "i": [
+       "Rotten apple"
+      ]
+     },
+     {
+      "t": "Squeeze back through the fence, then search the cupboard in the north of Nurse Sarah's house, south-west of the West Ardougne church, for a disguise."
+     },
+     {
+      "t": "Enter the Mourners' Headquarters whilst wearing the medical gown.",
+      "i": [
+       "Medical gown"
+      ]
+     },
+     {
+      "t": "Go upstairs and kill the mourner."
+     },
+     {
+      "t": "Use the key on the gate to enter the caged area. Search the crate third from the left on the north wall for Elena's Distillator."
+     },
+     {
+      "t": "Go back downstairs or teleport out. If you walk, talk to Kilron south-east of the West Ardougne church to get back to East Ardougne. Then return to Elena in her house west of the northern Ardougne bank.",
+      "s": [
+       "Yes I do."
+      ],
+      "i": [
+       "Distillator"
+      ]
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Mourner (level 13)"
+    ]
+   },
+   {
+    "n": "Testing the plague sample",
+    "st": [
+     {
+      "t": "Take the Plague Sample to the Chemist in Rimmington. You can take a boat from Ardougne Dock to Rimmington for 30gp.",
+      "s": [
+       "Your quest."
+      ],
+      "i": [
+       "Plague sample",
+       "Liquid honey",
+       "Sulphuric broline",
+       "Ethenea"
+      ]
+     },
+     {
+      "t": "Give Hops the Sulphuric broline. He is by the fire outside the Chemist's house in Rimmington.",
+      "s": [
+       "You give him the vial of sulphuric broline..."
+      ],
+      "i": [
+       "Sulphuric broline"
+      ]
+     },
+     {
+      "t": "Give Chancy the Liquid honey. He is by the fire outside the Chemist's house in Rimmington.",
+      "s": [
+       "You give him the vial of liquid honey..."
+      ],
+      "i": [
+       "Liquid honey"
+      ]
+     },
+     {
+      "t": "Give Da Vinci the Ethenea. He is by the fire outside the Chemist's house in Rimmington.",
+      "s": [
+       "You give him the vial of ethenea..."
+      ],
+      "i": [
+       "Ethenea"
+      ]
+     },
+     {
+      "t": "Go to the fenced area in south-east Varrock (the guard at the gate searches you) and talk to Hops, Da Vinci and Chancy in the Dancing Donkey Inn to get your vials back. Have 3 free inventory spaces. Once you have the vials, don't leave the fenced area, or the guard takes them when you come back in. If you lost any of the chemicals, return to Elena to get more.",
+      "i": [
+       "Plague sample",
+       "Touch paper"
+      ]
+     },
+     {
+      "t": "Talk to Asyff in the fancy dress shop, just north-east of the pub, to get a free priest gown. You can only get the free set once.",
+      "s": [
+       "Do you have a spare Priest Gown?"
+      ]
+     },
+     {
+      "t": "Wear the priest gown top and bottom, then talk to Guidor in his house to the south.",
+      "s": [
+       "I've come to ask your assistance in stopping a plague."
+      ],
+      "i": [
+       "Priest gown (bottom)",
+       "Priest gown (top)",
+       "Plague sample",
+       "Sulphuric broline",
+       "Liquid honey",
+       "Ethenea",
+       "Touch paper"
+      ]
+     }
+    ],
+    "i": [
+     "Plague sample",
+     "Liquid honey",
+     "Ethenea",
+     "Sulphuric broline",
+     "Touch paper"
+    ]
+   },
+   {
+    "n": "Revealing the truth",
+    "st": [
+     {
+      "t": "Return to Elena and inform her that the plague is a hoax."
+     },
+     {
+      "t": "Climb the stairs in Ardougne Castle and tell King Lathas on the first floor that the Plague is a hoax."
+     }
+    ]
+   }
+  ]
+ }
+}

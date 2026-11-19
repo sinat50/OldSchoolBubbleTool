@@ -1,0 +1,227 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder rumdeal; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Rum Deal",
+  "items": [
+   "Combat gear",
+   "Seed dibber",
+   "Rake",
+   "Slayer gloves"
+  ],
+  "rec": [],
+  "enemies": [
+   "Evil spirit (level 150)",
+   "Fever spider (level 49)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "7,000 Fishing XP",
+   "7,000 Prayer XP",
+   "7,000 Farming XP",
+   "A Holy Wrench"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Pirate Pete north east of the Ectofuntus.",
+      "s": [
+       "Yes.",
+       "Yes!",
+       "Of course, I fear no demon!",
+       "Nonsense! Keep the money!",
+       "I've decided to help you for free.",
+       "Okay!"
+      ]
+     },
+     {
+      "t": "Finish talking to Captain Braindeath after the cutscene, with 1 free inventory space for the blindweed seed he gives you."
+     }
+    ],
+    "i": [
+     "Rake",
+     "Seed dibber",
+     "Slayer gloves",
+     "Combat gear"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Get blindweed",
+    "st": [
+     {
+      "t": "Leave the brewery by the south stairs and go south past the zombie swabs to the south-eastern farming patch, the only one you can use. If a swab attacks, long-press it and choose Intimidate.",
+      "i": [
+       "Blindweed seed",
+       "Rake",
+       "Seed dibber"
+      ]
+     },
+     {
+      "t": "Rake the blindweed patch.",
+      "i": [
+       "Rake"
+      ]
+     },
+     {
+      "t": "Plant the seed in the blindweed patch.",
+      "i": [
+       "Blindweed seed",
+       "Seed dibber"
+      ]
+     },
+     {
+      "t": "Wait 5 minutes for the blindweed to grow."
+     },
+     {
+      "t": "Pick the blindweed on Braindeath Island."
+     },
+     {
+      "t": "Take the blindweed back to Captain Braindeath.",
+      "i": [
+       "Blindweed"
+      ]
+     },
+     {
+      "t": "Climb the ladder in the south-east corner of the big room to the top floor, then put the blindweed into the hopper in the north-west corner.",
+      "i": [
+       "Blindweed"
+      ]
+     }
+    ],
+    "i": [
+     "Rake",
+     "Seed dibber"
+    ]
+   },
+   {
+    "n": "Get stagnant water",
+    "st": [
+     {
+      "t": "Talk to Captain Braindeath."
+     },
+     {
+      "t": "Leave the brewery by the south stairs and go out through the fence. Head north-west to 50% Luke, go through the small gate behind him, and go up the volcano to the north. Fill your bucket with the stagnant water there.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Take the water back to the hopper on the top floor.",
+      "i": [
+       "Bucket of water"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Get sluglings",
+    "st": [
+     {
+      "t": "Talk to Captain Braindeath."
+     },
+     {
+      "t": "Fish 5 sluglings or karamthulu from around the coast of the island.",
+      "i": [
+       "Fishbowl and net"
+      ]
+     },
+     {
+      "t": "Add the sea creatures to the pressure barrel on the top floor."
+     },
+     {
+      "t": "Pull the pressure lever."
+     }
+    ]
+   },
+   {
+    "n": "Kill evil spirit",
+    "st": [
+     {
+      "t": "Talk to Captain Braindeath."
+     },
+     {
+      "t": "Talk to Davey in the room with the bunk beds, south-west of Captain Braindeath. You need at least 47 Prayer points available or he won't bless the wrench. It doesn't use them up.",
+      "i": [
+       "Wrench"
+      ]
+     },
+     {
+      "t": "Use the holy wrench on the brewing control. Be prepared to fight an evil spirit.",
+      "i": [
+       "Holy wrench"
+      ]
+     },
+     {
+      "t": "Kill the Evil Spirit."
+     }
+    ],
+    "i": [
+     "Combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "Evil spirit (level 150)"
+    ]
+   },
+   {
+    "n": "Get spider carcass",
+    "st": [
+     {
+      "t": "Talk to Captain Braindeath."
+     },
+     {
+      "t": "Climb down the ladder in the north-west corner of the brewery, near Captain Braindeath, and kill a fever spider in the basement. If you're not wearing slayer gloves they'll afflict you with disease.",
+      "i": [
+       "Slayer gloves"
+      ]
+     },
+     {
+      "t": "Pick up the fever spider body.",
+      "i": [
+       "Fever spider body"
+      ]
+     },
+     {
+      "t": "Add the spider body to the hopper on the top floor.",
+      "i": [
+       "Fever spider body"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Slayer gloves"
+    ],
+    "c": 1,
+    "e": [
+     "Fever spider (level 49)"
+    ]
+   },
+   {
+    "n": "Giving swill to Donnie",
+    "st": [
+     {
+      "t": "Talk to Captain Braindeath."
+     },
+     {
+      "t": "Fill a bucket from the output tap in the south west of the brewery.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Bring the unsanitary swill to Captain Donnie south of the Brewery.",
+      "i": [
+       "Unsanitary swill"
+      ]
+     },
+     {
+      "t": "Talk to Captain Braindeath to finish."
+     }
+    ]
+   }
+  ]
+ }
+}

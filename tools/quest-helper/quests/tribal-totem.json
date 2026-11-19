@@ -1,0 +1,74 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Tribal Totem",
+  "items": [],
+  "rec": [
+   "Coins or more for boat trips (90)",
+   "Amulet of glory",
+   "Ardougne teleport",
+   "Brimhaven teleports (2)"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "1,775 Thieving XP",
+   "5 x Swordfish"
+  ],
+  "sec": [
+   {
+    "n": "Retrieving the totem",
+    "st": [
+     {
+      "t": "Talk to Kangai Mau in the Brimhaven food store.",
+      "s": [
+       "I'm in search of adventure!",
+       "Ok, I will get it back.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Travel to the GPDT depot in Ardougne, just south of the eastern bank, and investigate the most northeastern crate for a label."
+     },
+     {
+      "t": "Use the address label on the crate two squares south of the crate where you found the label.",
+      "i": [
+       "Address label"
+      ]
+     },
+     {
+      "t": "Talk to a nearby GPDT employee.",
+      "s": [
+       "So, when are you going to deliver this crate?"
+      ]
+     },
+     {
+      "t": "Talk to Wizard Cromperty in north east Ardougne.",
+      "s": [
+       "Chat.",
+       "So what have you invented?",
+       "Can I be teleported please?",
+       "Yes, that sounds good. Teleport me!"
+      ]
+     },
+     {
+      "t": "Work out and enter the password for the door to the west."
+     },
+     {
+      "t": "FIRST long-press the stairs and choose Investigate to disable a trap, then climb the stairs."
+     },
+     {
+      "t": "Open the chest on the top floor and search it for the totem."
+     },
+     {
+      "t": "Return to Kangai Mau in Brimhaven.",
+      "i": [
+       "Totem"
+      ]
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

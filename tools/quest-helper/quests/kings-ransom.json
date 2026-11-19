@@ -1,0 +1,247 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder kingsransom; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "King's Ransom",
+  "items": [
+   "Runes for telekinetic grab or a lockpick",
+   "Any granite",
+   "Black full helm",
+   "Black platebody",
+   "Black platelegs",
+   "Bronze med helm",
+   "Iron chainbody",
+   "Animate rock scroll"
+  ],
+  "rec": [
+   "Ardougne teleport",
+   "Camelot teleport (3)",
+   "Monastery with Combat Bracelet or Edgeville glory teleport"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "33,000 Defence XP",
+   "5,000 Magic XP",
+   "5,000 Experience Lamp (any skill over 50)."
+  ],
+  "sec": [
+   {
+    "n": "Investigating",
+    "st": [
+     {
+      "t": "Talk to Gossip, just south of the Sinclair Mansion.",
+      "s": [
+       "Yes.",
+       "How curious. Maybe I should investigate it."
+      ]
+     },
+     {
+      "t": "Talk to the Guard in the Sinclair Manor."
+     },
+     {
+      "t": "Long-press the east window of the mansion, choose Break, and go in through it."
+     },
+     {
+      "t": "Pick up the scrap paper.",
+      "i": [
+       "Scrap paper"
+      ]
+     },
+     {
+      "t": "Go upstairs."
+     },
+     {
+      "t": "Pick up the address form.",
+      "i": [
+       "Address form"
+      ]
+     },
+     {
+      "t": "Search the west bookcase for a black knight helm."
+     },
+     {
+      "t": "Go down the staircase."
+     },
+     {
+      "t": "Step out of the window."
+     },
+     {
+      "t": "Return to the guard with the 3 items.",
+      "s": [
+       "I have proof that the Sinclairs have left.",
+       "I have proof that links the Sinclairs to Camelot.",
+       "I have proof of foul play."
+      ]
+     },
+     {
+      "t": "Ask Gossip all 3 chat options."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Freeing Anna",
+    "st": [
+     {
+      "t": "Talk to Anna in the Seers' Village Court House.",
+      "s": [
+       "Okay, I guess I don't have much of a choice."
+      ]
+     },
+     {
+      "t": "Go down the stairs to the court room.",
+      "s": [
+       "Yes, I'm ready."
+      ]
+     },
+     {
+      "t": "Talk to the judge to call the Dog Handler and ask them about the poison.",
+      "s": [
+       "Dog handler",
+       "Previous page"
+      ]
+     },
+     {
+      "t": "Talk to the judge to call the Butler and ask them about the dagger.",
+      "s": [
+       "Butler",
+       "Previous page"
+      ]
+     },
+     {
+      "t": "Talk to the judge to call the Maid and ask them about the night of the murder.",
+      "s": [
+       "Maid",
+       "Next page"
+      ]
+     },
+     {
+      "t": "Ask anyone about the thread.",
+      "s": [
+       "Ask about the thread"
+      ]
+     },
+     {
+      "t": "Leave the court room."
+     },
+     {
+      "t": "Talk to Anna in the Seers' Village Court House."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Saving Merlin and Knights",
+    "st": [
+     {
+      "t": "Walk east around Camelot Castle, past the gate, then to the north-east, near the temple. Search the statue there. Don't tap the screen during the cutscene that follows, or you'll have to watch it again.",
+      "i": [
+       "Runes for telekinetic grab or a lockpick"
+      ]
+     },
+     {
+      "t": "Talk to Merlin.",
+      "s": [
+       "What do we do now?"
+      ]
+     },
+     {
+      "t": "Reach for the vent on the north wall."
+     },
+     {
+      "t": "If you already have a lockpick, skip this step. Otherwise, use telekinetic grab on the guard grooming their hair to get a hair clip. If you have no runes either, talk to the knights in the room. They can give you a lockpick, or the runes for the grab.",
+      "i": [
+       "Law rune",
+       "Air rune"
+      ]
+     },
+     {
+      "t": "Attempt to open the cell door.",
+      "i": [
+       "Hair clip or Lockpick"
+      ]
+     },
+     {
+      "t": "Pick the door's lock."
+     },
+     {
+      "t": "Go through the cell door to come out on the ground floor of Keep Le Faye, then climb the stairs to the top floor of the keep."
+     },
+     {
+      "t": "Search the table and take the purple round box."
+     },
+     {
+      "t": "Talk to Wizard Cromperty in the north-east of East Ardougne.",
+      "s": [
+       "Chat."
+      ]
+     }
+    ],
+    "i": [
+     "Runes for telekinetic grab or a lockpick"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Saving Arthur",
+    "st": [
+     {
+      "t": "Enter the Black Knight Fortress wearing the bronze med helm and iron chainbody.",
+      "i": [
+       "Bronze med helm",
+       "Iron chainbody",
+       "Black full helm",
+       "Black platebody",
+       "Black platelegs",
+       "Animate rock scroll",
+       "Holy grail",
+       "Any granite"
+      ]
+     },
+     {
+      "t": "Put on the black knight armour, then push the wall just north of the door to enter the secret room.",
+      "i": [
+       "Black full helm",
+       "Black platebody",
+       "Black platelegs",
+       "Animate rock scroll",
+       "Holy grail",
+       "Any granite"
+      ]
+     },
+     {
+      "t": "Enter the Black Knight Fortress basement."
+     },
+     {
+      "t": "Free King Arthur by using the animate rock scroll.",
+      "i": [
+       "Animate rock scroll",
+       "Holy grail",
+       "Any granite"
+      ]
+     },
+     {
+      "t": "Talk to King Arthur in the basement.",
+      "i": [
+       "Bronze med helm",
+       "Iron chainbody"
+      ]
+     },
+     {
+      "t": "Talk to King Arthur in Camelot to finish the quest."
+     }
+    ],
+    "i": [
+     "Bronze med helm",
+     "Iron chainbody",
+     "Black full helm",
+     "Black platebody",
+     "Black platelegs",
+     "Any granite",
+     "Animate rock scroll"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

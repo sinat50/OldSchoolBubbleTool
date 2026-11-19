@@ -1,0 +1,154 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder taleoftherighteous; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Tale of the Righteous",
+  "items": [
+   "A pickaxe",
+   "Runes for a few casts of a combat spell",
+   "Any ranged weapon + ammo",
+   "Rope"
+  ],
+  "rec": [
+   "Xeric's Talisman",
+   "Antipoison for lizardmen"
+  ],
+  "enemies": [
+   "Corrupt Lizardman (level 46)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "8000 x Coins",
+   "A Memoir Page"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Phileas Rimor in his house, just west of The Cloak and Stagger tavern in Shayzien.",
+      "s": [
+       "Do you need help with anything?",
+       "Yes.",
+       "What do you need?"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Discovery",
+    "st": [
+     {
+      "t": "Bring a melee weapon, ranged weapon, and runes for magic attacks and talk to Archeio in the Arceuus Library.",
+      "s": [
+       "Yes please!"
+      ],
+      "i": [
+       "Any ranged weapon + ammo",
+       "Runes for a few casts of a combat spell"
+      ]
+     },
+     {
+      "t": "Talk to Pagida in the Library Historical Archive.",
+      "s": [
+       "I have a question about King Shayzien VII.",
+       "Yes please."
+      ]
+     },
+     {
+      "t": "Solve the crystal puzzle. Push the strange device all the way west. Attack it with magic from the north side, then with melee from the south side. Push the device all the way east, then attack it with ranged from the south side."
+     },
+     {
+      "t": "Investigate the skeleton in the north cell."
+     },
+     {
+      "t": "Report back to Phileas Rimor in Shayzien."
+     },
+     {
+      "t": "Talk to Shiro upstairs in the War Tent located on the west side of the Shayzien Encampment."
+     }
+    ],
+    "i": [
+     "Any ranged weapon + ammo",
+     "Runes for a few casts of a combat spell"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Investigate Quidamortem",
+    "st": [
+     {
+      "t": "Travel to the top of Mount Quidamortem by the Lovakengj minecart, Xeric's Talisman (Xeric's Honour) or fairy ring BLS, if you have them unlocked. Talk to Historian Duffy, near the water symbol on the minimap."
+     },
+     {
+      "t": "Use a rope on the crevice west side of Quidamortem.",
+      "i": [
+       "Rope",
+       "A pickaxe",
+       "Combat gear for a level 46 corrupt lizardman"
+      ]
+     },
+     {
+      "t": "Enter the crevice west side of Quidamortem, ready to fight a corrupted lizardman (level 46).",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "A pickaxe",
+       "Combat gear for a level 46 corrupt lizardman"
+      ]
+     },
+     {
+      "t": "Mine the rockfall.",
+      "i": [
+       "A pickaxe"
+      ]
+     },
+     {
+      "t": "Push the boulder further along the path."
+     },
+     {
+      "t": "Attempt to enter the magic gate to the south room. You will need to kill the corrupted lizardman who appears."
+     },
+     {
+      "t": "Inspect the Unstable Altar in the south room."
+     },
+     {
+      "t": "Return to Historian Duffy."
+     },
+     {
+      "t": "Enter the crevice west side of Quidamortem again.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Historian Duffy near the Unstable Altar."
+     },
+     {
+      "t": "Talk to Gnosi near the Unstable Altar."
+     }
+    ],
+    "i": [
+     "Rope",
+     "A pickaxe",
+     "Combat gear for a level 46 corrupt lizardman"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Finishing off",
+    "st": [
+     {
+      "t": "Return to Shiro upstairs in the War Tent located on the west side of the Shayzien Encampment."
+     },
+     {
+      "t": "Go inside Phileas Rimor's house in Shayzien. He won't be there: just walking in starts the conversation."
+     },
+     {
+      "t": "Return to Shiro upstairs in the War Tent in west Shayzien to complete the quest."
+     }
+    ]
+   }
+  ]
+ }
+}

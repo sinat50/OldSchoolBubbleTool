@@ -1,0 +1,256 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Garden of Death",
+  "items": [
+   "Secateurs (Obtainable in quest)"
+  ],
+  "rec": [
+   "Xeric's talisman",
+   "Kharedst's memoirs or book of the dead for teleports",
+   "Fairy ring access for quick access to Molch Island (DJR)",
+   "Antipoisons"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "10,000 Farming XP"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Search the tent in the south east of the Kebos Lowlands. Fairy ring BLS is closest: head south-east from it.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Read the journal",
+      "i": [
+       "Kasonde's journal"
+      ]
+     },
+     {
+      "t": "Search the camping equipment for some secateurs."
+     },
+     {
+      "t": "Enter the nearby hole.",
+      "i": [
+       "Secateurs (Obtainable in quest)"
+      ]
+     },
+     {
+      "t": "Search the north-west table."
+     },
+     {
+      "t": "Read the stone tablet.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Stone tablet"
+      ]
+     },
+     {
+      "t": "Read the word translations.",
+      "i": [
+       "Word translations"
+      ]
+     },
+     {
+      "t": "Tap the 'Attempt Translation' button."
+     },
+     {
+      "t": "Type these words into the word translations, one at a time, choosing Yes. to enter another: Island, Water, Time, Vessel, North. Enter all five, or the hole on Molch Island won't appear.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Leave the hole."
+     }
+    ],
+    "i": [
+     "Secateurs (Obtainable in quest)"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Investigating Molch",
+    "st": [
+     {
+      "t": "Travel to Molch island via Boaty, located on the west/north/east sides of Lake Molch.",
+      "s": [
+       "Molch Island"
+      ],
+      "i": [
+       "Word translations",
+       "Secateurs (Obtainable in quest)"
+      ]
+     },
+     {
+      "t": "Enter the hole on Molch Island.",
+      "i": [
+       "Word translations",
+       "Secateurs (Obtainable in quest)"
+      ]
+     },
+     {
+      "t": "Inspect the vines to the south."
+     },
+     {
+      "t": "Cut the vines with secateurs.",
+      "i": [
+       "Secateurs (Obtainable in quest)"
+      ]
+     },
+     {
+      "t": "Search the south west stone table."
+     },
+     {
+      "t": "Read the stone tablet, and take the note after closing the tablet's interface.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Stone tablet"
+      ]
+     },
+     {
+      "t": "Read the word translations.",
+      "i": [
+       "Word translations"
+      ]
+     },
+     {
+      "t": "Tap the 'Attempt Translation' button."
+     },
+     {
+      "t": "Type these words into the word translations, one at a time, choosing Yes. to enter another: West, Poison, Body, Food, Earth.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Secateurs (Obtainable in quest)",
+     "Word translations"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Investigating Xeric's Shrine",
+    "st": [
+     {
+      "t": "Leave the hole."
+     },
+     {
+      "t": "Travel via Boaty to Molch. From there, run west and then south to Xeric's Shrine.",
+      "s": [
+       "Molch"
+      ],
+      "i": [
+       "Word translations"
+      ]
+     },
+     {
+      "t": "Enter the hole next to Xeric's Shrine.",
+      "i": [
+       "Word translations"
+      ]
+     },
+     {
+      "t": "Search the south east stone table."
+     },
+     {
+      "t": "Read the stone tablet.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Stone tablet"
+      ]
+     },
+     {
+      "t": "Read the word translations.",
+      "i": [
+       "Word translations"
+      ]
+     },
+     {
+      "t": "Tap the 'Attempt Translation' button."
+     },
+     {
+      "t": "Type these words into the word translations, one at a time, choosing Yes. to enter another: Make, Yes, No, Move, Arrive, East, South.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Word translations"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Investigating the Ruins of Morra",
+    "st": [
+     {
+      "t": "Leave the hole."
+     },
+     {
+      "t": "Enter the hole in the Ruins of Morra, south west of Shayzien.",
+      "i": [
+       "Word translations"
+      ]
+     },
+     {
+      "t": "Search the south stone table."
+     },
+     {
+      "t": "Read the stone tablet.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Stone tablet"
+      ]
+     },
+     {
+      "t": "Read the word translations.",
+      "i": [
+       "Word translations"
+      ]
+     },
+     {
+      "t": "Tap the 'Attempt Translation' button."
+     },
+     {
+      "t": "Type these words into the word translations, one at a time, choosing Yes. to enter another: Few, Big, Sun, Moon, Life, Death, Mind, Home, Air, Fire.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Read the final stone tablet again.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Stone tablet"
+      ]
+     },
+     {
+      "t": "Read the warning note.",
+      "i": [
+       "Warning note"
+      ]
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

@@ -1,0 +1,184 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder fairytalei; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Fairytale I - Growing Pains",
+  "items": [
+   "Secateurs",
+   "Spade",
+   "Ghostspeak amulet",
+   "Dramen or lunar staff",
+   "Draynor skull"
+  ],
+  "rec": [
+   "Varrock teleport",
+   "Falador teleport",
+   "Lumbridge teleport",
+   "Teleport to Morytania",
+   "Food"
+  ],
+  "enemies": [
+   "Tanglefoot (level 111)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "3,500 Farming XP",
+   "2,000 Attack XP",
+   "1,000 Magic XP",
+   "Magic Secateurs"
+  ],
+  "sec": [
+   {
+    "n": "Investigating",
+    "st": [
+     {
+      "t": "Talk to Martin in the Draynor Market.",
+      "s": [
+       "Ask about the quest.",
+       "Anything I can help with?",
+       "Now that I think about it, you're right!"
+      ]
+     },
+     {
+      "t": "Talk to 5 farmers, then return to Martin in Draynor Village. The recommended 5 are: Frizzy in Port Sarim. Elstan north west of Draynor. Heskel in Falador Park. Treznor south of Varrock Castle. Dreven south of Varrock, next to the Champions' Guild. If you don't already have secateurs, you can buy them from Sarah in South Falador Farm.",
+      "s": [
+       "Are you a member of the Group of Advanced Gardeners?"
+      ]
+     },
+     {
+      "t": "Return to Martin in the Draynor Market.",
+      "s": [
+       "Ask about the quest."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Unnatural events",
+    "st": [
+     {
+      "t": "Wield your dramen or lunar staff and enter the shed door in the middle of Lumbridge Swamp to travel to Zanaris.",
+      "i": [
+       "Dramen or lunar staff"
+      ]
+     },
+     {
+      "t": "Talk to the Fairy Godfather in the Throne Room, just south of where you arrive in Zanaris.",
+      "s": [
+       "Where's the Fairy Queen?"
+      ]
+     },
+     {
+      "t": "Talk to Fairy Nuff in north west Zanaris."
+     },
+     {
+      "t": "Climb to the top floor of the Dark Wizards' Tower west of Falador and talk to Zandar.",
+      "i": [
+       "Symptoms list"
+      ]
+     }
+    ],
+    "i": [
+     "Dramen or lunar staff"
+    ]
+   },
+   {
+    "n": "Finding a cure",
+    "st": [
+     {
+      "t": "Dig with a spade on the grave behind Draynor Manor, north of the building but inside the fence, for a skull.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Talk to Malignius Mortifer west of Port Sarim.",
+      "s": [
+       "I need help with fighting a Tanglefoot.",
+       "I was asking you about fighting a Tanglefoot..."
+      ],
+      "i": [
+       "Draynor skull"
+      ]
+     }
+    ],
+    "i": [
+     "Draynor skull or a spade to get it"
+    ]
+   },
+   {
+    "n": "Enchanting secateurs",
+    "st": [
+     {
+      "t": "Get the 3 items Mortifer told you to get: your quest journal lists them. If any of them is food (jangerberries, a lime, edible seaweed or a king worm), bring spares or a filled druid pouch: ghasts in Mort Myre can rot it.",
+      "i": [
+       "Ghostspeak amulet",
+       "Secateurs",
+       "3 items Mortifer told you to get"
+      ]
+     },
+     {
+      "t": "Take the Shades of Mort'ton minigame teleport, go west, then follow the winding path north over the bridge to the Grotto in the south of Mort Myre. Wear your ghostspeak amulet and enter the Grotto.",
+      "i": [
+       "Ghostspeak amulet",
+       "Secateurs",
+       "3 items Mortifer told you to get"
+      ]
+     },
+     {
+      "t": "Talk to the Nature Spirit.",
+      "i": [
+       "Ghostspeak amulet",
+       "Secateurs",
+       "3 items Mortifer told you to get"
+      ]
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Secateurs",
+     "3 items Mortifer told you to get"
+    ]
+   },
+   {
+    "n": "Defeat the Tanglefoot",
+    "st": [
+     {
+      "t": "Wield your dramen or lunar staff and enter the shed door in the middle of Lumbridge Swamp to travel to Zanaris, ready to fight the Tanglefoot.",
+      "i": [
+       "Dramen or lunar staff",
+       "Magic secateurs"
+      ]
+     },
+     {
+      "t": "Go to the Cosmic Altar in the south of Zanaris and squeeze through the gap in the west wall to enter the Tanglefoot's lair.",
+      "i": [
+       "Magic secateurs",
+       "Food"
+      ]
+     },
+     {
+      "t": "Kill the large Tanglefoot with the Magic Secateurs. You can flinch it on a corner. Pick up the queen's secateurs it drops.",
+      "i": [
+       "Magic secateurs"
+      ]
+     },
+     {
+      "t": "Talk to the Fairy Godfather to finish the quest.",
+      "i": [
+       "Queen's secateurs"
+      ]
+     }
+    ],
+    "i": [
+     "Dramen or lunar staff",
+     "Magic secateurs",
+     "Food"
+    ],
+    "c": 1,
+    "e": [
+     "Tanglefoot (level 111)"
+    ]
+   }
+  ]
+ }
+}

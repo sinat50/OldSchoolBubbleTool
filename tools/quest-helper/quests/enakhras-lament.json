@@ -1,0 +1,322 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Enakhra's Lament",
+  "items": [
+   "Any pickaxe",
+   "Chisel",
+   "Soft clay",
+   "Bread or cake",
+   "Tinderbox",
+   "Logs",
+   "Oak logs",
+   "Willow logs",
+   "Maple logs",
+   "Candle",
+   "Coal",
+   "Runes to cast Fire Bolt or stronger",
+   "Runes to cast Wind Bolt or stronger",
+   "Runes for crumble undead spell"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "2 Quest points",
+   "7,000 Crafting XP",
+   "7,000 Mining XP",
+   "7,000 Firemaking XP",
+   "7,000 Magic XP",
+   "Akthanakos's Camulet"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Before you begin, ensure that you have enough prayer points to use Protect from Melee for around five seconds (you will need this later in the temple). Talk to Lazim in the quarry south of the Bandit Camp.",
+      "s": [
+       "Yes.",
+       "Of course!"
+      ],
+      "i": [
+       "Any pickaxe"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Craft a statue",
+    "st": [
+     {
+      "t": "Get 32kg of sandstone and give it to Lazim. This can be done in batches, and you can mine some nearby.",
+      "s": [
+       "Okay, I'll get on with it.",
+       "Yes, I have more stone.",
+       "Here's a large 10 kg block.",
+       "Here's a medium 5 kg block.",
+       "Here's a small 2 kg block.",
+       "Here's a tiny 1 kg block."
+      ]
+     },
+     {
+      "t": "Use a chisel on the sandstone 32kg.",
+      "i": [
+       "Chisel",
+       "Sandstone 32kg"
+      ]
+     },
+     {
+      "t": "Place the base on the flat ground nearby.",
+      "i": [
+       "Sandstone base"
+      ]
+     },
+     {
+      "t": "Talk to Lazim again.",
+      "s": [
+       "I'll do it right away!"
+      ]
+     },
+     {
+      "t": "Get 20kg of sandstone and give it to Lazim. This can be done in batches, and you can mine some nearby.",
+      "s": [
+       "I'll do it right away!",
+       "Yes, I have more stone.",
+       "Here's a large 10 kg block.",
+       "Here's a medium 5 kg block.",
+       "Here's a small 2 kg block.",
+       "Here's a tiny 1 kg block."
+      ]
+     },
+     {
+      "t": "Use a chisel on the sandstone 20kg.",
+      "i": [
+       "Chisel",
+       "Sandstone 20kg"
+      ]
+     },
+     {
+      "t": "Place the body on the sandstone base.",
+      "i": [
+       "Sandstone body"
+      ]
+     },
+     {
+      "t": "Use a chisel on the headless statue.",
+      "i": [
+       "Chisel"
+      ]
+     },
+     {
+      "t": "Talk to Lazim and choose the head you'd like the statue to have."
+     },
+     {
+      "t": "Get 2 x granite (5kg). You can mine some nearby.",
+      "i": [
+       "Granite (5kg) (2)"
+      ]
+     },
+     {
+      "t": "Use a chisel on a piece of granite 5kg, and choose the head you decided on to craft.",
+      "i": [
+       "Chisel",
+       "Granite (5kg)"
+      ]
+     },
+     {
+      "t": "Give Lazim the head.",
+      "i": [
+       "Stone head"
+      ]
+     }
+    ],
+    "i": [
+     "Any pickaxe",
+     "Chisel",
+     "Soft clay",
+     "Bread or cake",
+     "Tinderbox",
+     "Logs",
+     "Oak logs",
+     "Willow logs",
+     "Maple logs",
+     "Candle",
+     "Coal",
+     "Runes to cast Fire Bolt or stronger",
+     "Runes to cast Wind Bolt or stronger",
+     "Earth rune (2)",
+     "Air rune (2)",
+     "Chaos rune"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Explore the ground floor",
+    "st": [
+     {
+      "t": "Lazim pushes you into the temple, next to the fallen statue. Talk to him there. If you left by the ladder and sand pile next to the statue, come back through the boulder just east of the statue on the surface and go down the ladder inside. If you teleported out before climbing them, enter through the south-western secret entrance instead."
+     },
+     {
+      "t": "Use a chisel on the fallen statue to get all its limbs.",
+      "s": [
+       "Remove the statue's left arm",
+       "Remove the statue's right arm",
+       "Remove the statue's left leg",
+       "Remove the statue's right leg"
+      ],
+      "i": [
+       "Chisel"
+      ]
+     },
+     {
+      "t": "Take the M sigil from the pedestal in the room."
+     },
+     {
+      "t": "Go north from the fallen statue and enter the right arm door, in the north-east corner of the temple.",
+      "i": [
+       "Stone right arm"
+      ]
+     },
+     {
+      "t": "Follow the corridor west and enter the left leg door, in the north-west corner of the temple.",
+      "i": [
+       "Stone left leg"
+      ]
+     },
+     {
+      "t": "Go to the middle of the temple and enter the door with an M, on the west side of the central room.",
+      "i": [
+       "M sigil"
+      ]
+     },
+     {
+      "t": "You're now in the central room. Go up the ladder here."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Solve the puzzles",
+    "st": [
+     {
+      "t": "Use soft clay on the pedestal.",
+      "i": [
+       "Soft clay"
+      ]
+     },
+     {
+      "t": "Use a chisel on granite (5kg).",
+      "i": [
+       "Granite (5kg)",
+       "Chisel"
+      ]
+     },
+     {
+      "t": "Use the camel stone head on the pedestal.",
+      "i": [
+       "Stone head"
+      ]
+     },
+     {
+      "t": "Take the north-west corridor to Pentyn. Long-press your bread or cake and choose Use. Then long-press Pentyn and choose the option that names Pentyn, not the magic spell. If a chat menu appears, choose the line below.",
+      "s": [
+       "It's okay, I don't need any help."
+      ],
+      "i": [
+       "Bread or cake"
+      ]
+     },
+     {
+      "t": "Take the south-west corridor and cast a fire spell on the frozen fountain.",
+      "i": [
+       "Runes to cast Fire Bolt or stronger"
+      ]
+     },
+     {
+      "t": "Take the north-east corridor and cast an air spell on the furnace.",
+      "i": [
+       "Runes to cast Wind Bolt or stronger"
+      ]
+     },
+     {
+      "t": "Take the south-east corridor to the six braziers. Use a normal log on the south west brazier.",
+      "i": [
+       "Logs"
+      ]
+     },
+     {
+      "t": "Use an oak log on the south brazier.",
+      "i": [
+       "Oak logs"
+      ]
+     },
+     {
+      "t": "Use a willow log on the south east brazier.",
+      "i": [
+       "Willow logs"
+      ]
+     },
+     {
+      "t": "Use a maple log on the north west brazier.",
+      "i": [
+       "Maple logs"
+      ]
+     },
+     {
+      "t": "Use a candle on the north brazier.",
+      "i": [
+       "Candle"
+      ]
+     },
+     {
+      "t": "Use coal on the north east brazier.",
+      "i": [
+       "Coal"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Free Akthankos",
+    "st": [
+     {
+      "t": "Pass through the magic barrier."
+     },
+     {
+      "t": "Go up the ladder."
+     },
+     {
+      "t": "Cast crumble undead on the Boneguard. Make sure you take off any armour or weapons which give you a negative magic attack bonus or else you might splash.",
+      "i": [
+       "Earth rune (2)",
+       "2 air runes",
+       "Chaos rune"
+      ]
+     },
+     {
+      "t": "Climb down the stone ladder past the Boneguard."
+     },
+     {
+      "t": "Put on Protect from Melee, then talk to the Boneguard.",
+      "s": [
+       "Of course, I'll help you out.",
+       "Okay, I'll start building."
+      ]
+     },
+     {
+      "t": "Take sandstone from the nearby rubble, and use it to repair the south wall. For each piece added, use a chisel on the wall.",
+      "i": [
+       "Sandstone (5kg)"
+      ]
+     },
+     {
+      "t": "Talk to the Boneguard to finish the quest."
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

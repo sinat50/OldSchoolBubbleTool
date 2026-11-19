@@ -1,0 +1,119 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Tree Gnome Village",
+  "items": [
+   "Logs (6)",
+   "Combat gear (magic is best)"
+  ],
+  "rec": [
+   "Food"
+  ],
+  "enemies": [
+   "Khazard Warlord (level 112)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "11,450 Attack XP",
+   "Gnome amulet",
+   "Use of the Spirit Tree transportation method."
+  ],
+  "sec": [
+   {
+    "n": "Getting started",
+    "st": [
+     {
+      "t": "Walk through the maze from its entrance on the north-west side. Letters are compass directions and numbers are tiles: E7, S2, E20, S6, W3, S1, W6, N4, W2, S6, W7, S2, E13, N2, E2, S2, E2, N2, E2, S2, E11, S3, E5, S9, W4, S6, E5, S3, W2, S11, W10, N5, E3, S2, E3, N2, E1, N6, W25, N3, W5. You're now inside the village: go north, then east to King Bolren in the centre.",
+      "s": [
+       "Can I help at all?",
+       "I would be glad to help.",
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "The three trackers",
+    "st": [
+     {
+      "t": "Speak with Commander Montai, north-east of the maze entrance.",
+      "s": [
+       "Ok, I'll gather some wood."
+      ]
+     },
+     {
+      "t": "Speak with Commander Montai again to give him the wood.",
+      "i": [
+       "Logs (6)"
+      ]
+     },
+     {
+      "t": "Speak with Commander Montai.",
+      "s": [
+       "I'll try my best."
+      ]
+     },
+     {
+      "t": "Talk to the first tracker gnome to the north-west of the battlefield for the height coordinate."
+     },
+     {
+      "t": "Talk to the second tracker gnome in the jail, a building on the east side of the Khazard Stronghold, for the y coordinate."
+     },
+     {
+      "t": "Talk to the third tracker gnome to the south-west of the jail."
+     },
+     {
+      "t": "Go to the ballista in the south-west corner of the battlefield, past the bridge (not the catapult next to Commander Montai), and fire it. Pick the number that matches what the third tracker told you: \"Less than my hands\" is 0001, \"More than my head, less than my fingers\" is 0002, \"More than we, less than our feet\" is 0003, and \"My legs and your legs\" is 0004. If you miss, fire again and try another number."
+     }
+    ],
+    "i": [
+     "Logs (6)"
+    ]
+   },
+   {
+    "n": "Retrieving the orbs",
+    "st": [
+     {
+      "t": "Walk north to the Khazard Stronghold, the building where the first tracker gnome was, and climb over the crumbled wall. A level 48 Khazard commander attacks you: kill him or ignore him."
+     },
+     {
+      "t": "Go to the western room and climb the ladder. Another Khazard commander attacks up there. Search the chest for the first orb."
+     },
+     {
+      "t": "Return the Orb of protection to King Bolren in the centre of the Tree Gnome Maze. Elkoy, outside the maze, can take you to the centre.",
+      "s": [
+       "Yes please.",
+       "I will find the warlord and bring back the orbs."
+      ],
+      "i": [
+       "Orb of protection"
+      ]
+     },
+     {
+      "t": "Talk to the Khazard warlord, south west of West Ardougne, ready to fight him."
+     },
+     {
+      "t": "Defeat the Khazard warlord and retrieve orbs."
+     },
+     {
+      "t": "Return the Orbs of protection to King Bolren in the centre of the Tree Gnome Maze. Elkoy, outside the maze, can take you to the centre.",
+      "s": [
+       "Yes please."
+      ],
+      "i": [
+       "Orbs of protection"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear (magic is best)",
+     "Food"
+    ],
+    "c": 1,
+    "e": [
+     "Khazard Warlord (level 112)"
+    ]
+   }
+  ]
+ }
+}

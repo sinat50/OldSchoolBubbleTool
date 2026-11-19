@@ -1,0 +1,164 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Roving Elves",
+  "items": [
+   "Spade",
+   "Rope",
+   "Glarial's pebble (obtainable in quest)",
+   "Key (obtainable in quest)"
+  ],
+  "rec": [
+   "Antipoison potion",
+   "A few prayer potions",
+   "Food",
+   "Super combat potion",
+   "Teleport to Baxtorian Falls. Skills necklace (Fishing Guild [1]), Games necklace (Barbarian Outpost [2]) (2)",
+   "Teleport near to Elven Forest. Iorwerth camp teleport, Charter Ship to Port Tyras (3)"
+  ],
+  "enemies": [
+   "Moss Guardian (level 84) without runes, weapons, or armour"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "10,000 Strength XP",
+   "A used Crystal Shield",
+   "or Crystal Bow"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Islwyn in Isafdar. He and Eluned are either north-east of the Tyras Camp or west of Lletya. If he's at neither place, hop worlds until he appears.",
+      "s": [
+       "Tell the truth?",
+       "Maybe I could help.",
+       "Yes."
+      ],
+      "i": [
+       "Antipoison potion"
+      ]
+     },
+     {
+      "t": "Talk to Eluned."
+     }
+    ],
+    "i": [
+     "Antipoison potion",
+     "Teleport near to Elven Forest. Iorwerth camp teleport, Charter Ship to Port Tyras",
+     "Teleport to Baxtorian Falls. Skills necklace (Fishing Guild [1]), Games necklace (Barbarian Outpost [2])"
+    ]
+   },
+   {
+    "n": "Get the seed",
+    "st": [
+     {
+      "t": "If you don't have Glarial's pebble, get another from Golrie in the Tree Gnome Village Dungeon."
+     },
+     {
+      "t": "Bank everything besides the pebble, some potions, and some food. After, go use Glarial's pebble on Glarial's Tombstone east of Baxtorian Falls. Be prepared to fight a level 84 Moss Guardian bare-handed.",
+      "i": [
+       "Glarial's pebble",
+       "Food",
+       "A few prayer potions",
+       "Super combat potion",
+       "Teleport near to Elven Forest. Iorwerth camp teleport, Charter Ship to Port Tyras"
+      ]
+     },
+     {
+      "t": "Kill the Moss Guardian for a Consecration seed."
+     },
+     {
+      "t": "Pick up the consecration seed.",
+      "i": [
+       "Consecration seed"
+      ]
+     },
+     {
+      "t": "Return the seed to Eluned.",
+      "i": [
+       "Consecration seed",
+       "Antipoison potion"
+      ]
+     }
+    ],
+    "i": [
+     "Glarial's pebble"
+    ],
+    "tr": [
+     "Teleport to Baxtorian Falls. Skills necklace (Fishing Guild [1]), Games necklace (Barbarian Outpost [2])",
+     "Teleport near to Elven Forest. Iorwerth camp teleport, Charter Ship to Port Tyras"
+    ],
+    "r": [
+     "Food",
+     "A few prayer potions",
+     "Antipoison potion"
+    ],
+    "c": 1,
+    "e": [
+     "Moss Guardian (level 84) without runes, weapons, or armour"
+    ]
+   },
+   {
+    "n": "Plant the seed",
+    "st": [
+     {
+      "t": "Board the log raft on the top of Baxtorian Falls.",
+      "i": [
+       "Consecration seed",
+       "Rope",
+       "Spade"
+      ]
+     },
+     {
+      "t": "Use a rope on the rock to the south.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Use a rope on the dead tree.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Enter the falls."
+     },
+     {
+      "t": "Search the northernmost crates in the east room for a key. Skip this if you already have the key."
+     },
+     {
+      "t": "Go through the doors from the west room.",
+      "i": [
+       "Key"
+      ]
+     },
+     {
+      "t": "Plant the consecrated seed anywhere in the room.",
+      "i": [
+       "Consecration seed",
+       "Spade"
+      ]
+     },
+     {
+      "t": "Return to Islwyn in Isafdar to finish the quest."
+     }
+    ],
+    "i": [
+     "Spade",
+     "Rope",
+     "Consecration seed"
+    ],
+    "tr": [
+     "Teleport to Baxtorian Falls. Skills necklace (Fishing Guild [1]), Games necklace (Barbarian Outpost [2])",
+     "Teleport near to Elven Forest. Iorwerth camp teleport, Charter Ship to Port Tyras"
+    ],
+    "r": [
+     "Antipoison potion"
+    ]
+   }
+  ]
+ }
+}

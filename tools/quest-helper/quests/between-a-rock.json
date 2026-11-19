@@ -1,0 +1,247 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Between a Rock...",
+  "items": [
+   "Any pickaxe",
+   "Gold bars (4)",
+   "Hammer",
+   "Ammo mould",
+   "Coins for travelling (1000)"
+  ],
+  "rec": [
+   "Teleport to Ice Mountain"
+  ],
+  "enemies": [
+   "Scorpion (level 14)",
+   "Arzinian Being of Bordanzan (level 75 - 125)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "5,000 Defence XP",
+   "5,000 Mining XP",
+   "5,000 Smithing XP",
+   "A Rune Pickaxe.",
+   "Ability to Teleport to Dondakan's Rock using a Ring of Wealth.",
+   "Access to Arzinian Mine."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Bring 5 coins to the Keldagrim tunnel entrance east of Rellekka, just south of the Polar Hunter area (fairy ring DKS). Go in and through the tunnel in the cave wall. Pay the Dwarven Ferryman, not the Dwarven Boatman, to cross the water. Run north and east across the bridge, then west past the second wooden bridge, and talk to Dondakan in the north of the mine.",
+      "s": [
+       "Yes please.",
+       "Why are you firing a cannon at a wall?",
+       "So why were you trying to get through the rock again?",
+       "Sounds interesting!",
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Research",
+    "st": [
+     {
+      "t": "Take the Dwarven Ferryman back across the water, then travel to Keldagrim with the Dwarven Boatman nearby. Talk to the Dwarven Engineer in the Trading Consortium's palace smithing shop in west Keldagrim."
+     },
+     {
+      "t": "Talk to Rolad at the Ice Mountain entrance to the Dwarven Mine. If you don't have an ammo mould, buy one from Nulodion whilst you're here.",
+      "s": [
+       "I'll be back later."
+      ],
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Enter the Dwarven Mine.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Search the mine carts for a page."
+     },
+     {
+      "t": "Kill scorpions for a page."
+     },
+     {
+      "t": "Mine low level rocks for a page.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Talk to Rolad again. When he asks for the book back, choose to lie so you can keep it.",
+      "s": [
+       "Of course. (lie)"
+      ],
+      "i": [
+       "Pages"
+      ]
+     },
+     {
+      "t": "Read the entire dwarven lore book.",
+      "i": [
+       "Dwarven lore"
+      ]
+     }
+    ],
+    "i": [
+     "Coins (5)",
+     "Any pickaxe"
+    ],
+    "tr": [
+     "Teleport to Ice Mountain"
+    ],
+    "c": 1,
+    "e": [
+     "Scorpion (level 14)"
+    ]
+   },
+   {
+    "n": "Experiment",
+    "st": [
+     {
+      "t": "Return to Dondakan with the book and a gold bar.",
+      "i": [
+       "Gold bar",
+       "Dwarven lore"
+      ]
+     },
+     {
+      "t": "Use a gold bar on Dondakan.",
+      "i": [
+       "Gold bar"
+      ]
+     },
+     {
+      "t": "Use a gold bar on a furnace to make a gold cannonball.",
+      "i": [
+       "Gold bar",
+       "Ammo mould"
+      ]
+     },
+     {
+      "t": "Use a gold cannon ball on Dondakan.",
+      "s": [
+       "Yes, I'm sure this will crack open the rock."
+      ],
+      "i": [
+       "Cannon ball"
+      ]
+     },
+     {
+      "t": "Talk to Dondakan after he fires the cannon ball.",
+      "s": [
+       "So you want to... fire me into the rock?",
+       "I can't argue with that, shoot me in!"
+      ]
+     }
+    ],
+    "i": [
+     "Ammo mould",
+     "Gold bar"
+    ]
+   },
+   {
+    "n": "Solving the schematic",
+    "st": [
+     {
+      "t": "Read the last page of the dwarven lore book again for a base schematic.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Dwarven lore"
+      ]
+     },
+     {
+      "t": "Talk to the Dwarven Engineer in west Keldagrim.",
+      "i": [
+       "Schematic",
+       "Base schematics"
+      ]
+     },
+     {
+      "t": "Use 3 gold bars on an anvil to make a gold helmet.",
+      "s": [
+       "Golden helmet.",
+       "Yes."
+      ],
+      "i": [
+       "Gold bars (3)",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Go down the White Wolf Tunnel stairs, north of Catherby, and talk to Khorvak in the pub inside the tunnel.",
+      "s": [
+       "No, I've had enough of buying drinks for people!"
+      ]
+     },
+     {
+      "t": "Assemble the schematics: long-press Dondakan's schematic in your inventory and choose Assemble. Select one piece at a time, then turn and move it until the drawing matches the solved picture."
+     }
+    ],
+    "i": [
+     "Gold bars (3)",
+     "Hammer"
+    ]
+   },
+   {
+    "n": "Into the hard place",
+    "st": [
+     {
+      "t": "Wear your gold helmet and prepare for a fight. Return to Dondakan the same way as before: through the Keldagrim tunnel east of Rellekka and across the water with the Dwarven Ferryman.",
+      "s": [
+       "You may fire when ready!"
+      ],
+      "i": [
+       "Coins (5)",
+       "Gold helmet",
+       "Schematic",
+       "Any pickaxe",
+       "Combat gear",
+       "Food"
+      ]
+     },
+     {
+      "t": "Mine at least 6 gold ores. Mine 15 if you want the Avatar to be level 75 instead of level 125. Keep the ores in your inventory for the boss fight. Do not remove your gold helmet.",
+      "i": [
+       "Any pickaxe",
+       "Gold helmet"
+      ]
+     },
+     {
+      "t": "Go to the centre of the area. Walk through the first wall of flames, then long-press the second wall of flame and choose Talk-to.",
+      "i": [
+       "Gold helmet"
+      ]
+     },
+     {
+      "t": "Kill the avatar. Make sure to keep the gold ores in your inventory.",
+      "i": [
+       "Gold helmet"
+      ]
+     },
+     {
+      "t": "Talk to Dondakan to finish the quest."
+     }
+    ],
+    "i": [
+     "Gold helmet",
+     "Schematic",
+     "Coins (5)",
+     "Any pickaxe",
+     "Combat gear",
+     "Food"
+    ],
+    "c": 1
+   }
+  ]
+ }
+}

@@ -1,0 +1,151 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Making History",
+  "items": [
+   "Spade",
+   "Sapphire amulet",
+   "Ghostspeak amulet"
+  ],
+  "rec": [
+   "Teleports to Ardougne (3)",
+   "Ectophial, or method of getting to Port Phasmatys",
+   "Ring of Dueling",
+   "Necklace of passage",
+   "Relleka Teleport",
+   "Potions/Items to restore run energy"
+  ],
+  "enemies": [],
+  "rewards": [
+   "3 Quest points",
+   "1,000 Crafting XP",
+   "1,000 Prayer XP",
+   "750 x Coins",
+   "An Enchanted Key"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Jorral at the outpost south of the Tree Gnome Stronghold. You can teleport there with a Necklace of Passage.",
+      "s": [
+       "The Outpost",
+       "Tell me more.",
+       "Ok, I'll make a stand for history!"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Find the book",
+    "st": [
+     {
+      "t": "Talk to the Silver Merchant in the East Ardougne Market.",
+      "s": [
+       "Ask about the outpost."
+      ]
+     },
+     {
+      "t": "Go to Castle Wars and cross both bridges to the north. Stop about 4 steps north of the east side of the second bridge. When the enchanted key feels steaming, you're on the spot: dig there with a spade.",
+      "i": [
+       "Enchanted key",
+       "Spade"
+      ]
+     },
+     {
+      "t": "Use the enchanted key on the chest.",
+      "i": [
+       "Enchanted key",
+       "Chest"
+      ]
+     }
+    ],
+    "i": [
+     "Spade"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Fremennik tale",
+    "st": [
+     {
+      "t": "Talk to Blanin in south east Rellekka."
+     },
+     {
+      "t": "Talk to Dron in north Rellekka.",
+      "s": [
+       "I'm after important answers.",
+       "Why, you're the famous warrior Dron!",
+       "An iron mace",
+       "Breakfast",
+       "Lunch",
+       "Bunnies",
+       "Red",
+       "36",
+       "8",
+       "Fifth and Fourth",
+       "North East side of town",
+       "Blanin",
+       "Fluffy",
+       "12, but what does that have to do with anything?"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Find the scroll",
+    "st": [
+     {
+      "t": "Enter Port Phasmatys and talk to Droalak outside the general store.",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Give Melina a sapphire amulet in the house north east of the general store.",
+      "i": [
+       "Sapphire amulet",
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Return to Droalak outside the general store."
+     }
+    ],
+    "i": [
+     "Sapphire amulet",
+     "Ghostspeak amulet"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Finishing off",
+    "st": [
+     {
+      "t": "Return to Jorral north of West Ardougne with the scroll and journal.",
+      "i": [
+       "Scroll",
+       "Journal"
+      ]
+     },
+     {
+      "t": "Go up the stairs in East Ardougne castle, in the centre of the city just across the river, and talk to King Lathas on the 1st floor.",
+      "s": [
+       "Talk about the outpost."
+      ]
+     },
+     {
+      "t": "Return to Jorral north of West Ardougne with the letter to finish the quest.",
+      "i": [
+       "Letter"
+      ]
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

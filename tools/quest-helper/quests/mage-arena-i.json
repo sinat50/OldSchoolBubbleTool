@@ -1,0 +1,75 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Mage Arena I",
+  "items": [
+   "Knife or sharp weapon to cut through a web",
+   "Runes for fighting Kolodion"
+  ],
+  "rec": [],
+  "enemies": [
+   "Kolodion in 5 forms, up to level 112"
+  ],
+  "rewards": [
+   "A God Staff",
+   "A God Cape",
+   "Ability to unlock 3 new God Spells."
+  ],
+  "sec": [
+   {
+    "n": "Getting to the Mage Arena",
+    "st": [
+     {
+      "t": "Go to the Mage Arena in the deep Wilderness. The quickest way is the lever in the Edgeville ruins, or the one in the small building near the gate to West Ardougne: both teleport you to the Deserted Keep. Run north, cut the web with your knife or slash weapon, then go west to the small broken-down house north-west of the arena. Cut the webs inside and pull the lever on its wall. This is IN THE WILDERNESS, so don't bring anything you don't want to lose.",
+      "i": [
+       "Knife or sharp weapon to cut through a web"
+      ]
+     }
+    ],
+    "i": [
+     "Knife or sharp weapon to cut through a web"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Defeating Kolodion",
+    "st": [
+     {
+      "t": "Talk to Kolodion, ready for fighting him in the Mage Arena.",
+      "s": [
+       "Can I fight here?",
+       "Yes indeedy.",
+       "Okay, let's fight."
+      ],
+      "i": [
+       "Runes for fighting Kolodion"
+      ]
+     },
+     {
+      "t": "Defeat Kolodion's 5 forms using Magic, the only style that hurts him. Protect from Magic blocks his attacks."
+     }
+    ],
+    "i": [
+     "Runes for fighting Kolodion"
+    ]
+   },
+   {
+    "n": "Getting your rewards",
+    "st": [
+     {
+      "t": "Enter the sparkling pool."
+     },
+     {
+      "t": "Pray at the statue of the god whose cape you want. Pick up the cape which appears."
+     },
+     {
+      "t": "Talk to the Chamber Guardian for your staff.",
+      "i": [
+       "God cape"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

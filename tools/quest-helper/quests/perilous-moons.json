@@ -1,0 +1,380 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder perilousmoon; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Perilous Moons",
+  "items": [
+   "Pestle and mortar",
+   "Big fishing net",
+   "Knife",
+   "Rope",
+   "Combat armour with high defensive bonuses"
+  ],
+  "rec": [
+   "Stamina potions",
+   "Antipoison"
+  ],
+  "enemies": [
+   "Sulphur Nagua (level 98)",
+   "Blue Moon (level 329)",
+   "Blood Moon (level 329)",
+   "Eclipse Moon (level 329)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "40,000 Slayer XP",
+   "5,000 Runecraft XP",
+   "5,000 Hunter XP",
+   "5,000 Fishing XP",
+   "Access to Neypotzli and the Moons of Peril"
+  ],
+  "sec": [
+   {
+    "n": "Ruined",
+    "st": [
+     {
+      "t": "Talk to Attala, stood south of Ralos' Rise.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Kill the sulphur nagua (level 98) on the ledge north-east of Attala. With 47 Agility, cross the bridge to the east and climb the rocks to the north. Without it, take the western path north towards the Teomat, then go round to the south-east of the exposed altar. Protect from Melee blocks its attacks."
+     },
+     {
+      "t": "Return to Attala."
+     },
+     {
+      "t": "Enter the entrance to Cam Torum."
+     },
+     {
+      "t": "Talk to Jessamine in the far north end of Cam Torum.",
+      "s": [
+       "Can I be of any help with the dig?"
+      ]
+     },
+     {
+      "t": "Enter the Neypotzli entrance in the far north of the cavern."
+     },
+     {
+      "t": "Talk to Attala near the entrance."
+     },
+     {
+      "t": "Talk to Zuma near the entrance."
+     },
+     {
+      "t": "Talk to Jessamine near the entrance."
+     }
+    ],
+    "i": [
+     "Combat armour with high defensive bonuses"
+    ],
+    "c": 1,
+    "e": [
+     "Sulphur Nagua (level 98)"
+    ]
+   },
+   {
+    "n": "Camping up",
+    "st": [
+     {
+      "t": "Make sure you have 5 free inventory spaces, then take building supplies from the crates just west of Jessamine. You get a hammer, a saw and three building supplies."
+     },
+     {
+      "t": "Enter the south-west entrance.",
+      "i": [
+       "Building supplies",
+       "Hammer",
+       "Saw"
+      ]
+     },
+     {
+      "t": "Make your way to the camp spot, marked on the minimap with a cooking range icon, and build it.",
+      "i": [
+       "Building supplies",
+       "Hammer",
+       "Saw"
+      ]
+     },
+     {
+      "t": "Return to the antechamber."
+     },
+     {
+      "t": "Enter the north-west entrance.",
+      "i": [
+       "Building supplies",
+       "Hammer",
+       "Saw"
+      ]
+     },
+     {
+      "t": "Make your way to the camp spot, marked on the minimap with a cooking range icon, and build it.",
+      "i": [
+       "Building supplies",
+       "Hammer",
+       "Saw"
+      ]
+     },
+     {
+      "t": "Return to the antechamber."
+     },
+     {
+      "t": "Enter the north-east entrance."
+     },
+     {
+      "t": "Make your way to the camp spot, marked on the minimap with a cooking range icon, and build it.",
+      "i": [
+       "Building supplies",
+       "Hammer",
+       "Saw"
+      ]
+     },
+     {
+      "t": "Return to the antechamber."
+     }
+    ]
+   },
+   {
+    "n": "Enchanting",
+    "st": [
+     {
+      "t": "Talk to Jessamine near the Monolith.",
+      "s": [
+       "What does the inscription say?",
+       "What do we do now?"
+      ]
+     },
+     {
+      "t": "Return to Cam Torum through the south entrance."
+     },
+     {
+      "t": "Talk to Nahta in the magic shop.",
+      "s": [
+       "Actually, I've been sent by Attala."
+      ],
+      "i": [
+       "Earth talisman",
+       "Water talisman"
+      ]
+     },
+     {
+      "t": "Talk to the blacksmith near the anvils.",
+      "s": [
+       "I need your help with these talismans.",
+       "Can you help?"
+      ],
+      "i": [
+       "Enchanted earth talisman",
+       "Enchanted water talisman"
+      ]
+     },
+     {
+      "t": "Enter the Neypotzli entrance in the far north of Cam Torum, then talk to Attala near the Monolith."
+     },
+     {
+      "t": "Use the talismans to find the correct location. Earth tells you if it's east/west, and the water talisman tells you north/south. Despite how the world map looks, the antechamber counts as being directly in the middle of the 4 areas, so if it says to go south and east when in there, you should go to the ancient shrine, accessed through the prison or the streambound cavern. Keep using them as you move: Eyatlalli appears when you reach the right spot."
+     },
+     {
+      "t": "Talk to Eyatlalli."
+     },
+     {
+      "t": "Return to the antechamber and talk to Jessamine near the Monolith. Eyatlalli appears again. When that chat ends, talk to Eyatlalli."
+     }
+    ]
+   },
+   {
+    "n": "Ritual",
+    "st": [
+     {
+      "t": "Enter the north-east entrance to the streambound cavern."
+     },
+     {
+      "t": "Take herblore supplies from the supply crates in the camp. You only need the pestle and mortar.",
+      "s": [
+       "Take herblore supplies."
+      ]
+     },
+     {
+      "t": "Collect a grub from the grubby sapling east of the camp."
+     },
+     {
+      "t": "Use a pestle and mortar on the moonlight grub.",
+      "i": [
+       "Pestle and mortar",
+       "Moonlight grub"
+      ]
+     },
+     {
+      "t": "Take fishing supplies from the supply crates in the camp.",
+      "s": [
+       "Take fishing supplies."
+      ]
+     },
+     {
+      "t": "Fish a bream from the stream east of the camp.",
+      "i": [
+       "Big fishing net",
+       "Knife"
+      ]
+     },
+     {
+      "t": "Use a knife on the raw bream.",
+      "i": [
+       "Knife",
+       "Raw bream"
+      ]
+     },
+     {
+      "t": "Take hunter supplies from the supply crates in the camp. You only need the rope, and the knife from the fishing supplies.",
+      "s": [
+       "Take hunting supplies."
+      ]
+     },
+     {
+      "t": "Enter the entrance north of the camp.",
+      "i": [
+       "Rope",
+       "Knife"
+      ]
+     },
+     {
+      "t": "Walk west to the Hunter icon on the minimap. Set up a trap there by tapping two rocks near one another.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Rustle the nearby bush to trap a lizard."
+     },
+     {
+      "t": "Pick up the raw moss lizard.",
+      "i": [
+       "Raw moss lizard"
+      ]
+     },
+     {
+      "t": "Use a knife on the raw moss lizard.",
+      "i": [
+       "Knife",
+       "Raw moss lizard"
+      ]
+     },
+     {
+      "t": "Leave the area back to the antechamber via the south-east entrance."
+     },
+     {
+      "t": "Talk to Eyatlalli with the items.",
+      "i": [
+       "Moonlight grub paste",
+       "Bream scales",
+       "Moss lizard tail"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Blue moon",
+    "st": [
+     {
+      "t": "Enter the north-west entrance to the earthbound cavern when you're ready for the blue moon fight. Make food and potions from the lizards, breams, and grubby saplings before the fights.",
+      "i": [
+       "Crush weapon",
+       "Combat armour with high defensive bonuses"
+      ]
+     },
+     {
+      "t": "Follow the trail to the camp spot, then keep going east past it to the entrance to the blue moon fight.",
+      "i": [
+       "Crush weapon",
+       "Combat armour with high defensive bonuses"
+      ]
+     },
+     {
+      "t": "Defeat the blue moon. Use a crush weapon. Protection prayers have no effect. Remain inside of the highlighted circle on the floor to remain safe. It will move periodically. When the highlighted circle is the full or new moon, they will use a special attack: Weapon freeze - Your weapon is unequipped and put into ice. Attack the ice to get it back. Brazier - two braziers will extinguish. Re-ignite them whilst avoiding the tornadoes."
+     }
+    ],
+    "i": [
+     "Crush weapon",
+     "Combat armour with high defensive bonuses"
+    ],
+    "c": 1,
+    "e": [
+     "Blue Moon (level 329)"
+    ]
+   },
+   {
+    "n": "Blood moon",
+    "st": [
+     {
+      "t": "Enter the south-west entrance to the ancient prison when you're ready for the blood moon fight. Make food and potions from the lizards, breams, and grubby saplings before the fights.",
+      "i": [
+       "Slash weapon",
+       "Combat armour with high defensive bonuses"
+      ]
+     },
+     {
+      "t": "Enter the north-east entrance to the blood moon fight.",
+      "i": [
+       "Slash weapon",
+       "Combat armour with high defensive bonuses"
+      ]
+     },
+     {
+      "t": "Defeat the blood moon. Use a slash weapon. Protection prayers have no effect. Remain inside of the highlighted circle on the floor to remain safe. It will move periodically. When the highlighted circle is the full or new moon, they will use a special attack: Raining blood - Blood falls from the ceiling. Avoid the blood puddles. Blood jaguar - Jaguars appear. Attack the highlighted jaguar, avoiding the blood square. Step away from the jaguar just before each of its attacks."
+     }
+    ],
+    "i": [
+     "Slash weapon",
+     "Combat armour with high defensive bonuses"
+    ],
+    "c": 1,
+    "e": [
+     "Blood Moon (level 329)"
+    ]
+   },
+   {
+    "n": "Eclipse moon",
+    "st": [
+     {
+      "t": "Enter the streambound cavern when you're ready for the eclipse moon fight. Make food and potions from the lizards, breams, and grubby saplings before the fights.",
+      "i": [
+       "Stab weapon",
+       "Combat armour with high defensive bonuses"
+      ]
+     },
+     {
+      "t": "Enter the south entrance to the eclipse moon fight.",
+      "i": [
+       "Stab weapon",
+       "Combat armour with high defensive bonuses"
+      ]
+     },
+     {
+      "t": "Defeat the eclipse moon. Use a stab weapon. Protection prayers have no effect. Remain inside of the highlighted circle on the floor to remain safe. It will move periodically. Only use food and potions made inside of Neypotzli. When the highlighted circle is the full or new moon, they will use a special attack: Eclipse shield - A moon shield appears. Keep behind the shield as it moves. Mimic - Clones of the moon will appear. Face the clones to avoid taking damage."
+     }
+    ],
+    "i": [
+     "Stab weapon",
+     "Combat armour with high defensive bonuses"
+    ],
+    "c": 1,
+    "e": [
+     "Eclipse Moon (level 329)"
+    ]
+   },
+   {
+    "n": "Finishing off",
+    "st": [
+     {
+      "t": "Return to Jessamine near the Monolith again."
+     },
+     {
+      "t": "Talk to Zuma."
+     },
+     {
+      "t": "Talk to Eyatlalli to finish the quest. If the quest doesn't finish, talk to Attala near the Monolith, then talk to Eyatlalli again."
+     }
+    ]
+   }
+  ]
+ }
+}

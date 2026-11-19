@@ -1,0 +1,147 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder piratestreasure; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Pirate's Treasure",
+  "items": [
+   "Coins (60)",
+   "Spade",
+   "Bananas (10)"
+  ],
+  "rec": [
+   "A teleport to Varrock",
+   "A teleport to Falador"
+  ],
+  "enemies": [
+   "Gardener (level 4)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "A Gold Ring",
+   "An Emerald",
+   "450 x Coins"
+  ],
+  "sec": [
+   {
+    "n": "Talk to Redbeard Frank",
+    "st": [
+     {
+      "t": "Talk to Redbeard Frank in Port Sarim.",
+      "s": [
+       "I'm in search of treasure.",
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Coins (60)"
+    ]
+   },
+   {
+    "n": "Rum smuggling",
+    "st": [
+     {
+      "t": "Talk to one of the Seamen on the docks in Port Sarim to go to Musa Point.",
+      "s": [
+       "Yes please."
+      ]
+     },
+     {
+      "t": "Talk to Zembo in the Karamja Wines, Spirits and Beers bar. Buy one Karamjan rum.",
+      "s": [
+       "Yes please."
+      ]
+     },
+     {
+      "t": "Pick 10 bananas nearby, and then talk to Luthas about working for him.",
+      "s": [
+       "Could you offer me employment on your plantation?",
+       "Will you pay me for another crate full?"
+      ]
+     },
+     {
+      "t": "Use the Karamjan rum on the crate outside the south-east corner of Luthas's hut, not the crate in the bedroom."
+     },
+     {
+      "t": "Long-press the crate outside and choose Fill to add the rest of your bananas, then talk to Luthas."
+     },
+     {
+      "t": "Talk to Luthas and tell him you finished filling the crate."
+     }
+    ]
+   },
+   {
+    "n": "Back to Port Sarim",
+    "st": [
+     {
+      "t": "Head back to Port Sarim. Pay the Customs Officer to sail there.",
+      "s": [
+       "Thank you, I'll be on my way",
+       "Can I journey on this ship?",
+       "Search away, I have nothing to hide.",
+       "Ok.",
+       "Search away. I have nothing to hide.",
+       "Okay."
+      ]
+     },
+     {
+      "t": "Grab the white apron from the Fishing Shop.",
+      "i": [
+       "White apron"
+      ]
+     },
+     {
+      "t": "Wear your white apron and talk to Wydin in the Port Sarim food shop to get a job. Then search the crate with the banana on it in the back room.",
+      "s": [
+       "Well, can I get a job here?"
+      ],
+      "i": [
+       "White apron"
+      ]
+     },
+     {
+      "t": "Bring the Karamjan rum to Redbeard Frank in Port Sarim.",
+      "s": [
+       "Ok thanks, I'll go and get it."
+      ],
+      "i": [
+       "Karamjan rum"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Discover the treasure",
+    "st": [
+     {
+      "t": "Climb up the stairs in The Blue Moon Inn in Varrock.",
+      "i": [
+       "Chest key"
+      ]
+     },
+     {
+      "t": "Open the chest by using the key on it.",
+      "i": [
+       "Chest key"
+      ]
+     },
+     {
+      "t": "Read the Pirate message.",
+      "i": [
+       "Pirate message"
+      ]
+     },
+     {
+      "t": "Go to Falador Park and find the statue of Saradomin in the middle. See where it points: the dirt there makes a rough X. Stand in the middle of the X and dig. Kill the Gardener (level 4) who appears, or run out of the park to lose him, then dig again in the same spot."
+     }
+    ],
+    "i": [
+     "Spade"
+    ],
+    "c": 1,
+    "e": [
+     "Gardener (level 4)"
+    ]
+   }
+  ]
+ }
+}

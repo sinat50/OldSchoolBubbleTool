@@ -1,0 +1,70 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Children of the Sun",
+  "items": [],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "Access to Varlamore to the east of Varrock with a Quetzal."
+  ],
+  "sec": [
+   {
+    "n": "Intrigue",
+    "st": [
+     {
+      "t": "Talk to Alina east of Varrock Square.",
+      "s": [
+       "When will this delegation arrive?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Follow the guard from a few squares back, without letting him get too far ahead. Hide at each spot below before he turns round. If he sees you, talk to Noah or Alina and start again."
+     },
+     {
+      "t": "First hiding spot: run inside Lowe's Archery Emporium and wait."
+     },
+     {
+      "t": "Second spot: stand behind the north wall of the building south of the archery shop."
+     },
+     {
+      "t": "Third spot: walk to the south-east corner of that same building."
+     },
+     {
+      "t": "Fourth spot: stand behind the west wall of Old Man Yarlo's house."
+     },
+     {
+      "t": "Last spot: hide inside Old Man Yarlo's house, or beside the building south of Aubury's Rune Shop."
+     },
+     {
+      "t": "Attempt to enter the house in the south-east of Varrock, north of the Zamorak Temple, and watch the cutscene."
+     },
+     {
+      "t": "Talk to Sergeant Tobyn in Varrock Square."
+     },
+     {
+      "t": "Long-press the guard outside Aris's tent and choose Mark. He has his hands on his hips and no weapon."
+     },
+     {
+      "t": "Mark the guard just south-east of Benny's news stand. She has long hair and no helmet."
+     },
+     {
+      "t": "Mark the guard leaning on the north wall of Lowe's Archery Emporium with his arms crossed."
+     },
+     {
+      "t": "Mark the guard holding a mace, further east along the path, north-west of Varrock East Bank. If you marked anyone else, unmark them."
+     },
+     {
+      "t": "Report back to Sergeant Tobyn."
+     },
+     {
+      "t": "Talk to Tobyn on the Varrock Castle's roof to finish the quest."
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

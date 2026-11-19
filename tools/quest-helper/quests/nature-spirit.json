@@ -1,0 +1,212 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Nature Spirit",
+  "items": [
+   "Ghostspeak amulet",
+   "Silver sickle"
+  ],
+  "rec": [
+   "Salve Graveyard Teleports (2)",
+   "Combat gear to kill the ghasts"
+  ],
+  "enemies": [
+   "3 Ghasts (level 30)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "3,000 Crafting XP",
+   "2,000 Defence XP",
+   "2,000 Hitpoints XP",
+   "Access to Mort Myre Swamp",
+   "Ability to fight Ghasts."
+  ],
+  "sec": [
+   {
+    "n": "Start the quest",
+    "st": [
+     {
+      "t": "Talk to Drezel under the Paterdomus Temple.",
+      "s": [
+       "Well, what is it, I may be able to help?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Pass through the Holy Barrier next to Drezel and cross the nearby bridge. Go south and enter Mort Myre Swamp through the north gate. You must use the gate, or Filliman won't appear.",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Attempt to enter the Grotto in the south of Mort Myre.",
+      "s": [
+       "How long have you been a ghost?"
+      ],
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Filliman Tarlock.",
+      "s": [
+       "How long have you been a ghost?"
+      ],
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Take the washing bowl from the bench next to the grotto. The mirror is underneath it.",
+      "i": [
+       "Washing bowl"
+      ]
+     },
+     {
+      "t": "Pick up the mirror.",
+      "i": [
+       "Mirror"
+      ]
+     },
+     {
+      "t": "Use the mirror on Filliman Tarlock.",
+      "s": [
+       "How long have you been a ghost?"
+      ],
+      "i": [
+       "Ghostspeak amulet",
+       "Mirror"
+      ]
+     },
+     {
+      "t": "Long-press the grotto tree and choose Search."
+     },
+     {
+      "t": "Use the journal on Filliman Tarlock.",
+      "s": [
+       "How can I help?"
+      ],
+      "i": [
+       "Ghostspeak amulet",
+       "Journal"
+      ]
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Silver sickle"
+    ]
+   },
+   {
+    "n": "Helping Filliman",
+    "st": [
+     {
+      "t": "Return to Drezel under the Paterdomus Temple to get blessed."
+     },
+     {
+      "t": "Cast the druidic spell next to a rotten log in Mort Myre to grow a mushroom, then pick it. If you've lost the spell, ask Filliman for another.",
+      "s": [
+       "Could I have another bloom scroll please?"
+      ],
+      "i": [
+       "Druidic spell"
+      ]
+     },
+     {
+      "t": "Use the mushroom on the brown stone outside the grotto. If you've already done this, tap Done. If you aren't sure, search the stone: it says it seems complete once it has the mushroom.",
+      "i": [
+       "Mort myre fungus"
+      ]
+     },
+     {
+      "t": "Use the used spell on the gray stone outside the grotto. If you've already done this, tap Done. If you aren't sure, search the stone: it says it seems complete once it has the spell.",
+      "i": [
+       "A used spell or druidic spell"
+      ]
+     },
+     {
+      "t": "Stand on the orange stone outside the grotto."
+     },
+     {
+      "t": "While standing on the orange stone, tell Filliman Tarlock you're ready. If he isn't there, attempt to enter the grotto so he appears, then stand on the orange stone again.",
+      "s": [
+       "I think I've solved the puzzle!"
+      ],
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Enter the Grotto in the south of Mort Myre.",
+      "i": [
+       "Ghostspeak amulet",
+       "Silver sickle"
+      ]
+     },
+     {
+      "t": "Search the grotto inside.",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Filliman in the grotto to bless your sickle.",
+      "i": [
+       "Ghostspeak amulet",
+       "Silver sickle"
+      ]
+     },
+     {
+      "t": "Talk to the Nature Spirit in the grotto to bless your sickle.",
+      "i": [
+       "Ghostspeak amulet",
+       "Silver sickle"
+      ]
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Silver sickle"
+    ]
+   },
+   {
+    "n": "Killing Ghasts",
+    "st": [
+     {
+      "t": "Stand next to a rotten log, long-press the blessed sickle and choose Cast Bloom for mort myre fungi. Pick them and use them to fill the druid pouch.",
+      "i": [
+       "Silver sickle (b)",
+       "Druidic pouch"
+      ]
+     },
+     {
+      "t": "Use the filled druid pouch on a ghast to make it attackable and kill it. You'll need to kill 3.",
+      "i": [
+       "Druidic pouch"
+      ]
+     },
+     {
+      "t": "Enter the Grotto in the south of Mort Myre.",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Search the grotto in the middle of the cave so the Nature Spirit appears, then talk to him to finish the quest!",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Silver sickle (b)"
+    ],
+    "c": 1,
+    "e": [
+     "3 Ghasts (level 30)"
+    ]
+   }
+  ]
+ }
+}

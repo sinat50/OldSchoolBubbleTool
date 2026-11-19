@@ -1,0 +1,225 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Animal Magnetism",
+  "items": [
+   "Mithril Axe",
+   "Iron Bar (5)",
+   "Ghostspeak amulet",
+   "Ecto-token (20)",
+   "Hammer",
+   "Hard Leather",
+   "Holy Symbol",
+   "Polished Buttons"
+  ],
+  "rec": [
+   "Teleport to Draynor (5)",
+   "Teleport to Burthorpe",
+   "Teleport to Port Phasmatys"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "1,000 Crafting XP",
+   "1,000 Fletching XP",
+   "1,000 Slayer XP",
+   "2,500 Woodcutting XP",
+   "Ava's Attractor",
+   "Ability to purchase Ava's Devices"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Ava in the west wing of Draynor Manor to begin the quest.",
+      "s": [
+       "I would be happy to make your home a better place."
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Undead Chickens",
+    "st": [
+     {
+      "t": "Talk to Malcolm at the farm west of the Ectofuntus.",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Alice.",
+      "s": [
+       "I'm here about a quest."
+      ]
+     },
+     {
+      "t": "Talk to Malcolm again.",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Alice again.",
+      "s": [
+       "I'm here about a quest."
+      ]
+     },
+     {
+      "t": "Talk to the Old crone just east of the Slayer Tower twice.",
+      "s": [
+       "I'm here about the farmers east of here."
+      ],
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Give the Crone-made amulet to Malcolm.",
+      "s": [
+       "Okay, you need it more than I do, I suppose."
+      ],
+      "i": [
+       "Ghostspeak amulet",
+       "Crone-made amulet"
+      ]
+     },
+     {
+      "t": "Talk to Malcolm again to watch a cutscene.",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Buy two undead chickens from Malcolm. You can acquire ecto-tokens using the Ectofuntus to the east.",
+      "s": [
+       "Could I buy those chickens now, then?",
+       "Could I buy 2 chickens?"
+      ],
+      "i": [
+       "Ghostspeak amulet",
+       "Ecto-token (20)"
+      ]
+     },
+     {
+      "t": "Give the two Undead chickens to Ava.",
+      "i": [
+       "Undead chicken (2)"
+      ]
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Ecto-token (20)"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Magnet",
+    "st": [
+     {
+      "t": "Talk to the witch twice. She is in a room near Ava, in the north-west corner of Draynor Manor.",
+      "i": [
+       "Iron Bar (5)"
+      ]
+     },
+     {
+      "t": "Go to the iron mine in Rimmington northeast of the house portal.",
+      "i": [
+       "Hammer",
+       "Selected Iron"
+      ]
+     },
+     {
+      "t": "In the centre of the mine, walk one square north so your character faces north. Tap the compass so the camera faces north too, then use the hammer on the Selected iron.",
+      "i": [
+       "Hammer",
+       "Selected Iron"
+      ]
+     },
+     {
+      "t": "Give the Bar magnet to Ava.",
+      "i": [
+       "Bar magnet"
+      ]
+     }
+    ],
+    "i": [
+     "Iron Bar (5)",
+     "Hammer"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Undead twigs",
+    "st": [
+     {
+      "t": "Try to chop an undead tree outside Draynor manor.",
+      "i": [
+       "Mithril Axe"
+      ]
+     },
+     {
+      "t": "Talk to Turael in Burthorpe twice, giving him the Mithril axe and Holy symbol.",
+      "s": [
+       "I'm here about a quest.",
+       "Hello, I'm here about those trees again.",
+       "I'd love one, thanks."
+      ],
+      "i": [
+       "Mithril Axe",
+       "Holy Symbol"
+      ]
+     },
+     {
+      "t": "Try to chop an undead tree outside Draynor manor with the Blessed axe until you receive undead twigs.",
+      "i": [
+       "Blessed axe"
+      ]
+     },
+     {
+      "t": "Give the Undead twigs to Ava.",
+      "i": [
+       "Undead twigs"
+      ]
+     },
+     {
+      "t": "Talk to Ava to receive the research notes."
+     },
+     {
+      "t": "Translate the research notes."
+     },
+     {
+      "t": "Give Ava the translated research notes.",
+      "i": [
+       "Translated notes"
+      ]
+     },
+     {
+      "t": "Combine Hard leather and Polished buttons with the pattern.",
+      "i": [
+       "A pattern",
+       "Hard Leather",
+       "Polished Buttons"
+      ]
+     },
+     {
+      "t": "Give Ava the container.",
+      "i": [
+       "A container"
+      ]
+     }
+    ],
+    "i": [
+     "Mithril Axe",
+     "Polished Buttons",
+     "Hard Leather",
+     "Holy Symbol"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

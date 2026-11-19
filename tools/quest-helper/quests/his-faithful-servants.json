@@ -1,0 +1,97 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "His Faithful Servants",
+  "items": [
+   "Combat gear to kill all 6 Barrows Brothers",
+   "Spade"
+  ],
+  "rec": [
+   "Barrows teleport",
+   "Strange old lockpick",
+   "Ghommal's hilt 2 or higher to remove prayer drain in crypts"
+  ],
+  "enemies": [
+   "Ahrim the Blighted (level 98)",
+   "Dharok the Wretched (level 115)",
+   "Guthan the Infested (level 115)",
+   "Karil the Tainted (level 98)",
+   "Torag the Corrupted (level 115)",
+   "Verac the Defiled (level 115)"
+  ],
+  "rewards": [
+   "20,000 Prayer XP",
+   "Crypt map, used to dispell minimap hiding in Barrows"
+  ],
+  "sec": [
+   {
+    "n": "Helping Them",
+    "st": [
+     {
+      "t": "Talk to the Strange Old Man at Barrows east of Burgh de Rott."
+     },
+     {
+      "t": "For each brother in the next steps, dig on his barrow and search the sarcophagus inside to fight him. One sarcophagus has no brother in it and offers a tunnel instead. Don't enter it yet: tap Done on that brother's step and carry on. You'll fight him in the crypt at the end.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Dig on Dharok's mound, in the north-east of the Barrows, and search his sarcophagus, ready to fight. He uses melee, is weak to magic and hits VERY hard at low health. Defeat him, then leave by the stairs."
+     },
+     {
+      "t": "Dig on Ahrim's mound, in the middle of the Barrows, and search his sarcophagus, ready to fight. He uses magic and is weak to ranged. Defeat him, then leave by the stairs."
+     },
+     {
+      "t": "Dig on Karil's mound, in the south of the Barrows, and search his sarcophagus, ready to fight. He uses ranged and is weak to melee. Defeat him, then leave by the stairs."
+     },
+     {
+      "t": "Dig on Guthan's mound, in the east of the Barrows, and search his sarcophagus, ready to fight. He uses melee and is weak to magic. Defeat him, then leave by the stairs."
+     },
+     {
+      "t": "Dig on Torag's mound, in the west of the Barrows, and search his sarcophagus, ready to fight. He uses melee and is weak to magic. Defeat him, then leave by the stairs."
+     },
+     {
+      "t": "Dig on Verac's mound, in the north-west of the Barrows, and search his sarcophagus, ready to fight. He uses melee and is weak to magic. Defeat him, then leave by the stairs."
+     },
+     {
+      "t": "Once the other five brothers are beaten, go back to the barrow whose sarcophagus had no brother in it. Dig on its mound, search the sarcophagus and enter the tunnel to reach the crypt.",
+      "s": [
+       "Yeah I'm fearless!"
+      ],
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Walk through the tunnels to the chest room in the middle of the crypt. Which doors open changes each run, so if a door won't open, try another way. Open the chest, but DO NOT SEARCH IT until you've killed the 6th brother."
+     },
+     {
+      "t": "Kill the final brother."
+     },
+     {
+      "t": "Have at least 6 free inventory slots, then search the chest in the middle of the crypt for the strange icon. Without space the icon is lost and you have to defeat all the brothers again."
+     },
+     {
+      "t": "Escape back to the surface by a ladder in the tunnels, or teleport out. Then return to the Strange Old Man with the strange icon.",
+      "i": [
+       "Strange icon"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear to kill all 6 Barrows Brothers",
+     "Spade"
+    ],
+    "tr": [
+     "Barrows teleport"
+    ],
+    "r": [
+     "Strange old lockpick",
+     "Ghommal's hilt 2 or higher to remove prayer drain in crypts"
+    ],
+    "c": 1
+   }
+  ]
+ }
+}

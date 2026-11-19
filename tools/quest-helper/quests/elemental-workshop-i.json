@@ -1,0 +1,139 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Elemental Workshop I",
+  "items": [
+   "Knife",
+   "Any pickaxe",
+   "Needle",
+   "Thread",
+   "Leather",
+   "Hammer",
+   "Coal (4)"
+  ],
+  "rec": [
+   "Combat gear"
+  ],
+  "enemies": [
+   "Earth elemental (level 35)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "5,000 Crafting XP",
+   "5,000 Smithing XP",
+   "An Elemental Shield",
+   "Access to the Elemental Workshop.",
+   "Ability to craft and wield Elemental equipment."
+  ],
+  "sec": [
+   {
+    "n": "Forging a Shield",
+    "st": [
+     {
+      "t": "Go into the house just south-west of the Seers' Village bank and search the bookcase on its east wall."
+     },
+     {
+      "t": "Read the battered book.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Battered book"
+      ]
+     },
+     {
+      "t": "Use a knife on the battered book.",
+      "i": [
+       "Knife",
+       "Battered book"
+      ]
+     },
+     {
+      "t": "Go to the anvil building just north-west of this house and open the odd-looking wall on its north side.",
+      "i": [
+       "Battered Key",
+       "Slashed book"
+      ]
+     },
+     {
+      "t": "Climb down the staircase."
+     },
+     {
+      "t": "In the north room, turn the water control east of the water wheel. This one must be turned first."
+     },
+     {
+      "t": "Turn the water control west of the water wheel. If you turned this one first, turn it back and start again with the east control."
+     },
+     {
+      "t": "Pull the lever in the north room."
+     },
+     {
+      "t": "Repair the bellows in the east room.",
+      "i": [
+       "Needle",
+       "Thread",
+       "Leather"
+      ]
+     },
+     {
+      "t": "Pull the lever next to the bellows."
+     },
+     {
+      "t": "Search the boxes in the north east of the central room."
+     },
+     {
+      "t": "Use the stone bowl on the lava trough in the south room.",
+      "i": [
+       "A stone bowl"
+      ]
+     },
+     {
+      "t": "Use the lava-filled bowl on the furnace.",
+      "i": [
+       "A stone bowl"
+      ]
+     },
+     {
+      "t": "Mine one of the elemental rocks in the west room, ready to fight a level 35.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Kill the rock elemental that appeared."
+     },
+     {
+      "t": "Pick up the elemental ore.",
+      "i": [
+       "Elemental ore"
+      ]
+     },
+     {
+      "t": "Use the elemental ore on the furnace in the south room.",
+      "i": [
+       "Elemental ore",
+       "Coal (4)"
+      ]
+     },
+     {
+      "t": "Use the bar on one of the workbenches in the central room to complete the quest.",
+      "i": [
+       "Elemental bar",
+       "Hammer",
+       "Slashed book"
+      ]
+     }
+    ],
+    "i": [
+     "Knife",
+     "Any pickaxe",
+     "Needle",
+     "Thread",
+     "Leather",
+     "Hammer",
+     "Coal (4)"
+    ]
+   }
+  ]
+ }
+}

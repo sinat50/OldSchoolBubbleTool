@@ -1,0 +1,632 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder mourningsendpartii; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Mourning's End Part II",
+  "items": [
+   "Full mourners' outfit",
+   "Chisel",
+   "Access to the Death Altar or 50 items asked of you by a dwarf",
+   "Rope"
+  ],
+  "rec": [
+   "Stamina potions",
+   "Prayer potions for Protect from Melee",
+   "Food",
+   "West ardougne teleport",
+   "Lletya teleport. Teleport crystal"
+  ],
+  "enemies": [
+   "Able to survive Shadows (level 73) continually attacking you"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "60,000 Agility XP",
+   "A Crystal Trinket",
+   "A Death Talisman",
+   "Ability to craft Death Runes.",
+   "Ability to kill Dark Beasts and receive them as a slayer task."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Arianwyn in Lletya.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Explore the caves",
+    "st": [
+     {
+      "t": "Wear your full mourner gear and enter the Mourner HQ in the north-east of West Ardougne. Go down the trapdoor inside to the basement and talk to Essyllt.",
+      "i": [
+       "Chisel",
+       "Gas mask",
+       "Mourner top",
+       "Mourner trousers",
+       "Mourner gloves",
+       "Mourner boots",
+       "Mourner cloak"
+      ]
+     },
+     {
+      "t": "Leave Essyllt's room and open the door on the west wall of the basement, using the new key he gave you, to enter the Mourner Caves."
+     },
+     {
+      "t": "Follow the caves to the west until you reach the Temple of Light. Search the guard corpse nearby."
+     },
+     {
+      "t": "Follow the caves to the west to the Temple of Light. Go up the stairs in it."
+     },
+     {
+      "t": "Go up the south staircase."
+     },
+     {
+      "t": "Go down the staircase north of you."
+     },
+     {
+      "t": "Go up the stairs to the north."
+     },
+     {
+      "t": "Use a chisel on the dark crystal to the east.",
+      "i": [
+       "Chisel"
+      ]
+     },
+     {
+      "t": "Bring the crystal to Arianwyn in Lletya.",
+      "i": [
+       "Blackened crystal"
+      ]
+     },
+     {
+      "t": "Talk to Eluned in Lletya next to Arianwyn."
+     },
+     {
+      "t": "Talk to Arianwyn in Lletya."
+     }
+    ],
+    "i": [
+     "Chisel",
+     "Full mourners' outfit"
+    ],
+    "tr": [
+     "West ardougne teleport",
+     "Lletya teleport. Teleport crystal"
+    ]
+   },
+   {
+    "n": "Return to the Temple",
+    "st": [
+     {
+      "t": "Return to the Temple of Light wearing your mourner gear. Bring your rope, the new key and the newly made crystal from Eluned (Arianwyn can give you another if you've lost it). Make sure you're prepared for shadows to be continuously attacking you. Bring a death talisman if you have one. If you don't, you can earn one later at the Death Altar."
+     }
+    ],
+    "i": [
+     "Rope",
+     "Full mourners' outfit",
+     "Access to the Death Altar"
+    ]
+   },
+   {
+    "n": "Puzzle 1",
+    "st": [
+     {
+      "t": "Go up the stairs to the first floor."
+     },
+     {
+      "t": "Pull the Crystal Dispenser in the east room.",
+      "s": [
+       "Pull the lever.",
+       "Pull it.",
+       "Take everything."
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar next to the dispenser and have the light point north.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar to the north and point it west.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar to the west and point it south.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put a yellow crystal in the pillar to the south.",
+      "i": [
+       "Yellow crystal"
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar to the south and point it east.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Climb the wall support just east of the pillar, on the south side, to cross the gap to the east. You may fail this multiple times. If you fall, go back up the stairs and try again. Agility boosts help your chances."
+     },
+     {
+      "t": "Search the chest in the blue light room."
+     }
+    ]
+   },
+   {
+    "n": "Puzzle 2",
+    "st": [
+     {
+      "t": "Cross back over the gap using the wall support. If you fall, go back up the stairs to the first floor. Then pull the Crystal Dispenser in the east room to reset the puzzle and take everything.",
+      "s": [
+       "Pull it.",
+       "Take everything."
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar next to the dispenser and have the light point north.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar to the north and point it west.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put a cyan crystal in the pillar to the west.",
+      "i": [
+       "Cyan crystal"
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar to the west and point it north.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar to the north and point it east.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put a yellow crystal in the pillar to the east.",
+      "i": [
+       "Yellow crystal"
+      ]
+     },
+     {
+      "t": "Search the chest in the magenta room in the north east corner."
+     }
+    ]
+   },
+   {
+    "n": "Puzzle 3",
+    "st": [
+     {
+      "t": "Take the yellow crystal out of the pillar, and replace it with a mirror pointing up."
+     },
+     {
+      "t": "Go up the north ladder to the second floor."
+     },
+     {
+      "t": "Put a mirror in the pillar next to you and point it west.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Go down the north ladder to the first floor."
+     },
+     {
+      "t": "Go up the south staircase to the second floor."
+     },
+     {
+      "t": "Place a mirror in the far north-west corner's pillar pointing down.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Go down to the first floor."
+     },
+     {
+      "t": "Go down to the ground floor."
+     },
+     {
+      "t": "Enter the room in the far north west corner."
+     },
+     {
+      "t": "Turn the mirror in the pillar in the room to point the light south."
+     },
+     {
+      "t": "Search the chest in the room south of you."
+     },
+     {
+      "t": "Go back to the room with the mirror and turn the mirror in its pillar to point east, then leave through the east barrier. The way out stays shut until you do."
+     }
+    ]
+   },
+   {
+    "n": "Puzzle 4",
+    "st": [
+     {
+      "t": "Go up the stairs to the first floor."
+     },
+     {
+      "t": "Take the cyan crystal out of the pillar north of the stairs, and replace it with a yellow crystal."
+     },
+     {
+      "t": "Go up the south staircase to the second floor."
+     },
+     {
+      "t": "Go to the far north-west corner's pillar and turn the mirror already in it to point south.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Go to the far south-west corner and place a mirror pointing down.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Go down to the first floor."
+     },
+     {
+      "t": "Use a rope on the rocks in the small room in the south of the first floor.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Go down the rope you tied in the south room of the first floor."
+     },
+     {
+      "t": "Search the chest in the south west room."
+     }
+    ],
+    "i": [
+     "Rope"
+    ]
+   },
+   {
+    "n": "Puzzle 5 P1",
+    "st": [
+     {
+      "t": "Return to the first floor and reset the puzzle."
+     },
+     {
+      "t": "Pull the Crystal Dispenser in the east room to reset the puzzle, and take all the items.",
+      "s": [
+       "Pull it.",
+       "Take everything."
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar next to the dispenser and have the light point north.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar to the north and point it west.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar to the west and point it south.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put a yellow crystal in the pillar to the south.",
+      "i": [
+       "Yellow crystal"
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar to the south and point it east.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Make sure you have the blue crystal, then climb the wall support just east of the pillar, on the south side, to cross the gap. You may fail this multiple times. If you fall, go back up the stairs and try again.",
+      "i": [
+       "Blue crystal"
+      ]
+     },
+     {
+      "t": "Put a blue crystal in the pillar in the blue room.",
+      "i": [
+       "Blue crystal"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Puzzle 5 P2",
+    "st": [
+     {
+      "t": "Cross back over the gap using the wall support. If you fall, climb back up to the first floor and try again. Then REMOVE the mirror from the pillar in the south of the first floor."
+     },
+     {
+      "t": "Have the mirror in the pillar north west of the dispenser point up.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Go up the south staircase to the second floor."
+     },
+     {
+      "t": "Go down the staircase north of you."
+     },
+     {
+      "t": "Go up the stairs to the north."
+     },
+     {
+      "t": "Place a mirror in the pillar north east of you and face it south.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Go back to the south side of floor 2."
+     },
+     {
+      "t": "Place the fractured crystal in the pillar a bit east.",
+      "i": [
+       "Fractured crystal"
+      ]
+     },
+     {
+      "t": "Place a mirror in the pillar to the west and point it down.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Place a mirror in the pillar to the south east and point it east.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Place a mirror in the pillar to the east and point it down.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Go down to the first floor."
+     },
+     {
+      "t": "Go down to the ground floor."
+     },
+     {
+      "t": "Add a mirror to the pillar where green light is coming down, and point it south.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Add a mirror to the pillar to the south, and point it east.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Enter the south east room, and add a mirror pointing to the north.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Search the chest in the room north of you."
+     }
+    ]
+   },
+   {
+    "n": "Reach the Death Altar",
+    "st": [
+     {
+      "t": "Go up the stairs to the first floor."
+     },
+     {
+      "t": "Pull the Crystal Dispenser in the east room to reset the puzzle, and take all the items.",
+      "s": [
+       "Pull it.",
+       "Take everything."
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar next to the dispenser and have the light point north.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar to the north and point it down.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Go down to the ground floor."
+     },
+     {
+      "t": "Put a mirror in the pillar north of the stairs and have the light point west.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put the fractured crystal (dark/light side split down middle) in the pillar to the west.",
+      "i": [
+       "Fractured crystal"
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar north and have the light point up.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put the other fractured crystal in the pillar south of the other fractured crystal.",
+      "i": [
+       "Fractured crystal"
+      ]
+     },
+     {
+      "t": "Add a mirror to the pillar to the west, and point it up.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Put a mirror in the pillar to the east and have the light point up.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Go up the stairs to the first floor."
+     },
+     {
+      "t": "Go to the far north where the ladder going up is, and place the yellow crystal there.",
+      "i": [
+       "Yellow crystal"
+      ]
+     },
+     {
+      "t": "Go up the north ladder to the second floor."
+     },
+     {
+      "t": "Put a mirror in the pillar next to you and point it west.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Go down the north ladder to the first floor."
+     },
+     {
+      "t": "Go up the south staircase to the second floor."
+     },
+     {
+      "t": "Place a mirror in the pillar to the north of the stairs and point it west.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Place a mirror in the pillar to the far east, and point it west.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Place a mirror to the west and point it north.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Go down the staircase north of you."
+     },
+     {
+      "t": "Go up the stairs to the north."
+     },
+     {
+      "t": "Place a mirror in the pillar north east of the stairs pointing west.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Place the blue crystal in the pillar to the west.",
+      "i": [
+       "Blue crystal"
+      ]
+     },
+     {
+      "t": "Place a mirror in the far north-west corner's pillar pointing south.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Place a mirror in the south pillar pointing east.",
+      "i": [
+       "Hand mirror"
+      ]
+     },
+     {
+      "t": "Go down the middle stairs twice to reach the central area."
+     },
+     {
+      "t": "Enter the central area, and turn the pillar's mirror west."
+     }
+    ]
+   },
+   {
+    "n": "Repair the defences",
+    "st": [
+     {
+      "t": "Enter the barrier to the death altar to the west."
+     },
+     {
+      "t": "If you already have a death talisman, or another way into the Death Altar, tap Done. Otherwise get one: buy one, kill Dark Beasts for one (needs 90 Slayer), or bring Thorgel the dwarf at the Death Altar the 50 items he asks for. If you leave to fetch anything, FIRST TURN THE MIDDLE PILLAR'S MIRROR TO POINT EAST, or you'll have to come back through the Underground Pass. When you return, turn it west again.",
+      "s": [
+       "Okay sure thing, what do you need?",
+       "I've got some of them with me.",
+       "Yeah sure."
+      ]
+     },
+     {
+      "t": "Enter the death altar ruins.",
+      "i": [
+       "Access to the Death Altar"
+      ]
+     },
+     {
+      "t": "Use the newly made crystal on the death altar."
+     },
+     {
+      "t": "Leave the Death Altar. In the central area, turn the pillar's mirror to point east again. If you leave it pointing west, getting back in later means a trip through the Underground Pass."
+     },
+     {
+      "t": "From the central area, go up the stairs, then go up the stairs to the north. Use the charged crystal on the dark crystal to the east."
+     },
+     {
+      "t": "Return to Arianwyn in Lletya."
+     }
+    ],
+    "i": [
+     "Access to the Death Altar"
+    ]
+   }
+  ]
+ }
+}

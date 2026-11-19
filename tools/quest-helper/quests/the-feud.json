@@ -1,0 +1,302 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder thefeud; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Feud",
+  "items": [
+   "Coins (800)",
+   "Leather or Graceful Gloves",
+   "Combat Gear bring Range or Mage Gear if safe spotting."
+  ],
+  "rec": [
+   "Ring of dueling",
+   "Pollnivneach teleport"
+  ],
+  "enemies": [
+   "Bandit Champion (level 70) - Safespottable",
+   "Tough Guy (level 75) - Safespottable"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "15,000 Thieving XP",
+   "500 x Coins",
+   "Oak Blackjack",
+   "Desert Disguise",
+   "Willow Blackjack",
+   "An Adamant Scimitar",
+   "Ability to blackjack.",
+   "Access to the Rogue Trader minigame"
+  ],
+  "sec": [
+   {
+    "n": "Starting out",
+    "st": [
+     {
+      "t": "Talk to Ali Morrisane in Al Kharid to start the quest.",
+      "s": [
+       "Are you really the greatest salesman in the world?",
+       "If you are, then why are you still selling goods from a stall?",
+       "I'd like to help you, but...",
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Coins"
+    ]
+   },
+   {
+    "n": "Pollnivneach",
+    "st": [
+     {
+      "t": "Talk to Ali Morrisane again and buy a Kharidian Headpiece and a Fake Beard to create a disguise.",
+      "s": [
+       "Okay."
+      ],
+      "i": [
+       "Coins"
+      ]
+     },
+     {
+      "t": "Create a disguise by using the Kharidian Headpiece on the Fake Beard.",
+      "i": [
+       "Kharidian Headpiece",
+       "Fake Beard"
+      ]
+     },
+     {
+      "t": "If you don't have a Shantay pass, buy one from Shantay, just north of the gate. Go through Shantay Pass.",
+      "i": [
+       "Shantay Pass"
+      ]
+     },
+     {
+      "t": "Talk to the rug merchant and travel to Pollnivneach via magic carpet.",
+      "s": [
+       "Pollnivneach"
+      ],
+      "i": [
+       "Coins"
+      ]
+     },
+     {
+      "t": "Go to the bar in the south-east of Pollnivneach. Buy 3 beers from Ali the Barman and use them on Drunken Ali to get him to explain where his son is. Talk with him in full between beers.",
+      "i": [
+       "Beer (3)"
+      ]
+     }
+    ],
+    "i": [
+     "Coins"
+    ]
+   },
+   {
+    "n": "Find the beef between the two factions",
+    "st": [
+     {
+      "t": "Talk to a Menaphite Thug, just west of the bar, to figure out how their dispute started with the bandits."
+     },
+     {
+      "t": "Talk to a bandit by the general store in the north of Pollnivneach to figure out their issues with the Menaphites."
+     },
+     {
+      "t": "With 500 coins and 2 free inventory spaces, talk to Ali the Camel Man at the camel store, just north-west of the bar, to try and get two camels to solve the dispute.",
+      "s": [
+       "Are those camels around the side for sale?",
+       "What price do you want for both of them?",
+       "Would 500 gold coins for the pair of them do?"
+      ]
+     },
+     {
+      "t": "Tell the bandits that the Menaphites have agreed to return the camel."
+     },
+     {
+      "t": "Tell the Menaphites that the bandits have agreed to return the camel."
+     }
+    ],
+    "i": [
+     "Coins"
+    ]
+   },
+   {
+    "n": "First job",
+    "st": [
+     {
+      "t": "Talk to Ali the Operator in the big purple tent in the south-west of Pollnivneach to get a job from him.",
+      "s": [
+       "Yes, of course, those bandits should be taught a lesson."
+      ]
+     },
+     {
+      "t": "Try to pickpocket a villager once. It is meant to fail. Then talk to Ali the Operator and choose \"Yeah, I could do with a bit of advice.\""
+     },
+     {
+      "t": "Find a street urchin around the bar or the town well, close to a villager, and pay him 10 coins to distract the villager. Quickly pickpocket the villager with the flashing arrow over his head, from behind. If it fails, talk to the urchin again."
+     },
+     {
+      "t": "Talk to Ali the Operator to get a blackjack.",
+      "s": [
+       "Yeah, I could do with a bit of advice."
+      ]
+     },
+     {
+      "t": "Equip the oak blackjack. Lure a villager to a secluded place or an empty building, knock them out and then pickpocket them.",
+      "i": [
+       "Oak Blackjack"
+      ]
+     }
+    ],
+    "i": [
+     "Coins"
+    ]
+   },
+   {
+    "n": "Second job",
+    "st": [
+     {
+      "t": "Talk to Ali the Operator to get the second job."
+     },
+     {
+      "t": "Wear your desert disguise and leather or graceful gloves. Hide behind the large cactus near the mayor's house, the large house in the east of town by the fountain.",
+      "i": [
+       "Leather or Graceful Gloves",
+       "Desert Disguise"
+      ]
+     },
+     {
+      "t": "Use the keys on the door of the mayor's house.",
+      "i": [
+       "Keys"
+      ]
+     },
+     {
+      "t": "Go up the stairs."
+     },
+     {
+      "t": "Search the painting to reveal the safe. Enter the code 1, 1, 2, 3, 5, 8."
+     },
+     {
+      "t": "Give Ali the Operator the jewels to get your final task from him."
+     }
+    ],
+    "i": [
+     "Desert Disguise",
+     "Leather or Graceful Gloves"
+    ]
+   },
+   {
+    "n": "Rising up",
+    "st": [
+     {
+      "t": "Talk to a Menaphite member to find the traitor."
+     },
+     {
+      "t": "Talk to Ali and tell him you have found the traitor."
+     },
+     {
+      "t": "Talk to Ali the Barman to find out where Traitorous Ali is.",
+      "s": [
+       "I'm looking for Traitorous Ali.",
+       "No thanks I'm ok."
+      ]
+     },
+     {
+      "t": "Talk to Ali the Hag, north-west of the well in the middle of town, to ask her to make some poison for you."
+     },
+     {
+      "t": "Use coins on the snake charmer's money pot, just south of the bar, to get a snake charm and a snake basket. You need 2 free inventory spaces.",
+      "s": [
+       "Wow, a snake charmer. Can I have a go? Can I have a go? Please?"
+      ],
+      "i": [
+       "Coins"
+      ]
+     },
+     {
+      "t": "Use the Snake Charm on a snake, just north of Ali the Operator's big purple tent, to capture it.",
+      "i": [
+       "Snake Charm",
+       "Snake Basket"
+      ]
+     },
+     {
+      "t": "Give the snake to Ali the Hag.",
+      "i": [
+       "Snake Basket (Full)"
+      ]
+     },
+     {
+      "t": "Talk to Ali the Kebab Salesman, north-west of the well in the middle of town, to get a special sauce to use.",
+      "s": [
+       "Would you sell me that bottle of special kebab sauce?",
+       "No thanks, I'm good."
+      ]
+     },
+     {
+      "t": "If you have no empty bucket, pick one up just north-east of the trough."
+     },
+     {
+      "t": "Use the Red Hot Sauce on the trough behind the camel shop and wait for a Camel to poop out the dung. If you plan to do \"My Arm's Big Adventure\" or \"Forgettable Tale of a Drunken Dwarf\" then you may want to grab four more Ugthanki dung.",
+      "i": [
+       "Red Hot Sauce"
+      ]
+     },
+     {
+      "t": "Use the bucket on the dung. Only pick up brown/Ugthanki dung.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Talk to Ali the Hag and give her the dung.",
+      "i": [
+       "Dung"
+      ]
+     },
+     {
+      "t": "Use the poison on the beer glass on the table in the bar to kill Traitorous Ali.",
+      "i": [
+       "Hag's Poison"
+      ]
+     },
+     {
+      "t": "Talk to Ali the Operator and tell him he is dead."
+     }
+    ],
+    "i": [
+     "Coins"
+    ]
+   },
+   {
+    "n": "Finishing off",
+    "st": [
+     {
+      "t": "Talk to the Menaphite Leader, just outside Ali the Operator's big purple tent, and prepare for a fight against a tough guy. You can safespot him inside the tent by using a chair. If he doesn't appear, talk to the Menaphite Leader again."
+     },
+     {
+      "t": "Talk to a villager and they will be angry you broke the balance of power."
+     },
+     {
+      "t": "Talk to the Bandit Leader, who wanders around the magic carpet station in the north of town, and be prepared to fight a Bandit Champion. You can safe spot him with the stool in the house to the east. If he doesn't appear, talk to the Bandit Leader again."
+     },
+     {
+      "t": "Talk to a villager and they will be angry still."
+     },
+     {
+      "t": "Talk to Ali the Mayor, by the well in the centre of town, and get your due congratulations."
+     },
+     {
+      "t": "Talk to Ali Morrisane in Al Kharid to finish the quest."
+     }
+    ],
+    "i": [
+     "Combat Gear bring Range or Mage Gear if safe spotting."
+    ],
+    "c": 1,
+    "e": [
+     "Bandit Champion (level 70) - Safespottable",
+     "Tough Guy (level 75) - Safespottable"
+    ]
+   }
+  ]
+ }
+}

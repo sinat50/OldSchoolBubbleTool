@@ -1,0 +1,241 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Grim Tales",
+  "items": [
+   "Door key",
+   "Tarromin potion (unf) (2)",
+   "Seed dibber",
+   "Watering can with at least 1 use",
+   "Any axe",
+   "Combat gear and food"
+  ],
+  "rec": [],
+  "enemies": [
+   "Glod (level 138)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "10,000 Farming XP",
+   "15,000 Herblore XP",
+   "5,000 Hitpoints XP",
+   "60,000 Woodcutting XP",
+   "25,000 Agility XP",
+   "25,000 Thieving XP",
+   "A Dwarven Helmet"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Sylas by the house portal in Taverley.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Griffin feather",
+    "st": [
+     {
+      "t": "Leave Taverley on its west side and take the trail farthest east up White Wolf Mountain, heading north. Go through the two white lines and follow the path up to Grimgnash, the griffin in the north east of the mountain. Talk to him.",
+      "s": [
+       "I heard you were a great and mighty Griffin!",
+       "There once was a graveyard filled with undead.",
+       "There lived a skeleton named Skullrot.",
+       "Skullrot was insane!",
+       "Skullrot hungrily grabbed the gnome's hair.",
+       "Started to strangle the poor gnome.",
+       "He saw some bones lying in the corner."
+      ]
+     },
+     {
+      "t": "Once Grimgnash is asleep, steal a feather from the pile next to his nest."
+     },
+     {
+      "t": "Bring Sylas in Taverley a griffin feather.",
+      "i": [
+       "Griffin feather"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Rupert's helmet",
+    "st": [
+     {
+      "t": "Climb over the crumbling wall of the tower south east of Goblin Village."
+     },
+     {
+      "t": "Talk to the drain pipe."
+     },
+     {
+      "t": "Talk to the drain pipe again.",
+      "s": [
+       "I think I might have an idea!",
+       "I could try and climb up.",
+       "Is there anything up there that can help?"
+      ]
+     },
+     {
+      "t": "Climb the beard."
+     },
+     {
+      "t": "Talk to Rupert the beard."
+     },
+     {
+      "t": "Climb down the beard."
+     },
+     {
+      "t": "Climb back over the crumbling east wall, then talk to Miazrqa just north of the tower.",
+      "s": [
+       "I see there is an embarrassed-looking dwarf...",
+       "Your second-cousin, twice removed?",
+       "I need a key for the house.",
+       "I should be off, I think."
+      ]
+     },
+     {
+      "t": "Go to the witch's house in Taverley, next to the house portal, and enter it with the door key.",
+      "i": [
+       "Door key"
+      ]
+     },
+     {
+      "t": "Go down the ladder to the basement."
+     },
+     {
+      "t": "Play the piano. Press upper E-F-E-D-C, then lower A-E-G-A."
+     },
+     {
+      "t": "Long-press the piano and choose Search."
+     },
+     {
+      "t": "Add the shrunk ogleroot to both your tarromin potion (unf). You'll need the second potion for later in the quest.",
+      "i": [
+       "Tarromin potion (unf)",
+       "Shrunk ogleroot"
+      ]
+     },
+     {
+      "t": "Climb back up the ladder."
+     },
+     {
+      "t": "Go through the south door on the ground floor, stand next to the mouse hole and drink one shrink-me-quick. Keep the other potion for later.",
+      "i": [
+       "Shrink-me-quick"
+      ]
+     },
+     {
+      "t": "Climb the nails in the north east of the room"
+     },
+     {
+      "t": "Climb up the nails in the south west of the room."
+     },
+     {
+      "t": "Climb the nails in the south of the room."
+     },
+     {
+      "t": "Climb down the nails in the north east of the room."
+     },
+     {
+      "t": "Run north and climb up the next set of nails on the east wall."
+     },
+     {
+      "t": "Take the pendant and return to Miazrqa."
+     },
+     {
+      "t": "Return the pendant to Miazrqa.",
+      "i": [
+       "Miazrqa's pendant"
+      ]
+     },
+     {
+      "t": "Talk to Rupert the beard to get his helmet."
+     }
+    ],
+    "i": [
+     "Tarromin potion (unf) (2)",
+     "Door key",
+     "Food"
+    ]
+   },
+   {
+    "n": "Golden goblin",
+    "st": [
+     {
+      "t": "Bring Sylas in Taverley Rupert's helmet.",
+      "i": [
+       "Rupert's helmet"
+      ]
+     },
+     {
+      "t": "Plant the magic beans in the earth mound in south east Taverley",
+      "i": [
+       "Magic beans",
+       "Seed dibber",
+       "Watering can with at least 1 use"
+      ]
+     },
+     {
+      "t": "Use your watering can on the magic beans you just planted in the earth mound",
+      "i": [
+       "Watering can with at least 1 use"
+      ]
+     },
+     {
+      "t": "Climb the bean stalk, ready to fight Glod.",
+      "i": [
+       "Combat gear and food"
+      ]
+     },
+     {
+      "t": "Kill Glod."
+     },
+     {
+      "t": "Pick up the golden goblin.",
+      "i": [
+       "Golden goblin"
+      ]
+     },
+     {
+      "t": "Bring the golden goblin to Sylas in Taverley.",
+      "i": [
+       "Golden goblin"
+      ]
+     },
+     {
+      "t": "Use a shrink potion on the bean stalk.",
+      "i": [
+       "Shrink-me-quick",
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Chop down the bean stalk.",
+      "i": [
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Talk to Sylas in Taverley."
+     }
+    ],
+    "i": [
+     "Combat gear and food",
+     "Food",
+     "Seed dibber",
+     "Watering can with at least 1 use",
+     "Any axe",
+     "Shrink-me-quick"
+    ],
+    "c": 1,
+    "e": [
+     "Glod (level 138)"
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,144 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder shadowsofcustodia; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Shadows of Custodia",
+  "items": [
+   "Fishing rod",
+   "Maple logs (4)",
+   "Hammer",
+   "Willow longbow (4)"
+  ],
+  "rec": [
+   "Teleport to Auburnvale (Fairy ring AIS)",
+   "Combat gear",
+   "Energy/Stamina potions"
+  ],
+  "enemies": [
+   "3 Strange creatures (level 93)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "10,000 Slayer XP",
+   "4,000 Hunter XP",
+   "3,000 Fishing XP",
+   "3,000 Construction XP",
+   "Access to the Custodia Pass Slayer Dungeon"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Read the noticeboard in the Auburnvale bar to start the quest.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Marcus in the Auburnvale bar about the missing people."
+     },
+     {
+      "t": "Talk to the Bartender in the Auburnvale bar.",
+      "s": [
+       "About the missing people..."
+      ]
+     },
+     {
+      "t": "Talk to Ictus, north of the Auburnvale Quetzal."
+     },
+     {
+      "t": "Talk to the Shopkeep in the Auburnvale General store.",
+      "s": [
+       "About the missing people..."
+      ]
+     },
+     {
+      "t": "Talk to Aemilia and Francis, north of the Auburnvale General store, about their missing sons."
+     }
+    ],
+    "tr": [
+     "Teleport to Auburnvale (Fairy ring AIS)"
+    ]
+   },
+   {
+    "n": "Hunting the trail",
+    "st": [
+     {
+      "t": "Inspect the wall outside Aemilia and Francis' house."
+     },
+     {
+      "t": "Inspect the puddle outside Aemilia and Francis' house."
+     },
+     {
+      "t": "Follow the puddle trail and inspect the plank in the river, west of Auburnvale.",
+      "i": [
+       "Fishing rod"
+      ]
+     },
+     {
+      "t": "Return to Aemilia and Francis' house, north of the Auburnvale General store, and talk to them about the cloth you found."
+     },
+     {
+      "t": "Follow the trail west of the city, then through the mountains, and enter the cave."
+     },
+     {
+      "t": "Talk to the Injured boy inside the cave."
+     },
+     {
+      "t": "Return to Aemilia and Francis's house, north of the Auburnvale General store, and tell them you found their missing boys."
+     }
+    ],
+    "i": [
+     "Fishing rod"
+    ]
+   },
+   {
+    "n": "Inform the authorities",
+    "st": [
+     {
+      "t": "Reinforce the wall outside Aemilia and Francis' house.",
+      "i": [
+       "Hammer",
+       "Maple logs (4)"
+      ]
+     },
+     {
+      "t": "Talk to Captain Ariadna, south-west of the Auburnvale General store, and inform her about the missing people.",
+      "i": [
+       "Willow longbow (4)"
+      ]
+     },
+     {
+      "t": "Talk to Etz, upstairs of Aemilia and Francis' house, about what he remembers."
+     }
+    ],
+    "i": [
+     "Maple logs (4)",
+     "Hammer",
+     "Willow longbow (4)"
+    ]
+   },
+   {
+    "n": "Save Antos",
+    "st": [
+     {
+      "t": "Follow the trail west of the city, then through the mountains, and enter the cave."
+     },
+     {
+      "t": "Run east in the cave to a small side chamber and talk to Antos, ready to fight three Strange creatures. Protect from Melee avoids most damage. Kill all three, then talk to Antos again if he doesn't speak to you first."
+     },
+     {
+      "t": "Talk to Captain Ariadna in Auburnvale to finish the quest!"
+     }
+    ],
+    "r": [
+     "Combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "3 Strange creatures (level 93)"
+    ]
+   }
+  ]
+ }
+}

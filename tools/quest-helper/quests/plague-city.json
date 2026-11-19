@@ -1,0 +1,208 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Plague City",
+  "items": [
+   "Dwellberries",
+   "Spade",
+   "Rope",
+   "Bucket of milk",
+   "Chocolate dust",
+   "Snape grass"
+  ],
+  "rec": [
+   "Bucket of water (4)"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "2,425 Mining XP",
+   "Ability to use Ardougne teleport spell and tablets"
+  ],
+  "sec": [
+   {
+    "n": "Start the quest",
+    "st": [
+     {
+      "t": "Talk to Edmond in the north-west corner of East Ardougne.",
+      "s": [
+       "What's happened to her?",
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Dwellberries",
+     "Spade",
+     "Rope",
+     "Bucket of milk",
+     "Chocolate dust",
+     "Snape grass"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Infiltrate West Ardougne",
+    "st": [
+     {
+      "t": "Talk to Alrena and give her the dwellberries.",
+      "i": [
+       "Dwellberries"
+      ]
+     },
+     {
+      "t": "Grab the Picture from Edmond's house.",
+      "i": [
+       "Picture"
+      ]
+     },
+     {
+      "t": "Talk to Edmond again."
+     },
+     {
+      "t": "Use four buckets of water on the mud patch in Edmond's garden patch.",
+      "i": [
+       "Bucket of water (4)"
+      ]
+     },
+     {
+      "t": "Use a spade on the mud patch.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Go down the hole."
+     },
+     {
+      "t": "Attempt to pull the grill in the south of the sewer."
+     },
+     {
+      "t": "Use a rope on the grill.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Talk to Edmond and ask him to help you pull off the grill."
+     },
+     {
+      "t": "Equip the gas mask and climb through the pipe.",
+      "i": [
+       "Gas mask"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Discover Elena's location",
+    "st": [
+     {
+      "t": "Talk to Jethick east of where you emerge.",
+      "s": [
+       "Yes, I'll return it for you."
+      ],
+      "i": [
+       "Gas mask",
+       "Picture"
+      ]
+     },
+     {
+      "t": "Enter the tall house in north West Ardougne."
+     },
+     {
+      "t": "Talk to Martha or Ted Rehnison"
+     },
+     {
+      "t": "Talk to Milli upstairs."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Freeing Elena",
+    "st": [
+     {
+      "t": "Try to enter the house in the south-east corner of West Ardougne.",
+      "s": [
+       "I fear not a mere plague.",
+       "I want to check anyway."
+      ]
+     },
+     {
+      "t": "Talk to the Clerk in the large building north of the manhole.",
+      "s": [
+       "I need permission to enter a plague house.",
+       "This is urgent though! Someone's been kidnapped!"
+      ]
+     },
+     {
+      "t": "Talk to Bravek in the room to the east.",
+      "s": [
+       "This is really important though!",
+       "Do you know what's in the cure?"
+      ]
+     },
+     {
+      "t": "Use your chocolate dust on the bucket of milk.",
+      "i": [
+       "Bucket of milk",
+       "Chocolate dust"
+      ]
+     },
+     {
+      "t": "Use the snape grass on the chocolatey milk",
+      "i": [
+       "Chocolatey milk",
+       "Snape grass"
+      ]
+     },
+     {
+      "t": "Give the hangover cure to Bravek.",
+      "i": [
+       "Hangover cure"
+      ]
+     },
+     {
+      "t": "Talk to Bravek to receive the warrant you need to enter the plague house.",
+      "s": [
+       "They won't listen to me!"
+      ]
+     },
+     {
+      "t": "Try to enter the plague house again.",
+      "i": [
+       "Warrant"
+      ]
+     },
+     {
+      "t": "Search the barrel in the room for a small key."
+     },
+     {
+      "t": "Go downstairs in the plague house.",
+      "i": [
+       "A small key"
+      ]
+     },
+     {
+      "t": "Enter the jail and talk to Elena.",
+      "i": [
+       "A small key"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Finishing off",
+    "st": [
+     {
+      "t": "Go back upstairs and return to the town square. Go down the manhole, follow the sewer and climb the mud pile, then return to Edmond at his house to finish the quest."
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

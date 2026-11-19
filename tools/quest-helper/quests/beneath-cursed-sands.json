@@ -1,0 +1,344 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder beneathcursedsands; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Beneath Cursed Sands",
+  "items": [
+   "Coal",
+   "Tinderbox",
+   "Iron bar",
+   "Spade",
+   "Any cooked or raw meat"
+  ],
+  "rec": [
+   "Waterskin(s)",
+   "Antipoison",
+   "Access to Fairy Rings",
+   "Pharaoh's sceptre",
+   "Melee combat gear",
+   "Ranged combat gear",
+   "Food",
+   "Stamina Potions",
+   "Nardah Teleport"
+  ],
+  "enemies": [
+   "Head Menaphite Guard (lvl 174) without protection prayers",
+   "Two Scabarite Mages (lvl 119)",
+   "Champion of Scabaras (lvl 379)",
+   "Menaphite Akh (lvl 351)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "50,000 Agility XP",
+   "A Keris Partisan",
+   "A Circlet of Water",
+   "Access to the Tombs of Amascut.",
+   "Ability to unlock the Jaltevas teleport option on the Pharaoh's sceptre",
+   "Access to fairy ring code A.K.P (a small island south-west of Necropolis)"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Jamila in Sophanem to start the quest.",
+      "s": [
+       "What's this special item?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "If you don't have the message yet, talk to Jamila again and ask about the special item. Then read the message.",
+      "s": [
+       "About that special item..."
+      ],
+      "i": [
+       "Message"
+      ]
+     }
+    ],
+    "i": [
+     "Waterskin(s)"
+    ]
+   },
+   {
+    "n": "Entranced Menaphites",
+    "st": [
+     {
+      "t": "Talk to Maisa at the campsite east of Sophanem, and investigate the excavation.",
+      "s": [
+       "Let's go."
+      ]
+     },
+     {
+      "t": "Inspect the blocked entry at the Jaltevas Pyramid."
+     },
+     {
+      "t": "Prepare to fight the Head Menaphite Guard, and talk to either a citizen or Menaphite Guard to start the fight."
+     },
+     {
+      "t": "Fight the Head Menaphite Guard. This boss uses melee, and can hit up to 16. DO NOT USE ANY OVERHEAD PROTECTION PRAYERS, OR YOU WILL GET HIT FOR 1/3RD OF YOUR HITPOINTS",
+      "i": [
+       "Melee combat gear",
+       "Food"
+      ]
+     },
+     {
+      "t": "Talk to Maisa to continue the quest."
+     }
+    ],
+    "i": [
+     "Melee combat gear"
+    ],
+    "r": [
+     "Waterskin(s)",
+     "Food"
+    ],
+    "c": 1,
+    "e": [
+     "Head Menaphite Guard (lvl 174) without protection prayers"
+    ]
+   },
+   {
+    "n": "The Ruins of Ullek",
+    "st": [
+     {
+      "t": "Go back to Maisa's camp and talk to her."
+     },
+     {
+      "t": "From the campsite, head south and then to the east, around the cliffs, where you will find a set of stairs to the Ruins of Ullek."
+     },
+     {
+      "t": "Go to the furnace next to the well (marked on the minimap). Use coal on it, then use your tinderbox on it to light it.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Coal",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Search the well for a stone tablet and read it."
+     },
+     {
+      "t": "Leave the ruins by the steps in the south-east, go south to the southernmost ritual pillar and dig on the square directly north of it.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Open the chest with the passcode 1118513."
+     },
+     {
+      "t": "Back at the furnace, craft a scarab emblem from the scarab mould and iron bar.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Iron bar"
+      ]
+     },
+     {
+      "t": "Inspect the pillar to the north to insert the emblem. Rotate the scarab until it faces downwards, with its pincers pointing up, then confirm.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Enter the dungeon.",
+      "i": [
+       "Melee combat gear",
+       "Food"
+      ]
+     },
+     {
+      "t": "Use Protect from Magic and defeat the two Scarab Mages.",
+      "i": [
+       "Melee combat gear",
+       "Food",
+       "Antipoison"
+      ]
+     },
+     {
+      "t": "Climb down the stairs."
+     },
+     {
+      "t": "Avoid the projectiles, run west to the junction, run south, follow the corridor, and pull the lever at the end.",
+      "i": [
+       "Food",
+       "Stamina Potions"
+      ]
+     },
+     {
+      "t": "As fast as possible, run back to the juncture, then run north and pull the second lever.",
+      "i": [
+       "Food",
+       "Stamina Potions"
+      ]
+     },
+     {
+      "t": "With the traps disabled, go through the door west of the juncture."
+     }
+    ],
+    "i": [
+     "Melee combat gear",
+     "Coal",
+     "Tinderbox",
+     "Spade",
+     "Iron bar"
+    ],
+    "r": [
+     "Food",
+     "Antipoison",
+     "Waterskin(s)"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Riddle of the Tomb",
+    "st": [
+     {
+      "t": "Solve the tomb riddle with the Solution button below. Pulling the lever with the wrong emblems deals heavy damage, poisons you and lowers your stats, but the riddle stays the same, so you can try again."
+     },
+     {
+      "t": "Enter the tomb."
+     },
+     {
+      "t": "Speak to the Spirit."
+     },
+     {
+      "t": "Take the rusty key from the urn in the back of the room."
+     }
+    ]
+   },
+   {
+    "n": "The Champion of Scabaras",
+    "st": [
+     {
+      "t": "Leave the tomb and the riddle room, then go back upstairs to the room where you fought the Scarab Mages. Prepare to fight the Champion of Scabaras, and unlock the door there to start the fight.",
+      "i": [
+       "Ranged combat gear",
+       "Food",
+       "Antipoison",
+       "Stamina Potions",
+       "Prayer potions",
+       "Rusty key"
+      ]
+     },
+     {
+      "t": "Fight the Champion of Scabaras. Protect from Magic, and keep 4+ tiles distance at all times. Whenever a rift or swarm appears, kill it. He is weak to ranged attacks, so bring your best ranged gear.",
+      "i": [
+       "Ranged combat gear",
+       "Food",
+       "Antipoison",
+       "Stamina Potions",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Talk to the High Priest of Scabaras."
+     }
+    ],
+    "i": [
+     "Ranged combat gear",
+     "Food",
+     "Rusty key"
+    ],
+    "r": [
+     "Antipoison"
+    ],
+    "c": 1,
+    "e": [
+     "Champion of Scabaras (lvl 379)"
+    ]
+   },
+   {
+    "n": "Cure for the Pox",
+    "st": [
+     {
+      "t": "Talk to Maisa or Zahur in Nardah."
+     },
+     {
+      "t": "Purchase some meat from the General Store.",
+      "i": [
+       "Coins (5)"
+      ]
+     },
+     {
+      "t": "Head west and attempt to jump to the stepping stones over the River Elid.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Any cooked or raw meat"
+      ]
+     },
+     {
+      "t": "Attempt to cross the stepping stones again, and pick the Lily of the Elid."
+     },
+     {
+      "t": "Go back to Zahur in Nardah.",
+      "i": [
+       "Lily of the Elid"
+      ]
+     },
+     {
+      "t": "Talk to Zahur in Nardah."
+     },
+     {
+      "t": "Open Zahur's chemistry equipment. Lower the first valve as far as it goes. Raise the second valve as far as it goes, then raise the third valve as far as it goes."
+     },
+     {
+      "t": "Lower the third valve once, the second valve once, the third valve once and the second valve once."
+     },
+     {
+      "t": "If the temperature isn't at the marked level yet, keep lowering the first valve. If that doesn't get it there, keep taking turns lowering the third and second valves until it is."
+     },
+     {
+      "t": "Talk to Zahur again to get the cure crate, then bring it to the High Priest in Sophanem.",
+      "i": [
+       "Cure crate"
+      ]
+     }
+    ],
+    "i": [
+     "Any cooked or raw meat",
+     "Waterskin(s)"
+    ]
+   },
+   {
+    "n": "Fight with the Menaphite Akh",
+    "st": [
+     {
+      "t": "Prepare to fight the Menaphite Akh (lvl 351), and talk to Maisa in Necropolis when ready.",
+      "i": [
+       "Melee combat gear",
+       "Waterskin(s)"
+      ]
+     },
+     {
+      "t": "Defeat the Menaphite Akh. This boss uses melee, and will occasionally cast lightning in front of her, so be prepared to walk behind her to avoid this attack. Whenever a shadow version of them appears, kill them quickly as they'll deal a lot of damage.",
+      "i": [
+       "Melee combat gear",
+       "Waterskin(s)"
+      ]
+     },
+     {
+      "t": "If Osman didn't talk to you straight after the fight, talk to him just outside Maisa's camp, east of Sophanem. Otherwise skip this step."
+     },
+     {
+      "t": "Talk to Maisa or the High Priest in Sophanem to finish the quest."
+     }
+    ],
+    "i": [
+     "Melee combat gear",
+     "Waterskin(s)"
+    ],
+    "c": 1,
+    "e": [
+     "Menaphite Akh (lvl 351)"
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,195 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Current Affairs",
+  "items": [
+   "Charcoal",
+   "Coins (50)"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "1,400 Sailing XP",
+   "1,000 Fishing XP",
+   "Current Duck",
+   "Mayor of Catherby",
+   "25 x Sawmill Coupon (oak plank)",
+   "Access to charting currents"
+  ],
+  "sec": [
+   {
+    "n": "Arhein's employee",
+    "st": [
+     {
+      "t": "Talk to Arhein on the northern part of the Catherby Docks to start the quest.",
+      "s": [
+       "What's with the duck?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Councillor Catherine in the north-east of Catherby."
+     },
+     {
+      "t": "If you didn't bring charcoal, take a piece from the cabinet near Councillor Catherine. Then tap the form to fill it in. Any answers work, but the audit later asks the same questions, so pick the first answer each time, as listed below.",
+      "s": [
+       "Pleasure.",
+       "0",
+       "Cargo spillage.",
+       "No.",
+       "Partial.",
+       "Yes.",
+       "Less than a month.",
+       "Varrock."
+      ],
+      "i": [
+       "Form cr-4p",
+       "Charcoal"
+      ]
+     },
+     {
+      "t": "Hand over the filled form to Councillor Catherine.",
+      "s": [
+       "Yes, I have it here."
+      ],
+      "i": [
+       "Form cr-4p"
+      ]
+     },
+     {
+      "t": "Finish talking to Councillor Catherine in the north-east of Catherby."
+     }
+    ],
+    "i": [
+     "Charcoal"
+    ],
+    "c": 0
+   },
+   {
+    "n": "A new mayor",
+    "st": [
+     {
+      "t": "Talk to Arhein on the docks about the mayor.",
+      "s": [
+       "I need to find the Mayor of Catherby."
+      ]
+     },
+     {
+      "t": "Talk to Harry in the fish shop in south-east Catherby about a new mayor.",
+      "s": [
+       "I'm here about the mayor.",
+       "Yes."
+      ],
+      "i": [
+       "Coins (50)"
+      ]
+     },
+     {
+      "t": "Fish a new mayor from the aquarium.",
+      "i": [
+       "Tiny net",
+       "Mayoral fishbowl"
+      ]
+     },
+     {
+      "t": "Introduce Arhein on the Catherby docks to the new Mayor of Catherby.",
+      "s": [
+       "About the mayor..."
+      ],
+      "i": [
+       "Mayor of Catherby"
+      ]
+     },
+     {
+      "t": "Talk to Councillor Catherine about changing the by-laws.",
+      "s": [
+       "Yes, I have it here."
+      ],
+      "i": [
+       "Mayor of Catherby"
+      ]
+     },
+     {
+      "t": "Talk to Councillor Catherine to complete the audit. Give the same 8 answers you wrote on form cr-4p. If you picked the first answer each time, they're listed below. If one is wrong, she asks that question again.",
+      "s": [
+       "Pleasure.",
+       "0",
+       "Cargo spillage.",
+       "No.",
+       "Partial.",
+       "Yes.",
+       "Less than a month.",
+       "Varrock."
+      ]
+     },
+     {
+      "t": "Talk to Councillor Catherine in the north-east of Catherby to receive a new form 7r4-5h."
+     },
+     {
+      "t": "Use form 7r4-5h on the Mayor of Catherby.",
+      "i": [
+       "Form 7r4-5h",
+       "Mayor of Catherby"
+      ]
+     },
+     {
+      "t": "Show Councillor Catherine the signed form.",
+      "i": [
+       "Form 7r4-5h"
+      ]
+     },
+     {
+      "t": "Give Arhein on the Catherby docks the good news.",
+      "s": [
+       "The by-law has been changed!"
+      ]
+     }
+    ],
+    "i": [
+     "Coins (50)"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Map the currents!",
+    "st": [
+     {
+      "t": "If you don't have the Current duck, get a new one from Arhein on the Catherby docks, or from your ship's cargo hold. If you have it, skip this step.",
+      "s": [
+       "About that duck..."
+      ]
+     },
+     {
+      "t": "Board your ship at the Catherby docks and sail east to the ripple just west of the Obelisk of Water, by the small island east of Catherby. Stop with your ship on top of the ripple.",
+      "i": [
+       "Current Duck"
+      ]
+     },
+     {
+      "t": "With your ship on top of the ripple, tap the Current duck in your inventory to release it.",
+      "i": [
+       "Current Duck"
+      ]
+     },
+     {
+      "t": "Follow the Current duck! It'll end up south-west of Entrana."
+     },
+     {
+      "t": "Collect your Current duck."
+     },
+     {
+      "t": "Share what you've learned with Arhein on the Catherby docks.",
+      "s": [
+       "I've charted the currents!"
+      ]
+     }
+    ],
+    "i": [
+     "Current Duck"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

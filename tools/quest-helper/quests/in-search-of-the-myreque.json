@@ -1,0 +1,192 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "In Search of the Myreque",
+  "items": [
+   "Steel longsword",
+   "Steel sword (2)",
+   "Steel mace",
+   "Steel warhammer",
+   "Steel dagger",
+   "Steel nails (225)",
+   "10 coins or a Ring of Charos (a)",
+   "Charges in a druid pouch (5)",
+   "Hammer",
+   "Plank (6)"
+  ],
+  "rec": [
+   "Combat gear",
+   "Teleport to Mort'ton, such as minigame teleport or Barrows Teleport",
+   "Silver sickle (b) to collect Mort Myre fungi (requires prayer points)"
+  ],
+  "enemies": [
+   "Skeleton hellhound (level 97)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "600 Attack XP",
+   "600 Defence XP",
+   "600 Strength XP",
+   "600 Hitpoints XP",
+   "600 Crafting XP",
+   "A quick route to Mort'ton"
+  ],
+  "sec": [
+   {
+    "n": "Helping the Myreque",
+    "st": [
+     {
+      "t": "Talk to Vanstrom Klause in the Canifis pub.",
+      "s": [
+       "Why do they need help? Are they in trouble?",
+       "Perhaps I could help you out here.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Fill a druid pouch with at least 5 Mort Myre items. Try to have more in case a ghast hits you.",
+      "i": [
+       "Charges in a druid pouch (5)"
+      ]
+     },
+     {
+      "t": "Talk to Cyreg Paddlehorn by the boat on the east side of Mort'ton. Keep pushing him to take you across, then give him the planks.",
+      "s": [
+       "Well, I guess they'll just die without weapons.",
+       "Resourceful enough to get their own steel weapons?",
+       "If you don't tell me, their deaths are on your head!",
+       "What kind of a man are you to say that you don't care?",
+       "Here are some planks for you."
+      ],
+      "i": [
+       "Charges in a druid pouch (5)",
+       "Steel longsword",
+       "Steel sword (2)",
+       "Steel dagger",
+       "Steel mace",
+       "Steel nails (225)",
+       "Steel warhammer",
+       "Plank (6)",
+       "Hammer",
+       "10 coins or a Ring of Charos (a)"
+      ]
+     },
+     {
+      "t": "Board the swamp boaty in Mort'ton. If you forgot coins, you can obtain some by killing afflicted.",
+      "s": [
+       "Yes. I'll pay the ten gold."
+      ],
+      "i": [
+       "Steel longsword",
+       "Steel sword (2)",
+       "Steel dagger",
+       "Steel mace",
+       "Steel nails (225)",
+       "Steel warhammer",
+       "Plank (3)",
+       "Hammer",
+       "10 coins or a Ring of Charos (a)"
+      ]
+     },
+     {
+      "t": "Climb the tree to the north of the boat.",
+      "i": [
+       "Steel longsword",
+       "Steel sword (2)",
+       "Steel dagger",
+       "Steel mace",
+       "Steel nails (225)",
+       "Steel warhammer",
+       "Plank (3)",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Repair all 3 broken sections of the bridge as you cross it, using 1 plank and 75 steel nails on each.",
+      "i": [
+       "Steel nails (225)",
+       "Plank (3)",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Talk to Curpile Fyod and answer his questions. Only female member: Sani Piliu. Youngest member: Ivan Strom. Leader in Mort Myre: Veliaf Hurtz. Boatman: Cyreg Paddlehorn. Vampyre family that rules Morytania: Drakan. Originally a scholar: Polmafi Ferdygris. Check the spelling of each answer before you choose it.",
+      "s": [
+       "I've come to help the Myreque. I've brought weapons."
+      ]
+     },
+     {
+      "t": "Enter the wooden doors north of Curpile.",
+      "i": [
+       "Steel longsword",
+       "Steel sword (2)",
+       "Steel dagger",
+       "Steel mace",
+       "Steel warhammer"
+      ]
+     },
+     {
+      "t": "Follow the path north-west. Halfway up there's an alcove on the east side: tap the wall in its south-east corner to enter the hidden cave. Turn the camera if you can't see the entrance."
+     },
+     {
+      "t": "Talk to Veliaf Hurtz."
+     },
+     {
+      "t": "Talk to each of the members of the Myreque."
+     },
+     {
+      "t": "Talk to Veliaf Hurtz again and give him the steel weapons. Be ready to fight the Skeleton Hellhound",
+      "s": [
+       "Let's talk about the weapons."
+      ],
+      "i": [
+       "Steel longsword",
+       "Steel sword (2)",
+       "Steel warhammer",
+       "Steel mace",
+       "Steel dagger"
+      ]
+     },
+     {
+      "t": "Kill the Skeleton Hellhound. To safespot the hellhound using Magic, position it on the south side of the chair in the eastern part of the room."
+     },
+     {
+      "t": "Talk to Veliaf Hurtz to learn the way out.",
+      "s": [
+       "How do I get out of here?",
+       "Okay, thanks."
+      ]
+     },
+     {
+      "t": "Leave the cave.",
+      "s": [
+       "Okay, thanks."
+      ]
+     },
+     {
+      "t": "Search the wall at the end of the tunnel to open it, then climb up the ladder in the north of the room."
+     },
+     {
+      "t": "Talk to the Stranger in the Canifis pub to finish the quest!"
+     }
+    ],
+    "i": [
+     "Steel longsword",
+     "Steel sword (2)",
+     "Steel mace",
+     "Steel warhammer",
+     "Steel dagger",
+     "Steel nails (225)",
+     "10 coins or a Ring of Charos (a)",
+     "Charges in a druid pouch (5)",
+     "Hammer",
+     "Plank (6)"
+    ],
+    "c": 1,
+    "e": [
+     "Skeleton hellhound (level 97)"
+    ]
+   }
+  ]
+ }
+}

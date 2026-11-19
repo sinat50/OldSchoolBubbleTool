@@ -1,0 +1,152 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Sleeping Giants",
+  "items": [
+   "Oak Logs",
+   "Wool",
+   "Nails",
+   "Hammer",
+   "Chisel"
+  ],
+  "rec": [
+   "Ice Gloves",
+   "Al Kharid Teleport"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "6,000 Smithing XP",
+   "Access to the Giants' Foundry"
+  ],
+  "sec": [
+   {
+    "n": "Starting out",
+    "st": [
+     {
+      "t": "Bring 3 oak logs, 10 nails, 1 wool, a hammer and a chisel to the Giants' Foundry on the Desert Plateau, east of Al Kharid, to start the quest. The minigame teleport to Giants' Foundry takes you there. If you have no hammer, take one from the crate north of the Foundry.",
+      "i": [
+       "Oak Logs",
+       "Wool",
+       "Nails",
+       "Chisel",
+       "Hammer",
+       "Ice Gloves"
+      ]
+     },
+     {
+      "t": "Attempt to Strike the Hill Giant at the entrance of the cave to start the quest.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Speak to Kovac."
+     },
+     {
+      "t": "Enter the Giants' Foundry."
+     },
+     {
+      "t": "Fix the Broken polishing wheel. It takes 2 oak logs, 5 nails and 1 wool, and you need a hammer.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Oak Logs",
+       "Nails",
+       "Wool",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Fix the Broken grindstone.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Chisel"
+      ]
+     },
+     {
+      "t": "Fix the Broken trip hammer.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Oak Logs",
+       "Nails",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Speak to Kovac to continue."
+     }
+    ],
+    "i": [
+     "Oak Logs",
+     "Wool",
+     "Nails",
+     "Hammer",
+     "Chisel"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Creating the sword",
+    "st": [
+     {
+      "t": "Speak to Kovac for a commission."
+     },
+     {
+      "t": "Make 20 inventory spaces free first (the big chest in the Foundry opens your bank). Take some bars and weapons from the crate near the cave exit.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Fill the Crucible with items & bars until it is full."
+     },
+     {
+      "t": "Speak to Kovac about the mould."
+     },
+     {
+      "t": "Use the mould jig, then select a mould for the forte, blade and tip. Pick the ones that best match Kovac's commission; he accepts a sword of any quality."
+     },
+     {
+      "t": "Tap Set Mould to confirm the three moulds."
+     },
+     {
+      "t": "Speak to Kovac about pouring the metal."
+     },
+     {
+      "t": "Pour the full Crucible into the mould."
+     },
+     {
+      "t": "With ice gloves on, pick up the sword from the mould. Without them, take a bucket from the pile of buckets, fill it by using it on the waterfall, use it on the sword, then pick the sword up. Your hands must be free.",
+      "i": [
+       "Ice Gloves",
+       "Bucket of Water"
+      ]
+     },
+     {
+      "t": "Dunk the preform in the lava pool until it's at max heat. Use the trip hammer while the heat bar is in the red, re-heating it in the lava whenever it's close to yellow, until the progress bar reaches the yellow section."
+     },
+     {
+      "t": "Get the preform to the lower part of the yellow heat section: cool it on the waterfall if it's too hot, or dunk it in the lava pool if it's too cold. Use the grindstone while it's in the yellow until the progress bar reaches the green section. The grindstone heats the preform as you work."
+     },
+     {
+      "t": "Get the preform to the top of the green heat section: cool it on the waterfall if it's too hot, or dunk it in the lava pool if it's too cold. Use the polishing wheel while it's in the green until the sword is complete, heating it in the lava when needed."
+     },
+     {
+      "t": "Give the finished sword to Kovac to complete the quest."
+     }
+    ],
+    "i": [
+     "Ice Gloves",
+     "Bucket"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

@@ -1,0 +1,385 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder dragonslayer; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Dragon Slayer I",
+  "items": [
+   "Unfired bowl",
+   "Wizard's mind bomb",
+   "Lobster pot",
+   "Silk",
+   "Either 33 Magic for Telegrab and a ranged/mage weapon, or 10,000 coins",
+   "Hammer",
+   "Planks (3)",
+   "Steel nails (90)",
+   "Coins (2000)",
+   "Combat equipment"
+  ],
+  "rec": [
+   "The Chronicle for teleports to Champions' Guild",
+   "Teleports to Port Sarim/Rimmington/Draynor Village area",
+   "Teleports to Edgeville for getting to Oziach",
+   "Rings of Recoil for Elvarg",
+   "Antifire potion for Elvarg"
+  ],
+  "enemies": [
+   "Zombie rats (level 3)",
+   "Ghosts (level 19)",
+   "Skeletons (level 22)",
+   "Zombies (level 24)",
+   "Melzar the Mad (level 43)",
+   "Lesser demon (level 82) (safespottable)",
+   "Elvarg (level 83)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "18,650 Strength XP",
+   "18,650 Defence XP",
+   "The ability to equip a Green D'hide Body, Rune Platebody & Dragon Platebody",
+   "Access to Crandor",
+   "Access to the Corsair Cove Resource Area.",
+   "Ability to receive dragons as a slayer task."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to the Guildmaster in the Champions' Guild, south of Varrock.",
+      "s": [
+       "Can I have a quest?"
+      ]
+     },
+     {
+      "t": "Talk to Oziach in his house in north western Edgeville.",
+      "s": [
+       "Can you sell me a rune platebody?",
+       "The Guildmaster of the Champions' Guild told me.",
+       "I thought you were going to give me a quest.",
+       "A dragon, that sounds like fun."
+      ]
+     },
+     {
+      "t": "Return to the Guildmaster and ask him all the available questions. Asking about Melzar's map piece gets you the maze key.",
+      "s": [
+       "About my quest to kill the dragon...",
+       "I talked to Oziach...",
+       "How can I find the route to Crandor?",
+       "Where is Melzar's map piece?",
+       "Where is Thalzar's map piece?",
+       "Where is Lozar's map piece?",
+       "Where can I find the right ship?",
+       "How can I protect myself from the dragon's breath?",
+       "Okay, I'll get going!"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Thalzar's map piece",
+    "st": [
+     {
+      "t": "Talk to the Oracle on top of Ice Mountain.",
+      "s": [
+       "I seek a piece of the map to the island of Crandor."
+      ],
+      "i": [
+       "Silk",
+       "Lobster pot",
+       "Wizard's mind bomb",
+       "Unfired bowl"
+      ]
+     },
+     {
+      "t": "Go down the ladder in the dwarven camp to the south into the Dwarven Mines.",
+      "i": [
+       "Silk",
+       "Lobster pot",
+       "Wizard's mind bomb",
+       "Unfired bowl"
+      ]
+     },
+     {
+      "t": "Go to the north east of the Dwarven Mines and use the silk on the magic door.",
+      "i": [
+       "Silk",
+       "Lobster pot",
+       "Wizard's mind bomb",
+       "Unfired bowl"
+      ]
+     },
+     {
+      "t": "Go to the north east of the Dwarven Mines and use the lobster pot on the magic door.",
+      "i": [
+       "Lobster pot",
+       "Wizard's mind bomb",
+       "Unfired bowl"
+      ]
+     },
+     {
+      "t": "Go to the north east of the Dwarven Mines and use the unfired bowl on the magic door.",
+      "i": [
+       "Wizard's mind bomb",
+       "Unfired bowl"
+      ]
+     },
+     {
+      "t": "Use the wizard's mind bomb on the same magic door in the north-east of the Dwarven Mine: long-press the mind bomb in your inventory, choose Use, then tap the door. Don't drink it.",
+      "i": [
+       "Wizard's mind bomb"
+      ]
+     },
+     {
+      "t": "Search the chest for Thalzar's map piece."
+     }
+    ],
+    "i": [
+     "Silk",
+     "Lobster pot",
+     "Unfired bowl",
+     "Wizard's mind bomb"
+    ]
+   },
+   {
+    "n": "Lozar's map piece",
+    "st": [
+     {
+      "t": "Go to Port Sarim Jail for Lozar's map piece. If you're paying, give Wormbrain 10,000 coins using the lines below. Otherwise, skip the lines, kill him with ranged or magic and telegrab the piece with 33 Magic.",
+      "s": [
+       "I believe you've got a piece of a map that I need.",
+       "I suppose I could pay you for the map piece...",
+       "Alright then, 10,000 it is."
+      ],
+      "i": [
+       "Either 33 Magic for Telegrab and a ranged/mage weapon, or 10,000 coins"
+      ]
+     }
+    ],
+    "i": [
+     "Either 33 Magic for Telegrab and a ranged/mage weapon, or 10,000 coins"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Melzar's map piece",
+    "st": [
+     {
+      "t": "Enter Melzar's Maze north of Rimmington. Be prepared to fight multiple monsters up to a level 82 lesser demon.",
+      "i": [
+       "Maze key"
+      ]
+     },
+     {
+      "t": "Kill the small zombie rat with the long tail to get the red key."
+     },
+     {
+      "t": "Go through the north west red door",
+      "i": [
+       "Key"
+      ]
+     },
+     {
+      "t": "Climb up the ladder."
+     },
+     {
+      "t": "Kill the hooded ghost with a tube top and no cape to get the orange key."
+     },
+     {
+      "t": "Go through the orange door, the second door from the north on the east wall.",
+      "i": [
+       "Key"
+      ]
+     },
+     {
+      "t": "Climb up the ladder."
+     },
+     {
+      "t": "Kill the skeleton with the small round shield to get the yellow key."
+     },
+     {
+      "t": "Go through south west yellow door.",
+      "i": [
+       "Key"
+      ]
+     },
+     {
+      "t": "Climb down the ladder."
+     },
+     {
+      "t": "Climb down again."
+     },
+     {
+      "t": "Climb down the ladder into the basement."
+     },
+     {
+      "t": "Kill the zombies in this room until you get the blue key."
+     },
+     {
+      "t": "Go through the blue door in the north west corner."
+     },
+     {
+      "t": "Kill Melzar the Mad for a magenta key.",
+      "i": [
+       "Key"
+      ]
+     },
+     {
+      "t": "Go through the magenta door."
+     },
+     {
+      "t": "Kill the lesser demon. You can safe spot it from the spot east of the magenta door.",
+      "i": [
+       "Key"
+      ]
+     },
+     {
+      "t": "Go through the green door.",
+      "i": [
+       "Key"
+      ]
+     },
+     {
+      "t": "Open the chest and get Melzar's map part."
+     }
+    ],
+    "i": [
+     "Maze key",
+     "Combat equipment",
+     "Food"
+    ],
+    "c": 1,
+    "e": [
+     "Zombie rats (level 3)",
+     "Ghosts (level 19)",
+     "Skeletons (level 22)",
+     "Zombies (level 24)",
+     "Melzar the Mad (level 43)",
+     "Lesser demon (level 82) (safespottable)"
+    ]
+   },
+   {
+    "n": "Get an anti-dragon shield",
+    "st": [
+     {
+      "t": "Talk to Duke Horacio on the first floor of Lumbridge castle for the anti-dragon shield if you don't have one.",
+      "s": [
+       "I seek a shield that will protect me from dragonbreath.",
+       "Elvarg, the dragon of Crandor island!",
+       "Yes",
+       "So, are you going to give me the shield or not?"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Get a boat",
+    "st": [
+     {
+      "t": "Talk to Klarense on the south Port Sarim docks and buy his boat.",
+      "s": [
+       "I'd like to buy her.",
+       "Yep, sounds good."
+      ],
+      "i": [
+       "Planks (3)",
+       "Steel nails (90)",
+       "Hammer",
+       "Coins (2000)"
+      ]
+     },
+     {
+      "t": "Board your new ship.",
+      "i": [
+       "Steel nails (90)",
+       "Planks (3)",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Go down into the ship's hull."
+     },
+     {
+      "t": "Repair the hole in the hull 3 times.",
+      "i": [
+       "Steel nails (90)",
+       "Planks (3)",
+       "Hammer"
+      ]
+     }
+    ],
+    "i": [
+     "Hammer",
+     "Planks (3)",
+     "Steel nails (90)",
+     "Coins (2000)"
+    ]
+   },
+   {
+    "n": "Get a captain ready",
+    "st": [
+     {
+      "t": "Use the three map parts together to repair the map.",
+      "i": [
+       "Map part"
+      ]
+     },
+     {
+      "t": "Bring your map to Ned in Draynor Village and ask him to be your captain.",
+      "s": [
+       "You're a sailor? Could you take me to Crandor?"
+      ],
+      "i": [
+       "Crandor map"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Slaying Elvarg",
+    "st": [
+     {
+      "t": "Prepare to fight Elvarg (level 83). When you're ready, go board your boat in Port Sarim and talk to Ned.",
+      "i": [
+       "Anti-dragon shield",
+       "Combat equipment"
+      ]
+     },
+     {
+      "t": "Go to the center of the island and go down the hole."
+     },
+     {
+      "t": "Go all the way south and through the wall to unlock the shortcut to return here if needed."
+     },
+     {
+      "t": "Return back through the shortcut."
+     },
+     {
+      "t": "Enter Elvarg's area with your anti-dragon shield equipped. If you die or leave before killing her: with the shortcut unlocked, enter the Karamja volcano and go back through the wall. Without it, repair your ship again and sail to Crandor.",
+      "i": [
+       "Anti-dragon shield"
+      ]
+     },
+     {
+      "t": "Kill Elvarg."
+     }
+    ],
+    "i": [
+     "Combat equipment",
+     "Anti-dragon shield",
+     "Food"
+    ],
+    "c": 1,
+    "e": [
+     "Elvarg (level 83)"
+    ]
+   },
+   {
+    "n": "Finish the quest",
+    "st": [
+     {
+      "t": "Talk to Oziach in his house in north western Edgeville to finish the quest."
+     }
+    ]
+   }
+  ]
+ }
+}

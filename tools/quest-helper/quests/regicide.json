@@ -1,0 +1,318 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder regicide; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Regicide",
+  "items": [
+   "Bow (not crossbow)",
+   "Arrows (metal, unpoisoned)",
+   "Rope (2)",
+   "Spade",
+   "Limestone",
+   "Tinderbox",
+   "Strip of cloth",
+   "Pestle and mortar",
+   "Gloves which fully cover your hand",
+   "Pot",
+   "Coal (20)",
+   "Cooked rabbit"
+  ],
+  "rec": [
+   "Stamina Potions",
+   "Antidotes/antipoisons",
+   "Summer pie as food + agility boost",
+   "Plank",
+   "Falador teleport",
+   "Combat Equipment",
+   "West Ardougne teleport (4)"
+  ],
+  "enemies": [
+   "Tyras guard (level 110)"
+  ],
+  "rewards": [
+   "3 Quest points",
+   "13,750 Agility XP",
+   "15000 x Coins",
+   "Access to Tirannwn & Arandar",
+   "Ability to wield the Dragon Halberd",
+   "Ability to charter a ship to Port Tyras.",
+   "Ability to use Iorwerth Camp teleport scrolls.",
+   "Ability to use Zul-Andra teleport scrolls and battle Zulrah."
+  ],
+  "sec": [
+   {
+    "n": "Starting out",
+    "st": [
+     {
+      "t": "Go up the stairs in Ardougne Castle to the first floor and talk to King Lathas.",
+      "s": [
+       "I assume you have a plan?",
+       "I can handle it.",
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "To the Elven Lands",
+    "st": [
+     {
+      "t": "Enter the Underground Pass at the far west of West Ardougne. Climb over the three rockslides to reach Koftik.",
+      "i": [
+       "Bow (not crossbow)",
+       "Arrows (metal, unpoisoned)",
+       "Rope",
+       "Spade"
+      ]
+     },
+     {
+      "t": "Search the abandoned equipment next to the fire for an oily cloth. Use it on an arrow, light the arrow on the fire and wield it with your bow. Walk to the room north of Koftik and shoot the guide-rope.",
+      "i": [
+       "Bow (not crossbow)",
+       "Arrows (metal, unpoisoned)"
+      ]
+     },
+     {
+      "t": "Pick up the plank in the north room if you didn't bring one. Head south, then east, and swing across the pit with a rope.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Climb over the next two rockslides. Cross the grid by the path you found in the Underground Pass quest. It's different for every player, so if you've forgotten it, use trial and error: keep heading west, never diagonally or back east, and don't go north or south on the middle column. A wrong tile drops you in a pit for 15 damage, so keep your Hitpoints above 15. Then pull the lever to raise the gate."
+     },
+     {
+      "t": "Search the odd markings to get past the spear traps, or walk past them. Climb down the well. You don't need the four orbs again."
+     },
+     {
+      "t": "Pick the lock of the first cell to the south, dig the loose mud with your spade and cross the ledge. Go through the maze, or take the shortcut to the south with 50 Thieving.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Go south and enter the pipe, go through the tunnel and head north-east to where the paladins were. Use a plank on the flat rocks and open the doors at the end of the path.",
+      "i": [
+       "Plank"
+      ]
+     },
+     {
+      "t": "In the large area beyond, head south to Iban's Temple in the centre, going in from the north-east. Climb down the well inside, then leave the cave to the west."
+     },
+     {
+      "t": "WAIT OUTSIDE AROUND the cave entrance for Idris to appear, and talk to Idris. If nobody appears within a couple of minutes, enter and exit the cave."
+     },
+     {
+      "t": "Follow the path west and hop over the leaves. Head west and cross the sticks: stand next to them and keep tapping until you cross. Go north and jump over the next leaves, then cross the log to the north. Talk to Lord Iorwerth in the camp, in the north west of the elven forest."
+     },
+     {
+      "t": "Cross the log south out of the camp, jump over the leaves and go back towards the sticks. Don't cross them: go south-east from there to the Elven Tracker, at a small camp just north of the Poison Waste, and talk to him."
+     },
+     {
+      "t": "Return to Lord Iorwerth in the north west of the elven forest, with 1 free inventory space for the crystal pendant he gives you."
+     },
+     {
+      "t": "Return to the Elven Tracker in the south of the forest."
+     },
+     {
+      "t": "Long-press the footprints leading into the dense forest west of the Tracker and choose Follow."
+     },
+     {
+      "t": "Talk to the Elven Tracker again."
+     },
+     {
+      "t": "Climb through the dense forest just west of the Tracker (needs 56 Agility) and defeat the guard who attacks you. If he doesn't appear, cross the tripwire to the north-west (it may poison you if you fail), go through the dense forest to the north, head west and fight the guard there."
+     },
+     {
+      "t": "If you killed the first guard, step over the tripwire to the north-west, go through the dense forest to the north and head west. Then go south through the dense forest below the catapult into the Tyras Camp."
+     },
+     {
+      "t": "Talk to General Hining in the Tyras Camp."
+     },
+     {
+      "t": "Take 2 barrels from the Tyras Camp. If you can't find any there, two barrels are in the north-east tent of Lord Iorwerth's camp: take them before you fill them in the next step."
+     },
+     {
+      "t": "Go back out of the camp to the east, then south to the traps, and cross them. Fill the barrels from the waste just south of the Elven Tracker, and pick up some sulphur right next to it."
+     },
+     {
+      "t": "Return to Lord Iorwerth with 1 free inventory space for the book he gives you."
+     },
+     {
+      "t": "Read the big book of bangs.",
+      "i": [
+       "Big book of bangs"
+      ]
+     },
+     {
+      "t": "Ask Lord Iorwerth about all five parts needed for the barrel bomb. If a line isn't showing, tap More options... or Previous options... to find it.",
+      "s": [
+       "I need some quicklime.",
+       "I need some naphtha.",
+       "I need some sulphur.",
+       "I need a barrel.",
+       "I need a fuse."
+      ]
+     }
+    ],
+    "i": [
+     "Bow (not crossbow)",
+     "Arrows (metal, unpoisoned)",
+     "Rope",
+     "Spade",
+     "Antidotes/antipoisons",
+     "Combat Equipment",
+     "Agility boosting items like Summer Pie (+5) or Agility potion (+3) (5)"
+    ],
+    "r": [
+     "Stamina Potions"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Making a bomb",
+    "st": [
+     {
+      "t": "Use some limestone on a furnace whilst wearing gloves.",
+      "i": [
+       "Limestone",
+       "Gloves which fully cover your hand"
+      ]
+     },
+     {
+      "t": "Use a pestle and mortar on the quicklime with a pot in your inventory.",
+      "i": [
+       "Pestle and mortar",
+       "Quicklime",
+       "Pot"
+      ]
+     },
+     {
+      "t": "Use a pestle and mortar on some sulphur.",
+      "i": [
+       "Pestle and mortar",
+       "Sulphur"
+      ]
+     },
+     {
+      "t": "With the Big book of bangs in your inventory, talk to the Chemist in Rimmington. If you've lost it, get another from Lord Iorwerth.",
+      "s": [
+       "Your quest."
+      ],
+      "i": [
+       "Big book of bangs",
+       "Barrel of coal tar (2)",
+       "Coal (20)"
+      ]
+     },
+     {
+      "t": "Use a barrel of coal tar on the still outside the Chemist's house.",
+      "i": [
+       "Barrel of coal tar"
+      ]
+     },
+     {
+      "t": "Operate the still, with all your coal in your inventory. Stay on the still's screen until you finish, as leaving it loses your progress."
+     },
+     {
+      "t": "Turn the tar regulator valve, on the right, all the way to the right."
+     },
+     {
+      "t": "Wait until the pressure needle is in the green, then turn the pressure valve, on the left, to the middle. If the needle reaches the red, turn this valve right for a moment, then back to the middle. After that, leave both valves alone."
+     },
+     {
+      "t": "Add 2 coal, then 1 more each time the heat gauge falls below the green zone, until the tar is distilled. Add it slowly: too much at once overheats the still and you start again from the first valve, though you keep your barrel."
+     },
+     {
+      "t": "Make another barrel of naphtha for Mourning's End if you'd like, then add the quicklime to the naphtha.",
+      "i": [
+       "Pot of quicklime",
+       "Barrel of naphtha"
+      ]
+     },
+     {
+      "t": "Add the ground sulphur to the naphtha mix.",
+      "i": [
+       "Ground sulphur",
+       "Naphtha mix"
+      ]
+     },
+     {
+      "t": "Use the cloth on the barrel bomb.",
+      "i": [
+       "Strip of cloth",
+       "Barrel bomb (unfused)"
+      ]
+     }
+    ],
+    "i": [
+     "Limestone",
+     "Gloves which fully cover your hand",
+     "Sulphur",
+     "Pot",
+     "Pestle and mortar",
+     "Strip of cloth",
+     "Barrel of coal tar (2)",
+     "Coal (20)"
+    ]
+   },
+   {
+    "n": "Regicide",
+    "st": [
+     {
+      "t": "Traverse the Underground Pass again by the same route as the first time, from the far west of West Ardougne to the well in Iban's Temple, and leave the cave to the west.",
+      "i": [
+       "Bow (not crossbow)",
+       "Arrows (metal, unpoisoned)",
+       "Rope",
+       "Spade",
+       "Barrel bomb (fused)",
+       "Cooked rabbit",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "From the cave, follow the path west and hop over the leaves, then head west towards the sticks. Don't cross them: go south-east to the Elven Tracker's camp."
+     },
+     {
+      "t": "Climb through the dense forest just west of the Tracker. Step over the tripwire to the north-west, go through the dense forest to the north and head west to the catapult, just north of the Tyras Camp."
+     },
+     {
+      "t": "Use a cooked rabbit on the guard by the catapult.",
+      "i": [
+       "Cooked rabbit"
+      ]
+     },
+     {
+      "t": "Use the barrel bomb on the catapult.",
+      "i": [
+       "Barrel bomb (fused)"
+      ]
+     },
+     {
+      "t": "Report back to Lord Iorwerth."
+     },
+     {
+      "t": "Talk to Arianwyn outside Ardougne Castle.",
+      "i": [
+       "Iorwerth's message"
+      ]
+     },
+     {
+      "t": "Report back to King Lathas to finish the quest."
+     }
+    ],
+    "i": [
+     "Bow (not crossbow)",
+     "Arrows (metal, unpoisoned)",
+     "Rope",
+     "Tinderbox",
+     "Spade",
+     "Antidotes/antipoisons",
+     "Barrel bomb (fused)",
+     "Cooked rabbit",
+     "Agility boosting items like Summer Pie (+5) or Agility potion (+3) (5)"
+    ]
+   }
+  ]
+ }
+}

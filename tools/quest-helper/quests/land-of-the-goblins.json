@@ -1,0 +1,489 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Land of the Goblins",
+  "items": [
+   "Light source",
+   "Toadflax potion (unf)",
+   "Goblin mail",
+   "Yellow dye",
+   "Blue dye",
+   "Orange dye",
+   "Purple dye",
+   "Pestle and mortar",
+   "Vial",
+   "Fishing rod",
+   "Raw slimy eel",
+   "Coins (5)",
+   "Combat gear"
+  ],
+  "rec": [
+   "Tinderbox",
+   "Dorgesh-Kaan sphere (2)",
+   "Dramen staff",
+   "Skills necklace (3)",
+   "Combat bracelet",
+   "Lumbridge teleport (2)",
+   "Draynor Village teleport (2)",
+   "Explorer's ring 3 or 4"
+  ],
+  "enemies": [
+   "Snothead (level 32)",
+   "Snailfeet (level 56)",
+   "Mosschin (level 88)",
+   "Redeyes (level 121)",
+   "Strongbones (level 184)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "8,000 Agility XP",
+   "8,000 Fishing XP",
+   "8,000 Thieving XP",
+   "8,000 Herblore XP",
+   "Access to the Goblin Temple",
+   "Access to Yu'Biusk (with fairy ring code BLQ)",
+   "Ability to purchase plain of mud spheres",
+   "Ability to make goblin potions"
+  ],
+  "sec": [
+   {
+    "n": "Grubfoot's Dream",
+    "st": [
+     {
+      "t": "Go down to the Lumbridge Castle basement and climb through the hole in the wall. Talk to Kazgar and choose \"Can you show me the way to the mines?\" Talk to Grubfoot in the Dorgeshuun Mines, right outside the main entrance to Dorgesh-Kaan.",
+      "s": [
+       "Yes.",
+       "Follow me."
+      ]
+     },
+     {
+      "t": "Enter the city of Dorgesh-Kaan."
+     },
+     {
+      "t": "Head north-west through Dorgesh-Kaan to Oldak's lab and talk to Zanik there.",
+      "s": [
+       "So why have you come to talk to Zanik?",
+       "What was this new dream?",
+       "It's just a dream. It doesn't mean anything.",
+       "I think it must mean something.",
+       "I don't know.",
+       "I'm ready."
+      ]
+     }
+    ],
+    "i": [
+     "Light source"
+    ]
+   },
+   {
+    "n": "Impostor Among Goblins",
+    "st": [
+     {
+      "t": "Enter the Goblin Cave next to the Fishing Guild."
+     },
+     {
+      "t": "Talk to Zanik and get her to follow you.",
+      "s": [
+       "Follow me."
+      ]
+     },
+     {
+      "t": "Talk to the goblin guard in the northwest of the cave."
+     },
+     {
+      "t": "Talk to the Makeover Mage southwest of Falador.",
+      "s": [
+       "Can you turn me into a goblin?",
+       "I need to slip past some goblin guards.",
+       "Can you turn me into a goblin or not?"
+      ],
+      "i": [
+       "Toadflax potion (unf)"
+      ]
+     },
+     {
+      "t": "Pick some Pharmakos berries from the bushes outside.",
+      "i": [
+       "Toadflax potion (unf)"
+      ]
+     },
+     {
+      "t": "Use the pharmakos berries on the unfinished toadflax potion.",
+      "i": [
+       "Pharmakos berries",
+       "Toadflax potion (unf)"
+      ]
+     }
+    ],
+    "i": [
+     "Toadflax potion (unf)"
+    ],
+    "r": [
+     "Skills necklace (3)",
+     "Inventory space to unequip all your items"
+    ]
+   },
+   {
+    "n": "The Temple of Tribes",
+    "st": [
+     {
+      "t": "Go back to the Goblin Cave outside the Fishing Guild.",
+      "i": [
+       "Goblin potion",
+       "Vial",
+       "Pestle and mortar"
+      ]
+     },
+     {
+      "t": "Go to the area outside the temple near the guards.",
+      "i": [
+       "Goblin potion"
+      ]
+     },
+     {
+      "t": "Pick some black mushrooms.",
+      "i": [
+       "Goblin potion",
+       "Vial",
+       "Pestle and mortar"
+      ]
+     },
+     {
+      "t": "Use the pestle and mortar on the black mushroom with an empty vial in your inventory to make black dye.",
+      "i": [
+       "Black mushroom",
+       "Vial",
+       "Pestle and mortar"
+      ]
+     },
+     {
+      "t": "Take off everything you are wearing, then drink the goblin potion. Confirm to become a goblin: your selection doesn't matter.",
+      "i": [
+       "Goblin potion"
+      ]
+     },
+     {
+      "t": "Talk to the goblin guard to enter the temple. If you want, you can tell them to guess your name until you get one you like. Go down the stairs into the temple if you aren't there yet.",
+      "s": [
+       "Me want get into temple.",
+       "Yes, me [your goblin name].",
+       "Yes."
+      ],
+      "i": [
+       "Black dye"
+      ]
+     },
+     {
+      "t": "If you don't have goblin mail, search the crate by the temple entrance for some. Use the black dye on the goblin mail and wear it.",
+      "i": [
+       "Black dye",
+       "Goblin mail"
+      ]
+     },
+     {
+      "t": "Wearing the black goblin mail, pass by the guard to the northeastern room. WARNING: If you teleport away with a full inventory and while wearing the goblin mail, it will be DESTROYED.",
+      "i": [
+       "Black goblin mail"
+      ]
+     },
+     {
+      "t": "Search the crate for a Dorgesh-Kaan sphere."
+     },
+     {
+      "t": "Talk to Zanik in the cell.",
+      "i": [
+       "Dorgesh-Kaan sphere"
+      ]
+     },
+     {
+      "t": "Pass by the guard to leave the northeastern room."
+     },
+     {
+      "t": "Talk to High Priest Bighead. When prompted, answer in this order: True, False, False.",
+      "s": [
+       "Yes.",
+       "I understand Big High War God.",
+       "Big High War God commands it.",
+       "Goblins not mighty warriors before he chose us.",
+       "That one of the commandments.",
+       "Lead goblins to victory over whole world.",
+       "Me want to know about Yu'biusk.",
+       "Where is Yu'biusk?",
+       "Can I talk to old high priests?"
+      ]
+     },
+     {
+      "t": "Pass by the guard to the northeastern room again.",
+      "i": [
+       "Black goblin mail"
+      ]
+     },
+     {
+      "t": "Pickpocket a key from the priest."
+     }
+    ],
+    "i": [
+     "Goblin potion",
+     "Vial",
+     "Pestle and mortar",
+     "Goblin mail"
+    ],
+    "r": [
+     "Skills necklace",
+     "Inventory space to unequip all your items",
+     "Dorgesh-Kaan sphere (2)"
+    ]
+   },
+   {
+    "n": "Keys to the Crypt",
+    "st": [
+     {
+      "t": "Talk to Aggie in Draynor Village.",
+      "s": [
+       "Can you make dyes for me, please?",
+       "Can you make black or white dye?",
+       "Thanks."
+      ]
+     },
+     {
+      "t": "Go to the Fishing Contest area at Hemenster, just west of the Ranging Guild, and open the gate.",
+      "s": [
+       "I need to catch a Hemenster Whitefish."
+      ],
+      "i": [
+       "Fishing rod",
+       "Raw slimy eel"
+      ]
+     },
+     {
+      "t": "Catch a Hemenster whitefish.",
+      "i": [
+       "Fishing rod",
+       "Raw slimy eel"
+      ]
+     },
+     {
+      "t": "Bring the whitefish and black goblin mail to Aggie.",
+      "s": [
+       "Can you make dyes for me, please?",
+       "Could you remove the dye from this goblin mail?"
+      ],
+      "i": [
+       "Coins (5)",
+       "Whitefish",
+       "Black goblin mail"
+      ]
+     },
+     {
+      "t": "Return to the Goblin Cave next to the Fishing Guild with all the dyes, the white goblin mail, the Huzamogaarb key, the goblin potion and some combat gear, wearing nothing. At the guards in the north-west of the cave, drink the goblin potion (your selection doesn't matter) and enter the temple.",
+      "i": [
+       "White goblin mail",
+       "Goblin potion",
+       "Huzamogaarb key",
+       "Yellow dye",
+       "Blue dye",
+       "Orange dye",
+       "Purple dye",
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Equip the white goblin mail and pass by the guard to enter the western room. Pickpocket the priest there for the Saragorgak key."
+     },
+     {
+      "t": "Use the yellow dye on your goblin mail. It is safe to unequip the goblin mail inside the enclave, you will be thrown out to the center area.",
+      "i": [
+       "Yellow dye",
+       "Goblin mail"
+      ]
+     },
+     {
+      "t": "Equip the yellow goblin mail and pass by the guard to enter the north-western room. Pickpocket the priest there for the Yurkolgokh key."
+     },
+     {
+      "t": "Use the blue dye on your goblin mail. It is safe to unequip the goblin mail inside the enclave, you will be thrown out to the center area.",
+      "i": [
+       "Blue dye",
+       "Goblin mail"
+      ]
+     },
+     {
+      "t": "Equip the blue goblin mail and pass by the guard to enter the eastern room. Pickpocket the priest there for the Ekeleshuun key."
+     },
+     {
+      "t": "Use the orange dye on your goblin mail. It is safe to unequip the goblin mail inside the enclave, you will be thrown out to the center area.",
+      "i": [
+       "Orange dye",
+       "Goblin mail"
+      ]
+     },
+     {
+      "t": "Equip the orange goblin mail and pass by the guard to enter the south-eastern room. Pickpocket the priest there for the Narogoshuun key."
+     },
+     {
+      "t": "Use the purple dye on your goblin mail. It is safe to unequip the goblin mail inside the enclave, you will be thrown out to the center area.",
+      "i": [
+       "Purple dye",
+       "Goblin mail"
+      ]
+     },
+     {
+      "t": "Equip the purple goblin mail and pass by the guard to enter the south-western room. Pickpocket the priest there for the Horogothgar key."
+     },
+     {
+      "t": "Unlock the door using the 6 keys. You may leave to gear up after unlocking it.",
+      "i": [
+       "Huzamogaarb key",
+       "Saragorgak key",
+       "Yurkolgokh key",
+       "Ekeleshuun key",
+       "Narogoshuun key",
+       "Horogothgar key"
+      ]
+     }
+    ],
+    "i": [
+     "Fishing rod",
+     "Raw slimy eel",
+     "Coins (5)",
+     "Yellow dye",
+     "Blue dye",
+     "Orange dye",
+     "Purple dye",
+     "Black goblin mail",
+     "Goblin potion",
+     "Huzamogaarb key",
+     "Combat gear"
+    ],
+    "tr": [
+     "Draynor Village teleport (2)"
+    ],
+    "r": [
+     "Combat bracelet",
+     "Skills necklace"
+    ],
+    "c": 1
+   },
+   {
+    "n": "High Priests of Ages Past",
+    "st": [
+     {
+      "t": "Enter the crypt.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Say Snothead's name at the south-west grave.",
+      "s": [
+       "Snothead."
+      ]
+     },
+     {
+      "t": "Defeat Snothead. He attacks using melee. Then talk to Snothead to learn the name of the next priest.",
+      "s": [
+       "What was your predecessor's name?"
+      ]
+     },
+     {
+      "t": "Say Snailfeet's name at the south-east grave.",
+      "s": [
+       "Snailfeet."
+      ]
+     },
+     {
+      "t": "Defeat Snailfeet. He attacks using melee and range. Then talk to Snailfeet to learn the name of the next priest.",
+      "s": [
+       "What was your predecessor's name?"
+      ]
+     },
+     {
+      "t": "Say Mosschin's name at the north-west grave.",
+      "s": [
+       "Mosschin."
+      ]
+     },
+     {
+      "t": "Defeat Mosschin. He attacks using melee and magic. Then talk to Mosschin to learn the name of the next priest.",
+      "s": [
+       "What was your predecessor's name?"
+      ]
+     },
+     {
+      "t": "Say Redeyes's name at the north-east grave.",
+      "s": [
+       "Redeyes."
+      ]
+     },
+     {
+      "t": "Defeat Redeyes. He attacks using melee and magic, and lowers your attack, strength, and defence. Then talk to Redeyes to learn the name of the next priest.",
+      "s": [
+       "What was your predecessor's name?"
+      ]
+     },
+     {
+      "t": "Say Strongbones's name at the north grave.",
+      "s": [
+       "Strongbones."
+      ]
+     },
+     {
+      "t": "Defeat Strongbones. He attacks using all 3 combat styles, lowers your attack, strength and defence. Ignore the level 29 Skoblins he spawns."
+     },
+     {
+      "t": "Talk to Strongbones to learn where Yu'biusk is.",
+      "s": [
+       "Where is Yu'biusk?"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "Snothead (level 32)",
+     "Snailfeet (level 56)",
+     "Mosschin (level 88)",
+     "Redeyes (level 121)",
+     "Strongbones (level 184)"
+    ]
+   },
+   {
+    "n": "Path to Yu'biusk",
+    "st": [
+     {
+      "t": "Return to Dorgesh-Kaan and speak to Oldak."
+     },
+     {
+      "t": "Talk to Oldak in his workshop."
+     },
+     {
+      "t": "Bring a light source. If you have access to fairy rings, travel to AJQ. Otherwise, climb the stairs in south Dorgesh-Kaan, climb up the stairs to the south to enter the Dorgesh-Kaan cave, climb down the ladder to the west and follow the path east. Talk to Oldak near the machine at the fairy ring."
+     },
+     {
+      "t": "Fix the machine next to Oldak. On its power panel, set the first value to 9, the second to 4 and the third to 1, then confirm."
+     },
+     {
+      "t": "Watch the cutscene."
+     },
+     {
+      "t": "Go to the strange box in the north-west of Yu'biusk, open it and watch the cutscene. Quest complete!"
+     }
+    ],
+    "i": [
+     "Light source"
+    ],
+    "tr": [
+     "Dramen staff"
+    ],
+    "r": [
+     "Dorgesh-Kaan sphere (2)"
+    ]
+   }
+  ]
+ }
+}

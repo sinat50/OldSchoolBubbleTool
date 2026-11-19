@@ -1,0 +1,143 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder clocktower; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Clock Tower",
+  "items": [
+   "Bucket of Water or a pair of ice gloves or smiths gloves(i)"
+  ],
+  "rec": [
+   "Stamina Potions",
+   "Ardougne Cloak to teleport to monastery"
+  ],
+  "enemies": [
+   "Able to survive a hit or 2 from an Ogre (level 53)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "500 x Coins"
+  ],
+  "sec": [
+   {
+    "n": "Getting Started",
+    "st": [
+     {
+      "t": "Talk to Brother Kojo in the Clock Tower to start the quest.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Obtaining the red cog",
+    "st": [
+     {
+      "t": "Enter the Clock Tower basement for the red cog."
+     },
+     {
+      "t": "Go through the south east door and pick up the red cog.",
+      "i": [
+       "Red Cog"
+      ]
+     },
+     {
+      "t": "Climb back up the ladder and use the red cog on the red spindle, on the column beside the ladder on the ground floor."
+     }
+    ]
+   },
+   {
+    "n": "Obtaining the blue cog",
+    "st": [
+     {
+      "t": "Get the bucket next to Brother Cedric, north of the monastery, and fill it at the well next to it for the black cog. Skip this if you already have a bucket of water, or will wear ice gloves or smiths gloves (i) for the black cog.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Climb down the ladder to the east of the Clock Tower, next to Brother Cedric."
+     },
+     {
+      "t": "Follow the tunnel and push the wall at the end."
+     },
+     {
+      "t": "Pick up the blue cog.",
+      "i": [
+       "Blue Cog"
+      ]
+     },
+     {
+      "t": "Climb up the ladder, go into the Clock Tower and climb the stairs to the first floor. Use the blue cog on the blue spindle there."
+     }
+    ],
+    "i": [
+     "There's a bucket and a well and just next to brother cedric for the black cog"
+    ]
+   },
+   {
+    "n": "Obtaining the black cog",
+    "st": [
+     {
+      "t": "Enter the Clock Tower basement for the black cog."
+     },
+     {
+      "t": "Go through the north-east door and as far east as you can, to the fire. Use your bucket of water on the black cog, then pick it up. If you are wearing ice gloves or smiths gloves (i), just pick it up.",
+      "i": [
+       "Bucket of Water or a pair of ice gloves or smiths gloves(i)",
+       "Black Cog"
+      ]
+     },
+     {
+      "t": "Go back to the ladder you came down, but don't climb it. Use the black cog on the black spindle, one of the four spindles beside the ladder."
+     }
+    ],
+    "i": [
+     "Bucket of Water or a pair of ice gloves or smiths gloves(i)"
+    ]
+   },
+   {
+    "n": "Obtaining the white cog",
+    "st": [
+     {
+      "t": "Enter the Clock Tower basement for the white cog."
+     },
+     {
+      "t": "Pick up the rat poison in the north west of the dungeon.",
+      "i": [
+       "Rat Poison"
+      ]
+     },
+     {
+      "t": "Go north-east along the passage to the rat cage. There are two levers on its north wall. Pull the west lever up. If the gates to the food trough stay shut, pull the east lever up too."
+     },
+     {
+      "t": "Use the rat poison on the food trough. Wait till the rats have died.",
+      "i": [
+       "Rat Poison"
+      ]
+     },
+     {
+      "t": "Go through the gate."
+     },
+     {
+      "t": "Pick up the white cog.",
+      "i": [
+       "White Cog"
+      ]
+     },
+     {
+      "t": "Climb the ladder next to the white cog, go into the Clock Tower and climb the stairs to the top floor. Use the white cog on the white spindle there."
+     }
+    ]
+   },
+   {
+    "n": "Finishing off",
+    "st": [
+     {
+      "t": "Talk to Brother Kojo in the Clock Tower for your reward."
+     }
+    ]
+   }
+  ]
+ }
+}

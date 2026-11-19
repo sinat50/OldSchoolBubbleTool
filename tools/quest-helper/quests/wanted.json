@@ -1,0 +1,215 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Wanted!",
+  "items": [
+   "20 Rune or Pure Essence (UNNOTED)",
+   "A light source",
+   "A rope",
+   "Combat gear",
+   "A law rune, an enchanted gem and some molten glass OR 10k gp"
+  ],
+  "rec": [
+   "Amulet of glory",
+   "Ring of Dueling",
+   "A teleport to Falador",
+   "A teleport to Varrock",
+   "A teleport to Canifis",
+   "A spiny helmet or slayer helm"
+  ],
+  "enemies": [
+   "Black Knight (level 33)",
+   "Solus Dellagar (similar strength)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "5,000 Slayer XP",
+   "Access to the White Knight's Armory"
+  ],
+  "sec": [
+   {
+    "n": "Getting started",
+    "st": [
+     {
+      "t": "Talk to Sir Tiffy Cashien in Falador Park.",
+      "s": [
+       "Do you have any jobs for me yet?",
+       "Yes, I'm interested.",
+       "Ask about the Wanted! Quest",
+       "How will all that help?"
+      ]
+     },
+     {
+      "t": "Go to the second floor of the White Knights' Castle. Tell Sir Amik Varze you wish to join the White Knights, BUT refuse to be a Squire.",
+      "s": [
+       "No, not right now..."
+      ]
+     },
+     {
+      "t": "Return to Sir Tiffy Cashien in Falador Park.",
+      "s": [
+       "Ask about the Wanted! Quest"
+      ]
+     },
+     {
+      "t": "Go back to Sir Amik Varze on the second floor of the White Knights' Castle.",
+      "s": [
+       "Sure, I'll help you!"
+      ]
+     },
+     {
+      "t": "Report back to Sir Tiffy Cashien in Falador Park.",
+      "s": [
+       "Ask about the Wanted! Quest"
+      ]
+     },
+     {
+      "t": "Get a Commorb from Sir Tiffy Cashien in Falador Park. Choose \"Buy One\" if you're paying 10,000 coins, or \"Have One Made\" if you brought a law rune, an enchanted gem and some molten glass. Then choose \"YES\".",
+      "s": [
+       "Ask about the Wanted! Quest"
+      ]
+     },
+     {
+      "t": "Long-press the Commorb and choose Contact to contact Savant.",
+      "s": [
+       "Current Assignment"
+      ],
+      "i": [
+       "Commorb"
+      ]
+     }
+    ],
+    "i": [
+     "A law rune, an enchanted gem and some molten glass OR 10k gp"
+    ]
+   },
+   {
+    "n": "Daquarius",
+    "st": [
+     {
+      "t": "Enter Taverley Dungeon and follow it north, then east, then south to the Black Knights' Base. Talk to Lord Daquarius in its south-westernmost room.",
+      "i": [
+       "Commorb"
+      ]
+     },
+     {
+      "t": "Kill a Black Knight near Daquarius.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Talk to Lord Daquarius in Taverley Dungeon again."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Commorb"
+    ],
+    "c": 1,
+    "e": [
+     "Black Knight (level 33)"
+    ]
+   },
+   {
+    "n": "Mage of Zamorak",
+    "st": [
+     {
+      "t": "If you haven't started the Enter the Abyss miniquest, first talk to the Mage of Zamorak in the Wilderness just north of Edgeville. Then talk to the Mage of Zamorak in south east Varrock.",
+      "s": [
+       "Solus Dellagar"
+      ],
+      "i": [
+       "Commorb"
+      ]
+     },
+     {
+      "t": "Bring the 20 rune or pure essence to the Mage of Zamorak in Varrock.",
+      "s": [
+       "Solus Dellagar"
+      ],
+      "i": [
+       "Commorb",
+       "20 Rune or Pure Essence (UNNOTED)"
+      ]
+     }
+    ],
+    "i": [
+     "20 Rune or Pure Essence (UNNOTED)",
+     "Commorb"
+    ]
+   },
+   {
+    "n": "The Hunt for Solus",
+    "st": [
+     {
+      "t": "Go to Canifis, and scan with your Commorb there until you find Solus.",
+      "i": [
+       "Commorb"
+      ]
+     },
+     {
+      "t": "Hunt down Solus Dellagar across Gielinor. Long-press the Commorb and choose Scan. Savant describes an item: go to the place it points to and scan there. Repeat until you are given 20 noted pure essence, about 7 places in all. At the fourth place Solus hits you hard and you're sent to Falador. At the sixth a level 32 Black Knight attacks, and you don't have to kill it.",
+      "i": [
+       "Commorb"
+      ]
+     },
+     {
+      "t": "What Savant describes, and where to scan. Cloak: Rellekka. Banana: Musa Point plantation. Wizard hat: Wizards' Tower, ground floor library. Very strange weapon: Dorgesh-Kaan mine, through the Lumbridge Castle cellar (bring a light source). Fur or cake: Ardougne Market. Cape: inside the Champions' Guild. Ticket: Castle Wars. Hat: Grand Tree, next to King Narnode. Ear muffs: Slayer Tower. Eye patch: Brimhaven pub. Fake beard: Ali Morrisane's stall in Al Kharid. Big frog legs: end of the Lumbridge Swamp Caves (bring a light source, a spiny helmet and, if it's your first time in, a rope). Goblin armour: Goblin Village. Beer: Dragon Inn in Yanille. Worm: McGrubor's Wood. Toy horse: Draynor Village, near Diango. Unholy symbol: Shrine of Scorpius, north of the Observatory."
+     }
+    ],
+    "i": [
+     "A light source",
+     "A rope",
+     "A spiny helmet or slayer helm",
+     "Commorb"
+    ],
+    "c": 1,
+    "e": [
+     "Solus Dellagar (similar strength)"
+    ]
+   },
+   {
+    "n": "Final battle",
+    "st": [
+     {
+      "t": "Go to the Rune Essence mine by talking to any of the NPCs that can teleport you there.",
+      "i": [
+       "Commorb",
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Kill Solus Dellagar.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Only if you don't have Solus' hat: use the 'contact' option on the Commorb to get it from Savant. You need one free inventory slot.",
+      "s": [
+       "Current Assignment"
+      ],
+      "i": [
+       "Commorb"
+      ]
+     },
+     {
+      "t": "Show Solus' hat to Sir Amik Varze on the second floor of the White Knights' Castle in Falador.",
+      "i": [
+       "Solus' hat"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Commorb"
+    ],
+    "c": 1,
+    "e": [
+     "Solus Dellagar (similar strength)"
+    ]
+   }
+  ]
+ }
+}

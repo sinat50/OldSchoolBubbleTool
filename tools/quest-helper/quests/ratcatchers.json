@@ -1,0 +1,345 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder ratcatchers; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Ratcatchers",
+  "items": [
+   "A non-overgrown cat",
+   "Cheese (4)",
+   "Marrentill",
+   "Unicorn horn dust",
+   "Bucket of milk",
+   "Catspeak amulet",
+   "Empty vial",
+   "Clean kwuarm",
+   "Red spiders' eggs",
+   "Pot of weeds",
+   "Tinderbox",
+   "Coins (101)",
+   "Snake charm",
+   "Fish or more, raw or cooked (8)"
+  ],
+  "rec": [
+   "Rat poison",
+   "Varrock teleport",
+   "Port Sarim teleport",
+   "Pollnivneach teleport",
+   "Ardougne teleport",
+   "Mine cart access to Keldagrim from the GE",
+   "Coins for magic carpet travel (1000)"
+  ],
+  "enemies": [],
+  "rewards": [
+   "2 Quest points",
+   "4,500 Thieving XP",
+   "A Rat Pole",
+   "Access to the Rat Pits",
+   "Ability to train Overgrown Cats into Wiley and Lazy Cats"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Gertrude west of Varrock.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Catspeak amulet"
+      ]
+     },
+     {
+      "t": "Go down into Varrock Sewer via the Manhole south east of Varrock Castle.",
+      "i": [
+       "A non-overgrown cat"
+      ]
+     },
+     {
+      "t": "Talk to Phingspet in Varrock Sewer.",
+      "i": [
+       "A non-overgrown cat"
+      ]
+     },
+     {
+      "t": "Have your cat catch 8 rats near Phingspet. With your cat following you, long-press it and choose Chase. Repeat until a message says it has caught all 8."
+     },
+     {
+      "t": "Talk to Phingspet in Varrock Sewer again."
+     }
+    ],
+    "i": [
+     "A non-overgrown cat"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Helping Jimmy",
+    "st": [
+     {
+      "t": "Talk to Jimmy Dazzler in the house just west of the Flying Horse Inn in East Ardougne, north of Ardougne Castle.",
+      "i": [
+       "A non-overgrown cat"
+      ]
+     },
+     {
+      "t": "Read the directions.",
+      "s": [
+       "Follow the directions to the house."
+      ],
+      "i": [
+       "A non-overgrown cat",
+       "Directions"
+      ]
+     },
+     {
+      "t": "Climb the trellis around the back of the mansion, avoiding the guards. Go west, then north around the building, with run on. Guards notice you by how close you are as well as by what they can see, so a turned back isn't enough. If you're caught you go back to the last safe spot, and your cat keeps the rats it has caught."
+     },
+     {
+      "t": "Catch the rat in the north west room with your cat."
+     },
+     {
+      "t": "Hide in the north east room. Wait until one guard is on the porch and the other is at the end of the hallway, or until both guards step out onto the balcony. Then run to the south east room and catch the 2 rats there. If the guards never line up, try another world."
+     },
+     {
+      "t": "Climb down the ladder."
+     },
+     {
+      "t": "Catch the 3 rats down here."
+     },
+     {
+      "t": "Climb back down the trellis to return to Ardougne, or use any teleport. Then talk to Jimmy Dazzler again.",
+      "i": [
+       "A non-overgrown cat"
+      ]
+     }
+    ],
+    "i": [
+     "A non-overgrown cat"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Helping Jack",
+    "st": [
+     {
+      "t": "Talk to Hooknosed Jack in south east Varrock. You can give Jack your vial, kwuarm, and red spiders' eggs for the rat poison",
+      "i": [
+       "A non-overgrown cat",
+       "Clean kwuarm",
+       "Empty vial",
+       "Red spiders' eggs"
+      ]
+     },
+     {
+      "t": "Add rat poison to your cheese.",
+      "i": [
+       "Rat poison",
+       "Cheese"
+      ]
+     },
+     {
+      "t": "Climb up the ladder south of Jack.",
+      "i": [
+       "Cheese (4)",
+       "Rat poison"
+      ]
+     },
+     {
+      "t": "Use a poisoned cheese on each of the 4 rat holes in this room.",
+      "i": [
+       "Poisoned cheese"
+      ]
+     },
+     {
+      "t": "Return to Jack.",
+      "i": [
+       "A non-overgrown cat"
+      ]
+     },
+     {
+      "t": "Talk to the Apothecary in west Varrock.",
+      "s": [
+       "Talk about something else.",
+       "Talk about the Ratcatchers Quest."
+      ],
+      "i": [
+       "Bucket of milk",
+       "Unicorn horn dust",
+       "Marrentill"
+      ]
+     },
+     {
+      "t": "Talk to Jack again.",
+      "i": [
+       "Cat antipoison",
+       "A non-overgrown cat"
+      ]
+     },
+     {
+      "t": "Climb up the ladder south of Jack.",
+      "i": [
+       "A non-overgrown cat",
+       "Fish or more, raw or cooked (8)"
+      ]
+     },
+     {
+      "t": "Pick up your cat, then use it on the hole in the corner of the wall. You'll need to feed it by using fish ON THE WALL whenever its health gets low.",
+      "s": [
+       "Yes",
+       "Be careful in there, cat!"
+      ],
+      "i": [
+       "A non-overgrown cat",
+       "Fish or more, raw or cooked (8)"
+      ]
+     },
+     {
+      "t": "Use fish on the wall whenever your cat's health gets low. Keep doing this until the fight is over.",
+      "i": [
+       "Fish or more, raw or cooked (8)"
+      ]
+     },
+     {
+      "t": "Return to Jack."
+     }
+    ],
+    "i": [
+     "Cheese (4)",
+     "Bucket of milk",
+     "Marrentill",
+     "Unicorn horn dust",
+     "A non-overgrown cat",
+     "Fish or more, raw or cooked (8)",
+     "Empty vial",
+     "Clean kwuarm",
+     "Red spiders' eggs",
+     "Rat poison"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Helping Joe",
+    "st": [
+     {
+      "t": "Travel to Keldagrim: go down the trapdoor in the north-west of the Grand Exchange and take the mine cart, or use the minigame teleport to the Blast Furnace.",
+      "i": [
+       "A non-overgrown cat",
+       "Pot of weeds",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Talk to Smokin' Joe in the north east of Keldagrim.",
+      "s": [
+       "I could help you."
+      ],
+      "i": [
+       "A non-overgrown cat",
+       "Pot of weeds",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "If you haven't made your pot of weeds yet, use weeds on a pot. Then use a tinderbox on the pot of weeds.",
+      "i": [
+       "Pot of weeds",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Use the smouldering pot on the hole east of Joe with your cat following you and your catspeak amulet equipped.",
+      "i": [
+       "Smouldering pot",
+       "Catspeak amulet"
+      ]
+     },
+     {
+      "t": "Use the smouldering pot on the rat hole again.",
+      "i": [
+       "Smouldering pot",
+       "Catspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Smokin' Joe again."
+     }
+    ],
+    "i": [
+     "A non-overgrown cat",
+     "Catspeak amulet",
+     "Pot of weeds",
+     "Tinderbox"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Helping Felkrash",
+    "st": [
+     {
+      "t": "Go to Port Sarim and go down the Rat Pits manhole next to The Face, beside the fishing shop. Look for the minigame icon on the minimap."
+     },
+     {
+      "t": "Talk to Felkrash in the Port Sarim Rat Pits."
+     },
+     {
+      "t": "Leave the rat pits."
+     },
+     {
+      "t": "Talk to The Face in Port Sarim again.",
+      "s": [
+       "I just don't think Felkrash was that impressive."
+      ],
+      "i": [
+       "A non-overgrown cat",
+       "Catspeak amulet"
+      ]
+     },
+     {
+      "t": "Carry exactly 101 coins: with more, he asks for all your money unless you wear a Ring of Charos (a). Use a coin on the pot next to the Snake Charmer, just south of the bar in Pollnivneach, then talk to him.",
+      "s": [
+       "I want to talk to you about animal charming.",
+       "What if I offered you some money?",
+       "Forget about it. I don't care that much.",
+       "Walk away slowly",
+       "Stop"
+      ],
+      "i": [
+       "Coins (101)"
+      ]
+     },
+     {
+      "t": "Return to just outside the Port Sarim Rat Pits.",
+      "i": [
+       "Snake charm",
+       "Music scroll"
+      ]
+     },
+     {
+      "t": "Stand on the docks near the Port Sarim Rat Pits manhole, with nothing in your hands. Tap your snake charm and play it. If the tune does nothing there, try right beside the manhole.",
+      "i": [
+       "Snake charm",
+       "Music scroll"
+      ]
+     },
+     {
+      "t": "The tune has 8 pages with one note on each. Set them in this order, moving to the next page each time: D, G, E, F#, high D, B, C#, A. Your music scroll shows the same tune."
+     },
+     {
+      "t": "For the high D on page 5, tap the raise octave button at the top left first, then tap D."
+     },
+     {
+      "t": "When all 8 pages are set, tap Play."
+     },
+     {
+      "t": "Return to Felkrash to finish."
+     }
+    ],
+    "i": [
+     "Snake charm",
+     "Coins (101)"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

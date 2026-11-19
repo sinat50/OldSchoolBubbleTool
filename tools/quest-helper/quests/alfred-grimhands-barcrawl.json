@@ -1,0 +1,146 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Alfred Grimhand's Barcrawl",
+  "items": [
+   "Coins (208)"
+  ],
+  "rec": [
+   "Games necklace",
+   "Varrock teleport",
+   "Lumberyard teleport",
+   "Falador teleport",
+   "Amulet of Glory",
+   "Ardougne teleport",
+   "Camelot teleport",
+   "Ring of dueling"
+  ],
+  "enemies": [],
+  "rewards": [
+   "Access to Barbarian Outpost Agility Course",
+   "Speak to the Barbarian Guard to learn how to smash empty vials automatically."
+  ],
+  "sec": [
+   {
+    "n": "Getting started",
+    "st": [
+     {
+      "t": "Talk to a barbarian guard outside the Barbarian Agility Course at the Barbarian Outpost to learn about Alfred Grimhand's Barcrawl.",
+      "s": [
+       "I want to come through this gate.",
+       "Looks can be deceiving, I am in fact a barbarian."
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Drinking",
+    "st": [
+     {
+      "t": "Talk to the bartender in the Blue Moon Inn in Varrock.",
+      "s": [
+       "I'm doing Alfred Grimhand's Barcrawl."
+      ],
+      "i": [
+       "Coins (50)"
+      ]
+     },
+     {
+      "t": "Talk to the bartender in the Jolly Boar Inn north east of Varrock.",
+      "s": [
+       "I'm doing Alfred Grimhands Barcrawl."
+      ],
+      "i": [
+       "Coins (10)"
+      ]
+     },
+     {
+      "t": "Talk to a bartender in the Rising Sun Inn in Falador.",
+      "s": [
+       "I'm doing Alfred Grimhand's barcrawl."
+      ],
+      "i": [
+       "Coins (70)"
+      ]
+     },
+     {
+      "t": "Talk to the bartender in the Rusty Anchor in Port Sarim.",
+      "s": [
+       "I'm doing Alfred Grimhand's Barcrawl."
+      ],
+      "i": [
+       "Coins (8)"
+      ]
+     },
+     {
+      "t": "Talk to Zembo in the Karamja Spirits Bar on Musa Point.",
+      "s": [
+       "I'm doing Alfred Grimhand's barcrawl."
+      ],
+      "i": [
+       "Coins (7)"
+      ]
+     },
+     {
+      "t": "Talk to the bartender in the Dead Man's Chest in Brimhaven.",
+      "s": [
+       "I'm doing Alfred Grimhand's Barcrawl."
+      ],
+      "i": [
+       "Coins (15)"
+      ]
+     },
+     {
+      "t": "Talk to the bartender in the Flying Horse Inn in Ardougne.",
+      "s": [
+       "I'm doing Alfred Grimhand's Barcrawl."
+      ],
+      "i": [
+       "Coins (8)"
+      ]
+     },
+     {
+      "t": "Talk to the bartender in the Forester's Arms in Seers' Village.",
+      "s": [
+       "I'm doing Alfred Grimhand's Barcrawl."
+      ],
+      "i": [
+       "Coins (18)"
+      ]
+     },
+     {
+      "t": "Climb the ladder inside the Grand Tree to the first floor. Talk to Blurberry at the bar in the south-east corner, not The Barman.",
+      "s": [
+       "I'm doing Alfred Grimhand's Barcrawl."
+      ],
+      "i": [
+       "Coins (10)"
+      ]
+     },
+     {
+      "t": "Talk to the bartender in Dragon Inn in Yanille.",
+      "s": [
+       "I'm doing Alfred Grimhand's Barcrawl."
+      ],
+      "i": [
+       "Coins (12)"
+      ]
+     },
+     {
+      "t": "Return to the barbarian guards outside the Barbarian Agility Course.",
+      "s": [
+       "I want to come through this gate.",
+       "Looks can be deceiving, I am in fact a barbarian."
+      ]
+     }
+    ],
+    "i": [
+     "Barcrawl card",
+     "Coins (208)"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

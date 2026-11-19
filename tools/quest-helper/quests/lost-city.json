@@ -1,0 +1,129 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Lost City",
+  "items": [
+   "Any axe",
+   "Knife"
+  ],
+  "rec": [
+   "Runes, or a way of dealing damage which you can smuggle onto Entrana. Runes for Crumble Undead (level 39 Magic) are best",
+   "Teleport, preferably to Lumbridge. Home teleport will work if off cooldown"
+  ],
+  "enemies": [
+   "Multiple zombies (level 25) (can be safespotted)",
+   "Dramen Tree Spirit (level 101) (can be safespotted)"
+  ],
+  "rewards": [
+   "3 Quest points",
+   "Access to Zanaris.",
+   "Ability to craft Cosmic Runes",
+   "Ability to buy and wield Dragon Daggers & Longswords"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to the Warrior south east of Draynor Village.",
+      "s": [
+       "What are you camped out here for?",
+       "What makes you think it's out here?",
+       "If it's hidden how are you planning to find it?",
+       "Looks like you don't know either.",
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Any axe"
+    ]
+   },
+   {
+    "n": "Finding Shamus",
+    "st": [
+     {
+      "t": "Long-press the tree just to the west and choose Chop. The right tree says Chop, not Chop down.",
+      "s": [
+       "I've been in that shed, I didn't see a city."
+      ],
+      "i": [
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Talk to Shamus.",
+      "s": [
+       "I've been in that shed, I didn't see a city."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Getting a Dramen branch",
+    "st": [
+     {
+      "t": "Bank all weapons and armour you have (including the axe), and go to Port Sarim to get a boat to Entrana.",
+      "i": [
+       "Runes, or a way of dealing damage which you can smuggle onto Entrana. Runes for Crumble Undead (level 39 Magic) are best"
+      ]
+     },
+     {
+      "t": "Climb down the ladder on the north side of the island. Once you go down, you can only escape via teleport.",
+      "s": [
+       "Well that is a risk I will have to take."
+      ]
+     },
+     {
+      "t": "Kill zombies until one drops an axe."
+     },
+     {
+      "t": "Go south-east past the two level 92 Greater Demons to the Dramen tree. Don't go through the magic door: it takes you into the Wilderness. Attempt to cut a branch from the tree. Be prepared for a Tree Spirit (level 101) to appear, which you can safespot behind nearby fungus.",
+      "i": [
+       "Bronze or Iron axe"
+      ]
+     },
+     {
+      "t": "Kill the Tree Spirit. They can be safespotted behind nearby fungi to the east."
+     },
+     {
+      "t": "Cut at least one branch from the Dramen tree. It's recommended you cut at least 4 branches so you don't have to return in future quests."
+     },
+     {
+      "t": "Teleport away with the branches, preferably to Lumbridge.",
+      "i": [
+       "Dramen branch"
+      ]
+     }
+    ],
+    "tr": [
+     "Teleport, preferably to Lumbridge. Home teleport will work if off cooldown"
+    ],
+    "r": [
+     "Runes, or a way of dealing damage which you can smuggle onto Entrana. Runes for Crumble Undead (level 39 Magic) are best"
+    ]
+   },
+   {
+    "n": "Entering Zanaris",
+    "st": [
+     {
+      "t": "Use a knife on the dramen branch to craft a dramen staff.",
+      "i": [
+       "Knife",
+       "Dramen branch"
+      ]
+     },
+     {
+      "t": "Enter the shed south of Lumbridge with your Dramen Staff equipped.",
+      "i": [
+       "Dramen staff"
+      ]
+     }
+    ],
+    "i": [
+     "Knife"
+    ]
+   }
+  ]
+ }
+}

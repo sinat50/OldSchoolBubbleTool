@@ -1,0 +1,152 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder murdermystery; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Murder Mystery",
+  "items": [
+   "Pot"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "3 Quest points",
+   "1,406 Crafting XP",
+   "2000 x Coins"
+  ],
+  "sec": [
+   {
+    "n": "Go to the Sinclair Manor",
+    "st": [
+     {
+      "t": "Talk to the Guard in the Sinclair Manor north of Camelot.",
+      "s": [
+       "Sure, I'll help.",
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Pot"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Collect evidence",
+    "st": [
+     {
+      "t": "Enter the mansion and search the smashed window in the east room for a clothing thread. The colour of the thread will match the killer's trousers.",
+      "i": [
+       "Criminal's thread"
+      ]
+     },
+     {
+      "t": "Enter the mansion and pick up the pungent pot inside the east room.",
+      "i": [
+       "Pungent pot"
+      ]
+     },
+     {
+      "t": "Pick up the criminal's dagger.",
+      "i": [
+       "Criminal's dagger"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Collect fingerprints",
+    "st": [
+     {
+      "t": "Go to the gardener's shed, the small building outside the west side of the mansion. Investigate the sacks there for flypaper. Get 4 pieces: one for the dagger, one for each suspect's item, and a spare.",
+      "s": [
+       "Yes, it might be useful."
+      ],
+      "i": [
+       "Flypaper (4)"
+      ]
+     },
+     {
+      "t": "Your thread colour gives two suspects. Red: Bob (barrel on the ground floor) and Carol (barrel upstairs). Green: Anna (ground floor) and David (upstairs). Blue: Elizabeth and Frank (both upstairs). Search both suspects' barrels for their silver items: Bob's cup, Carol's bottle, Anna's necklace, David's book, Elizabeth's needle, Frank's pot."
+     },
+     {
+      "t": "Fill your pot with flour from the barrel in the mansion's kitchen."
+     },
+     {
+      "t": "Use the pot of flour on the Criminal's dagger.",
+      "i": [
+       "Pot of flour",
+       "Criminal's dagger"
+      ]
+     },
+     {
+      "t": "Use the flypaper on the dagger.",
+      "i": [
+       "Flypaper",
+       "Criminal's dagger"
+      ]
+     },
+     {
+      "t": "Fill your pot with flour from the barrel in the mansion's kitchen.",
+      "i": [
+       "Pot"
+      ]
+     },
+     {
+      "t": "Use the flour on one suspect's silver item. Fill your pot again from the barrel in the mansion's kitchen, and use it on the other suspect's silver item."
+     },
+     {
+      "t": "Use flypaper on each suspect's silver item."
+     },
+     {
+      "t": "Use each suspect's print on the killer's print from the dagger to compare them. The one that matches is the killer, so remember that name."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Finishing off",
+    "st": [
+     {
+      "t": "Talk to Gossip, just south of the Sinclair Mansion.",
+      "s": [
+       "Who do you think was responsible?"
+      ]
+     },
+     {
+      "t": "Talk to the Poison Salesman in the Seers' Village pub about his customers.",
+      "s": [
+       "Talk about the Murder Mystery Quest",
+       "Who did you sell Poison to at the house?"
+      ]
+     },
+     {
+      "t": "Talk to the Poison Salesman in the Seers' Village pub about the pungent pot.",
+      "s": [
+       "Talk about the Murder Mystery Quest",
+       "I have this pot I found at the murder scene..."
+      ],
+      "i": [
+       "Pungent pot"
+      ]
+     },
+     {
+      "t": "Talk to the killer, the suspect whose print matched, about what they used the poison for. Make sure to finish the chat. Anna, David and Frank are in the mansion, Carol and Elizabeth are upstairs in it, and Bob is south of the mansion.",
+      "s": [
+       "Why'd you buy poison the other day?"
+      ]
+     },
+     {
+      "t": "Search the thing the killer said they used the poison on. Anna: compost heap south west of the mansion. Bob: beehive south west of the mansion. Carol: drain south of the mansion. David: spider's nest upstairs, in the south of the mansion. Elizabeth: fountain south east of the mansion. Frank: family crest on the south side of the mansion, to the east. If no message comes up, talk to the killer about the poison again and finish the chat."
+     },
+     {
+      "t": "Return to the guard outside the Sinclair Mansion and tell him your findings.",
+      "s": [
+       "I know who did it!"
+      ]
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

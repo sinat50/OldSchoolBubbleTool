@@ -1,0 +1,126 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Ides of Milk",
+  "items": [],
+  "rec": [
+   "Combat gear",
+   "Food"
+  ],
+  "enemies": [
+   "Bull (level 30)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "Access to the cow boss",
+   "Cow bell amulet and magic lamp (1,000 XP combat/Prayer) from Gillie Groats"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Speak to Cassius by the pond north-west of Lumbridge to start the quest.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Investigation",
+    "st": [
+     {
+      "t": "Speak to Gillie Groats at the cow field east of Lumbridge.",
+      "s": [
+       "Can you share what makes your cows so productive?"
+      ]
+     },
+     {
+      "t": "Speak to Seth Groats at his farmhouse east of the River Lum."
+     },
+     {
+      "t": "Search the shelves in Seth's farmhouse for 'The groats principles'."
+     }
+    ]
+   },
+   {
+    "n": "Milk tasting",
+    "st": [
+     {
+      "t": "Return to Cassius with the book.",
+      "i": [
+       "The groats principles"
+      ]
+     },
+     {
+      "t": "Drink the milk sample near Cassius.",
+      "i": [
+       "Milk sample"
+      ]
+     },
+     {
+      "t": "Talk to Cassius after drinking the milk sample."
+     }
+    ]
+   },
+   {
+    "n": "The Duke's opinion",
+    "st": [
+     {
+      "t": "Speak to Duke Horacio on the first floor of Lumbridge Castle.",
+      "i": [
+       "Milk sample"
+      ]
+     },
+     {
+      "t": "Speak to Gillie Groats at the cow field."
+     },
+     {
+      "t": "Drink the milk sample near Gillie.",
+      "i": [
+       "Milk sample"
+      ]
+     },
+     {
+      "t": "Talk to Gillie Groats after drinking the milk sample."
+     }
+    ]
+   },
+   {
+    "n": "The bull fight",
+    "st": [
+     {
+      "t": "Open the bull pen gate in the north-east corner of the cow field to fight the Bull (level 30). Protect from Melee blocks his basic attacks. His special attacks can hit over 15: when he snorts, step two tiles to either side or one tile back, and when he growls, step two tiles to either side.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Combat gear",
+       "Food"
+      ]
+     },
+     {
+      "t": "Speak to Gillie Groats after defeating the Bull."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Food"
+    ],
+    "c": 1,
+    "e": [
+     "Bull (level 30)"
+    ]
+   },
+   {
+    "n": "Finishing up",
+    "st": [
+     {
+      "t": "Return to Cassius to complete the quest. You can then speak to Gillie Groats for a cow bell amulet and magic lamp (1,000 XP combat/Prayer)."
+     }
+    ]
+   }
+  ]
+ }
+}

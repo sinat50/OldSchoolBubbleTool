@@ -1,0 +1,295 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Giant Dwarf",
+  "items": [
+   "coins (2500)",
+   "Logs",
+   "Tinderbox",
+   "Coal",
+   "Iron bar",
+   "Law rune",
+   "Air rune",
+   "Cut sapphires (3)",
+   "Various ores and bars",
+   "Redberry pie"
+  ],
+  "rec": [
+   "A house teleport if your house is in Rimmington and if you have no faster way to Mudskipper Point",
+   "A Camelot/Rellekka teleport (for starting the quest)",
+   "Access to fairy rings",
+   "Some stamina potions (when collecting the ores)",
+   "A ring of wealth/amulet of glory/Varrock teleport",
+   "Clay (10)",
+   "Copper ore (10)",
+   "Tin ore (10)",
+   "Iron ore (10)",
+   "Coal (10)",
+   "Silver ore (10)",
+   "Gold ore (10)",
+   "Mithril ore (10)",
+   "Bronze bar (10)",
+   "Iron bar (10)",
+   "Silver bar (10)",
+   "Gold bar (10)",
+   "Steel bar (10)",
+   "Mithril bar (10)"
+  ],
+  "enemies": [],
+  "rewards": [
+   "2 Quest points",
+   "2,500 Mining XP",
+   "2,500 Smithing XP",
+   "2,500 Crafting XP",
+   "1,500 Magic XP",
+   "1,500 Thieving XP",
+   "1,500 Firemaking XP"
+  ],
+  "sec": [
+   {
+    "n": "Starting out",
+    "st": [
+     {
+      "t": "Enter the Keldagrim entrance tunnel, north-east of Rellekka. Inside, go through the cave entrance straight ahead, between the two statues, and speak to the Dwarven Boatman.",
+      "s": [
+       "That's a deal!",
+       "Yes, I'm ready and don't mind it taking a few minutes.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Finish speaking to Commander Veldaban.",
+      "s": [
+       "Yes, I will do this."
+      ]
+     },
+     {
+      "t": "Talk to Blasidar the sculptor in the east of Keldagrim.",
+      "s": [
+       "Yes, I will do this."
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Clothes fit for a king",
+    "st": [
+     {
+      "t": "Talk to Vermundi, the silk trader in the east market, west of Blasidar.",
+      "s": [
+       "Yes, I'm looking for some special clothes."
+      ]
+     },
+     {
+      "t": "Talk to the Librarian in the library at the north-east corner of West Keldagrim, across the bridge.",
+      "s": [
+       "Do you know anything about King Alvis' clothes?"
+      ]
+     },
+     {
+      "t": "Climb any bookcase to find a book on costumes."
+     },
+     {
+      "t": "Talk to Vermundi with the book on costumes.",
+      "s": [
+       "Yes, about those special clothes again..."
+      ],
+      "i": [
+       "Book on costumes"
+      ]
+     },
+     {
+      "t": "Use your coal on the spinning machine next to Vermundi, with logs in your inventory.",
+      "i": [
+       "Coal",
+       "Logs"
+      ]
+     },
+     {
+      "t": "Start the spinning machine with a tinderbox.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Talk to Vermundi again and pay 200gp.",
+      "s": [
+       "Yes, about those special clothes again...",
+       "I'll pay."
+      ],
+      "i": [
+       "Coins (200)"
+      ]
+     }
+    ],
+    "i": [
+     "Weight below 30 kg",
+     "Logs",
+     "Coal",
+     "Tinderbox",
+     "coins (2500)",
+     "Free inventory slot"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Boots fit for a king",
+    "st": [
+     {
+      "t": "Talk to Saro at the anvil south-west of the bank in West Keldagrim.",
+      "s": [
+       "Yes, I'm looking for a pair of special boots."
+      ]
+     },
+     {
+      "t": "Talk to Dromund in his house just north of the West Keldagrim bank."
+     },
+     {
+      "t": "Take the Left boot when Dromund isn't looking."
+     },
+     {
+      "t": "Take the Right boot from outside his window when he isn't looking using Telekinetic Grab.",
+      "i": [
+       "Law rune",
+       "Air rune"
+      ]
+     }
+    ],
+    "i": [
+     "Law rune",
+     "Air rune"
+    ],
+    "c": 0
+   },
+   {
+    "n": "An axe fit for a king",
+    "st": [
+     {
+      "t": "Talk to Santiri at the weapon shop in the north-west of West Keldagrim.",
+      "s": [
+       "Yes, I'm looking for a particular battleaxe.",
+       "Blasidar the sculptor needs it for his statue.",
+       "Perhaps I can repair the axe?"
+      ]
+     },
+     {
+      "t": "Use the 3 sapphires on the axe, then talk to Santiri again.",
+      "s": [
+       "Yes, I'm looking for a particular battleaxe."
+      ],
+      "i": [
+       "Dwarven battleaxe",
+       "Cut sapphires (3)"
+      ]
+     },
+     {
+      "t": "Skip this step and the next one if you gave Thurgo a redberry pie during The Knight's Sword. Otherwise, talk to the Librarian about Imcando dwarves.",
+      "s": [
+       "Can you help me find an Imcando dwarf?"
+      ]
+     },
+     {
+      "t": "Skip this step if you gave Thurgo a redberry pie during The Knight's Sword. Otherwise, talk to Reldo in Varrock Castle's library.",
+      "s": [
+       "Ask about Imcando dwarves."
+      ]
+     },
+     {
+      "t": "Talk to Thurgo at Mudskipper Point, and keep talking to him until the axe is repaired. Offer him the redberry pie if the option appears.",
+      "s": [
+       "Something else.",
+       "Would you like a redberry pie?",
+       "Can you help me with this ancient axe?",
+       "Can you repair that axe now?",
+       "Return to Keldagrim immediately."
+      ],
+      "i": [
+       "Redberry pie",
+       "Iron bar",
+       "Dwarven battleaxe"
+      ]
+     }
+    ],
+    "i": [
+     "Cut sapphires (3)",
+     "Iron bar",
+     "Redberry pie"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Halfway there",
+    "st": [
+     {
+      "t": "Talk to Riki the sculptor's model to give him the clothes, axe and boots.",
+      "s": [
+       "Return to Keldagrim immediately."
+      ],
+      "i": [
+       "Exquisite clothes",
+       "Exquisite boots",
+       "Dwarven battleaxe"
+      ]
+     },
+     {
+      "t": "Talk to Blasidar the sculptor."
+     }
+    ],
+    "i": [
+     "Exquisite clothes",
+     "Exquisite boots",
+     "Dwarven battleaxe"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Joining the consortium",
+    "st": [
+     {
+      "t": "Go to the upper floor of the market."
+     },
+     {
+      "t": "Talk to the secretary of any company except the Red Axe, and only work for that one company. Complete the tasks given. If you don't want a task, tap the secretary again for a different one instead of refusing it. Stop when the secretary says there's no more work and you should speak directly to the director.",
+      "s": [
+       "Is there anything I can help you with?",
+       "I'll take it.",
+       "Do you have another task for me?"
+      ]
+     },
+     {
+      "t": "Keep talking to the director of the same company and complete the tasks given. If you don't want a task, tap the director again for a different one before continuing the chat. Stop when the director asks if you've considered joining the company.",
+      "s": [
+       "Do you have any more tasks for me?",
+       "I'll take it."
+      ]
+     },
+     {
+      "t": "Talk to the director to join the company.",
+      "s": [
+       "I'd like to officially join your company."
+      ]
+     },
+     {
+      "t": "Talk to the director after joining the company. For the last choice, pick \"Yes! Long live the\" followed by your own company's name.",
+      "s": [
+       "Blasidar the sculptor has sent me.",
+       "I would support you."
+      ]
+     },
+     {
+      "t": "Talk to Commander Veldaban, west of the bank in West Keldagrim.",
+      "s": [
+       "I'm ready."
+      ]
+     }
+    ],
+    "i": [
+     "Various ores and bars",
+     "Some stamina potions (when collecting the ores)"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

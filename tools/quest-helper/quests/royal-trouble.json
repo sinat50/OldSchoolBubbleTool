@@ -1,0 +1,333 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder royaltrouble; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Royal Trouble",
+  "items": [
+   "Either 5 coal or a pickaxe",
+   "Combat gear"
+  ],
+  "rec": [
+   "Any antipoison",
+   "Food",
+   "Prayer potions",
+   "Potions/Items to restore run energy"
+  ],
+  "enemies": [
+   "Giant Sea Snake (level 149)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "5,000 Agility XP",
+   "5,000 Slayer XP",
+   "5,000 Hitpoints XP",
+   "20000 x Coins",
+   "Increased rewards from Managing Miscellania"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Travel to Miscellania. You can take a boat from Rellekka. You can also use Fairy Rings to teleport there with the code CIP If you've unlocked them.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Go up the stairs in Miscellania castle and talk to Advisor Ghrim.",
+      "s": [
+       "Has anything been happening in the kingdom recently?",
+       "Very well, I'll sort it out.",
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Investigating",
+    "st": [
+     {
+      "t": "Talk to the royal you chose in Throne of Miscellania, in Miscellania castle: Princess Astrid or Prince Brand."
+     },
+     {
+      "t": "Talk to King Vargas.",
+      "s": [
+       "Right away, your Majesty."
+      ]
+     },
+     {
+      "t": "Talk to Gardener Gunnhild outside the castle."
+     },
+     {
+      "t": "Return to King Vargas in Miscellania castle."
+     },
+     {
+      "t": "Talk to Queen Sigrid in Etceteria Castle.",
+      "s": [
+       "Of course, it's my duty."
+      ]
+     },
+     {
+      "t": "Talk to Matilda in the south of Etceteria Castle."
+     },
+     {
+      "t": "Return to Queen Sigrid in Etceteria Castle.",
+      "s": [
+       "I suppose so..."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Digging deeper",
+    "st": [
+     {
+      "t": "Go to the bank in the north of Etceteria and get your combat gear and antipoisons out. Keep about 10 inventory spaces free. Also bring 5 coal. With 30 Mining you can bring a pickaxe instead and mine the coal in the dungeon.",
+      "i": [
+       "Either 5 coal or a pickaxe",
+       "Combat gear",
+       "Any antipoison"
+      ]
+     },
+     {
+      "t": "Return to King Vargas in Miscellania castle."
+     },
+     {
+      "t": "Talk to Advisor Ghrim in Miscellania castle.",
+      "s": [
+       "King Vargas asked me to talk to you."
+      ]
+     },
+     {
+      "t": "Talk to the Sailor on the Miscellania docks.",
+      "s": [
+       "I'm looking for a sailor..."
+      ]
+     },
+     {
+      "t": "Return to King Vargas in Miscellania castle to get a scroll."
+     },
+     {
+      "t": "Go down the ladder south of Miscellania castle.",
+      "i": [
+       "Scroll"
+      ]
+     }
+    ],
+    "i": [
+     "Either 5 coal or a pickaxe",
+     "Combat gear",
+     "Any antipoison"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Repair the lift",
+    "st": [
+     {
+      "t": "Talk to Donal in the pub in the dungeon.",
+      "s": [
+       "Of course. Dealing with monsters is what I do best!"
+      ]
+     },
+     {
+      "t": "Use the mining prop on the crevice in the north west corner of the dungeon.",
+      "i": [
+       "Mining prop"
+      ]
+     },
+     {
+      "t": "Enter the crevice in the north west corner of the dungeon."
+     },
+     {
+      "t": "Take a Pulley Beam."
+     },
+     {
+      "t": "Use the Pulley Beam on the Broken Scaffold",
+      "i": [
+       "Pulley beam"
+      ]
+     },
+     {
+      "t": "Take a Pulley Beam."
+     },
+     {
+      "t": "Take a Beam."
+     },
+     {
+      "t": "Use a beam on a pulley beam.",
+      "i": [
+       "Beam",
+       "Pulley beam"
+      ]
+     },
+     {
+      "t": "Take another Beam."
+     },
+     {
+      "t": "Use a beam on the long pulley beam.",
+      "i": [
+       "Beam",
+       "Long pulley beam"
+      ]
+     },
+     {
+      "t": "Use the Longer pulley beam on the Scaffold",
+      "i": [
+       "Longer pulley beam"
+      ]
+     },
+     {
+      "t": "Take a Pulley Beam."
+     },
+     {
+      "t": "Use the pulley beam on the Scaffold",
+      "i": [
+       "Pulley beam"
+      ]
+     },
+     {
+      "t": "Take a rope from the crate."
+     },
+     {
+      "t": "Use the rope on the broken scaffold",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Take another Beam."
+     },
+     {
+      "t": "Use a beam on the platform.",
+      "i": [
+       "Beam"
+      ]
+     },
+     {
+      "t": "Pick up an Engine",
+      "i": [
+       "Engine"
+      ]
+     },
+     {
+      "t": "Use the Engine on the engine platform",
+      "i": [
+       "Engine"
+      ]
+     },
+     {
+      "t": "Read the nearby lift manual, then put 5 coal into the engine. If you brought a pickaxe instead of coal, mine 5 coal from the rocks in this room first.",
+      "i": [
+       "Coal (5)"
+      ]
+     },
+     {
+      "t": "Take a rope from the crate in the lift room.",
+      "i": [
+       "Rope"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Investigate the caves",
+    "st": [
+     {
+      "t": "Take the lift up."
+     },
+     {
+      "t": "Pick up the plank.",
+      "i": [
+       "Plank"
+      ]
+     },
+     {
+      "t": "Enter the tunnel."
+     },
+     {
+      "t": "Use a rope on the rock over the water blocking the path.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Swing over the water on the ropeswing."
+     },
+     {
+      "t": "Search the fire remains."
+     },
+     {
+      "t": "Use your plank on each of the 4 rocks in turn to cross them. You keep the plank.",
+      "i": [
+       "Plank"
+      ]
+     },
+     {
+      "t": "Search the 2nd fire remains further along the path."
+     },
+     {
+      "t": "Search the 3rd fire remains further along the path."
+     },
+     {
+      "t": "Search the 4th fire remains further along the path."
+     },
+     {
+      "t": "Search the 5th fire remains further along the path."
+     },
+     {
+      "t": "Read the Diary",
+      "i": [
+       "Burnt diary"
+      ]
+     },
+     {
+      "t": "Enter the crevice at the end of the path."
+     }
+    ]
+   },
+   {
+    "n": "Defeat the Giant Sea Snake",
+    "st": [
+     {
+      "t": "Talk to Armod."
+     },
+     {
+      "t": "Prepare to fight the Giant Sea Snake, then follow the passage and enter the crevice at the end of it. It will only use ranged attacks if you stand at a distance. It can poison you."
+     },
+     {
+      "t": "Kill the Giant Sea Snake."
+     },
+     {
+      "t": "Pick up the heavy box",
+      "i": [
+       "Heavy box"
+      ]
+     },
+     {
+      "t": "Leave the room."
+     },
+     {
+      "t": "Go up the rope that's appeared."
+     },
+     {
+      "t": "Talk to Queen Sigrid in Etceteria Castle.",
+      "i": [
+       "Heavy box"
+      ]
+     },
+     {
+      "t": "Return to King Vargas to finish the quest.",
+      "i": [
+       "Letter"
+      ]
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Giant Sea Snake (level 149)"
+    ]
+   }
+  ]
+ }
+}

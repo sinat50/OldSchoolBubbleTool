@@ -1,0 +1,217 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder myarmsbigadventure; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "My Arm's Big Adventure",
+  "items": [
+   "Climbing boots",
+   "Ugthanki dung (3)",
+   "Supercompost (8)",
+   "Rake",
+   "Seed dibber",
+   "Spade",
+   "Bucket"
+  ],
+  "rec": [
+   "Combat gear, preferably magic",
+   "Food",
+   "Prayer potions",
+   "Games necklace for Burthorpe teleport"
+  ],
+  "enemies": [
+   "Baby Roc (level 75)",
+   "Giant Roc (level 172)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "10,000 Herblore XP",
+   "5,000 Farming XP",
+   "Access to a disease-free herb patch on top of the Troll Stronghold."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Enter the Troll Stronghold, head south and go down the south staircase to the kitchen. Talk to Burntmeat there.",
+      "s": [
+       "What do you want now?",
+       "Alright, I'll lend him a hand."
+      ]
+     },
+     {
+      "t": "Talk to My Arm near Burntmeat.",
+      "s": [
+       "Alright, I'll lend him a hand."
+      ]
+     }
+    ],
+    "i": [
+     "Climbing boots"
+    ],
+    "tr": [
+     "Games necklace for Burthorpe teleport"
+    ]
+   },
+   {
+    "n": "Preparing to grow",
+    "st": [
+     {
+      "t": "Use a bucket on the cooking pot on the Death Plateau. You can find a bucket next to the pot.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Return to My Arm with the goutweedy lump.",
+      "i": [
+       "Goutweedy lump"
+      ]
+     },
+     {
+      "t": "If you aren't on the roof already, go up the stairs from the kitchen, then climb the ladder in the west room of that upper level, where the Troll Generals are. Talk to My Arm on the roof of the Troll Stronghold."
+     },
+     {
+      "t": "Read the farming manual.",
+      "i": [
+       "Farming manual"
+      ]
+     },
+     {
+      "t": "Talk to My Arm on the roof of the Troll Stronghold."
+     },
+     {
+      "t": "Add 3 ugthanki dung on My Arm's soil patch.",
+      "i": [
+       "Ugthanki dung (3)",
+       "Spade"
+      ]
+     },
+     {
+      "t": "Add 7 supercompost on My Arm's soil patch.",
+      "i": [
+       "Supercompost (7)",
+       "Spade"
+      ]
+     },
+     {
+      "t": "Talk to My Arm on the roof of the Troll Stronghold."
+     }
+    ],
+    "i": [
+     "Climbing boots",
+     "Bucket",
+     "Spade",
+     "Supercompost (7)",
+     "Ugthanki dung (3)"
+    ],
+    "tr": [
+     "Games necklace for Burthorpe teleport"
+    ]
+   },
+   {
+    "n": "Karamja adventure",
+    "st": [
+     {
+      "t": "Talk to Captain Barnaby on Ardougne dock.",
+      "s": [
+       "This is My Arm. We'd like to go to Karamja."
+      ]
+     },
+     {
+      "t": "Talk to My Arm on Brimhaven dock."
+     },
+     {
+      "t": "Talk to My Arm east of the Tai Bwo Wannai general store."
+     },
+     {
+      "t": "Talk to Murcaily in east Tai Bwo Wannai, near the hardwood grove. You need at least 60% Tai Bwo Wannai favour, so raise it first if you have less. This uses up that much favour.",
+      "s": [
+       "A troll called My Arm wants a favour...",
+       "I was asking you about goutweed...",
+       "I was asking you about hardy goutweed..."
+      ]
+     },
+     {
+      "t": "Talk to My Arm again east of the Tai Bwo Wannai general store."
+     }
+    ]
+   },
+   {
+    "n": "Troll farming",
+    "st": [
+     {
+      "t": "Talk to My Arm on the roof of the Troll Stronghold."
+     },
+     {
+      "t": "Give My Arm a rake. If the rake head comes off, pick it up, repair the rake, and give it to him again.",
+      "i": [
+       "Rake"
+      ]
+     },
+     {
+      "t": "Give My Arm some supercompost.",
+      "i": [
+       "Supercompost"
+      ]
+     },
+     {
+      "t": "Give My Arm some hardy gout tubers.",
+      "i": [
+       "Hardy gout tubers"
+      ]
+     },
+     {
+      "t": "Give My Arm a seed dibber.",
+      "i": [
+       "Seed dibber"
+      ]
+     },
+     {
+      "t": "Talk to My Arm. Be prepared to fight a baby and giant Roc."
+     },
+     {
+      "t": "Kill the Baby Roc."
+     },
+     {
+      "t": "Talk to My Arm. Be prepared to fight the Giant Roc.",
+      "i": [
+       "Combat gear",
+       "Spade"
+      ]
+     },
+     {
+      "t": "Kill the Giant Roc. Use protect from missiles, and keep your distance. You can dodge the boulders it throws."
+     },
+     {
+      "t": "Give My Arm a spade.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Talk to My Arm."
+     },
+     {
+      "t": "Talk to Burntmeat in the Troll Stronghold."
+     },
+     {
+      "t": "Go back up to the roof of the Troll Stronghold and talk to My Arm to finish the quest."
+     }
+    ],
+    "i": [
+     "Combat gear, preferably magic",
+     "Rake",
+     "Supercompost",
+     "Seed dibber",
+     "Spade",
+     "Hardy gout tubers"
+    ],
+    "c": 1,
+    "e": [
+     "Baby Roc (level 75)",
+     "Giant Roc (level 172)"
+    ]
+   }
+  ]
+ }
+}

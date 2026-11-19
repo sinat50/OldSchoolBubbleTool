@@ -1,0 +1,264 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder throneofmiscellania; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Throne of Miscellania",
+  "items": [
+   "Iron bar",
+   "Logs",
+   "Any non-silver ring you are willing to lose",
+   "Flowers",
+   "Any normal/oak/willow/maple/yew shortbow or longbow (if courting Astrid)",
+   "Cake (if courting Brand)",
+   "One of these, to raise approval: an axe (45 Woodcutting), a rake (10 Farming), a pickaxe (35 Mining), or a harpoon or lobster pot (35 Fishing)"
+  ],
+  "rec": [
+   "Dramen staff if travelling via Fairy Ring CIP",
+   "Potions/Items to restore run energy"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "Ability to manage Miscellania.",
+   "Ability to teleport to Miscellania with the Ring of Wealth."
+  ],
+  "sec": [
+   {
+    "n": "Talk to King Vargas",
+    "st": [
+     {
+      "t": "Travel to Miscellania. You can take a boat from Rellekka. You can also use Fairy Rings to teleport there with the code CIP If you've unlocked them."
+     },
+     {
+      "t": "Buy some flowers from the Flower Girl in the courtyard of Miscellania castle for 15gp.",
+      "s": [
+       "Yes, please."
+      ]
+     },
+     {
+      "t": "Go upstairs in Miscellania castle and talk to King Vargas. You can choose whether to get Brand's or Astrid's approval.",
+      "s": [
+       "Yes.",
+       "If I may be so bold..."
+      ]
+     }
+    ],
+    "i": [
+     "Flowers",
+     "Any normal/oak/willow/maple/yew shortbow or longbow (if courting Astrid)",
+     "Cake (if courting Brand)",
+     "Any non-silver ring you are willing to lose",
+     "Iron bar",
+     "Logs",
+     "One of: "
+    ],
+    "c": 0
+   },
+   {
+    "n": "Win over Astrid (only if you chose her)",
+    "st": [
+     {
+      "t": "Only do this section if you chose Princess Astrid. If you chose Prince Brand, skip to the section \"Win over Brand (only if you chose him)\". Go upstairs in the Miscellania castle."
+     },
+     {
+      "t": "Keep talking to Princess Astrid, in the room directly north of the King, until she only says \"Good day\".",
+      "s": [
+       "Archery is a noble art!",
+       "He's been very helpful.",
+       "Hahahaha!"
+      ]
+     },
+     {
+      "t": "Use flowers on Astrid.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Flowers"
+      ]
+     },
+     {
+      "t": "Dance in Princess Astrid's room."
+     },
+     {
+      "t": "Keep talking to Princess Astrid until she only says \"Good day\".",
+      "s": [
+       "What happened next?",
+       "That sounds like a good idea.",
+       "I'm quite fond of it myself."
+      ]
+     },
+     {
+      "t": "Use any bow on Astrid.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Any normal/oak/willow/maple/yew shortbow or longbow (if courting Astrid)"
+      ]
+     },
+     {
+      "t": "Keep talking to Princess Astrid until she calls you \"Dear\" or \"Darling\".",
+      "s": [
+       "It's a lovely little country.",
+       "I suppose you don't have much opportunity to.",
+       "And what a great bard he makes!"
+      ]
+     },
+     {
+      "t": "Blow kiss emote next to Princess Astrid."
+     },
+     {
+      "t": "Use a ring on Astrid.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Any non-silver ring you are willing to lose"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Win over Brand (only if you chose him)",
+    "st": [
+     {
+      "t": "Only do this section if you chose Prince Brand. If you won over Princess Astrid, skip to the section \"Establish peace\". Go upstairs in the Miscellania castle."
+     },
+     {
+      "t": "Keep talking to Prince Brand, in the room directly south of the King, until he only says \"Good day\".",
+      "s": [
+       "Be still, my heart.",
+       "You will be the greatest bard!",
+       "They don't understand your poetry as I do."
+      ]
+     },
+     {
+      "t": "Use flowers on Prince Brand.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Flowers"
+      ]
+     },
+     {
+      "t": "Use the Clap emote next to Prince Brand"
+     },
+     {
+      "t": "Keep talking to Prince Brand until he only says \"Good day\".",
+      "s": [
+       "A much nobler pursuit, to be sure.",
+       "How inspiring!",
+       "How poetic."
+      ]
+     },
+     {
+      "t": "Give Prince Brand a cake.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Cake (if courting Brand)"
+      ]
+     },
+     {
+      "t": "Keep talking to Prince Brand until he greets you with \"Hello, dear\" or \"Hello, darling\".",
+      "s": [
+       "I'm glad to hear it.",
+       "I wouldn't presume to have the skill...",
+       "That was lovely. I'm touched!"
+      ]
+     },
+     {
+      "t": "Use the blow kiss emote next to Prince Brand"
+     },
+     {
+      "t": "Use a ring on Prince Brand.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Any non-silver ring you are willing to lose"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Establish peace",
+    "st": [
+     {
+      "t": "Leave the castle and head east, across the bridge, to Etceteria castle. Go upstairs and talk to Queen Sigrid."
+     },
+     {
+      "t": "Talk to King Vargas."
+     },
+     {
+      "t": "Talk to Queen Sigrid."
+     },
+     {
+      "t": "Talk to Prince Brand in Miscellania castle."
+     },
+     {
+      "t": "Talk to Advisor Ghrim.",
+      "s": [
+       "How do I make peace with Etceteria?"
+      ]
+     },
+     {
+      "t": "Return to Queen Sigrid in Etceteria castle."
+     },
+     {
+      "t": "Return to King Vargas."
+     },
+     {
+      "t": "Talk to Derrik in the north of Miscellania.",
+      "s": [
+       "I have a slightly strange request..."
+      ],
+      "i": [
+       "Iron bar"
+      ]
+     },
+     {
+      "t": "Use the giant nib on some logs. Cut a nearby evergreen if you don't have logs.",
+      "i": [
+       "Giant nib",
+       "Logs"
+      ]
+     },
+     {
+      "t": "Talk to King Vargas with the giant pen.",
+      "i": [
+       "Giant pen"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Get support",
+    "st": [
+     {
+      "t": "Reach 75% support. Talk to Advisor Ghrim, next to King Vargas upstairs in the castle, to check your rating. You can do any of the following: Rake the farming patches (10 Farming). Mining coal (30 Mining). Cutting maple trees (45 Woodcutting). Fish tuna with a harpoon or lobsters with a lobster pot.",
+      "i": [
+       "Any axe",
+       "Any pickaxe",
+       "Rake",
+       "Harpoon",
+       "Lobster pot"
+      ]
+     },
+     {
+      "t": "Talk to King Vargas to finish the quest."
+     }
+    ],
+    "i": [
+     "One of: "
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

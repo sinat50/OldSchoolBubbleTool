@@ -1,4 +1,111 @@
 {
-  "source": "Quest Helper files it under miniquests, but the game and the OSRS Wiki count it as a members' quest (Novice, no quest points; Quests/List, November 2026), so only its type and difficulty are changed here. Its guide is unchanged.",
-  "data": {"n": "Daddy's Home", "t": "P", "d": "Novice", "qp": 0, "r": []}
+ "source": "Quest Helper files it under miniquests, but the game and the OSRS Wiki count it as a members' quest (Novice, no quest points; Quests/List, November 2026), so only its type and difficulty are changed here. Its guide is unchanged.",
+ "data": {
+  "n": "Daddy's Home",
+  "t": "P",
+  "d": "Novice",
+  "qp": 0,
+  "r": []
+ },
+ "guide": {
+  "n": "Daddy's Home",
+  "items": [
+   "Plank (10)",
+   "Nails (bring more in case you fail with some) (14)",
+   "Bolt of cloth (5)",
+   "Saw",
+   "Hammer"
+  ],
+  "rec": [
+   "Lumberyard Teleport",
+   "Varrock Teleports (3)"
+  ],
+  "enemies": [],
+  "rewards": [
+   "400 Construction XP",
+   "25 x Planks",
+   "10 x Oak Planks",
+   "50 x Mithril Nails",
+   "5 x Steel Bars",
+   "8 x Bolt of Cloth",
+   "5 x House Teleport Tablets",
+   "Falador Teleport Tablet",
+   "POH in Rimmington or 1,000 Coins"
+  ],
+  "sec": [
+   {
+    "n": "Helping Yarlo & Marlo",
+    "st": [
+     {
+      "t": "Talk to Marlo in north-east Varrock.",
+      "s": [
+       "What kind of favour do you want me to do?",
+       "Tell me more about the job.",
+       "Tell me where he lives, and I'll do the job."
+      ]
+     },
+     {
+      "t": "Talk to Old Man Yarlo in south-east Varrock, west of Aubury's Rune Shop."
+     },
+     {
+      "t": "Clear all 7 broken pieces in Old Man Yarlo's house: the campbed, the rotten carpet, 2 stools, 2 tables and the chair. Long-press each one and choose Remove or Demolish."
+     },
+     {
+      "t": "Talk to Old Man Yarlo again after removing all the broken furniture.",
+      "s": [
+       "Skip Yarlo's lecture. He'll offer it later if you like."
+      ]
+     },
+     {
+      "t": "Rebuild the furniture in Old Man Yarlo's house: the carpet (3 bolts of cloth), 2 stools (1 plank, 2 nails each), 2 tables (3 planks, 4 nails each) and the chair (2 planks, 2 nails). Bring a few spare nails. Long-press each spot, choose Build, then pick the first option in the list.",
+      "i": [
+       "Plank (10)",
+       "Nails (14)",
+       "Bolt of cloth (3)",
+       "Saw",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Search the crates marked with a black symbol, just west of the range in Old Man Yarlo's house, for 3 waxwood logs."
+     },
+     {
+      "t": "Talk to the Sawmill operator north-east of Varrock to make waxwood planks.",
+      "s": [
+       "I need some waxwood planks for Old Man Yarlo."
+      ],
+      "i": [
+       "Waxwood log (3)"
+      ]
+     },
+     {
+      "t": "Build the waxwood bed in Old Man Yarlo's house. Pick the first option in the build menu.",
+      "i": [
+       "Waxwood plank (3)",
+       "Bolt of cloth (2)",
+       "Hammer",
+       "Saw"
+      ]
+     },
+     {
+      "t": "Talk to Old Man Yarlo again after rebuilding the furniture."
+     },
+     {
+      "t": "Talk to Marlo in north-east Varrock to complete the quest.",
+      "s": [
+       "Yeah, what have you got for me?"
+      ]
+     }
+    ],
+    "i": [
+     "Plank (10)",
+     "Nails (bring more in case you fail with some) (14)",
+     "Bolt of cloth (5)",
+     "Hammer",
+     "Saw"
+    ],
+    "c": 0
+   }
+  ]
+ }
 }

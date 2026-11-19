@@ -1,0 +1,134 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Fight Arena",
+  "items": [
+   "Coins (5)"
+  ],
+  "rec": [
+   "Combat equipment and food (magic/ranged if you want to safe spot)"
+  ],
+  "enemies": [
+   "Khazard Scorpion (level 44) (safespottable)",
+   "Khazard Ogre (level 63) (safespottable)",
+   "Bouncer (level 137) (safespottable)",
+   "General Khazard (level 142) (safespottable) (optional)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "12,175 Attack XP",
+   "2,175 Thieving XP",
+   "1000 x Coins",
+   "Khazard Armor"
+  ],
+  "sec": [
+   {
+    "n": "Start quest",
+    "st": [
+     {
+      "t": "Talk to Lady Servil, west-southwest of the Monastery south of Ardougne.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Search the chest in the house in the far north-east corner of the area, east of Lady Servil, for some Khazard armour."
+     },
+     {
+      "t": "Equip the Khazard armour and head south into the prison. Keep the armour on inside. Talk to the Khazard Guard (the Head Guard) by the staircase in the south-east corner of the prison.",
+      "i": [
+       "Khazard helmet",
+       "Khazard armour"
+      ]
+     },
+     {
+      "t": "Buy Khali brew from the nearby bar to the west for 5 coins.",
+      "s": [
+       "I'd like a Khali Brew please."
+      ],
+      "i": [
+       "Coins (5)"
+      ]
+     },
+     {
+      "t": "Take the brew back to the Khazard Guard.",
+      "i": [
+       "Khazard helmet",
+       "Khazard armour",
+       "Khali brew"
+      ]
+     }
+    ],
+    "i": [
+     "Coins (5)"
+    ]
+   },
+   {
+    "n": "Fight!",
+    "st": [
+     {
+      "t": "If the Khazard Guard didn't give you the keys, talk to him to get them.",
+      "i": [
+       "Khazard helmet",
+       "Khazard armour"
+      ]
+     },
+     {
+      "t": "Get ready to fight the monsters (all safespottable), starting with Khazard Ogre (level 63). Use the keys on the door of Sammy's cell, the northernmost cell in the east wing of the prison, to free him.",
+      "i": [
+       "Combat equipment and food (magic/ranged if you want to safe spot)",
+       "Khazard cell keys"
+      ]
+     },
+     {
+      "t": "Kill the Ogre. You can lure it behind a skeleton to safespot it. If the fight doesn't start and no ogre is in the arena, talk to Sammy or Justin. Don't talk to them while the ogre is there, as a second one can appear.",
+      "i": [
+       "Combat equipment and food (magic/ranged if you want to safe spot)"
+      ]
+     },
+     {
+      "t": "After the ogre dies, General Khazard has you locked in a cell. If that doesn't happen, talk to General Khazard in the arena. In the cell, talk to Hengrad and you'll be taken back to the arena."
+     },
+     {
+      "t": "Kill the Scorpion. You can lure it behind a skeleton to safespot it. If the scorpion isn't in the arena, talk to Sammy to start the fight.",
+      "i": [
+       "Combat equipment and food (magic/ranged if you want to safe spot)"
+      ]
+     },
+     {
+      "t": "Kill Bouncer. You can lure it behind a skeleton to safespot it. If Bouncer isn't in the arena, talk to Sammy to start the fight. Warning: After Bouncer is killed, you will be unable to re-enter the arena.",
+      "i": [
+       "Combat equipment and food (magic/ranged if you want to safe spot)"
+      ]
+     }
+    ],
+    "i": [
+     "Combat equipment and food (magic/ranged if you want to safe spot)"
+    ],
+    "c": 1,
+    "e": [
+     "Khazard Ogre (level 63) (safespottable)",
+     "Bouncer (level 137) (safespottable)"
+    ]
+   },
+   {
+    "n": "Finish quest",
+    "st": [
+     {
+      "t": "Exit the arena through the door in the south-east corner (you can ignore General Khazard). Warning: You will be unable to re-enter the arena.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Go back to Lady Servil to end the quest."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "General Khazard (level 142) (safespottable) (optional)"
+    ]
+   }
+  ]
+ }
+}

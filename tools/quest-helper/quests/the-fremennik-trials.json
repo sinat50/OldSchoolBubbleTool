@@ -1,0 +1,615 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Fremennik Trials",
+  "items": [
+   "Coins (5250)",
+   "Raw shark, manta ray or sea turtle",
+   "Tinderbox",
+   "Knife",
+   "Any axe"
+  ],
+  "rec": [
+   "Combat gear + food",
+   "Rings of recoil for Koschei",
+   "Camelot teleport",
+   "Teleports to Rellekka"
+  ],
+  "enemies": [
+   "Koschei the deathless",
+   "Draugen (level 69)"
+  ],
+  "rewards": [
+   "3 Quest points",
+   "2,812 Agility XP",
+   "2,812 Attack XP",
+   "2,812 Crafting XP",
+   "2,812 Defence XP",
+   "2,812 Fishing XP",
+   "2,812 Fletching XP",
+   "2,812 Hitpoints XP",
+   "2,812 Strength XP",
+   "2,812 Thieving XP",
+   "2,812 Woodcutting XP",
+   "Access to Miscellania, Etceteria, Neitiznot, Jatizso and the facilities of Rellekka.",
+   "Ability to wear and purchase Fremmennik Helms",
+   "Free travel to Waterbirth Island"
+  ],
+  "sec": [
+   {
+    "n": "Talk to Brundt",
+    "st": [
+     {
+      "t": "Talk to Brundt in Rellekka's longhall.",
+      "s": [
+       "Ask about anything else.",
+       "Do you have any quests?",
+       "Yes, I am interested.",
+       "I want to become a Fremennik!"
+      ]
+     }
+    ],
+    "i": [
+     "Coins (5250)",
+     "Raw shark, manta ray or sea turtle",
+     "Tinderbox",
+     "Knife",
+     "Any axe",
+     "Combat gear + food"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Olaf's task",
+    "st": [
+     {
+      "t": "Talk to Olaf the Bard north east of the longhall.",
+      "s": [
+       "Ask about becoming a Fremennik",
+       "Yes"
+      ]
+     },
+     {
+      "t": "Talk to Lalli to the south east of Rellekka.",
+      "s": [
+       "Other human?"
+      ]
+     },
+     {
+      "t": "Return to Rellekka and talk to Askeladden for a pet rock.",
+      "s": [
+       "Ask about becoming a Fremennik"
+      ]
+     },
+     {
+      "t": "Return to Lalli and use a onion, cabbage, potato, and pet rock on their stew. You can find the vegetables growing in the south east of Rellekka.",
+      "i": [
+       "Pet rock",
+       "Cabbage",
+       "Potato",
+       "Onion"
+      ]
+     },
+     {
+      "t": "Talk to Lalli for the golden fleece."
+     },
+     {
+      "t": "Go south east of Rellekka and cut a branch from the swaying tree",
+      "i": [
+       "Any axe",
+       "Knife"
+      ]
+     },
+     {
+      "t": "Use a knife on the branch to make an unstrung lyre",
+      "i": [
+       "Knife",
+       "Branch"
+      ]
+     },
+     {
+      "t": "Spin the golden fleece into wool using a spinning wheel. The closest wheel is in Seers' Village.",
+      "i": [
+       "Golden fleece"
+      ]
+     },
+     {
+      "t": "Use the golden wool on your unstrung lyre.",
+      "i": [
+       "Unstrung lyre",
+       "Golden wool"
+      ]
+     },
+     {
+      "t": "Bring your lyre to the Strange Altar south west of Rellekka. From the north end of the bridge south of Rellekka, walk a bit west to a narrow path heading south into the water. Use either a raw shark, raw sea turtle or raw manta ray on the altar.",
+      "i": [
+       "Lyre",
+       "Raw shark, manta ray or sea turtle"
+      ]
+     },
+     {
+      "t": "Return to Rellekka and go in through the back door on the north-east side of the longhall, the one the Longhall Bouncer guards, to reach the stage. Play the enchanted lyre on stage, then talk to Olaf the Bard for his vote.",
+      "i": [
+       "Enchanted lyre"
+      ]
+     }
+    ],
+    "i": [
+     "Any axe",
+     "Knife",
+     "Raw shark, manta ray or sea turtle",
+     "Empty inventory slots for vegetables and a pet rock (4)"
+    ]
+   },
+   {
+    "n": "Manni's task",
+    "st": [
+     {
+      "t": "Talk to Manni the Reveller in the Rellekka longhall.",
+      "s": [
+       "Ask about becoming a Fremennik",
+       "Yes"
+      ]
+     },
+     {
+      "t": "Get some beer. There is beer tankard in the Rellekka longhall.",
+      "i": [
+       "Beer"
+      ]
+     },
+     {
+      "t": "Give the Council workman on the bridge south of Rellekka going to Seer's Village a beer.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Beer"
+      ]
+     },
+     {
+      "t": "Buy some alcohol free beer from the Poison Salesman in the Seer's Village pub.",
+      "s": [
+       "Talk about the Fremennik Trials",
+       "Yes"
+      ],
+      "i": [
+       "Coins (250)"
+      ]
+     },
+     {
+      "t": "Return to Rellekka with the strange object, a tinderbox, and low alcohol beer.",
+      "i": [
+       "Strange object",
+       "Tinderbox",
+       "Low alcohol keg"
+      ]
+     },
+     {
+      "t": "Go to the pipe outside the east wall of the longhall. Use a tinderbox on the strange object, then use the lit object on the pipe.",
+      "i": [
+       "Strange object",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Pick up a keg of beer in the longhall.",
+      "i": [
+       "Keg of beer"
+      ]
+     },
+     {
+      "t": "Use the low alcohol beer on the keg of beer whilst in the longhall.",
+      "i": [
+       "Low alcohol keg",
+       "Keg of beer"
+      ]
+     },
+     {
+      "t": "Talk to Manni the Reveller to cheat in the competition.",
+      "s": [
+       "Ask about becoming a Fremennik",
+       "Yes"
+      ],
+      "i": [
+       "Keg of beer"
+      ]
+     }
+    ],
+    "i": [
+     "Tinderbox",
+     "Coins (250)"
+    ]
+   },
+   {
+    "n": "Sigli's task",
+    "st": [
+     {
+      "t": "Talk to Sigli south of the longhall for a hunters' talisman.",
+      "s": [
+       "Ask about becoming a Fremennik",
+       "What's a Draugen?",
+       "Yes"
+      ]
+     },
+     {
+      "t": "Tap the hunters' talisman and walk the way the chat message says. Keep doing this until you reach the exact spot, where the talisman makes the Draugen (level 69) appear. A small see-through butterfly follows it. Kill the Draugen."
+     },
+     {
+      "t": "Return the charged hunters' talisman to Sigli.",
+      "i": [
+       "Hunters' talisman"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear + food"
+    ],
+    "c": 1,
+    "e": [
+     "Draugen (level 69)"
+    ]
+   },
+   {
+    "n": "Sigmund's task",
+    "st": [
+     {
+      "t": "Talk to Sigmund the Merchant in the Rellekka market.",
+      "s": [
+       "Yes"
+      ]
+     },
+     {
+      "t": "Talk to the Sailor on the docks.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ]
+     },
+     {
+      "t": "Talk to Olaf the Bard east of the longhall.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ]
+     },
+     {
+      "t": "Talk to Yrsa in her shop west of the market.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ]
+     },
+     {
+      "t": "Talk to Brundt in the longhall.",
+      "s": [
+       "Ask about the Merchant's trial",
+       "Ask about anything else."
+      ]
+     },
+     {
+      "t": "Talk to Sigli south of the longhall.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ]
+     },
+     {
+      "t": "Talk to Skulgrimen north of the longhall.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ]
+     },
+     {
+      "t": "Talk to the Fisherman on the pier north of the market.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ]
+     },
+     {
+      "t": "Talk to Swensen the Navigator in his hut south west of the longhall.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ]
+     },
+     {
+      "t": "Talk to Peer the Seer south west of the market.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ]
+     },
+     {
+      "t": "Talk to Thorvald north of the longhall.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ]
+     },
+     {
+      "t": "Talk to Manni the Reveller in the longhall.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ]
+     },
+     {
+      "t": "Talk to Thora the Barkeep in the longhall.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ]
+     },
+     {
+      "t": "Talk to Askeladden south of the longhall.",
+      "s": [
+       "Ask about the Merchant's trial",
+       "Yes"
+      ]
+     },
+     {
+      "t": "Bring the promissory note to Thora the Barkeep in the longhall.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ],
+      "i": [
+       "Promissory note"
+      ]
+     },
+     {
+      "t": "Bring the cocktail to Manni the Reveller in the longhall.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ],
+      "i": [
+       "Legendary cocktail"
+      ]
+     },
+     {
+      "t": "Bring the champions token to Thorvald north of the longhall.",
+      "s": [
+       "Ask about the Merchant's trial",
+       "Yes"
+      ],
+      "i": [
+       "Champions token"
+      ]
+     },
+     {
+      "t": "Bring the warriors' contract to Peer the Seer south west of the market.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ],
+      "i": [
+       "Warriors' contract"
+      ]
+     },
+     {
+      "t": "Bring the weather forecast to Swensen the Navigator in his hut south west of the longhall.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ],
+      "i": [
+       "Weather forecast"
+      ]
+     },
+     {
+      "t": "Bring the sea fishing map to the Fisherman on the pier north of the market.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ],
+      "i": [
+       "Sea fishing map"
+      ]
+     },
+     {
+      "t": "Bring the unusual fish to Skulgrimen north of the longhall.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ],
+      "i": [
+       "Unusual fish"
+      ]
+     },
+     {
+      "t": "Bring the custom bow string to Sigli south of the longhall.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ],
+      "i": [
+       "Custom bow string"
+      ]
+     },
+     {
+      "t": "Bring the tracking map to Brundt in the longhall.",
+      "s": [
+       "Ask about the Merchant's trial",
+       "Ask about anything else."
+      ],
+      "i": [
+       "Tracking map"
+      ]
+     },
+     {
+      "t": "Bring the fiscal statement to Yrsa in her shop west of the market.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ],
+      "i": [
+       "Fiscal statement"
+      ]
+     },
+     {
+      "t": "Bring the sturdy boots to Olaf the Bard east of the longhall.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ],
+      "i": [
+       "Sturdy boots"
+      ]
+     },
+     {
+      "t": "Bring the ballad to the Sailor on the docks.",
+      "s": [
+       "Ask about the Merchant's trial"
+      ],
+      "i": [
+       "Fremennik ballad"
+      ]
+     },
+     {
+      "t": "Finally, bring the exotic flower to Sigmund the Merchant in the Rellekka market.",
+      "i": [
+       "Exotic flower"
+      ]
+     }
+    ],
+    "i": [
+     "Coins (5000)"
+    ]
+   },
+   {
+    "n": "Thorvald's task",
+    "st": [
+     {
+      "t": "Talk to Thorvald north of the longhall.",
+      "s": [
+       "Ask about becoming a Fremennik"
+      ]
+     },
+     {
+      "t": "When you're ready to fight Koschei, go down the ladder.",
+      "i": [
+       "Nothing except for food, potions, and rings of recoil",
+       "Optionally a Dramen branch + knife to make a dramen staff once inside Koschei's arena"
+      ]
+     },
+     {
+      "t": "Fight Koschei the Deathless and 'kill' him at least 3 times. Dying to his fourth phase is a SAFE death."
+     }
+    ],
+    "i": [
+     "Nothing except for food, potions, and rings of recoil",
+     "Optionally a Dramen branch + knife to make a dramen staff once inside Koschei's arena"
+    ],
+    "c": 1,
+    "e": [
+     "Koschei the deathless"
+    ]
+   },
+   {
+    "n": "Swensen's task",
+    "st": [
+     {
+      "t": "Talk to Swensen the Navigator in his hut south west of the longhall.",
+      "s": [
+       "Ask about becoming a Fremennik",
+       "Yes"
+      ]
+     },
+     {
+      "t": "Climb down Swensen's ladder."
+     },
+     {
+      "t": "Go through the portals in this order: south, west, east, north, south, east, north (the first letters spell SWENSEN). Then climb up the ladder, and talk to Swensen if he doesn't give you his vote. A wrong portal leads to a dark room with webs and skeletons: climb the rope and start the portals again."
+     }
+    ]
+   },
+   {
+    "n": "Peer's task",
+    "st": [
+     {
+      "t": "Talk to Peer the Seer south west of the Rellekka market. You will need to bank all your items. Peer will offer to do this for you.",
+      "s": [
+       "Ask about becoming a Fremennik",
+       "Yes"
+      ]
+     },
+     {
+      "t": "Try to enter Peer the Seer's house after banking all your items. Peer the Seer will offer to bank everything for you.",
+      "s": [
+       "Read the riddle"
+      ]
+     },
+     {
+      "t": "Enter the solution to Peer's door."
+     },
+     {
+      "t": "Go up the ladder."
+     },
+     {
+      "t": "Search the bookcase in the north of the room for a red herring."
+     },
+     {
+      "t": "Study the bull's head for a wooden disk."
+     },
+     {
+      "t": "Study the unicorn's head for an old red disk."
+     },
+     {
+      "t": "Use the red herring on the cooking range to get sticky red goop."
+     },
+     {
+      "t": "Use the sticky red goop on the wooden disk to make a second red disk."
+     },
+     {
+      "t": "Open the trapdoor on the east side and go down."
+     },
+     {
+      "t": "Use both red disks on the abstract mural to get the vase lid. If you don't get it, search the mural."
+     },
+     {
+      "t": "Go back upstairs."
+     },
+     {
+      "t": "Search the cupboard in the south-west of the room for an empty bucket."
+     },
+     {
+      "t": "Search the chest in the south of the room for an empty jug."
+     },
+     {
+      "t": "Use the empty bucket on the tap by the cooking range to fill it."
+     },
+     {
+      "t": "Use the full bucket on the empty jug. The bucket is left 2/5 full."
+     },
+     {
+      "t": "Empty the full jug into the drain."
+     },
+     {
+      "t": "Use the 2/5 full bucket on the empty jug."
+     },
+     {
+      "t": "Use the empty bucket on the tap to fill it again."
+     },
+     {
+      "t": "Use the full bucket on the 2/3 full jug. The bucket is left 4/5 full."
+     },
+     {
+      "t": "Use the 4/5 full bucket on the chest with a scale on it, in the north of the room, to get a vase. If the amounts went wrong, empty the jug and bucket and start again from filling the bucket."
+     },
+     {
+      "t": "Use the empty vase on the tap to fill it."
+     },
+     {
+      "t": "Use the vase lid on the filled vase."
+     },
+     {
+      "t": "Use the sealed vase on the frozen table to get a frozen key."
+     },
+     {
+      "t": "Use the frozen key on the cooking range to thaw it."
+     },
+     {
+      "t": "Go down the trapdoor on the east side, next to the frozen table. Leaving any other way means redoing parts of the puzzle."
+     },
+     {
+      "t": "Open the door to leave the Seer's house with the key."
+     }
+    ]
+   },
+   {
+    "n": "Finish off",
+    "st": [
+     {
+      "t": "Talk to Brundt in Rellekka's longhall to finish the quest.",
+      "s": [
+       "Ask about anything else."
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

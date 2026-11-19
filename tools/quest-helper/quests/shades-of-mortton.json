@@ -1,0 +1,223 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder shadesofmortton; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Shades of Mort'ton",
+  "items": [
+   "Tarromin potion (unf) (2)",
+   "Tinderbox",
+   "A log whose pyre version you can burn",
+   "Ashes (2)",
+   "Coins for building materials, or 18000 if you want to buy a Flamtaer hammer (5000)",
+   "Hammer or Flamtaer Hammer"
+  ],
+  "rec": [
+   "Combat gear",
+   "A Mort'ton teleport or Barrows teleport tablet",
+   "Food",
+   "Flamtaer hammer",
+   "Flamtaer bracelet"
+  ],
+  "enemies": [
+   "5 Loar Shades (level 40)"
+  ],
+  "rewards": [
+   "3 Quest points",
+   "2,000 Crafting XP",
+   "2,000 Herblore XP",
+   "Ability to play the Shades of Mort'ton Minigame"
+  ],
+  "sec": [
+   {
+    "n": "Investigating the town",
+    "st": [
+     {
+      "t": "Search the shelf in the south building of Mort'ton."
+     },
+     {
+      "t": "Read the diary.",
+      "i": [
+       "Diary"
+      ]
+     },
+     {
+      "t": "Add ashes to both tarromin potions (unf) to make 2 serum 207. You'll need the second one later.",
+      "i": [
+       "Tarromin potion (unf) (2)",
+       "Ashes (2)"
+      ]
+     }
+    ],
+    "i": [
+     "Tarromin potion (unf) (2)",
+     "Ashes (2)",
+     "Tinderbox",
+     "A log whose pyre version you can burn",
+     "Coins for building materials, or 18000 if you want to buy a Flamtaer hammer (5000)",
+     "Hammer or Flamtaer Hammer"
+    ]
+   },
+   {
+    "n": "Helping Razmire",
+    "st": [
+     {
+      "t": "Use the serum 207 on Razmire in the north of Mort'ton.",
+      "i": [
+       "Serum 207"
+      ]
+     },
+     {
+      "t": "Talk to Razmire in the north of Mort'ton.",
+      "s": [
+       "What are all these shadowy creatures?",
+       "Yes, I'll dispatch those dark and evil creatures."
+      ],
+      "i": [
+       "Serum 207"
+      ]
+     },
+     {
+      "t": "Kill 5 Loar Shades and pick up their remains.",
+      "i": [
+       "Loar remains (5)"
+      ]
+     },
+     {
+      "t": "Use the serum 207 on Razmire in the north of Mort'ton.",
+      "i": [
+       "Serum 207",
+       "Loar remains (5)"
+      ]
+     },
+     {
+      "t": "Talk to Razmire in the north of Mort'ton.",
+      "i": [
+       "Serum 207",
+       "Loar remains (5)"
+      ]
+     }
+    ],
+    "i": [
+     "Serum 207",
+     "Tinderbox",
+     "A log whose pyre version you can burn",
+     "Coins for building materials, or 18000 if you want to buy a Flamtaer hammer (5000)",
+     "Hammer or Flamtaer Hammer"
+    ],
+    "c": 1,
+    "e": [
+     "5 Loar Shades (level 40)"
+    ]
+   },
+   {
+    "n": "Helping Ulsquire",
+    "st": [
+     {
+      "t": "Talk to Razmire in the north of Mort'ton and buy some olive oil from his general store.",
+      "s": [
+       "Can you open a store for me?",
+       "Can I see the general store please?"
+      ]
+     },
+     {
+      "t": "Talk to Razmire again and buy 5 timber beams, 5 limestone bricks and 25 swamp paste from his builders' store.",
+      "s": [
+       "Can you open a store for me?",
+       "Can I see the building store please?"
+      ]
+     },
+     {
+      "t": "Use some serum 207 on Ulsquire, in the house just south-east of Razmire's store in the east of Mort'ton.",
+      "i": [
+       "Serum 207"
+      ]
+     },
+     {
+      "t": "Talk to Ulsquire in the east of Mort'ton."
+     },
+     {
+      "t": "Talk to Ulsquire again.",
+      "s": [
+       "What can you tell me about that temple?"
+      ]
+     },
+     {
+      "t": "Repair the walls of the temple north east of Mort'ton with your hammer and materials until it's 100% repaired. Do this on World 377 to make it faster and easier.",
+      "i": [
+       "Olive oil",
+       "Serum 207",
+       "Hammer or Flamtaer Hammer",
+       "Limestone brick (5)",
+       "Timber beam (5)",
+       "Swamp paste (25)"
+      ]
+     },
+     {
+      "t": "Light the fire altar",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Keep repairing the temple until 20 sanctity.",
+      "i": [
+       "Olive oil",
+       "Serum 207",
+       "Hammer or Flamtaer Hammer",
+       "Limestone brick (5)",
+       "Timber beam (5)",
+       "Swamp paste (25)"
+      ]
+     },
+     {
+      "t": "Use the olive oil on the temple's fire.",
+      "i": [
+       "Olive oil"
+      ]
+     },
+     {
+      "t": "Use a serum 207 (with 2 or more doses) on the temple's fire.",
+      "i": [
+       "Serum 207"
+      ]
+     },
+     {
+      "t": "Use the sacred oil on a log.",
+      "i": [
+       "A log whose pyre version you can burn",
+       "Sacred oil"
+      ]
+     },
+     {
+      "t": "Go to a group of 4 stone funeral pyres, shown as brown patches on the map, for example west of the general store. Use the pyre log on a funeral pyre, then a loar remain, and light it. Collect your reward from the stone pillar next to the pyre.",
+      "i": [
+       "A pyre log you can burn",
+       "Loar remains"
+      ]
+     },
+     {
+      "t": "Use the serum 208 on Razmire in the north of Mort'ton.",
+      "i": [
+       "Serum 208"
+      ]
+     },
+     {
+      "t": "Use some serum 208 on Ulsquire in the east of Mort'ton.",
+      "i": [
+       "Serum 208"
+      ]
+     },
+     {
+      "t": "Talk to Ulsquire to finish the quest."
+     }
+    ],
+    "i": [
+     "Serum 207",
+     "Tinderbox",
+     "A log whose pyre version you can burn",
+     "Coins for building materials, or 18000 if you want to buy a Flamtaer hammer (5000)",
+     "Hammer or Flamtaer Hammer"
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,66 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Vale Totems",
+  "items": [
+   "Knife",
+   "Oak log",
+   "Oak shield/longbow/shortbow (4)"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "Unlocks the Auburnvale fletching minigame"
+  ],
+  "sec": [
+   {
+    "n": "Repair the totem",
+    "st": [
+     {
+      "t": "Talk to Ranulph in the west part of Auburnvale to start the quest.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Build the totem site just north of Ranulph.",
+      "i": [
+       "Knife",
+       "Oak log"
+      ]
+     },
+     {
+      "t": "Talk to Isadora to learn about carving."
+     },
+     {
+      "t": "Look at the spirit animals near the totem. They are different for every player. Tap the totem and pick each of those animals from the carving options."
+     },
+     {
+      "t": "Return to Isadora after carving the spirit animals into the totem."
+     },
+     {
+      "t": "Decorate the totem with four decorative items (shield, longbow, or shortbow) of the same wood type you used to build/carve the totem.",
+      "i": [
+       "Oak shield/longbow/shortbow (4)"
+      ]
+     },
+     {
+      "t": "Return to Isadora to talk after decorating the totem."
+     },
+     {
+      "t": "Claim the offering the Ent left next to your totem."
+     },
+     {
+      "t": "Return to Isadora to finish the quest."
+     }
+    ],
+    "i": [
+     "Knife",
+     "Oak log",
+     "Oak shield/longbow/shortbow (4)"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

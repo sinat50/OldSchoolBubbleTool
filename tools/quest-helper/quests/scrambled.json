@@ -1,0 +1,274 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper), Scrambled! helper by pajlada; written out by hand for v1.0.2 and moved here in November 2026; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Scrambled!",
+  "items": [
+   "Hammer, saw, 6 nails, 2 planks (all found during the quest)",
+   "An empty bowl (found during the quest)",
+   "Combat gear"
+  ],
+  "rec": [
+   "Antifire shield (for the red dragon)",
+   "40 Agility (for a shortcut to the dragon cave)"
+  ],
+  "enemies": [
+   "Large chicken (level 16)",
+   "Black jaguar (level 88)",
+   "Red dragon (level 106, can be safespotted)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "5,000 Construction, Cooking and Smithing XP",
+   "Your very own egg"
+  ],
+  "sec": [
+   {
+    "n": "Humphrey Dumphrey sat on a wall",
+    "st": [
+     {
+      "t": "Talk to Alan in Tal Teok Temple, north of Tal Teklan, to start the quest.",
+      "s": [
+       "Yes.",
+       "Of course!"
+      ]
+     }
+    ],
+    "i": [
+     "Nothing"
+    ],
+    "c": 0,
+    "tr": [
+     "Get to Tal Teok Temple, north of Tal Teklan, e.g. with a quetzal whistle."
+    ]
+   },
+   {
+    "n": "Wumty Scrumpty had a great fall",
+    "st": [
+     {
+      "t": "Inspect the egg in front of you."
+     },
+     {
+      "t": "Head south into Tal Teklan and talk to King in the pub.",
+      "s": [
+       "Are you the king?",
+       "…fell off a wall!"
+      ]
+     }
+    ],
+    "i": [
+     "Nothing"
+    ],
+    "c": 0,
+    "tr": [
+     "Walk: Tal Teklan is just south of the temple."
+    ]
+   },
+   {
+    "n": "All the king's horses and all the king's men…",
+    "st": [
+     {
+      "t": "Get an empty bowl from the Tal Teklan pub. You'll need it later.",
+      "tip": "If it's not there, hop worlds or wait for it to respawn."
+     },
+     {
+      "t": "Talk to Acatzin inside the Tal Teklan pub.",
+      "s": [
+       "I can talk to the blacksmith."
+      ]
+     },
+     {
+      "t": "Talk to the Blacksmith, west of the Tal Teklan pub."
+     },
+     {
+      "t": "Take the hammer from the table in the blacksmith's.",
+      "tip": "If it's not there, hop worlds or wait for it to respawn."
+     },
+     {
+      "t": "Get some nails from the blacksmith's workbench. You'll need them later.",
+      "s": [
+       "Take the nails."
+      ]
+     },
+     {
+      "t": "Fix the whetstone.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Talk to the Blacksmith again to get a damaged axe."
+     },
+     {
+      "t": "Repair the axe on the whetstone.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Acatzin's damaged axe"
+      ]
+     },
+     {
+      "t": "Get the saw from the house to the south. You'll need it later.",
+      "tip": "If it's not there, hop worlds or wait for it to respawn."
+     },
+     {
+      "t": "Return the repaired axe to Acatzin in the Tal Teklan pub."
+     },
+     {
+      "t": "Pick the damiana bush at the east entrance of Tal Teklan for damiana leaves. You'll need them later."
+     },
+     {
+      "t": "Pick up two planks beside the lake, a short walk south-west of the damiana bush.",
+      "tip": "If they're not there, hop worlds or wait for them to respawn."
+     },
+     {
+      "t": "Talk to Kauayotl at the east entrance of Tal Teklan.",
+      "s": [
+       "I see. Well, maybe I can help out with that?"
+      ],
+      "i": [
+       "Hammer",
+       "Saw",
+       "6 nails",
+       "2 planks"
+      ]
+     },
+     {
+      "t": "Repair Kauayotl's cart.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Hammer",
+       "Saw",
+       "6 nails",
+       "2 planks"
+      ]
+     },
+     {
+      "t": "Talk to Kauayotl again."
+     },
+     {
+      "t": "Talk to Nezketi in the Tal Teklan temple. He gives you an empty cup.",
+      "s": [
+       "I can get you some tea."
+      ]
+     },
+     {
+      "t": "Fill your empty bowl with water at the water pump near the east entrance of Tal Teklan.",
+      "i": [
+       "Empty bowl"
+      ]
+     },
+     {
+      "t": "Use the damiana leaves on the bowl of water.",
+      "i": [
+       "Damiana leaves",
+       "Bowl of water"
+      ]
+     },
+     {
+      "t": "Use the damiana water on the oven in the Tal Teklan General Store, just south of the bank, to boil it.",
+      "i": [
+       "Damiana water"
+      ]
+     },
+     {
+      "t": "Pour the damiana tea from the bowl into the empty cup.",
+      "i": [
+       "Damiana tea",
+       "Empty cup"
+      ]
+     },
+     {
+      "t": "Give the cup of damiana tea to Nezketi in the Tal Teklan temple.",
+      "i": [
+       "Cup of damiana tea"
+      ]
+     },
+     {
+      "t": "Return to Tal Teok Temple, north of Tal Teklan, and talk to one of King's men."
+     }
+    ],
+    "i": [
+     "Nothing to bring. You pick up a bowl, hammer, nails, saw and planks along the way"
+    ],
+    "c": 0,
+    "tr": [
+     "Everything is in and around Tal Teklan, so walk."
+    ]
+   },
+   {
+    "n": "Couldn't put Bumpty Numpty back together again…",
+    "st": [
+     {
+      "t": "Search the Eggs in the chicken coop south of the large temple. A level 16 large chicken appears: kill it, then search the Eggs again for a Large egg.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Cross the log balance towards the dragon cave.",
+      "tip": "Needs 40 Agility. Without it, walk round to the cave entrance.",
+      "o": 1
+     },
+     {
+      "t": "Enter the dragon cave, south-east of the large temple across the river.",
+      "i": [
+       "Combat gear",
+       "Antifire shield (recommended)"
+      ]
+     },
+     {
+      "t": "Search the Eggs in the dragon cave. Kill the red dragon that appears, then search the Eggs again for a Dragon egg.",
+      "tip": "Safespot: stand just south-east of the Eggs."
+     },
+     {
+      "t": "Leave the dragon cave."
+     },
+     {
+      "t": "Search the Eggs at the camp east of the dragon cave. Kill the black jaguar that appears, then search the Eggs again for a Jaguar egg.",
+      "tip": "Safespot: stand just north-east of the camp."
+     },
+     {
+      "t": "Return to Tal Teok Temple. Give Kauayotl the Dragon egg, Nezketi the Jaguar egg and Acatzin the Large egg.",
+      "i": [
+       "Large egg",
+       "Dragon egg",
+       "Jaguar egg"
+      ]
+     },
+     {
+      "t": "Talk to one of King's men to judge the replacement eggs."
+     },
+     {
+      "t": "Talk to one of King's men again to work out how to fix the broken egg."
+     },
+     {
+      "t": "Inspect the broken egg and put it back together.",
+      "tip": "It's a jigsaw of 26 pieces. Tap a piece to turn it: it only fits once it's the right way up. Then drag it into place. Press and hold the puzzle-piece icon to see the finished egg."
+     },
+     {
+      "t": "Talk to one of King's men to finish the quest!"
+     }
+    ],
+    "i": [
+     "Combat gear and food",
+     "Antifire shield (recommended, for the red dragon)"
+    ],
+    "c": 1,
+    "e": [
+     "Large chicken (level 16)",
+     "Red dragon (level 106, can be safespotted)",
+     "Black jaguar (level 88, can be safespotted)"
+    ],
+    "tr": [
+     "Walk: the chicken coop is just south of Tal Teok Temple, the dragon cave is to the east, and the jaguar camp is further east of the dragon cave."
+    ]
+   }
+  ]
+ }
+}

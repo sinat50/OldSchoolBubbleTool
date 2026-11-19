@@ -1,0 +1,79 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Sheep Shearer",
+  "items": [
+   "Balls of wool (20)",
+   "Shears"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "150 Crafting XP",
+   "60 x Coins"
+  ],
+  "sec": [
+   {
+    "n": "Bring Fred Some Wool",
+    "st": [
+     {
+      "t": "Talk to Fred the Farmer north of Lumbridge to start the quest. Bring 20 balls of wool to autocomplete the quest.",
+      "s": [
+       "I'm looking for a quest.",
+       "Yes, okay. I can do that.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "If Fred didn't give you shears, pick up the pair in his house.",
+      "i": [
+       "Shears"
+      ]
+     },
+     {
+      "t": "Shear sheep in the nearby field.",
+      "i": [
+       "Shears",
+       "Wool (20)"
+      ]
+     },
+     {
+      "t": "Climb the staircase in the Lumbridge Castle to spin the wool in your inventory into balls of wool.",
+      "i": [
+       "Wool (20)"
+      ]
+     },
+     {
+      "t": "Spin your wool into balls.",
+      "i": [
+       "Wool (20)"
+      ]
+     },
+     {
+      "t": "Climb down the staircase.",
+      "s": [
+       "Climb down the stairs."
+      ],
+      "i": [
+       "Balls of wool (20)"
+      ]
+     },
+     {
+      "t": "Bring Fred the Farmer north of Lumbridge your balls of wool (UNNOTED) to progress the quest. If you only have some of the balls needed, you can still deposit them with him.",
+      "s": [
+       "I need to talk to you about shearing these sheep!"
+      ],
+      "i": [
+       "Balls of wool (20)"
+      ]
+     }
+    ],
+    "i": [
+     "Balls of wool (20)"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

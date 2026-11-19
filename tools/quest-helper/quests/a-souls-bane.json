@@ -1,0 +1,136 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder asoulsbane; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "A Soul's Bane",
+  "items": [
+   "Rope",
+   "Combat gear + food"
+  ],
+  "rec": [
+   "Digsite Teleport",
+   "Antipoison (or equivalent)"
+  ],
+  "enemies": [
+   "Multiple level 40-46 enemies"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "500 Defence XP",
+   "500 Hitpoints XP",
+   "500 x Coins",
+   "Access to the Dungeon of Tolna"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Launa east of Varrock.",
+      "s": [
+       "Yes.",
+       "Would you like me to go down to look for your husband and son?"
+      ]
+     },
+     {
+      "t": "Use a rope on the rift.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Enter the rift.",
+      "i": [
+       "Combat gear + food"
+      ]
+     }
+    ],
+    "i": [
+     "Rope",
+     "Combat gear + food"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Anger room",
+    "st": [
+     {
+      "t": "Take a weapon from the weapon rack. Kill the angry monsters with the appropriate weapon: Sword - Unicorn. Spear - Bear. Mace - Rat. Battleaxe - Goblin."
+     },
+     {
+      "t": "Kill animals with appropriate weapons until the Rage Metre fills. Sword - Unicorn. Spear - Bear. Mace - Rat. Battleaxe - Goblin."
+     },
+     {
+      "t": "Leave through the exit near the east end of the cave to reach the next room."
+     }
+    ],
+    "i": [
+     "Combat gear + food"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Fear room",
+    "st": [
+     {
+      "t": "Look inside the Dark Holes to cause fear reapers to appear. Kill 5 of them. You cannot search the same hole over and over again."
+     },
+     {
+      "t": "Enter the lit-up hole to the west to reach the next room."
+     }
+    ],
+    "i": [
+     "Combat gear + food"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Confusion room",
+    "st": [
+     {
+      "t": "Attack the confusion beasts until you find the one that takes damage, and kill it. The others disappear after 8 hits. Each kill makes one door vanish and the beasts come back. Repeat until only one door is left (5 kills) and a cutscene plays."
+     },
+     {
+      "t": "Leave the room through the confusing door."
+     }
+    ],
+    "i": [
+     "Combat gear + food"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Hopelessness room",
+    "st": [
+     {
+      "t": "Kill each hopeless creature 3 times."
+     },
+     {
+      "t": "Continue through the exit of the room."
+     }
+    ],
+    "i": [
+     "Combat gear + food"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Save Tolna",
+    "st": [
+     {
+      "t": "Kill all three of Tolna's heads."
+     },
+     {
+      "t": "Talk to Tolna."
+     },
+     {
+      "t": "Talk to Tolna outside the rift."
+     }
+    ],
+    "i": [
+     "Combat gear + food"
+    ],
+    "c": 1
+   }
+  ]
+ }
+}

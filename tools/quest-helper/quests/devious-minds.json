@@ -1,0 +1,131 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Devious Minds",
+  "items": [
+   "Mithril 2h Sword",
+   "Bow String",
+   "Large/Colossal Pouch (non-degraded)"
+  ],
+  "rec": [
+   "Falador Teleports (2)",
+   "Lumberyard Teleports (3)",
+   "Amulet of Glory (Teleports to Port Sarim and Edgeville)"
+  ],
+  "enemies": [
+   "Survive against Abyssal Creatures in multicombat in the Abyss"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "5,000 Fletching XP",
+   "5,000 Runecraft XP",
+   "6,500 Smithing XP"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Start by talking to the Monk outside the Paterdomus temple, east of Varrock.",
+      "s": [
+       "Sure thing, what do you need?"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Making the Bow-sword",
+    "st": [
+     {
+      "t": "Use the Mithril 2H sword on Doric's Whetstone. (Doric is located north of Falador).",
+      "i": [
+       "Mithril 2h Sword"
+      ]
+     },
+     {
+      "t": "Use the bow-string on the Slender blade to make the Bow-sword.",
+      "i": [
+       "Bow String",
+       "Slender Blade"
+      ]
+     }
+    ],
+    "i": [
+     "Mithril 2h Sword",
+     "Bow String"
+    ]
+   },
+   {
+    "n": "A Gift for Entrana",
+    "st": [
+     {
+      "t": "Return to the monk near the Paterdomus temple with the bow-sword.",
+      "s": [
+       "Yep, got it right here for you."
+      ],
+      "i": [
+       "Bow Sword"
+      ]
+     },
+     {
+      "t": "Use the Orb on the Large/Colossal Pouch. You will also be going to Entrana via the Abyss, so you must bank all combat gear.",
+      "i": [
+       "Orb",
+       "Large/Colossal Pouch (non-degraded)"
+      ]
+     },
+     {
+      "t": "Teleport to the Abyss with the Mage of Zamorak IN THE WILDERNESS (other players can attack you here). He stands a short walk north of the Wilderness ditch, north of Edgeville, where the River Lum goes underground. You will be attacked by monsters upon entering, and your prayer drained to 0!",
+      "i": [
+       "Illuminated Pouch",
+       "Banked all equipment and weapons"
+      ]
+     },
+     {
+      "t": "Enter the central area through a gap/passage/eyes. Enter the Law Rift.",
+      "i": [
+       "Illuminated Pouch",
+       "Banked all equipment and weapons"
+      ]
+     },
+     {
+      "t": "Enter the portal to leave the Law Altar.",
+      "i": [
+       "Illuminated Pouch",
+       "Banked all equipment and weapons"
+      ]
+     },
+     {
+      "t": "Use the illuminated pouch on the Altar in the Entrana Church and watch the cutscene. Then talk to the High Priest in the church before you leave.",
+      "i": [
+       "Illuminated Pouch"
+      ]
+     }
+    ],
+    "i": [
+     "Large/Colossal Pouch (non-degraded)"
+    ]
+   },
+   {
+    "n": "Surprise!",
+    "st": [
+     {
+      "t": "Go back to the monk near Paterdomus temple and search the dead monk's body."
+     },
+     {
+      "t": "Bank all weapons and armour, then talk to a Monk of Entrana at the Port Sarim docks to sail to Entrana (the Rat Pits Port Sarim minigame teleport is the closest teleport)."
+     },
+     {
+      "t": "Cross the gangplank and talk to the High Priest in the Entrana Church."
+     },
+     {
+      "t": "Talk to Sir Tiffy Cashien in Falador park to complete the quest.",
+      "s": [
+       "Devious Minds."
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

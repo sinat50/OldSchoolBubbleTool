@@ -1,0 +1,508 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder onesmallfavour; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "One Small Favour",
+  "items": [
+   "Steel bar (4)",
+   "Bronze bar",
+   "Iron bar",
+   "Chisel",
+   "Guam leaf (2)",
+   "Marrentill",
+   "Harralander",
+   "Hammer",
+   "Empty cup",
+   "Pot",
+   "Bowl of hot water"
+  ],
+  "rec": [
+   "Draynor Teleport with glory, 2 or more charges",
+   "Teleports to Lumbridge (4)",
+   "Teleports to Varrock (2)",
+   "Teleports to Taverley or Falador (2)",
+   "Teleports to Camelot or Catherby (2)",
+   "Fishing and Mining Guild Teleport for Dwarven Mine with skills necklace, 4 or more charges",
+   "Teleports to Ardougne (2)",
+   "Teleports to Port Khazard (2)",
+   "Teleports to Feldip Hills (2)",
+   "Opal (2)",
+   "Jade (2)",
+   "Red topaz (2)",
+   "Coins (3000)",
+   "Any pickaxe to kill Slagilith"
+  ],
+  "enemies": [
+   "Slagilith (level 92)",
+   "3x Dwarf gang members (level 44)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "2 x 10,000 Experience Lamps (Any skill over level 30)",
+   "A Steel Keyring",
+   "The ability to make Guthix Rest tea.",
+   "Gnome Glider in Feldip Hills."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Yanni Salika in Shilo Village. CKR fairy ring or take cart from Brimhaven.",
+      "s": [
+       "Is there anything else interesting to do around here?",
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "A few small favours",
+    "st": [
+     {
+      "t": "Talk to a Jungle Forester south of Shilo Village.",
+      "s": [
+       "I need to talk to you about red mahogany.",
+       "Okay, I'll take your axe to get it sharpened."
+      ]
+     },
+     {
+      "t": "Talk to Brian in the Port Sarim axe shop.",
+      "s": [
+       "Do you sharpen axes?",
+       "Look, can you sharpen this cursed axe or what?",
+       "Ok, ok, I'll do it! I'll go and see Aggie."
+      ],
+      "i": [
+       "Blunt axe"
+      ]
+     },
+     {
+      "t": "Talk to Aggie in Draynor Village.",
+      "s": [
+       "Could I ask you about being a character witness?",
+       "Let me guess, you're going to ask me to do you a favour?",
+       "Oh, okay, I'll see if I can find Jimmy."
+      ]
+     },
+     {
+      "t": "Go down the trapdoor into the H.A.M. Hideout west of Lumbridge, picking its lock to open it. Talk to Johanhus Ulsbrecht in the south-east corner of the hideout.",
+      "s": [
+       "I'm looking for Jimmy the Chisel.",
+       "And I suppose you need me to do you a favour?",
+       "Ok, Jimmy has to be worth more than a few scrawny chickens!"
+      ]
+     },
+     {
+      "t": "Talk to Fred the Farmer north of Lumbridge.",
+      "s": [
+       "I need to talk to you about Jimmy."
+      ]
+     },
+     {
+      "t": "Talk to Seth Groats in the farm north east of Lumbridge, across the river.",
+      "s": [
+       "Oh, ok! I guess it's not that much further to Varrock!"
+      ]
+     },
+     {
+      "t": "Talk to Horvik in the armour shop north east of the Varrock square.",
+      "s": [
+       "Hi, I need to talk to you about chicken cages!",
+       "Ok, I guess one good turn deserves another."
+      ],
+      "i": [
+       "Steel bar (3)"
+      ]
+     },
+     {
+      "t": "Talk to the Apothecary in west Varrock.",
+      "s": [
+       "Talk about One Small Favour.",
+       "Oh, ok, I guess it's not that far to the Barbarian Village.",
+       "I guess I can go to the Barbarian Village."
+      ]
+     },
+     {
+      "t": "Talk to Tassie Slipcast in the Barbarian Village pottery building.",
+      "s": [
+       "Ok, I'll deal with Hammerspike!"
+      ]
+     },
+     {
+      "t": "Talk to Hammerspike Stoutbeard in the west cavern of the Dwarven Mine.",
+      "s": [
+       "Oh, come on...do something nice for Tassie.",
+       "Have you always been a gangster?",
+       "Ok, another favour...I think I can manage that."
+      ]
+     },
+     {
+      "t": "Talk to Sanfew upstairs in the Taverley herblore store.",
+      "s": [
+       "Are you taking any new initiates?",
+       "Do you accept dwarves?",
+       "A dwarf I know wants to become an initiate.",
+       "Yep, it's a deal."
+      ]
+     },
+     {
+      "t": "Make Guthix Rest by using a bowl of hot water on an empty tea cup, then using 2 guams, a marrentill and a harralander on it.",
+      "i": [
+       "Empty cup",
+       "Bowl of hot water",
+       "Guam leaf (2)",
+       "Marrentill",
+       "Harralander"
+      ]
+     },
+     {
+      "t": "Long-press Captain Bleemadge on top of White Wolf Mountain and choose Talk-to.",
+      "s": [
+       "I have a special tea here for you from Sanfew!",
+       "Ok, I'll go and get you some T.R.A.S.H."
+      ],
+      "i": [
+       "Guthix rest(3)"
+      ]
+     },
+     {
+      "t": "Talk to Arhein in Catherby.",
+      "s": [
+       "I need to talk T.R.A.S.H. to you.",
+       "Yes, Ok, I'll do it!"
+      ]
+     },
+     {
+      "t": "Talk to Phantuwti in the south west house of Seers' Village.",
+      "s": [
+       "Hi, can you give me a weather forecast?",
+       "What can I do to help?",
+       "Yes, Ok, I'll do it."
+      ]
+     },
+     {
+      "t": "Enter the cave south east of the Fishing Guild."
+     },
+     {
+      "t": "Long-press the sculpture in the wall in the north east corner of the cave and choose Search."
+     },
+     {
+      "t": "Talk to Wizard Cromperty in north east Ardougne.",
+      "s": [
+       "Chat.",
+       "I need to talk to you about a girl stuck in some rock!",
+       "Oh! Ok, one more 'small favour' isn't going to kill me...I hope!"
+      ]
+     },
+     {
+      "t": "Talk to Tindel Marchant in Port Khazard.",
+      "s": [
+       "Wizard Cromperty sent me to get some iron oxide.",
+       "Ask about iron oxide.",
+       "Okay, I'll do it!"
+      ]
+     },
+     {
+      "t": "Talk to Rantz in the Feldip Hills. AKS fairy ring or Feldip Hills Teleport.",
+      "s": [
+       "I need to talk to you about a mattress.",
+       "Can you fill this mattress with feathers?",
+       "Ok, I'll see what I can do."
+      ]
+     },
+     {
+      "t": "Talk to Gnormadium Avlafrim west of Rantz.",
+      "s": [
+       "Rantz said I should help you finish this project.",
+       "Yes, I'll take a look at them."
+      ]
+     },
+     {
+      "t": "Search each of the 8 landing lights on the landing strip to take out its uncut gem. Cut the gem with a chisel and put it back in the same light. The lights stand in two rows of four: from east to west, each row holds jade, red topaz, opal and sapphire. If you crush a gem, keep the crushed gem: Gnormadium sells up to 2 new ones of each type for 500 coins each.",
+      "i": [
+       "Chisel"
+      ]
+     }
+    ],
+    "i": [
+     "Chisel",
+     "Steel bar (3)",
+     "Empty cup",
+     "Bowl of hot water",
+     "Guam leaf (2)",
+     "Marrentill",
+     "Harralander"
+    ],
+    "r": [
+     "Opal (2)",
+     "Jade (2)",
+     "Red topaz (2)",
+     "Coins (3000)"
+    ]
+   },
+   {
+    "n": "Completing the favours",
+    "st": [
+     {
+      "t": "Talk to Gnormadium Avlafrim again.",
+      "s": [
+       "I've fixed all the lights!"
+      ]
+     },
+     {
+      "t": "Return to Rantz in the Feldip Hills. AKS fairy ring or Feldip Hills Teleport.",
+      "s": [
+       "Ok, I've helped that Gnome, he shouldn't bother you anymore."
+      ],
+      "i": [
+       "Stodgy mattress"
+      ]
+     },
+     {
+      "t": "Return to Tindel Marchant in Port Khazard.",
+      "s": [
+       "I have the mattress."
+      ],
+      "i": [
+       "Comfy mattress"
+      ]
+     },
+     {
+      "t": "Return to Wizard Cromperty in north east Ardougne.",
+      "s": [
+       "Chat.",
+       "I have that iron oxide you asked for!"
+      ],
+      "i": [
+       "Iron oxide"
+      ]
+     },
+     {
+      "t": "Get 5 pigeon cages from behind Jerico's house in central East Ardougne.",
+      "i": [
+       "Pigeon cages (5)"
+      ]
+     },
+     {
+      "t": "Enter the cave south east of the Fishing Guild. Be prepared to fight the Slagilith(level 92, takes reduced damage from anything other than pickaxes).",
+      "i": [
+       "Pigeon cages (5)",
+       "Animate rock scroll",
+       "Any pickaxe to kill Slagilith"
+      ]
+     },
+     {
+      "t": "Stand in front of the sculpture in the north-east cavern, then read the animate rock scroll.",
+      "i": [
+       "Animate rock scroll"
+      ]
+     },
+     {
+      "t": "Kill the Slagilith. They take reduced damage from anything other than a pickaxe."
+     },
+     {
+      "t": "Read the animate rock scroll again.",
+      "i": [
+       "Animate rock scroll"
+      ]
+     },
+     {
+      "t": "Talk to Petra Fiyed."
+     },
+     {
+      "t": "Return to Phantuwti in the south west house of Seers' Village. Keep asking until he tells you about his weather vane.",
+      "s": [
+       "I've released Petra, she should have returned.",
+       "I'll run you through if you don't give me that weather report.",
+       "Why can't you get a clear picture?",
+       "Which special Seers tools do you mean?",
+       "You're talking in riddles, just give me a straight answer!",
+       "What do you mean, 'special combination of items'?"
+      ]
+     },
+     {
+      "t": "Climb the ladder in Phantuwti's house, walk east and climb the next ladder to the roof (needs 36 Agility). Long-press the weathervane and choose Search."
+     },
+     {
+      "t": "Use a hammer on the weathervane.",
+      "i": [
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Long-press the weathervane on top of the Seers' building and choose Search again."
+     },
+     {
+      "t": "Repair the vane parts on an anvil. You can find one in the north of Seers' Village.",
+      "i": [
+       "Broken vane part",
+       "Hammer",
+       "Steel bar",
+       "Iron bar",
+       "Bronze bar"
+      ]
+     },
+     {
+      "t": "Go back up to the Seers' roof by the two ladders. Use the ornament, the directionals and the weathervane pillar on the weathervane.",
+      "i": [
+       "Ornament",
+       "Directionals",
+       "Weathervane pillar"
+      ]
+     },
+     {
+      "t": "Return to Phantuwti in the south west house of Seers' Village.",
+      "s": [
+       "I've fixed the weather vane!"
+      ]
+     },
+     {
+      "t": "Talk to Arhein in Catherby.",
+      "s": [
+       "What did you want me to do again?",
+       "I have the weather report for you."
+      ],
+      "i": [
+       "Weather report"
+      ]
+     },
+     {
+      "t": "Long-press Captain Bleemadge on White Wolf Mountain and choose Talk-to.",
+      "s": [
+       "Hey there, did you get your T.R.A.S.H?"
+      ]
+     },
+     {
+      "t": "Return to Sanfew upstairs in the Taverley herblore store.",
+      "s": [
+       "Hi there, the Gnome Pilot has agreed to take you to see the ogres!"
+      ]
+     },
+     {
+      "t": "Return to Hammerspike Stoutbeard in the west cavern of the Dwarven Mine."
+     },
+     {
+      "t": "Kill 3 dwarf gang members until Hammerspike gives in. One dwarf gang member should appear after each kill."
+     },
+     {
+      "t": "Return to Hammerspike Stoutbeard in the west cavern of the Dwarven Mine after killing his dwarf gang members."
+     },
+     {
+      "t": "Return to Tassie Slipcast in the Barbarian Village pottery building."
+     },
+     {
+      "t": "Spin the clay into a pot lid.",
+      "i": [
+       "Soft clay"
+      ]
+     },
+     {
+      "t": "Fire the unfired pot lid.",
+      "i": [
+       "Unfired pot lid"
+      ]
+     },
+     {
+      "t": "Get a pot to put your lid on. There's one in the Barbarian Village helmet shop.",
+      "i": [
+       "Pot"
+      ]
+     },
+     {
+      "t": "Use the pot lid on a pot.",
+      "i": [
+       "Pot",
+       "Pot lid"
+      ]
+     },
+     {
+      "t": "Return to the Apothecary in west Varrock.",
+      "s": [
+       "Talk about One Small Favour."
+      ],
+      "i": [
+       "Airtight pot"
+      ]
+     },
+     {
+      "t": "Return to Horvik in the armour shop north east of the Varrock square.",
+      "s": [
+       "I have the tincture and the breathing salts."
+      ],
+      "i": [
+       "Pigeon cages (5)",
+       "Breathing salts",
+       "Herbal tincture"
+      ]
+     },
+     {
+      "t": "Talk to Horvik once more in the armour shop north east of the Varrock square.",
+      "s": [
+       "I have the five pigeon cages you asked for!"
+      ],
+      "i": [
+       "Pigeon cages (5)"
+      ]
+     },
+     {
+      "t": "Return to Seth Groats in the farm north east of Lumbridge, across the river.",
+      "i": [
+       "Chicken cage (5)"
+      ]
+     },
+     {
+      "t": "Return to Johanhus Ulsbrecht in the south of the H.A.M hideout.",
+      "s": [
+       "You're in luck, I've managed to swing that chicken deal for you."
+      ]
+     },
+     {
+      "t": "Return to Aggie in Draynor Village.",
+      "s": [
+       "Good news! Jimmy has been released!"
+      ]
+     },
+     {
+      "t": "Return to Brian in the Port Sarim axe shop.",
+      "s": [
+       "I've returned with good news."
+      ]
+     },
+     {
+      "t": "Return to a Jungle Forester south of Shilo Village. CKR fairy ring or take cart from Brimhaven.",
+      "s": [
+       "Good news, I have your sharpened axe!"
+      ],
+      "i": [
+       "Sharpened axe"
+      ]
+     },
+     {
+      "t": "Return to Yanni Salika in Shilo Village.",
+      "s": [
+       "Here's the red mahogany you asked for."
+      ],
+      "i": [
+       "Red mahogany log"
+      ]
+     }
+    ],
+    "i": [
+     "Bronze bar",
+     "Iron bar",
+     "Steel bar",
+     "Hammer",
+     "Pot"
+    ],
+    "r": [
+     "Combat gear to fight Slagilith and the dwarf gang members",
+     "Any pickaxe to kill Slagilith"
+    ],
+    "c": 1,
+    "e": [
+     "Slagilith (level 92)"
+    ]
+   }
+  ]
+ }
+}

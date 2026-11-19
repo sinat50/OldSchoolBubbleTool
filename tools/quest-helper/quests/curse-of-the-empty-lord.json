@@ -1,0 +1,90 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder curseoftheemptylord; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Curse of the Empty Lord",
+  "items": [
+   "Ring of visibility",
+   "Ghostspeak amulet or Morytania legs 2 or better",
+   "Knife"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "10,000 Experience Lamp (Any skill over level 50).",
+   "A Set of Ghostly Robes"
+  ],
+  "sec": [
+   {
+    "n": "Learn about the Empty Lord",
+    "st": [
+     {
+      "t": "Wear your ring of visibility and your ghostspeak amulet or Morytania legs, or you can't see the ghosts. Then talk to the Mysterious Ghost outside Glarial's Tomb, north-west of the Fishing Guild. Ghosts don't show on the minimap.",
+      "s": [
+       "Tell me your story"
+      ],
+      "i": [
+       "Ghostspeak amulet or Morytania legs 2 or better",
+       "Ring of visibility"
+      ]
+     },
+     {
+      "t": "Talk to the Mysterious Ghost Rennard. Where he is depends on the first ghost's hint (ask that ghost again if you missed it). Route 1, pirates and a shipwreck: by the shipwreck near the Wilderness Agility Course, level 52 Wilderness. Route 2, north-east: the Bandit Camp in the Wilderness. Route 3, south-east: the Bandit Camp in the desert. Stay on the same route for every ghost.",
+      "s": [
+       "Tell me your story"
+      ],
+      "i": [
+       "Ghostspeak amulet or Morytania legs 2 or better",
+       "Ring of visibility"
+      ]
+     },
+     {
+      "t": "Talk to the Mysterious Ghost Kharrim. Route 1: the Chaos Temple, level 38 Wilderness. Route 2: the Graveyard of Shadows in the Wilderness. Route 3: the centre of the Lava Maze (bring a knife or slash weapon for the webs).",
+      "s": [
+       "Tell me your story"
+      ],
+      "i": [
+       "Ghostspeak amulet or Morytania legs 2 or better",
+       "Ring of visibility"
+      ]
+     },
+     {
+      "t": "Talk to the Mysterious Ghost Lennissa. Route 1: the church on Entrana (wear a Ghostspeak amulet, as Morytania legs aren't allowed there). Route 2: the south of the Port Sarim docks. Route 3: the west of the Tree Gnome Stronghold.",
+      "s": [
+       "Tell me your story"
+      ],
+      "i": [
+       "Ghostspeak amulet or Morytania legs 2 or better",
+       "Ring of visibility"
+      ]
+     },
+     {
+      "t": "Talk to the Mysterious Ghost Dhalak. Route 1: the ground floor of the Wizards' Tower. Route 2: upstairs in the Edgeville Monastery (needs 31 Prayer). Route 3: upstairs in the Falador Party Room.",
+      "s": [
+       "Tell me your story"
+      ],
+      "i": [
+       "Ghostspeak amulet or Morytania legs 2 or better",
+       "Ring of visibility"
+      ]
+     },
+     {
+      "t": "Talk to the Mysterious Ghost Viggora. Route 1: upstairs in the Rogues' Castle, level 54 Wilderness. Route 2: upstairs in the Slayer Tower, near the Infernal Mages. Route 3: in the Edgeville Wilderness Dungeon, near the Earth Warriors.",
+      "s": [
+       "Tell me your story"
+      ],
+      "i": [
+       "Ghostspeak amulet or Morytania legs 2 or better",
+       "Ring of visibility"
+      ]
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet or Morytania legs 2 or better",
+     "Ring of visibility",
+     "Knife"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

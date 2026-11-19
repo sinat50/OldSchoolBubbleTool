@@ -1,0 +1,333 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Tourist Trap",
+  "items": [
+   "Desert shirt",
+   "Desert robe",
+   "Desert boots",
+   "Bronze bars (3)",
+   "Hammer",
+   "Feather (50)"
+  ],
+  "rec": [
+   "Combat gear",
+   "Waterskins",
+   "Knife",
+   "Any pickaxe",
+   "Coins (100)"
+  ],
+  "enemies": [
+   "Mercenary Captain (level 47)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "2 x 4,650 Exp. Lamps (Agility, Fletching, Smithing or Thieving)",
+   "Ability to smith darts."
+  ],
+  "sec": [
+   {
+    "n": "Investigating the trap",
+    "st": [
+     {
+      "t": "Talk to Irena south of the Shantay Pass.",
+      "s": [
+       "What's the matter?",
+       "Is there a reward if I get her back?",
+       "I'll look for your daughter.",
+       "Okay Irena, calm down. I'll get your daughter back for you.",
+       "Yes, I'll go on this quest!"
+      ]
+     },
+     {
+      "t": "Talk to the Mercenary Captain outside the Desert Mining Camp. When he attacks you, kill him for a key.",
+      "s": [
+       "Wow! A real captain!",
+       "I'd love to work for a tough guy like you!",
+       "Can't I do something for a strong Captain like you?",
+       "Sorry Sir, I don't think I can do that.",
+       "It's a funny captain who can't fight his own battles!"
+      ],
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "UNEQUIP ALL COMBAT GEAR and enter the camp. Wearing armour or weapons in the camp gets you jailed. If you're jailed, bend the cell window and escape through it, climb the rocks, climb the cliff, then climb down the west of the cliff. If you're sent to the mining room, mine 15 rocks to be able to leave.",
+      "i": [
+       "Desert shirt",
+       "Desert robe",
+       "Desert boots",
+       "Metal key"
+      ]
+     },
+     {
+      "t": "Talk to the Male Slave to the east to trade your desert robes for his slave robes.",
+      "s": [
+       "I've just arrived.",
+       "Okay, you caught me out.",
+       "Oh yes, that sounds interesting.",
+       "What's that then?",
+       "I can try to undo them for you.",
+       "It's funny you should say that...",
+       "Yeah, okay, let's give it a go.",
+       "Yes, I'll trade."
+      ],
+      "i": [
+       "Desert shirt",
+       "Desert robe",
+       "Desert boots"
+      ]
+     },
+     {
+      "t": "Equip the slave clothes, and enter the mine door in the north east of the camp.",
+      "i": [
+       "Slave shirt",
+       "Slave robe",
+       "Slave boots"
+      ]
+     },
+     {
+      "t": "Follow the cave around and talk to a guard guarding the deeper cave.",
+      "s": [
+       "I'd like to mine in a different area.",
+       "Yes sir, you're quite right sir.",
+       "Yes sir, we understand each other perfectly."
+      ],
+      "i": [
+       "Slave shirt",
+       "Slave robe",
+       "Slave boots"
+      ]
+     }
+    ],
+    "i": [
+     "Desert shirt",
+     "Desert robe",
+     "Desert boots",
+     "Bronze bars (3)",
+     "Hammer",
+     "Feather (50)"
+    ],
+    "c": 1,
+    "e": [
+     "Mercenary Captain (level 47)"
+    ]
+   },
+   {
+    "n": "Helping out",
+    "st": [
+     {
+      "t": "Return to the surface, then UNEQUIP THE SLAVE CLOTHES and leave the camp. Go west to the Bedabin Camp and talk to Al Shabim in its south tent.",
+      "s": [
+       "I am looking for a pineapple.",
+       "Yes, I'm interested."
+      ]
+     },
+     {
+      "t": "UNEQUIP ALL COMBAT GEAR and enter the camp.",
+      "i": [
+       "Metal key",
+       "Bedabin key"
+      ]
+     },
+     {
+      "t": "Climb up the ladder in the northern building of the camp.",
+      "i": [
+       "Bedabin key"
+      ]
+     },
+     {
+      "t": "Search the south west bookcase."
+     },
+     {
+      "t": "Talk to Captain Siad about sailing to distract him.",
+      "s": [
+       "I wanted to have a chat?",
+       "You seem to have a lot of books!",
+       "So, you're interested in sailing?",
+       "I could tell by the cut of your jib."
+      ],
+      "i": [
+       "Bedabin key"
+      ]
+     },
+     {
+      "t": "While Captain Siad is distracted, search the chest."
+     },
+     {
+      "t": "Return to Al Shabim in the Bedabin Camp with the plans.",
+      "s": [
+       "Yes, I'm very interested.",
+       "Yes, I'm kind of curious."
+      ],
+      "i": [
+       "Technical plans",
+       "Bronze bar",
+       "Hammer",
+       "Feather (50)"
+      ]
+     },
+     {
+      "t": "Enter the north tent and attempt to make a prototype dart tip on the anvil. Bring all 3 bars with you for this.",
+      "s": [
+       "Yes. I'd like to try."
+      ],
+      "i": [
+       "Technical plans",
+       "Bronze bar",
+       "Hammer",
+       "Feather (50)"
+      ]
+     },
+     {
+      "t": "Add 10 feathers to the prototype dart tip.",
+      "i": [
+       "Prototype dart tip",
+       "Feather (50)"
+      ]
+     },
+     {
+      "t": "Bring the prototype dart to Al Shabim.",
+      "i": [
+       "Prototype dart"
+      ]
+     }
+    ],
+    "i": [
+     "Bronze bars (3)",
+     "Hammer",
+     "Feather (50)"
+    ]
+   },
+   {
+    "n": "Freeing Ana",
+    "st": [
+     {
+      "t": "UNEQUIP ALL COMBAT GEAR and enter the camp.",
+      "i": [
+       "Metal key",
+       "Tenti pineapple",
+       "Slave shirt",
+       "Slave robe",
+       "Slave boots"
+      ]
+     },
+     {
+      "t": "Equip the slave clothes, and enter the mine door in the north east of the camp.",
+      "i": [
+       "Slave shirt",
+       "Slave robe",
+       "Slave boots",
+       "Tenti pineapple"
+      ]
+     },
+     {
+      "t": "Follow the cave around and talk to a guard guarding the deeper cave.",
+      "i": [
+       "Slave shirt",
+       "Slave robe",
+       "Slave boots",
+       "Tenti pineapple"
+      ]
+     },
+     {
+      "t": "Enter the deeper mines."
+     },
+     {
+      "t": "Long-press the barrel next to the mine cart and choose Search to get a barrel.",
+      "s": [
+       "Yeah, cool!"
+      ]
+     },
+     {
+      "t": "Long-press the mine cart and choose Search to ride it to the next room.",
+      "s": [
+       "Yes, of course."
+      ],
+      "i": [
+       "Barrel"
+      ]
+     },
+     {
+      "t": "Follow the path west then north until you find Ana. Use the barrel on her.",
+      "i": [
+       "Barrel"
+      ]
+     },
+     {
+      "t": "Use Ana on the mine cart you came in on.",
+      "i": [
+       "Ana in a barrel"
+      ]
+     },
+     {
+      "t": "Return in the mine cart you came in on.",
+      "s": [
+       "Yes, of course."
+      ]
+     },
+     {
+      "t": "Long-press the barrel next to the mine cart and choose Search to find Ana."
+     },
+     {
+      "t": "Use Ana in a barrel on the winch bucket in the north-west of the room to send her to the surface.",
+      "s": [
+       "Yes please.",
+       "I said you were very gregarious!"
+      ],
+      "i": [
+       "Ana in a barrel"
+      ]
+     },
+     {
+      "t": "Return to the surface. If Ana was captured again, search the barrel next to the mine cart for her."
+     },
+     {
+      "t": "Long-press the winch in the south-west of the camp and choose Operate."
+     },
+     {
+      "t": "Long-press the barrel west of the winch and choose Search. If it's empty, operate the winch again."
+     },
+     {
+      "t": "Use Ana on the cart in the middle of the camp.",
+      "i": [
+       "Ana in a barrel"
+      ]
+     },
+     {
+      "t": "Talk to the Mine Cart Driver to escape. Once he's agreed to take you, long-press the wooden cart and choose Search to escape.",
+      "s": [
+       "Nice cart.",
+       "One wagon wheel says to the other, 'I'll see you around'.",
+       "'One good turn deserves another'",
+       "Fired... no, shot perhaps!",
+       "In for a penny in for a pound.",
+       "Well, you see, it's like this...",
+       "Prison riot in ten minutes, get your cart out of here!",
+       "You can't leave me here, I'll get killed!",
+       "Yes, I'll get on."
+      ]
+     },
+     {
+      "t": "Bring Ana to Irena south of the Shantay Pass.",
+      "i": [
+       "Ana in a barrel"
+      ]
+     },
+     {
+      "t": "Talk to Ana outside the Shantay Pass."
+     },
+     {
+      "t": "Talk to Irena south of the Shantay Pass to finish the quest!"
+     }
+    ],
+    "i": [
+     "Slave shirt",
+     "Slave robe",
+     "Slave boots"
+    ]
+   }
+  ]
+ }
+}

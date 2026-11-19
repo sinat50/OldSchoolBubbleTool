@@ -1,0 +1,279 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Shilo Village",
+  "items": [
+   "Spade",
+   "Lit torch or candle",
+   "Rope",
+   "Bronze wire",
+   "Chisel",
+   "Bones (3)"
+  ],
+  "rec": [
+   "Combat gear",
+   "Food",
+   "Stamina potions",
+   "Antipoisons",
+   "Prayer potions",
+   "A quick teleport for escaping",
+   "Papyrus",
+   "Charcoal",
+   "Crumble undead spell for final boss"
+  ],
+  "enemies": [
+   "Nazastarool 3 times (levels 68, 91, 93) (safespottable)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "3,875 Crafting XP",
+   "Access to Shilo Village",
+   "Ability to mine gem rocks in Shilo Village"
+  ],
+  "sec": [
+   {
+    "n": "Exploring",
+    "st": [
+     {
+      "t": "Talk to Mosol Rei east of Shilo Village in south Karamja to receive a wampum belt.",
+      "s": [
+       "Why do I need to run?",
+       "Rashiliyia? Who is she?",
+       "What can we do?",
+       "I'll go to see the Shaman.",
+       "Yes, I'm sure and I'll take the Wampum belt to Trufitus."
+      ]
+     },
+     {
+      "t": "Use the wampum belt on Trufitus, in the north-easternmost house of Tai Bwo Wannai.",
+      "s": [
+       "Mosol Rei said something about a legend?",
+       "Do you know anything more about the temple?",
+       "Tell me more.",
+       "I am going to search for Ah Za Rhoon!",
+       "Yes, I will seriously look for Ah Za Rhoon and I'd appreciate your help.",
+       "Yes."
+      ],
+      "i": [
+       "Wampum belt"
+      ]
+     },
+     {
+      "t": "From Tai Bwo Wannai, cross the wooden log to the east and head south to the mound of earth surrounded by rocks, south-west of the Shipyard. Use a spade on the mound.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "If you only see a mound of earth, look at it first to find the fissure. Then use a lit torch or candle on the fissure. You won't get the light back.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Lit torch or candle"
+      ]
+     },
+     {
+      "t": "Use a rope on the fissure.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Long-press the fissure and choose Search.",
+      "s": [
+       "Yes, I'll give it a go!"
+      ]
+     },
+     {
+      "t": "Head south from where you landed until you see the water, then go west past the column and search the cave-in to go deeper into the caverns.",
+      "s": [
+       "Yes, I'll wriggle through."
+      ]
+     },
+     {
+      "t": "Search the loose rocks to the north for a tattered scroll.",
+      "s": [
+       "Yes, I'll carefully move the rocks to see what's behind them."
+      ]
+     },
+     {
+      "t": "Head south-east to a small dead-end branch and search the old sacks next to the smashed table for a crumpled scroll."
+     },
+     {
+      "t": "Long-press the gallows in the north east corner and choose Search to find a corpse.",
+      "s": [
+       "Yes, I may find something else on the corpse."
+      ]
+     },
+     {
+      "t": "Leave the caves: teleport out, or go back through the cave-in, then south and east to the end of the cave and search the rocks there to leave by the waterfall. You can take about 20 damage.",
+      "i": [
+       "Zadimus corpse"
+      ]
+     },
+     {
+      "t": "Bury Zadimus's corpse at the Tribal Statue in the middle of Tai Bwo Wannai, west of Trufitus's hut.",
+      "i": [
+       "Zadimus corpse"
+      ]
+     },
+     {
+      "t": "Read the tattered scroll.",
+      "s": [
+       "Yes please."
+      ],
+      "i": [
+       "Tattered scroll"
+      ]
+     },
+     {
+      "t": "Read the crumpled scroll.",
+      "s": [
+       "Yes please."
+      ],
+      "i": [
+       "Crumpled scroll"
+      ]
+     }
+    ],
+    "i": [
+     "Spade",
+     "Lit torch or candle",
+     "Rope",
+     "Chisel"
+    ]
+   },
+   {
+    "n": "Free Rashiliyia",
+    "st": [
+     {
+      "t": "Go to Cairn Isle, west of Shilo Village, near fairy ring CKR. Climb the rocks (15 Agility) and cross the bridge. Long-press the well stacked rocks on the north side of the island and choose Search.",
+      "s": [
+       "Yes please, I can think of nothing nicer!"
+      ]
+     },
+     {
+      "t": "Have 3 free inventory spaces. Long-press the tomb dolmen to the south and choose Search. Don't drop the locating crystal."
+     },
+     {
+      "t": "Use a chisel on the pommel.",
+      "i": [
+       "Chisel",
+       "Sword pommel"
+      ]
+     },
+     {
+      "t": "Use bronze wire on the beads.",
+      "i": [
+       "Bronze wire",
+       "Bone beads"
+      ]
+     },
+     {
+      "t": "Wear the beads of the dead and go south-east from fairy ring DKP, to the area north of the crashed gnome glider. Search the bright green palm trees from their north side. Come equipped for a boss fight.",
+      "i": [
+       "Beads of the dead",
+       "Bone shard",
+       "Chisel",
+       "Bones (3)",
+       "Combat gear",
+       "Crumble undead spell for final boss",
+       "Food"
+      ]
+     },
+     {
+      "t": "Long-press the carved doors behind the palm trees and choose Search.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Use a chisel on the bone shard.",
+      "i": [
+       "Chisel",
+       "Bone shard"
+      ]
+     },
+     {
+      "t": "Use the bone key on the doors behind the palm trees.",
+      "i": [
+       "Bone key"
+      ]
+     },
+     {
+      "t": "Enter the doors behind the palm trees.",
+      "i": [
+       "Beads of the dead",
+       "Bones (3)",
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Equip the beads of the dead. Go through the gate and down the rocks.",
+      "i": [
+       "Beads of the dead",
+       "Bones (3)"
+      ]
+     },
+     {
+      "t": "Head west. Don't pick up the stack of coins: it summons undead ones. Then go south, then south-west at the first fork, to the doors at the end.",
+      "i": [
+       "Beads of the dead",
+       "Bones (3)"
+      ]
+     },
+     {
+      "t": "Long-press your bones, choose Use and tap the doors. Do this for all 3 bones, then enter the room with the beads still on.",
+      "i": [
+       "Beads of the dead",
+       "Bones (3)"
+      ]
+     },
+     {
+      "t": "Search the tomb dolmen, ready to fight."
+     },
+     {
+      "t": "Defeat Nazastarool's 3 forms. You can safe spot them over the tomb dolmen. The Crumble Undead spell is very strong against them."
+     },
+     {
+      "t": "Pickup Rashiliyia's corpse.",
+      "i": [
+       "Rashiliyia corpse"
+      ]
+     },
+     {
+      "t": "Leave the tomb: teleport out, or use the bone key on the doors you came in by. Go back to Cairn Isle, long-press the rocks and choose Search to enter the caverns again.",
+      "s": [
+       "Yes please, I can think of nothing nicer!"
+      ],
+      "i": [
+       "Rashiliyia corpse"
+      ]
+     },
+     {
+      "t": "Use Rashiliyia's corpse on the dolmen to the south.",
+      "i": [
+       "Rashiliyia corpse"
+      ]
+     }
+    ],
+    "i": [
+     "Chisel",
+     "Bronze wire",
+     "Bones (3)"
+    ],
+    "r": [
+     "Combat gear",
+     "Food",
+     "Crumble undead spell for final boss",
+     "Prayer potions"
+    ],
+    "c": 1,
+    "e": [
+     "Nazastarool 3 times (levels 68, 91, 93) (safespottable)"
+    ]
+   }
+  ]
+ }
+}

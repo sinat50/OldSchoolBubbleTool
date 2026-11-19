@@ -1,0 +1,296 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder atasteofhope; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "A Taste of Hope",
+  "items": [
+   "Coins (1000)",
+   "Vial of water",
+   "Rod of Ivandis",
+   "Emerald",
+   "Chisel",
+   "Runes or tablet for Enchant Emerald",
+   "Combat gear"
+  ],
+  "rec": [
+   "Any pickaxe"
+  ],
+  "enemies": [
+   "Abomination (level 149, safespottable)",
+   "Ranis Drakan (level 233, melee only)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "Ivandis Flail",
+   "Drakan's Medallion",
+   "3 x 2,500 Experience Tomes (Any skill over level 35)."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Garth outside the Theatre of Blood.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Enter the Meiyerditch Myreque base. The easiest way: go through the Theatre of Blood's western exit into Meiyerditch and ask a Vyrewatch to send you to the mines. Mine 15 Daeyalt ore and put it in the mine cart, then talk to a Vampyre Juvinate to leave. If you have no pickaxe, ask a miner for a bronze one."
+     },
+     {
+      "t": "From the mine exit, walk 8 squares east, 21 south, 3 west, 9 south, 5 east, 6 south, 2 east, 4 south, 3 west, 7 south, 2 east, 10 south, 3 west and 9 south to a house with a ladder. Climb the ladder, jump east to the floorboards and climb down the stairs."
+     },
+     {
+      "t": "Walk south-east and push the wall to pass through. Press the decorated wall, open the lumpy rug south-east of it and climb down the trapdoor."
+     },
+     {
+      "t": "Talk to Safalaan in the north room."
+     }
+    ]
+   },
+   {
+    "n": "Spying",
+    "st": [
+     {
+      "t": "Return to the Theatre of Blood and attempt to climb rubble in its south west corner."
+     },
+     {
+      "t": "Talk to Harpert near the rubble.",
+      "s": [
+       "Fine, here's the money."
+      ],
+      "i": [
+       "Coins (1000)"
+      ]
+     },
+     {
+      "t": "Attempt to climb the rubble again."
+     },
+     {
+      "t": "Climb the vent to the north when the steam stops coming out."
+     },
+     {
+      "t": "Jump off the roof to the north."
+     },
+     {
+      "t": "Climb the vent to the north when steam stops coming out."
+     },
+     {
+      "t": "Climb the roof to the east."
+     },
+     {
+      "t": "Climb down to the east."
+     },
+     {
+      "t": "Look through the window at the end of the path."
+     }
+    ],
+    "i": [
+     "Coins (1000)"
+    ]
+   },
+   {
+    "n": "Investigating",
+    "st": [
+     {
+      "t": "Return to the Meiyerditch Myreque base. The easiest way: go through the Theatre of Blood's western exit into Meiyerditch and ask a Vyrewatch to send you to the mines. Mine 15 Daeyalt ore and put it in the mine cart, then talk to a Vampyre Juvinate to leave. If you have no pickaxe, ask a miner for a bronze one."
+     },
+     {
+      "t": "From the mine exit, walk 8 squares east, 21 south, 3 west, 9 south, 5 east, 6 south, 2 east, 4 south, 3 west, 7 south, 2 east, 10 south, 3 west and 9 south to a house with a ladder. Climb the ladder, jump east to the floorboards and climb down the stairs."
+     },
+     {
+      "t": "Walk south-east and push the wall to pass through. Press the decorated wall if you need to, open the lumpy rug south-east of it and climb down the trapdoor."
+     },
+     {
+      "t": "Talk to Safalaan in the north room.",
+      "s": [
+       "I do."
+      ]
+     },
+     {
+      "t": "Talk to Flaygian.",
+      "s": [
+       "Anything to report?",
+       "Why?"
+      ]
+     },
+     {
+      "t": "Talk to Safalaan again."
+     },
+     {
+      "t": "Climb the ladder out of the base. Push the wall, climb up the stairs, jump the gap and climb down the ladder. Head north through the first three doors in a line, then west until you reach the Meiyerditch wall. Head north-west to a broken fountain and enter Serafina's house just south of it by going down the stairs."
+     },
+     {
+      "t": "Talk to Safalaan."
+     },
+     {
+      "t": "In the basement, search the barrel in the north-east corner for a mysterious herb and the crate in the west for mysterious meat."
+     },
+     {
+      "t": "Search the crate in the south-east corner for a vial and the crate by the stairs for a pestle and mortar. Fill the vial at the broken fountain upstairs, north of the house. Skip this if you brought your own."
+     },
+     {
+      "t": "Add the herb to the vial of water. Crush the meat with the pestle and mortar, then add it to the potion."
+     },
+     {
+      "t": "Use the potion on the door. It won't open, but you need to try it.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Take another vial from the south-east crate and talk to Safalaan to fill it with his blood.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Get another herb and more meat from the same barrel and crate. Add the herb to the vial of blood, crush the meat and add it."
+     },
+     {
+      "t": "Use the blood potion on the door to open it.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Search the chest for some notes."
+     },
+     {
+      "t": "Talk to Safalaan with the notes.",
+      "s": [
+       "Here you go."
+      ],
+      "i": [
+       "Old notes"
+      ]
+     },
+     {
+      "t": "Prepare for a fight, then return to the Meiyerditch Myreque base. From Serafina's house walk 6 squares north, 27 east, 3 south, 9 east, 3 south, 2 east, 10 south, 3 west and 9 south to the house with the ladder. Climb the ladder, jump east to the floorboards and climb down the stairs."
+     },
+     {
+      "t": "Walk south-east and push the wall to pass through. Press the decorated wall if you need to, open the lumpy rug south-east of it and climb down the trapdoor."
+     },
+     {
+      "t": "Talk to Safalaan, ready for a fight."
+     },
+     {
+      "t": "Kill the abomination. It can be safe spotted with a long-ranged weapon."
+     },
+     {
+      "t": "Talk to Safalaan."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Food",
+     "Vial of water"
+    ],
+    "c": 1,
+    "e": [
+     "Abomination (level 149, safespottable)"
+    ]
+   },
+   {
+    "n": "Plotting revenge",
+    "st": [
+     {
+      "t": "Go to Old Man Ral's house in southern Meiyerditch: take the boat from Burgh de Rott, go over the wall and run north-east. Climb down the trapdoor in the house's north room.",
+      "i": [
+       "Rod of Ivandis",
+       "Emerald",
+       "Chisel",
+       "Runes or tablet for Enchant Emerald"
+      ]
+     },
+     {
+      "t": "Talk to Safalaan."
+     },
+     {
+      "t": "Talk to Vertida."
+     },
+     {
+      "t": "Read Flaygian's notes.",
+      "i": [
+       "Flaygian's notes"
+      ]
+     },
+     {
+      "t": "Search the north west crate for a blessed sickle."
+     },
+     {
+      "t": "Search the south east crate for a chain."
+     },
+     {
+      "t": "Use an emerald on the blessed sickle.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Emerald",
+       "Silver sickle (b)",
+       "Chisel"
+      ]
+     },
+     {
+      "t": "Cast enchant emerald on the emerald sickle.",
+      "i": [
+       "Emerald sickle (b)",
+       "Runes or tablet for Enchant Emerald"
+      ]
+     },
+     {
+      "t": "With the chain and the rod of Ivandis in your inventory, use the chain on the enchanted emerald sickle to make the Ivandis flail. If you don't have the rod, get it back from Veliaf Hurtz under the pub in Burgh de Rott. You must have talked to Vertida first.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Enchanted emerald sickle (b)",
+       "Rod of Ivandis"
+      ]
+     },
+     {
+      "t": "Talk to Safalaan again."
+     }
+    ],
+    "i": [
+     "Emerald",
+     "Chisel",
+     "Runes or tablet for Enchant Emerald"
+    ]
+   },
+   {
+    "n": "Rising up",
+    "st": [
+     {
+      "t": "Talk to Kael outside the Theatre of Blood, prepared to fight Ranis.",
+      "i": [
+       "Ivandis flail"
+      ]
+     },
+     {
+      "t": "Defeat Ranis. He can only be hurt by the flail, and uses magic and melee attacks. He will occasionally charge an attack and explode, dealing damage close to him. Just run away for this attack. During the fight he will spawn vyrewatch which you'll need to kill. Whilst fighting them Ranis will be throwing blood bombs at your current location, so make sure to move around. In his last phase he will only attack with melee, so make sure to use protect from melee!",
+      "i": [
+       "Ivandis flail"
+      ]
+     },
+     {
+      "t": "Talk to Kael outside the Theatre of Blood again."
+     },
+     {
+      "t": "Climb down the trapdoor in Old Man Ral's house in south west Meiyerditch."
+     },
+     {
+      "t": "Talk to Safalaan to complete the quest!"
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Food",
+     "Ivandis flail"
+    ],
+    "c": 1
+   }
+  ]
+ }
+}

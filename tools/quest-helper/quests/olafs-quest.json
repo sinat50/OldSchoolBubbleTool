@@ -1,0 +1,148 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder olafsquest; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Olaf's Quest",
+  "items": [
+   "Any axe",
+   "Tinderbox",
+   "Spade"
+  ],
+  "rec": [
+   "Combat gear",
+   "Food",
+   "Prayer potions"
+  ],
+  "enemies": [
+   "Skeleton fremennik (level 40)",
+   "Ulfric (level 100)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "12,000 Defence XP",
+   "4 x Rubies",
+   "Access to Brine Rats and the ability to receive them as a slayer task."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Olaf Hradson north east of Rellekka.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Chop a log from the Windswept Tree east of Olaf.",
+      "i": [
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Bring the logs to Olaf Hradson north east of Rellekka.",
+      "i": [
+       "Windswept logs"
+      ]
+     },
+     {
+      "t": "Talk to Ingrid Hradson near the well in southeast Rellekka.",
+      "i": [
+       "Crude carving"
+      ]
+     },
+     {
+      "t": "Talk to Volf Olafson north of the longhall in Rellekka.",
+      "i": [
+       "Cruder carving"
+      ]
+     },
+     {
+      "t": "Return to Olaf Hradson north east of Rellekka."
+     },
+     {
+      "t": "Use the damp planks on Olaf's embers.",
+      "i": [
+       "Damp planks"
+      ]
+     },
+     {
+      "t": "Talk to Olaf again, and give him some food.",
+      "s": [
+       "Alright, here, have some food. Now give me the map."
+      ],
+      "i": [
+       "Food"
+      ]
+     }
+    ],
+    "i": [
+     "Any axe",
+     "Tinderbox",
+     "Spade"
+    ]
+   },
+   {
+    "n": "Finding treasure",
+    "st": [
+     {
+      "t": "Dig next to the Windswept Tree."
+     },
+     {
+      "t": "Follow the tunnel east, then north, to the room with the picture wall. Kill a Skeleton Fremennik there and pick up the key it drops."
+     },
+     {
+      "t": "Search the picture wall in the north room."
+     },
+     {
+      "t": "Tap the east, north, west and south boxes in that order, then tap Confirm at the very bottom. Then search the picture wall again to walk through it."
+     },
+     {
+      "t": "Pick up 2 rotten barrels and 6 ropes from around the room.",
+      "i": [
+       "Rotten barrel (2)",
+       "Rope (6)"
+      ]
+     },
+     {
+      "t": "WALK onto the walkway to the east, and use a barrel on it to repair it.",
+      "i": [
+       "Rotten barrel",
+       "Rope (3)"
+      ]
+     },
+     {
+      "t": "WALK on the walkway and repair the next hole in it.",
+      "i": [
+       "Rotten barrel",
+       "Rope (3)"
+      ]
+     },
+     {
+      "t": "Open the gate on the walkway and tap the key hole whose shape matches the loop of your key. If you fall after opening the gate, you'll need a new key from a Skeleton Fremennik.",
+      "i": [
+       "Key"
+      ]
+     },
+     {
+      "t": "WALK off the remaining walkway, and search the chest in the wreck. Be prepared to fight Ulfric."
+     },
+     {
+      "t": "Kill Ulfric."
+     },
+     {
+      "t": "Search the chest again to finish the quest."
+     }
+    ],
+    "i": [
+     "Spade",
+     "Combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "Skeleton fremennik (level 40)",
+     "Ulfric (level 100)"
+    ]
+   }
+  ]
+ }
+}

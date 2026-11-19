@@ -1,0 +1,142 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Sheep Herder",
+  "items": [
+   "Coins (100)"
+  ],
+  "rec": [
+   "Energy restoring items"
+  ],
+  "enemies": [],
+  "rewards": [
+   "4 Quest points",
+   "3100 x Coins"
+  ],
+  "sec": [
+   {
+    "n": "Starting out",
+    "st": [
+     {
+      "t": "Talk to Councillor Halgrive outside the East Ardougne church.",
+      "s": [
+       "What's wrong?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Doctor Orbon in the East Ardougne Church.",
+      "s": [
+       "Okay, I'll take it."
+      ],
+      "i": [
+       "Coins (100)"
+      ]
+     }
+    ],
+    "i": [
+     "Coins (100)"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Killing sheep",
+    "st": [
+     {
+      "t": "Wear the plague jacket and trousers and go to the fenced enclosure north-west of East Ardougne's north bank. Go in by the gate on its west side.",
+      "i": [
+       "Plague jacket",
+       "Plague trousers"
+      ]
+     },
+     {
+      "t": "Pick up the nearby cattleprod.",
+      "i": [
+       "Cattle prod"
+      ]
+     },
+     {
+      "t": "Wield the cattleprod and leave by the west gate.",
+      "i": [
+       "Cattle prod",
+       "Plague jacket",
+       "Plague trousers"
+      ]
+     },
+     {
+      "t": "Find the blue sheep north-west of the enclosure. Keep tapping a sheep to prod it: it moves the way you're facing, and wanders back if you wait too long.",
+      "i": [
+       "Cattle prod",
+       "Plague jacket",
+       "Plague trousers"
+      ]
+     },
+     {
+      "t": "Drive it to the west gate. It goes in by itself; if it stops just outside, prod it once more.",
+      "i": [
+       "Cattle prod",
+       "Plague jacket",
+       "Plague trousers"
+      ]
+     },
+     {
+      "t": "Prod one of the yellow sheep north of the enclosure to the enclosure gate.",
+      "i": [
+       "Cattle prod",
+       "Plague jacket",
+       "Plague trousers"
+      ]
+     },
+     {
+      "t": "Prod one of the green sheep east of the enclosure to the enclosure gate.",
+      "i": [
+       "Cattle prod",
+       "Plague jacket",
+       "Plague trousers"
+      ]
+     },
+     {
+      "t": "Prod one of the red sheep south east of the enclosure to the enclosure gate.",
+      "i": [
+       "Cattle prod",
+       "Plague jacket",
+       "Plague trousers"
+      ]
+     },
+     {
+      "t": "Use the sheep feed on each of the four sheep in the enclosure until they are all dead.",
+      "i": [
+       "Sheep feed"
+      ]
+     },
+     {
+      "t": "Pick up the bones.",
+      "i": [
+       "Sheep bones 1",
+       "Sheep bones 2",
+       "Sheep bones 3",
+       "Sheep bones 4"
+      ]
+     },
+     {
+      "t": "Use all four sets of bones on the incinerator in the enclosure.",
+      "i": [
+       "Sheep bones 1",
+       "Sheep bones 2",
+       "Sheep bones 3",
+       "Sheep bones 4"
+      ]
+     },
+     {
+      "t": "Return to Councillor Halgrive."
+     }
+    ],
+    "i": [
+     "Plague jacket",
+     "Plague trousers"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

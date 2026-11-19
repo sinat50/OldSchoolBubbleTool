@@ -1,0 +1,142 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Knight's Sword",
+  "items": [
+   "Redberry pie",
+   "Iron bar (2)",
+   "Any pickaxe"
+  ],
+  "rec": [
+   "A teleport to Varrock",
+   "Teleports to Falador (3)",
+   "A teleport near Mudskipper Point, such as POH teleport or Fairy Ring to AIQ (2)"
+  ],
+  "enemies": [
+   "Able to survive attacks from Ice Warriors (level 57) and Ice Giants (level 53)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "12,725 Smithing XP",
+   "The ability to smelt Blurite ore.",
+   "The ability to smith Blurite bars."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to the Squire in Falador Castle's courtyard.",
+      "s": [
+       "And how is life as a squire?",
+       "I can make a new sword if you like...",
+       "So would these dwarves make another one?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Reldo in Varrock Castle's library.",
+      "s": [
+       "What do you know about the Imcando dwarves?"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Finding an Imcando",
+    "st": [
+     {
+      "t": "Talk to Thurgo south of Port Sarim and give him a redberry pie.",
+      "s": [
+       "Would you like a redberry pie?"
+      ],
+      "i": [
+       "Redberry pie"
+      ]
+     },
+     {
+      "t": "Talk to Thurgo again.",
+      "s": [
+       "Something else.",
+       "Can you make a special sword for me?"
+      ]
+     }
+    ],
+    "i": [
+     "Redberry pie"
+    ]
+   },
+   {
+    "n": "Find the portrait",
+    "st": [
+     {
+      "t": "Talk to the Squire in Falador Castle's courtyard."
+     },
+     {
+      "t": "Climb up the east ladder in Falador Castle."
+     },
+     {
+      "t": "Go up the staircase west of the ladder on the 1st floor."
+     },
+     {
+      "t": "Search the cupboard in the room south of the staircase. You'll need Sir Vyvin to be in the other room."
+     },
+     {
+      "t": "Bring Thurgo the portrait.",
+      "s": [
+       "About that sword..."
+      ],
+      "i": [
+       "Any pickaxe",
+       "Iron bar (2)",
+       "Portrait"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Making the sword",
+    "st": [
+     {
+      "t": "Go down the trapdoor east of Thurgo, south of Port Sarim. Be prepared for ice giants and ice warriors to attack you.",
+      "i": [
+       "Any pickaxe",
+       "Iron bar (2)"
+      ]
+     },
+     {
+      "t": "Inside the dungeon, follow the path west, north and then east. Keep to the southern wall in the icy area and mine a blurite ore.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Return to Thurgo with a blurite ore and two iron bars.",
+      "s": [
+       "Can you make that replacement sword now?"
+      ],
+      "i": [
+       "Blurite ore",
+       "Iron bar (2)"
+      ]
+     }
+    ],
+    "i": [
+     "Any pickaxe",
+     "Iron bar (2)"
+    ]
+   },
+   {
+    "n": "Return the sword",
+    "st": [
+     {
+      "t": "Return to the Squire with the sword to finish the quest.",
+      "i": [
+       "Blurite sword"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

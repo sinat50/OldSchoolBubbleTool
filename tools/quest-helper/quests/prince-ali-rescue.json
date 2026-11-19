@@ -1,0 +1,218 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Prince Ali Rescue",
+  "items": [
+   "Soft clay",
+   "Balls of wool (3)",
+   "Yellow dye",
+   "Redberries",
+   "Ashes",
+   "Bucket of water",
+   "Pot of flour",
+   "Bronze bar",
+   "Pink skirt",
+   "Beers (3)",
+   "Rope",
+   "Coins minimum (100)"
+  ],
+  "rec": [
+   "Amulet of Glory for Al Kharid and Draynor Village teleports"
+  ],
+  "enemies": [
+   "Able to survive jail guards (level 26) attacking you"
+  ],
+  "rewards": [
+   "3 Quest points",
+   "700 x Coins",
+   "Free use of the Al Kharid toll gates.",
+   "Access to Sorceress's Garden Minigame (Members)"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Hassan in the Al Kharid Palace.",
+      "s": [
+       "Is there anything I can help you with?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Osman north of the Al Kharid Palace."
+     }
+    ]
+   },
+   {
+    "n": "Make a blonde wig",
+    "st": [
+     {
+      "t": "Have Ned in Draynor Village make you a wig from 3 balls of wool. He can also sell you a rope for 15 coins via dialogue (or bought from his shop for 18 coins) or 4 balls of wool.",
+      "s": [
+       "Could you make other things apart from rope?",
+       "How about some sort of wig?",
+       "I have them here. Please make me a wig."
+      ],
+      "i": [
+       "Balls of wool (3)"
+      ]
+     },
+     {
+      "t": "Dye the wig with yellow dye. Buy a yellow dye with two onions and 5 coins if you still need it from Aggie in Draynor Village.",
+      "i": [
+       "Yellow dye",
+       "Wig"
+      ]
+     }
+    ],
+    "i": [
+     "Yellow dye",
+     "Balls of wool (3)"
+    ]
+   },
+   {
+    "n": "Make paste",
+    "st": [
+     {
+      "t": "Talk to Aggie in Draynor Village to get some paste.",
+      "s": [
+       "Can you make skin paste?",
+       "Yes please. Mix me some skin paste."
+      ],
+      "i": [
+       "Redberries",
+       "Ashes",
+       "Pot of flour",
+       "Bucket of water"
+      ]
+     }
+    ],
+    "i": [
+     "Redberries",
+     "Ashes",
+     "Pot of flour",
+     "Bucket of water"
+    ]
+   },
+   {
+    "n": "Make a key print",
+    "st": [
+     {
+      "t": "Talk to Lady Keli in the jail east of Draynor Village, with soft clay in your inventory, to make a key print. If you already have the key print, skip this step.",
+      "s": [
+       "Heard of you? You're famous in Gielinor!",
+       "What's your latest plan then?",
+       "How do you know someone won't try to free him?",
+       "Could I see the key please?",
+       "Could I touch the key for a moment please?"
+      ],
+      "i": [
+       "Soft clay"
+      ]
+     }
+    ],
+    "i": [
+     "Soft clay"
+    ]
+   },
+   {
+    "n": "Make the key",
+    "st": [
+     {
+      "t": "Use the key print on any furnace with a bronze bar in your inventory to make a key.",
+      "i": [
+       "Key print",
+       "Bronze bar"
+      ]
+     }
+    ],
+    "i": [
+     "Bronze bar",
+     "Key print"
+    ]
+   },
+   {
+    "n": "Return with the items",
+    "st": [
+     {
+      "t": "Talk to Leela east of Draynor Village.",
+      "i": [
+       "Beers (3)",
+       "Wig (dyed)",
+       "Paste",
+       "Rope",
+       "Pink skirt"
+      ]
+     }
+    ],
+    "i": [
+     "Wig (dyed)",
+     "Paste",
+     "Rope",
+     "Beers (3)",
+     "Pink skirt"
+    ]
+   },
+   {
+    "n": "Free Ali",
+    "st": [
+     {
+      "t": "Bring everything to the jail and give Joe there three beers.",
+      "s": [
+       "I have some beer here. Fancy one?"
+      ],
+      "i": [
+       "Beers (3)",
+       "Bronze key",
+       "Wig (dyed)",
+       "Paste",
+       "Rope",
+       "Pink skirt"
+      ]
+     },
+     {
+      "t": "Use rope on Keli.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Use the key on the prison door. If Lady Keli respawned you'll need to tie her up again.",
+      "i": [
+       "Bronze key",
+       "Wig (dyed)",
+       "Paste",
+       "Pink skirt"
+      ]
+     },
+     {
+      "t": "Talk to Prince Ali and free him.",
+      "i": [
+       "Bronze key",
+       "Wig (dyed)",
+       "Paste",
+       "Pink skirt"
+      ]
+     }
+    ],
+    "i": [
+     "Bronze key",
+     "Wig (dyed)",
+     "Paste",
+     "Rope",
+     "Beers (3)",
+     "Pink skirt"
+    ]
+   },
+   {
+    "n": "Return to Al Kharid",
+    "st": [
+     {
+      "t": "Return to Hassan in the Al Kharid Palace to complete the quest."
+     }
+    ]
+   }
+  ]
+ }
+}

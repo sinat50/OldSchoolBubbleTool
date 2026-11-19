@@ -108,110 +108,10 @@ class QuestHelperTool(
         val steps: List<Step> = sections.flatMap { it.steps }
     }
 
-    private val guides = listOf(
-        Quest(
-            key = "scrambled",
-            name = "Scrambled!",
-            wikiPage = "https://oldschool.runescape.wiki/w/Scrambled%21/Quick_guide",
-            items = listOf("Hammer, saw, 6 nails, 2 planks (all found during the quest)",
-                "An empty bowl (found during the quest)", "Combat gear"),
-            recommended = listOf("Antifire shield (for the red dragon)", "40 Agility (for a shortcut to the dragon cave)"),
-            enemies = listOf("Large chicken (level 16)", "Black jaguar (level 88)", "Red dragon (level 106, can be safespotted)"),
-            rewards = listOf("1 Quest point", "5,000 Construction, Cooking and Smithing XP", "Your very own egg"),
-            sections = listOf(
-                Section("Humphrey Dumphrey sat on a wall", listOf(
-                    Step("Talk to Alan in Tal Teok Temple, north of Tal Teklan, to start the quest.",
-                        say = listOf("Yes.", "Of course!"))
-                ), items = listOf("Nothing"),
-                    travel = "Get to Tal Teok Temple, north of Tal Teklan, e.g. with a quetzal whistle."),
-                Section("Wumty Scrumpty had a great fall", listOf(
-                    Step("Inspect the egg in front of you."),
-                    Step("Head south into Tal Teklan and talk to King in the pub.",
-                        say = listOf("Are you the king?", "…fell off a wall!"))
-                ), items = listOf("Nothing"), travel = "Walk: Tal Teklan is just south of the temple."),
-                Section("All the king's horses and all the king's men…", listOf(
-                    Step("Get an empty bowl from the Tal Teklan pub. You'll need it later.",
-                        tip = "If it's not there, hop worlds or wait for it to respawn."),
-                    // Acatzin
-                    Step("Talk to Acatzin inside the Tal Teklan pub.",
-                        say = listOf("I can talk to the blacksmith.")),
-                    Step("Talk to the Blacksmith, west of the Tal Teklan pub."),
-                    Step("Take the hammer from the table in the blacksmith's.",
-                        tip = "If it's not there, hop worlds or wait for it to respawn."),
-                    Step("Get some nails from the blacksmith's workbench. You'll need them later.",
-                        say = listOf("Take the nails.")),
-                    Step("Fix the whetstone.", say = listOf("Yes."), items = listOf("Hammer")),
-                    Step("Talk to the Blacksmith again to get a damaged axe."),
-                    Step("Repair the axe on the whetstone.", say = listOf("Yes."),
-                        items = listOf("Acatzin's damaged axe")),
-                    Step("Get the saw from the house to the south. You'll need it later.",
-                        tip = "If it's not there, hop worlds or wait for it to respawn."),
-                    Step("Return the repaired axe to Acatzin in the Tal Teklan pub."),
-                    // Kauayotl
-                    Step("Pick the damiana bush at the east entrance of Tal Teklan for damiana leaves. You'll need them later."),
-                    Step("Pick up two planks beside the lake, south-west of Kauayotl.",
-                        tip = "If they're not there, hop worlds or wait for them to respawn."),
-                    Step("Talk to Kauayotl at the east entrance of Tal Teklan.",
-                        say = listOf("I see. Well, maybe I can help out with that?"),
-                        items = listOf("Hammer", "Saw", "6 nails", "2 planks")),
-                    Step("Repair Kauayotl's cart.", say = listOf("Yes."),
-                        items = listOf("Hammer", "Saw", "6 nails", "2 planks")),
-                    Step("Talk to Kauayotl again."),
-                    // Nezketi
-                    Step("Talk to Nezketi in the Tal Teklan temple. He gives you an empty cup.",
-                        say = listOf("I can get you some tea.")),
-                    Step("Fill your empty bowl with water at the water pump near the east entrance of Tal Teklan.",
-                        items = listOf("Empty bowl")),
-                    Step("Use the damiana leaves on the bowl of water.",
-                        items = listOf("Damiana leaves", "Bowl of water")),
-                    Step("Use the damiana water on the stove in the east part of Tal Teklan to boil it.",
-                        items = listOf("Damiana water")),
-                    Step("Pour the damiana tea from the bowl into the empty cup.",
-                        items = listOf("Damiana tea", "Empty cup")),
-                    Step("Give the cup of damiana tea to Nezketi in the Tal Teklan temple.",
-                        items = listOf("Cup of damiana tea")),
-                    Step("Return to Tal Teok Temple, north of Tal Teklan, and talk to one of King's men.")
-                ), items = listOf("Nothing to bring. You pick up a bowl, hammer, nails, saw and planks along the way"),
-                    travel = "Everything is in and around Tal Teklan, so walk."),
-                Section("Couldn't put Bumpty Numpty back together again…", listOf(
-                    Step("Search the Eggs in the chicken coop south of the large temple. A level 16 large chicken " +
-                        "appears: kill it, then search the Eggs again for a Large egg.",
-                        items = listOf("Combat gear")),
-                    Step("Cross the log balance towards the dragon cave.",
-                        tip = "Needs 40 Agility. Without it, walk round to the cave entrance.", optional = true),
-                    Step("Enter the dragon cave, south-east of the large temple across the river.",
-                        items = listOf("Combat gear", "Antifire shield (recommended)")),
-                    Step("Search the Eggs in the dragon cave. Kill the red dragon that appears, then search the " +
-                        "Eggs again for a Dragon egg.",
-                        tip = "Safespot: stand just south-east of the Eggs."),
-                    Step("Leave the dragon cave."),
-                    Step("Search the Eggs at the camp east of the dragon cave. Kill the black jaguar that appears, " +
-                        "then search the Eggs again for a Jaguar egg.",
-                        tip = "Safespot: stand just north-east of the camp."),
-                    Step("Return to Tal Teok Temple. Give Kauayotl the Dragon egg, Nezketi the Jaguar egg and " +
-                        "Acatzin the Large egg.",
-                        items = listOf("Large egg", "Dragon egg", "Jaguar egg")),
-                    Step("Talk to one of King's men to judge the replacement eggs."),
-                    Step("Talk to one of King's men again to work out how to fix the broken egg."),
-                    Step("Inspect the broken egg and put it back together.",
-                        tip = "It's a jigsaw of 26 pieces. Tap a piece to turn it: it only fits once it's the " +
-                            "right way up. Then drag it into place. Hover over (or press and hold) the puzzle-piece icon to see the finished egg."),
-                    Step("Talk to one of King's men to finish the quest!")
-                ), items = listOf("Combat gear and food", "Antifire shield (recommended, for the red dragon)"),
-                    combat = true,
-                    travel = "Walk: the chicken coop is just south of Tal Teok Temple, the dragon cave is to the " +
-                        "east, and the jaguar camp is further east of the dragon cave.",
-                    enemies = listOf("Large chicken (level 16)", "Red dragon (level 106, can be safespotted)",
-                        "Black jaguar (level 88, can be safespotted)"))
-            )
-        )
-    )
-
-    // The hand-written guide if there is one, otherwise the one from the plugin (read when first needed)
+    // Each guide is read from QuestGuides the first time it's opened
     private val loadedGuides = HashMap<String, Quest?>()
 
     private fun guideFor(name: String): Quest? {
-        guides.firstOrNull { it.name == name }?.let { return it }
         if (name !in QuestGuides.names) return null
         return loadedGuides.getOrPut(name) {
             try { parseGuide(name, org.json.JSONObject(QuestGuides.json(name) ?: return@getOrPut null)) }
@@ -237,7 +137,8 @@ class QuestHelperTool(
                     title = sec.getString("n"),
                     steps = List(st.length()) { j ->
                         val step = st.getJSONObject(j)
-                        Step(step.getString("t"), strings(step.optJSONArray("s")), strings(step.optJSONArray("i")))
+                        Step(step.getString("t"), strings(step.optJSONArray("s")), strings(step.optJSONArray("i")),
+                            tip = step.optString("tip").takeIf { it.isNotEmpty() }, optional = step.optInt("o") == 1)
                     },
                     items = strings(sec.optJSONArray("i")),
                     combat = if (sec.has("c")) sec.getInt("c") == 1 else null,
@@ -252,8 +153,53 @@ class QuestHelperTool(
     // ---------------- State ----------------
 
     private val prefs = context.getSharedPreferences("quest_helper", Context.MODE_PRIVATE)
-    private fun position(q: Quest) = prefs.getInt(q.key, 0).coerceIn(0, q.steps.size)
-    private fun setPosition(q: Quest, i: Int) = prefs.edit { putInt(q.key, i.coerceIn(0, q.steps.size)) }
+    init { moveOldPlaces() }
+
+    // Your place in a guide: the step number, and that step's wording so an update that changes the guide can't lose it
+    private fun wordingKey(q: Quest) = "wording_${q.key}"
+
+    private fun position(q: Quest): Int {
+        val saved = prefs.getInt(q.key, 0)
+        val wording = prefs.getString(wordingKey(q), null)
+        val at = QuestProgress.find(q.steps.map { it.text }, saved, wording)
+        if (at != saved || wording == null) setPosition(q, at)
+        return at
+    }
+
+    private fun setPosition(q: Quest, i: Int) {
+        val at = i.coerceIn(0, q.steps.size)
+        prefs.edit {
+            putInt(q.key, at)
+            putString(wordingKey(q), QuestProgress.wordingAt(q.steps.map { it.text }, at))
+        }
+    }
+
+    // Once, after updating from v1.2.3 or older: those versions saved only a step number, so move each saved place
+    // to where that step is now. The table is only read if there's a place to move.
+    private fun moveOldPlaces() {
+        // Scrambled! used to be saved under its own name. Its steps haven't moved, so only the name changes.
+        if (prefs.contains("scrambled")) prefs.edit {
+            putInt("guide_Scrambled!", prefs.getInt("scrambled", 0))
+            putString("wording_guide_Scrambled!", prefs.getString("wording_scrambled", null))
+            remove("scrambled")
+            remove("wording_scrambled")
+        }
+        if (prefs.getBoolean("places_moved", false)) return
+        val saved = prefs.all.filter { it.key.startsWith("guide_") && it.value is Int }
+        try {
+            val table = if (saved.isEmpty()) emptyMap() else context.assets.open("quest_step_moves.tsv")
+                .bufferedReader().useLines { QuestProgress.readTable(it) }
+            prefs.edit {
+                for ((key, place) in saved) {
+                    val moves = table[key.removePrefix("guide_")] ?: continue
+                    putInt(key, QuestProgress.moved(place as Int, moves))
+                }
+                putBoolean("places_moved", true)
+            }
+        } catch (e: java.io.IOException) {
+            // The table couldn't be read: places stay as they are, and it's tried again next time
+        }
+    }
 
     private val sync = AccountSync(context)
     private var shownSyncState: String? = null   // what the ✓/✗ tag showed last redraw

@@ -1,0 +1,317 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder thecurseofarrav; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Curse of Arrav",
+  "items": [
+   "Dwellberries (3)",
+   "Ring of life",
+   "Any pickaxe",
+   "Any crossbow",
+   "Mith grapple",
+   "Insulated boots"
+  ],
+  "rec": [
+   "Stamina potion",
+   "Prayer potion",
+   "Anti-venom",
+   "Crush or ranged combat gear to fight the Golem guard",
+   "Ranged or melee combat gear for killing Arrav",
+   "Food",
+   "Fairy Ring [DLQ]",
+   "Trollheim Teleport",
+   "Lumberyard teleport"
+  ],
+  "enemies": [
+   "Golem guard (lvl 141)",
+   "Arrav (lvl 339)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "40,000 Mining XP",
+   "40,000 Thieving XP",
+   "40,000 Agility XP",
+   "Access to Zemouregal's Fort"
+  ],
+  "sec": [
+   {
+    "n": "Tomb Raiding",
+    "st": [
+     {
+      "t": "Talk to Elias south of Ruins of Uzer to start the quest.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Enter the tomb south-west of Elias.",
+      "i": [
+       "Dwellberries (3)",
+       "Ring of life",
+       "Crush or ranged combat gear to fight the Golem guard"
+      ]
+     },
+     {
+      "t": "Head south to the cave beyond the first room and search the southernmost skeleton for the first Mastaba key."
+     },
+     {
+      "t": "Go to the central room with the stone boat, east of the entrance. Search the skeleton north-west of the boat for the second Mastaba key."
+     },
+     {
+      "t": "Go to the south-east corner of the tomb. Search the odd markings to the south to get past the trap, searching again if you fail. Pull the lever, then search the odd markings next to you to get out.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Mastaba Key"
+      ]
+     },
+     {
+      "t": "Go to the north-east corner of the tomb, east of the imposing doors. Search the odd markings to the north to get past the trap, searching again if you fail. Pull the lever, then search the odd markings next to you to get out.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Mastaba Key"
+      ]
+     },
+     {
+      "t": "Open the imposing doors, ready to fight the Golem guard."
+     },
+     {
+      "t": "Fight the Golem guard. It is weak to crush style weapons. Use Protect from Melee to avoid damage from his attacks. When the screen shakes, step away from him to avoid taking damage."
+     },
+     {
+      "t": "Climb the stairs down the tomb basement."
+     },
+     {
+      "t": "Cross the coloured floor tiles by walking on either the blue and green tiles or the yellow and red tiles on the south side. Stepping on the wrong pair after you start does moderate damage. On the other side, pull the lever to disable the tiles."
+     },
+     {
+      "t": "Search the shelves to the west for an oil-filled canopic jar."
+     },
+     {
+      "t": "Go to the room to the south with the Tumeken statue and inspect the southern mural.",
+      "i": [
+       "Oil-filled canopic jar"
+      ]
+     },
+     {
+      "t": "Put the Dwellberries in the Canopic jar.",
+      "i": [
+       "Oil-filled canopic jar",
+       "Dwellberries (3)",
+       "Ring of life"
+      ]
+     },
+     {
+      "t": "Put the Ring of life in the Canopic jar.",
+      "i": [
+       "Canopic jar (oil and berries)",
+       "Ring of life"
+      ]
+     },
+     {
+      "t": "Return to Elias south of Ruins of Uzer, north-east of the tomb's entrance. Walk out of the tomb, or hop worlds to land just outside it.",
+      "i": [
+       "Canopic jar (full)"
+      ]
+     }
+    ],
+    "i": [
+     "Dwellberries (3)",
+     "Ring of life",
+     "Crush or ranged combat gear to fight the Golem guard"
+    ],
+    "tr": [
+     "Fairy Ring [DLQ]"
+    ],
+    "r": [
+     "Stamina potion",
+     "Prayer potion",
+     "Food"
+    ],
+    "c": 1,
+    "e": [
+     "Golem guard (lvl 141)"
+    ]
+   },
+   {
+    "n": "Fort Invasion",
+    "st": [
+     {
+      "t": "Take the path just north-west of Trollheim towards the ice gate, and enter the cave directly west of the gate. You can use a Trollheim teleport tablet or the GWD Ghommal's Hilt teleport to get close.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Continue through the Trollheim cave, exiting at the Crevasse to the north-west. Use Protect from Melee to avoid taking damage from the Ice Trolls.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Enter the Trollweiss cave to the east.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Mine the rubble to clear a path to the end of the cave. Some piles can only be mined once from each side, so you may have to run around and mine the same rubble from another direction."
+     },
+     {
+      "t": "Climb up the stairs in the room with the red tile floor and talk to Arrav."
+     },
+     {
+      "t": "Talk to Arrav."
+     },
+     {
+      "t": "Enter the room to your east and search the tapestry for something to help you with your heist."
+     },
+     {
+      "t": "Search the tapestry in the south of the room."
+     },
+     {
+      "t": "Return to Elias south of Ruins of Uzer and ask him for help interpreting the plans.",
+      "i": [
+       "Base plans",
+       "Base key"
+      ]
+     }
+    ],
+    "i": [
+     "Any pickaxe"
+    ],
+    "tr": [
+     "Fairy Ring [DLQ]",
+     "Trollheim Teleport"
+    ],
+    "r": [
+     "Stamina potion"
+    ],
+    "c": 1,
+    "e": [
+     "Arrav (lvl 339)"
+    ]
+   },
+   {
+    "n": "Hearty Heist",
+    "st": [
+     {
+      "t": "Head to Zemouregal's base east of Varrock's sawmill and talk to Elias.",
+      "s": [
+       "Ready when you are."
+      ],
+      "i": [
+       "Any crossbow",
+       "Mith grapple",
+       "Ranged or melee combat gear for killing Arrav",
+       "Insulated boots",
+       "Canopic jar (full)",
+       "Base key"
+      ]
+     },
+     {
+      "t": "Enter Zemouregal's base east of Varrock's sawmill.",
+      "i": [
+       "Any crossbow",
+       "Mith grapple",
+       "Ranged or melee combat gear for killing Arrav",
+       "Insulated boots",
+       "Canopic jar (full)",
+       "Base key"
+      ]
+     },
+     {
+      "t": "Make your way to the back of Zemouregal's base. Open the gate, the next gate, then the door, which uses your base key, and the gate into the kitchen, shown by the cooking range icon on the map. Wear your insulated boots and enter the sewers by the pipe on the south wall. Follow the path to its end and leave by the pipe there. Protect from Melee against the zombies to avoid most damage.",
+      "i": [
+       "Base key",
+       "Insulated boots"
+      ]
+     },
+     {
+      "t": "Enter the storage room to the south-east."
+     },
+     {
+      "t": "Search the western table for some decoder strips."
+     },
+     {
+      "t": "Open the chest for the code key."
+     },
+     {
+      "t": "Read the code key in your inventory and note its four letters.",
+      "i": [
+       "Code key"
+      ]
+     },
+     {
+      "t": "Leave the storage room, go north to the metal doors and try to open them.",
+      "i": [
+       "Code key"
+      ]
+     },
+     {
+      "t": "On the decoder strips, set strip 1 to the first letter, strip 2 to the second, strip 3 to the third and strip 4 to the fourth, and note the number each strip shows. Enter those four numbers using the up and down arrows, pressing the right arrow after each number.",
+      "i": [
+       "Code key"
+      ]
+     },
+     {
+      "t": "Step through the metal doors.",
+      "i": [
+       "Canopic jar (full)",
+       "Any crossbow",
+       "Mith grapple"
+      ]
+     },
+     {
+      "t": "Equip your crossbow and mith grapple, then grapple across the pipe above the fire traps.",
+      "i": [
+       "Canopic jar (full)",
+       "Any crossbow",
+       "Mith grapple"
+      ]
+     },
+     {
+      "t": "Attempt to take Arrav's heart from the pedestal, ready for a fight with Arrav. Kill zombies as they appear (ranged weapons are handy here). Avoid the venom pools they spawn. Use Protect from Melee to avoid some of the incoming damage. When Arrav throws an axe towards you, step to the side or behind him.",
+      "i": [
+       "Canopic jar (full)",
+       "Ranged or melee combat gear for killing Arrav"
+      ]
+     },
+     {
+      "t": "Fight Arrav. Kill zombies as they appear (ranged weapons are handy here). Avoid the venom pools they spawn. Use Protect from Melee to avoid some of the incoming damage. When Arrav throws an axe towards you, step to the side or behind him.",
+      "i": [
+       "Canopic jar (full)"
+      ]
+     },
+     {
+      "t": "Elias teleports you back to the Uzer Oasis, south of the Ruins of Uzer. Talk to him there to finish the quest."
+     }
+    ],
+    "i": [
+     "Base plans",
+     "Base key",
+     "Any crossbow",
+     "Mith grapple",
+     "Ranged or melee combat gear for killing Arrav",
+     "Insulated boots",
+     "Canopic jar (full)"
+    ],
+    "tr": [
+     "Lumberyard teleport"
+    ],
+    "r": [
+     "Stamina potion",
+     "Prayer potion",
+     "Anti-venom",
+     "Food"
+    ],
+    "c": 1,
+    "e": [
+     "Arrav (lvl 339)"
+    ]
+   }
+  ]
+ }
+}

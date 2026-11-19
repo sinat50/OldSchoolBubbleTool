@@ -1,0 +1,263 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Death to the Dorgeshuun",
+  "items": [
+   "A light source",
+   "2 full ham robe sets (7 pieces/set)",
+   "Tinderbox",
+   "Any pickaxe",
+   "Magic or melee combat gear"
+  ],
+  "rec": [
+   "Lumbridge teleports (3)",
+   "Games necklace (requires Tears of Guthix to teleport to Juna)"
+  ],
+  "enemies": [
+   "3 H.A.M. Guards (level 22)",
+   "Sigmund (level 50, melee or magic only)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "2,000 Thieving XP",
+   "2,000 Ranged XP",
+   "Ability to use Dorgeshuun Special Attacks",
+   "Access to H.A.M. Store Rooms.",
+   "Access to Dorgesh-Kann."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Bring a light source. Go down the trapdoor in the Lumbridge Castle kitchen and through the hole in the cellar wall.",
+      "i": [
+       "A light source"
+      ]
+     },
+     {
+      "t": "Long-press Kazgar and choose Follow to reach the mines, then talk to Mistag.",
+      "s": [
+       "What is this favour?",
+       "I'll act as a guide.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "If you're still with Mistag, ask him to take you back to Lumbridge. Then talk to Zanik in Lumbridge Castle's basement with your 2 ham robe sets. She follows you from now on. If you lose her, talk to her in the basement again.",
+      "s": [
+       "Can you show me the way out of the mines?",
+       "Yes, I'm (your name)!",
+       "Yes, I have two sets of robes!"
+      ],
+      "i": [
+       "2 full ham robe sets (7 pieces/set)"
+      ]
+     }
+    ],
+    "i": [
+     "A light source",
+     "2 full ham robe sets (7 pieces/set)"
+    ]
+   },
+   {
+    "n": "Exploring Lumbridge",
+    "st": [
+     {
+      "t": "Talk to the Lumbridge Cook."
+     },
+     {
+      "t": "Talk to the Duke."
+     },
+     {
+      "t": "Leave the castle, and go through the entire leaving cutscene. If you cut it short, enter/leave again."
+     },
+     {
+      "t": "Talk to any man or woman around Lumbridge."
+     },
+     {
+      "t": "Talk to the Lumbridge Guide."
+     },
+     {
+      "t": "Talk to Bob in south Lumbridge."
+     },
+     {
+      "t": "Talk to Father Aereck."
+     },
+     {
+      "t": "Approach the goblins east of the River Lum."
+     },
+     {
+      "t": "Talk to the Lumbridge General Store shopkeeper."
+     },
+     {
+      "t": "Once you've been round Lumbridge with her, talk to Zanik and ask if she has seen enough of Lumbridge.",
+      "s": [
+       "Have you seen enough of Lumbridge yet?",
+       "Yes please!"
+      ]
+     }
+    ],
+    "i": [
+     "A light source",
+     "2 full ham robe sets (7 pieces/set)"
+    ]
+   },
+   {
+    "n": "Infiltrate the H.A.M",
+    "st": [
+     {
+      "t": "Wear your full set of H.A.M. robes, with Zanik following you. Long-press the trapdoor to the H.A.M. lair west of Lumbridge, choose Pick-lock, then go down."
+     },
+     {
+      "t": "Talk to Johanhus in the south east of the base.",
+      "s": [
+       "Are you planning to do anything about the cave goblins?"
+      ]
+     },
+     {
+      "t": "Go stand at the south of the stage until Zanik talks about the speaker. Don't skip the dialog."
+     },
+     {
+      "t": "Go stand next to the rubble south of the stage until Zanik notices it."
+     },
+     {
+      "t": "Picklock the trapdoor south of the stage and go down it."
+     }
+    ],
+    "i": [
+     "A light source",
+     "Full ham robe sets (7 pieces)(equipped)"
+    ]
+   },
+   {
+    "n": "Reaching the meeting",
+    "st": [
+     {
+      "t": "Zanik shoots each guard when his back is to her. If a guard catches you, you're jailed until Zanik frees you, and you have to deal with the guards again. Walk past the first guard, stand behind him and talk to him."
+     },
+     {
+      "t": "Squeeze through the crack in the wall where the first guard stood. Wait for the guard in the corridor to walk away, go through the next crack to the north and round the corner, then talk to the guard by the door."
+     },
+     {
+      "t": "When the guard in the central corridor walks away from you, talk to Zanik and tell her to shoot.",
+      "s": [
+       "Now!"
+      ]
+     },
+     {
+      "t": "Walk to the east end of the central corridor, stopping before the guard there can see you. Wait until Zanik is next to you, then talk to her and tell her to wait. Run east, then south, so the north-east guard comes after you and passes her. If she doesn't shoot him, try again without telling her to wait.",
+      "s": [
+       "Wait here."
+      ]
+     },
+     {
+      "t": "Stand in the north-east, just out of the last guard's sight, and tell Zanik to wait.",
+      "s": [
+       "Wait here."
+      ]
+     },
+     {
+      "t": "Go back south, west along the central corridor and north up the west passage, so the last guard sees you and Zanik can shoot him. Don't walk past the corner of the wall, or he'll jail you."
+     },
+     {
+      "t": "Listen to the large door."
+     }
+    ]
+   },
+   {
+    "n": "Saving Zanik",
+    "st": [
+     {
+      "t": "You wake up in the H.A.M. jail. Talk to Jimmy the Chisel, then long-press the cell door and choose Pick-lock."
+     },
+     {
+      "t": "Climb the ladder out of the hideout and inspect Zanik, who lies just outside it."
+     },
+     {
+      "t": "Take Zanik to Juna in the Chasm of Tears. If you've done Tears of Guthix, a games necklace teleports you there and is recommended. Otherwise bring a pickaxe, a tinderbox and a safe light source (candles, torches and oil lamps explode in the swamp caves). Go through the hole in the wall of Lumbridge Castle's cellar and head south. Use the pickaxe on the blocked tunnel and climb through into the swamp caves. Cross the stepping stone in the south-east, enter the cave beyond it, follow the path, climb down the rocks and talk to Juna."
+     },
+     {
+      "t": "Talk to Juna with both hands free, then tap the blue waterfalls as they appear until you have collected 20 Tears of Guthix.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Zanik about what happened to her. If she isn't following you, talk to her in Lumbridge Castle's basement first.",
+      "s": [
+       "Yes.",
+       "Yes please!"
+      ]
+     }
+    ],
+    "i": [
+     "A light source",
+     "Tinderbox",
+     "Any pickaxe"
+    ]
+   },
+   {
+    "n": "Foiling H.A.M",
+    "st": [
+     {
+      "t": "Talk to Zanik under the Lumbridge Castle.",
+      "s": [
+       "Let's go!",
+       "Yes.",
+       "Yes please!"
+      ]
+     },
+     {
+      "t": "Wear your full H.A.M. robes and keep both hands free (no weapon or shield). With Zanik following, cross the bridge east of Lumbridge Castle, then go north along the east side of the River Lum to the chicken farm by the water wheel (the dairy churn icon on the minimap). Go in by its southern gate.",
+      "i": [
+       "Magic or melee combat gear",
+       "Full ham robe sets (7 pieces)(equipped)"
+      ]
+     },
+     {
+      "t": "Search one of the empty crates at the south end of the farm (not the ones with machine parts). Zanik hides in it and you carry her. If Zanik doesn't appear, tap the Call follower button in the Worn Equipment tab.",
+      "s": [
+       "I don't know, what are you thinking?",
+       "Good idea."
+      ],
+      "i": [
+       "Magic or melee combat gear",
+       "Full ham robe sets (7 pieces)(equipped)"
+      ]
+     },
+     {
+      "t": "Enter the trapdoor outside the farm.",
+      "i": [
+       "Magic or melee combat gear",
+       "Full ham robe sets (7 pieces)(equipped)"
+      ]
+     },
+     {
+      "t": "Kill the guards to the west."
+     },
+     {
+      "t": "Defeat Sigmund. You need to use magic or melee to hurt him.",
+      "i": [
+       "Magic or melee combat gear"
+      ]
+     },
+     {
+      "t": "Destroy the drilling machine."
+     },
+     {
+      "t": "Leave the area via the exit to the south to finish the quest."
+     }
+    ],
+    "i": [
+     "Full ham robe sets (7 pieces)(equipped)",
+     "Magic or melee combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "Sigmund (level 50, melee or magic only)"
+    ]
+   }
+  ]
+ }
+}

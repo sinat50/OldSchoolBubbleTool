@@ -1,0 +1,201 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Waterfall Quest",
+  "items": [
+   "Rope",
+   "Air runes (6)",
+   "Earth runes (6)",
+   "Water runes (6)"
+  ],
+  "rec": [
+   "Games necklace",
+   "Food"
+  ],
+  "enemies": [
+   "Able to survive enemies up to level 86 attacking you"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "13,750 Strength XP",
+   "13,750 Attack XP",
+   "2 x Diamonds",
+   "2 x Gold Bars",
+   "40 x Mithril Seeds"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Almera on top of Baxtorian Falls, south of Barbarian Outpost.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Rope"
+    ]
+   },
+   {
+    "n": "Investigate",
+    "st": [
+     {
+      "t": "Board the log raft west of Almera.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Talk to Hudon.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Use a rope on the rock to the south.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Use a rope on the dead tree.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Get in the barrel."
+     },
+     {
+      "t": "After the barrel washes you ashore, go into the large building to the north, where Hadley is, and go up the stairs."
+     },
+     {
+      "t": "Search the south east bookcase."
+     },
+     {
+      "t": "Read the book.",
+      "i": [
+       "Book on baxtorian"
+      ]
+     }
+    ],
+    "i": [
+     "Rope"
+    ]
+   },
+   {
+    "n": "Get Glarial's Pebble",
+    "st": [
+     {
+      "t": "Walk through the Tree Gnome Village maze from its entrance on the north-west side. Letters are compass directions and numbers are tiles: E7, S2, E20, S6, W3, S1, W6, N4, W2, S6, W7, S2, E13, N2, E2, S2, E2, N2, E2, S2, E11, S3, E5, S9, W4, S6, E5, S3, W2, S11, W10, N5, E3, S2, E3, N2, E1, N5, W11. Go down the ladder there, at the entrance to the village."
+     },
+     {
+      "t": "Search the off-coloured crate in the east room."
+     },
+     {
+      "t": "Go through the gate in the west room.",
+      "i": [
+       "Key"
+      ]
+     },
+     {
+      "t": "Talk to Golrie."
+     }
+    ]
+   },
+   {
+    "n": "Loot Glarial's tomb",
+    "st": [
+     {
+      "t": "Bank everything besides the pebble and some food. Then use Glarial's pebble on Glarial's Tombstone east of Baxtorian Falls.",
+      "i": [
+       "Glarial's pebble"
+      ]
+     },
+     {
+      "t": "Search the chest in the western room for Glarial's amulet."
+     },
+     {
+      "t": "Search Glarial's Tomb in the south room for Glarial's urn."
+     }
+    ]
+   },
+   {
+    "n": "Put Glarial to rest",
+    "st": [
+     {
+      "t": "Leave Glarial's Tomb and get 6 air, water, and earth runes, a rope, glarial's amulet, glarial's urn, and some food.",
+      "i": [
+       "Air runes (6)",
+       "Earth runes (6)",
+       "Water runes (6)",
+       "Glarial's amulet",
+       "Glarial's urn",
+       "Rope"
+      ]
+     },
+     {
+      "t": "Board the log raft west of Almera."
+     },
+     {
+      "t": "Use a rope on the rock to the south.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Use a rope on the dead tree.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Equip Glarial's amulet.",
+      "i": [
+       "Glarial's amulet"
+      ]
+     },
+     {
+      "t": "Enter the falls with Glarial's amulet equipped.",
+      "i": [
+       "Glarial's amulet"
+      ]
+     },
+     {
+      "t": "Search the crate in the east room for a key."
+     },
+     {
+      "t": "Enter the west room with the key.",
+      "i": [
+       "Key"
+      ]
+     },
+     {
+      "t": "Use 1 earth, water and air rune on each of the 6 pillars in the room. Afterwards, use Glarial's amulet on the statue of Glarial.",
+      "i": [
+       "Air rune",
+       "Water rune",
+       "Earth rune"
+      ]
+     },
+     {
+      "t": "DO NOT TAP THE CHALICE, as taking the treasure washes you out of the cave! Use Glarial's urn on the Chalice to finish the quest.",
+      "i": [
+       "Glarial's urn"
+      ]
+     }
+    ],
+    "i": [
+     "Rope",
+     "Air runes (6)",
+     "Earth runes (6)",
+     "Water runes (6)",
+     "Glarial's urn",
+     "Glarial's amulet"
+    ]
+   }
+  ]
+ }
+}

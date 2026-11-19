@@ -1,0 +1,178 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder theredreef; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Red Reef",
+  "items": [
+   "Ranged/Mage combat gear to skip boat combat, or a boat with cannons to deal with pirates. An upgraded keel helps with survival. (Mithril is more than enough)",
+   "Combat gear"
+  ],
+  "rec": [
+   "Food",
+   "Prayer potions",
+   "Boat repair kits (5)"
+  ],
+  "enemies": [
+   "2 pirate ships, or the crew on the ship with ranged combat gear",
+   "6 pirates (lvl 52)",
+   "Black Eye Bethel (lvl 191)",
+   "Giant lobster (lvl 112)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "15,000 Sailing XP",
+   "5,000 Smithing XP",
+   "Bosun's Workbench Schematic",
+   "Access to the Great Conch sacred grove"
+  ],
+  "sec": [
+   {
+    "n": "Finding Floopa",
+    "st": [
+     {
+      "t": "Talk to Elder Raley at his home in The Great Conch to start the quest.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Finn, south-east of Elder Raley's house, about Floopa's whereabouts."
+     },
+     {
+      "t": "Head to the entrance of The Sacred Grove, north of Finn, and talk to Elder Katt there. You can't walk straight north: go north-west out of town, round the west side, then follow the path east to the entrance."
+     },
+     {
+      "t": "Enter The Sacred Grove and talk to Floopa."
+     }
+    ]
+   },
+   {
+    "n": "Infiltrating the Red Reef",
+    "st": [
+     {
+      "t": "Sail to Red Rock, north-west of The Great Conch."
+     },
+     {
+      "t": "Talk to the receptionist on Red Rock."
+     },
+     {
+      "t": "Familiarize yourself with the history of the Red Reef Trading Company by inspecting the display cases around the building."
+     },
+     {
+      "t": "Talk to Theodore Paxton."
+     }
+    ]
+   },
+   {
+    "n": "Dealing with Black Eye Bethel",
+    "st": [
+     {
+      "t": "Get ready for boat combat, then sail south towards Last Light and deal with Black Eye Bethel. Protect from Missiles to avoid most damage. Repair your ship. Combat is over when all boats are sunk or all pirates are killed.",
+      "i": [
+       "Ranged/Mage combat gear to skip boat combat, or a boat with cannons to deal with pirates. An upgraded keel helps with survival. (Mithril is more than enough)",
+       "Combat gear to fight Black Eye Bethel"
+      ]
+     },
+     {
+      "t": "Disembark at Last Light."
+     },
+     {
+      "t": "Kill all six pirates at Last Light."
+     },
+     {
+      "t": "Climb up the staircase twice to reach Black Eye Bethel, then kill her. Use Protect from Melee to avoid some damage. Avoid her charge attack. Re-enable your prayers if she disables them.",
+      "i": [
+       "Combat gear to fight Black Eye Bethel"
+      ]
+     },
+     {
+      "t": "Return to Theodore Paxton on Red Rock with the good news."
+     }
+    ],
+    "i": [
+     "Ranged/Mage combat gear to skip boat combat, or a boat with cannons to deal with pirates. An upgraded keel helps with survival. (Mithril is more than enough)",
+     "Combat gear to fight Black Eye Bethel"
+    ],
+    "r": [
+     "Food",
+     "Prayer potions",
+     "Boat repair kits (5)"
+    ],
+    "c": 1,
+    "e": [
+     "6 pirates (lvl 52)",
+     "Black Eye Bethel (lvl 191)"
+    ]
+   },
+   {
+    "n": "Helping the Zenith",
+    "st": [
+     {
+      "t": "Sail to and board the Zenith, east of Red Rock. If you don't see the Zenith there, try hopping to a different world.",
+      "i": [
+       "Any combat gear to fight a giant lobster"
+      ]
+     },
+     {
+      "t": "Talk to Spencer Brentwood aboard the Zenith.",
+      "i": [
+       "Any combat gear to fight a giant lobster"
+      ]
+     },
+     {
+      "t": "Talk to Spencer Brentwood again with the deep sea diving gear equipped to dive down to the bottom of the sea.",
+      "s": [
+       "Let's go."
+      ],
+      "i": [
+       "Any combat gear to fight a giant lobster",
+       "Deep sea helmet",
+       "Deep sea apparatus"
+      ]
+     },
+     {
+      "t": "Listen to Spencer Brentwood's instructions."
+     },
+     {
+      "t": "Head north and repair the Coral dredger, ready to fight a Giant lobster.",
+      "i": [
+       "Any combat gear to fight a giant lobster"
+      ]
+     },
+     {
+      "t": "Kill the Giant lobster. Avoid the blue particles on the floor."
+     },
+     {
+      "t": "Repair the Coral dredger."
+     },
+     {
+      "t": "Talk to Spencer Brentwood near the eastern coral dredger."
+     },
+     {
+      "t": "Talk to Spencer Brentwood aboard the Zenith after repairing the coral dredgers."
+     }
+    ],
+    "i": [
+     "Any combat gear to fight a giant lobster"
+    ],
+    "r": [
+     "Food"
+    ],
+    "c": 1,
+    "e": [
+     "Giant lobster (lvl 112)"
+    ]
+   },
+   {
+    "n": "Return to Floopa",
+    "st": [
+     {
+      "t": "Talk to Spencer Brentwood to get off the Zenith and back onto your boat. Then sail to The Great Conch and return to Floopa at Elder Raley's house.",
+      "s": [
+       "Actually, I'd like to disembark."
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

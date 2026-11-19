@@ -1,0 +1,527 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Garden of Tranquillity",
+  "items": [
+   "Ring of Charos",
+   "Rake",
+   "Seed dibber",
+   "Spade",
+   "Secateurs",
+   "Watering can",
+   "Gardening trowel",
+   "Plant cure (2)",
+   "Marigold seed",
+   "Cabbage seeds (6 to be safe) (3)",
+   "Onion seeds (6 to be safe) (3)",
+   "Fishing rod",
+   "Hammer",
+   "Rune/Pure essence",
+   "Pestle and mortar",
+   "Filled plant pot",
+   "Normal/Super/Ultra compost (2)"
+  ],
+  "rec": [
+   "Normal/Super/Ultra compost (5)",
+   "Varrock teleport",
+   "Draynor teleport",
+   "Port Phasmatys teleport",
+   "Ardougne teleport",
+   "Camelot teleport",
+   "Burthorpe teleport",
+   "Edgeville teleport",
+   "Lumbridge teleport",
+   "Falador teleport",
+   "Taverley teleport"
+  ],
+  "enemies": [],
+  "rewards": [
+   "2 Quest points",
+   "5,000 Farming XP",
+   "Compost Potion (4)"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Ellamaria east of Varrock Castle.",
+      "s": [
+       "I would be happy to help someone who is so in touch with the people."
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Learning Persuasion",
+    "st": [
+     {
+      "t": "Talk to the Wise Old Man in Draynor Village and take his test. Goblins fighting over armour colour: \"Show them a range of colours so that they can come to a compromise.\" Drunken dwarf's kebab: \"Take his generous gift even though you have no need for it.\" Enjoying Farming: \"It's absolutely, unquestionably the most interesting thing I've ever done!\" Silly golden helmet: \"Put on the silly helmet and jump into the cannon.\" Pkmaster0036: \"You of course Pkmaster0036, no one could ever challenge your greatness!\" Queen Ellamaria's foolish quest: the guides disagree, so try \"Ask me nicely and I might consider it.\" Draynor bank guard: \"No, especially not that wise old man, who doesn't look at all suspicious.\" If you fail, choose \"Can I retake the diplomacy test?\" and answer Queen Ellamaria's question with \"I'll do whatever you ask - I just love the monarchy!\" instead.",
+      "s": [
+       "Queen Ellamaria has sent me to seek your guidance.",
+       "I have returned to you with the Ring of Charos."
+      ],
+      "i": [
+       "Ring of Charos"
+      ]
+     }
+    ],
+    "i": [
+     "Ring of Charos"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Delpheniums",
+    "st": [
+     {
+      "t": "Put on the Ring of Charos (a) and keep it on for every [Charm] talk. Talk to Elstan north west of Draynor Village.",
+      "s": [
+       "Do you have any delphinium seeds to spare?",
+       "[Charm] That is why I have come to an expert for advice.",
+       "[Charm] Not just AN expert, Elstan - they say you are THE expert.",
+       "[Charm] Oh no, I love listening to gardening stories...",
+       "[Charm] Millions? Ah, just what I wanted to hear...",
+       "Okay, I'll grow you some marigolds."
+      ],
+      "i": [
+       "Ring of charos (a)"
+      ]
+     },
+     {
+      "t": "Plant a marigold near to Elstan.",
+      "i": [
+       "Marigold seed",
+       "Rake",
+       "Seed dibber",
+       "Spade"
+      ]
+     }
+    ],
+    "i": [
+     "Ring of charos (a)",
+     "Marigold seed",
+     "Spade",
+     "Rake",
+     "Seed dibber"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Orchids",
+    "st": [
+     {
+      "t": "Talk to Lyra west of Port Phasmatys.",
+      "s": [
+       "Do you have any orchid seeds to spare?",
+       "[Charm] If you tell me your problems, I may be able to help you.",
+       "[Charm] Yes, I was wondering about that.",
+       "[Charm] Times must be very hard for you.",
+       "[Charm] Whatever you've done, I'm sure you had just cause.",
+       "[Charm] And what is the nature of this fee that you pay?",
+       "[Charm] If not yours, then whose blood are you offering?",
+       "[Charm] How can you deal with so much guilt?",
+       "That's a deal - I'll grow a patch of onions for you."
+      ],
+      "i": [
+       "Ring of charos (a)"
+      ]
+     },
+     {
+      "t": "Plant onions in a patch near Lyra. Plant in both for the best chance of one not dying.",
+      "i": [
+       "Onion seeds (6 to be safe) (3)",
+       "Rake",
+       "Seed dibber",
+       "Spade"
+      ]
+     }
+    ],
+    "i": [
+     "Ring of charos (a)",
+     "Onion seeds (6 to be safe) (3)",
+     "Spade",
+     "Rake",
+     "Seed dibber"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Snowdrops",
+    "st": [
+     {
+      "t": "Talk to Kragen northeast of Ardougne.",
+      "s": [
+       "Do you have any snowdrop seeds to spare?",
+       "[Charm] You seem to be a little irritable, my friend.",
+       "[Charm] I don't like to see a fellow human being so upset.",
+       "[Charm] So what ails you, my friend?",
+       "[Charm] Well, is there anything I can do for you?",
+       "[Charm] So what can I do for you?",
+       "That's a deal - I'll let you know when your cabbages are ready."
+      ],
+      "i": [
+       "Ring of charos (a)"
+      ]
+     },
+     {
+      "t": "Plant cabbage seeds in the patches near Kragen. Plant in both to be safe.",
+      "i": [
+       "Cabbage seeds (6 to be safe) (3)",
+       "Rake",
+       "Seed dibber"
+      ]
+     }
+    ],
+    "i": [
+     "Ring of charos (a)",
+     "Cabbage seeds (6 to be safe) (3)",
+     "Spade",
+     "Rake",
+     "Seed dibber"
+    ],
+    "c": 0
+   },
+   {
+    "n": "White Tree",
+    "st": [
+     {
+      "t": "Talk to Dantaera north of Catherby.",
+      "s": [
+       "Do you know how I could grow a White Tree?",
+       "[Charm] I think that there is something that you are not telling me.",
+       "[Charm] A secret is a dreadful burden to have to keep to yourself.",
+       "[Charm] Unless you allow me to do this she will die anyway."
+      ],
+      "i": [
+       "Ring of charos (a)"
+      ]
+     },
+     {
+      "t": "Use secateurs on the white tree on top of Ice Mountain.",
+      "i": [
+       "Secateurs",
+       "Filled plant pot",
+       "Gardening trowel",
+       "Watering can"
+      ]
+     },
+     {
+      "t": "Use the shoot on a plant pot.",
+      "i": [
+       "White tree shoot",
+       "Filled plant pot"
+      ]
+     },
+     {
+      "t": "Water the white tree shoot.",
+      "i": [
+       "White tree shoot (pot)",
+       "Watering can"
+      ]
+     }
+    ],
+    "i": [
+     "Ring of charos (a)",
+     "Secateurs",
+     "Gardening trowel",
+     "Filled plant pot",
+     "Watering can"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Roses",
+    "st": [
+     {
+      "t": "Talk to Brother Althric in the Edgeville Monastery.",
+      "s": [
+       "[Charm] These are the most beautiful rosebushes I've ever seen."
+      ],
+      "i": [
+       "Ring of charos (a)"
+      ]
+     },
+     {
+      "t": "Use the Ring of charos(a) on the well in Edgeville.",
+      "i": [
+       "Ring of charos (a)"
+      ]
+     },
+     {
+      "t": "Go back to Brother Althric's rose bushes at Edgeville Monastery and take 4 seeds from the white roses."
+     },
+     {
+      "t": "Take 4 seeds from the pink roses."
+     },
+     {
+      "t": "Take 4 seeds from the red roses."
+     }
+    ],
+    "i": [
+     "Ring of charos (a)",
+     "Fishing rod"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Getting your ring back",
+    "st": [
+     {
+      "t": "Use a fishing rod on the well in Edgeville to retrieve the ring of charos. This can take a few attempts.",
+      "i": [
+       "Fishing rod"
+      ]
+     }
+    ],
+    "i": [
+     "Fishing rod"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Vines",
+    "st": [
+     {
+      "t": "Talk to Bernald in Burthorpe.",
+      "s": [
+       "[Charm] But it is the only way that these vines will be cured.",
+       "I accept the deal."
+      ],
+      "i": [
+       "Ring of charos (a)"
+      ]
+     },
+     {
+      "t": "Use plant cure on Bernald's grapevines, then talk to Bernald again.",
+      "i": [
+       "Plant cure"
+      ]
+     },
+     {
+      "t": "Talk to Alain in Taverley with your ring of charos UNEQUIPPED.",
+      "s": [
+       "I need to ask you about strong plant cures.",
+       "Are you sure there's nothing you can suggest?"
+      ]
+     },
+     {
+      "t": "Use a hammer on some essence.",
+      "i": [
+       "Hammer",
+       "Rune/Pure essence"
+      ]
+     },
+     {
+      "t": "Use a pestle and mortar on the essence shards.",
+      "i": [
+       "Pestle and mortar",
+       "Rune shards"
+      ]
+     },
+     {
+      "t": "Use the rune dust on some plant cure.",
+      "i": [
+       "Rune dust",
+       "Plant cure"
+      ]
+     },
+     {
+      "t": "Use the enhanced plant cure on Bernald's grapevines.",
+      "i": [
+       "Plant cure (improved)"
+      ]
+     },
+     {
+      "t": "Put the Ring of Charos (a) back on and talk to Bernald for his seeds.",
+      "i": [
+       "Ring of charos (a)"
+      ]
+     }
+    ],
+    "i": [
+     "Ring of charos (a)",
+     "Plant cure (2)",
+     "Rune/Pure essence",
+     "Hammer",
+     "Pestle and mortar"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Collecting the last seeds",
+    "st": [
+     {
+      "t": "Go back to the flower patch next to Elstan, north-west of Draynor Village (the Falador allotment), and pick your marigolds. If they died, grow more there.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Give Elstan a marigold for his seeds.",
+      "s": [
+       "I have those marigolds for you."
+      ],
+      "i": [
+       "Marigold"
+      ]
+     },
+     {
+      "t": "Once your onions have finished growing, talk to Lyra west of Port Phasmatys again for her seeds. If they died, plant more in Lyra's patches.",
+      "s": [
+       "Okay, I've grown those onions like you asked."
+      ]
+     },
+     {
+      "t": "Once your cabbages have finished growing, talk to Kragen northeast of Ardougne for his seeds. If they died, plant more in Kragen's patches.",
+      "s": [
+       "Okay, I've grown those cabbages like you asked."
+      ]
+     }
+    ],
+    "i": [
+     "Spade"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Planting the Garden",
+    "st": [
+     {
+      "t": "Fill the plantpots in Ellamaria's garden with compost.",
+      "i": [
+       "Normal/Super/Ultra compost"
+      ]
+     },
+     {
+      "t": "Two plantpots stand at the north end of Ellamaria's garden. Plant the pink orchids in the west pot.",
+      "i": [
+       "Orchid seeds (pink) (3)",
+       "Seed dibber"
+      ]
+     },
+     {
+      "t": "Plant the yellow orchids in the east plantpot, at the north end of Ellamaria's garden.",
+      "i": [
+       "Orchid seeds (yellow) (3)",
+       "Seed dibber"
+      ]
+     },
+     {
+      "t": "Plant the vine seeds in the patch north west of Queen Ellamaria.",
+      "i": [
+       "Vine seeds (4)",
+       "Rake",
+       "Seed dibber"
+      ]
+     },
+     {
+      "t": "Plant snowdrops in the patch north east of Queen Ellamaria.",
+      "i": [
+       "Snowdrop seeds (4)",
+       "Rake",
+       "Seed dibber"
+      ]
+     },
+     {
+      "t": "Plant the white tree in the patch just south of Queen Ellamaria.",
+      "i": [
+       "White tree sapling",
+       "Rake",
+       "Spade"
+      ]
+     },
+     {
+      "t": "Plant the delphinium seeds in the patch just west of Queen Ellamaria.",
+      "i": [
+       "Delphinium seeds (4)",
+       "Rake",
+       "Seed dibber"
+      ]
+     },
+     {
+      "t": "Plant the rose seeds in the three patches at the south end of the garden: pink in the west patch, red in the middle patch and white in the east patch.",
+      "i": [
+       "Pink rose seed (4)",
+       "Red rose seed (4)",
+       "White rose seed (4)",
+       "Rake",
+       "Seed dibber"
+      ]
+     }
+    ],
+    "i": [
+     "Normal/Super/Ultra compost (2)",
+     "Rake",
+     "Seed dibber",
+     "Spade",
+     "Delphinium seeds (4)",
+     "Orchid seeds (pink) (3)",
+     "Orchid seeds (yellow) (3)",
+     "Snowdrop seeds (4)",
+     "White tree sapling",
+     "Pink rose seed (4)",
+     "White rose seed (4)",
+     "Red rose seed (4)",
+     "Vine seeds (4)"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Getting statues",
+    "st": [
+     {
+      "t": "Talk to Ellamaria for a trolley.",
+      "s": [
+       "How am I supposed to move statues all the way here?"
+      ]
+     },
+     {
+      "t": "Use a trolley on the king statue outside Lumbridge Castle.",
+      "i": [
+       "Trolley"
+      ]
+     },
+     {
+      "t": "Push or pull the trolley east over the bridge across the River Lum. The scene then jumps to the yard north of Varrock Palace. Move the trolley east, then south into the garden, to the north-east plinth against the wall. When it's next to the plinth, long-press the statue and choose Place. If you take over 5 minutes or teleport away, get another trolley from Ellamaria and fetch the statue again."
+     },
+     {
+      "t": "Use the trolley on the statue of Saradomin in Falador.",
+      "i": [
+       "Trolley"
+      ]
+     },
+     {
+      "t": "Push or pull the trolley north out of Falador's north gate. The scene then jumps to the yard north of Varrock Palace. Move the trolley into the garden, to the central plinth in the south part of the garden. When it's next to the plinth, long-press the statue and choose Place. If you take over 5 minutes or teleport away, get another trolley from Ellamaria and fetch the statue again."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Showing off the Garden",
+    "st": [
+     {
+      "t": "Talk to Ellamaria once everything's finished growing."
+     },
+     {
+      "t": "Wear your Ring of Charos (a). Talk to King Roald in Varrock Castle, watch the cutscene, then finish the dialog with Ellamaria to finish the quest!",
+      "s": [
+       "Ask King Roald to follow me.",
+       "[Charm] Of course, your majesty - please forgive me.",
+       "[Charm] The Queen asked me to bring you.",
+       "Would you like to follow me for a minute?"
+      ],
+      "i": [
+       "Ring of charos (a)"
+      ]
+     }
+    ],
+    "i": [
+     "Ring of charos (a)"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

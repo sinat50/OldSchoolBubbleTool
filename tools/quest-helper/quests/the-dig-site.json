@@ -1,0 +1,358 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Dig Site",
+  "items": [
+   "Pestle and mortar",
+   "Vial",
+   "Tinderbox",
+   "Cup of tea",
+   "Rope (2)",
+   "Opal",
+   "Charcoal"
+  ],
+  "rec": [
+   "Digsite teleports (2)",
+   "Varrock teleports (2)"
+  ],
+  "enemies": [],
+  "rewards": [
+   "2 Quest points",
+   "15,300 Mining XP",
+   "2,000 Herblore XP",
+   "2 x Gold Bars",
+   "Ability to clean specimens in the Varrock Museum"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to an Examiner in the Exam Centre south east of Varrock.",
+      "s": [
+       "Can I take an exam?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Curator Haig in the Varrock Museum.",
+      "s": [
+       "Have you any interesting news?"
+      ],
+      "i": [
+       "Unstamped letter"
+      ]
+     },
+     {
+      "t": "Return to an Examiner in the Exam Centre south east of Varrock.",
+      "i": [
+       "Sealed letter"
+      ]
+     },
+     {
+      "t": "Go to the hilltop north of the Exam Centre with the blue urn. Search the second bush east of the urn for a teddy."
+     },
+     {
+      "t": "Pick up the tray in the south east of the dig site.",
+      "i": [
+       "Panning tray"
+      ]
+     },
+     {
+      "t": "Long-press the cup of tea, choose Use, then tap the Panning Guide nearby.",
+      "i": [
+       "Cup of tea"
+      ]
+     },
+     {
+      "t": "Pan at a panning point in the river, then search the full panning tray. Repeat until you find a special cup.",
+      "i": [
+       "Panning tray"
+      ]
+     },
+     {
+      "t": "Pickpocket workmen until you get an animal skull and a specimen brush."
+     },
+     {
+      "t": "Talk to the female student in the north west of the Digsite with the teddy in your inventory.",
+      "i": [
+       "Teddy"
+      ]
+     },
+     {
+      "t": "Talk to the female student again to get her exam answer."
+     },
+     {
+      "t": "Talk to the student in an orange shirt in the north east of the Digsite with the special cup in your inventory.",
+      "i": [
+       "Special cup"
+      ]
+     },
+     {
+      "t": "Talk to the student in an orange shirt again to get his exam answer."
+     },
+     {
+      "t": "Talk to the student in a green shirt in the south of the Digsite with the animal skull in your inventory.",
+      "i": [
+       "Animal skull"
+      ]
+     },
+     {
+      "t": "Talk to the student in a green shirt again to get his exam answer."
+     },
+     {
+      "t": "Talk to an Examiner in the Exam Centre to take the first test.",
+      "s": [
+       "Yes, I certainly am.",
+       "The study of the earth, its contents and history.",
+       "All that have passed the appropriate Earth Sciences exam.",
+       "Gloves and boots to be worn at all times; proper tools must be used."
+      ]
+     }
+    ],
+    "i": [
+     "Cup of tea"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Exam 2",
+    "st": [
+     {
+      "t": "Talk to the female student in the north west of the Digsite."
+     },
+     {
+      "t": "Talk to the student in an orange shirt in the north east of the Digsite."
+     },
+     {
+      "t": "Talk to the student in a green shirt in the south of the Digsite."
+     },
+     {
+      "t": "Talk to an Examiner in the Exam Centre to take the second test.",
+      "s": [
+       "I am ready for the next exam.",
+       "Samples taken in rough form; kept only in sealed containers.",
+       "Finds must be carefully handled, and gloves worn.",
+       "Always handle with care; strike cleanly on its cleaving point."
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Exam 3",
+    "st": [
+     {
+      "t": "Talk to the female student in the north west of the Digsite.",
+      "i": [
+       "Opal"
+      ]
+     },
+     {
+      "t": "Talk to the female student again.",
+      "i": [
+       "Opal"
+      ]
+     },
+     {
+      "t": "Talk to the student in an orange shirt in the north east of the Digsite."
+     },
+     {
+      "t": "Talk to the student in a green shirt in the south of the Digsite."
+     },
+     {
+      "t": "Talk to an Examiner in the Exam Centre to take the third test.",
+      "s": [
+       "I am ready for the last exam...",
+       "Samples cleaned, and carried only in specimen jars.",
+       "Brush carefully and slowly using short strokes.",
+       "Handle bones very carefully and keep them away from other samples."
+      ]
+     }
+    ],
+    "i": [
+     "Opal"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Discovery",
+    "st": [
+     {
+      "t": "Search the cupboard on the south wall of the west room of the Exam Centre for a specimen jar."
+     },
+     {
+      "t": "Dig in the north east dig spot in the Digsite until you get a talisman.",
+      "i": [
+       "Trowel",
+       "Specimen jar",
+       "Specimen brush"
+      ]
+     },
+     {
+      "t": "Talk to the Archaeological expert in the Exam Centre.",
+      "i": [
+       "Ancient talisman"
+      ]
+     },
+     {
+      "t": "Use the invitation letter on a Digsite workman you can pickpocket. The workman by the west winch won't take it. If you lost the letter, ask the Archaeological expert in the Exam Centre for another.",
+      "s": [
+       "I lost the letter you gave me."
+      ],
+      "i": [
+       "Invitation letter"
+      ]
+     }
+    ],
+    "i": [
+     "Trowel",
+     "Specimen brush"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Digging deeper",
+    "st": [
+     {
+      "t": "Use a rope on the west winch.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Climb down the west winch."
+     },
+     {
+      "t": "Pick up some arcenia root, just north of the rope.",
+      "i": [
+       "Arcenia root"
+      ]
+     },
+     {
+      "t": "Search the bricks to the east of the rope."
+     },
+     {
+      "t": "Climb back to the surface."
+     },
+     {
+      "t": "Use a rope on the north east winch.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Climb down the north east winch."
+     },
+     {
+      "t": "Talk to Doug Deeping.",
+      "s": [
+       "How could I move a large pile of rocks?"
+      ]
+     },
+     {
+      "t": "Leave Doug's cave."
+     },
+     {
+      "t": "Use the key on the chest in the tent in the south of the Digsite.",
+      "i": [
+       "Chest key"
+      ]
+     },
+     {
+      "t": "Search the chest."
+     },
+     {
+      "t": "Use a trowel on the centre barrel just west of the chest's tent.",
+      "i": [
+       "Trowel"
+      ]
+     },
+     {
+      "t": "Use a vial on the barrel west of the chest's tent.",
+      "i": [
+       "Vial"
+      ]
+     },
+     {
+      "t": "Don't just tap the liquid, or you'll empty it. Long-press the unidentified liquid, choose Use, then tap the Archaeological expert in the Exam Centre.",
+      "i": [
+       "Unidentified liquid"
+      ]
+     },
+     {
+      "t": "Use the powder on the Archaeological expert in the Exam Centre.",
+      "i": [
+       "Chemical powder"
+      ]
+     },
+     {
+      "t": "Mix the nitroglycerin and ammonium nitrate together.",
+      "i": [
+       "Nitroglycerin",
+       "Ammonium nitrate"
+      ]
+     },
+     {
+      "t": "Grind charcoal with a pestle and mortar.",
+      "i": [
+       "Pestle and mortar",
+       "Charcoal"
+      ]
+     },
+     {
+      "t": "Add the ground charcoal to the vial.",
+      "i": [
+       "Ground charcoal",
+       "Mixed chemicals"
+      ]
+     },
+     {
+      "t": "Add arcenia root to the vial.",
+      "i": [
+       "Arcenia root",
+       "Mixed chemicals"
+      ]
+     },
+     {
+      "t": "Climb down the rope on the west winch.",
+      "i": [
+       "Chemical compound",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Use the compound on the bricks to the east of the rope, not on the rocks.",
+      "i": [
+       "Chemical compound"
+      ]
+     },
+     {
+      "t": "Use a tinderbox on the bricks to the east of the rope.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Take the stone tablet in the south room."
+     },
+     {
+      "t": "Use the tablet on the Archaeological expert in the Exam Centre to complete the quest.",
+      "i": [
+       "Stone tablet"
+      ]
+     }
+    ],
+    "i": [
+     "Rope (2)",
+     "Trowel",
+     "Pestle and mortar",
+     "Vial",
+     "Tinderbox",
+     "Charcoal"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

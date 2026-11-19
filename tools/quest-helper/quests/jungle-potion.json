@@ -1,0 +1,132 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder junglepotion; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Jungle Potion",
+  "items": [],
+  "rec": [
+   "Food",
+   "Antipoison",
+   "Teleport to Karamja (Glory/house teleport)"
+  ],
+  "enemies": [
+   "Survive against level 53 Jogres and level 46 Harpie Bug Swarms."
+  ],
+  "rewards": [
+   "1 Quest point",
+   "775 Herblore XP"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Trufitus in Tai Bwo Wannai on Karamja.",
+      "s": [
+       "It's a nice village, where is everyone?",
+       "Me? How can I help?",
+       "It sounds like just the challenge for me.",
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Snake Weed",
+    "st": [
+     {
+      "t": "Search a marshy jungle vine south of Tai Bwo Wannai for some snake weed. If you want to do Zogre Flesh Eaters or Legends' Quest grab one for each as you will need them later."
+     },
+     {
+      "t": "Clean the Snake Weed and give it to Trufitus.",
+      "s": [
+       "Of course!"
+      ],
+      "i": [
+       "Grimy Snake Weed"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Ardrigal",
+    "st": [
+     {
+      "t": "Search the palm trees north east of Tai Bwo Wannai for an Ardrigal herb. If you want to do Legends' Quest grab one extra as you will need it later."
+     },
+     {
+      "t": "Clean the Ardrigal and give it to Trufitus.",
+      "s": [
+       "Of course!"
+      ],
+      "i": [
+       "Grimy Ardrigal"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Sito Foil",
+    "st": [
+     {
+      "t": "Search the scorched earth in the south of Tai Bwo Wannai for a Sito Foil herb."
+     },
+     {
+      "t": "Clean the Sito Foil and give it to Trufitus.",
+      "s": [
+       "Of course!"
+      ],
+      "i": [
+       "Grimy Sito Foil"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Volencia Moss",
+    "st": [
+     {
+      "t": "Search the rock for a Volencia Moss herb at the mine south east of Tai Bwo Wannai. If you plan on doing Fairy Tale I then take an extra."
+     },
+     {
+      "t": "Clean the Volencia Moss and give it to Trufitus.",
+      "s": [
+       "Of course!"
+      ],
+      "i": [
+       "Grimy Volencia Moss"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Rogues Purse",
+    "st": [
+     {
+      "t": "Head north-east of the village, towards where you found the Ardrigal. At the end of the cliffs, follow the coast west to a pile of rocks. Tap the rocks to search them and enter the cave.",
+      "s": [
+       "Yes, I'll enter the cave."
+      ]
+     },
+     {
+      "t": "Get the Rogues Purse from the fungus covered wall in the underground dungeon. If you are planning on doing Zogre Flesh Eaters then take an extra."
+     },
+     {
+      "t": "Climb out of the cave."
+     },
+     {
+      "t": "Clean the Rogues Purse and give it to Trufitus.",
+      "s": [
+       "Of course!"
+      ],
+      "i": [
+       "Grimy Rogues Purse"
+      ]
+     },
+     {
+      "t": "Talk to Trufitus to finish the quest."
+     }
+    ]
+   }
+  ]
+ }
+}

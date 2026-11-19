@@ -1,0 +1,379 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Cold War",
+  "items": [
+   "Oak Planks (unnoted) (10)",
+   "Steel Nails (10)",
+   "Hammer",
+   "Spade",
+   "Clockwork or Steel Bar",
+   "Normal Plank",
+   "Silk",
+   "Raw Cod",
+   "Swamp Tar",
+   "Feathers (5)",
+   "Mahogany Plank",
+   "Leather"
+  ],
+  "rec": [
+   "Teleport to Ardougne (4)",
+   "Teleport to PoH with a clockwork table",
+   "Teleports to Lumbridge (2)",
+   "Combat gear and food"
+  ],
+  "enemies": [
+   "1-3 Icelords (level 51)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "2,000 Crafting XP",
+   "5,000 Agility XP",
+   "1,500 Construction XP",
+   "40 Attack XP",
+   "Ability to create Penguin Suits",
+   "Ability to use the Penguin Agility Course",
+   "Abillity to make Bongo Drums"
+  ],
+  "sec": [
+   {
+    "n": "Larry's Story",
+    "st": [
+     {
+      "t": "Talk to Larry at the Ardougne Zoo.",
+      "s": [
+       "Yes.",
+       "Okay, why not!"
+      ]
+     },
+     {
+      "t": "Talk to Larry again.",
+      "s": [
+       "Yes, I have all the materials.",
+       "Yes"
+      ],
+      "i": [
+       "Oak Planks (unnoted) (10)",
+       "Steel Nails (10)",
+       "Hammer",
+       "Spade"
+      ]
+     }
+    ],
+    "i": [
+     "Oak Planks (unnoted) (10)",
+     "Steel Nails (10)",
+     "Hammer",
+     "Spade"
+    ]
+   },
+   {
+    "n": "Penguin Stake-out",
+    "st": [
+     {
+      "t": "Use an oak plank on the firm snow patch.",
+      "i": [
+       "Oak Plank"
+      ]
+     },
+     {
+      "t": "Use a spade on the bird hide to cover it in snow.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Talk to Larry on the iceberg to enter the bird hide. Watch the left penguin and write down its 3 emotes, in order: they are different for every player. To see them again, use the snowy bird hide before you talk to Larry in the next step."
+     },
+     {
+      "t": "Talk to Larry again.",
+      "s": [
+       "That's crazy!"
+      ]
+     },
+     {
+      "t": "Tap the boat to return to Rellekka."
+     }
+    ],
+    "i": [
+     "Oak Planks (unnoted) (10)",
+     "Steel Nails (10)",
+     "Hammer",
+     "Spade"
+    ]
+   },
+   {
+    "n": "A Clockwork Penguin",
+    "st": [
+     {
+      "t": "Talk to Larry in Relleka."
+     },
+     {
+      "t": "Travel to your POH or another POH with a Crafting table 3 or 4.",
+      "i": [
+       "Clockwork or Steel Bar",
+       "Normal Plank",
+       "Silk"
+      ]
+     },
+     {
+      "t": "Craft a steel bar into a clockwork at a crafting table 3.",
+      "s": [
+       "Clockwork mechanism"
+      ],
+      "i": [
+       "Steel Bar"
+      ]
+     },
+     {
+      "t": "Craft a clockwork penguin at a crafting table 3 or 4.",
+      "s": [
+       "Clockwork toy",
+       "Clockwork penguin"
+      ],
+      "i": [
+       "Clockwork",
+       "Normal Plank",
+       "Silk"
+      ]
+     },
+     {
+      "t": "Talk to Larry back in the Ardougne Zoo.",
+      "s": [
+       "Yes, I have it.",
+       "Yes"
+      ]
+     },
+     {
+      "t": "Talk to Larry on the iceberg.",
+      "s": [
+       "It looks like a warning message to keep us away.",
+       "Yes"
+      ]
+     }
+    ],
+    "i": [
+     "Normal Plank",
+     "Clockwork or Steel Bar",
+     "Silk"
+    ]
+   },
+   {
+    "n": "Ardougne Mission Report",
+    "st": [
+     {
+      "t": "Unequip your cape and weapons, then long-press Larry at the Ardougne Zoo and choose Tuxedo-time.",
+      "s": [
+       "Yes"
+      ]
+     },
+     {
+      "t": "Enter the penguin pen."
+     },
+     {
+      "t": "Talk to the zoo penguin (only one has a Talk-to option). When it wants a greeting, do the 3 emotes you wrote down, in order, from the emotes tab. You're told straight away if one is wrong, so you can try again. Your quest journal also lists them."
+     },
+     {
+      "t": "Leave the pen and talk to Larry to take off the penguin suit. Talk to him again about the mission report, then travel to the sheep farm in Lumbridge."
+     }
+    ],
+    "i": [
+     "Clockwork suit"
+    ]
+   },
+   {
+    "n": "Lumbridge Mission Report",
+    "st": [
+     {
+      "t": "Tuxedo-time Larry in the Lumbridge sheep farm."
+     },
+     {
+      "t": "Talk to the penguins disguised as a sheep in the Lumbridge sheep farm. You will need to use the same 3 emotes as the penguin from the bird hide cutscene."
+     },
+     {
+      "t": "Talk to Larry to take off the penguin suit, then talk to him again and choose \"Yes\" to go to the Ardougne Zoo. With your hands and cape slot empty, long-press Larry, choose Tuxedo-time and enter the penguin pen. If you have the Ring of Charos (a), wear it, talk to the zoo penguin and use the lines below. If you have a raw cod instead, use it on the zoo penguin. Choose \"The penguins in Lumbridge refuse to talk to me.\", then the line saying you forgot the phrase, then \"Sure!\".",
+      "s": [
+       "I need that phrase!",
+       "The penguins in Lumbridge refuse to talk to me.",
+       "I must have left the outpost before they gave out the phrase.",
+       "Sure!"
+      ],
+      "i": [
+       "Raw Cod",
+       "Clockwork suit"
+      ]
+     },
+     {
+      "t": "Talk to Larry to take off the penguin suit, then make your own way back to the sheep farm in Lumbridge, as Larry won't teleport you this time. Long-press Larry there, choose Tuxedo-time, then speak to the sheep-penguins again.",
+      "i": [
+       "Clockwork suit"
+      ]
+     },
+     {
+      "t": "Talk to Fred the Farmer without the penguin suit.",
+      "s": [
+       "I need to talk to you about penguins.",
+       "Bully Fred"
+      ]
+     },
+     {
+      "t": "Run north between the first field of cows and the mill to the dairy cow, shown by the dairy icon on the map. Long-press the dairy cow and choose to steal a cowbell."
+     },
+     {
+      "t": "Long-press Larry at the sheep farm and choose Tuxedo-time to get back in the penguin suit. Speak to the sheep-penguins once again to learn about the outpost.",
+      "s": [
+       "The Farmer is harmless."
+      ],
+      "i": [
+       "Clockwork suit"
+      ]
+     }
+    ],
+    "i": [
+     "Clockwork suit",
+     "Raw Cod",
+     "Feathers (5)",
+     "Swamp Tar",
+     "Mahogany Plank",
+     "Leather",
+     "Combat gear and food"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Penguin Outpost",
+    "st": [
+     {
+      "t": "Tell Larry about the outpost and travel back to the iceberg.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Swamp Tar",
+       "Feathers (5)",
+       "Lumbridge mission report"
+      ]
+     },
+     {
+      "t": "Jump in the penguin suit and talk to the KGP Agent on the north-west part of the iceberg. Do the same 3 emotes, in order. If he asks for the password, it's cabbage."
+     },
+     {
+      "t": "Talk to Noodle."
+     },
+     {
+      "t": "Give Noodle the swamp tar to get an ID card and a mission report.",
+      "s": [
+       "Yeah, I got it."
+      ],
+      "i": [
+       "Swamp Tar",
+       "Feathers (5)"
+      ]
+     },
+     {
+      "t": "Talk to the KGP Agent again.",
+      "i": [
+       "Kgp id card"
+      ]
+     },
+     {
+      "t": "Enter the avalanche."
+     }
+    ],
+    "i": [
+     "Clockwork suit",
+     "Feathers (5)",
+     "Swamp Tar",
+     "Mahogany Plank",
+     "Leather",
+     "Combat gear and food"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Briefing and Agility",
+    "st": [
+     {
+      "t": "Talk to the KGP Agent in the first room to the west of the entrance."
+     },
+     {
+      "t": "Enter the door to the west of the KGP Agent, then go through the north door and walk north outside to the agility course."
+     },
+     {
+      "t": "Climb down into the water, avoid the moving ice and climb out on the stepping stone at the end. Jump across the stones, use Tread-softly across the icicles, then use Cross Ice to get up the hill."
+     },
+     {
+      "t": "After you slide down the hill, talk to the Agility Instructor."
+     },
+     {
+      "t": "Return to Larry to tell him about the penguin army. You can quickly return to him by removing the penguin suit."
+     }
+    ],
+    "i": [
+     "Clockwork suit",
+     "Mahogany Plank",
+     "Leather",
+     "Combat gear and food"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Musical Penguins",
+    "st": [
+     {
+      "t": "Long-press Larry and choose Tuxedo-time, then enter the avalanche again. Talk to the KGP Agent by the control panel at the end of the main hall, then talk to Ping or Pong in the room to the east."
+     },
+     {
+      "t": "Leave the outpost and take off the penguin suit. Use the mahogany plank on the leather to make bongos.",
+      "i": [
+       "Mahogany Plank",
+       "Leather"
+      ]
+     },
+     {
+      "t": "Long-press Larry and choose Tuxedo-time, then enter the avalanche again. Return to Ping or Pong in the east room to give them the bongos and cowbells.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Penguin bongos",
+       "Cowbell"
+      ]
+     }
+    ],
+    "i": [
+     "Clockwork suit",
+     "Mahogany Plank",
+     "Leather",
+     "Combat gear and food"
+    ],
+    "c": 1
+   },
+   {
+    "n": "The War Room",
+    "st": [
+     {
+      "t": "Use the control panel at the end of the main hall to open the control room doors."
+     },
+     {
+      "t": "Enter the war room and walk a few steps in to be captured."
+     },
+     {
+      "t": "Kill icelords until you are able to leave through the door to the west. May take up to 3 kills."
+     },
+     {
+      "t": "Use the chasm to exit the cave."
+     },
+     {
+      "t": "Return to Larry to finish the quest."
+     }
+    ],
+    "i": [
+     "Clockwork suit",
+     "Combat gear and food"
+    ],
+    "c": 1
+   }
+  ]
+ }
+}

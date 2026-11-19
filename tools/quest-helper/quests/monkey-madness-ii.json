@@ -1,0 +1,670 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder monkeymadnessii; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Monkey Madness II",
+  "items": [
+   "Lemon",
+   "Grapes",
+   "Pestle and mortar",
+   "Any pickaxe",
+   "Logs",
+   "A lightsource",
+   "Translation book",
+   "Hammer (obtainable in quest)",
+   "Chisel (obtainable in quest)",
+   "M'speak amulet",
+   "Monkey talisman or 1000 coins",
+   "Ninja greegree"
+  ],
+  "rec": [
+   "Magic logs",
+   "Food",
+   "Stamina potions",
+   "Prayer potions",
+   "Antidote",
+   "Combat gear"
+  ],
+  "enemies": [
+   "Kruk (level 149, flinchable)",
+   "Keef (level 178, safespottable)",
+   "Kob (level 185, safespottable)",
+   "9 Tortured gorillas (level 141)",
+   "2 Demonic Gorillas (level 275)",
+   "Glough (level 431)"
+  ],
+  "rewards": [
+   "4 Quest points",
+   "80,000 Slayer XP",
+   "60,000 Agility XP",
+   "50,000 Thieving XP",
+   "50,000 Hunter XP",
+   "2 x 50,000 Experience Lamps (Any Combat Skill)",
+   "A Royal Seed Pod",
+   "A pet monkey",
+   "Access to Demonic Gorillas",
+   "A new Gnome Glider location",
+   "Access to a bank on Ape Atoll",
+   "Ability to wield the Heavy Ballista",
+   "Access to Maniacal Monkey hunting area"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to King Narnode Shareen in the Tree Gnome Stronghold.",
+      "s": [
+       "I'll help you look for Glough."
+      ]
+     },
+     {
+      "t": "Climb the ladder into Glough's house, just south-east of the Grand Tree, then climb the tree on the other side of the house to the next floor. Long-press the tree branch there and choose Investigate."
+     },
+     {
+      "t": "Go talk to Anita in her house in the far north-west of the Tree Gnome Stronghold, up the most north-western staircase.",
+      "s": [
+       "What's wrong?",
+       "He might be in trouble, I could help."
+      ]
+     },
+     {
+      "t": "Return to Glough's house and climb the tree to the 2nd floor, then climb the northern branch to the 3rd floor."
+     },
+     {
+      "t": "Investigate the nearby statue and turn it.",
+      "s": [
+       "Yes"
+      ]
+     },
+     {
+      "t": "Search the fire remains."
+     },
+     {
+      "t": "Search the crates."
+     },
+     {
+      "t": "Use a pestle and mortar on a lemon",
+      "i": [
+       "Pestle and mortar",
+       "Lemon"
+      ]
+     },
+     {
+      "t": "Use the notes on the candles.",
+      "i": [
+       "Mysterious note"
+      ]
+     },
+     {
+      "t": "Use a pestle and mortar on some grapes.",
+      "i": [
+       "Pestle and mortar",
+       "Grapes"
+      ]
+     },
+     {
+      "t": "Use the brush on the note.",
+      "i": [
+       "Juice-coated brush",
+       "Mysterious note"
+      ]
+     },
+     {
+      "t": "Read the note.",
+      "i": [
+       "Scrawled note"
+      ]
+     },
+     {
+      "t": "Use the translation book on the scrawled note. If you don't have the book, talk to King Narnode for another, then use it on the note.",
+      "i": [
+       "Translation book",
+       "Scrawled note"
+      ]
+     },
+     {
+      "t": "Go talk to Narnode."
+     },
+     {
+      "t": "Go talk to Anita in the west of the Tree Gnome Stronghold.",
+      "s": [
+       "Could you translate these notes?"
+      ],
+      "i": [
+       "Scrawled note"
+      ]
+     },
+     {
+      "t": "Return to Narnode with the translation."
+     },
+     {
+      "t": "Talk to Auguste on Entrana. You can take the hot air balloon there from south of the Grand Tree with a log, or travel from Port Sarim.",
+      "s": [
+       "Talk about Assistant Le Smith.",
+       "Thanks for the information."
+      ],
+      "i": [
+       "No combat items to travel to Entrana"
+      ]
+     },
+     {
+      "t": "Return to King Narnode Shareen in the Grand Tree."
+     }
+    ],
+    "i": [
+     "Lemon",
+     "Grapes",
+     "Translation book",
+     "Pestle and mortar",
+     "No combat items to travel to Entrana"
+    ],
+    "r": [
+     "Logs",
+     "Magic logs"
+    ],
+    "c": 1,
+    "e": [
+     "Glough (level 431)"
+    ]
+   },
+   {
+    "n": "Going undercover",
+    "st": [
+     {
+      "t": "Wear your ninja greegree and M'speak amulet, then talk to Garkor on the eastern side of Ape Atoll. If you have fairy rings, CLR takes you to the island.",
+      "s": [
+       "King Narnode has sent me.",
+       "It's worth a shot."
+      ],
+      "i": [
+       "Ninja greegree",
+       "M'speak amulet",
+       "Monkey talisman or 1000 coins",
+       "A lightsource",
+       "Food"
+      ]
+     },
+     {
+      "t": "Talk to Awowogei.",
+      "s": [
+       "I'm here to discuss military strategies.",
+       "Of course, my king."
+      ],
+      "i": [
+       "Ninja greegree",
+       "M'speak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Garkor again.",
+      "i": [
+       "Ninja greegree"
+      ]
+     },
+     {
+      "t": "Talk to a monkey archer on the hill on the west of Ape Atoll. If you still need a monkey talisman, buy one for 1000 coins at Tutab's Magical Market, the magic shop on Ape Atoll.",
+      "i": [
+       "Ninja greegree",
+       "M'speak amulet"
+      ]
+     },
+     {
+      "t": "Find the trapdoor hidden under jungle grass at the foot of a palm tree, just north-west of the bamboo gate. Keep one inventory space free: your greegree comes off as you enter and drops to the ground if your inventory is full. Enter the trapdoor.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "A lightsource",
+       "Combat gear",
+       "Food",
+       "Prayer potions",
+       "Stamina potions"
+      ]
+     },
+     {
+      "t": "Take the agility route: head south then east from the entrance. On dodgy ground, walk only on the flat tiles and avoid the ones with an X pattern. Protect from Melee if you fall. The right way differs per player: whenever the game says \"Something about this route feels wrong.\", \"Something about this tunnel feels wrong.\" or \"Something in the tunnel attacks you. Maybe this is the wrong route.\", turn back and take another way. The Solution button shows a map of the dungeon.",
+      "i": [
+       "A lightsource",
+       "Combat gear",
+       "Food",
+       "Prayer potions",
+       "Stamina potions"
+      ]
+     },
+     {
+      "t": "If you fall, find the rope back up. Depending on where you land, go up the rope to the west (use Protect from Melee), to the south east (use Protect from Ranged) or to the north west (use Protect from Melee)."
+     },
+     {
+      "t": "Long-press the chest in the cavern to the east and choose Unlock, then search it to get a bronze key."
+     },
+     {
+      "t": "Make your way north then through the bronze door.",
+      "i": [
+       "Bronze key"
+      ]
+     },
+     {
+      "t": "Traverse the next section of the dungeon. PROTECT FROM MISSILE if you fall."
+     },
+     {
+      "t": "Continue through the dungeon to the west and south-west. PROTECT FROM MELEE if you fall. Near the end the path splits into a western and an eastern route; remember which one you take."
+     },
+     {
+      "t": "After the last obstacle, before you step onto the final dodgy ground, investigate the wall that faces the route you did NOT take (the western wall if you came the eastern way, the eastern wall if you came the western way). This opens a shortcut back to the entrance."
+     },
+     {
+      "t": "Prepare to fight Kruk, then enter the hole to the south. If you're back near the entrance, enter the shortcut there first."
+     },
+     {
+      "t": "Kill Kruk. He can be flinched on a corner in the room by keeping him on a north east tile to you."
+     },
+     {
+      "t": "Search Kruk's Corpse."
+     },
+     {
+      "t": "Leave the dungeon up the rope to the west."
+     },
+     {
+      "t": "Enter the dungeon in south Ape Atoll.",
+      "i": [
+       "Greegree",
+       "Kruk's paw",
+       "Monkey talisman"
+      ]
+     },
+     {
+      "t": "Go through the long maze to Zooknock in the north east of the dungeon. Wearing a greegree stops the monkeys and spiders attacking you. From the ladder go east, north, west, north, east, south, east, then north. Go west along the whole dungeon, then south, east, south, west, south, east, south, and west to the far west side. Go north all the way, then east all the way. Talk to Zooknock.",
+      "s": [
+       "Talk about your mission."
+      ],
+      "i": [
+       "Greegree",
+       "Kruk's paw",
+       "Monkey talisman"
+      ]
+     },
+     {
+      "t": "Talk to Awowogei as Kruk.",
+      "i": [
+       "Kruk monkey greegree",
+       "M'speak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Garkor on Ape Atoll."
+     }
+    ],
+    "i": [
+     "Ninja greegree",
+     "M'speak amulet",
+     "Monkey talisman or 1000 coins",
+     "A lightsource",
+     "Combat gear",
+     "Food",
+     "Prayer potions",
+     "Stamina potions"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Defeating trolls and ogres",
+    "st": [
+     {
+      "t": "Enter the Troll Stronghold, ready to fight Kob.",
+      "i": [
+       "Climbing boots",
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "From the Troll Stronghold's entrance, go south-west into the room with Kob. Turn on Protect from Melee and talk to him, ready to fight.",
+      "s": [
+       "I know about your deal with the monkeys.",
+       "You won't be around to crush anyone when I'm done with you.",
+       "I accept your challenge."
+      ]
+     },
+     {
+      "t": "Fight Kob. He can be safespotted from the doorway."
+     },
+     {
+      "t": "Talk to Keef in Gu'Tanoth, past all the bridges. With 71 Agility you can use the agility shortcut next to him. Otherwise bring 20 coins to pass the bridges. Be prepared to fight him and pray Protect from Melee.",
+      "s": [
+       "I know about your deal with the monkeys.",
+       "I offer to spare your life.",
+       "I accept your challenge."
+      ],
+      "i": [
+       "Coins (20), unless you have 71 Agility"
+      ]
+     },
+     {
+      "t": "Fight Keef. He can be safespotted."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Climbing boots"
+    ],
+    "c": 1,
+    "e": [
+     "Keef (level 178, safespottable)"
+    ]
+   },
+   {
+    "n": "Sabotage",
+    "st": [
+     {
+      "t": "Talk to Garkor on Ape Atoll.",
+      "i": [
+       "Kruk monkey greegree"
+      ]
+     },
+     {
+      "t": "Wearing your Kruk greegree, find Assistant Le Smith. He's in one of four high places in Marim: 1) On the bridge joining the two watchtowers of the main gate. 2) On the top floor, up two ladders, of the broken building next to the monkey child's garden. 3) On the top floor of the jail: climb the ladder by Solihib's Food Stall, walk north, and climb the ladder at the back of the room with the bamboo bed. 4) On the top floor of the building west of the magic stall: climb the ladder at the south end of the temple, then the ladder in that building's north-west corner, and run all the way south-west.",
+      "i": [
+       "Kruk monkey greegree"
+      ]
+     },
+     {
+      "t": "Talk to Assistant Le Smith.",
+      "s": [
+       "I was going to ask you the same question.",
+       "Why is that?",
+       "Awowogei has already informed me about the battleships.",
+       "Where is the fleet, currently?"
+      ],
+      "i": [
+       "Kruk monkey greegree"
+      ]
+     },
+     {
+      "t": "Talk to Garkor.",
+      "i": [
+       "Kruk monkey greegree"
+      ]
+     },
+     {
+      "t": "Talk to the monkey guard on the north west of Ape Atoll.",
+      "s": [
+       "What's going on here?",
+       "Construction platform?",
+       "Can I visit the platform?",
+       "I would like to go back to the construction platform."
+      ],
+      "i": [
+       "Kruk monkey greegree",
+       "M'speak amulet"
+      ]
+     },
+     {
+      "t": "Navigate through the platform, avoiding the monkey guards, to the east side and climb the ladder there."
+     },
+     {
+      "t": "Make your way south then west, and go down the ladder there."
+     },
+     {
+      "t": "Follow the path around and search the crates there for 6 satchels. There are no monkeys here to avoid.",
+      "i": [
+       "Satchel (6)"
+      ]
+     },
+     {
+      "t": "Climb back up the ladder."
+     },
+     {
+      "t": "Make your way east then north, and go down the ladder there."
+     },
+     {
+      "t": "Navigate through the platform, avoiding the monkey guards, back to the first ladder you passed, on the north wall, and climb it."
+     },
+     {
+      "t": "Make your way east then south and go down the ladder there. Avoid the monkey on the way."
+     },
+     {
+      "t": "Fill your satchels with gunpowder from the barrel to the north. If a guard catches you from now on, your satchels are soaked: come back here and refill them. Charges you have already placed stay put.",
+      "i": [
+       "Satchel (filled) (6)"
+      ]
+     },
+     {
+      "t": "Go back up the ladder to the first floor.",
+      "i": [
+       "Satchel (filled)"
+      ]
+     },
+     {
+      "t": "Use a satchel on the weakened floorboards just south of the ladder.",
+      "i": [
+       "Satchel (filled)"
+      ]
+     },
+     {
+      "t": "Go down the ladder to the north west.",
+      "i": [
+       "Satchel (filled)"
+      ]
+     },
+     {
+      "t": "Place a satchel on the support to the south.",
+      "i": [
+       "Satchel (filled)"
+      ]
+     },
+     {
+      "t": "Go to the east side and climb the ladder there.",
+      "i": [
+       "Satchel (filled)"
+      ]
+     },
+     {
+      "t": "Make your way to the west across the vine, then north then east to the end of the path. Place a satchel on the weakened floorboards there.",
+      "i": [
+       "Satchel (filled)"
+      ]
+     },
+     {
+      "t": "Return to the east side where you came from and go up to the 2nd floor.",
+      "i": [
+       "Satchel (filled)"
+      ]
+     },
+     {
+      "t": "Place a satchel on the gas cylinder to the south.",
+      "i": [
+       "Satchel (filled)"
+      ]
+     },
+     {
+      "t": "Make your way to the west then north and place a satchel on the gas cylinder there.",
+      "i": [
+       "Satchel (filled)"
+      ]
+     },
+     {
+      "t": "Go back to the bottom floor.",
+      "i": [
+       "Satchel (filled)"
+      ]
+     },
+     {
+      "t": "Go back towards the boat and place the final satchel on the support beams in the west fork near the entrance.",
+      "i": [
+       "Satchel (filled)"
+      ]
+     },
+     {
+      "t": "Leave the platform via the boat. DON'T teleport away. You can shortcut here by getting caught."
+     }
+    ],
+    "i": [
+     "Kruk monkey greegree",
+     "M'speak amulet"
+    ]
+   },
+   {
+    "n": "Glough's experiments",
+    "st": [
+     {
+      "t": "Return to Garkor on Ape Atoll.",
+      "i": [
+       "Kruk monkey greegree",
+       "M'speak amulet"
+      ]
+     },
+     {
+      "t": "Enter the trapdoor under some grass in the north west of Ape Atoll.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Kruk monkey greegree"
+      ]
+     },
+     {
+      "t": "Your greegree came off as you entered. Wear the Kruk monkey greegree again, then climb across the monkey bars to the north.",
+      "i": [
+       "Kruk monkey greegree"
+      ]
+     },
+     {
+      "t": "Enter the passage to the north.",
+      "i": [
+       "Kruk monkey greegree"
+      ]
+     },
+     {
+      "t": "Walk through the big doors ahead, climb onto the stunted gorilla, then go down the stairs.",
+      "i": [
+       "Kruk monkey greegree"
+      ]
+     },
+     {
+      "t": "Fight the tortured gorillas. When you're done, be careful NOT to tap out of the cutscene or you'll need to do this again."
+     },
+     {
+      "t": "Dismount the gorilla on a holding area. If you didn't bring a chisel and hammer, search the crates nearby for them.",
+      "i": [
+       "Chisel",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Climb back up the stairs, take off your greegree, then tamper with the device to the north.",
+      "i": [
+       "Chisel",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Use a chisel on the charged onyx.",
+      "i": [
+       "Chisel",
+       "Charged onyx"
+      ]
+     },
+     {
+      "t": "Use the onyx back on the device.",
+      "i": [
+       "Deconstructed onyx"
+      ]
+     },
+     {
+      "t": "Investigate one of the incubation chambers in the room."
+     },
+     {
+      "t": "Return to Garkor.",
+      "i": [
+       "Kruk monkey greegree",
+       "M'speak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Awowogei.",
+      "i": [
+       "Kruk monkey greegree",
+       "M'speak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Garkor again.",
+      "i": [
+       "Kruk monkey greegree"
+      ]
+     }
+    ],
+    "i": [
+     "Kruk monkey greegree",
+     "M'speak amulet"
+    ],
+    "c": 1,
+    "e": [
+     "Kruk (level 149, flinchable)",
+     "9 Tortured gorillas (level 141)"
+    ]
+   },
+   {
+    "n": "Defending the tree",
+    "st": [
+     {
+      "t": "Talk to King Narnode Shareen in the Tree Gnome Stronghold. Be prepared for fighting, and bring 2 combat styles."
+     },
+     {
+      "t": "Talk to Nieve south of the Grand Tree. Be prepared to fight with 2 combat styles.",
+      "s": [
+       "Talk about Monkey Madness II.",
+       "Yes."
+      ],
+      "i": [
+       "2 styles of combat gear",
+       "Food"
+      ]
+     },
+     {
+      "t": "Walk around the north-west part of the Gnome Stronghold with Nieve and kill the tortured gorillas that appear, 4 in all, until Nieve tells you to move on. Each must come from a different spot: a second kill at the same spot doesn't count. If you lose Nieve, you can get her again from the Grand Tree."
+     },
+     {
+      "t": "Enter the breach north west of the Grand Tree with Nieve.",
+      "s": [
+       "Yes, let's go."
+      ],
+      "i": [
+       "2 styles of combat gear",
+       "Food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Enter the cavern to the north east."
+     },
+     {
+      "t": "Talk to Glough in the north of the cavern. After, defeat the tortured and demonic gorillas.",
+      "i": [
+       "2 styles of combat gear"
+      ]
+     },
+     {
+      "t": "Defeat Glough. He has 3 phases, changing rooms each time. You can safe spot the first 2 phases. Protect from Melee if you're next to him, or Protect from Magic if not in the third phase. The easiest way to do phase 3 is to attack him from 1 tile away, have Protect from Magic on, and step away a tile whenever he pulls you closer."
+     },
+     {
+      "t": "Talk to Zooknock to teleport to the Grand Tree.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Narnode to finish the madness!"
+     }
+    ],
+    "i": [
+     "2 styles of combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "2 Demonic Gorillas (level 275)",
+     "Glough (level 431)"
+    ]
+   }
+  ]
+ }
+}

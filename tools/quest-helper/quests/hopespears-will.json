@@ -1,0 +1,180 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Hopespear's Will",
+  "items": [
+   "Ghostspeak amulet",
+   "Ring of Visibility",
+   "Goblin potion",
+   "Dramen or lunar staff",
+   "Food and potions to defeat 5 enemies without armour, weapons, or magic"
+  ],
+  "rec": [
+   "Plain of mud sphere or charged Skills necklace",
+   "90+ combat"
+  ],
+  "enemies": [
+   "Snothead (level 32)",
+   "Snailfeet (level 56)",
+   "Mosschin (level 88)",
+   "Redeyes (level 121)",
+   "Strongbones (level 184)"
+  ],
+  "rewards": [
+   "38,750 Prayer XP"
+  ],
+  "sec": [
+   {
+    "n": "Obtaining the Goblin Bones",
+    "st": [
+     {
+      "t": "Enter the Goblin Cave next to the Fishing Guild. A plain of mud sphere will teleport you inside the cave.",
+      "i": [
+       "Goblin potion",
+       "Ring of Visibility",
+       "Ghostspeak amulet",
+       "Food and potions to defeat 5 enemies without armour, weapons, or magic"
+      ]
+     },
+     {
+      "t": "Take off everything you're wearing, then drink the goblin potion. Confirm to become a goblin: your selection doesn't matter.",
+      "i": [
+       "Goblin potion"
+      ]
+     },
+     {
+      "t": "In the cave, go to the two goblin guards in the north-west. Go down the stairs they guard to the goblin temple, choosing Yes if asked. WARNING: don't equip your ring or ghostspeak amulet until you're in the crypt, or you will turn back into a human!",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Enter the door to the crypt."
+     },
+     {
+      "t": "Equip your ring and ghostspeak item and talk to the ghost in the crypt.",
+      "s": [
+       "Why are you here?",
+       "I visited Yu'biusk.",
+       "It was a wasteland.",
+       "What favour?",
+       "Yes."
+      ],
+      "i": [
+       "Ring of Visibility",
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Unequip all weapons and armour. The ring of visibility and ghostspeak amulet can stay on, but you MUST unequip Morytania legs. Say Snothead's name at the south-west grave, then defeat him WITHOUT using weapons, armour, or magic. He attacks using melee. Pick up his bone from the ground before you fight the next priest.",
+      "s": [
+       "Snothead."
+      ]
+     },
+     {
+      "t": "With your gear still off, say Snailfeet's name at the south-east grave, then defeat him WITHOUT using weapons, armour, or magic. He attacks using melee and range. Pick up his bone from the ground before you fight the next priest.",
+      "s": [
+       "Snailfeet."
+      ]
+     },
+     {
+      "t": "With your gear still off, say Mosschin's name at the north-west grave, then defeat him WITHOUT using weapons, armour, or magic. He attacks using melee and magic. Pick up his bone from the ground before you fight the next priest.",
+      "s": [
+       "Mosschin."
+      ]
+     },
+     {
+      "t": "With your gear still off, say Redeyes's name at the north-east grave, then defeat him WITHOUT using weapons, armour, or magic. He attacks using melee and magic, and lowers your attack, strength, and defence. Pick up his bone from the ground before you fight the next priest.",
+      "s": [
+       "Redeyes."
+      ]
+     },
+     {
+      "t": "With your gear still off, say Strongbones's name at the north grave, then defeat him WITHOUT using weapons, armour, or magic. He attacks using all 3 combat styles, lowers your attack, strength and defence. Ignore the level 29 Skoblins he spawns. Pick up his bone from the ground.",
+      "s": [
+       "Strongbones."
+      ]
+     }
+    ],
+    "i": [
+     "Goblin potion",
+     "Ring of Visibility",
+     "Ghostspeak amulet",
+     "Food and potions to defeat 5 enemies without armour, weapons, or magic"
+    ],
+    "r": [
+     "Plain of mud sphere or charged Skills necklace"
+    ],
+    "c": 1,
+    "e": [
+     "Snothead (level 32)",
+     "Snailfeet (level 56)",
+     "Mosschin (level 88)",
+     "Redeyes (level 121)",
+     "Strongbones (level 184)"
+    ]
+   },
+   {
+    "n": "Freeing the Goblin Souls",
+    "st": [
+     {
+      "t": "Take all five bones to Yu'Biusk. You must get there via fairy ring BLQ.",
+      "i": [
+       "Snothead bones",
+       "Snailfeet bones",
+       "Mosschin bones",
+       "Redeyes bones",
+       "Strongbones bones"
+      ]
+     },
+     {
+      "t": "Bury Snothead's bone.",
+      "i": [
+       "Snothead bones"
+      ]
+     },
+     {
+      "t": "Bury Snailfeet's bone.",
+      "i": [
+       "Snailfeet bones"
+      ]
+     },
+     {
+      "t": "Bury Mosschin's bone.",
+      "i": [
+       "Mosschin bones"
+      ]
+     },
+     {
+      "t": "Bury Redeyes' bone.",
+      "i": [
+       "Redeyes bones"
+      ]
+     },
+     {
+      "t": "Bury Strongbones' bone.",
+      "i": [
+       "Strongbones bones"
+      ]
+     }
+    ],
+    "i": [
+     "Dramen or lunar staff",
+     "Snothead bones",
+     "Snailfeet bones",
+     "Mosschin bones",
+     "Redeyes bones",
+     "Strongbones bones"
+    ],
+    "c": 1,
+    "e": [
+     "Snothead (level 32)",
+     "Snailfeet (level 56)",
+     "Mosschin (level 88)",
+     "Redeyes (level 121)",
+     "Strongbones (level 184)"
+    ]
+   }
+  ]
+ }
+}

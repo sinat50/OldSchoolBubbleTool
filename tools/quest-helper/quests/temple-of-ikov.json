@@ -1,0 +1,185 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Temple of Ikov",
+  "items": [
+   "Yew, magic, dark bow, or thrown ranged weapons (darts, knives, thrownaxes)",
+   "Limpwurt (unnoted) (20)",
+   "Knife to get the boots of lightness",
+   "A light source to get the boots of lightness"
+  ],
+  "rec": [],
+  "enemies": [
+   "Able to survive multiple aggressive spiders (level 61) and demons (level 82)",
+   "Fire Warrior of Lesarkus (level 84) with ranged",
+   "If siding with Lucien, Guardian of Armadyl (level 43)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "10,500 Ranged XP",
+   "8,000 Fletching XP",
+   "Boots of Lightness"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Lucien in the pub north of East Ardougne castle.",
+      "s": [
+       "I'm a mighty hero!",
+       "That sounds like a laugh!"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Defeat Lesarkus",
+    "st": [
+     {
+      "t": "You must weigh -1kg or less to cross the bridge, both ways. The boots of lightness in the temple take off 4.5kg, so weigh 2kg or less before you wear them. Bank what you can, or drop items just before the bridge and pick them up after.",
+      "i": [
+       "Pendant of lucien",
+       "Limpwurt (unnoted) (20)",
+       "Yew, magic, dark bow, or thrown ranged weapons (darts, knives, thrownaxes)"
+      ]
+     },
+     {
+      "t": "Wear the pendant of Lucien. Climb down the ladder into the Temple of Ikov, north of East Ardougne and just south of the Ranging Guild.",
+      "i": [
+       "Pendant of lucien",
+       "Yew, magic, dark bow, or thrown ranged weapons (darts, knives, thrownaxes)",
+       "Limpwurt (unnoted) (20)"
+      ]
+     },
+     {
+      "t": "Go down the west stairs to get boots of lightness.",
+      "i": [
+       "A light source to get the boots of lightness",
+       "Knife to get the boots of lightness"
+      ]
+     },
+     {
+      "t": "Keep your light source with you, slash the web with your knife, and pick up the boots of lightness in the north east corner. Wear them.",
+      "i": [
+       "Boots of lightness"
+      ]
+     },
+     {
+      "t": "Go back upstairs."
+     },
+     {
+      "t": "Wearing the pendant of Lucien, go through the north gate. Cross the bridge in the north room weighing -1kg or less, open the large door and pick up the lever.",
+      "i": [
+       "Pendant of lucien",
+       "Lever"
+      ]
+     },
+     {
+      "t": "Use the lever on the lever bracket in the entrance room.",
+      "i": [
+       "Lever"
+      ]
+     },
+     {
+      "t": "Pull the lever."
+     },
+     {
+      "t": "Enter the south gate."
+     },
+     {
+      "t": "Search the chests in the ice area of this room until you have at least 20 Ice Arrows or more to be safe. If using a throwable weapon (darts, knives) a single Ice Arrow is sufficient. A random chest has the arrows each time.",
+      "i": [
+       "Sufficient Arrows"
+      ]
+     },
+     {
+      "t": "Return back to the entry room when you have enough arrows."
+     },
+     {
+      "t": "Go into the north room. On its north side, long-press the lever and choose to search it for traps, then pull it."
+     },
+     {
+      "t": "Try to enter the far north door. Be prepared to fight Lesarkus, who can only be hurt by ice arrows.",
+      "i": [
+       "Yew, magic, dark bow, or thrown ranged weapons (darts, knives, thrownaxes)",
+       "Ice arrows"
+      ]
+     },
+     {
+      "t": "Kill the Fire Warrior of Lesarkus. He can only be hurt by the ice arrows.",
+      "i": [
+       "Yew, magic, dark bow, or thrown ranged weapons (darts, knives, thrownaxes)",
+       "Ice arrows"
+      ]
+     }
+    ],
+    "i": [
+     "Pendant of lucien",
+     "Yew, magic, dark bow, or thrown ranged weapons (darts, knives, thrownaxes)",
+     "Knife to get the boots of lightness",
+     "A light source to get the boots of lightness",
+     "Limpwurt (unnoted) (20)"
+    ],
+    "c": 1,
+    "e": [
+     "Fire Warrior of Lesarkus (level 84) with ranged"
+    ]
+   },
+   {
+    "n": "Explore deeper",
+    "st": [
+     {
+      "t": "Go all the way north and talk to Winelda there.",
+      "i": [
+       "Pendant of lucien",
+       "Limpwurt (unnoted) (20)"
+      ]
+     },
+     {
+      "t": "Give Winelda 20 unnoted limpwurts.",
+      "i": [
+       "Limpwurt (unnoted) (20)"
+      ]
+     },
+     {
+      "t": "Optional: follow the path past the skeletons and the level-82 lesser demons to pick up a shiny key. It opens a shortcut into this dungeon from McGrubor's Wood. You don't need it to finish the quest.",
+      "i": [
+       "Shiny key"
+      ]
+     },
+     {
+      "t": "Push the wall on the north side of this area."
+     },
+     {
+      "t": "Choose a side now. To help Lucien, do this step and the next, and you're finished. To help the Guardians of Armadyl, skip to the step starting \"Guardians route\". Lucien route: pick up the Staff of Armadyl from the table. You may have to kill a Guardian of Armadyl (level 43)."
+     },
+     {
+      "t": "Lucien route: bring the Staff of Armadyl to Lucien in the house west of the Grand Exchange to finish the quest.",
+      "s": [
+       "Yes! Here it is."
+      ],
+      "i": [
+       "Staff of Armadyl"
+      ]
+     },
+     {
+      "t": "Guardians route: don't take the staff. Remove the pendant of Lucien and talk to a Guardian of Armadyl.",
+      "s": [
+       "I seek the Staff of Armadyl.",
+       "Lucien will give me a grand reward for it!",
+       "You're right, it's time for my yearly bath.",
+       "Ok! I'll help!"
+      ]
+     },
+     {
+      "t": "Guardians route: equip the Armadyl pendant and defeat Lucien in the house west of the Grand Exchange to finish the quest.",
+      "i": [
+       "Armadyl pendant"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

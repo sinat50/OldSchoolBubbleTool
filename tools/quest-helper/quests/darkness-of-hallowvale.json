@@ -1,0 +1,334 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder darknessofhallowvale; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Darkness of Hallowvale",
+  "items": [
+   "Hammer",
+   "Plank (2)",
+   "Nails (8)",
+   "Knife"
+  ],
+  "rec": [
+   "Law rune",
+   "Air rune",
+   "Any pickaxe"
+  ],
+  "enemies": [
+   "Able to survive 5 hits from Vanstrom Klause (level 169) or use Protect from Melee to negate all his damage."
+  ],
+  "rewards": [
+   "2 Quest points",
+   "7,000 Agility XP",
+   "6,000 Thieving XP",
+   "2,000 Construction XP",
+   "3 x 2,000 Experience Tomes (Any skill over level 30)."
+  ],
+  "sec": [
+   {
+    "n": "Infiltrating Meiyerditch",
+    "st": [
+     {
+      "t": "Go to the pub in Burgh de Rott, climb over the broken wall and go down the trapdoor into the Myreque base. Talk to Veliaf.",
+      "s": [
+       "Is there something I can do to help out?",
+       "Yes, please tell me more.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Leave the Myreque base."
+     },
+     {
+      "t": "Fix the boat in south Burgh de Rott.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Hammer",
+       "Plank (2)",
+       "Nails (8)"
+      ]
+     },
+     {
+      "t": "Fix the boat chute.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Hammer",
+       "Plank",
+       "Nails (4)"
+      ]
+     },
+     {
+      "t": "Push the boat."
+     },
+     {
+      "t": "Board the boat."
+     },
+     {
+      "t": "Climb onto the rocks and up the wall, then follow the wall until it runs straight north. Search the first set of floorboards there and kick them in.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Climb down the floorboard."
+     },
+     {
+      "t": "Climb over the wall rubble to the north."
+     },
+     {
+      "t": "Talk to a Meiyerditch citizen.",
+      "s": [
+       "(whisper) Do you know about the Myreque?",
+       "(whisper) I really need to meet the Myreque.",
+       "How can Old Man Ral help me?"
+      ]
+     },
+     {
+      "t": "Talk to Old Man Ral. From the wall rubble you climbed over, go north along the wall until it turns inwards. He's in the second building to the east, one building north of Trader Sven.",
+      "s": [
+       "Someone said you could help me.",
+       "Old Man Ral, the sage of Sanguinesti."
+      ]
+     },
+     {
+      "t": "Follow the sickle marks to the Myreque base. Enter the house south-west of Old Man Ral, with its door on the north side, and climb the ladder."
+     },
+     {
+      "t": "Jump south to the floorboards, then east to the next floorboards. In the north-east corner of the room, push the wall and cross the gap."
+     },
+     {
+      "t": "Crawl under the wall to the north. In the second room to the north, push the west wall, cross it and climb down the ladder."
+     },
+     {
+      "t": "Search the table by the west wall, open the trapdoor and go through the tunnel. Climb the shelf in the north-west corner, crawl under the wall to the east, jump east to the floorboards and climb down the ladder."
+     },
+     {
+      "t": "Search the pots by the east door for a door key, then open that door."
+     },
+     {
+      "t": "Climb the ladder in the room to the east. Jump south to the floorboards, go east around the wall and climb the shelves to the south."
+     },
+     {
+      "t": "Climb the ladder to the west, jump south to the floorboards, then climb down the ladder just west of you."
+     },
+     {
+      "t": "Go east and walk across the washing line, then climb down the ladder. Push the wall to the north, cross the floor and climb the shelf to the north."
+     },
+     {
+      "t": "Climb down the shelf in the north-east corner. Jump north to the floorboards, then north again. At the north end of the building, jump east to the floorboards."
+     },
+     {
+      "t": "Climb up the ladder, not down the broken one. Search the wall to the west for a ladder top."
+     },
+     {
+      "t": "Climb back down, repair the broken ladder with the ladder top, then climb down it."
+     },
+     {
+      "t": "Go out of the door and past the building to the north, into the only house there with an intact door. If you have no knife, climb the ladder in this room to get one, then come back down."
+     },
+     {
+      "t": "Go west through the door, then north out of the house. Head north to a sickle mark, follow the path east and enter the house to the south that has a ladder inside."
+     },
+     {
+      "t": "Climb the ladder, jump east to the floorboards and go down the stairs. Go round the east side of the stairs, use your knife or sickle on the wall to the south, then push it open.",
+      "i": [
+       "Knife or sickle"
+      ]
+     },
+     {
+      "t": "Press the decorated wall."
+     },
+     {
+      "t": "Quickly open the lumpy rug on the south-east square of the green rug and climb down the trapdoor. If it has closed again, press the decorated wall first."
+     },
+     {
+      "t": "Talk to Vertida in the north room. Say you've come to make contact with the Myreque, and don't leave until he gives you a message. If you're unsure, check your quest journal."
+     },
+     {
+      "t": "Bring the message to Veliaf in the Myreque base under Burgh de Rott.",
+      "s": [
+       "What should I do now?"
+      ]
+     }
+    ],
+    "i": [
+     "Hammer",
+     "Plank (2)",
+     "Nails (8)",
+     "Knife"
+    ]
+   },
+   {
+    "n": "Murder at Paterdomus",
+    "st": [
+     {
+      "t": "Go down the trapdoor just outside the east side of the Paterdomus Temple (fairy ring CKS is close by), then talk to Drezel in the tunnels."
+     },
+     {
+      "t": "Leave by the west ladder, on the Varrock side of the temple. Don't use the east exit, which leads out towards Canifis. Search the bushes just south-west of the steps up to the temple."
+     },
+     {
+      "t": "Return to Drezel."
+     },
+     {
+      "t": "Talk to King Roald in Varrock Castle.",
+      "s": [
+       "I must speak with you on a matter of grave importance.",
+       "Talk to the king about Morytania.",
+       "What should I do now?",
+       "Yes thanks. I'll accept the free teleport."
+      ]
+     },
+     {
+      "t": "Return to Veliaf in the Myreque base under Burgh de Rott."
+     }
+    ]
+   },
+   {
+    "n": "Mapping Castle Drakan",
+    "st": [
+     {
+      "t": "Return to the Meiyerditch Myreque base. Take the boat from south Burgh de Rott, go down through the floorboards and over the wall rubble as before, then talk to a Vyrewatch to be sent to the mines. Be on the standard spellbook before you go: you'll cast Telekinetic Grab in the lab later.",
+      "s": [
+       "Send me to the mines.",
+       "Send me to the mines! (Do a bit of menial work)"
+      ]
+     },
+     {
+      "t": "Mine 15 Daeyalt ore from the walls and put it in the mine carts. If you have no pickaxe, ask a miner for a spare one. Then talk to the vampyres to leave.",
+      "s": [
+       "Do you have a spare pick?"
+      ]
+     },
+     {
+      "t": "From the mine exit, walk 8 squares east, 21 south, 3 diagonally south-west, 6 south, 5 east, 6 south, 2 east, 4 south, 3 west, 7 south, 2 east, 10 south, 3 west and 9 south to the house with the ladder. Climb the ladder, jump east to the floorboards and climb down the stairs."
+     },
+     {
+      "t": "Go round the east side of the stairs and push the wall to the south. Press the decorated wall if you need to, open the rug and climb down the trapdoor."
+     },
+     {
+      "t": "Talk to Vertida in the north room. Then climb down the ladder, go out of the door, run south and climb over the wall rubble where you first came into Meiyerditch.",
+      "s": [
+       "Okay, lead the way."
+      ]
+     },
+     {
+      "t": "Run south and climb up through the floor. Run north up the slope and climb down the ladder. Search the rocky surface, go north through the barricade and climb up the ladder."
+     },
+     {
+      "t": "Run north along the wall and climb up the ladder. Climb down the next ladder, then climb the castle wall to the north. Have 4 free inventory spaces, run west along the wall and talk to Safalaan."
+     },
+     {
+      "t": "Run west along the walls, clockwise. Go past the first sickle logo, on the west side, and keep going until you see a sickle logo on the floor of the wall on the north side of Castle Drakan. Sketch the north side there by using the charcoal on some papyrus."
+     },
+     {
+      "t": "Run back anti-clockwise along the walls to the sickle logo on the west side of Castle Drakan. Sketch the west side there by using the charcoal on some papyrus."
+     },
+     {
+      "t": "Keep running anti-clockwise along the walls to the sickle logo on the south side of Castle Drakan, a little west of where you met Safalaan. Sketch the south side there. Be prepared to tank some hits from Vanstrom Klause."
+     },
+     {
+      "t": "Tank Vanstrom for 5 hits or use Protect from Melee."
+     },
+     {
+      "t": "Talk to Sarius on the walls around Castle Drakan."
+     },
+     {
+      "t": "Finish sketching the south side of Castle Drakan."
+     },
+     {
+      "t": "Talk to a nearby Vyrewatch to be sent to the mines.",
+      "s": [
+       "Send me to the mines.",
+       "Send me to the mines! (Do a bit of menial work)"
+      ]
+     },
+     {
+      "t": "Mine 15 Daeyalt ore from the walls and put it in the mine carts. If you have no pickaxe, ask a miner for a spare one. Then talk to the vampyres to leave.",
+      "s": [
+       "Do you have a spare pick?"
+      ]
+     },
+     {
+      "t": "From the mine exit, walk 8 squares east, 21 south, 3 diagonally south-west, 6 south, 5 east, 6 south, 2 east, 4 south, 3 west, 7 south, 2 east, 10 south, 3 west, 6 south, 7 west, 9 south and 3 east to the house with the fireplace, near the Meiyerditch Myreque base. Use a knife on the fireplace.",
+      "i": [
+       "Knife"
+      ]
+     },
+     {
+      "t": "Use a knife on the portrait south of the fireplace. If you don't get the large ornate key straight away, inspect the slashed portrait to get it. You need this key later."
+     },
+     {
+      "t": "Read the message.",
+      "i": [
+       "Message"
+      ]
+     },
+     {
+      "t": "Leave the fireplace house and walk 3 squares west, 9 north, 7 east and 3 south to the house with the ladder. Climb the ladder, jump east to the floorboards and climb down the stairs."
+     },
+     {
+      "t": "Go round the east side of the stairs and push the wall to the south. Press the decorated wall if you need to, open the rug and climb down the trapdoor."
+     },
+     {
+      "t": "Talk to Safalaan in the north room and give him the message and your three castle sketches.",
+      "s": [
+       "I have a message for you Safalaan - it may be important."
+      ],
+      "i": [
+       "Message",
+       "Castle sketch 1",
+       "Castle sketch 2",
+       "Castle sketch 3"
+      ]
+     }
+    ],
+    "i": [
+     "Knife"
+    ]
+   },
+   {
+    "n": "Investigate the lab",
+    "st": [
+     {
+      "t": "Leave the base by the ladder. Push the wall, climb up the stairs, jump the gap and climb down the ladder. Walk 8 squares north, 3 east, 11 north, 2 west, 5 north, 3 east, 6 north, 2 west, 4 north, 2 east, 7 north, 5 east and 2 north to the building by the east city wall. Slash the red and yellow tapestry there with your knife.",
+      "i": [
+       "Knife"
+      ]
+     },
+     {
+      "t": "Walk through the slashed tapestry and use the ornate key on the statue behind it. Don't use the key on the door: that hurts you.",
+      "i": [
+       "Large ornate key"
+      ]
+     },
+     {
+      "t": "Go down the staircase to the lab."
+     },
+     {
+      "t": "Cast Telekinetic Grab (standard spellbook) on the Haemalchemy book. If you have no law rune and air rune, search the broken rune case west of the stairs first.",
+      "i": [
+       "Haemalchemy volume 1",
+       "Law rune",
+       "Air rune"
+      ]
+     },
+     {
+      "t": "Leave the lab by the stairs and walk back the way you came to the house with the ladder. Climb the ladder, jump east to the floorboards and climb down the stairs. Go round the east side of the stairs and push the wall to the south. Press the decorated wall if you need to, open the rug and climb down the trapdoor. Give Safalaan the Haemalchemy book in the north room."
+     },
+     {
+      "t": "Bring the letter to Veliaf in the Myreque base under Burgh de Rott to complete the quest."
+     }
+    ],
+    "i": [
+     "Knife",
+     "Law rune",
+     "Air rune"
+    ]
+   }
+  ]
+ }
+}

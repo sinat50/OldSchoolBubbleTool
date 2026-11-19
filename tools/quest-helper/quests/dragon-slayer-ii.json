@@ -1,0 +1,668 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder dragonslayerii; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Dragon Slayer II",
+  "items": [
+   "Any pickaxe",
+   "Any axe",
+   "Oak planks (8)",
+   "Swamp paste (10)",
+   "Nails, bring more in case some break (12)",
+   "Hammer",
+   "Any machete",
+   "Saw",
+   "Catspeak amulet (e)",
+   "A light source",
+   "Goutweed",
+   "Astral rune",
+   "Seal of passage",
+   "Tinderbox",
+   "Pestle and mortar",
+   "Dragonstone",
+   "Molten glass (2)",
+   "Glassblowing pipe",
+   "Ghostspeak amulet",
+   "Chisel",
+   "Spade",
+   "3 casts of Fire Wave or Fire Surge",
+   "Antifire shield"
+  ],
+  "rec": [
+   "Ardougne teleport",
+   "Varrock teleport",
+   "Falador teleport",
+   "Port Phasmatys teleport",
+   "Karamja teleport",
+   "Rellekka teleport"
+  ],
+  "enemies": [
+   "Spawn (level 100)",
+   "Robert the Strong (level 194)",
+   "Vorkath (level 392)",
+   "Numerous chromatic and metal dragons",
+   "Galvek (level 608)"
+  ],
+  "rewards": [
+   "5 Quest points",
+   "80,000 Smithing XP",
+   "60,000 Mining XP",
+   "50,000 Agility XP",
+   "50,000 Thieving XP",
+   "4 x 25,000 Experience Tome (Any Combat Skill).",
+   "A Locator Orb",
+   "Access to the Myths Guild.",
+   "Ability to make Super Antifire Potions",
+   "Access to the Fountain of Uhld.",
+   "Access to the Wrath Altar.",
+   "Ability to purchase the Mythical Cape",
+   "Access to Adamant and Rune Dragons",
+   "Access to Vorkath",
+   "Ability to re-forge the dragon platebody and kiteshield.",
+   "Ability to craft Ferocious Gloves",
+   "Ability to further upgrade your Ava's device.",
+   "Ability to teleport to Lithkren with the Digsite Pendant."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Alec Kincade outside the Myths' Guild.",
+      "s": [
+       "How can I gain access to the guild?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Dallas Jones in the Pub on Musa Point.",
+      "s": [
+       "Yes I know it well."
+      ],
+      "i": [
+       "Any pickaxe",
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Enter the Karamja volcano and go north through the dungeon to the secret wall at its north end. Go through it, follow the tunnels to Elvarg's Lair and climb over the wall to get in. Talk to Dallas there."
+     },
+     {
+      "t": "Use a pickaxe on the blockage in the north east of Elvarg's Lair.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Enter the passage in the north east of Elvarg's Lair.",
+      "i": [
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Inspect the mural."
+     },
+     {
+      "t": "Kill the spawn.",
+      "i": [
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Investigate the mural again."
+     },
+     {
+      "t": "Talk to Dallas about the mural."
+     }
+    ],
+    "i": [
+     "Any pickaxe",
+     "Combat gear, food and potions"
+    ],
+    "c": 1,
+    "e": [
+     "Spawn (level 100)"
+    ]
+   },
+   {
+    "n": "Investigating Fossil Island",
+    "st": [
+     {
+      "t": "Travel to the House on the Hill on Fossil Island. The fastest way here is with the digsite pendant."
+     },
+     {
+      "t": "Inside the house, go down the trapdoor to the basement and talk to Dallas.",
+      "s": [
+       "Ask about the island.",
+       "So how do we know which island to go to?"
+      ]
+     },
+     {
+      "t": "Search the stone chest in the north of the room. Whilst finding map pieces you can talk to Dallas to give him your current pieces.",
+      "s": [
+       "Let's talk about the investigation."
+      ]
+     },
+     {
+      "t": "Climb the ladder to go upstairs in the house. Talk to Dallas if you want to give him your current map pieces.",
+      "s": [
+       "Let's talk about the investigation."
+      ]
+     },
+     {
+      "t": "Search the stone chest in the north of the house's top floor."
+     },
+     {
+      "t": "Leave the house down the stairs to the west."
+     },
+     {
+      "t": "Search the fungi north of the stairs."
+     },
+     {
+      "t": "Search the hook briar south of the house."
+     },
+     {
+      "t": "Search the mushtree east of the house."
+     },
+     {
+      "t": "Return to Dallas in the basement of the house and talk to him with the map pieces.",
+      "s": [
+       "Let's talk about the investigation.",
+       "Let's do it!"
+      ]
+     },
+     {
+      "t": "Tap the incomplete map in the middle of the room to open the puzzle. Tap a piece to turn it and drag pieces to swap them, until the map matches the solved picture."
+     },
+     {
+      "t": "Talk to Dallas after solving the map."
+     }
+    ]
+   },
+   {
+    "n": "Investigating Lithkren",
+    "st": [
+     {
+      "t": "Talk to Jardric in the museum camp."
+     },
+     {
+      "t": "Build a rowing boat on the west coast of Fossil Island, on the shore just south-west of the Mushroom Meadow magic mushtree.",
+      "i": [
+       "Hammer",
+       "Saw",
+       "Oak planks (8)",
+       "Swamp paste (10)",
+       "Nails, bring more in case some break (12)"
+      ]
+     },
+     {
+      "t": "Talk to Dallas near the boat, then board the boat to Lithkren.",
+      "s": [
+       "I'm ready."
+      ]
+     },
+     {
+      "t": "On Lithkren, head north-west from the boat to the ruined courtyard and climb up the stairs on its west side."
+     },
+     {
+      "t": "Climb down the trapdoor to the south."
+     },
+     {
+      "t": "Climb down the staircase to the north."
+     },
+     {
+      "t": "Talk to Dallas in the far north of the room."
+     },
+     {
+      "t": "Search the skeleton east of Dallas."
+     },
+     {
+      "t": "Read Aivas' Diary.",
+      "i": [
+       "Aivas' diary"
+      ]
+     },
+     {
+      "t": "Talk to Dallas again."
+     }
+    ],
+    "i": [
+     "Oak planks (8)",
+     "Swamp paste (10)",
+     "Nails, bring more in case some break (12)",
+     "Hammer",
+     "Saw"
+    ]
+   },
+   {
+    "n": "Contacting Bob",
+    "st": [
+     {
+      "t": "Use a catspeak amulet (e) to locate Bob the Cat and talk to him. He's often in Catherby Archery Shop or at the Varrock Anvil.",
+      "i": [
+       "Catspeak amulet (e)"
+      ]
+     },
+     {
+      "t": "Talk to the Sphinx in Sophanem.",
+      "s": [
+       "Ask the Sphinx for help with Bob's memories."
+      ]
+     }
+    ],
+    "i": [
+     "Catspeak amulet (e)"
+    ]
+   },
+   {
+    "n": "Entering a dream",
+    "st": [
+     {
+      "t": "Talk to the Oneiromancer in the south east of Lunar Isle. You need a dream vial from her for the next step, so if you don't have one afterwards, talk to her again.",
+      "s": [
+       "Bob's memories."
+      ],
+      "i": [
+       "Seal of passage"
+      ]
+     },
+     {
+      "t": "Fill the vial with water at the sink just west of the bank in Lunar Isle's town.",
+      "i": [
+       "Dream vial (empty)"
+      ]
+     },
+     {
+      "t": "Add a goutweed to the dream vial.",
+      "i": [
+       "Dream vial (water)",
+       "Goutweed"
+      ]
+     },
+     {
+      "t": "Use a hammer on an astral rune.",
+      "i": [
+       "Hammer",
+       "Astral rune"
+      ]
+     },
+     {
+      "t": "Use a pestle and mortar on the astral rune shards.",
+      "i": [
+       "Pestle and mortar",
+       "Astral rune shards"
+      ]
+     },
+     {
+      "t": "Add the ground astral rune to the dream vial.",
+      "i": [
+       "Ground astral rune",
+       "Dream vial (herb)"
+      ]
+     },
+     {
+      "t": "Equip your combat equipment, food, and light the Brazier in the west of Lunar Isle's town. Be prepared for a fight. You will need melee gear, preferably a crush weapon, to fight.",
+      "i": [
+       "Seal of passage",
+       "Tinderbox",
+       "Dream potion",
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Use the dream potion on the brazier.",
+      "s": [
+       "I'm ready.",
+       "Yes."
+      ],
+      "i": [
+       "Seal of passage",
+       "Dream potion",
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Talk to Bob in the dream."
+     },
+     {
+      "t": "When you're ready, fight Robert. Use Protect from Missiles. When he shouts 'See if you can hide from this!', hide behind a pillar."
+     },
+     {
+      "t": "Talk to Bob next to the brazier."
+     }
+    ],
+    "i": [
+     "Seal of passage",
+     "Goutweed",
+     "Astral rune",
+     "Hammer",
+     "Pestle and mortar",
+     "Tinderbox",
+     "Combat gear, food and potions"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Karamja key piece",
+    "st": [
+     {
+      "t": "Go down the staircase in the south east of the Kharazi Jungle. MAKE SURE TO HAVE AUTO-RETALIATE OFF BEFORE ENTERING."
+     },
+     {
+      "t": "Follow these moves to the centre of the maze, counted in squares from the bottom of the stairs. On the way, disarm spikes with Thieving, jump traps with Agility, and pray against the stone guardians: red is melee, green is ranged, blue is magic. First: 8 south, 4 west, 4 south, 7 west, 3 north, 8 west, 11 south."
+     },
+     {
+      "t": "Next: 4 east, 8 south, 4 east, 8 south, 4 east, 12 south, 11 east."
+     },
+     {
+      "t": "Next: 4 south, 5 east, 4 south, 4 east, 4 south, 7 east, 4 south, 4 east."
+     },
+     {
+      "t": "Next: 20 north, 4 east, 11 north, 10 west, 5 north, 1 west, 11 north."
+     },
+     {
+      "t": "Last: 3 east, 8 north, 3 west, 3 south, 4 west, 8 south, 4 west, 8 south, 8 west, 7 south. Take the key piece from the plinth in the centre."
+     }
+    ],
+    "i": [
+     "Any machete",
+     "Any axe",
+     "Food"
+    ]
+   },
+   {
+    "n": "Varrock key piece",
+    "st": [
+     {
+      "t": "Talk to Reldo in the Varrock Castle Library.",
+      "s": [
+       "I'm looking for information on a Fourth Age hero.",
+       "Ask about Tristan."
+      ]
+     },
+     {
+      "t": "Search the second bookcase from the north on the west side of the library's central row for the census. It has a red book on it."
+     },
+     {
+      "t": "Talk to Reldo again.",
+      "s": [
+       "About Tristan Corvo...",
+       "Ask about Tristan."
+      ],
+      "i": [
+       "Varrock census records"
+      ]
+     },
+     {
+      "t": "Talk to Sarah in the house just west of the bank in Port Phasmatys.",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Ava in Draynor Manor.",
+      "s": [
+       "I need your help with a key piece."
+      ],
+      "i": [
+       "Dragonstone",
+       "Molten glass (2)",
+       "Glassblowing pipe"
+      ]
+     },
+     {
+      "t": "Use the glassblowing pipe on a dragonstone.",
+      "i": [
+       "Glassblowing pipe",
+       "Dragonstone",
+       "Molten glass (2)"
+      ]
+     },
+     {
+      "t": "Talk to Ava again.",
+      "s": [
+       "I need your help with a key piece."
+      ],
+      "i": [
+       "Inert locator orb"
+      ]
+     },
+     {
+      "t": "Bring food: the locator orb hurts you each time you use it. Start at fairy ring BKR in Mort Myre and use the locator orb: it tells you which direction the key piece is. Walk that way and use it again, and keep following its directions to the spot, then dig there with your spade.",
+      "i": [
+       "Locator orb",
+       "Spade"
+      ]
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Dragonstone",
+     "Molten glass (2)",
+     "Glassblowing pipe",
+     "Spade"
+    ],
+    "tr": [
+     "Port Phasmatys teleport"
+    ]
+   },
+   {
+    "n": "Kourend key piece",
+    "st": [
+     {
+      "t": "Talk to Amelia south west of the Shayzien Archery Store."
+     },
+     {
+      "t": "Enter the Crypt west of Amelia.",
+      "i": [
+       "A light source"
+      ]
+     },
+     {
+      "t": "The crypt has three levels and the undead are aggressive, so keep moving. On the top level, go down the ladder in the north-east corner. On the middle level, go to the far east ladder and climb down to the bottom level. Then head to the centre and go through the southern doors."
+     },
+     {
+      "t": "Inspect the tomb in the south room."
+     },
+     {
+      "t": "Solve the crypt puzzle."
+     },
+     {
+      "t": "Inspect the tomb for the key."
+     }
+    ],
+    "i": [
+     "Combat gear, food and potions",
+     "A light source"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Fremennik key piece",
+    "st": [
+     {
+      "t": "Talk to Brundt in Rellekka.",
+      "s": [
+       "Ask about the dragonkin fortress."
+      ]
+     },
+     {
+      "t": "Talk to Torfinn on the Rellekka docks to go to Ungael.",
+      "s": [
+       "I'm ready.",
+       "Yes please."
+      ]
+     },
+     {
+      "t": "Defeat Vorkath. This is a hard fight, so if you're unfamiliar with it it's recommended you watch a video on it first. Protect from Magic, and drink an antifire and antivenom potion. When Vorkath fires a pink fireball it'll turn your prayer off. When Vorkath shoots an orange fireball into the air, move away from the spot you're on. When Vorkath spits acid everywhere, WALK around to avoid the fireballs he will shoot. When Vorkath freezes you, kill the zombified spawn that appears before it reaches you.",
+      "i": [
+       "Ranged combat gear"
+      ]
+     },
+     {
+      "t": "Climb over the ice chunks in the north of Vorkath's crater, then follow the path to the north-west of Ungael and enter the cave.",
+      "s": [
+       "I'm sure."
+      ]
+     },
+     {
+      "t": "Pull the lever in the south west corner. Make sure you have run energy before doing so, as you need to run to the east room afterwards."
+     },
+     {
+      "t": "RUN to the east room."
+     },
+     {
+      "t": "Search the stone chest in the room for the key piece."
+     }
+    ],
+    "i": [
+     "Combat gear, food and potions"
+    ],
+    "c": 1,
+    "e": [
+     "Vorkath (level 392)"
+    ]
+   },
+   {
+    "n": "Unlocking the door",
+    "st": [
+     {
+      "t": "If you haven't already, do the Firemaking part of Barbarian Training and get the pyre ship instructions from Otto. Without them, the whirlpool washes you ashore."
+     },
+     {
+      "t": "Enter the Ancient Caverns through the whirlpool south of the Barbarian Outpost. Go down the stairs and run south along the east wall to the stairs up to the mithril dragons. Go up, run west and open the Mithril Door with your ancient key.",
+      "s": [
+       "Yes, I wish to enter the unknown."
+      ],
+      "i": [
+       "Ancient key",
+       "3 casts of Fire Wave or Fire Surge",
+       "Dragon key pieces (4)",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Cast fire wave or surge on the 3 dragon heads."
+     },
+     {
+      "t": "Leave the orb room, go east and back down the stairs to the ground floor. Run to the south-west corner of the caverns and climb up the rough steps there. Forge the dragon key on one of the anvils to the south.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Dragon key pieces (4)",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Board the boat on the west coast of Fossil Island to Lithkren. In the ruined courtyard, climb up the stairs to the west, down the trapdoor to the south and down the staircase to the north. Follow the path down and use the dragon key on the grandiose door, just north of where you met Dallas.",
+      "i": [
+       "Dragon key"
+      ]
+     },
+     {
+      "t": "Enter the grandiose doors and talk to Dallas in the new area."
+     },
+     {
+      "t": "Talk to Bob underground in Lithkren."
+     }
+    ],
+    "i": [
+     "Ancient key",
+     "3 casts of Fire Wave or Fire Surge",
+     "Dragon key piece (Fremmennik)",
+     "Dragon key piece (Kharazi)",
+     "Dragon key piece (Varrock)",
+     "Dragon key piece (Kourend)",
+     "Hammer",
+     "Antifire shield"
+    ]
+   },
+   {
+    "n": "Creating an army",
+    "st": [
+     {
+      "t": "Talk to King Roald in Varrock Castle.",
+      "s": [
+       "I'm here to talk about dragons.",
+       "About the dragon threat...",
+       "Talk about the dragon threat"
+      ]
+     },
+     {
+      "t": "Talk to Brundt in Rellekka.",
+      "s": [
+       "Ask about the dragon threat."
+      ]
+     },
+     {
+      "t": "Talk to Sir Amik Varze upstairs in Falador Castle.",
+      "s": [
+       "Talk about the dragon threat."
+      ]
+     },
+     {
+      "t": "Talk to King Lathas/Thoros upstairs in East Ardougne castle.",
+      "s": [
+       "Talk about the dragon threat."
+      ]
+     },
+     {
+      "t": "Enter the dining room just north of King Roald's throne room in Varrock Castle."
+     },
+     {
+      "t": "Talk to Bob in Varrock Castle."
+     }
+    ]
+   },
+   {
+    "n": "Final showdown",
+    "st": [
+     {
+      "t": "Keep 4 inventory slots free. Talk to Torfinn on the Rellekka docks to go to Ungael. Be prepared for a lot of fighting.",
+      "s": [
+       "Yes please.",
+       "Yes."
+      ],
+      "i": [
+       "Combat gear, food and potions",
+       "Antifire shield",
+       "4 free inventory slots"
+      ]
+     },
+     {
+      "t": "Keep the boat afloat for 4 minutes. Take a swamp paste, water container, revitalisation potion and hammer from the crates on the ship: this is what your 4 free inventory slots are for. Use them to fill leaks, put out fires, heal warriors and repair the masts."
+     },
+     {
+      "t": "Put on your dragonfire protection and cross the wrecked ships to Varrock's grand ship, killing the red, iron and brutal green dragons on the way. The path goes west, north, east, north, east, north, east and north again, then back west along the top, south, and finally west to the main ship."
+     },
+     {
+      "t": "Kill the blue and green dragons."
+     },
+     {
+      "t": "Kill the black, steel, and brutal red dragon. Occasionally Galvek will shoot a fireball in the air, move to avoid it."
+     },
+     {
+      "t": "Kill the metal dragons. Occasionally Galvek will shoot a fireball in the air, move to avoid it."
+     },
+     {
+      "t": "Kill Galvek. This is a hard fight, so it's recommended you check a video to see what you'll have to do. Avoid the ground-targeted fireballs. The pink attack turns off prayer. Use Protect from Magic in phase 1, use Protect from Missiles otherwise. Phase 1 - Fire traps appear - if you go near them you die. Phase 2 - Fires transparent projectile which drains stats. Phase 3 - Waves of fire appear. Go through the gap in them to avoid. Phase 4 - Fires a binding projectile. Avoid it by moving."
+     },
+     {
+      "t": "Talk to Alec Kincade to become a Myth!",
+      "s": [
+       "Let's talk about my quest."
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear, food and potions",
+     "Antifire shield"
+    ],
+    "c": 1,
+    "e": [
+     "Galvek (level 608)"
+    ]
+   }
+  ]
+ }
+}

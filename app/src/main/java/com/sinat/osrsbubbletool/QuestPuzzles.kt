@@ -48,7 +48,11 @@ object QuestPuzzles {
 
     // Where a pillar is in the game (pillars are 14 tiles apart, column A / row 0 in the south-west)
     fun pillarX(col: Char) = 2567 + 14 * (col - 'A')
-    fun pillarY(row: Int) = 6088 + 14 * row
+    fun pillarY(floor: Int, col: Char, row: Int) = OFF_GRID["$floor$col$row"] ?: (6088 + 14 * row)
+
+    // The top floor's south-east room is smaller, so four of its pillars sit closer together
+    // than the rest (their real places, from the plugin)
+    private val OFF_GRID = mapOf("2G0" to 6094, "2H0" to 6094, "2G2" to 6110, "2H2" to 6110)
 
     // Things in the library that help you find your way (game coordinates, from the plugin)
     class Landmark(val floor: Int, val x: Int, val y: Int, val kind: String, val label: String)
@@ -97,7 +101,8 @@ object QuestPuzzles {
             "(point the light the way the arrow shows), a diamond is a crystal, and the yellow line is the light. " +
             "Faint numbered outlines are pieces still to come on that floor. Your target is the Seal of ${p.clan}.",
         steps = p.steps.map { it.text },
-        diagram = Diagram.Light(p)
+        diagram = Diagram.Light(p),
+        stepText = "${p.clan} light puzzle"
     )
 
     private fun rubble(n: Int, steps: List<TileStep>) = Puzzle(
@@ -119,9 +124,9 @@ object QuestPuzzles {
 
     val HELP_WANTED: Map<String, List<ScreenshotRequest>> = mapOf(
         "Icthlarin's Little Helper" to listOf(ScreenshotRequest("Door tiles",
-            "The app could read the tiles you get and show which to click, with no resetting.",
+            "The app could read the tiles you get and show which to tap, with no resetting.",
             listOf("The door puzzle just opened, in 3 or 4 different starting patterns (reset with the golden bird)",
-                "The puzzle just after clicking one tile (say which tile you clicked)"))),
+                "The puzzle just after tapping one tile (say which tile you tapped)"))),
         "Dragon Slayer II" to listOf(ScreenshotRequest("Map puzzle",
             "The app could read where each piece is and show the next swap or turn.",
             listOf("The map puzzle just opened, before moving anything", "A couple partway through", "The solved map"))),
@@ -129,7 +134,7 @@ object QuestPuzzles {
             "The app could show where the selected piece goes and how many times to turn it.",
             listOf("The jigsaw just opened", "A few with some pieces placed", "The finished egg"))),
         "The Forsaken Tower" to listOf(ScreenshotRequest("Power grid",
-            "The app could show only the squares that still need turning, and how many clicks each.",
+            "The app could show only the squares that still need turning, and how many taps each.",
             listOf("The power grid just opened", "After turning a couple of squares", "The solved grid"))),
         "Sins of the Father" to listOf(ScreenshotRequest("Tomb door grid",
             "The app could read the numbers itself and show the squares to press.",
@@ -196,13 +201,14 @@ object QuestPuzzles {
         Puzzle("The Blood Moon Rises", "Grandfather clocks",
             intro = "Set the hands on the two grandfather clocks in Castle Drakan:",
             table = listOf("Western clock" to "Big hand on 11, small hand on 9", "Eastern clock" to "Big hand on 12, small hand on 4"),
-            section = "Infiltrating Castle Drakan"),
+            section = "Escaping Castle Drakan - Fixing the clocks"),
 
         Puzzle("The Blood Moon Rises", "Gilded bookcase",
             intro = "Use the gilded book on the western gilded bookcase and inspect the books. Swap them until the " +
                 "symbols (the Vampyric Houses, in alphabetical order) read from left to right as in the wiki's picture:",
             link = "Bookcase answer on the wiki" to "https://oldschool.runescape.wiki/w/File:The_Blood_Moon_Rises_-_gilded_bookcase_solution.png",
-            outro = "Then go through the secret passage to the south."),
+            outro = "Then go through the secret passage to the south.",
+            stepText = "Rearrange the symbols"),
 
         Puzzle("The Blood Moon Rises", "Tangle of trees",
             intro = "Take the axe from the stump at the start. A tree can be chopped once from each side; after " +
@@ -215,7 +221,8 @@ object QuestPuzzles {
         Puzzle("The Forsaken Tower", "Pylon discs",
             intro = "Move the energy discs between the west (W), centre (C) and east (E) pylons. All four start on the west pylon and end on the centre one.",
             steps = listOf("W → E", "W → C", "E → C", "W → E", "C → W", "C → E", "W → E", "W → C",
-                "E → C", "E → W", "C → W", "E → C", "W → E", "W → C", "E → C")),
+                "E → C", "E → W", "C → W", "E → C", "W → E", "W → C", "E → C"),
+            section = "Altar puzzle"),
 
         Puzzle("The Forsaken Tower", "Coolant jugs",
             intro = "Get a tinderbox from the cupboard on the north wall and both jugs from the cupboard in the south-west (\"Take both.\").",
@@ -226,7 +233,8 @@ object QuestPuzzles {
                 "Pour the 5-gallon jug into the 8-gallon jug (the 8 now has 2).",
                 "Fill the 5-gallon jug and pour it into the 8-gallon jug (the 8 now has 7).",
                 "Fill the 5-gallon jug and pour it into the 8-gallon jug. 4 gallons stay in the 5-gallon jug.",
-                "Use the 5-gallon jug on the furnace coolant, then light the furnace with the tinderbox.")),
+                "Use the 5-gallon jug on the furnace coolant, then light the furnace with the tinderbox."),
+            section = "Furnace puzzle"),
 
         Puzzle("The Fremennik Trials", "Peer's door",
             intro = "Peer's riddle starts \"My first is in…\". Find the word it starts with and set the lock to its answer:",
@@ -236,7 +244,8 @@ object QuestPuzzles {
 
         Puzzle("Recruitment Drive", "Sir Ren Itchood's lock",
             intro = "Ask Sir Ren for his clue. The answer is the first letter of each sentence of the clue. It's always " +
-                "one of: TIME, FISH, RAIN, BITE, MEAT or LAST."),
+                "one of: TIME, FISH, RAIN, BITE, MEAT or LAST.",
+            section = "Sir Ren Itchood"),
 
         Puzzle("Tribal Totem", "Door combination",
             intro = "Set the four letters to K U R T, then press Enter.",
@@ -253,7 +262,8 @@ object QuestPuzzles {
                 "Magic" to "Lantadyme, Potato cactus", "Prayer" to "Ranarr weed, Snape grass",
                 "Ranged" to "Dwarf weed, Wine of Zamorak", "Restoration" to "Harralander, Red spider's eggs",
                 "Strength" to "Tarromin, Limpwurt root"),
-            outro = "Then put all the dolmens on the stone table in the middle."),
+            outro = "Then put all the dolmens on the stone table in the middle.",
+            stepText = "Eight statues"),
 
         Puzzle("The Path of Glouphrie", "Monolith storeroom",
             intro = "Unlock Yewnock's machine room in the Tree Gnome Village dungeon. Don't push a monolith further than it says: if you do, reset the room.",
@@ -262,13 +272,13 @@ object QuestPuzzles {
                 "Open the chest for some shapes.",
                 "Push the south-west monolith north once.",
                 "Push the north-west monolith east once.",
-                "Open the chest for more shapes. If it gives you none, drop your shapes, click the chest, then pick them back up.",
+                "Open the chest for more shapes. If it gives you none, drop your shapes, tap the chest, then pick them back up.",
                 "Picklock the small chest for a key.",
                 "Push the small monolith south once.",
                 "Push the north-west monolith west once.",
                 "Search the big chest for the strongroom key and crystal chime seed.",
                 "Open the chest for more shapes (the same trick applies if it gives none).",
-                "Inspect the singing bowl, then click it again and answer \"Yes.\" to make the crystal chime.",
+                "Inspect the singing bowl, then tap it again and answer \"Yes.\" to make the crystal chime.",
                 "Push the south-east monolith west once.",
                 "Unlock the gate to Yewnock's machine room with the crystal chime and strongroom key.")),
 
@@ -303,7 +313,7 @@ object QuestPuzzles {
             stepText = "Combine the fragments"),
 
         Puzzle("The Forsaken Tower", "Power grid",
-            intro = "Click each square to turn it until its line matches the picture. The square blocks are where the power comes in.",
+            intro = "Tap each square to turn it until its line matches the picture. The square blocks are where the power comes in.",
             diagram = Diagram.Power(listOf(
                 listOf("St", "ES", "Wt", "ES", "EW", "Wt"),
                 listOf("NE", "NEW", "EW", "NSW", "ES", "Wt"),
@@ -319,11 +329,68 @@ object QuestPuzzles {
             diagram = Diagram.Marked(8, 8, setOf(47, 62, 5, 52, 33, 27, 10, 16)),
             section = "Learning of the Ancients"),
 
+        // ---- Pictures on the wiki: the app ships no game pictures, so these pages link to them ----
+        Puzzle("Between a Rock...", "Schematic pieces",
+            intro = "Turn and move the three pieces until they match this picture. If they fit together but nothing happens, select them all and move them together.",
+            link = "Assembled schematic on the wiki" to "https://oldschool.runescape.wiki/w/File:Between_a_Rock..._schematics.png",
+            stepText = "Assemble the schematics"),
+
+        Puzzle("Ernest the Chicken", "Basement doors",
+            intro = "The picture numbers every door in the basement. From lever E, go through doors 6, 8 and 3, then door 9 to reach the oil can.",
+            link = "Basement map on the wiki" to "https://oldschool.runescape.wiki/w/File:Ernest_the_Chicken_-_Oil_can_map.png",
+            stepText = "Pick up the oil can"),
+
+        Puzzle("Haunted Mine", "Mine cart track",
+            intro = "Set the junctions on the panel's map to match this picture, so the cart reaches the ladder in the top right corner.",
+            link = "Solved track on the wiki" to "https://oldschool.runescape.wiki/w/File:Haunted_Mine_-_Track_map.png",
+            stepText = "Pull levers until"),
+
+        Puzzle("Monkey Madness I", "Reinitialisation panel",
+            intro = "Slide the pieces until the panel matches this finished picture.",
+            link = "Finished panel on the wiki" to "https://oldschool.runescape.wiki/w/File:Monkey_Madness_I_-_Spare_controls.png",
+            stepText = "reinitialisation panel"),
+
+        Puzzle("Monkey Madness II", "Kruk's Dungeon map",
+            intro = "The whole dungeon on one map. The correct turns differ per player, so use it to plan another way when the game tells you a route is wrong.",
+            link = "Dungeon map on the wiki" to "https://oldschool.runescape.wiki/w/File:Kruk's_Dungeon_map.png",
+            stepText = "Take the agility route"),
+
+        Puzzle("Haunted Mine", "Levers A to E",
+            intro = "Each lever's letter, for the group south-east of the panel.",
+            link = "Levers A to E on the wiki" to "https://oldschool.runescape.wiki/w/File:Haunted_Mine_-_Levers_A-E.png",
+            stepText = "Levers A to E stand"),
+
+        Puzzle("Haunted Mine", "Levers I to K",
+            intro = "Each lever's letter, for the group north of the panel. Levers F, G and H can't be reached.",
+            link = "Levers I to K on the wiki" to "https://oldschool.runescape.wiki/w/File:Haunted_Mine_-_Levers_I-K.png",
+            stepText = "Levers I, J and K stand"),
+
+        Puzzle("Ratcatchers", "Mansion garden, north side",
+            intro = "From tile A, run to B when the south guard is on blue tile 1 and the north guard is on red tiles 1 to 4. When the north guard is on red tiles 4 to 7, run to C, then on to D and climb the trellis.",
+            link = "Garden map on the wiki" to "https://oldschool.runescape.wiki/w/File:Ratcatchers_Mansion(Outside,_N).png",
+            stepText = "Climb the trellis around the back of the mansion"),
+
+        Puzzle("Ratcatchers", "Mansion garden, south side",
+            intro = "You arrive on tile A. When the south guard is on blue tile 1, run to B and straight on to C.",
+            link = "Garden map on the wiki" to "https://oldschool.runescape.wiki/w/File:Ratcatchers_Mansion(Outside,_S).png",
+            stepText = "Read the directions"),
+
+        Puzzle("Ratcatchers", "Mansion upstairs",
+            intro = "Turn on Hide Roofs in the game's settings to see the guards. Run from A to B when the west guard is on blue tiles 6 to 7 and the east guard on red tiles 4 to 7; to C when west is on blue 4 to 7 and east on red 6 to 7; to D when west is on blue 1 or 3 to 6 and east on red 1.",
+            link = "Upstairs map on the wiki" to "https://oldschool.runescape.wiki/w/File:Ratcatchers_Mansion(Inside).png",
+            stepText = "Catch the rat in the north west room"),
+
+        Puzzle("Tower of Life", "Pipe machine picture",
+            intro = "Select a pipe piece, then move and turn it with the controls at the bottom until the machine matches the wiki's picture of the finished puzzle.",
+            link = "Finished pipe machine on the wiki" to "https://oldschool.runescape.wiki/w/File:Tower_of_Life_Pipe_Puzzle.png",
+            stepText = "Calibrate the pipe machine"),
+
         rubble(1, ARRAV_RUBBLE_1), rubble(2, ARRAV_RUBBLE_2), rubble(3, ARRAV_RUBBLE_3), rubble(4, ARRAV_RUBBLE_4),
 
         // ---- You enter what you see, the app works it out ----
         Puzzle("The Forsaken Tower", "Potions (refinery)", solver = "potion",
-            intro = "Read the old notes, then pick how \"Cleansing fluid\" appears in them."),
+            intro = "Read the old notes, then pick how \"Cleansing fluid\" appears in them.",
+            section = "Potion puzzle"),
         Puzzle("Lunar Diplomacy", "Dice", solver = "dice",
             intro = "Each die shows one of two faces. Flip them until they add up to the Fluke's number.",
             stepText = "Solve the dice challenge"),
@@ -346,23 +413,24 @@ object QuestPuzzles {
                 "Places are rough, so it allows for being a few squares out."),
         Puzzle("Desert Treasure II - The Fallen Empire", "Rune rift order", solver = "rift_tracker",
             intro = "The six rifts have to be activated in a hidden order, and a wrong one resets it. Nobody can work it out " +
-                "in advance, so this keeps track of what you've found as you go."),
+                "in advance, so this keeps track of what you've found as you go.",
+            stepText = "correct order to activate the runes"),
         Puzzle("Lunar Diplomacy", "Cloud tiles", solver = "cloud_tracker",
             intro = "Only a hidden path across the cloud tiles is safe, and it's found by trial and error. Mark the tiles as " +
                 "you learn them so you don't forget after falling.",
             section = "Memory challenge"),
         Puzzle("Scrambled!", "Egg jigsaw",
-            intro = "Hover over the puzzle-piece icon (press and hold it on mobile) to see the finished egg. Tap a piece to turn " +
+            intro = "Press and hold the puzzle-piece icon to see the finished egg. Tap a piece to turn " +
                 "it; once a piece is the right way round and in the right place, it stays put.",
             stepText = "put it back together"),
 
         Puzzle("Icthlarin's Little Helper", "Door tiles",
-            intro = "Click the golden bird to reset the tiles until they look exactly like this (gold = lit), " +
-                "then click the three numbered tiles in order. The door puzzle comes up twice: it works both times.",
+            intro = "Tap the golden bird to reset the tiles until they look exactly like this (gold = lit), " +
+                "then tap the three numbered tiles in order. The door puzzle comes up twice: it works both times.",
             diagram = Diagram.Pattern(5, 5, lit = setOf(8, 9, 15, 16, 17, 20, 21, 22, 23, 24), clicks = mapOf(6 to 1, 4 to 2, 14 to 3)),
             stepText = "western door|door puzzle"),
         Puzzle("Lunar Diplomacy", "Number sequence",
-            intro = "Find the sequence the Ethereal Numerator shows, then click its two answer numbers in order.",
+            intro = "Find the sequence the Ethereal Numerator shows, then tap its two answer numbers in order.",
             tableHeader = "Sequence" to "Answer",
             table = listOf("0, 1, 3, 4" to "6, 7", "1, 1, 1, 2, 1, 3, 1, 4" to "1, 5", "1, 1, 2, 2, 3" to "3, 4",
                 "1, 1, 2, 3, 1, 1, 4" to "5, 1", "1, 2, 3" to "4, 5", "1, 3, 5" to "7, 9", "1, 4, 2, 5" to "3, 6",
@@ -392,9 +460,9 @@ object QuestPuzzles {
                 "red tiles. Stepping on the wrong pair after you start hurts. Then pull the lever on the other side to turn them off.",
             section = "Tomb Raiding"),
         Puzzle("Dragon Slayer II", "Map puzzle",
-            intro = "Click a piece to turn it, and drag pieces to swap them, until the map matches the solved picture:",
+            intro = "Tap a piece to turn it, and drag pieces to swap them, until the map matches the solved picture:",
             link = "Solved map on the wiki" to "https://oldschool.runescape.wiki/w/File:Dragon_Slayer_II_map_puzzle_solution.png",
-            stepText = "Return to Dallas with the map pieces"),
+            stepText = "incomplete map"),
 
         Puzzle("Mage Arena II", "Finding the bosses", solver = "mage_arena",
             intro = "Use the enchanted symbol, then add where you are and what it said. Each reading narrows down where the boss is.",
@@ -440,7 +508,7 @@ object QuestPuzzles {
         LightStep(1, 'D', 7, "mirror", "west", "Add a mirror to the pillar to the north. Rotate it to point the light west."),
         LightStep(1, 'C', 7, "mirror", "down", "Add a mirror to the pillar to the west. Rotate it to point the light down."),
         LightStep(0, 'C', 7, "mirror", "south", "Add a mirror to the pillar with light coming down into it. Rotate it to point the light south."),
-        LightStep(1, 'D', 5, "fractured crystal", "east", "Add a mirror to a pillar to the north of where you placed the fractured crystal. Rotate it to point the light east."),
+        LightStep(1, 'D', 5, "mirror", "east", "Add a mirror to a pillar to the north of where you placed the fractured crystal. Rotate it to point the light east."),
         LightStep(1, 'E', 5, "mirror", "down", "Add a mirror to a pillar to the east. Rotate it to point the light down."),
         LightStep(0, 'E', 5, "mirror", "south", "Add a mirror to the pillar near the stairs. Rotate it to point the light south."),
         LightStep(0, 'E', 3, "mirror", "west", "Add a mirror to the pillar to the south. Rotate it to point the light west."),

@@ -1,0 +1,467 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder deserttreasure; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Desert Treasure I",
+  "items": [
+   "Coins (650)",
+   "Magic logs (can be noted) (12)",
+   "Steel bar (can be noted) (6)",
+   "Molten glass (can be noted) (6)",
+   "Ashes",
+   "Charcoal",
+   "Blood rune",
+   "Bones",
+   "Silver bar",
+   "Garlic powder",
+   "Spice",
+   "Cake",
+   "Spiked boots",
+   "Climbing boots",
+   "Facemask (or other face covering)",
+   "Tinderbox",
+   "Ice gloves/smiths gloves(i)",
+   "Many lockpicks"
+  ],
+  "rec": [
+   "Decent combat gear",
+   "Food",
+   "Prayer potions",
+   "Energy/Stamina potions",
+   "Restore potions",
+   "Digsite pendant/teleport",
+   "Teleport to Bedabin Camp. Fairy Ring (BIQ), Camulet (2)",
+   "Teleport to Pollnivneach. Pollnivneach house teleport",
+   "Teleport to the Waterfall. Skills necklace (Fishing Guild [1]), Games necklace (Barbarian Outpost [2]) (2)",
+   "Teleport to Bandit Camp (desert). Fairy Ring (BIQ), Camulet (2)",
+   "Teleport to Canifis. Fairy Ring (CKS), Fenkenstrain's teleport (3)",
+   "Teleport to Draynor Village. Amulet of Glory (Draynor Village [3]), Draynor Manor Teleport",
+   "Teleport to Trollheim. Trollheim teleport, Ghommal's hilt (any tier)",
+   "Teleport to Jaldraocht Pyramid. Camulet, Pollnivneach house teleport"
+  ],
+  "enemies": [
+   "Dessous (level 139)",
+   "Kamil (level 154)",
+   "Fareed (level 167)",
+   "Damis (level 103, then level 174 in second phase)",
+   "5 ice trolls (level 120-124)"
+  ],
+  "rewards": [
+   "3 Quest points",
+   "20,000 Magic XP",
+   "Ring of Visibility",
+   "Ability to use Ancient Magicks.",
+   "Ability to purchase an Ancient Staff.",
+   "Access to Smoke Dungeon."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to the archaeologist Asgarnia Smith in the Bedabin Camp, by the magic carpet. You can use the flying carpet service from the Shantay Pass to get here.",
+      "s": [
+       "Do you have any quests?",
+       "Yes.",
+       "Yes, I'll help you."
+      ]
+     },
+     {
+      "t": "Talk to the Terry Balando in the Exam Centre found south-east of Varrock, directly south of the Digsite.",
+      "s": [
+       "Ask about the Desert Treasure quest."
+      ],
+      "i": [
+       "Etchings"
+      ]
+     },
+     {
+      "t": "Talk to the Terry Balando again.",
+      "s": [
+       "Ask about the Desert Treasure quest."
+      ]
+     },
+     {
+      "t": "Bring the translation to the Archaeologist in the Bedabin Camp.",
+      "s": [
+       "Don't read book"
+      ],
+      "i": [
+       "Translation"
+      ]
+     },
+     {
+      "t": "Talk to the Archaeologist again.",
+      "s": [
+       "Help him"
+      ]
+     },
+     {
+      "t": "Unequip any god-related items you have on, or else you'll be attacked by bandits. Go buy a drink from the pub in the Bandit Camp, then talk to the Bartender again.",
+      "s": [
+       "Buy a drink",
+       "Buy a beer"
+      ],
+      "i": [
+       "Coins (650)"
+      ]
+     },
+     {
+      "t": "Talk to the bartender in the Bandit Camp again.",
+      "s": [
+       "I heard about four diamonds..."
+      ]
+     },
+     {
+      "t": "Talk to Eblis in the east of the Bandit Camp.",
+      "s": [
+       "Tell me of The four diamonds of Azzanadra",
+       "Yes",
+       "Yes, I will go get those for you."
+      ]
+     },
+     {
+      "t": "Use the items on Eblis in the east of the Bandit Camp. Items can be noted. Then talk to him again, and talk to Eblis at the mirrors south east of the Bandit Camp.",
+      "i": [
+       "Ashes",
+       "Blood rune",
+       "Bones",
+       "Charcoal",
+       "Molten glass (6)",
+       "Magic logs (12)",
+       "Steel bar (6)"
+      ]
+     }
+    ],
+    "i": [
+     "Coins (650)",
+     "Ashes",
+     "Blood rune",
+     "Bones",
+     "Charcoal",
+     "Molten glass (can be noted) (6)",
+     "Magic logs (can be noted) (12)",
+     "Steel bar (can be noted) (6)"
+    ],
+    "tr": [
+     "Digsite pendant/teleport",
+     "Teleport to Bedabin Camp. Fairy Ring (BIQ), Camulet"
+    ]
+   },
+   {
+    "n": "Smoke diamond",
+    "st": [
+     {
+      "t": "Wear your facemask, then enter the smokey well west of Pollnivneach. You'll need to run a lot, so bring energy/stamina potions if you can.",
+      "i": [
+       "Tinderbox",
+       "Facemask (or other face covering)",
+       "Ice gloves/smiths gloves(i)",
+       "Water spells or melee gear"
+      ]
+     },
+     {
+      "t": "Light all four torches in the corners of the dungeon with your tinderbox. The torches burn out on a timer, so keep running: north-east first, then south-east, then north-west, and south-west last, which is closest to the chest.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Open the chest in the middle of the dungeon."
+     },
+     {
+      "t": "Use the warm key on the gate in the east of the dungeon. Be prepared to fight Fareed. If you aren't wearing ice gloves he'll unequip your weapon.",
+      "i": [
+       "Warm key",
+       "Ice gloves/smiths gloves(i)",
+       "Water spells or melee gear"
+      ]
+     },
+     {
+      "t": "Kill Fareed. Either use melee with ice gloves, or water spells. Recall that the mysterious stranger can appear and attack you whilst you're holding the diamond.",
+      "i": [
+       "Ice gloves/smiths gloves(i)",
+       "Water spells or melee gear"
+      ]
+     }
+    ],
+    "i": [
+     "Facemask (or other face covering)",
+     "Tinderbox",
+     "Ice gloves/smiths gloves(i)",
+     "Water spells or melee gear",
+     "Energy/Stamina potions"
+    ],
+    "tr": [
+     "Teleport to Pollnivneach. Pollnivneach house teleport"
+    ],
+    "c": 1,
+    "e": [
+     "Fareed (level 167)"
+    ]
+   },
+   {
+    "n": "Shadow diamond",
+    "st": [
+     {
+      "t": "Talk to Rasolo south of Baxtorian Falls.",
+      "s": [
+       "Ask about the Diamonds of Azzanadra",
+       "Yes"
+      ]
+     },
+     {
+      "t": "Bring antipoison, food, and as many lockpicks as you can to the Bandit Camp, and try opening the chest in the south of the Bandit Camp. Keep trying until you succeed.",
+      "i": [
+       "Many lockpicks",
+       "Antipoisons"
+      ]
+     },
+     {
+      "t": "Return the cross to Rasolo south of Baxtorian Falls.",
+      "i": [
+       "Gilded cross"
+      ]
+     },
+     {
+      "t": "Equip the Ring of Visibility, then go down the ladder in the area east of Rasolo. It's recommended you bring combat gear to safe spot Damis.",
+      "i": [
+       "Ring of visibility"
+      ]
+     },
+     {
+      "t": "From the ladder, head east as far as you can, then north as far as you can. Go east again, and south as far as possible at the first fork. Go east again, take the next turn north, then go east into the large cave. Wait there for Damis to appear, with the ring of visibility still on."
+     },
+     {
+      "t": "Kill both phases of Damis. You can safespot him by attacking a bat and keeping the bat between the two of you."
+     },
+     {
+      "t": "Pick up the shadow diamond. Recall that the mysterious stranger can appear and attack you whilst you're holding the diamond.",
+      "i": [
+       "Shadow diamond"
+      ]
+     }
+    ],
+    "i": [
+     "Many lockpicks",
+     "Antipoisons",
+     "Decent combat gear",
+     "Food"
+    ],
+    "tr": [
+     "Teleport to the Waterfall. Skills necklace (Fishing Guild [1]), Games necklace (Barbarian Outpost [2]) (2)",
+     "Teleport to Bandit Camp (desert). Fairy Ring (BIQ), Camulet"
+    ],
+    "c": 1,
+    "e": [
+     "Damis (level 103, then level 174 in second phase)"
+    ]
+   },
+   {
+    "n": "Blood diamond",
+    "st": [
+     {
+      "t": "Talk to Malak in the pub in Canifis.",
+      "s": [
+       "I am looking for a special Diamond...",
+       "Yes"
+      ]
+     },
+     {
+      "t": "Ask Malak in the pub in Canifis how to kill Dessous.",
+      "s": [
+       "How can I kill Dessous?"
+      ]
+     },
+     {
+      "t": "Go down the trapdoor west of Morgan's house in Draynor Village into the Draynor Sewers. Go east, then north, and talk to Ruantun to have your silver bar made into a silver pot.",
+      "i": [
+       "Silver bar"
+      ]
+     },
+     {
+      "t": "Bank all weapons and armour first: they aren't allowed on Entrana. Sail to Entrana with the silver pot, go to the church and use the pot on the High Priest to have it blessed.",
+      "i": [
+       "Silver pot"
+      ]
+     },
+     {
+      "t": "Bring the blessed pot to Malak in the pub in Canifis. He'll bite you for a small bit of damage.",
+      "i": [
+       "Blessed pot"
+      ]
+     },
+     {
+      "t": "Add the garlic powder to the blessed pot.",
+      "i": [
+       "Blessed pot",
+       "Garlic powder"
+      ]
+     },
+     {
+      "t": "Use the spice on the blessed pot.",
+      "i": [
+       "Blessed pot",
+       "Spice"
+      ]
+     },
+     {
+      "t": "Use the blessed pot on the vampyre tomb in the Morytania Graveyard, south-east of Canifis and north of Castle Drakan. The Shades of Mort'ton minigame teleport and the Hollows boat (10 coins) are one way to get near. Be prepared to fight Dessous.",
+      "i": [
+       "Blessed pot"
+      ]
+     },
+     {
+      "t": "Kill Dessous."
+     },
+     {
+      "t": "Return to Malak in Canifis to get the Blood Diamond. Recall that the mysterious stranger can appear and attack you whilst you're holding the diamond."
+     }
+    ],
+    "i": [
+     "Silver bar",
+     "Spice",
+     "Garlic powder",
+     "Decent combat gear",
+     "Food"
+    ],
+    "tr": [
+     "Teleport to Canifis. Fairy Ring (CKS), Fenkenstrain's teleport (3)",
+     "Teleport to Draynor Village. Amulet of Glory (Draynor Village [3]), Draynor Manor Teleport"
+    ],
+    "c": 1,
+    "e": [
+     "Dessous (level 139)"
+    ]
+   },
+   {
+    "n": "Ice diamond",
+    "st": [
+     {
+      "t": "If you walk from Burthorpe instead of teleporting, wear climbing boots. Go to Trollheim and take the north-western path past the thrower trolls (Protect from Missiles stops their damage). Don't take the path blocked by a boulder: it leads to the God Wars Dungeon.",
+      "i": [
+       "Cake",
+       "Climbing boots",
+       "Spiked boots"
+      ]
+     },
+     {
+      "t": "Use a cake on the Troll Child by the Ice Gate.",
+      "i": [
+       "Cake"
+      ]
+     },
+     {
+      "t": "Talk to the Troll Child north of Trollheim.",
+      "s": [
+       "Yes"
+      ]
+     },
+     {
+      "t": "Enter the ice gate east of the troll child. Make sure you're prepared for combat, and your stats to be continually drained.",
+      "i": [
+       "Fire spells",
+       "Spiked boots"
+      ]
+     },
+     {
+      "t": "Kill 5 ice trolls."
+     },
+     {
+      "t": "Continue along the path through the cave to the east."
+     },
+     {
+      "t": "Continue along the path until you find Kamil. Kill him with fire spells. Get into melee distance and protect from melee.",
+      "i": [
+       "Fire spells"
+      ]
+     },
+     {
+      "t": "Equip the spiked boots, then continue along the path until you reach an ice ledge. Climb up it.",
+      "i": [
+       "Spiked boots"
+      ]
+     },
+     {
+      "t": "Follow the Ice Path up to the top and enter the gate there."
+     },
+     {
+      "t": "Break the ice surrounding the trolls at the end of the path. Fire spells are effective for this.",
+      "i": [
+       "Fire spells"
+      ]
+     },
+     {
+      "t": "Talk to the troll parents at the end of the Ice Path."
+     },
+     {
+      "t": "If the troll parents didn't give you the ice diamond, talk to the Troll Child north of Trollheim to get it. A mysterious stranger can appear and attack you while you hold the diamond."
+     }
+    ],
+    "i": [
+     "Cake",
+     "Spiked boots",
+     "Decent combat gear",
+     "Food",
+     "Restore potions",
+     "Prayer potions",
+     "Energy/Stamina potions",
+     "Fire spells"
+    ],
+    "tr": [
+     "Teleport to Trollheim. Trollheim teleport, Ghommal's hilt (any tier)"
+    ],
+    "c": 1,
+    "e": [
+     "Kamil (level 154)",
+     "5 ice trolls (level 120-124)"
+    ]
+   },
+   {
+    "n": "Freeing Azzanadra",
+    "st": [
+     {
+      "t": "Go to the pyramid south-east of the Bandit Camp and place each diamond in its own obelisk: blood in the north-west, smoke in the north-east, ice in the south-east and shadow in the south-west. You need 50 Magic. A mysterious stranger can appear and attack you while you hold the diamonds.",
+      "i": [
+       "Blood diamond",
+       "Smoke diamond",
+       "Ice diamond",
+       "Shadow diamond"
+      ]
+     },
+     {
+      "t": "Bring any energy/stamina potions you have and some food. Climb the pyramid south-east of the Bandit Camp and go down the ladder at its very top. The south door only opens after the quest.",
+      "i": [
+       "Energy/Stamina potions",
+       "Food",
+       "Antipoisons"
+      ]
+     },
+     {
+      "t": "Go down the ladder on each level until you reach the bottom. Start running north on the first level, east on the second, south on the third and west on the fourth. Keep tapping ahead and don't stop: traps can throw you out of the pyramid, and then you start again."
+     },
+     {
+      "t": "Enter the central room of the bottom floor."
+     },
+     {
+      "t": "Talk to Azzanadra to finish the quest!"
+     }
+    ],
+    "i": [
+     "Smoke diamond",
+     "Shadow diamond",
+     "Blood diamond",
+     "Ice diamond"
+    ],
+    "tr": [
+     "Teleport to Jaldraocht Pyramid. Camulet, Pollnivneach house teleport"
+    ],
+    "r": [
+     "Energy/Stamina potions",
+     "Food",
+     "Prayer potions",
+     "Antipoisons"
+    ]
+   }
+  ]
+ }
+}

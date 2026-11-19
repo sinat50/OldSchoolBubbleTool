@@ -1,0 +1,558 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder forgettabletale; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Forgettable Tale...",
+  "items": [
+   "Coins (500)",
+   "Barley malt (2)",
+   "Bucket of water (2)",
+   "Seed dibber",
+   "Rake",
+   "Kebab",
+   "Beer (3)",
+   "Dwarven stout",
+   "Beer glass",
+   "A random item per player"
+  ],
+  "rec": [
+   "Grand exchange teleport to access the Mine Cart from there"
+  ],
+  "enemies": [],
+  "rewards": [
+   "2 Quest points",
+   "5,000 Cooking XP",
+   "5,000 Farming XP",
+   "2 x Dwarven Stout (m)"
+  ],
+  "sec": [
+   {
+    "n": "Brewing",
+    "st": [
+     {
+      "t": "If you aren't in Keldagrim yet, go down the trapdoor in the north-west of the Grand Exchange and choose \"Yes please.\" to ride there. Talk to Commander Veldaban, just west of the bank.",
+      "s": [
+       "Very interested!",
+       "Yes.",
+       "Sounds like just the job for me!"
+      ]
+     },
+     {
+      "t": "Talk to the Drunken Dwarf in east Keldagrim, north-east of the kebab shop.",
+      "s": [
+       "I need to know about the Red Axe..."
+      ]
+     },
+     {
+      "t": "Give the Drunken Dwarf a beer, then talk to him again.",
+      "s": [
+       "I need to know about the Red Axe..."
+      ],
+      "i": [
+       "Beer"
+      ]
+     },
+     {
+      "t": "Talk to the Rowdy Dwarf roaming the east Keldagrim pub, then give him the item he requests."
+     },
+     {
+      "t": "Buy a ticket from a cart conductor in south-east Keldagrim: choose \"I'd like to buy a ticket.\", \"To White Wolf Mountain.\" and \"Buy.\" Take the cart to White Wolf Mountain, then talk to Khorvak.",
+      "s": [
+       "What if I offer you a drink?"
+      ],
+      "i": [
+       "Coins (200)",
+       "Dwarven stout"
+      ]
+     },
+     {
+      "t": "Give Khorvak a dwarven stout. He's in the pub in the tunnel under White Wolf Mountain. If you didn't bring a stout, pick one up from the table in that pub.",
+      "s": [
+       "What if I offer you a drink?"
+      ],
+      "i": [
+       "Dwarven stout"
+      ]
+     },
+     {
+      "t": "Buy a ticket from the cart conductor under White Wolf Mountain: choose \"I'd like to buy a ticket.\" and \"Buy.\" Take the cart back to Keldagrim. Talk to Gauss in the bar south of the bank in west Keldagrim. Have a beer with you for his toast.",
+      "i": [
+       "Beer"
+      ]
+     },
+     {
+      "t": "Talk to Rind the gardener at the hops patch in west Keldagrim, just east of the bank."
+     },
+     {
+      "t": "Rake the hops patch just north of Rind, then plant the kelda seeds in it. There is a rake just south of the patch if you need one.",
+      "i": [
+       "Kelda seed (4)",
+       "Rake",
+       "Seed dibber"
+      ]
+     },
+     {
+      "t": "Wait for the kelda hops to grow. This'll take 15-20 minutes."
+     },
+     {
+      "t": "Harvest the kelda hops."
+     },
+     {
+      "t": "Go upstairs in Keldagrim's east pub to the brewing room.",
+      "i": [
+       "Kelda hops",
+       "Coins (25)",
+       "Bucket of water (2)",
+       "Barley malt (2)",
+       "Beer glass"
+      ]
+     },
+     {
+      "t": "Pick up the pot in the brewing room.",
+      "i": [
+       "Pot"
+      ]
+     },
+     {
+      "t": "Buy yeast from Blandebir. You can get a pot from the table in the brewing room.",
+      "s": [
+       "Do you have any spare ale yeast?",
+       "That's a good deal - please fill my pot with ale yeast for 25GP."
+      ],
+      "i": [
+       "Coins (25)",
+       "Pot"
+      ]
+     },
+     {
+      "t": "Add 2 buckets of water to the vat.",
+      "i": [
+       "Bucket of water (2)"
+      ]
+     },
+     {
+      "t": "Add 2 barley malts to the vat.",
+      "i": [
+       "Barley malt (2)"
+      ]
+     },
+     {
+      "t": "Add the kelda hops to the vat.",
+      "i": [
+       "Kelda hops"
+      ]
+     },
+     {
+      "t": "Add the yeast to the vat.",
+      "i": [
+       "Ale yeast"
+      ]
+     },
+     {
+      "t": "Wait for the kelda to brew. This'll take 15-20 minutes."
+     },
+     {
+      "t": "Go back upstairs in Keldagrim's east pub if you left, then turn the valve on the vat.",
+      "i": [
+       "Beer glass"
+      ]
+     },
+     {
+      "t": "Use a beer glass on the vat's barrel.",
+      "i": [
+       "Beer glass"
+      ]
+     },
+     {
+      "t": "Go downstairs and give the Drunken Dwarf the kelda stout, then talk to him again.",
+      "s": [
+       "I need to know about the Red Axe..."
+      ],
+      "i": [
+       "Kelda stout"
+      ]
+     }
+    ],
+    "i": [
+     "Coins (500)",
+     "Barley malt (2)",
+     "Bucket of water (2)",
+     "Seed dibber",
+     "Rake",
+     "Beer (2)",
+     "Dwarven stout",
+     "Beer glass",
+     "A random item per player"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Unlocking the tunnels",
+    "st": [
+     {
+      "t": "Talk to the south most cart conductor in south east Keldagrim.",
+      "s": [
+       "Ask about closed off tunnel."
+      ]
+     },
+     {
+      "t": "Go up to the Consortium and talk to the Director of the company you joined in The Giant Dwarf. If you don't remember which company it was, try each director: only yours has time to talk to you.",
+      "s": [
+       "Can you help me with a boarded up tunnel?"
+      ]
+     },
+     {
+      "t": "Go back down from the Consortium and take the cart in the south of the cart station. Both hands must be free."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Puzzle 1",
+    "st": [
+     {
+      "t": "Search the box."
+     },
+     {
+      "t": "Use the dwarven machinery."
+     },
+     {
+      "t": "Tap the first junction, at the far left of the map, until it holds the yellow stone. Each tap changes a junction: empty, green, yellow, then empty again. Green sends the cart along the upper track and yellow along the lower track."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the green stone. The green line shows the cart's route, and it should now reach the end of the track."
+     },
+     {
+      "t": "Tap the Ok button."
+     },
+     {
+      "t": "Take the cart."
+     },
+     {
+      "t": "Search the box."
+     },
+     {
+      "t": "Take the cart back."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Puzzle 2",
+    "st": [
+     {
+      "t": "Use the dwarven machinery."
+     },
+     {
+      "t": "Tap the first junction, at the far left of the map, until it holds the green stone. If you run out of a colour, tap a junction that is off this route until it is empty to free its stone."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the yellow stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the green stone. The green line shows the cart's route, and it should now reach the end of the track."
+     },
+     {
+      "t": "Tap the Ok button."
+     },
+     {
+      "t": "Take the cart."
+     },
+     {
+      "t": "Search the box."
+     },
+     {
+      "t": "Take the cart back."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Puzzle 3",
+    "st": [
+     {
+      "t": "Use the dwarven machinery."
+     },
+     {
+      "t": "Tap the first junction, at the far left of the map, until it holds the yellow stone. If you run out of a colour, tap a junction that is off this route until it is empty to free its stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the yellow stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the green stone."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the green stone. The green line shows the cart's route, and it should now reach the end of the track."
+     },
+     {
+      "t": "Tap the Ok button."
+     },
+     {
+      "t": "Take the cart."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Overhear plans",
+    "st": [
+     {
+      "t": "Leave the east exit once you finish listening to the conversation."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Puzzle 4",
+    "st": [
+     {
+      "t": "Search the box."
+     },
+     {
+      "t": "Use the dwarven machinery."
+     },
+     {
+      "t": "Tap the first junction, at the far left of the map, until it holds the green stone. Each tap changes a junction: empty, green, yellow, then empty again. Green sends the cart along the upper track and yellow along the lower track."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the yellow stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the yellow stone. The green line shows the cart's route, and it should now reach the end of the track."
+     },
+     {
+      "t": "Tap the Ok button."
+     },
+     {
+      "t": "Take the cart."
+     },
+     {
+      "t": "Search the box."
+     },
+     {
+      "t": "Take the cart back."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Puzzle 5",
+    "st": [
+     {
+      "t": "Use the dwarven machinery."
+     },
+     {
+      "t": "Tap the first junction, at the far left of the map, until it holds the yellow stone. If you run out of a colour, tap a junction that is off this route until it is empty to free its stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the yellow stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the green stone."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the green stone. The green line shows the cart's route, and it should now reach the end of the track."
+     },
+     {
+      "t": "Tap the Ok button."
+     },
+     {
+      "t": "Take the cart."
+     },
+     {
+      "t": "Search the box."
+     },
+     {
+      "t": "Take the cart back."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Puzzle 6",
+    "st": [
+     {
+      "t": "Use the dwarven machinery."
+     },
+     {
+      "t": "Tap the first junction, at the far left of the map, until it holds the green stone. If you run out of a colour, tap a junction that is off this route until it is empty to free its stone."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the green stone."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the yellow stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the green stone."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the yellow stone. The green line shows the cart's route, and it should now reach the end of the track."
+     },
+     {
+      "t": "Tap the Ok button."
+     },
+     {
+      "t": "Take the cart."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "The Library",
+    "st": [
+     {
+      "t": "Search the nearby bookcase."
+     },
+     {
+      "t": "Search the crates with paper on them."
+     },
+     {
+      "t": "Leave the library.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Puzzle 7",
+    "st": [
+     {
+      "t": "Search the box."
+     },
+     {
+      "t": "Use the dwarven machinery."
+     },
+     {
+      "t": "Tap the first junction, at the far left of the map, until it holds the green stone. Each tap changes a junction: empty, green, yellow, then empty again. Green sends the cart along the upper track and yellow along the lower track."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the green stone."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the yellow stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the yellow stone. The green line shows the cart's route, and it should now reach the end of the track."
+     },
+     {
+      "t": "Tap the Ok button."
+     },
+     {
+      "t": "Take the cart."
+     },
+     {
+      "t": "Search the box."
+     },
+     {
+      "t": "Take the cart back."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Puzzle 8",
+    "st": [
+     {
+      "t": "Use the dwarven machinery."
+     },
+     {
+      "t": "Tap the first junction, at the far left of the map, until it holds the yellow stone. If you run out of a colour, tap a junction that is off this route until it is empty to free its stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the yellow stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the yellow stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the green stone."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the green stone."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the green stone. The green line shows the cart's route, and it should now reach the end of the track."
+     },
+     {
+      "t": "Tap the Ok button."
+     },
+     {
+      "t": "Take the cart."
+     },
+     {
+      "t": "Search the box."
+     },
+     {
+      "t": "Take the cart back."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Puzzle 9",
+    "st": [
+     {
+      "t": "Use the dwarven machinery."
+     },
+     {
+      "t": "Tap the first junction, at the far left of the map, until it holds the green stone. If you run out of a colour, tap a junction that is off this route until it is empty to free its stone."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the green stone."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the yellow stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the green stone."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the yellow stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the green stone."
+     },
+     {
+      "t": "Follow the upper track to the next junction. Tap it until it holds the yellow stone."
+     },
+     {
+      "t": "Follow the lower track to the next junction. Tap it until it holds the yellow stone. The green line shows the cart's route, and it should now reach the end of the track."
+     },
+     {
+      "t": "Tap the Ok button."
+     },
+     {
+      "t": "Take the cart."
+     },
+     {
+      "t": "Watch the cutscene."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "A Drunken Tale",
+    "st": [
+     {
+      "t": "Report back to Commander Veldaban, just west of the bank in Keldagrim."
+     },
+     {
+      "t": "In the pub in east Keldagrim, drink a beer and eat a kebab to finish the quest.",
+      "i": [
+       "Beer",
+       "Kebab"
+      ]
+     }
+    ],
+    "i": [
+     "Beer",
+     "Kebab"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

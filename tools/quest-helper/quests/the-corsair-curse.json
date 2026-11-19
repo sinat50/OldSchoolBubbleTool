@@ -1,0 +1,174 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder thecorsaircurse; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Corsair Curse",
+  "items": [
+   "Combat gear + food to defeat Ithoi (level 34), who uses magic"
+  ],
+  "rec": [],
+  "enemies": [
+   "Ithoi the Navigator (level 34)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "Access to Yusuf's Bank in the Corsair Cove."
+  ],
+  "sec": [
+   {
+    "n": "Travel to the cove",
+    "st": [
+     {
+      "t": "Talk to Captain Tock north of Port Sarim.",
+      "s": [
+       "What kind of help do you need?",
+       "Sure, I'll try to help with your curse."
+      ]
+     },
+     {
+      "t": "Talk to Captain Tock west of Rimmington.",
+      "s": [
+       "Okay, I'm ready to go to Corsair Cove."
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear + food to defeat Ithoi (level 34), who uses magic"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Solve the curse",
+    "st": [
+     {
+      "t": "Climb the stairs of the south western hut and talk to Ithoi at the top.",
+      "s": [
+       "I hear you've been cursed."
+      ]
+     },
+     {
+      "t": "Climb the stairs of the north west hut and talk to Gnocci at the top.",
+      "s": [
+       "I hear you've been cursed."
+      ]
+     },
+     {
+      "t": "Climb the stairs of the central hut, the first house west of the dock, and talk to Arsen at the top.",
+      "s": [
+       "I hear you've been cursed."
+      ]
+     },
+     {
+      "t": "Talk to Colin in the central hut.",
+      "s": [
+       "I hear you've been cursed."
+      ]
+     },
+     {
+      "t": "Pick up the tinderbox next to Gnocci.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Take the spade planted in the sand by the big tropical tree, directly south of Gnocci's hut, near the water."
+     },
+     {
+      "t": "Talk to Captain Tock on the ship.",
+      "s": [
+       "Arsen says he gave you a sacred ogre relic.",
+       "About that sacred ogre relic..."
+      ]
+     },
+     {
+      "t": "Leave the ship and go west of the Corsair Cove to the hole in the middle of four small pillars. Enter it and talk to Chief Tess in the dungeon below.",
+      "s": [
+       "I've come to return what Arsen stole."
+      ]
+     },
+     {
+      "t": "Leave the cavern. Go to the beach far west of Ithoi's hut, just west of the fishing spot. Dig with your spade on the lump of sand, three squares east of the tropical tree.",
+      "s": [
+       "Search for the possessed doll and face the consequences."
+      ]
+     },
+     {
+      "t": "Go look through Ithoi's telescope."
+     },
+     {
+      "t": "Talk to Gnocci in the north west hut."
+     },
+     {
+      "t": "Talk to Arsen in the central hut."
+     },
+     {
+      "t": "Talk to Colin in the central hut."
+     }
+    ]
+   },
+   {
+    "n": "Discover betrayal",
+    "st": [
+     {
+      "t": "Talk to Captain Tock on the ship.",
+      "s": [
+       "I've ruled out all the Corsairs' theories...",
+       "So what do I do now?"
+      ]
+     },
+     {
+      "t": "Talk to Gnocci in the north west hut.",
+      "s": [
+       "I hear it happened straight after dinner."
+      ]
+     },
+     {
+      "t": "Talk to Arsen in the central hut.",
+      "s": [
+       "I hear Ithoi cooked the meal you ate that night."
+      ]
+     },
+     {
+      "t": "Talk to Ithoi in the south western hut.",
+      "s": [
+       "I hear you cooked the meal they ate before getting sick.",
+       "Maybe because the Captain's thinking of firing you."
+      ]
+     },
+     {
+      "t": "Talk to Ithoi again.",
+      "s": [
+       "I know you've faked the curse.",
+       "I bet I can prove you're well enough to get up."
+      ]
+     },
+     {
+      "t": "Use your tinderbox on the driftwood under Ithoi's hut.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Talk to Captain Tock on the ship.",
+      "s": [
+       "I've seen Ithoi running around. He's not sick at all."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Deal with Ithoi",
+    "st": [
+     {
+      "t": "Kill Ithoi (level 35)."
+     },
+     {
+      "t": "Talk to Captain Tock on the ship to finish the quest.",
+      "s": [
+       "I've killed Ithoi for poisoning your crew."
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

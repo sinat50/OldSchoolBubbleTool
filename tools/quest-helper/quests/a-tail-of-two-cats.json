@@ -1,0 +1,249 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "A Tail of Two Cats",
+  "items": [
+   "A cat",
+   "Catspeak amulet",
+   "Death runes (5)",
+   "Chocolate cake",
+   "Logs",
+   "Tinderbox",
+   "Bucket of milk",
+   "Shears",
+   "Potato seeds (4)",
+   "Rake",
+   "Seed dibber",
+   "Vial of water",
+   "Desert shirt",
+   "Desert robe"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "2 Quest points",
+   "2 x 2,500 Experience Lamps (Any skill over level 30).",
+   "A Doctors hat",
+   "A Nurse hat",
+   "A Mouse Toy"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Wear your catspeak amulet, have your cat with you and talk to Unferth in north east Burthorpe.",
+      "s": [
+       "I'll help you.",
+       "Yes."
+      ],
+      "i": [
+       "A cat",
+       "Catspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Hild in the house north east of Unferth.",
+      "i": [
+       "Death runes (5)",
+       "Catspeak amulet"
+      ]
+     },
+     {
+      "t": "Wear the catspeak amulet (e), long-press it in your worn equipment and choose Locate. Tap the whiskers until the arrow and eyes glow white, then follow the arrow to Bob the Cat. He's often in Catherby Archery Shop or at the Varrock Anvil.",
+      "i": [
+       "Catspeak amulet (e)"
+      ]
+     },
+     {
+      "t": "Talk to Bob the Cat.",
+      "i": [
+       "A cat",
+       "Catspeak amulet (e)"
+      ]
+     }
+    ],
+    "i": [
+     "A cat",
+     "Catspeak amulet",
+     "Death runes (5)"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Bob's past",
+    "st": [
+     {
+      "t": "Talk to Gertrude west of Varrock.",
+      "s": [
+       "Ask about Bob's parents."
+      ],
+      "i": [
+       "A cat",
+       "Catspeak amulet (e)"
+      ]
+     },
+     {
+      "t": "Talk to Reldo in the Varrock Castle's library.",
+      "s": [
+       "I have a cat related question.",
+       "Ask about Robert the Strong."
+      ],
+      "i": [
+       "A cat",
+       "Catspeak amulet (e)"
+      ]
+     },
+     {
+      "t": "Use the catspeak amulet (e) again to locate Bob the Cat.",
+      "i": [
+       "Catspeak amulet (e)"
+      ]
+     },
+     {
+      "t": "Talk to Bob the Cat again.",
+      "i": [
+       "A cat",
+       "Catspeak amulet (e)"
+      ]
+     },
+     {
+      "t": "Talk to the Sphinx in Sophanem.",
+      "s": [
+       "Ask the Sphinx for help for Bob."
+      ],
+      "i": [
+       "A cat",
+       "Catspeak amulet (e)"
+      ]
+     }
+    ],
+    "i": [
+     "A cat"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Helping Unferth",
+    "st": [
+     {
+      "t": "Rake Unferth's patch",
+      "i": [
+       "Rake"
+      ]
+     },
+     {
+      "t": "Plant 4 potato seeds in Unferth's patch. These can take 15-35 minutes to grow.",
+      "i": [
+       "Seed dibber",
+       "Potato seeds (4)"
+      ]
+     },
+     {
+      "t": "Make Unferth's bed."
+     },
+     {
+      "t": "Use logs on Unferth's fireplace",
+      "i": [
+       "Logs"
+      ]
+     },
+     {
+      "t": "Use a tinderbox on Unferth's fireplace.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "USE a chocolate cake on Unferth's table.",
+      "i": [
+       "Chocolate cake"
+      ]
+     },
+     {
+      "t": "Use a bucket of milk on Unferth's table.",
+      "i": [
+       "Bucket of milk"
+      ]
+     },
+     {
+      "t": "Use some shears on Unferth in north east Burthorpe.",
+      "i": [
+       "Shears"
+      ]
+     },
+     {
+      "t": "Wait 15-35 minutes for the potatoes to grow. Your cat tells you when they're ready. Then talk to Unferth in north east Burthorpe again.",
+      "i": [
+       "A cat",
+       "Catspeak amulet (e)"
+      ]
+     }
+    ],
+    "i": [
+     "A cat",
+     "Catspeak amulet (e)",
+     "Rake",
+     "Seed dibber",
+     "Potato seeds (4)",
+     "Logs",
+     "Tinderbox",
+     "Chocolate cake",
+     "Bucket of milk",
+     "Shears"
+    ],
+    "c": 0
+   },
+   {
+    "n": "'Curing' Unferth",
+    "st": [
+     {
+      "t": "Talk to the Apothecary in south west Varrock.",
+      "s": [
+       "Talk about A Tail of Two Cats."
+      ],
+      "i": [
+       "A cat",
+       "Catspeak amulet (e)"
+      ]
+     },
+     {
+      "t": "Talk to Unferth whilst wearing the doctor/nurse hat, a desert shirt and a desert robe, and no weapon/shield.",
+      "i": [
+       "A cat",
+       "Catspeak amulet (e)",
+       "Doctor's or Nurse hat",
+       "Desert shirt",
+       "Desert robe",
+       "Vial of water"
+      ]
+     },
+     {
+      "t": "Use the catspeak amulet (e) to locate Bob once more.",
+      "i": [
+       "Catspeak amulet (e)"
+      ]
+     },
+     {
+      "t": "Talk to Bob the Cat again.",
+      "i": [
+       "A cat",
+       "Catspeak amulet (e)"
+      ]
+     },
+     {
+      "t": "Talk to Unferth to complete the quest."
+     }
+    ],
+    "i": [
+     "A cat",
+     "Catspeak amulet (e)",
+     "Vial of water",
+     "Desert shirt",
+     "Desert robe"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

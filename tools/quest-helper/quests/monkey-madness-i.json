@@ -1,0 +1,616 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder monkeymadnessi; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Monkey Madness I",
+  "items": [
+   "Gold bar",
+   "Ball of wool",
+   "Banana (5)",
+   "Monkey bones or corpse"
+  ],
+  "rec": [
+   "Combat gear, food and potions",
+   "Antipoison",
+   "Food",
+   "Prayer potions",
+   "Tree Gnome Stronghold teleport via Spirit Tree (2), Gnome Glider (Ta Quir Priw), or Grand Seed Pod (4)",
+   "Any teleport to leave Ape Atoll (3)",
+   "Ardougne teleport"
+  ],
+  "enemies": [
+   "Jungle Demon (level 195)"
+  ],
+  "rewards": [
+   "3 Quest points",
+   "55,000 Experience Combat Lamp (Over multiple Skills)",
+   "10000 x Coins",
+   "3 x Diamonds",
+   "Ability to purchase and wield the Dragon Scimitar.",
+   "Full access to Ape Atoll."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to King Narnode Shareen in the Tree Gnome Stronghold.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Stamina potions"
+      ]
+     }
+    ],
+    "i": [
+     "Tree Gnome Stronghold teleport via Spirit Tree (2), Gnome Glider (Ta Quir Priw), or Grand Seed Pod"
+    ]
+   },
+   {
+    "n": "Investigate the shipyard",
+    "st": [
+     {
+      "t": "Climb the ladders in the Grand Tree to the top floor, choosing Climb Up on the way. Talk to Captain Errdo and fly to Gandius.",
+      "s": [
+       "Climb Up."
+      ],
+      "i": [
+       "Gnome royal seal"
+      ]
+     },
+     {
+      "t": "Go north from the glider landing site and enter the shipyard through its gate, with the gnome royal seal in your inventory. Talk to G.L.O. Caranock in the building in the south of the shipyard, near the fence.",
+      "i": [
+       "Gnome royal seal"
+      ]
+     },
+     {
+      "t": "Return to King Narnode Shareen in the Tree Gnome Stronghold."
+     }
+    ]
+   },
+   {
+    "n": "Traveling to Ape Atoll",
+    "st": [
+     {
+      "t": "Talk to Daero in the bar on the 1st floor of the Grand Tree, on its east side. Ask about each topic in turn, going back to the menu after each one, then choose Leave..., Who is it? and, if he asks, Yes. Choose list: Talk about the journey... / Return to previous menu / Talk about the 10th squad... / Return to previous menu / Talk about Caranock... / Return to previous menu / Leave... / Who is it? / Yes",
+      "s": [
+       "Talk about the journey...",
+       "Return to previous menu",
+       "Talk about the 10th squad...",
+       "Return to previous menu",
+       "Talk about Caranock...",
+       "Return to previous menu",
+       "Leave...",
+       "Who is it?"
+      ],
+      "i": [
+       "Narnode's orders",
+       "Food",
+       "Prayer potions",
+       "Antipoison",
+       "Stamina potions",
+       "Any teleport to leave Ape Atoll"
+      ]
+     },
+     {
+      "t": "Talk to Daero in the hangar. Choose Talk-to, not Travel."
+     },
+     {
+      "t": "Operate the reinitialisation panel in the south-east of the hangar, by the southern glider, and solve the sliding puzzle. The Solution button shows the finished picture, and spare controls from the nearby crate show it too. To skip the puzzle, you can pay Glough in the Stronghold 200,000 coins instead. If you pay him, skip the two puzzle tips below and go on to talking to Daero in the hangar again."
+     },
+     {
+      "t": "Number the pieces from the top left, reading across each row. Put 1, 2 and 3 in place. Move 4 to the top right corner with 5 under it, then slide 4 left and 5 up to finish the row. Do the second and third rows the same way."
+     },
+     {
+      "t": "For the last two rows, put 16 and 21 next to each other on the right of the bottom row, with 16 on the left, then slide the loose pieces clockwise to bring them into place. Do the same with 17 and 22, then 18 and 23. Pieces 19, 20 and 24 then move into place easily."
+     },
+     {
+      "t": "Talk to Daero in the hangar again."
+     },
+     {
+      "t": "Talk to Waydar.",
+      "s": [
+       "Yes"
+      ]
+     },
+     {
+      "t": "Talk to Lumdo."
+     },
+     {
+      "t": "Talk to Waydar on Crash Island. Make sure you choose Talk-to, not Travel, which would fly you back to the Grand Tree.",
+      "s": [
+       "I cannot convince Lumdo to take us to the island..."
+      ]
+     }
+    ],
+    "i": [
+     "Prayer potions",
+     "Food",
+     "Antipoison",
+     "Stamina potions",
+     "Any teleport to leave Ape Atoll"
+    ]
+   },
+   {
+    "n": "Finding Garkor",
+    "st": [
+     {
+      "t": "Talk to Lumdo again to sail to Ape Atoll. Then head west and enter the valley going north WITH PROTECT FROM RANGED ON. Be wary of poison and taking damage."
+     },
+     {
+      "t": "Near the gate you're knocked out and put in a cell. That's meant to happen. Stay one square back from the north wall of the cell so the guards can't punch you."
+     },
+     {
+      "t": "When the guard walks away from your cell, tap the cell door to pick the lock. Follow behind him to the exit, then go to the north side of the prison."
+     },
+     {
+      "t": "Stick to the east edge of the town, and make your way to Garkor to the south east."
+     }
+    ]
+   },
+   {
+    "n": "Getting amulet parts",
+    "st": [
+     {
+      "t": "Head west and enter the large open building via the south door. DO NOT STAND ON THE LIGHT FLOOR IN THE BUILDING."
+     },
+     {
+      "t": "DO NOT WALK ON THE LIGHT FLOOR. Keep to the dark floor along the walls, stand on the square just east of the stacked crates and search them for monkey dentures.",
+      "s": [
+       "Yes"
+      ]
+     },
+     {
+      "t": "Search the crate in the south east corner and go down into the cavern.",
+      "s": [
+       "Yes, I'm sure."
+      ]
+     },
+     {
+      "t": "Search the crate in the north west of the room for a M'amulet mould.",
+      "s": [
+       "Yes"
+      ]
+     },
+     {
+      "t": "Teleport out to prepare for a dangerous portion. You'll want energy/stamina potions, food and prayer potions."
+     }
+    ]
+   },
+   {
+    "n": "Making an Enchanted Bar",
+    "st": [
+     {
+      "t": "Get food, antipoison, energy / stamina / prayer potions. Then return to Ape Atoll: climb to the 1st floor of the Grand Tree and travel with Daero, then with Waydar in the hangar, then with Lumdo on Crash Island.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Gold bar",
+       "Monkey dentures",
+       "M'amulet mould",
+       "Food",
+       "Antipoison",
+       "Prayer potions",
+       "Stamina potions",
+       "Any teleport to leave Ape Atoll"
+      ]
+     },
+     {
+      "t": "From the dock, head west and climb down the ladder into the dungeon in south Ape Atoll.",
+      "i": [
+       "Gold bar",
+       "Monkey dentures",
+       "M'amulet mould"
+      ]
+     },
+     {
+      "t": "The dungeon is a long maze. From the ladder go east, north, west, north, east, south, east, then north. Go west along the whole dungeon, then south, east, south, west, south, east, south, and west to the far west side. Go north all the way, then east all the way. Talk to Zooknock in the north east of the dungeon.",
+      "s": [
+       "What do we need for the monkey amulet?",
+       "I'll be back later."
+      ],
+      "i": [
+       "Gold bar",
+       "Monkey dentures",
+       "M'amulet mould"
+      ]
+     },
+     {
+      "t": "Use the monkey dentures on Zooknock in the north east of the dungeon. If you've already done so, tap Done.",
+      "i": [
+       "Monkey dentures"
+      ]
+     },
+     {
+      "t": "Use the m'amulet mould on Zooknock in the north east of the dungeon. If you've already done so, tap Done.",
+      "i": [
+       "M'amulet mould"
+      ]
+     },
+     {
+      "t": "Use the gold bar on Zooknock in the north east of the dungeon. Then talk to Zooknock again to get the enchanted bar and your m'amulet mould back.",
+      "i": [
+       "Gold bar"
+      ]
+     }
+    ],
+    "i": [
+     "Gold bar",
+     "Monkey dentures",
+     "M'amulet mould"
+    ],
+    "tr": [
+     "Tree Gnome Stronghold teleport via Spirit Tree (2), Gnome Glider (Ta Quir Priw), or Grand Seed Pod",
+     "Any teleport to leave Ape Atoll"
+    ],
+    "r": [
+     "Antipoison",
+     "Food",
+     "Prayer potions",
+     "Stamina potions"
+    ]
+   },
+   {
+    "n": "Making an amulet",
+    "st": [
+     {
+      "t": "Teleport out to prepare to make the amulet. You'll want some food, prayer potions, antipoisons, the mould and the enchanted bar."
+     },
+     {
+      "t": "Get food, antipoison, prayer potions. Then return to Ape Atoll: climb to the 1st floor of the Grand Tree and travel with Daero, then with Waydar in the hangar, then with Lumdo on Crash Island.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Enchanted bar",
+       "M'amulet mould",
+       "Ball of wool",
+       "Food",
+       "Antipoison",
+       "Prayer potions",
+       "Stamina potions",
+       "Any teleport to leave Ape Atoll"
+      ]
+     },
+     {
+      "t": "Head west and enter the valley going north WITH PROTECT FROM RANGED ON. Be wary of poison and taking damage.",
+      "i": [
+       "Enchanted bar",
+       "M'amulet mould",
+       "Ball of wool"
+      ]
+     },
+     {
+      "t": "Near the gate you're knocked out and put in a cell again. When the guard walks away from your cell, tap the cell door to pick the lock. Follow behind him to the exit, then go to the north side of the prison.",
+      "i": [
+       "Enchanted bar",
+       "M'amulet mould",
+       "Ball of wool"
+      ]
+     },
+     {
+      "t": "Turn on Protect from Melee, go east along the north side of the prison, then south, then east into the temple, and go down the trapdoor on its east side. If bearded guards block you, go upstairs and climb down the ladder on the east side.",
+      "i": [
+       "Enchanted bar",
+       "M'amulet mould",
+       "Ball of wool"
+      ]
+     },
+     {
+      "t": "With the m'amulet mould in your inventory, use the enchanted bar on the wall of flame. Then use the ball of wool on the unstrung amulet to make the M'speak amulet, and wear it.",
+      "i": [
+       "Enchanted bar",
+       "M'amulet mould",
+       "Ball of wool"
+      ]
+     }
+    ],
+    "i": [
+     "Enchanted bar",
+     "M'amulet mould",
+     "Ball of wool"
+    ],
+    "tr": [
+     "Tree Gnome Stronghold teleport via Spirit Tree (2), Gnome Glider (Ta Quir Priw), or Grand Seed Pod",
+     "Any teleport to leave Ape Atoll"
+    ],
+    "r": [
+     "Banana (5)",
+     "Antipoison",
+     "Food",
+     "Combat gear, food and potions",
+     "Prayer potions",
+     "Stamina potions"
+    ]
+   },
+   {
+    "n": "Getting the talisman",
+    "st": [
+     {
+      "t": "Climb the rope out. If you plan on doing Recipe for Disaster, also kill a Zombie Monkey for its bones whilst here, and a gorilla upstairs.",
+      "i": [
+       "Zombie monkey bones"
+      ]
+     },
+     {
+      "t": "Wear your M'speak amulet and go to the banana garden by the building just west of the jail, then talk to the monkey child there. You'll talk to him three times in all, here and in the next two steps. If you didn't bring 5 bananas, pick them from the garden's trees. Only go near him while the monkey's aunt is away, otherwise she'll call the guards on you.",
+      "s": [
+       "Well I'll be a monkey's uncle!",
+       "How many bananas did Aunty want?"
+      ],
+      "i": [
+       "M'speak amulet",
+       "Banana (5)"
+      ]
+     },
+     {
+      "t": "Talk to the monkey child again.",
+      "i": [
+       "M'speak amulet"
+      ]
+     },
+     {
+      "t": "Talk to the monkey child again.",
+      "i": [
+       "M'speak amulet"
+      ]
+     },
+     {
+      "t": "Give the monkey child 5 bananas.",
+      "i": [
+       "M'speak amulet",
+       "Banana (5)"
+      ]
+     },
+     {
+      "t": "Wait for the aunt to make another round, then talk to the monkey child for the talisman.",
+      "s": [
+       "Wow - can I borrow it?",
+       "Ok, I promise!"
+      ],
+      "i": [
+       "M'speak amulet"
+      ]
+     }
+    ],
+    "i": [
+     "M'speak amulet",
+     "Banana (5)"
+    ]
+   },
+   {
+    "n": "Bones for RFD (optional)",
+    "st": [
+     {
+      "t": "This section will help you get ready for Recipe for Disaster. If you aren't interested in this, skip this section. Talk to the monkey child until you have 4 talismans. Tell him you lost it, and he will cry until the aunt comes back around (make sure to hide!). Talk to him again for another.",
+      "s": [
+       "I've lost that toy you gave me...",
+       "Wow - can I borrow it?",
+       "Ok, I promise!"
+      ],
+      "i": [
+       "M'speak amulet",
+       "Monkey talisman (4)"
+      ]
+     },
+     {
+      "t": "Kill a monkey archer for their bones. From the monkey child's garden, climb the ladder in the building to the east and cross the bridge east to reach the archers.",
+      "i": [
+       "Ninja monkey bones"
+      ]
+     },
+     {
+      "t": "Kill a gorilla in the temple for their bones. If they can attack you they will heal on hit, so it's recommended to safespot or flinch one.",
+      "i": [
+       "Gorilla bones"
+      ]
+     },
+     {
+      "t": "Enter into the temple's basement to kill a zombie monkey for their bones.",
+      "i": [
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Kill a zombie monkey for their bones.",
+      "i": [
+       "Zombie monkey bones"
+      ]
+     }
+    ],
+    "i": [
+     "M'speak amulet"
+    ],
+    "r": [
+     "Combat gear, food and potions"
+    ]
+   },
+   {
+    "n": "Making a greegree",
+    "st": [
+     {
+      "t": "Teleport out to prepare to make the greegree. You'll want some food, prayer potions, and antipoisons. Only if you're making the extra greegrees for Recipe for Disaster: bring 4 monkey talismans in all, and the zombie, ninja and gorilla bones.",
+      "i": [
+       "Monkey talisman",
+       "Monkey bones or corpse"
+      ]
+     },
+     {
+      "t": "Get food, antipoison, prayer potions. Then return to Ape Atoll: climb to the 1st floor of the Grand Tree and travel with Daero, then with Waydar in the hangar, then with Lumdo on Crash Island.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Monkey talisman",
+       "Monkey bones or corpse",
+       "Food",
+       "Antipoison",
+       "Prayer potions",
+       "Stamina potions",
+       "Ardougne teleport"
+      ]
+     },
+     {
+      "t": "Enter the dungeon in south Ape Atoll.",
+      "i": [
+       "Monkey talisman",
+       "Monkey bones or corpse"
+      ]
+     },
+     {
+      "t": "Follow the same winding route through the dungeon as before to Zooknock in the north east. Use the monkey talisman on him. If you've already done so, tap Done.",
+      "i": [
+       "Monkey talisman"
+      ]
+     },
+     {
+      "t": "Use regular monkey bones or a monkey corpse on Zooknock in the north east of the dungeon, not zombie, ninja or gorilla bones. Then talk to Zooknock for the Karamjan monkey greegree.",
+      "s": [
+       "What do we need for the monkey talisman?"
+      ],
+      "i": [
+       "Monkey bones or corpse"
+      ]
+     },
+     {
+      "t": "Only if you're making the zombie, ninja and gorilla greegrees for Recipe for Disaster: talk to Zooknock, then use a talisman and one kind of bones on him. Repeat for each kind. Otherwise, or once you're done, teleport away for the next step.",
+      "s": [
+       "Can you make another monkey talisman?",
+       "Yes"
+      ],
+      "i": [
+       "Ninja monkey bones",
+       "Gorilla bones",
+       "Zombie monkey bones"
+      ]
+     }
+    ],
+    "i": [
+     "Monkey talisman",
+     "Monkey bones or corpse"
+    ],
+    "tr": [
+     "Ardougne teleport"
+    ],
+    "r": [
+     "Prayer potions",
+     "Food",
+     "Antipoison",
+     "Stamina potions",
+     "Ninja monkey bones",
+     "Gorilla bones",
+     "Zombie monkey bones",
+     "Monkey talisman (4)"
+    ]
+   },
+   {
+    "n": "Save a monkey",
+    "st": [
+     {
+      "t": "Talk to the Monkey Minder in the Ardougne Zoo whilst wielding the Karamjan monkey greegree.",
+      "i": [
+       "Karamjan monkey greegree",
+       "M'speak amulet",
+       "Stamina potions"
+      ]
+     },
+     {
+      "t": "Wear your M'speak amulet, then talk to the monkey in the pen that has a Talk-to option. It jumps into your bag."
+     },
+     {
+      "t": "UNEQUIP the greegree, then talk to the Monkey Minder again to leave."
+     },
+     {
+      "t": "WALK/RUN to Daero on the 1st floor of the Grand Tree. If you teleport, you'll have to start again. Travel with Daero, then with Waydar in the hangar, then with Lumdo on Crash Island. On Ape Atoll, EQUIP THE GREEGREE and enter the gate to Marim. The monkeys will not attack you while you're holding it.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Karamjan monkey greegree",
+       "M'speak amulet",
+       "Monkey",
+       "Stamina potions"
+      ]
+     },
+     {
+      "t": "Talk to Garkor.",
+      "i": [
+       "Karamjan monkey greegree",
+       "M'speak amulet",
+       "Monkey"
+      ]
+     },
+     {
+      "t": "Talk to a guard outside the building in the south east of Marim. If you already have, tap Done."
+     },
+     {
+      "t": "Wearing the greegree and M'speak amulet, run west across Marim to the western shore, past the main gate but without going out through it. Head slightly south, follow the path up the western hill and climb the bamboo ladder at the top. Cross the bamboo bridge, climb down the ladder on the far side and talk to Kruk.",
+      "i": [
+       "Karamjan monkey greegree",
+       "M'speak amulet",
+       "Monkey"
+      ]
+     },
+     {
+      "t": "Talk to Awowogei twice. Then talk to the Elder Guard to be let out.",
+      "i": [
+       "Karamjan monkey greegree",
+       "M'speak amulet",
+       "Monkey"
+      ]
+     },
+     {
+      "t": "Talk to Garkor and watch the cutscene. Then talk to him again to get the 10th squad sigil. Don't equip it until you're ready to fight.",
+      "i": [
+       "Karamjan monkey greegree",
+       "M'speak amulet"
+      ]
+     }
+    ],
+    "i": [
+     "Karamjan monkey greegree",
+     "M'speak amulet"
+    ],
+    "r": [
+     "Stamina potions"
+    ]
+   },
+   {
+    "n": "Defeat the demon",
+    "st": [
+     {
+      "t": "Prepare to fight the Jungle Demon. Once you're ready, equip the 10th squad sigil.",
+      "i": [
+       "10th squad sigil",
+       "Combat gear, food and potions",
+       "Food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Kill the Jungle Demon. Use Protect from Magic and keep your distance to kill it safely."
+     },
+     {
+      "t": "Return to King Narnode Shareen in the Tree Gnome Stronghold."
+     }
+    ],
+    "i": [
+     "Combat gear, food and potions"
+    ],
+    "tr": [
+     "Tree Gnome Stronghold teleport via Spirit Tree (2), Gnome Glider (Ta Quir Priw), or Grand Seed Pod"
+    ],
+    "r": [
+     "Food",
+     "Prayer potions"
+    ],
+    "c": 1,
+    "e": [
+     "Jungle Demon (level 195)"
+    ]
+   }
+  ]
+ }
+}

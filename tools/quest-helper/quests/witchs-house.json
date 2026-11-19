@@ -1,0 +1,117 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Witch's House",
+  "items": [
+   "Cheese (multiple if you mess up)",
+   "Leather gloves",
+   "Combat gear and food for monsters up to level 53"
+  ],
+  "rec": [],
+  "enemies": [
+   "Witch's experiment (level 19, 30, 42 and 53)"
+  ],
+  "rewards": [
+   "4 Quest points",
+   "6,325 Hitpoints XP"
+  ],
+  "sec": [
+   {
+    "n": "Start the quest",
+    "st": [
+     {
+      "t": "Talk to the Boy in Taverley to start the quest.",
+      "s": [
+       "What's the matter?",
+       "Ok, I'll see what I can do.",
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Cheese (multiple if you mess up)",
+     "Leather gloves",
+     "Combat gear and food for monsters up to level 53"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Accessing the garden",
+    "st": [
+     {
+      "t": "Go west, then north from the Boy to the witch's house, across from the player-owned house portal. Look under the potted plant closest to the door for the house key."
+     },
+     {
+      "t": "Enter the witch's house.",
+      "i": [
+       "Door key"
+      ]
+     },
+     {
+      "t": "Go down the ladder to the basement."
+     },
+     {
+      "t": "Go through the gate whilst wearing gloves. If you don't have gloves, search the nearby boxes until you get a pair.",
+      "i": [
+       "Leather gloves"
+      ]
+     },
+     {
+      "t": "Open the cupboard and get a magnet from it"
+     },
+     {
+      "t": "Climb back up the ladder."
+     },
+     {
+      "t": "Use the cheese on the mouse hole in the south room, then use the magnet on the mouse which emerges.",
+      "i": [
+       "Cheese (multiple if you mess up)",
+       "Magnet"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Read the witch's diary",
+    "st": [
+     {
+      "t": "Pick up the witch's diary from the table and read it to ensure the door stays unlocked.",
+      "i": [
+       "Witch's diary"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Defeat the witch's experiment",
+    "st": [
+     {
+      "t": "Enter the garden and sneak around the perimeter to search the fountain. If the witch spots you, you'll be teleported outside."
+     },
+     {
+      "t": "Use the shed key on the shed door to enter.",
+      "i": [
+       "Key"
+      ]
+     },
+     {
+      "t": "Kill all four forms of the Witch's experiment (levels 19, 30, 42, and 53). You can safe spot the last two forms from the crate in the south of the room."
+     },
+     {
+      "t": "Pick up the ball.",
+      "i": [
+       "Ball"
+      ]
+     },
+     {
+      "t": "Return the ball to the boy. Make sure the witch doesn't spot you or you'll have to get the ball back again.."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Witch's experiment (level 19, 30, 42 and 53)"
+    ]
+   }
+  ]
+ }
+}

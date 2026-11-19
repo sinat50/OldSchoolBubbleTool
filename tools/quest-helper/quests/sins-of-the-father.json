@@ -1,0 +1,626 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder sinsofthefather; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Sins of the Father",
+  "items": [
+   "Combat gear + food",
+   "Vyrewatch outfit or 1950 coins",
+   "Ivandis flail",
+   "Any axe",
+   "Ruby",
+   "Runes or tablet for Enchant Ruby",
+   "Knife",
+   "Chisel"
+  ],
+  "rec": [
+   "Any pickaxe",
+   "Antipoison",
+   "Drakan's medallion",
+   "Morytania legs 3/4"
+  ],
+  "enemies": [
+   "Kroy (level 133)",
+   "Vampyre juveniles (level 122 and 119)",
+   "Nail beasts (level 143 and 67)",
+   "Mutated bloodveld (level 123)",
+   "Damien Leucurte (level 204)",
+   "Vanstrom Klause (level 413)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "6 x 15,000 Experience Tomes (Any skill above 60)",
+   "A Blisterwood Flail",
+   "Access to Darkmeyer and the Daeyalt Essence Mine",
+   "Darkmeyer teleport via Drakan's Medallion."
+  ],
+  "sec": [
+   {
+    "n": "Investigating Slepe",
+    "st": [
+     {
+      "t": "Talk to Veliaf in Slepe.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Go into the church and talk to Hameln the Jester about how his friend fell ill.",
+      "s": [
+       "I'd better get going.",
+       "Do you know how he fell ill?"
+      ]
+     },
+     {
+      "t": "Go to The Rat & Bat pub south east of the church and speak to Carl.",
+      "s": [
+       "Where do you get your Bloody Bracers from?"
+      ]
+     },
+     {
+      "t": "Inspect the barrel south of the Rat & Bat Pub."
+     },
+     {
+      "t": "Follow Carl without being seen; if he spots you, you start again. Go through the church and hide at its north doors until he has passed."
+     },
+     {
+      "t": "Hide on the east side of the hollow tree just north of the graves."
+     },
+     {
+      "t": "When he reaches the town's centre square, hide on the north side of the hollow tree next to the gallows."
+     },
+     {
+      "t": "When he enters the graveyard, hide on the west side of the hollow tree west of the graveyard."
+     },
+     {
+      "t": "Kill Kroy in his lab, where the cutscene leaves you. If you've left, go down the stairs in the graveyard south of the church in Slepe. Dodge the potion he sometimes throws to avoid damage and your attack rate being reduced.",
+      "s": [
+       "Continue the Sins of the Father quest."
+      ]
+     },
+     {
+      "t": "Destroy both the Lab tables."
+     },
+     {
+      "t": "Leave the lab through the southern gate, then return to Veliaf in Slepe.",
+      "s": [
+       "Fair enough, so what now?"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear + food"
+    ],
+    "c": 1,
+    "e": [
+     "Kroy (level 133)"
+    ]
+   },
+   {
+    "n": "Helping the Myreque",
+    "st": [
+     {
+      "t": "Go down the trapdoor on the east side of Paterdomus and talk to Veliaf, next to Drezel in the dungeon below.",
+      "s": [
+       "I see. So that's why you want to keep him safe, Veliaf?"
+      ]
+     },
+     {
+      "t": "Speak to Ivan Strom south of Fenkenstrain's Castle."
+     },
+     {
+      "t": "Listen to the meeting."
+     }
+    ]
+   },
+   {
+    "n": "Escorting Ivan",
+    "st": [
+     {
+      "t": "Speak to Ivan Strom outside the east entrance of Paterdomus.",
+      "s": [
+       "I'm ready."
+      ]
+     },
+     {
+      "t": "If you didn't bring a knife, search the nearby backpack for one."
+     },
+     {
+      "t": "Cut 3 vines from the nearby tree.",
+      "i": [
+       "Knife"
+      ]
+     },
+     {
+      "t": "Combine the vines together.",
+      "i": [
+       "Short vine (3)"
+      ]
+     },
+     {
+      "t": "Use the long vine on the nearby branch.",
+      "i": [
+       "Long vine"
+      ]
+     },
+     {
+      "t": "Swing on the vine."
+     },
+     {
+      "t": "Walk to the end of the path and tap its last square to continue the trek.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Kill the nail beasts."
+     },
+     {
+      "t": "Continue the trek.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "If you have no axe, kill the nearby zombie for one.",
+      "i": [
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Chop the nearby dead trees for 3 logs.",
+      "i": [
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Wield your axe, or keep a hammer in your inventory. Use your logs on the broken bridge until all 3 gaps are repaired.",
+      "i": [
+       "Any axe",
+       "Logs (3)"
+      ]
+     },
+     {
+      "t": "Cross the bridge."
+     },
+     {
+      "t": "Continue the trek.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Kill the juvinates with the Ivandis Flail. Try to attack the one near Ivan before it can attack him.",
+      "i": [
+       "Ivandis flail"
+      ]
+     },
+     {
+      "t": "Continue the trek.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear + food",
+     "Ivandis flail"
+    ],
+    "c": 1,
+    "e": [
+     "Nail beasts (level 143 and 67)"
+    ]
+   },
+   {
+    "n": "Learning of the Icyene",
+    "st": [
+     {
+      "t": "Finish speaking to Ivan Strom."
+     },
+     {
+      "t": "Talk to Veliaf at the boat house in the south of Burgh de Rott."
+     },
+     {
+      "t": "Get into the boat to the Icyene Graveyard.",
+      "s": [
+       "Icyene Graveyard."
+      ]
+     },
+     {
+      "t": "Finish talking to Veliaf and Safalaan."
+     },
+     {
+      "t": "Talk with Vanescula Drakan."
+     },
+     {
+      "t": "Open the mausoleum's door."
+     },
+     {
+      "t": "Speak to Verdita Sefalatis in the Icyene Graveyard."
+     },
+     {
+      "t": "Speak to Kael Forshaw in the Icyene Graveyard."
+     },
+     {
+      "t": "Speak to Radigad Ponfit in the Icyene Graveyard."
+     },
+     {
+      "t": "Speak to Polmafi Ferdygris in the Icyene Graveyard."
+     },
+     {
+      "t": "Speak to Ivan Strom in the Icyene Graveyard."
+     },
+     {
+      "t": "Speak to Veliaf Hurtz in the Icyene Graveyard."
+     },
+     {
+      "t": "Speak to Vanescula in the Icyene Graveyard."
+     }
+    ]
+   },
+   {
+    "n": "Investigating the lab",
+    "st": [
+     {
+      "t": "Go to the Meiyerditch lab. The fastest way is through the mines: take the boat to Meiyerditch and ask a Vyrewatch to send you to the mines.",
+      "s": [
+       "Meiyerditch.",
+       "Send me to the mines."
+      ]
+     },
+     {
+      "t": "Mine 15 daeyalt ore (needs 20 Mining) and put it in the cart. If you have no pickaxe, ask one of the miners for a bronze one."
+     },
+     {
+      "t": "Talk to a Vampyre Juvinate to leave the mine."
+     },
+     {
+      "t": "Head south-east to the house against the eastern wall with a red and yellow tapestry. Walk through the slashed tapestry and go down the stairs."
+     },
+     {
+      "t": "Speak to Safalaan at the Lab.",
+      "s": [
+       "Shall we get going then?",
+       "Let's go."
+      ]
+     },
+     {
+      "t": "Defeat the Mutated Bloodveld (lvl-123). If you aren't taken to it, go through the door to the deeper labs, south-west of where you met Safalaan."
+     },
+     {
+      "t": "Finish speaking with Safalaan in the Lab."
+     },
+     {
+      "t": "Search the bookshelf in the room west of Safalaan in the Lab.",
+      "s": [
+       "I'll be back soon."
+      ]
+     },
+     {
+      "t": "Go show Safalaan the Haemalchemy book 2 you found.",
+      "s": [
+       "Sure. Here you go."
+      ],
+      "i": [
+       "Haemalchemy volume 2"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear + food",
+     "Any pickaxe"
+    ],
+    "c": 1,
+    "e": [
+     "Mutated bloodveld (level 123)"
+    ]
+   },
+   {
+    "n": "Making a disguise",
+    "st": [
+     {
+      "t": "Speak to Vanescula in the Icyene Graveyard. Take the boat south of Burgh de Rott to get there.",
+      "s": [
+       "Okay. I'll see you soon.",
+       "Icyene Graveyard."
+      ]
+     },
+     {
+      "t": "Take the boat to Meiyerditch and go down the trapdoor in the northern room of Old Man Ral's house, in south-west Meiyerditch. Give Polmafi a Vyrewatch disguise in the hideout below. If you have none, buy the outfit from Trader Sven just south of the house for 1,950 coins, and don't wear it.",
+      "s": [
+       "Meiyerditch.",
+       "Here you go."
+      ],
+      "i": [
+       "Vyrewatch top",
+       "Vyrewatch legs",
+       "Vyrewatch shoes"
+      ]
+     },
+     {
+      "t": "Return to Vanescula in the Icyene Graveyard with the Vyre noble outfit.",
+      "s": [
+       "Icyene Graveyard."
+      ],
+      "i": [
+       "Vyre noble top unscented",
+       "Vyre noble legs unscented",
+       "Vyre noble shoes unscented"
+      ]
+     },
+     {
+      "t": "Talk to Veliaf outside the church in Slepe.",
+      "s": [
+       "Slepe.",
+       "Let's do this."
+      ],
+      "i": [
+       "Vyre noble top unscented",
+       "Vyre noble legs unscented",
+       "Vyre noble shoes unscented",
+       "Ivandis flail"
+      ]
+     },
+     {
+      "t": "Wield your Ivandis flail and kill Damien Leucurte (lvl-204). He can poison you. Stomp out any of the fires he spawns.",
+      "s": [
+       "Slepe.",
+       "Let's do this."
+      ],
+      "i": [
+       "Vyre noble top unscented",
+       "Vyre noble legs unscented",
+       "Vyre noble shoes unscented",
+       "Ivandis flail"
+      ]
+     },
+     {
+      "t": "Talk to Veliaf in Slepe."
+     },
+     {
+      "t": "Return to Vanescula in the Icyene Graveyard with the Vyre noble outfit.",
+      "s": [
+       "I'll see you there.",
+       "Icyene Graveyard."
+      ],
+      "i": [
+       "Vyre noble top",
+       "Vyre noble legs",
+       "Vyre noble shoes"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear + food",
+     "Vyrewatch outfit or 1950 coins",
+     "Ivandis flail",
+     "Antipoison"
+    ],
+    "c": 1,
+    "e": [
+     "Damien Leucurte (level 204)"
+    ]
+   },
+   {
+    "n": "Infiltrating Darkmeyer",
+    "st": [
+     {
+      "t": "Wear the Vyre noble outfit. Take the boat to Meiyerditch, talk to a Vyrewatch to be sent to the mines, then talk to a Vampyre Juvinate to get out. In the outfit you won't need to mine anything. Go through the crack in Darkmeyer's wall, just north of the mine exit.",
+      "s": [
+       "Meiyerditch.",
+       "Send me to the mines."
+      ],
+      "i": [
+       "Vyre noble top",
+       "Vyre noble legs",
+       "Vyre noble shoes"
+      ]
+     },
+     {
+      "t": "Head to the Arboretum in the middle of Darkmeyer, shown by the tree icon on the map, east of the bank. Speak to the guard, Desmodus Lasiurus, outside it.",
+      "i": [
+       "Vyre noble top",
+       "Vyre noble legs",
+       "Vyre noble shoes"
+      ]
+     },
+     {
+      "t": "Speak to Mordan Nikazsi in the house with a water symbol on the minimap, north-east of the furnace, along Darkmeyer's east wall.",
+      "i": [
+       "Vyre noble top",
+       "Vyre noble legs",
+       "Vyre noble shoes"
+      ]
+     },
+     {
+      "t": "Speak to Maria Gadderanks in the jail north of the Arboretum in Darkmeyer.",
+      "i": [
+       "Vyre noble top",
+       "Vyre noble legs",
+       "Vyre noble shoes"
+      ]
+     },
+     {
+      "t": "Speak to Desmodus Lasiurus outside the Arboretum in Darkmeyer.",
+      "i": [
+       "Vyre noble top",
+       "Vyre noble legs",
+       "Vyre noble shoes"
+      ]
+     },
+     {
+      "t": "Search the shelves in the Arboretum in Darkmeyer. Read the Old Note you get.",
+      "i": [
+       "Vyre noble top",
+       "Vyre noble legs",
+       "Vyre noble shoes"
+      ]
+     },
+     {
+      "t": "Read the Old Note. It gives the gallons of water the tree needs, which differs per player. Each turn of the north valve adds 7 gallons and each turn of the south valve adds 4."
+     },
+     {
+      "t": "Find your number in this list. The row gives the north valve's setting. Its place in the row gives the south valve's setting: the first number is 0, then 1, 2, 3, 4 and 5. North 0: 0, 4, 8, 12, 16, 20. North 1: 7, 11, 15, 19, 23, 27. North 2: 14, 18, 22, 26, 30, 34. North 3: 21, 25, 29, 33, 37, 41. North 4: 28, 32, 36, 40, 44, 48. North 5: 35, 39, 43, 47, 51, 55."
+     },
+     {
+      "t": "Set the south valve and the north valve, by the Arboretum's entrance, to those two numbers."
+     },
+     {
+      "t": "Gather 8 logs from the Blisterwood tree.",
+      "i": [
+       "Vyre noble top",
+       "Vyre noble legs",
+       "Vyre noble shoes",
+       "Blisterwood logs (8)",
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Return to Vanescula in the Icyene Graveyard with the 8 Blisterwood logs.",
+      "s": [
+       "Icyene Graveyard."
+      ],
+      "i": [
+       "Blisterwood logs (8)"
+      ]
+     }
+    ],
+    "i": [
+     "Any axe"
+    ]
+   },
+   {
+    "n": "Creating a weapon",
+    "st": [
+     {
+      "t": "Go speak to Vertida in Old Man Ral's basement with the 8 Blisterwood logs.",
+      "s": [
+       "Meiyerditch.",
+       "Here you go."
+      ],
+      "i": [
+       "Blisterwood logs (8)"
+      ]
+     },
+     {
+      "t": "Speak to Vertida Sefalatis."
+     },
+     {
+      "t": "Search the nearby crate for a silver sickle."
+     },
+     {
+      "t": "Use a ruby on the sickle.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Ruby",
+       "Silver sickle (b)",
+       "Chisel"
+      ]
+     },
+     {
+      "t": "Cast enchant ruby on the sickle.",
+      "i": [
+       "Runes or tablet for Enchant Ruby",
+       "Ruby sickle"
+      ]
+     },
+     {
+      "t": "Use a blisterwood log on the enchanted sickle.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Blisterwood log",
+       "Enchanted ruby sickle (b)",
+       "Knife"
+      ]
+     },
+     {
+      "t": "Use the flail on the blisterwood sickle.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Ivandis flail",
+       "Blisterwood sickle"
+      ]
+     }
+    ],
+    "i": [
+     "Blisterwood logs (8)",
+     "Chisel",
+     "Knife",
+     "Ruby",
+     "Ivandis flail",
+     "Runes or tablet for Enchant Ruby"
+    ]
+   },
+   {
+    "n": "Taking on Drakan",
+    "st": [
+     {
+      "t": "Return to Vanescula in the Icyene Graveyard with the Blisterwood Flail.",
+      "s": [
+       "Icyene Graveyard."
+      ],
+      "i": [
+       "Blisterwood flail"
+      ]
+     },
+     {
+      "t": "Speak to Safalaan north of the Icyene Graveyard.",
+      "s": [
+       "Icyene Graveyard."
+      ],
+      "i": [
+       "Blisterwood flail"
+      ]
+     },
+     {
+      "t": "Speak to Vanescula in the Icyene Graveyard.",
+      "i": [
+       "Blisterwood flail"
+      ]
+     },
+     {
+      "t": "Prepare for a challenging fight. Speak to Vanescula again.",
+      "s": [
+       "I'm ready."
+      ],
+      "i": [
+       "Blisterwood flail"
+      ]
+     },
+     {
+      "t": "If the cutscene doesn't take you into the fight, speak to Veliaf next to Vanescula.",
+      "s": [
+       "Let's go."
+      ],
+      "i": [
+       "Blisterwood flail"
+      ]
+     },
+     {
+      "t": "Fight Vanstrom Klause. Protect from Magic. He has various special attacks indicated by what he says: My pets will feast on your corpse: A bloodveld will appear which you need to kill from a distance. Blood will be my strength: An orb appears that heals Vanstrom. Lure Vanstrom onto it. Stare into the darkness: Face away from Vanstrom. Once he hits 0hp, he'll heal to 200 and start summoning lightning bolts. Move off tiles where they appear.",
+      "i": [
+       "Blisterwood flail"
+      ]
+     },
+     {
+      "t": "If you're not already in the Myreque hideout, climb down the trapdoor in Old Man Ral's house in south-west Meiyerditch. Speak to Veliaf in the hideout to complete the quest."
+     }
+    ],
+    "i": [
+     "Combat gear + food",
+     "Anything to range the bloodveld during bossfight",
+     "Blisterwood flail"
+    ],
+    "c": 1,
+    "e": [
+     "Vanstrom Klause (level 413)"
+    ]
+   }
+  ]
+ }
+}

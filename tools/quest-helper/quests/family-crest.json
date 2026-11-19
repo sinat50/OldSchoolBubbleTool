@@ -1,0 +1,219 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder familycrest; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Family Crest",
+  "items": [
+   "Shrimps",
+   "Salmon",
+   "Tuna",
+   "Bass",
+   "Swordfish",
+   "Any pickaxe",
+   "Ruby (2)",
+   "Ring mould",
+   "Necklace mould",
+   "At least one dose of antipoison or superantipoison",
+   "Runes for casting each of the 4 blast spells"
+  ],
+  "rec": [
+   "Varrock Teleports (2)",
+   "Camelot/Catherby Teleport",
+   "Falador Teleport",
+   "Ardougne Teleport",
+   "Al-Kharid Teleport (2)",
+   "Teleport to the Dwarven Mine (Combat Bracelet [3], Skills Necklace [2])"
+  ],
+  "enemies": [
+   "Chronozon (level 170, in the Wilderness)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "A pair of Steel Gauntlets"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Dimintheis in south east Varrock.",
+      "s": [
+       "Why would a nobleman live in a dump like this?",
+       "So where is this crest?",
+       "Ok, I will help you."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Caleb's piece",
+    "st": [
+     {
+      "t": "Talk to Caleb in the building north-east of the Catherby bank.",
+      "s": [
+       "Are you Caleb Fitzharmon?",
+       "So can I have your bit?",
+       "Ok, I will get those."
+      ]
+     },
+     {
+      "t": "Talk to Caleb again with the required fish.",
+      "i": [
+       "Shrimps",
+       "Salmon",
+       "Tuna",
+       "Bass",
+       "Swordfish"
+      ]
+     },
+     {
+      "t": "Talk to Caleb in Catherby once more.",
+      "s": [
+       "Uh.. what happened to the rest of the crest?"
+      ]
+     }
+    ],
+    "i": [
+     "Shrimps",
+     "Salmon",
+     "Tuna",
+     "Bass",
+     "Swordfish"
+    ]
+   },
+   {
+    "n": "Avan's piece",
+    "st": [
+     {
+      "t": "Talk to the Gem Trader in Al Kharid.",
+      "s": [
+       "I'm in search of a man named Avan Fitzharmon."
+      ]
+     },
+     {
+      "t": "Talk to the man south of the Al Kharid mine.",
+      "s": [
+       "I'm looking for a man named Avan Fitzharmon."
+      ]
+     },
+     {
+      "t": "Talk to Boot in the south western Dwarven Mines.",
+      "s": [
+       "Hello. I'm in search of very high quality gold."
+      ]
+     },
+     {
+      "t": "Enter the old ruin entrance west of Witchaven."
+     },
+     {
+      "t": "Follow the path around, and pull the lever on the wall in the north east corner."
+     },
+     {
+      "t": "Go to the south room, enter it through its eastern door and pull the lever inside up. Leave through the western door."
+     },
+     {
+      "t": "Pull the north wall lever again."
+     },
+     {
+      "t": "Pull the lever in the north room up."
+     },
+     {
+      "t": "Pull the north wall lever again."
+     },
+     {
+      "t": "Go back to the south room through its western door and pull the lever down. Leave through the eastern door and head to the east room."
+     },
+     {
+      "t": "Mine 2 perfect gold in the east room.",
+      "i": [
+       "Any pickaxe",
+       "'perfect' gold ore (2)"
+      ]
+     },
+     {
+      "t": "Smelt the perfect gold ore into bars.",
+      "i": [
+       "'perfect' gold ore (2)"
+      ]
+     },
+     {
+      "t": "Make a perfect ruby necklace at a furnace. Make sure to only craft one.",
+      "i": [
+       "'perfect' gold bar",
+       "Ruby",
+       "Necklace mould"
+      ]
+     },
+     {
+      "t": "Make a perfect ruby ring at a furnace. Make sure to only craft one.",
+      "i": [
+       "'perfect' gold bar",
+       "Ruby",
+       "Ring mould"
+      ]
+     },
+     {
+      "t": "Return to the man south of the Al Kharid mine.",
+      "i": [
+       "'perfect' ring",
+       "'perfect' necklace"
+      ]
+     }
+    ],
+    "i": [
+     "Any pickaxe",
+     "Ruby (2)",
+     "Necklace mould",
+     "Ring mould"
+    ]
+   },
+   {
+    "n": "Johnathon's piece",
+    "st": [
+     {
+      "t": "Go upstairs in the Jolly Boar Inn north east of Varrock and talk to Johnathon.",
+      "i": [
+       "At least one dose of antipoison or superantipoison"
+      ]
+     },
+     {
+      "t": "Give Johnathon some antipoison.",
+      "i": [
+       "At least one dose of antipoison or superantipoison"
+      ]
+     },
+     {
+      "t": "Go down the trapdoor in Edgeville and through the gate into the Wilderness part of the dungeon, where other players can attack you. Go slightly north, then west past the thugs and chaos druids and through a second gate. Head west, then south past the poison spiders and black demons to Chronozon, by the Earth Obelisk in the south west corner. You need to hit him at least once with all 4 elemental blast spells. Pick up the crest part he drops.",
+      "i": [
+       "Runes for casting each of the 4 blast spells"
+      ]
+     }
+    ],
+    "i": [
+     "Runes for casting each of the 4 blast spells",
+     "At least one dose of antipoison or superantipoison"
+    ],
+    "c": 1,
+    "e": [
+     "Chronozon (level 170, in the Wilderness)"
+    ]
+   },
+   {
+    "n": "Return the crest",
+    "st": [
+     {
+      "t": "Combine the 3 crest parts together.",
+      "i": [
+       "Crest part"
+      ]
+     },
+     {
+      "t": "Return the family crest to Dimintheis in south east Varrock.",
+      "i": [
+       "Family crest"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

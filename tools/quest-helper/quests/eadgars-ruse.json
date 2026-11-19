@@ -1,0 +1,278 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Eadgar's Ruse",
+  "items": [
+   "Climbing boots or 12 coins",
+   "Vodka",
+   "Pineapple chunks",
+   "Logs (2)",
+   "Grain (10)",
+   "Raw chicken (5)",
+   "Tinderbox",
+   "Pestle and Mortar",
+   "Ranarr potion (unf)"
+  ],
+  "rec": [
+   "Taverley teleports (3)",
+   "Ardougne teleport",
+   "Burthorpe teleport"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "11,000 Herblore XP",
+   "Ability to use the Trollheim teleport",
+   "Ability to use Scrolls of Redirection to Trollheim.",
+   "Ability to trade Goutweed to Sanfew for herbs."
+  ],
+  "sec": [
+   {
+    "n": "Start the quest",
+    "st": [
+     {
+      "t": "Talk to Sanfew upstairs in the Taverley herblore store.",
+      "s": [
+       "Ask general questions.",
+       "Have you any more work for me, to help reclaim the circle?",
+       "I'll do it.",
+       "Yes."
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Talk to Burntmeat",
+    "st": [
+     {
+      "t": "Go to Eadgar first. Follow the path west of Burthorpe, then the path going south to Tenzing's hut. If you have no climbing boots, buy a pair from Tenzing for 12 coins. Wear them.",
+      "i": [
+       "Climbing boots or 12 coins"
+      ]
+     },
+     {
+      "t": "Climb over the stile north of Tenzing and follow the path north. At the junction, climb over the rocks, follow the path and go west at the next fork, climbing over rocks as needed. Head north to the Secret Door and enter the Troll Stronghold.",
+      "i": [
+       "Climbing boots"
+      ]
+     },
+     {
+      "t": "Check your Troll Stronghold quest log. If it says \"I've rescued Godric and Mad Eadgar\", skip this step. If not, pickpocket (30 Thieving) or kill Berry, the northern sleeping troll guard in the prison, for a cell key, and unlock Eadgar's cell."
+     },
+     {
+      "t": "Go up the stairs from the prison, then up to the next floor. Follow the corridor north to the exit in the east wall and leave the Stronghold. Run south-east to the west side of Trollheim and climb to the top. Eadgar's cave is the unmarked entrance on the south side of the summit."
+     },
+     {
+      "t": "Talk to Eadgar.",
+      "s": [
+       "I need to find some goutweed."
+      ]
+     },
+     {
+      "t": "Leave Eadgar's cave."
+     },
+     {
+      "t": "Enter the Troll Stronghold."
+     },
+     {
+      "t": "Go down the south staircase."
+     },
+     {
+      "t": "Talk to Burntmeat."
+     },
+     {
+      "t": "Talk to Eadgar in his cave on top of Trollheim."
+     }
+    ],
+    "i": [
+     "Climbing boots"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Get a parrot",
+    "st": [
+     {
+      "t": "Leave Eadgar's cave. If he asks you something as you go, choose the line below.",
+      "s": [
+       "No thanks, Eadgar."
+      ]
+     },
+     {
+      "t": "Travel to Ardougne Zoo and talk to Parroty Pete. Ask him both question 2 and 3, then use the vodka on the pineapple chunks.",
+      "s": [
+       "What do you feed them?",
+       "When did you add it?"
+      ],
+      "i": [
+       "Pineapple chunks",
+       "Vodka"
+      ]
+     },
+     {
+      "t": "Use the alco-chunks on the aviary hatch of the parrot cage.",
+      "i": [
+       "Alco-chunks"
+      ]
+     },
+     {
+      "t": "Return the parrot to Eadgar on top of Trollheim."
+     },
+     {
+      "t": "Leave Eadgar's cave, then enter the Troll Stronghold, go north and down both flights of stairs to the prison, and use the parrot on the rack north of the cells.",
+      "i": [
+       "Drunk parrot"
+      ],
+      "s": [
+       "No thanks, Eadgar."
+      ]
+     }
+    ],
+    "i": [
+     "Vodka",
+     "Pineapple chunks",
+     "Climbing boots"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Making a fake man",
+    "st": [
+     {
+      "t": "Talk to Tegid in the south of Taverley for a dirty robe. Once you have it, return to Eadgar with all the items he needs.",
+      "s": [
+       "Sanfew won't be happy..."
+      ],
+      "i": [
+       "Robe",
+       "Grain (10)",
+       "Raw chicken (5)",
+       "Logs (2)",
+       "Climbing boots",
+       "Ranarr potion (unf)",
+       "Tinderbox",
+       "Pestle and Mortar"
+      ]
+     },
+     {
+      "t": "Bring Eadgar all the listed items. Check the quest log if you're not sure what items you've already handed in.",
+      "i": [
+       "Robe",
+       "Grain (10)",
+       "Raw chicken (5)",
+       "Logs (2)",
+       "Climbing boots",
+       "Ranarr potion (unf)",
+       "Tinderbox",
+       "Pestle and Mortar"
+      ]
+     },
+     {
+      "t": "Leave Eadgar's cave and look through the grass patches around the entrance for a tiny troll thistle. It's the same colour as the grass and grows in only one patch at a time, so zoom in on each patch. Pick it.",
+      "i": [
+       "Ranarr potion (unf)",
+       "Logs",
+       "Tinderbox"
+      ],
+      "s": [
+       "No thanks, Eadgar."
+      ]
+     },
+     {
+      "t": "Light a fire then use the troll thistle on it.",
+      "i": [
+       "Logs",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Use the troll thistle on the fire.",
+      "i": [
+       "Troll thistle"
+      ]
+     },
+     {
+      "t": "Use the pestle and mortar on the dried thistle",
+      "i": [
+       "Pestle and Mortar",
+       "Dried thistle"
+      ]
+     },
+     {
+      "t": "Use the ground thistle on a ranarr potion (unf)",
+      "i": [
+       "Ground thistle",
+       "Ranarr potion (unf)"
+      ]
+     },
+     {
+      "t": "Bring Eadgar the troll potion.",
+      "i": [
+       "Troll potion"
+      ]
+     },
+     {
+      "t": "Get the parrot from the Troll Stronghold prison."
+     },
+     {
+      "t": "Return to Eadgar with the parrot.",
+      "i": [
+       "Drunk parrot"
+      ]
+     }
+    ],
+    "i": [
+     "Climbing boots",
+     "Logs (2)",
+     "Tinderbox",
+     "Pestle and Mortar",
+     "Grain (10)",
+     "Raw chicken (5)",
+     "Ranarr potion (unf)"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Get the Goutweed",
+    "st": [
+     {
+      "t": "Leave Eadgar's cave and take the fake man to Burntmeat in the Troll Stronghold kitchen. Give it to him. If he doesn't tell you where the goutweed is, talk to him again.",
+      "s": [
+       "No thanks, Eadgar.",
+       "So, where can I get some goutweed?"
+      ],
+      "i": [
+       "Fake man"
+      ]
+     },
+     {
+      "t": "Search the kitchen drawers south east of Burntmeat."
+     },
+     {
+      "t": "Go down to the storeroom from the Troll Stronghold kitchen."
+     },
+     {
+      "t": "Enter the storeroom.",
+      "i": [
+       "Storeroom key"
+      ]
+     },
+     {
+      "t": "Search the goutweed crates for goutweed. You'll need to avoid the troll guards or you'll be kicked out and take damage."
+     },
+     {
+      "t": "If you wish to do Dream Mentor or Dragon Slayer II, get two more goutweed. You can only take one per trip, so repeat the run past the guards for each one. Afterwards, return to Sanfew upstairs in the Taverley herblore store.",
+      "s": [
+       "Ask general questions."
+      ],
+      "i": [
+       "Goutweed"
+      ]
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

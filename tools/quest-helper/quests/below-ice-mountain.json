@@ -1,0 +1,161 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Below Ice Mountain",
+  "items": [
+   "Cooked Meat",
+   "Bread",
+   "Knife",
+   "Coins (3)"
+  ],
+  "rec": [
+   "A teleport to near Ice Mountain",
+   "Falador teleport",
+   "Varrock teleport",
+   "Combat gear or a pickaxe if you don't want to fight"
+  ],
+  "enemies": [
+   "Ancient Guardian (level 25), or 10 mining + a pickaxe"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "2000 x Coins",
+   "Access to the Ruins of Camdozaal.",
+   "Flex Emote",
+   "The ability to make a steak sandwich"
+  ],
+  "sec": [
+   {
+    "n": "Starting Off",
+    "st": [
+     {
+      "t": "Talk to Willow outside Falador, south of the Ice Mountain dwarves.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Recruit Checkal",
+    "st": [
+     {
+      "t": "Attempt to recruit Checkal to your team in Barbarian Village."
+     },
+     {
+      "t": "Speak to Atlas in the Barbarian Village Inn to learn how to Flex. Pick up a cooked meat if you need one.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Cooked Meat"
+      ]
+     },
+     {
+      "t": "Talk to Checkal, then use the Flex emote (in the Emotes tab) next to him when he asks you to prove your worth."
+     }
+    ]
+   },
+   {
+    "n": "Recruit Marley",
+    "st": [
+     {
+      "t": "Speak to Marley in the Edgeville Ruins. Pick up the cooked meat from the Barbarian longhall if you don't have it already."
+     },
+     {
+      "t": "Ask the Cook at the Blue Moon Inn for a steak sandwich.",
+      "s": [
+       "I was wondering if you'd be able to make me a Steak sandwich?"
+      ]
+     },
+     {
+      "t": "Collect meat, bread and a knife to make a steak sandwich.",
+      "i": [
+       "Cooked Meat",
+       "Bread",
+       "Knife"
+      ]
+     },
+     {
+      "t": "Use the knife on the bread to make a steak sandwich. Be careful not to eat it!",
+      "i": [
+       "Knife",
+       "Bread"
+      ]
+     },
+     {
+      "t": "Return to Marley and give him the steak sandwich. Be careful not to eat it!",
+      "i": [
+       "Steak Sandwich"
+      ]
+     }
+    ],
+    "i": [
+     "Cooked Meat",
+     "Bread",
+     "Knife"
+    ]
+   },
+   {
+    "n": "Recruit Burntof",
+    "st": [
+     {
+      "t": "Talk to Burntof in the Falador Inn."
+     },
+     {
+      "t": "Buy an Asgarnian Ale for Burntof.",
+      "s": [
+       "What ales are you serving?",
+       "One Asgarnian Ale, please."
+      ],
+      "i": [
+       "Coins (3)"
+      ]
+     },
+     {
+      "t": "Give Burntof the Asgarnian Ale.",
+      "i": [
+       "Asgarnian Ale"
+      ]
+     },
+     {
+      "t": "Beat Burntof in a match of Rock-Paper-Scissors. Your choices of Rock, Paper and Scissors do not matter.",
+      "s": [
+       "Rock."
+      ]
+     }
+    ],
+    "i": [
+     "Coins (3)"
+    ]
+   },
+   {
+    "n": "Excavation!",
+    "st": [
+     {
+      "t": "Talk with Willow at the dungeon entrance on the west side of Ice Mountain.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Defeat the Lvl-25 Ancient Guardian. Alternatively, with Level 10 Mining, mine the 4 pillars in the corners."
+     },
+     {
+      "t": "Watch the cutscene to finish the quest.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear or a pickaxe if you don't want to fight"
+    ],
+    "c": 1,
+    "e": [
+     "Ancient Guardian (level 25), or 10 mining + a pickaxe"
+    ]
+   }
+  ]
+ }
+}

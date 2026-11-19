@@ -1,0 +1,175 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Death Plateau",
+  "items": [
+   "Coins (60)",
+   "Premade blurb' sp.",
+   "Iron bar",
+   "Bread (UNNOTED) (10)",
+   "Trout (UNNOTED) (10)"
+  ],
+  "rec": [
+   "Games necklace"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "3,000 Attack XP",
+   "A pair of Steel Claws",
+   "The ability to craft claws.",
+   "The ability to purchase and equip Climbing Boots."
+  ],
+  "sec": [
+   {
+    "n": "The equipment room",
+    "st": [
+     {
+      "t": "Talk to Denulth in Burthorpe. You can get there with the Burthorpe minigame teleport or a games necklace.",
+      "s": [
+       "Do you have any quests for me?",
+       "No, but perhaps I could try and find one?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Ask Eohric, upstairs in Burthorpe castle, about the guard that was on duty last night.",
+      "s": [
+       "I'm looking for the guard that was on last night."
+      ]
+     },
+     {
+      "t": "Talk to Harold, upstairs in the bar in Burthorpe.",
+      "s": [
+       "You're the guard that was on duty last night?"
+      ]
+     },
+     {
+      "t": "Talk to Eohric."
+     },
+     {
+      "t": "Get an Asgarnian ale: pick one up from the table downstairs in the Toad and Chicken pub, or buy one from the bartender.",
+      "i": [
+       "Coins (60)",
+       "Asgarnian ale",
+       "Premade blurb' sp."
+      ]
+     },
+     {
+      "t": "Talk to Harold.",
+      "i": [
+       "Coins (60)",
+       "Asgarnian ale",
+       "Premade blurb' sp."
+      ]
+     },
+     {
+      "t": "If you brought a Blurberry Special or premade blurb' sp., talk to Harold to give it to him. He gets drunk and you win every dice game. If you don't have one, skip this step.",
+      "s": [
+       "Can I buy you a drink?"
+      ],
+      "i": [
+       "Coins (60)",
+       "Premade blurb' sp."
+      ]
+     },
+     {
+      "t": "Gamble with Harold until you get an IOU. A winning bet of 101 coins bankrupts him immediately. Only bets of 60 to 1,000 coins can win the IOU. Bring extra coins if he isn't drunk, as you may lose some bets.",
+      "s": [
+       "Would you like to gamble?"
+      ],
+      "i": [
+       "Coins (101)"
+      ]
+     },
+     {
+      "t": "Read the IOU, and then keep the Combination for the end of the quest.",
+      "i": [
+       "IOU"
+      ]
+     },
+     {
+      "t": "Go back to Burthorpe Castle and pick up the five coloured stone balls from the ground."
+     },
+     {
+      "t": "Use each ball on its spot on the mechanism, which has two columns. West column, south to north: blue, red. East column, south to north: yellow, purple, green. If the door stays shut because you placed them before reading the combination, pick up one ball and put it back."
+     }
+    ],
+    "i": [
+     "Coins (101)",
+     "Premade blurb' sp."
+    ],
+    "c": 0
+   },
+   {
+    "n": "Get spiked boots",
+    "st": [
+     {
+      "t": "Enter the cave north west of Burthorpe."
+     },
+     {
+      "t": "Talk to Saba.",
+      "s": [
+       "Do you know of another way up Death Plateau?"
+      ]
+     },
+     {
+      "t": "Have a free inventory space. Go northwest of Burthorpe, then south at the fork, and talk to Tenzing in his house. He gives you climbing boots.",
+      "s": [
+       "OK, I'll get those for you."
+      ]
+     },
+     {
+      "t": "Talk to Dunstan at the anvil in Burthorpe, then talk to Denulth, where you started the quest.",
+      "i": [
+       "Climbing boots"
+      ]
+     },
+     {
+      "t": "Talk to Dunstan to exchange the climbing boots for spiked boots.",
+      "i": [
+       "Climbing boots",
+       "Certificate",
+       "Iron bar"
+      ]
+     }
+    ],
+    "i": [
+     "Iron bar"
+    ],
+    "c": 0
+   },
+   {
+    "n": "The secret path",
+    "st": [
+     {
+      "t": "Bring the spiked boots, along with (unnoted) 10 bread and 10 trout to Tenzing.",
+      "i": [
+       "Spiked boots",
+       "Bread (UNNOTED) (10)",
+       "Trout (UNNOTED) (10)"
+      ]
+     },
+     {
+      "t": "Exit Tenzing's house into the backyard THROUGH THE NORTH DOOR and OVER THE STILE. Continue north past the Death Plateau warning, and around to the east until you stop and say you've gone far enough.",
+      "i": [
+       "Secret way map"
+      ]
+     },
+     {
+      "t": "Go back and talk to Denulth, giving him the secret map and Combination.",
+      "i": [
+       "Secret way map",
+       "Combination"
+      ]
+     }
+    ],
+    "i": [
+     "Bread (UNNOTED) (10)",
+     "Trout (UNNOTED) (10)"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

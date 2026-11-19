@@ -1,0 +1,275 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder shadowofthestorm; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Shadow of the Storm",
+  "items": [
+   "Silverlight",
+   "pieces of black clothing (3)",
+   "Silver bar"
+  ],
+  "rec": [
+   "Combat gear + potions",
+   "Coins or more for carpet rides (400)",
+   "Al Kharid Teleport"
+  ],
+  "enemies": [
+   "Agrith-Naar (level 100)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "10,000 Experience Lamp (Any combat skill except Prayer)",
+   "Darklight"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Father Reen outside Al Kharid bank.",
+      "s": [
+       "That's me!",
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Infiltrate the cult",
+    "st": [
+     {
+      "t": "Go to the Ruins of Uzer: take the magic carpet south of Al Kharid and choose Uzer, or use fairy ring DLQ and go north-east. Talk to Father Badden near the ruin entrance.",
+      "s": [
+       "Uzer",
+       "Reen sent me.",
+       "So what do you want me to do?",
+       "How can I do that?"
+      ],
+      "i": [
+       "Silverlight",
+       "pieces of black clothing (3)"
+      ]
+     },
+     {
+      "t": "Pick up some black mushrooms beside the staircase into the ruins."
+     },
+     {
+      "t": "Use the black mushrooms on Silverlight.",
+      "i": [
+       "Silverlight",
+       "Black mushroom"
+      ]
+     },
+     {
+      "t": "Enter the Uzer ruins.",
+      "i": [
+       "Silverlight (dyed)",
+       "pieces of black clothing (3)"
+      ]
+     },
+     {
+      "t": "Pick up the strange implement in the north west corner of the ruin.",
+      "i": [
+       "Strange implement"
+      ]
+     },
+     {
+      "t": "Talk to Evil Dave with the dyed Silverlight and 3 dark clothing items equipped.",
+      "s": [
+       "I want to join your group.",
+       "I'm evil!"
+      ],
+      "i": [
+       "Silverlight (dyed)",
+       "pieces of black clothing (3)"
+      ]
+     },
+     {
+      "t": "Enter the portal next to Evil Dave, if he hasn't taken you through already. Talk to Denath next to the throne.",
+      "s": [
+       "What do I have to do?"
+      ]
+     },
+     {
+      "t": "Talk to Jennifer.",
+      "s": [
+       "Do you have the demonic sigil mould?"
+      ]
+     },
+     {
+      "t": "Talk to Matthew.",
+      "s": [
+       "Do you know what happened to Josef?"
+      ]
+     }
+    ],
+    "i": [
+     "Silverlight",
+     "pieces of black clothing (3)"
+    ]
+   },
+   {
+    "n": "Uncovering the truth",
+    "st": [
+     {
+      "t": "Travel to any furnace with the sigil mould and silver bar and smelt a sigil.",
+      "i": [
+       "Silver bar",
+       "Demonic sigil mould"
+      ]
+     },
+     {
+      "t": "Talk to the Golem in Uzer.",
+      "s": [
+       "Uzer",
+       "Did you see anything happen last night?"
+      ],
+      "i": [
+       "Silverlight (dyed)",
+       "Demonic sigil",
+       "Combat gear + potions"
+      ]
+     },
+     {
+      "t": "Search the kilns in Uzer until you find a book. There are four kilns; the last two are on the east side of the ruin and by the magic carpet."
+     },
+     {
+      "t": "Read the book.",
+      "i": [
+       "Demonic tome"
+      ]
+     },
+     {
+      "t": "Bring the book to Matthew in the Demon Throne Room. Afterwards Denath should start the ritual. If he doesn't, leave and re-enter the throne room and talk to Matthew again.",
+      "i": [
+       "Demonic tome"
+      ]
+     },
+     {
+      "t": "Go to the ritual circle in the throne room and stand in the empty gap in the ring of cultists, next to Denath.",
+      "i": [
+       "Demonic sigil"
+      ]
+     },
+     {
+      "t": "Tap the demonic sigil and say the incantation in the order Denath told you, which is the reverse of the order in the Demonic tome. Write it down, as you need it again later. If you forgot it, talk to Denath and choose 'I forgot the incantation.' If nothing happens, unequip Silverlight.",
+      "i": [
+       "Demonic sigil"
+      ],
+      "s": [
+       "I forgot the incantation."
+      ]
+     }
+    ],
+    "i": [
+     "Silver bar",
+     "Silverlight (dyed)",
+     "Combat gear + potions"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Defeating Agrith-Naar",
+    "st": [
+     {
+      "t": "Pick up the demonic sigil from the circle.",
+      "i": [
+       "Demonic sigil"
+      ]
+     },
+     {
+      "t": "Leave the throne room."
+     },
+     {
+      "t": "Pick up the demonic sigil Tanya dropped.",
+      "i": [
+       "Demonic sigil"
+      ]
+     },
+     {
+      "t": "Talk to Evil Dave.",
+      "s": [
+       "You've got to get back to the throne room!"
+      ]
+     },
+     {
+      "t": "Talk to Father Badden in Uzer.",
+      "i": [
+       "Demonic sigil (2)"
+      ]
+     },
+     {
+      "t": "Talk to Father Reen in Uzer.",
+      "s": [
+       "Oh, don't be so simple-minded!"
+      ],
+      "i": [
+       "Demonic sigil (2)"
+      ]
+     },
+     {
+      "t": "Talk to the Golem in Uzer. He will refuse to help.",
+      "s": [
+       "I could just reprogram you again."
+      ],
+      "i": [
+       "Strange implement"
+      ]
+     },
+     {
+      "t": "Use the strange implement on the Golem in Uzer.",
+      "i": [
+       "Strange implement"
+      ]
+     },
+     {
+      "t": "Talk to the Golem again.",
+      "i": [
+       "Demonic sigil (2)"
+      ]
+     },
+     {
+      "t": "Talk to Matthew in the throne room.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Silverlight (dyed)",
+       "Demonic sigil",
+       "Combat gear + potions"
+      ]
+     },
+     {
+      "t": "Stand in the empty gap in the ritual circle again. This time it's two squares east and one square north of where you stood for the first ritual.",
+      "i": [
+       "Demonic sigil"
+      ]
+     },
+     {
+      "t": "Tap the demonic sigil and say the incantation backwards from last time, which is the order written in the Demonic tome.",
+      "i": [
+       "Demonic sigil"
+      ]
+     },
+     {
+      "t": "Kill Agrith-Naar. You can hurt him with any weapon, BUT YOU MUST DEAL THE FINAL BLOW WITH SILVERLIGHT.",
+      "i": [
+       "Silverlight (dyed)",
+       "Combat gear + potions"
+      ]
+     },
+     {
+      "t": "Unequip Darklight to complete the quest!"
+     }
+    ],
+    "i": [
+     "Silverlight (dyed)",
+     "Combat gear + potions"
+    ],
+    "c": 1,
+    "e": [
+     "Agrith-Naar (level 100)"
+    ]
+   }
+  ]
+ }
+}

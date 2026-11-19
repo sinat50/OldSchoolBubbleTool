@@ -1,0 +1,100 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Monk's Friend",
+  "items": [
+   "Jug of Water",
+   "Logs"
+  ],
+  "rec": [
+   "Ardougne cloak 1 or higher for teleports to the monastery"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "2,000 Woodcutting XP",
+   "8 x Law Runes"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Brother Omad in the monastery south of East Ardougne.",
+      "s": [
+       "Why can't you sleep, what's wrong?",
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Jug of Water",
+     "Logs"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Finding the blanket",
+    "st": [
+     {
+      "t": "Go down the ladder in a circle of stones west of the monastery."
+     },
+     {
+      "t": "Pick up the Child's blanket in the room to the south.",
+      "i": [
+       "Child's blanket"
+      ]
+     },
+     {
+      "t": "Go back up the ladder.",
+      "i": [
+       "Child's blanket"
+      ]
+     },
+     {
+      "t": "Bring the blanket back to Brother Omad in the monastery.",
+      "i": [
+       "Child's blanket"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Help Cedric",
+    "st": [
+     {
+      "t": "Talk to Brother Omad again.",
+      "s": [
+       "Is there anything else I can help with?",
+       "Who's Brother Cedric?",
+       "Where should I look?"
+      ]
+     },
+     {
+      "t": "Talk to Brother Cedric north of the monastery, directly south of Ardougne Zoo, near the well."
+     },
+     {
+      "t": "Talk to Brother Cedric again.",
+      "s": [
+       "Yes, I'd be happy to!"
+      ],
+      "i": [
+       "Jug of Water"
+      ]
+     },
+     {
+      "t": "Talk to Brother Cedric once again with logs.",
+      "i": [
+       "Logs"
+      ]
+     },
+     {
+      "t": "Return to Brother Omad to finish the quest."
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

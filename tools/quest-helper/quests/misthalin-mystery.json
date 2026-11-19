@@ -1,0 +1,234 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder misthalinmystery; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Misthalin Mystery",
+  "items": [],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "600 Crafting XP",
+   "Uncut Ruby",
+   "Uncut Emerald",
+   "Uncut Sapphire"
+  ],
+  "sec": [
+   {
+    "n": "Talk to Abigale",
+    "st": [
+     {
+      "t": "Talk to Abigale in the south east corner of Lumbridge Swamp.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Enter the manor",
+    "st": [
+     {
+      "t": "Board the rowboat south of Abigale."
+     },
+     {
+      "t": "Pick up the bucket near the fountain.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Search the barrel of rainwater north of the fountain to trigger a cutscene.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Use the bucket on the barrel of rainwater.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Search the barrel of rainwater for the manor key."
+     },
+     {
+      "t": "Enter the manor."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Solve the first puzzle",
+    "st": [
+     {
+      "t": "Take the knife from the table.",
+      "i": [
+       "Knife"
+      ]
+     },
+     {
+      "t": "Try to open the door with the pink handle."
+     },
+     {
+      "t": "Pick up the note that appeared."
+     },
+     {
+      "t": "Read the notes.",
+      "i": [
+       "Notes"
+      ]
+     },
+     {
+      "t": "Go to the room south-west of the entrance hall. Use your knife on the painting on the east wall, the one with mountains, a blue river and the sun on the horizon.",
+      "i": [
+       "Knife"
+      ]
+     },
+     {
+      "t": "Search the painting for a ruby key."
+     },
+     {
+      "t": "Go through the door with the ruby handle.",
+      "i": [
+       "Ruby key"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Solve the second puzzle",
+    "st": [
+     {
+      "t": "Search the shelves for a tinderbox."
+     },
+     {
+      "t": "Light the unlit candles in the room.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Light the fuse on the barrel.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Leave the room to trigger the explosion."
+     },
+     {
+      "t": "Climb over the damaged wall."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Solve the third puzzle",
+    "st": [
+     {
+      "t": "After climbing over the wall, walk north along the outside of the manor, then west along its north side to the trees at the far end. Observe Lacey through the trees."
+     },
+     {
+      "t": "Pick up the note that appeared by the fence."
+     },
+     {
+      "t": "Read the notes.",
+      "i": [
+       "Notes"
+      ]
+     },
+     {
+      "t": "Walk back east along the north side of the manor to its north-east corner and go in through the damaged wall there to the piano room. Play the piano for the emerald key. Press D, E, A, D, using the first D, E and A keys from the left. If you press a wrong key, start again."
+     },
+     {
+      "t": "Long-press the piano and choose Search to get the emerald key."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Witness another murder",
+    "st": [
+     {
+      "t": "Climb back over the damaged wall into the manor.",
+      "i": [
+       "Emerald key"
+      ]
+     },
+     {
+      "t": "Go through the door with the green handle.",
+      "i": [
+       "Emerald key"
+      ]
+     },
+     {
+      "t": "Try to open the kitchen doors just past the green door. Mandy and a Bandos godsword are in the room behind them."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Solve the fourth puzzle",
+    "st": [
+     {
+      "t": "Pick up the note that appeared by the door."
+     },
+     {
+      "t": "Read the notes.",
+      "i": [
+       "Notes"
+      ]
+     },
+     {
+      "t": "Go back to the south-east room with the damaged wall and go through its north door. Use a knife on the unlit fireplace in that room.",
+      "i": [
+       "Knife"
+      ]
+     },
+     {
+      "t": "Search the fireplace and solve the puzzle for the sapphire key. Tap the sapphire, diamond, zenyte, emerald, onyx, then ruby."
+     },
+     {
+      "t": "Search the fireplace again for the sapphire key."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Confront the killer",
+    "st": [
+     {
+      "t": "Go back to the room where you slashed the painting, south-west of the entrance hall, and go through the door with the blue handle on its west side."
+     },
+     {
+      "t": "Use the mirror to bounce the killer's knives back at him. A black swirl appears briefly around the wardrobe he'll throw from. Push the mirror into that wardrobe's row or column, then push it at least once more towards the wardrobe so it faces it. Keep going until a cutscene starts. If your phone won't let you move the mirror, log out and back in, or take off your weapon."
+     },
+     {
+      "t": "Watch the killer's reveal cutscene."
+     },
+     {
+      "t": "Pick up the killer's knife.",
+      "i": [
+       "Killer's knife"
+      ]
+     },
+     {
+      "t": "Equip the killer's knife, then select Fight on Abigale (no actual combat will occur).",
+      "i": [
+       "Killer's knife"
+      ]
+     },
+     {
+      "t": "Attempt to go through the sapphire door."
+     },
+     {
+      "t": "Talk to Mandy just outside the manor to complete the quest."
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

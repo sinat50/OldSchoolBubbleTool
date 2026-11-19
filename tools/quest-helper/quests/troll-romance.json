@@ -1,0 +1,182 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Troll Romance",
+  "items": [
+   "Iron bar",
+   "Maple/yew logs",
+   "Rope",
+   "Cake tin",
+   "Swamp tar",
+   "Bucket of wax",
+   "Combat gear, food, and potions",
+   "Climbing boots"
+  ],
+  "rec": [
+   "Games necklace"
+  ],
+  "enemies": [
+   "Arrg (level 113) can be safe spotted. Please check the wiki for instructions to setup a safe spot."
+  ],
+  "rewards": [
+   "2 Quest points",
+   "8,000 Agility XP",
+   "4,000 Strength XP",
+   "Diamond",
+   "2 x Rubies",
+   "4 x Emeralds",
+   "A Sled",
+   "Sledding route from Trollweiss Mountain."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Enter the Troll Stronghold and climb down the north staircase to the middle level. Talk to Ug in the south-west room there. If you end up in the prison, go back up its stairs.",
+      "s": [
+       "Awww, you poor troll. What seems to be the problem?",
+       "Don't worry now, I'll see what I can do."
+      ]
+     },
+     {
+      "t": "Talk to Aga north of Ug, then go back and talk to Ug again.",
+      "s": [
+       "So... how's your... um... love life?"
+      ]
+     }
+    ],
+    "i": [
+     "Climbing boots"
+    ]
+   },
+   {
+    "n": "Make a sled",
+    "st": [
+     {
+      "t": "Talk to Tenzing west of Burthorpe.",
+      "s": [
+       "Do you know where I can find Trollweiss?",
+       "What would I need to make such a sled?"
+      ]
+     },
+     {
+      "t": "Talk to Dunstan in north east Burthorpe.",
+      "s": [
+       "Talk about a quest.",
+       "I need a sled!!"
+      ],
+      "i": [
+       "Iron bar",
+       "Maple/yew logs",
+       "Rope"
+      ]
+     },
+     {
+      "t": "Talk to Dunstan again.",
+      "s": [
+       "Talk about a quest."
+      ],
+      "i": [
+       "Iron bar",
+       "Maple/yew logs",
+       "Rope"
+      ]
+     },
+     {
+      "t": "Use some swamp tar on a bucket of wax.",
+      "i": [
+       "Swamp tar",
+       "Bucket of wax",
+       "Cake tin"
+      ]
+     },
+     {
+      "t": "Use the wax on the sled.",
+      "i": [
+       "Wax",
+       "Sled"
+      ]
+     }
+    ],
+    "i": [
+     "Maple/yew logs",
+     "Iron bar",
+     "Rope",
+     "Swamp tar",
+     "Bucket of wax",
+     "Cake tin"
+    ]
+   },
+   {
+    "n": "Get flowers",
+    "st": [
+     {
+      "t": "From Trollheim, take the narrow path out of the north-west side, going north, west and north again, past the ice gates and the troll child. Enter the cave there, not the icy gate. There are high leveled ice trolls inside, so Protect from Melee and be careful!",
+      "i": [
+       "Sled"
+      ]
+     },
+     {
+      "t": "Leave the cave via the north crevice."
+     },
+     {
+      "t": "Equip the sled.",
+      "i": [
+       "Sled"
+      ]
+     },
+     {
+      "t": "Sled to the south.",
+      "i": [
+       "Sled"
+      ]
+     },
+     {
+      "t": "After the sled ride, take off the sled and walk west to the flower patch. Pick a rare flower before doing anything else, and don't sled down the next slope to the south."
+     }
+    ],
+    "i": [
+     "Sled"
+    ]
+   },
+   {
+    "n": "Fighting for Aga",
+    "st": [
+     {
+      "t": "Return to Ug with the trollweiss flowers.",
+      "i": [
+       "Trollweiss"
+      ]
+     },
+     {
+      "t": "Go to the room north of Ug and challenge Arrg to a fight. He teleports you to an arena and attacks at once, with melee and thrown rocks.",
+      "s": [
+       "I am here to kill you!"
+      ],
+      "i": [
+       "Combat gear, food, and potions"
+      ]
+     },
+     {
+      "t": "To safespot him, turn on Protect from Melee and run to the centre of the raised land in the north-west of the arena. When Arrg is on it too, run to the west gate, and he should get stuck against the mountain wall. Be quick: he disappears after a few minutes."
+     },
+     {
+      "t": "Kill Arrg."
+     },
+     {
+      "t": "Talk to Ug in the south west room to finish the quest."
+     }
+    ],
+    "i": [
+     "Trollweiss",
+     "Combat gear, food, and potions"
+    ],
+    "c": 1,
+    "e": [
+     "Arrg (level 113) can be safe spotted. Please check the wiki for instructions to setup a safe spot."
+    ]
+   }
+  ]
+ }
+}

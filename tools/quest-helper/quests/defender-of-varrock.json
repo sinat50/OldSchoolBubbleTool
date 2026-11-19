@@ -1,0 +1,254 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Defender of Varrock",
+  "items": [
+   "Combat gear and food",
+   "Any pickaxe"
+  ],
+  "rec": [
+   "Teleport to the Lumberyard",
+   "Varrock teleport (2)",
+   "Mind Altar or Lassar teleport tablet or spell"
+  ],
+  "enemies": [
+   "At least six armoured zombies (level 85)",
+   "Multiple Chaos Golems (level 70)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "15,000 Smithing XP",
+   "15,000 Hunter XP",
+   "Access to Zemouregal's Base",
+   "5000 exp lamp and 5 kudos from Historian Minas"
+  ],
+  "sec": [
+   {
+    "n": "Intrigue",
+    "st": [
+     {
+      "t": "Talk to Elias White in the Jolly Boar Inn north-east of Varrock.",
+      "s": [
+       "Yes.",
+       "Ready when you are."
+      ],
+      "i": [
+       "Combat gear and food"
+      ]
+     },
+     {
+      "t": "Inspect the plant north of the pub."
+     },
+     {
+      "t": "Inspect the small rocks to the west."
+     },
+     {
+      "t": "Follow the path to the south and inspect the plant south west of the Jolly Boar Inn."
+     },
+     {
+      "t": "Continue south-east of the Saradomin statue, and inspect the bush there."
+     },
+     {
+      "t": "Search the bush next to the gate to the east, by the gate to Silvarea."
+     },
+     {
+      "t": "Inspect the small bush further to the east."
+     },
+     {
+      "t": "Enter the trapdoor to the north, near to the wilderness ditch.",
+      "s": [
+       "Let's do it."
+      ],
+      "i": [
+       "Combat gear and food"
+      ]
+     },
+     {
+      "t": "Talk to Elias in the dungeon."
+     },
+     {
+      "t": "Look over the balcony to the north."
+     },
+     {
+      "t": "Run west and pick up the 3 bottles on the ground. You need 3 free inventory spaces.",
+      "i": [
+       "Bottle (3)"
+      ]
+     },
+     {
+      "t": "Kill armoured zombies and fill the 3 bottles with the clouds they leave behind."
+     },
+     {
+      "t": "Tap the red mist each zombie leaves behind to fill a bottle. Stop when all 3 bottles are full."
+     },
+     {
+      "t": "Go through the west gate, next to where you picked up the bottles, and finish the cutscene with Arrav. If you skip it, try re-entering the gate."
+     },
+     {
+      "t": "If you have no bottles left, go back and pick up 3 where you found the first ones.",
+      "i": [
+       "Bottle (3)"
+      ]
+     },
+     {
+      "t": "Head north along the corridor. Kill 3 armoured zombies and fill your bottles with the red mist they leave behind.",
+      "i": [
+       "Bottle (3)"
+      ]
+     },
+     {
+      "t": "Open the gate to the east.",
+      "i": [
+       "Bottle of mist (3)"
+      ]
+     },
+     {
+      "t": "Look over the balcony facing over the zombie army."
+     }
+    ],
+    "i": [
+     "Combat gear and food",
+     "Teleport to the Lumberyard",
+     "Varrock teleport"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Crisis",
+    "st": [
+     {
+      "t": "Report back to Elias White in Varrock Palace, just outside Sir Prysin's room in the south-west of the palace."
+     },
+     {
+      "t": "Talk to Captain Rovin in Varrock Castle: go two flights up the north-west stairs."
+     },
+     {
+      "t": "Enter Camdozaal, west of Ice Mountain.",
+      "i": [
+       "Any pickaxe",
+       "Combat gear and food"
+      ]
+     },
+     {
+      "t": "Talk to Ramarno to the north by the sacred forge.",
+      "s": [
+       "I need your help with a shield."
+      ]
+     },
+     {
+      "t": "Mine the barronite rocks just west of the forge until you get a barronite deposit. Barronite shards don't count.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Kill chaos golems in the eastern cavern for a chaos core.",
+      "i": [
+       "Chaos core"
+      ]
+     },
+     {
+      "t": "Use a chaos core on a barronite deposit.",
+      "i": [
+       "Chaos core",
+       "Barronite deposit"
+      ]
+     },
+     {
+      "t": "Use the imbued barronite on the sacred forge.",
+      "i": [
+       "Imbued barronite"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear and food",
+     "Any pickaxe",
+     "Mind Altar or Lassar teleport tablet or spell"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Invasion",
+    "st": [
+     {
+      "t": "Talk to Captain Rovin in Varrock Castle: go two flights up the north-west stairs."
+     },
+     {
+      "t": "Talk to Reldo in the Varrock Castle library."
+     },
+     {
+      "t": "Search the scrolls in the north-east of the library."
+     },
+     {
+      "t": "Read the list of elders.",
+      "i": [
+       "List of elders"
+      ]
+     },
+     {
+      "t": "Read the Varrock Census."
+     },
+     {
+      "t": "Talk to the descendants in the next steps one at a time and finish each chat. King Roald is never the right one, so you can skip him. As soon as someone says their family married into the Fitzharmons, skip the rest and go to Dimintheis.",
+      "i": [
+       "Shield of arrav"
+      ]
+     },
+     {
+      "t": "Talk to Aeonisig Raispher next to King Roald.",
+      "i": [
+       "Shield of arrav"
+      ]
+     },
+     {
+      "t": "Talk to Sir Prysin in the south west corner of Varrock Castle.",
+      "i": [
+       "Shield of arrav"
+      ]
+     },
+     {
+      "t": "Talk to Romeo in Varrock Square.",
+      "i": [
+       "Shield of arrav"
+      ]
+     },
+     {
+      "t": "Talk to Horvik north-east of Varrock Square.",
+      "s": [
+       "I need your help with a shield."
+      ],
+      "i": [
+       "Shield of arrav"
+      ]
+     },
+     {
+      "t": "Talk to Curator Haig in the Varrock Museum.",
+      "s": [
+       "I need your help with the zombie invasion."
+      ],
+      "i": [
+       "Shield of arrav"
+      ]
+     },
+     {
+      "t": "Talk to Dimintheis in the south-east of Varrock.",
+      "s": [
+       "Other",
+       "I need your help with the zombie invasion."
+      ],
+      "i": [
+       "Shield of arrav"
+      ]
+     },
+     {
+      "t": "Talk to Captain Rovin in Varrock Castle, two flights up the north-west stairs, to finish the quest."
+     }
+    ],
+    "i": [
+     "Varrock teleport"
+    ]
+   }
+  ]
+ }
+}

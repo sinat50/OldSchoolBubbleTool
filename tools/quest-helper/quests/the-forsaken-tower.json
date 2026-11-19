@@ -1,0 +1,256 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder theforsakentower; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Forsaken Tower",
+  "items": [],
+  "rec": [
+   "Games necklace for accessing Wintertodt"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "500 Mining XP",
+   "500 Smithing XP",
+   "6000 x Coins",
+   "A page for Kharedst's memoirs."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Lady Vulcana Lovakengj in the south of Lovakengj.",
+      "s": [
+       "Yes.",
+       "I'm looking for a quest.",
+       "I'll get going."
+      ]
+     },
+     {
+      "t": "Talk to Undor at the entrance to Wintertodt. If you've never talked to Ignisia before, you'll need to talk to her first. She is just north east of Undor. You can teleport there using a Games Necklace, or run north through Arceuus.",
+      "s": [
+       "I've been sent to help you."
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "To the Forsaken Tower",
+    "st": [
+     {
+      "t": "Enter the Forsaken Tower, west of Lovakengj."
+     },
+     {
+      "t": "Inspect the display case in the Forsaken Tower."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Furnace puzzle",
+    "st": [
+     {
+      "t": "Search the cupboard on the north wall for a tinderbox."
+     },
+     {
+      "t": "Search the cupboard in the south west corner of the north room for a 5 and an 8 gallon jug.",
+      "s": [
+       "Take both."
+      ]
+     },
+     {
+      "t": "Fill the 5-gallon jug on the Coolant Dispenser.",
+      "s": [
+       "5-gallon jug."
+      ],
+      "i": [
+       "5-gallon jug"
+      ]
+     },
+     {
+      "t": "Use the 5-gallon jug on the 8-gallon jug.",
+      "i": [
+       "5-gallon jug",
+       "8-gallon jug"
+      ]
+     },
+     {
+      "t": "Fill the 5-gallon jug on the Coolant Dispenser.",
+      "s": [
+       "5-gallon jug."
+      ],
+      "i": [
+       "5-gallon jug"
+      ]
+     },
+     {
+      "t": "Use the 5-gallon jug on the 8-gallon jug.",
+      "i": [
+       "5-gallon jug",
+       "8-gallon jug"
+      ]
+     },
+     {
+      "t": "Check the 8-gallon jug and empty it."
+     },
+     {
+      "t": "Use the 5-gallon jug on the 8-gallon jug.",
+      "i": [
+       "5-gallon jug",
+       "8-gallon jug"
+      ]
+     },
+     {
+      "t": "Fill the 5-gallon jug on the Coolant Dispenser.",
+      "s": [
+       "5-gallon jug."
+      ],
+      "i": [
+       "5-gallon jug"
+      ]
+     },
+     {
+      "t": "Use the 5-gallon jug on the 8-gallon jug.",
+      "i": [
+       "5-gallon jug",
+       "8-gallon jug"
+      ]
+     },
+     {
+      "t": "Fill the 5-gallon jug on the Coolant Dispenser.",
+      "s": [
+       "5-gallon jug."
+      ],
+      "i": [
+       "5-gallon jug"
+      ]
+     },
+     {
+      "t": "Use the 5-gallon jug on the 8-gallon jug.",
+      "i": [
+       "5-gallon jug",
+       "8-gallon jug"
+      ]
+     },
+     {
+      "t": "Use the 5-gallon jug, which should contain 4 gallons, on the Furnace Coolant.",
+      "i": [
+       "5-gallon jug"
+      ]
+     },
+     {
+      "t": "Light the furnace.",
+      "i": [
+       "Tinderbox"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Power puzzle",
+    "st": [
+     {
+      "t": "Climb down the ladder into the tower's basement."
+     },
+     {
+      "t": "Search a crate in the north eastern cell for a generator crank"
+     },
+     {
+      "t": "Inspect the steam generator in the south of the room",
+      "s": [
+       "Start the generator."
+      ],
+      "i": [
+       "Generator crank"
+      ]
+     },
+     {
+      "t": "Inspect the power grid.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Solve the power puzzle."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Potion puzzle",
+    "st": [
+     {
+      "t": "Go to the tower's 1st floor."
+     },
+     {
+      "t": "Inspect the refinery.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Search the cupboard on the east wall."
+     },
+     {
+      "t": "Read the old notes.",
+      "i": [
+       "Old notes"
+      ]
+     },
+     {
+      "t": "Open the Potions (refinery) puzzle page, pick how \"Cleansing fluid\" appears in the old notes, and take that numbered fluid from the table. The right number differs per player. A wrong fluid deals 25 or more damage and poisons you."
+     },
+     {
+      "t": "Use the fluid on the refinery.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Activate the refinery.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Altar puzzle",
+    "st": [
+     {
+      "t": "Climb up the ladder to the top floor."
+     },
+     {
+      "t": "Move the four energy discs between the pylons. For each move, take a disc from the first pylon and put it on the second. In order: west to east, west to centre, east to centre, west to east, centre to west, centre to east, west to east, west to centre, east to centre, east to west, centre to west, east to centre, west to east, west to centre, east to centre."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Finishing off",
+    "st": [
+     {
+      "t": "Get the hammer from the display case in the Forsaken Tower."
+     },
+     {
+      "t": "Return Dinh's Hammer to Undor at the entrance to Wintertodt.",
+      "s": [
+       "Let's talk about my quest.",
+       "Yes."
+      ],
+      "i": [
+       "Dinh's hammer"
+      ]
+     },
+     {
+      "t": "Return to Lady Vulcana in south Lovakengj to finish the quest."
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

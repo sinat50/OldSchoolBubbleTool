@@ -1,0 +1,573 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder thefinaldawn; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Final Dawn",
+  "items": [
+   "Any type of bone or raw meat",
+   "Melee Combat gear"
+  ],
+  "rec": [
+   "Ranged/Magic Combat gear",
+   "Food",
+   "Prayer potions (3)",
+   "Pendant of ates",
+   "Quetzal whistle",
+   "Civitas illa fortis teleport"
+  ],
+  "enemies": [
+   "Emissary Enforcer (lvl-196)",
+   "Chimalli (lvl-160) and Lucius (lvl-160)",
+   "Multiple waves of Twilight Emissaries (lvl-70 to lvl-90)",
+   "Ennius Tullus (lvl-306)",
+   "Augur Metzli (lvl-396)"
+  ],
+  "rewards": [
+   "3 Quest points",
+   "55,000 Thieving XP",
+   "25,000 Fletching XP",
+   "25,000 Runecraft XP",
+   "55,000 Experience Lamps (Combat Skills)",
+   "Arkan blade",
+   "The Arkan Blade",
+   "Access to Mokhaiotl",
+   "Access to Crypt of Tonali"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Servius in the Sunrise Palace in Civitas illa Fortis to start the quest.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Take a quetzal to the Salvager Overlook and run south, or use the pendant of ates to teleport to the Twilight Temple. If you don't have emissary robes, search the chest in the south of the Tower of Ascension, south of Salvager Overlook. You need 4 free inventory spaces."
+     },
+     {
+      "t": "Wear the emissary robes, then enter the Twilight Temple, south-east of Salvager Overlook.",
+      "i": [
+       "Emissary robes"
+      ]
+     },
+     {
+      "t": "Go down the stairs in the temple. The passphrase is 'Final' and 'Dawn'.",
+      "s": [
+       "Final.",
+       "Dawn."
+      ],
+      "i": [
+       "Emissary robes",
+       "Combat weapon",
+       "Food"
+      ]
+     },
+     {
+      "t": "Enter the far eastern room. Avoid the patrolling guard."
+     },
+     {
+      "t": "Search the bed in the south room."
+     },
+     {
+      "t": "Open the drawers in the north room with the key from the bed. The canvas piece is in these drawers or the ones in the south room. If you found it here, skip the next step."
+     },
+     {
+      "t": "Only if the north room's drawers had no canvas piece: open the drawers in the south room, where the bed is."
+     },
+     {
+      "t": "Use canvas piece on the painting in the east of the middle room of the eastern rooms.",
+      "i": [
+       "Canvas piece"
+      ]
+     },
+     {
+      "t": "Enter the passage behind the painting.",
+      "s": [
+       "Enter the passage."
+      ]
+     },
+     {
+      "t": "Picklock the chest in the hidden room. Tap the slots above the tumblers to move them, then tap confirm. Leave any tumbler that shows green, move the others up by one and confirm again. It takes at most eight tries. Be ready for a fight afterwards."
+     },
+     {
+      "t": "Defeat the enforcer. You cannot use prayers, or teleport out. Step away each time he goes to attack, and step behind him or sideways if he says 'Traitor!' or 'Thief!'."
+     },
+     {
+      "t": "Pick up the emissary scroll.",
+      "i": [
+       "Emissary scroll"
+      ]
+     },
+     {
+      "t": "Read the emissary scroll.",
+      "i": [
+       "Emissary scroll"
+      ]
+     }
+    ],
+    "i": [
+     "Combat weapon",
+     "Food"
+    ],
+    "tr": [
+     "Civitas illa fortis teleport"
+    ],
+    "c": 1
+   },
+   {
+    "n": "The hideout",
+    "st": [
+     {
+      "t": "Talk to the queen on the top floor of the Sunrise Palace."
+     },
+     {
+      "t": "Talk to Captain Vibia south of Civitas illa Fortis' west bank."
+     },
+     {
+      "t": "Inspect the window on the east side of the house north of Captain Vibia, and then enter it.",
+      "s": [
+       "Force open the window."
+      ],
+      "i": [
+       "Any type of bone or raw meat"
+      ]
+     },
+     {
+      "t": "Use bones or some raw meat on the dog to calm it down."
+     },
+     {
+      "t": "Pet the dog to see the code for the door. Open the door using the code 'GUS'."
+     },
+     {
+      "t": "Pick up the sack of potatoes (3).",
+      "i": [
+       "Potatoes (?)"
+      ]
+     },
+     {
+      "t": "Empty the sack of potatoes.",
+      "i": [
+       "Potatoes (?)"
+      ]
+     },
+     {
+      "t": "Pick up the knife.",
+      "i": [
+       "Knife"
+      ]
+     },
+     {
+      "t": "Go upstairs."
+     },
+     {
+      "t": "Pick up the coin purse.",
+      "i": [
+       "Coin purse"
+      ]
+     },
+     {
+      "t": "Empty the coin purse."
+     },
+     {
+      "t": "Go to the top floor.",
+      "s": [
+       "Climb up."
+      ]
+     },
+     {
+      "t": "Use the knife on the potted fan on the roof that is a lighter, off-green colour and looks diseased, to get a branch.",
+      "i": [
+       "Knife"
+      ]
+     },
+     {
+      "t": "Use the empty coin purse on the plant pot in the north-west of the roof with sand in it.",
+      "i": [
+       "Empty coin purse"
+      ]
+     },
+     {
+      "t": "Use the branch on the coin purse.",
+      "i": [
+       "Branch",
+       "Sandy coin purse"
+      ]
+     },
+     {
+      "t": "Show Captain Vibia the empty sack and makeshift blackjack.",
+      "s": [
+       "I'll get searching."
+      ],
+      "i": [
+       "Empty sack",
+       "Makeshift blackjack"
+      ]
+     },
+     {
+      "t": "Search Janus."
+     },
+     {
+      "t": "Enter the basement in the hideout."
+     },
+     {
+      "t": "Talk to the queen in the hideout basement.",
+      "s": [
+       "Yes, let's go."
+      ]
+     }
+    ],
+    "i": [
+     "Any type of bone or raw meat"
+    ]
+   },
+   {
+    "n": "The dwarves",
+    "st": [
+     {
+      "t": "Enter Cam Torum."
+     },
+     {
+      "t": "Talk to Attala in Cam Torum's marketplace."
+     },
+     {
+      "t": "Talk to Servius in the house east of the bank in Cam Torum."
+     },
+     {
+      "t": "Go upstairs in the house."
+     },
+     {
+      "t": "Take the beer. Hop worlds if it's missing.",
+      "i": [
+       "Beer"
+      ]
+     },
+     {
+      "t": "Go downstairs in the house."
+     },
+     {
+      "t": "Use the beer on Galna.",
+      "i": [
+       "Beer"
+      ]
+     },
+     {
+      "t": "Enter the house's basement."
+     },
+     {
+      "t": "Search the south-west cabinet for wizard's mind bomb.",
+      "s": [
+       "More options...",
+       "Wizard's mind bomb."
+      ]
+     },
+     {
+      "t": "Place wizard's mind bomb on the south-east barrel.",
+      "i": [
+       "Wizard's mind bomb"
+      ]
+     },
+     {
+      "t": "Search the south-west cabinet for a beer.",
+      "s": [
+       "Beer."
+      ]
+     },
+     {
+      "t": "Place beer on the north barrel.",
+      "i": [
+       "Beer"
+      ]
+     },
+     {
+      "t": "Search the south-west cabinet for steamforge brew.",
+      "s": [
+       "More options...",
+       "Steamforge brew."
+      ]
+     },
+     {
+      "t": "Place steamforge brew on the south-west barrel.",
+      "i": [
+       "Steamforge brew"
+      ]
+     },
+     {
+      "t": "Search the south-west cabinet for dwarven stout.",
+      "s": [
+       "Previous options...",
+       "Dwarven stout."
+      ]
+     },
+     {
+      "t": "Place dwarven stout on the south barrel.",
+      "i": [
+       "Dwarven stout"
+      ]
+     },
+     {
+      "t": "Take the beer from on top of the barrel near the staircase.",
+      "i": [
+       "Beer"
+      ]
+     },
+     {
+      "t": "Drink a beer.",
+      "i": [
+       "Beer"
+      ]
+     },
+     {
+      "t": "Place empty glass on the east barrel.",
+      "i": [
+       "Empty glass"
+      ]
+     },
+     {
+      "t": "Inspect the fireplace.",
+      "s": [
+       "Pull it."
+      ]
+     },
+     {
+      "t": "Enter the hole in the south-east corner of the room."
+     },
+     {
+      "t": "Watch the cutscene with Ennius."
+     },
+     {
+      "t": "Go back through the hole into the Teumo's basement."
+     },
+     {
+      "t": "Talk to Servius in the house basement."
+     }
+    ]
+   },
+   {
+    "n": "Ancient keys",
+    "st": [
+     {
+      "t": "Enter the Neypotzli entrance in the far north of the cavern."
+     },
+     {
+      "t": "Talk to Eyatlalli."
+     },
+     {
+      "t": "Enter the north-east entrance to the streambound cavern."
+     },
+     {
+      "t": "In the Streambound Cavern, stand about nine squares north and one square east of the cooking stove at the camp, then tap Locate on the keystone fragment. If nothing happens, move one square and try again until it reacts.",
+      "i": [
+       "Keystone fragment"
+      ]
+     },
+     {
+      "t": "Enter the earthbound cavern via the north cave entrance.",
+      "i": [
+       "Keystone fragment"
+      ]
+     },
+     {
+      "t": "In the Earthbound Cavern, go to where you trap lizards and stand about five squares west of the bush you rustle, then tap Locate on the keystone fragment. If nothing happens, move one square and try again until it reacts.",
+      "i": [
+       "Keystone fragment"
+      ]
+     },
+     {
+      "t": "Enter the ancient prison via the large entrance in the south-west of the area.",
+      "i": [
+       "Keystone fragment"
+      ]
+     },
+     {
+      "t": "In the Ancient Prison, go to the south-east room with a statue and tap Locate on the keystone fragment. If nothing happens, move one square and try again until a glowing symbol appears.",
+      "i": [
+       "Keystone fragment"
+      ]
+     },
+     {
+      "t": "Touch the glowing symbol that appeared. Be ready for a fight.",
+      "i": [
+       "Melee Combat gear"
+      ]
+     },
+     {
+      "t": "Defeat the cultists. Step into golden circle to avoid the mage's special. Avoid the arrow barrage from the ranger. When you defeat one of the cultists, the other will become enraged."
+     },
+     {
+      "t": "Talk to Attala."
+     }
+    ],
+    "i": [
+     "Melee Combat gear",
+     "Food",
+     "Prayer potions (3)"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Crypt of Tonali",
+    "st": [
+     {
+      "t": "Talk to Servius in Tal Teklan in the Tlati Rainforest, in the north-west of Varlamore. The easiest way here is via quetzal.",
+      "i": [
+       "Melee Combat gear",
+       "Food",
+       "Prayer potions (3)",
+       "Ranged/Magic Combat gear"
+      ]
+     },
+     {
+      "t": "Enter the passageway in the tree south-east of Tal Teklan, into the Crypt of Tonali."
+     },
+     {
+      "t": "Defeat the attacking cultists."
+     },
+     {
+      "t": "Defeat Ennius. Protect from Melee. Stand on the circles to avoid damage when they appear. Avoid the lines of yellow star icons on the floor when they appear. When they reach 0 health, they'll gain some back and do more damage."
+     },
+     {
+      "t": "Climb down both flights of stairs."
+     },
+     {
+      "t": "Step onto the red teleporter to the north-east."
+     },
+     {
+      "t": "Step onto the blue teleporter to the west."
+     },
+     {
+      "t": "Step on the red teleporter to the west."
+     },
+     {
+      "t": "Step onto the blue teleporter to the north-west."
+     },
+     {
+      "t": "Step on the red teleporter to the north."
+     },
+     {
+      "t": "Climb the rope up to the north-east."
+     },
+     {
+      "t": "Inspect the strange platform nearby to activate a shortcut lift from the surface."
+     },
+     {
+      "t": "Step on the red teleporter to the north-east of the lift."
+     },
+     {
+      "t": "Inspect the statue in the middle of the room."
+     },
+     {
+      "t": "Search the urns in the area for some essence."
+     },
+     {
+      "t": "Solve the sun puzzle. Inspect the statue in the middle of the room. The first word is the altar Itzla must stand at, the second word is the altar where you imbue the essence, and the third word is not used. The words mean: Oma = 2, Naui = 4, Kuli = 5, Chaki = 6, Koma = 7, Ueai = 8. The altars go clockwise: 1 north-east, 2 east, 3 south-east, 4 south, 5 south-west, 6 west, 7 north-west, 8 north."
+     },
+     {
+      "t": "Talk to Itzla, ask him to go to an altar and pick his direction (look under the more options choice if it isn't listed). Then imbue the essence at your own altar. A wrong try costs 5 damage. Inspect the statue again for the next words. The puzzle is done after three successful imbues, and you can search the urns if you run out of essence.",
+      "s": [
+       "Can you go to an altar for me?"
+      ]
+     },
+     {
+      "t": "Step on the red teleporter to go back up to the main area."
+     },
+     {
+      "t": "Go through the blue teleport to the west."
+     },
+     {
+      "t": "Move-Itzla to the platform north of him by tapping on it to see which torches around the room light up."
+     },
+     {
+      "t": "Move-Itzla to the platform south of him by tapping on it to see which torches around the room light up."
+     },
+     {
+      "t": "Pull some tree roots."
+     },
+     {
+      "t": "Search the old tools for a knife blade. Avoid the lines of fire by having Itzla go on the north platform to remove dark flames, and the south one for light flames."
+     },
+     {
+      "t": "Use the knife blade on the ancient roots to fletch them into kindling.",
+      "i": [
+       "Ancient roots"
+      ]
+     },
+     {
+      "t": "Count the lit braziers with Itzla on the north platform, then count them again with him on the south platform. Add the two numbers together and put that much root kindling into the statue.",
+      "i": [
+       "Root kindling"
+      ]
+     },
+     {
+      "t": "Repeat this two more times. Count the braziers again each round, as the number changes."
+     },
+     {
+      "t": "Step on the blue teleporter to leave the moon puzzle room."
+     }
+    ],
+    "i": [
+     "Melee Combat gear",
+     "Food",
+     "Prayer potions (3)"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Doom",
+    "st": [
+     {
+      "t": "Try to open the door to the north. Be ready for the final boss!",
+      "i": [
+       "Ranged/Magic Combat gear"
+      ]
+     },
+     {
+      "t": "Approach Augur Metzli, ready for a fight."
+     },
+     {
+      "t": "Defeat Metzli. Start with Protect from Missiles. Use the gaps in the wave attacks to dodge the walls as they approach. If circles appear, stand where they appeared. Every time a teleporter appears to jump over a wave, the boss will switch attack styles alternating between mage and ranged. The boss will enter an enrage phase, it is much easier to range but melee is still possible. Attack the boss and then immediately tap on the next teleporter to avoid taking damage."
+     },
+     {
+      "t": "Watch Metzli's cutscene."
+     },
+     {
+      "t": "Head west from where you fought Metzli and go down the stairs to the lower level."
+     },
+     {
+      "t": "Cross the lower level, climb back up on the far west side, then go north, east and north again to the entrance at the north end of the area. Enter it. With 75 Agility you can go back up and cross the pillar shortcut straight to the north instead."
+     },
+     {
+      "t": "Inspect the ralos pillar south-west of the north door."
+     },
+     {
+      "t": "Inspect the ranul pillar south-east of the north door."
+     },
+     {
+      "t": "Inspect the entrance in the north of the area again."
+     },
+     {
+      "t": "Inspect the skeleton west of the north door."
+     },
+     {
+      "t": "Read the stone tablet.",
+      "i": [
+       "Stone tablet"
+      ]
+     },
+     {
+      "t": "You return to the Crypt of Tonali automatically. Talk to Prince Itzla Arkan there, near where you fought Ennius, to complete the quest! If you're outside, enter through the passageway in the tree south-east of Tal Teklan."
+     }
+    ],
+    "i": [
+     "Ranged/Magic Combat gear",
+     "Food",
+     "Prayer potions (3)"
+    ],
+    "c": 1,
+    "e": [
+     "Augur Metzli (lvl-396)"
+    ]
+   }
+  ]
+ }
+}

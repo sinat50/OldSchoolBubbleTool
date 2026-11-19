@@ -1,0 +1,79 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Romeo & Juliet",
+  "items": [
+   "Cadava berries"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "5 Quest points"
+  ],
+  "sec": [
+   {
+    "n": "Helping Romeo",
+    "st": [
+     {
+      "t": "Talk to Romeo in Varrock Square.",
+      "s": [
+       "Yes, I have seen her actually!",
+       "Yes, ok, I'll let her know.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Go up the stairs in the house west of Varrock West Bank and talk to Juliet on the upper floor."
+     },
+     {
+      "t": "Bring the letter to Romeo in Varrock Square.",
+      "i": [
+       "Message"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Hatching a plan",
+    "st": [
+     {
+      "t": "Talk to Father Lawrence in north east Varrock.",
+      "s": [
+       "Ok, thanks."
+      ]
+     },
+     {
+      "t": "Bring cadava berries to the Apothecary in south west Varrock. If you don't have any, pick some from the bushes just west of the south-east Varrock mine.",
+      "s": [
+       "Talk about something else.",
+       "Talk about Romeo & Juliet."
+      ],
+      "i": [
+       "Cadava berries"
+      ]
+     }
+    ],
+    "i": [
+     "Cadava berries"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Enact the plan",
+    "st": [
+     {
+      "t": "Bring the potion to Juliet in the house west of Varrock.",
+      "i": [
+       "Cadava potion"
+      ]
+     },
+     {
+      "t": "Talk to Romeo in Varrock Square to finish the quest."
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

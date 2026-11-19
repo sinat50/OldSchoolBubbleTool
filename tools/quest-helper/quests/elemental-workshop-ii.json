@@ -1,0 +1,311 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder elementalworkshopii; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Elemental Workshop II",
+  "items": [
+   "Any pickaxe",
+   "Hammer",
+   "Coal (8)",
+   "Battered Key"
+  ],
+  "rec": [
+   "Digsite teleport",
+   "Camelot teleport",
+   "Slashed book if you want to smith a mind shield after this quest"
+  ],
+  "enemies": [
+   "2 Earth elementals (level 35)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "7,500 Crafting XP",
+   "7,500 Smithing XP",
+   "A Mind Helmet",
+   "Ability to craft and equip Mind Elemental Equipment"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Go to the south-east corner of the Exam Centre at the Dig Site, where two chests stand. Search the most north-eastern bookcase there, the one touching both the wall and another bookcase. If it says the helpful books have been taken, search the other bookcases.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Read the beaten book.",
+      "i": [
+       "Beaten book"
+      ]
+     },
+     {
+      "t": "Read the scroll.",
+      "i": [
+       "Scroll"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Unlocking the Hatch",
+    "st": [
+     {
+      "t": "Go to the anvil building in Seers' Village, open the odd-looking wall with your battered key and go down the staircase into the elemental workshop. Search the machinery in the north of the workshop, on the west side of the water room.",
+      "i": [
+       "Battered Key",
+       "Beaten book",
+       "Slashed book if you want to smith a mind shield after this quest"
+      ]
+     },
+     {
+      "t": "Use the key from the machinery on the hatch in the middle of the workshop, then go down through it.",
+      "i": [
+       "Battered Key",
+       "Beaten book",
+       "Slashed book if you want to smith a mind shield after this quest"
+      ]
+     }
+    ],
+    "i": [
+     "Battered Key",
+     "Any pickaxe",
+     "Coal (8)",
+     "Hammer",
+     "Beaten book"
+    ],
+    "r": [
+     "Slashed book if you want to smith a mind shield after this quest"
+    ]
+   },
+   {
+    "n": "Repairing the crane",
+    "st": [
+     {
+      "t": "Take crane schematics from the crate to the south.",
+      "s": [
+       "Crane schematic"
+      ]
+     },
+     {
+      "t": "Go back up the stairs to the main workshop. You need 2 elemental bars. If you already have them, skip to the workbench below."
+     },
+     {
+      "t": "Mine one of the elemental rocks in the west room, ready to fight a level 35. Kill the rock elemental that appears and pick up the elemental ore. Repeat until you have 2 ores, or 3 if you want to smith a mind shield after this quest.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Use the elemental ores on the furnace in the south room. Each bar takes 4 coal.",
+      "i": [
+       "Elemental ore (2)",
+       "Coal (8)"
+      ]
+     },
+     {
+      "t": "Use one bar on one of the workbenches in the central room to make a claw. Make only one, as the menu's default is to make all.",
+      "s": [
+       "An elemental claw."
+      ],
+      "i": [
+       "Elemental bar",
+       "Hammer",
+       "Battered Key",
+       "Crane schematic"
+      ]
+     },
+     {
+      "t": "Go back down to the deeper workshop. Pull the south west lever to lower the claw."
+     },
+     {
+      "t": "Use the claw on the crane to the south.",
+      "i": [
+       "Crane claw"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Repairing the workshop",
+    "st": [
+     {
+      "t": "Climb the small stairs onto the catwalk and open the junction box on the west side. Tap the pipe ends, not the pipes, to join three pairs: top middle to top right, bottom left to bottom middle, and top left to bottom right.",
+      "i": [
+       "Battered Key",
+       "Beaten book",
+       "Slashed book if you want to smith a mind shield after this quest"
+      ]
+     },
+     {
+      "t": "Take the lever schematic as well as the crane schematic from the crate to the south, and read both: you can't find all the parts until you have. The parts are in different crates for each player. On the catwalk, search the double stack to the south-east, above the old crane, and the double stack just north-west of the junction box."
+     },
+     {
+      "t": "Down the stairs, search the double stack by the large exit stairs, the single crate to the north-west by the stairs down, the double stack east of the west water valve, the double stacks to the south-east, and the crate beside the schematics crate. Stop once you have all 3 cogs and the pipe. If you lose a part, it's back in the crate you found it in.",
+      "i": [
+       "Small cog",
+       "Medium cog",
+       "Large cog",
+       "Pipe"
+      ]
+     },
+     {
+      "t": "Use the pipe on the broken pipe to the north of the catwalk.",
+      "i": [
+       "Battered Key",
+       "Beaten book",
+       "Slashed book if you want to smith a mind shield after this quest"
+      ]
+     },
+     {
+      "t": "Go to the three pegs on the side of the wind tunnel, on the east side of the track. Put the small cog on the top left peg, the medium cog on the bottom left peg, and the large cog on the right peg.",
+      "i": [
+       "Small cog",
+       "Medium cog",
+       "Large cog",
+       "Battered Key",
+       "Beaten book",
+       "Slashed book if you want to smith a mind shield after this quest"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Priming a bar",
+    "st": [
+     {
+      "t": "Place the elemental bar on the jig cart.",
+      "i": [
+       "Elemental metal. Bring an additional elemental metal if you want to smith a mind shield after this quest"
+      ]
+     },
+     {
+      "t": "The claw should still be down from the repair, resting on the bar. If it is, skip this step. If the claw is up, pull the south west lever once to lower it onto the bar."
+     },
+     {
+      "t": "Pull the south west lever to raise the claw."
+     },
+     {
+      "t": "Pull the south east lever to rotate the claw."
+     },
+     {
+      "t": "Pull the south west lever to lower the claw into the lava."
+     },
+     {
+      "t": "Pull the south west lever to raise the claw out of the lava."
+     },
+     {
+      "t": "Pull the south east lever to rotate the claw back."
+     },
+     {
+      "t": "Pull the south west lever to lower the bar back onto the jig."
+     },
+     {
+      "t": "Pull the south west lever to raise the claw once more."
+     },
+     {
+      "t": "Pull the central lever to move the jig to the press."
+     },
+     {
+      "t": "Pull the west lever, just north-west of the central lever, to activate the press."
+     },
+     {
+      "t": "Pull the central lever to move the jig to the water tank."
+     },
+     {
+      "t": "Pull the north lever to open the water tank."
+     },
+     {
+      "t": "Turn the corkscrew."
+     },
+     {
+      "t": "Turn the corkscrew again."
+     },
+     {
+      "t": "Pull the north lever to close the water tank."
+     },
+     {
+      "t": "Turn the north west water valve."
+     },
+     {
+      "t": "Turn the north west water valve again to close it. The bar should now be blue."
+     },
+     {
+      "t": "Turn the north east water valve to let the water out of the tank."
+     },
+     {
+      "t": "Turn the north east water valve again to close it."
+     },
+     {
+      "t": "Pull the north lever to open the water tank again."
+     },
+     {
+      "t": "Turn the corkscrew."
+     },
+     {
+      "t": "Turn the corkscrew once more."
+     },
+     {
+      "t": "Pull the north lever to close the water tank."
+     },
+     {
+      "t": "Pull the central lever to move the jig to the wind tunnel."
+     },
+     {
+      "t": "Pull the east lever to start the wind tunnel."
+     },
+     {
+      "t": "Pull the east lever to stop the wind tunnel."
+     },
+     {
+      "t": "Pull the central lever to move the jig back to the start."
+     },
+     {
+      "t": "Pick up the primed bar. If you want to smith a mind shield after this quest, go through the Priming a bar section once more with a second elemental bar."
+     }
+    ],
+    "i": [
+     "Elemental metal. Bring an additional elemental metal if you want to smith a mind shield after this quest"
+    ]
+   },
+   {
+    "n": "Making a Mind Helm",
+    "st": [
+     {
+      "t": "Go down the stairs in the north-west of the priming room."
+     },
+     {
+      "t": "Use the primed bar on the extractor gun in the east room.",
+      "i": [
+       "Primed bar. Bring an additional primed bar if you want to smith a mind shield after this quest"
+      ]
+     },
+     {
+      "t": "Sit in the extractor chair."
+     },
+     {
+      "t": "Take the mind bar. If you want to smith a mind shield after this quest, use your second primed bar on the extractor gun, sit in the chair again and take that bar too. Each extra bar drains your Magic by another 20 levels."
+     },
+     {
+      "t": "Go up the stairs twice to return to the main workshop. Use the mind bar on one of the workbenches in the central room, with a hammer and the beaten book in your inventory. If you want to smith a mind shield after this quest, use the other mind bar on a workbench with the slashed book.",
+      "i": [
+       "Battered Key",
+       "Beaten book",
+       "Slashed book if you want to smith a mind shield after this quest",
+       "Mind bar",
+       "Hammer"
+      ]
+     }
+    ],
+    "i": [
+     "Primed bar. Bring an additional primed bar if you want to smith a mind shield after this quest",
+     "Hammer",
+     "Beaten book"
+    ],
+    "r": [
+     "Slashed book if you want to smith a mind shield after this quest"
+    ]
+   }
+  ]
+ }
+}

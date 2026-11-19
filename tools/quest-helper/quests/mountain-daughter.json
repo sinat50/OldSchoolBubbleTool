@@ -1,0 +1,339 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder mountaindaughter; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Mountain Daughter",
+  "items": [
+   "Rope",
+   "Any pickaxe",
+   "Any axe",
+   "Any plank",
+   "Almost any gloves",
+   "A staff or a pole"
+  ],
+  "rec": [
+   "Slayer ring for teleports",
+   "Combat gear for The Kendal fight"
+  ],
+  "enemies": [
+   "The Kendal (level 70)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "1,000 Attack XP",
+   "2,000 Prayer XP",
+   "A Bearhead",
+   "Access to the Mountain Camp"
+  ],
+  "sec": [
+   {
+    "n": "Speak to Hamal",
+    "st": [
+     {
+      "t": "Use your rope on the boulder outside the Mountain Camp east of Rellekka.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Speak to Hamal the Chieftain in the Mountain Camp.",
+      "s": [
+       "Why is everyone so hostile?",
+       "So what are you doing up here?",
+       "I will search for her!"
+      ],
+      "i": [
+       "Rope",
+       "Any pickaxe",
+       "Any axe",
+       "Any plank",
+       "A staff or a pole",
+       "Almost any gloves"
+      ]
+     }
+    ],
+    "i": [
+     "Rope",
+     "Any plank",
+     "Any pickaxe"
+    ]
+   },
+   {
+    "n": "Go to the centre of the lake",
+    "st": [
+     {
+      "t": "Head south of Hamal's tent and take some mud from the roots along the edge of the bubbling mud pond."
+     },
+     {
+      "t": "Pick up the pole north of Hamal's tent.",
+      "i": [
+       "A staff or a pole"
+      ]
+     },
+     {
+      "t": "Follow the path west along the lake to the Tall Tree and use mud on it.",
+      "i": [
+       "Mud",
+       "A staff or a pole",
+       "Any plank"
+      ]
+     },
+     {
+      "t": "Climb the Tall Tree on the lake north of the camp.",
+      "i": [
+       "A staff or a pole",
+       "Any plank"
+      ]
+     },
+     {
+      "t": "Use your pole or a staff on the clump of rocks.",
+      "i": [
+       "A staff or a pole",
+       "Any plank"
+      ]
+     },
+     {
+      "t": "Use a plank on the flat stone.",
+      "i": [
+       "Any plank"
+      ]
+     },
+     {
+      "t": "Listen to the Shining Pool.",
+      "s": [
+       "Hello! Who are you?",
+       "So what exactly do you want from me?",
+       "That sounds like something I can do.",
+       "I'll get right on it."
+      ]
+     },
+     {
+      "t": "Use a plank on the flat stone to return to shore.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Any plank"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Find out how to help",
+    "st": [
+     {
+      "t": "Speak to Hamal the Chieftain in the Mountain Camp.",
+      "s": [
+       "About the people of Rellekka..."
+      ],
+      "i": [
+       "Rope",
+       "Any pickaxe",
+       "Any axe",
+       "Any plank",
+       "A staff or a pole",
+       "Almost any gloves"
+      ]
+     },
+     {
+      "t": "Speak to Jokul north of Hamal's tent."
+     }
+    ]
+   },
+   {
+    "n": "Making peace with Rellekka",
+    "st": [
+     {
+      "t": "Find Svidi, who runs around the woods between Rellekka and the Keldagrim entrance, north-west of the rockslide you climbed to reach the camp. He moves fast, so run to catch him. Choose \"Can't I persuade you to go in there somehow?\": the other option makes him walk off.",
+      "s": [
+       "Can't I persuade you to go in there somehow?"
+      ],
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Speak to Brundt the Chieftain in Rellekka's longhall and ask about the mountain camp.",
+      "s": [
+       "Ask about the mountain camp.",
+       "Did it contain vast magical powers?"
+      ],
+      "i": [
+       "Rope",
+       "Any pickaxe",
+       "Any axe",
+       "Any plank",
+       "A staff or a pole",
+       "Almost any gloves"
+      ]
+     },
+     {
+      "t": "Return to the Mountain Camp over the rockslide just south-west of the boulder you tied your rope to. Enter the large tent south-west of Hamal and use a pickaxe on the Ancient Rock inside. If you're wielding the pickaxe, long-press the rock to mine it.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Return to Brundt the Chieftain in the Rellekka's longhall.",
+      "s": [
+       "Ask about the mountain camp."
+      ],
+      "i": [
+       "Half a rock"
+      ]
+     },
+     {
+      "t": "Return to Svidi who roams in the forest east of Rellekka.",
+      "i": [
+       "Safety Guarantee"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Find a new food source",
+    "st": [
+     {
+      "t": "Go to the top of White Wolf Mountain and pick the Thorny Bushes whilst wearing gloves.",
+      "i": [
+       "Almost any gloves"
+      ]
+     },
+     {
+      "t": "Eat the White Pearl.",
+      "i": [
+       "White pearl"
+      ]
+     }
+    ],
+    "i": [
+     "Any axe",
+     "Almost any gloves"
+    ]
+   },
+   {
+    "n": "Prepare for a fight",
+    "st": [
+     {
+      "t": "Prepare to fight The Kendal (level 70)"
+     }
+    ],
+    "i": [
+     "A staff or a pole",
+     "Any plank",
+     "Any axe",
+     "White pearl seed"
+    ],
+    "c": 1,
+    "e": [
+     "The Kendal (level 70)"
+    ]
+   },
+   {
+    "n": "Tell Hamal about your success",
+    "st": [
+     {
+      "t": "Return to Hamal the Chieftain in the Mountain Camp and tell him about both the food and the people of Rellekka.",
+      "s": [
+       "About your food supplies...",
+       "About the people of Rellekka..."
+      ],
+      "i": [
+       "White pearl seed"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Tell Asleif about your success",
+    "st": [
+     {
+      "t": "Return to the centre of the pool north of the Mountain Camp and listen to it.",
+      "i": [
+       "A staff or a pole",
+       "Any plank"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Find Asleif's corpse",
+    "st": [
+     {
+      "t": "Attempt to jump across the flat stone WITHOUT a plank to return to the north shore. Then cut through the trees north east of the lake and enter the cave there. Bring combat gear.",
+      "i": [
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Speak to the Kendal, then kill him.",
+      "s": [
+       "It's just me, no one special.",
+       "You mean a sacrifice?",
+       "You look like a man in a bearsuit!",
+       "Can I see that corpse?",
+       "I humbly request to be given the remains.",
+       "I will kill you myself!"
+      ]
+     },
+     {
+      "t": "Pick up the Corpse of Woman."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "The Kendal (level 70)"
+    ]
+   },
+   {
+    "n": "Bring Asleif's corpse to Hamal",
+    "st": [
+     {
+      "t": "Bring the corpse to Hamal.",
+      "s": [
+       "But he's not a god!",
+       "I will."
+      ],
+      "i": [
+       "Corpse of woman"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Bury Asleif",
+    "st": [
+     {
+      "t": "Pick up 5 muddy rocks from the mountain goat pen in the camp, just north of Hamal's tent near Jokul. They grow back quickly, so you can keep picking up the same rock.",
+      "i": [
+       "Muddy rock (5)"
+      ]
+     },
+     {
+      "t": "Speak to Ragnar, just south-west of the Tall Tree by the lake.",
+      "s": [
+       "Thank you. I will make sure she's given a proper burial now."
+      ],
+      "i": [
+       "Corpse of woman",
+       "Muddy rock (5)"
+      ]
+     },
+     {
+      "t": "Return to the centre of the lake and bury the corpse.",
+      "i": [
+       "Corpse of woman",
+       "A staff or a pole",
+       "Any plank"
+      ]
+     },
+     {
+      "t": "Use the Muddy rocks on the Burial Mound at the centre of the Mountain Camp's lake.",
+      "i": [
+       "Muddy rock (5)"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

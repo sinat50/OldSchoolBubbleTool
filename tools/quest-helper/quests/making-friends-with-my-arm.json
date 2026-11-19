@@ -1,0 +1,340 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Making Friends with My Arm",
+  "items": [
+   "Hammer",
+   "Saw",
+   "Bolt of cloth",
+   "Mahogany plank (5)",
+   "Cadava berries",
+   "Combat gear, preferably ranged or melee"
+  ],
+  "rec": [
+   "Draynor teleport (2)",
+   "Trollheim teleports",
+   "Varrock teleport"
+  ],
+  "enemies": [
+   "Don't Know What (level 163)",
+   "Mother (level 198)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "10,000 Construction XP",
+   "40,000 Firemaking XP",
+   "50,000 Mining XP",
+   "50,000 Agility XP",
+   "Access to the Salt Mines.",
+   "Ability to build fire pits",
+   "Ability to tune a house portal to Troll Stronghold.",
+   "Access to a disease free herb patch in Weiss."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Enter the Troll Stronghold and go down the staircase to the south. Talk to Burntmeat in the kitchen there.",
+      "s": [
+       "Yes, I'll take your quest.",
+       "Why in the heck would you choose My Arm?"
+      ]
+     },
+     {
+      "t": "Go back up the stairs, then climb the ladder in the west of the Troll Stronghold to the roof. Talk to My Arm by the herb patch.",
+      "s": [
+       "I'm doing another quest for Burntmeat.",
+       "Wolfbone said we should go by sea."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Getting to Weiss",
+    "st": [
+     {
+      "t": "Talk to Larry north east of Rellekka.",
+      "s": [
+       "Can I transport My Arm in your boat?",
+       "Never mind, I just need to borrow your boat."
+      ]
+     },
+     {
+      "t": "Talk to Larry again.",
+      "s": [
+       "Can I transport My Arm in your boat?",
+       "Never mind, I just need to borrow your boat."
+      ]
+     },
+     {
+      "t": "Board Larry's boat to Weiss.",
+      "s": [
+       "Travel to Weiss."
+      ]
+     },
+     {
+      "t": "Attempt to mine the cave entrance."
+     },
+     {
+      "t": "Search the wrecked boat for a pickaxe and rope.",
+      "s": [
+       "Take rope",
+       "Take pickaxe"
+      ]
+     },
+     {
+      "t": "Climb the rockslide."
+     },
+     {
+      "t": "Use a rope on the nearby tree.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Climb the rope."
+     },
+     {
+      "t": "Cross the ledge."
+     },
+     {
+      "t": "Continue climbing."
+     },
+     {
+      "t": "Pass the fallen tree."
+     },
+     {
+      "t": "Talk to Boulder.",
+      "s": [
+       "You only need to let My Arm in, not me."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Infiltrating Weiss",
+    "st": [
+     {
+      "t": "Sneak into Weiss via the fence to the east.",
+      "s": [
+       "I'll be back!"
+      ]
+     },
+     {
+      "t": "Go south along the city's edge, then west, stopping in safe spots between runs. Keep going until you reach a small alleyway to the north, east of the ice wolf pen. Stop there and let your run energy recover."
+     },
+     {
+      "t": "Run to the bucket spawn a little to the north-west and stand there for a moment.",
+      "tip": "To get into the hole: tap the Little Boulder just north of you, and just before you reach it, tap the hole further north. It may take a few tries."
+     },
+     {
+      "t": "Wait a few seconds, and run into the hole."
+     },
+     {
+      "t": "Enter the narrow gap to the south quickly."
+     },
+     {
+      "t": "Take off your weapon and shield so your hands are empty. Enter the water and swim east across it, avoiding the rocks the trolls throw. Wait a few seconds before making for the east shore."
+     },
+     {
+      "t": "You now need a path of 5 stones in the water, each touching the last, ending at the north shore. Swim to the square 5 squares south of that shore. When the troll starts its throwing animation, move one square north, towards the cave exit, so the rock lands where you stood. Repeat until the stones reach the shore. If you fail, you're sent back to just before these trolls."
+     },
+     {
+      "t": "Mine the cave exit.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Talk to Mother in Weiss.",
+      "s": [
+       "Let's move on with the chat.",
+       "Tell him goutweed is delicious.",
+       "Tell him how tough Stronghold trolls are.",
+       "Tell him to show respect to his daughter.",
+       "Tell him you love his daughter!"
+      ]
+     },
+     {
+      "t": "Talk to My Arm in Weiss.",
+      "s": [
+       "Odd Mushroom, why are you here with us?",
+       "Does Mother respect anything except fighting?",
+       "I did some fishing and fetched some stuff."
+      ]
+     }
+    ],
+    "i": [
+     "Any pickaxe"
+    ],
+    "c": 1,
+    "e": [
+     "Mother (level 198)"
+    ]
+   },
+   {
+    "n": "Faking death",
+    "st": [
+     {
+      "t": "Talk to the Wise Old Man in Draynor Village.",
+      "s": [
+       "Ask about My Arm.",
+       "Can you pretend you're dead?",
+       "You owe me a favour after the Fishing Colony quest."
+      ]
+     },
+     {
+      "t": "Build the coffin in the Wise Old Man's house.",
+      "i": [
+       "Saw",
+       "Hammer",
+       "Mahogany plank (5)",
+       "Bolt of cloth"
+      ]
+     },
+     {
+      "t": "Talk to the Apothecary in Varrock.",
+      "s": [
+       "Talk about Making Friends with My Arm."
+      ],
+      "i": [
+       "Cadava berries"
+      ]
+     },
+     {
+      "t": "Bring the cadava potion to the Wise Old Man in Draynor Village.",
+      "s": [
+       "Ask about My Arm."
+      ],
+      "i": [
+       "Reduced cadava potion"
+      ]
+     },
+     {
+      "t": "Pick up the coffin in the Wise Old Man's house."
+     }
+    ],
+    "i": [
+     "Saw",
+     "Hammer",
+     "Mahogany plank (5)",
+     "Bolt of cloth",
+     "Cadava berries"
+    ]
+   },
+   {
+    "n": "Rising up",
+    "st": [
+     {
+      "t": "Go to Larry's boat north-east of Rellekka and board it to travel to Weiss.",
+      "s": [
+       "Travel to Weiss."
+      ],
+      "i": [
+       "Old man's coffin",
+       "Combat gear, preferably ranged or melee"
+      ]
+     },
+     {
+      "t": "Go through the cave entrance by the landing. You cleared it earlier, and it leads straight into the city.",
+      "i": [
+       "Old man's coffin",
+       "Combat gear, preferably ranged or melee"
+      ]
+     },
+     {
+      "t": "Talk to My Arm by the north entrance.",
+      "i": [
+       "Old man's coffin",
+       "Combat gear, preferably ranged or melee"
+      ]
+     },
+     {
+      "t": "After the cutscene you're in the prison: talk to Odd Mushroom there. If you've left the prison, first talk to Boulder in Weiss, ready to fight, to get back in.",
+      "s": [
+       "I'll never leave you."
+      ]
+     },
+     {
+      "t": "Talk to Snowflake. Be prepared to fight Don't Know What. Protect from Ranged, and move around to avoid his attacks.",
+      "s": [
+       "So I can't teleport, and I may lose stuff? Okay."
+      ],
+      "i": [
+       "Combat gear, preferably ranged or melee"
+      ]
+     },
+     {
+      "t": "Kill Don't Know What. Move around and Protect from Ranged to avoid his attacks."
+     },
+     {
+      "t": "You now need to put out the fire. Pick up a bucket from the bucket pile."
+     },
+     {
+      "t": "Fill the bucket on the barrel of water.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Use the full bucket on the Fire of Domination.",
+      "i": [
+       "Bucket of water"
+      ]
+     },
+     {
+      "t": "Kill Mother. Protect from Ranged, keep moving and keep your distance."
+     }
+    ],
+    "i": [
+     "Old man's coffin",
+     "Combat gear, preferably ranged or melee"
+    ],
+    "c": 1,
+    "e": [
+     "Don't Know What (level 163)",
+     "Mother (level 198)"
+    ]
+   },
+   {
+    "n": "Finishing off",
+    "st": [
+     {
+      "t": "Talk to My Arm in Weiss."
+     },
+     {
+      "t": "Talk to the Wise Old Man in Weiss."
+     },
+     {
+      "t": "Talk to Snowflake in Weiss.",
+      "s": [
+       "Okay, I'll be back."
+      ]
+     },
+     {
+      "t": "If you don't have an empty bucket, pick up a bucket of water in the north east building of Weiss and empty it. Then use the bucket to pick up some goat poo in the same building.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Bring the goat poo to Snowflake.",
+      "i": [
+       "Goat dung"
+      ]
+     },
+     {
+      "t": "Read the Weiss fire notes.",
+      "i": [
+       "Weiss fire notes"
+      ]
+     },
+     {
+      "t": "Talk to Snowflake to finish."
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,386 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder ghostsahoy; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Ghosts Ahoy",
+  "items": [
+   "Ghostspeak amulet",
+   "Ring of Charos (a)",
+   "Ecto-token, OR 10 Ecto-Tokens and coins to travel by Charter Ship (20)",
+   "400+ coins",
+   "Nettle tea",
+   "Bucket of milk",
+   "Silk",
+   "Knife",
+   "Needle/Thread or Costume needle",
+   "3 colours of dyes. Which you'll need is random. To be prepared, bring 3 red/blue/yellow dyes",
+   "Spade",
+   "Oak longbow",
+   "Bucket of slime",
+   "Ecto-token, OR 25 Ecto-Tokens and coins to travel by Charter Ship (31)"
+  ],
+  "rec": [],
+  "enemies": [
+   "Giant lobster (level 32) (safespottable)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "2,400 Prayer XP",
+   "Ectophial",
+   "Free passage into Port Phasmatys"
+  ],
+  "sec": [
+   {
+    "n": "Start the quest",
+    "st": [
+     {
+      "t": "Enter Port Phasmatys.",
+      "i": [
+       "Ecto-token, or travel by Charter Ship (2)",
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Velorina in east Port Phasmatys.",
+      "s": [
+       "Why, what is the matter?",
+       "Yes, I do. It is a very sad story.",
+       "Yes."
+      ],
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Necrovarus at the Ectofuntus.",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Return to Velorina in east Port Phasmatys and ask where the woman can be found.",
+      "s": [
+       "Do you know where this woman can be found?"
+      ],
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Ecto-token, or travel by Charter Ship (4)"
+    ]
+   },
+   {
+    "n": "Getting help",
+    "st": [
+     {
+      "t": "Talk to the Old Crone east of the Slayer Tower.",
+      "s": [
+       "I'm here about Necrovarus."
+      ],
+      "i": [
+       "Nettle tea",
+       "Bucket of milk"
+      ]
+     },
+     {
+      "t": "Use the nettle tea on the porcelain cup.",
+      "i": [
+       "Nettle tea",
+       "Porcelain cup"
+      ]
+     },
+     {
+      "t": "Use the bucket of milk on the porcelain cup.",
+      "i": [
+       "Bucket of milk",
+       "Cup of tea"
+      ]
+     },
+     {
+      "t": "Talk to the Old Crone east of the Slayer Tower.",
+      "s": [
+       "I'm here about Necrovarus."
+      ],
+      "i": [
+       "Cup of tea"
+      ]
+     },
+     {
+      "t": "Talk to the Old Crone and offer to help.",
+      "s": [
+       "I'm here about Necrovarus.",
+       "You are doing so much for me - is there anything I can do for you?",
+       "I am afraid I have lost the boat you gave to me."
+      ]
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Nettle tea",
+     "Bucket of milk"
+    ]
+   },
+   {
+    "n": "Finding the book",
+    "st": [
+     {
+      "t": "Use the silk on the model ship.",
+      "i": [
+       "Silk",
+       "Needle",
+       "Thread",
+       "Knife",
+       "Model ship"
+      ]
+     },
+     {
+      "t": "Attempt to search the chest in the east of the hull of the ship west of Port Phasmatys. A giant lobster will spawn you need to kill."
+     },
+     {
+      "t": "Kill the Giant Lobster."
+     },
+     {
+      "t": "Search the chest in the east of the hull again."
+     },
+     {
+      "t": "Go up the ladder in the ship west of Port Phasmatys."
+     },
+     {
+      "t": "Go up to the mast of the ship."
+     },
+     {
+      "t": "Wait for the wind speed at the top right to drop to low, then search the mast repeatedly until you know all three colours: top half, bottom half and skull emblem. Note them down. Mixes: red + yellow = orange, red + blue = purple, blue + yellow = green."
+     },
+     {
+      "t": "Dye the top of the model ship's flag to match the real ship.",
+      "s": [
+       "Top half"
+      ],
+      "i": [
+       "Model ship"
+      ]
+     },
+     {
+      "t": "Dye the bottom of the model ship's flag to match the real ship.",
+      "s": [
+       "Bottom half"
+      ],
+      "i": [
+       "Model ship"
+      ]
+     },
+     {
+      "t": "Dye the skull of the model ship's flag to match the real ship.",
+      "s": [
+       "Skull emblem"
+      ],
+      "i": [
+       "Model ship"
+      ]
+     },
+     {
+      "t": "Go to the main deck of the ship."
+     },
+     {
+      "t": "Talk to the Old Man with the model ship to get a key.",
+      "s": [
+       "Is this your toy boat?"
+      ]
+     },
+     {
+      "t": "Use the key on the chest in the Captain's Room, then search it.",
+      "i": [
+       "Chest key"
+      ]
+     },
+     {
+      "t": "Go to the north-west side of the deck and cross the gangplank onto the rocks."
+     },
+     {
+      "t": "Jump across the rocks to the chest and search it for a map piece."
+     },
+     {
+      "t": "Use the map pieces together."
+     },
+     {
+      "t": "Enter Port Phasmatys. The boat trip costs 25 ecto-tokens, or 10 if you have a Ring of Charos (a).",
+      "i": [
+       "Ecto-token, or travel by Charter Ship and 25 ecto-tokens (27, or 12 with a Ring of Charos (a))",
+       "Spade",
+       "Treasure map",
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to the Ghost captain at the rowing boat on the docks and travel to Dragontooth Island. It costs 25 ecto-tokens, or 10 with a Ring of Charos (a) equipped, using the Charm option.",
+      "i": [
+       "Ecto-token (25, or 10 with a Ring of Charos (a))",
+       "Spade",
+       "Treasure map",
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Stand just west of the Statue of Saradomin, then walk 6 steps south, 8 east, 2 north, 4 east and 22 south. Dig with your spade on the only square with no grass for the book.",
+      "i": [
+       "Spade",
+       "Treasure map"
+      ]
+     },
+     {
+      "t": "Return to Port Phasmatys with the Ghost Captain.",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Silk",
+     "Needle",
+     "Thread",
+     "Knife",
+     "3 colours of dyes. Which you'll need is random. To be prepared, bring 3 red/blue/yellow dyes",
+     "Spade",
+     "Ecto-tokens (27, or 12 with a Ring of Charos (a))"
+    ],
+    "c": 1,
+    "e": [
+     "Giant lobster (level 32) (safespottable)"
+    ]
+   },
+   {
+    "n": "Finding the manual",
+    "st": [
+     {
+      "t": "Enter Port Phasmatys and talk to Ak-Haranu on the docks, just east of the pub.",
+      "s": [
+       "Okay, wait here - I'll get you your bow."
+      ]
+     },
+     {
+      "t": "Talk to Robin in the Port Phasmatys pub. Keep playing runedraw until he agrees to sign your bow.",
+      "s": [
+       "Yes, I'll give you a game."
+      ],
+      "i": [
+       "Oak longbow",
+       "400+ coins"
+      ]
+     },
+     {
+      "t": "Bring the signed bow to Ak-Haranu.",
+      "i": [
+       "Signed oak bow"
+      ]
+     }
+    ],
+    "i": [
+     "400+ coins",
+     "Oak longbow"
+    ]
+   },
+   {
+    "n": "Finding the robes",
+    "st": [
+     {
+      "t": "Talk to the Ghost Innkeeper in the Port Phasmatys pub.",
+      "s": [
+       "Do you have any jobs I can do?",
+       "Yes, I'd be delighted."
+      ],
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Use a bucket of slime on the bedsheets.",
+      "i": [
+       "Bucket of slime",
+       "Bedsheet"
+      ]
+     },
+     {
+      "t": "Wear the bedsheet and talk to Gravingas, the ghost protesting with a sign just inside Port Phasmatys' north gate.",
+      "s": [
+       "After hearing Velorina's story I will be happy to help out."
+      ],
+      "i": [
+       "Bedsheet",
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Alternate talking with the ghost villagers until you have 10 signatures.",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Bring the petition to Necrovarus at the Ectofuntus. He drops a bone key: pick it up.",
+      "i": [
+       "Petition form",
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Go upstairs at the Ectofuntus."
+     },
+     {
+      "t": "Use the key on the south room's door.",
+      "i": [
+       "Bone key"
+      ]
+     },
+     {
+      "t": "Search the coffin."
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Bucket of slime"
+    ]
+   },
+   {
+    "n": "Undoing the curse",
+    "st": [
+     {
+      "t": "Bring the items to the Old Crone east of the Slayer Tower.",
+      "s": [
+       "I'm here about Necrovarus."
+      ],
+      "i": [
+       "Mystical robes",
+       "Book of haricanto",
+       "Translation manual",
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Necrovarus at the Ectofuntus.",
+      "s": [
+       "Let any ghost who so wishes pass on into the next world."
+      ],
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Velorina in east Port Phasmatys to finish!",
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Book of haricanto",
+     "Translation manual",
+     "Mystical robes"
+    ]
+   }
+  ]
+ }
+}

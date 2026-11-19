@@ -1,0 +1,118 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Rag and Bone Man I",
+  "items": [
+   "Coins (8)",
+   "Pot (8)"
+  ],
+  "rec": [
+   "Combat gear",
+   "Varrock teleport",
+   "Lumbridge teleport",
+   "Digsite pendant",
+   "Draynor teleport",
+   "Karamja teleport"
+  ],
+  "enemies": [
+   "8 low leveled monsters for their bones"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "500 Cooking XP",
+   "500 Prayer XP"
+  ],
+  "sec": [
+   {
+    "n": "Starting out",
+    "st": [
+     {
+      "t": "Talk to the Odd Old Man in Silvarea, north-east of Varrock, on the path to the Paterdomus temple.",
+      "s": [
+       "Anything I can do to help?",
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Collecting bones",
+    "st": [
+     {
+      "t": "Kill a giant rat south east of Varrock. After this kill and every other kill in this section, pick up the bone it drops."
+     },
+     {
+      "t": "Kill the unicorn south east of Varrock."
+     },
+     {
+      "t": "Kill the bear south east of Varrock."
+     },
+     {
+      "t": "Kill a ram south of Varrock."
+     },
+     {
+      "t": "Kill a goblin east of Lumbridge."
+     },
+     {
+      "t": "Kill a big frog in the Lumbridge Swamp."
+     },
+     {
+      "t": "Kill a monkey on Karamja."
+     },
+     {
+      "t": "Kill a giant bat in the Karamja Volcano Dungeon."
+     },
+     {
+      "t": "Check that you have all 8 bones: one from each kill above. Go back for any you left behind."
+     }
+    ],
+    "r": [
+     "Combat gear"
+    ]
+   },
+   {
+    "n": "Preparing the bones",
+    "st": [
+     {
+      "t": "Talk to Fortunato in Draynor Village, and then buy 8 jugs of vinegar from him.",
+      "i": [
+       "Coins (8)"
+      ]
+     },
+     {
+      "t": "Use the vinegar on pots for 8 pots of vinegar.",
+      "i": [
+       "Jug of vinegar (8)",
+       "Pot (8)"
+      ]
+     },
+     {
+      "t": "Use the bones on the pots of vinegar.",
+      "i": [
+       "Pot of vinegar"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Cleaning the bones",
+    "st": [
+     {
+      "t": "Use one bone in vinegar on the fire by the Odd Old Man. All your bones in vinegar then boil one after another by themselves, leaving you with 8 polished bones. Any fire or range works too.",
+      "i": [
+       "Bone in vinegar (8)"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Handing the bones in",
+    "st": [
+     {
+      "t": "Give the Odd Old Man the bones."
+     }
+    ]
+   }
+  ]
+ }
+}

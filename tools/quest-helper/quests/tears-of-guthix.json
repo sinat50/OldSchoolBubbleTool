@@ -1,0 +1,83 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Tears of Guthix",
+  "items": [
+   "Rope",
+   "Sapphire lantern",
+   "Tinderbox",
+   "Chisel",
+   "Any pickaxe"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "1,000 Crafting XP",
+   "Access to Tears of Guthix"
+  ],
+  "sec": [
+   {
+    "n": "Making a bowl",
+    "st": [
+     {
+      "t": "If you have no sapphire lantern, use a cut sapphire on an unlit bullseye lantern filled with lamp oil.",
+      "i": [
+       "Cut sapphire",
+       "Bullseye lantern"
+      ]
+     },
+     {
+      "t": "Go to the hole in Lumbridge Swamp. If it has no rope on it yet, use a rope on it. Light your sapphire lantern, then enter the hole.",
+      "i": [
+       "Sapphire lantern",
+       "Rope",
+       "Chisel",
+       "Any pickaxe",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Inside the Lumbridge Swamp Caves, head to the far south-east corner and enter the cave there. You'll cross an agility obstacle on the way. Wall beasts in the wall holes can grab you: wear a spiny helmet, or stop one square before each hole and then run past."
+     },
+     {
+      "t": "Climb down the rocks and talk to Juna.",
+      "s": [
+       "Okay..."
+      ]
+     },
+     {
+      "t": "Go back up the rocks and use the lit sapphire lantern on one of the light creatures nearby.",
+      "i": [
+       "Sapphire lantern"
+      ]
+     },
+     {
+      "t": "Mine one of the rocks.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Use a chisel on the magic stone.",
+      "i": [
+       "Chisel",
+       "Magic stone"
+      ]
+     },
+     {
+      "t": "Head east and climb down the rocks to get back to Juna. Talk to her to complete the quest."
+     }
+    ],
+    "i": [
+     "Rope",
+     "Sapphire lantern",
+     "Tinderbox",
+     "Chisel",
+     "Any pickaxe"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

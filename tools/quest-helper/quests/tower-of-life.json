@@ -1,0 +1,169 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder toweroflife; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Tower of Life",
+  "items": [
+   "Beer",
+   "Hammer",
+   "Saw"
+  ],
+  "rec": [
+   "Raw swordfish (for diary task)",
+   "Raw chicken (for diary task)"
+  ],
+  "enemies": [],
+  "rewards": [
+   "2 Quest points",
+   "1,000 Construction XP",
+   "500 Crafting XP",
+   "500 Thieving XP",
+   "Access to Creature Creation."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Effigy outside the Tower of Life, south of East Ardougne. Fairy ring DJP is closest: he's south-west of it.",
+      "s": [
+       "Sure, why not."
+      ]
+     },
+     {
+      "t": "Talk to Bonafido by the boxes just north of the tower's entrance."
+     }
+    ],
+    "i": [
+     "Saw",
+     "Hammer",
+     "Beer"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Get the Builders' outfit",
+    "st": [
+     {
+      "t": "Get the Hard Hat from 'Black-eye' by answering his three questions.",
+      "s": [
+       "Three",
+       "Torn curtains",
+       "10 clay pieces"
+      ]
+     },
+     {
+      "t": "Talk to 'No fingers'."
+     },
+     {
+      "t": "Pickpocket 'No fingers'."
+     },
+     {
+      "t": "Get a Beer for 'The Guns'.",
+      "i": [
+       "Beer"
+      ]
+     },
+     {
+      "t": "Talk to 'The Guns'."
+     },
+     {
+      "t": "Search the bushes to the south for some Builder's Trousers. (Hint: try the south-east bushes first)."
+     },
+     {
+      "t": "Speak to Bonafido wearing the Builder's outfit and answer his questions.",
+      "s": [
+       "Tea",
+       "Whistle for attention",
+       "Your legs are getting a bit cold",
+       "Carry on, it'll fix itself"
+      ],
+      "i": [
+       "Hard Hat",
+       "Builder's Shirt",
+       "Builder's Trousers",
+       "Builder's Boots"
+      ]
+     }
+    ],
+    "i": [
+     "Beer"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Fix the tower",
+    "st": [
+     {
+      "t": "Enter the tower.",
+      "i": [
+       "Hard Hat",
+       "Builder's Shirt",
+       "Builder's Trousers",
+       "Builder's Boots"
+      ]
+     },
+     {
+      "t": "Search the crates on the ground floor for 3 metal sheets and 4 coloured balls (west side) and 4 valve wheels (east side). Go up the stairs on the west side and build the Pressure Machine on the north side of the first floor.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Saw",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Calibrate the machine. The wheels are numbered 1 to 4 from the left, and both levers start up. Wheel 1: turn left twice, until the ball plugs the hole, then right until the pipe is full. Pull the left lever down. Wheel 2: turn left twice, until the ball plugs the hole, then right until the pipe is full. Wheel 3: turn right twice, until water starts dripping, then left once to plug the hole, then right until the pipe is full. Pull the right lever down. Wheel 4: turn right three times, until water starts dripping, then left once to plug the hole, then right until the pipe is full. A message says the machine is working."
+     },
+     {
+      "t": "Go back down to the ground floor and search the crates for 4 pipes and 5 pipe rings (north side) and 6 rivets (east side). Go up the west stairs, then the east stairs on the next floor, and build the Pipe Machine on the south side of the second floor.",
+      "s": [
+       "Yes"
+      ]
+     },
+     {
+      "t": "Calibrate the pipe machine. It works like a jigsaw: select a pipe piece and use the arrow and rotation controls at the bottom to move it into place. A piece locks when it is in the correct spot, and only the largest piece needs rotating."
+     },
+     {
+      "t": "Go back down to the ground floor and search the crates at the south end for 5 metal bars and 4 binding fluid. Go up the west stairs, the east stairs, then climb up from the second floor to the top floor and build the cage.",
+      "s": [
+       "Yes"
+      ]
+     },
+     {
+      "t": "Assemble the cage. Tap horizontal or vertical to make a bar, use + and - to set its size, then tap place bar. A bar that doesn't fit disappears, and you can try again. Each side takes one of these four sets of three bars. A: horizontal 2, horizontal 3, vertical 2. B: horizontal 2, vertical 2, vertical 4. C: horizontal 4, vertical 2, vertical 3. D: horizontal 2, horizontal 2, vertical 2. Start with set A. If a bar from the set disappears, try the next set on that side (after D comes A). When a side has all three bars, turn the cage with the right arrow and use the next set. A message says the cage is complete."
+     }
+    ],
+    "i": [
+     "Saw",
+     "Hammer"
+    ],
+    "c": 0
+   },
+   {
+    "n": "The Alchemists' Secret",
+    "st": [
+     {
+      "t": "Go back and talk to Effigy."
+     },
+     {
+      "t": "Wearing the Builder's outfit, go back into the tower and up to the top floor to follow the alchemists. Watch the cutscene."
+     },
+     {
+      "t": "Go back down and talk to Effigy outside the tower."
+     },
+     {
+      "t": "Go back up to the top floor and talk to the homunculus. Pick the magic answer to each question until the bar at the top of the screen is fully on Magic. The questions repeat if it isn't full yet. The magic answers are: \"With the aid of 5 fire runes.\" \"With the help of the magical dragonstones!\" \"Runecraft, enchant jewellery, perform alchemy.\" \"Turn them into bananas or peaches!\" \"Depends where you are headed, but teleport spells are a safe bet.\" \"Yes, you can make magic potions to boost your skills.\" \"By harnessing the power of the gods!\" \"Yep, you can use the Telekinetic Grab spell.\" \"Through the power of alchemy.\" \"You have special powers - no surprise seeing how you were created.\" \"How about Magic and Runecrafting?\" \"Can't see why not, anything is possible.\" \"Your very existence speaks of mystical forces.\" \"Magic.\""
+     },
+     {
+      "t": "Go back down and talk to Effigy outside the tower again."
+     },
+     {
+      "t": "Enter the tower, go down the trapdoor in the south of the ground floor, and talk to the homunculus in the basement to finish the quest."
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

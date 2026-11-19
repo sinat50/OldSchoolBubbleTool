@@ -1,0 +1,1069 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder whileguthixsleeps; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "While Guthix Sleeps",
+  "items": [
+   "Knife",
+   "Logs",
+   "Coins (520)",
+   "Seed dibber (only if not done barb training)",
+   "Lantern lens",
+   "Unpowered orb",
+   "Bronze med helm",
+   "Iron chainbody",
+   "Lit sapphire lantern",
+   "Astral rune (4)",
+   "Cosmic rune (4)",
+   "Air rune (8)",
+   "Runes for any charge orb spell you have the level to cast",
+   "Melee weapon",
+   "Magic weapon",
+   "Ranged weapon",
+   "Food"
+  ],
+  "rec": [
+   "Taverley teleport (2)",
+   "Khazard teleports, Ardougne cloak or Spirit tree (3) (2)",
+   "Seers' Village teleport",
+   "Falador teleport (4)",
+   "Feldip hills teleport or Hunter/Max cape",
+   "Teleport to Burthorpe"
+  ],
+  "enemies": [
+   "2 Assassins (level 167)",
+   "2 Mercenary axemen (level 131)",
+   "Mercenary mage (level 112)",
+   "3 Elite Black Knights (level 138)",
+   "Surok Magis (level 265)",
+   "Balance Elemental (level 524)",
+   "2 Tormented Demons (level 450)"
+  ],
+  "rewards": [
+   "5 Quest points",
+   "80,000 Thieving XP",
+   "75,000 Farming XP",
+   "75,000 Herblore XP",
+   "50,000 Hunter XP",
+   "Elite black knight armour",
+   "Dark squall robes",
+   "100 x Death runes from Movario's base",
+   "100 x Fire runes from Movario's base",
+   "100 x Coal from Movario's base",
+   "100 x Magic logs from Movario's base",
+   "Duradel's notes, obtainable from Kuradel",
+   "Access to Tormented Demons in the Ancient Guthixian Temple",
+   "Access to Black Knight Catacombs"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Ivy Sophista in Taverley south of the witch's house.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Go up the ladder next to Ivy."
+     },
+     {
+      "t": "Talk to Thaerisk."
+     },
+     {
+      "t": "Kill the assassins. Use Protect from Ranged. If one says 'Now!' they will fire a hard-hitting ranged attack if not prayed against. Straight after, the other will say 'Nothing personal, adventurer', they will teleport to you and dragon dagger spec you. Protect from Melee straight after the strong ranged attack hits to be safe."
+     },
+     {
+      "t": "Talk to Thaerisk again."
+     }
+    ],
+    "i": [
+     "Combat gear"
+    ],
+    "tr": [
+     "Taverley teleport"
+    ],
+    "r": [
+     "Antipoison",
+     "Food (15)"
+    ],
+    "c": 1,
+    "e": [
+     "2 Assassins (level 167)"
+    ]
+   },
+   {
+    "n": "Investigating",
+    "st": [
+     {
+      "t": "Talk to the Khazard Launderer west of the Khazard Fight Arena.",
+      "s": [
+       "Would 500 coins change your mind?"
+      ],
+      "i": [
+       "Coins (500)"
+      ]
+     },
+     {
+      "t": "Talk to the Hunting Expert in her hut in the middle of the Feldip Hills hunting area.",
+      "s": [
+       "Do you think you could help me with broavs?",
+       "A creature to help track down a person."
+      ],
+      "i": [
+       "Knife",
+       "Logs"
+      ]
+     },
+     {
+      "t": "Set up the trap west of the Hunting Expert.",
+      "i": [
+       "Knife",
+       "Logs",
+       "Mort myre fungus"
+      ]
+     },
+     {
+      "t": "Use the mort myre fungus on the trap west of the Hunting Expert.",
+      "i": [
+       "Mort myre fungus"
+      ]
+     },
+     {
+      "t": "Wait for the broav to fall into the trap."
+     },
+     {
+      "t": "Dismantle the trap to retrieve the broav."
+     },
+     {
+      "t": "Bring the unconscious broav to the Feldip Hills hunting expert.",
+      "s": [
+       "Do you think you could train this broav for me?",
+       "A creature to help track down a person."
+      ],
+      "i": [
+       "Unconscious broav"
+      ]
+     },
+     {
+      "t": "Go to the broken table in the middle of the Khazard side of the Khazard-Gnome battlefield.",
+      "i": [
+       "Broav"
+      ]
+     },
+     {
+      "t": "Drop your broav.",
+      "i": [
+       "Broav"
+      ]
+     },
+     {
+      "t": "Use the dirty shirt on your broav.",
+      "i": [
+       "Dirty shirt"
+      ]
+     },
+     {
+      "t": "Search the broken table."
+     }
+    ],
+    "i": [
+     "Coins (500)",
+     "Knife",
+     "Logs"
+    ],
+    "tr": [
+     "Khazard teleports, Ardougne cloak or Spirit tree (3) (2)",
+     "Feldip hills teleport or Hunter/Max cape"
+    ]
+   },
+   {
+    "n": "Movario's Base",
+    "st": [
+     {
+      "t": "Enter Movario's base under the broken table in the Khazard Battlefield."
+     },
+     {
+      "t": "Search the open chest in the far north of the area for some runes."
+     },
+     {
+      "t": "Climb down the stairs to the north-west."
+     },
+     {
+      "t": "Inspect the old battered door."
+     },
+     {
+      "t": "On the door's warning, one letter of the word PROHIBITED is styled like a rune, and it differs per player. Use that rune on the door. A wrong rune hits you for 20+ damage, but the blast's colour shows the right one: purple for mind, green for earth, white for air, red for fire and blue for water."
+     },
+     {
+      "t": "Enter the old battered door. You must weigh more than 0 kg to enter, so take off weight-reducing gear such as graceful if you need to."
+     },
+     {
+      "t": "Solve the electricity puzzle. Search the bookcases until the chat box says you pulled a lever. Wires on the floor then light up from that bookcase: follow them to the next bookcase and search it. Keep following the lit wires until a message says the electric gate has been turned off."
+     },
+     {
+      "t": "Enter the gate to the staircase."
+     },
+     {
+      "t": "Long-press the spiral staircase and choose Search."
+     },
+     {
+      "t": "Climb up the spiral staircase."
+     },
+     {
+      "t": "Search the desk north-west of the staircase."
+     },
+     {
+      "t": "Pick-up the waste-paper basket west of the desk."
+     },
+     {
+      "t": "Search the waste-paper basket.",
+      "i": [
+       "Waste-paper basket"
+      ]
+     },
+     {
+      "t": "Use the ruby key on the most north-west bookcase.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Ruby key"
+      ]
+     },
+     {
+      "t": "Go up the stairs that appeared."
+     },
+     {
+      "t": "Search the bed."
+     },
+     {
+      "t": "Use the ruby key on the bed chest.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Ruby key"
+      ]
+     },
+     {
+      "t": "Long-press the bed chest and choose Search to check it for traps. Don't choose Open, as the trap hits for 18 or more damage."
+     },
+     {
+      "t": "Take the second pair of notes from the bed chest."
+     },
+     {
+      "t": "Read Movario's notes (vol. 1).",
+      "i": [
+       "Movario's notes (volume 1)"
+      ]
+     },
+     {
+      "t": "Read Movario's notes (vol. 2).",
+      "i": [
+       "Movario's notes (volume 2)"
+      ]
+     },
+     {
+      "t": "Go back downstairs."
+     },
+     {
+      "t": "Inspect the painting in the south of the room.",
+      "s": [
+       "Pull the lever."
+      ]
+     }
+    ],
+    "i": [
+     "Air rune",
+     "Water rune",
+     "Earth rune",
+     "Fire rune",
+     "Mind rune"
+    ]
+   },
+   {
+    "n": "Weight puzzle",
+    "st": [
+     {
+      "t": "Cross the broken wall into the south room. The pressure gauge shows how much you weighed on entering, in tickits (1 tickit = 1 kg). Check your weight now on the Equipment Stats screen, then take the difference from the pile of 1 kg, 2 kg and 5 kg weights."
+     },
+     {
+      "t": "Cross back over the broken wall into the north room. If you weighed more than the pressure gauge's number before taking the weights, use all of them on the statue in the north-east of the room. If you weighed less, keep them in your inventory."
+     },
+     {
+      "t": "Leave through the door in the north-east."
+     }
+    ]
+   },
+   {
+    "n": "Gathering",
+    "st": [
+     {
+      "t": "Return to Thaerisk upstairs in Taverley with the notes.",
+      "i": [
+       "Movario's notes (volume 1)",
+       "Movario's notes (volume 2)"
+      ]
+     },
+     {
+      "t": "Go to McGrubor's Wood (fairy ring ALS) and enter the building through the loose railing to the east for a cutscene. Kill the mercenaries there. You can also destroy Movario's notes now."
+     },
+     {
+      "t": "Talk to Idria just north of McGrubor's Wood."
+     },
+     {
+      "t": "Talk to Akrisae in the White Knights' Castle, on the ground floor on the east side."
+     },
+     {
+      "t": "Talk to Akrisae again to teleport to Draynor Village.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Use the orb on the shady stranger near Draynor Village bank.",
+      "i": [
+       "Teleorb"
+      ]
+     },
+     {
+      "t": "Return to Akrisae in the White Knights' Castle.",
+      "i": [
+       "Lantern lens"
+      ]
+     },
+     {
+      "t": "Get a snapdragon seed from Thaerisk for free.",
+      "s": [
+       "Could I have that seed?",
+       "Sounds good to me."
+      ]
+     },
+     {
+      "t": "Talk to Thaerisk to teleport to Port Sarim.",
+      "s": [
+       "Could you teleport me to Port Sarim?",
+       "Yes."
+      ],
+      "i": [
+       "Snapdragon seed",
+       "Lantern lens",
+       "Coins (20)"
+      ]
+     },
+     {
+      "t": "Talk to Betty in Port Sarim's magic shop with a snapdragon seed and lantern lens.",
+      "s": [
+       "Could you help me make some enriched snapdragon?"
+      ],
+      "i": [
+       "Snapdragon seed",
+       "Lantern lens",
+       "Coins (20)"
+      ]
+     },
+     {
+      "t": "Talk to Betty in Port Sarim's magic shop for some pink dye.",
+      "s": [
+       "About that enriched snapdragon...",
+       "Sounds good."
+      ],
+      "i": [
+       "Lantern lens",
+       "Coins (20)"
+      ]
+     },
+     {
+      "t": "Use the pink dye on a lantern lens.",
+      "i": [
+       "Pink dye",
+       "Lantern lens"
+      ]
+     },
+     {
+      "t": "Stand in Betty's doorway and use the rose-tinted lens on the counter.",
+      "i": [
+       "Rose-tinted lens"
+      ]
+     },
+     {
+      "t": "Take the seed from Betty's counter."
+     },
+     {
+      "t": "Return to Thaerisk with the enriched snapdragon seed.",
+      "i": [
+       "Enriched snapdragon seed",
+       "Seed dibber (only if not done barb training)"
+      ]
+     },
+     {
+      "t": "Plant the enriched snapdragon seed in the herb patch on the top floor of the west side of the White Knights' Castle."
+     },
+     {
+      "t": "Return to Idria downstairs near Thaerisk."
+     }
+    ],
+    "i": [
+     "Lantern lens",
+     "Seed dibber (only if not done barb training)",
+     "Coins (20)"
+    ],
+    "tr": [
+     "Taverley teleport",
+     "Seers' Village teleport",
+     "Falador teleport (2)"
+    ]
+   },
+   {
+    "n": "United Front",
+    "st": [
+     {
+      "t": "Activate the lunar spellbook for NPC Contact. Either use the altar on Lunar Isle, your POH altar, or your Magic Cape.",
+      "i": [
+       "Astral rune (4)",
+       "Cosmic rune (4)",
+       "Air rune (8)"
+      ]
+     },
+     {
+      "t": "Use NPC Contact to talk to Cyrisus.",
+      "i": [
+       "Astral rune",
+       "Cosmic rune",
+       "Air rune (2)"
+      ]
+     },
+     {
+      "t": "Use NPC Contact to talk to Turael, or go talk to him in Burthorpe.",
+      "s": [
+       "I need to talk to you about Lucien."
+      ],
+      "i": [
+       "Astral rune",
+       "Cosmic rune",
+       "Air rune (2)"
+      ]
+     },
+     {
+      "t": "Use NPC Contact to talk to Mazchna, or go talk to him in Canifis.",
+      "s": [
+       "I need to talk to you about Lucien."
+      ],
+      "i": [
+       "Astral rune",
+       "Cosmic rune",
+       "Air rune (2)"
+      ]
+     },
+     {
+      "t": "Use NPC Contact to talk to Duradel, or go talk to him in Shilo Village.",
+      "s": [
+       "I need to talk to you about Lucien."
+      ],
+      "i": [
+       "Astral rune",
+       "Cosmic rune",
+       "Air rune (2)"
+      ]
+     },
+     {
+      "t": "Go back onto the normal spellbook, then go harvest the enriched snapdragon in the herb patch on the top floor of the west side of the White Knights' Castle."
+     },
+     {
+      "t": "Return to Thaerisk with the enriched snapdragon.",
+      "i": [
+       "Enriched snapdragon"
+      ]
+     },
+     {
+      "t": "Use the enriched snapdragon on the serum.",
+      "i": [
+       "Enriched snapdragon",
+       "Truth serum"
+      ]
+     },
+     {
+      "t": "Search the drawers in the south-east of the room."
+     },
+     {
+      "t": "Enter the cell just north of Thaerisk."
+     },
+     {
+      "t": "Use the super truth serum on the shady stranger in the cell near Thaerisk.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Super truth serum",
+       "Charcoal",
+       "Papyrus"
+      ]
+     },
+     {
+      "t": "Talk to the shady stranger.",
+      "i": [
+       "Charcoal",
+       "Papyrus"
+      ]
+     },
+     {
+      "t": "Use the sketch on Idria.",
+      "i": [
+       "Suspect sketch"
+      ]
+     },
+     {
+      "t": "Talk to Ghommal outside of the entrance to the Warriors' Guild.",
+      "s": [
+       "I need to talk to you about Lucien."
+      ]
+     },
+     {
+      "t": "Talk to Harrallak Menarous in the entrance to the Warriors' Guild.",
+      "s": [
+       "I need to talk to you about Lucien."
+      ]
+     },
+     {
+      "t": "Talk to Sloane on the first floor of the Warriors' Guild, in the north-east, through the heavy door.",
+      "s": [
+       "I need to talk to you about Lucien."
+      ]
+     }
+    ],
+    "i": [
+     "Astral rune (4)",
+     "Cosmic rune (4)",
+     "Air rune (8)"
+    ],
+    "tr": [
+     "Taverley teleport",
+     "Falador teleport",
+     "Teleport to Burthorpe"
+    ]
+   },
+   {
+    "n": "Infiltration",
+    "st": [
+     {
+      "t": "Get ready first: use the normal spellbook, keep 9 inventory slots free, and wear a bronze med helm and iron chainbody (or your dark squall robes, if you have them). For the fight with Surok, bring runes for many casts of a Bind spell, a Weaken spell, Low Level Alchemy, Telekinetic Grab and all four elemental spells. Then return to Akrisae in the White Knights' Castle, on the ground floor on the east side.",
+      "i": [
+       "Unpowered orb",
+       "Runes for any charge orb spell you have the level to cast",
+       "Bronze med helm",
+       "Iron chainbody"
+      ]
+     },
+     {
+      "t": "Enter the Black Knights' Fortress. Akrisae will give you a one-off teleport there.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Unpowered orb",
+       "Runes for any charge orb spell you have the level to cast"
+      ]
+     },
+     {
+      "t": "Push the wall to enter a secret room."
+     },
+     {
+      "t": "Go down the ladder."
+     },
+     {
+      "t": "Inspect the tile on the floor on the east side of the room."
+     },
+     {
+      "t": "Cast one of the charge orb spells on the tile.",
+      "i": [
+       "Unpowered orb",
+       "Runes for any charge orb spell you have the level to cast"
+      ]
+     },
+     {
+      "t": "Enter the tile trapdoor."
+     },
+     {
+      "t": "Jump over the west bridge."
+     },
+     {
+      "t": "Climb up the northern wall in the north-east area."
+     },
+     {
+      "t": "Continue through the catacomb until you reach some solid doors in the north-west. Enter the west door."
+     },
+     {
+      "t": "Enter the most northern solid door."
+     },
+     {
+      "t": "Kill elite black knights until you have the full helm, platebody and platelegs, with Protect from Melee on. If none is here, one stands with the elite dark warriors just past the west bridge you jumped. Then wear all three: the elite knights, warriors, mages and rangers stop attacking you while you wear them.",
+      "i": [
+       "Elite black full helm",
+       "Elite black platebody",
+       "Elite black platelegs"
+      ]
+     },
+     {
+      "t": "Search the wardrobe to the north.",
+      "i": [
+       "Elite black full helm",
+       "Elite black platebody",
+       "Elite black platelegs"
+      ]
+     },
+     {
+      "t": "Search the key rack just east of the northern wardrobe."
+     },
+     {
+      "t": "Search the wardrobe to the south.",
+      "i": [
+       "Elite black full helm",
+       "Elite black platebody",
+       "Elite black platelegs"
+      ]
+     },
+     {
+      "t": "Search the south table for a strange teleorb."
+     },
+     {
+      "t": "Search the west desk for a law and death rune."
+     },
+     {
+      "t": "Search the north-east table for some lobster and a restore potion. DON'T EAT OR DRINK EITHER."
+     },
+     {
+      "t": "Leave the room back to the catacombs."
+     },
+     {
+      "t": "Open Silif's cell door in the north-east of the area.",
+      "i": [
+       "Cell key"
+      ]
+     },
+     {
+      "t": "Use a lobster or other food on Silif.",
+      "i": [
+       "Lobster, or some other food"
+      ]
+     },
+     {
+      "t": "Use a restore potion on Silif.",
+      "i": [
+       "Restore potion"
+      ]
+     },
+     {
+      "t": "Use the elite black armour on Silif.",
+      "i": [
+       "Full elite black knight"
+      ]
+     },
+     {
+      "t": "Talk to Silif until he follows you.",
+      "s": [
+       "Let's go."
+      ]
+     },
+     {
+      "t": "Enter the most northern solid door again."
+     },
+     {
+      "t": "Stand near the map just east of the door until Silif talks about it."
+     },
+     {
+      "t": "Talk to Silif near the map until he gives you a teleorb."
+     },
+     {
+      "t": "Wear the dark squall robes, then climb up the ladder to the east, ready to fight Surok.",
+      "i": [
+       "Dark squall hood",
+       "Dark squall robe top",
+       "Dark squall robe bottom"
+      ]
+     },
+     {
+      "t": "Defeat Surok. You must use magic to hurt him. You cannot use powered staves. He has three special attacks: 1. A henchman appears. Cast 'Weaken' on a 'Strong' one, or 'Bind' on a 'Agile' one. If they reach you you will take 40+ damage. 2. Surok throws an explosive orb. You must telegrab it, and then alch it, or you will take 45+ damage. 3. Surok casts a surge attack. Cast the opposite elemental spell back. Cast Air for Earth, Water for Fire, Earth for Air, Fire for Water."
+     },
+     {
+      "t": "Use the teleorb on Surok Magis.",
+      "i": [
+       "Teleorb"
+      ]
+     },
+     {
+      "t": "Return to Akrisae in the White Knights' Castle, on the ground floor on the east side.",
+      "i": [
+       "Strange teleorb"
+      ]
+     }
+    ],
+    "i": [
+     "Bronze med helm",
+     "Iron chainbody",
+     "Magic weapon",
+     "Melee weapon",
+     "Unpowered orb",
+     "Runes for any charge orb spell you have the level to cast"
+    ],
+    "tr": [
+     "Falador teleport"
+    ],
+    "r": [
+     "Many casts of a Bind spell",
+     "Many casts of a Weaken spell",
+     "Many casts of Low level alchemy spell",
+     "Many casts of a Telekinetic grab",
+     "Many casts of your strongest wind, water, earth, and fire spells",
+     "Food",
+     "Prayer potions",
+     "Stamina potions"
+    ],
+    "c": 1,
+    "e": [
+     "3 Elite Black Knights (level 138)",
+     "Surok Magis (level 265)"
+    ]
+   },
+   {
+    "n": "Confrontation",
+    "st": [
+     {
+      "t": "If you don't have the dark squall robes, talk to Silif near Akrisae for them. Wear the robes, then enter the cell near Akrisae.",
+      "s": [
+       "I'm ready."
+      ],
+      "i": [
+       "Dark squall hood",
+       "Dark squall robe top",
+       "Dark squall robe bottom"
+      ]
+     },
+     {
+      "t": "Only if you don't already have the strange teleorb, a law rune and a death rune: climb down the ladder to get them. If you have all three, skip this step and the next three.",
+      "i": [
+       "Full dark squall outfit"
+      ]
+     },
+     {
+      "t": "Search the west desk for a law and death rune.",
+      "i": [
+       "Full dark squall outfit"
+      ]
+     },
+     {
+      "t": "Search the south table for a strange teleorb.",
+      "i": [
+       "Full dark squall outfit"
+      ]
+     },
+     {
+      "t": "Climb back up the ladder to the east.",
+      "i": [
+       "Strange teleorb",
+       "Law rune",
+       "Death rune",
+       "Full dark squall outfit"
+      ]
+     },
+     {
+      "t": "Stand in the middle of the room."
+     },
+     {
+      "t": "Activate the strange teleorb. Make sure your law and death rune are not in a rune pouch.",
+      "i": [
+       "Strange teleorb"
+      ]
+     },
+     {
+      "t": "Climb the ice wall in the north-east, next to the chaos temple."
+     },
+     {
+      "t": "Jump across the ledge, and watch the following cutscene."
+     }
+    ]
+   },
+   {
+    "n": "Delving Deeper",
+    "st": [
+     {
+      "t": "Return to Idria in Falador Castle."
+     },
+     {
+      "t": "Teleport to the Tears of Guthix using a games necklace, or travel there through the Lumbridge Swamp.",
+      "s": [
+       "Tears of Guthix."
+      ],
+      "i": [
+       "Full dark squall outfit",
+       "Lit sapphire lantern",
+       "Melee weapon",
+       "Ranged weapon",
+       "Magic weapon"
+      ]
+     },
+     {
+      "t": "Talk to Movario in the north-west of the area.",
+      "i": [
+       "Dark squall hood",
+       "Dark squall robe top",
+       "Dark squall robe bottom"
+      ]
+     },
+     {
+      "t": "Use a lit sapphire lantern on one of the light creatures to descend into the abyss.",
+      "s": [
+       "Travel into the chasm."
+      ],
+      "i": [
+       "Lit sapphire lantern"
+      ]
+     },
+     {
+      "t": "Search the remains to the north-east for a spade."
+     },
+     {
+      "t": "Search the remains in the middle of the area for a hammer and chisel."
+     },
+     {
+      "t": "Use a spade on the rocks in the north-east of the area.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Use a chisel on the brazier in the north-east of the area.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Chisel"
+      ]
+     },
+     {
+      "t": "Use a spade on the rocks in the north-west of the area.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Use a chisel on the north-west brazier.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Chisel",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Use a chisel on the south-west brazier.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Chisel",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Use a chisel on the south-east brazier.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Chisel",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Look at the three recessed blocks next to the cavities to the far south: their symbols differ per player. Use the air orb on the one with the air symbol.",
+      "i": [
+       "Air orb"
+      ]
+     },
+     {
+      "t": "You can drop the spade, chisel and hammer now. Use the fire orb on the recessed block with the fire symbol, next to one of the three cavities to the far south.",
+      "i": [
+       "Fire orb"
+      ]
+     },
+     {
+      "t": "Use the earth orb on the recessed block with the earth symbol, next to one of the three cavities to the far south.",
+      "i": [
+       "Earth orb"
+      ]
+     },
+     {
+      "t": "Climb up the walls to the south."
+     },
+     {
+      "t": "Use the water orb on the recessed block just to the south, in the skeleton's mouth.",
+      "i": [
+       "Water orb"
+      ]
+     },
+     {
+      "t": "Use the fire block on the recessed block just to the south, in the skeleton's mouth.",
+      "i": [
+       "Fire block"
+      ]
+     },
+     {
+      "t": "Climb back down."
+     },
+     {
+      "t": "Take off anything in your weapon and shield slots, then enter the western cavity."
+     },
+     {
+      "t": "Crawl to the end and look at the mechanism's symbol. Which element it needs differs per player: use the air, earth or water block with the matching symbol on the recess.",
+      "i": [
+       "Air block",
+       "Earth block",
+       "Water block"
+      ]
+     },
+     {
+      "t": "Return back to the main area."
+     },
+     {
+      "t": "Enter the middle cavity."
+     },
+     {
+      "t": "Crawl to the end and look at the mechanism's symbol. Which element it needs differs per player: use the air, earth or water block with the matching symbol on the recess.",
+      "i": [
+       "Air block",
+       "Earth block",
+       "Water block"
+      ]
+     },
+     {
+      "t": "Return back to the main area."
+     },
+     {
+      "t": "Enter the eastern cavity."
+     },
+     {
+      "t": "Crawl to the end and look at the mechanism's symbol. Which element it needs differs per player: use the air, earth or water block with the matching symbol on the recess.",
+      "i": [
+       "Air block",
+       "Earth block",
+       "Water block"
+      ]
+     },
+     {
+      "t": "Return back to the main area."
+     },
+     {
+      "t": "Climb up the walls to the south."
+     },
+     {
+      "t": "Inspect the stone cube."
+     },
+     {
+      "t": "Enter the skull's mouth to the south."
+     }
+    ],
+    "i": [
+     "Full dark squall outfit",
+     "Lit sapphire lantern",
+     "Stamina potions (2)"
+    ],
+    "tr": [
+     "Games necklace"
+    ],
+    "r": [
+     "Food",
+     "Prayer potions"
+    ]
+   },
+   {
+    "n": "The Temple",
+    "st": [
+     {
+      "t": "Search the skeleton north of the stone table."
+     },
+     {
+      "t": "Cast bloom near any of the roots for items to fill your druid pouch with.",
+      "i": [
+       "Silver sickle (b)"
+      ]
+     },
+     {
+      "t": "Use the druid pouch on nearby druid spirits for herblore ingredients."
+     },
+     {
+      "t": "Eight statues each need the ingredients of one potion, and which potion differs per player: examine a statue to see which potion it needs. Use the right ingredients on the statues up these paths, in this order: south-west path (down the south branch), north-west path, south-east path (up the north branch), west path, south-east path (down the south branch), north-east path, south-west path (up the north branch), east path. You can get ingredients by using your druid pouch on the druid spirits around the area."
+     },
+     {
+      "t": "Potion ingredients. Agility: toadflax, toad's legs. Energy: harralander, chocolate dust. Restoration: harralander, red spider's eggs. Attack: guam leaf, eye of newt. Strength: tarromin, limpwurt root. Defence: ranarr weed, white berries. Combat: harralander, goat horn dust. Ranged: dwarf weed, wine of Zamorak. Prayer: ranarr weed, snape grass. Hunter: avantoe, kebbit teeth dust. Fishing: avantoe, snape grass. Magic: lantadyme, potato cactus. Balance: harralander, red spider's eggs, garlic, silver dust."
+     },
+     {
+      "t": "Use all the dolmens on the stone table in the middle of the area.",
+      "i": [
+       "Dolmen"
+      ]
+     }
+    ],
+    "i": [
+     "Lit sapphire lantern"
+    ],
+    "tr": [
+     "Games necklace"
+    ]
+   },
+   {
+    "n": "The Stone",
+    "st": [
+     {
+      "t": "Head through the now open entrance to the south and approach the Stone of Jas, ready to fight."
+     },
+     {
+      "t": "Fight the Balance Elemental. You need all 3 combat styles to defeat it. If you pray incorrectly against the first new style of attack, your stats will be majorly drained. As its health gets lower, it starts to attack faster. When it has a fire head, it attacks with ranged. When it has an air head, it attacks with melee. When it has a water head, it attacks with magic."
+     },
+     {
+      "t": "Touch the Stone of Jas."
+     },
+     {
+      "t": "Talk to Movario."
+     },
+     {
+      "t": "Defeat the Tormented Demons. Your stats are 255 each."
+     },
+     {
+      "t": "Talk to Idria to teleport back to Falador Castle.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Return to Akrisae in the White Knights' Castle, on the ground floor on the east side, to finish the quest!"
+     }
+    ],
+    "i": [
+     "Melee weapon",
+     "Ranged weapon",
+     "Magic weapon"
+    ],
+    "tr": [
+     "Games necklace"
+    ],
+    "r": [
+     "Food",
+     "Super restore potions (4)"
+    ],
+    "c": 1,
+    "e": [
+     "Balance Elemental (level 524)",
+     "2 Tormented Demons (level 450)"
+    ]
+   }
+  ]
+ }
+}

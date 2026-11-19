@@ -1,0 +1,280 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder troubledtortugans; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Troubled Tortugans",
+  "items": [
+   "Any axe",
+   "Hammer",
+   "Saw",
+   "Combat gear",
+   "Food",
+   "Prayer restore"
+  ],
+  "rec": [],
+  "enemies": [
+   "Gryphon (lvl 95)",
+   "Shellbane gryphon (lvl 235)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "10,000 Sailing XP",
+   "8,000 Slayer XP",
+   "Access to the Great Conch"
+  ],
+  "sec": [
+   {
+    "n": "Find the stranded Tortugan",
+    "st": [
+     {
+      "t": "Talk to the Injured Tortugan on the small island north-west of The Great Conch to start the quest.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Shake one of the nearby palm trees and pick up the palm leaf. Pick up seaweed from the shore. Use the seaweed on the palm leaf to make makeshift bandages, then talk to the Injured Tortugan and give them to her.",
+      "i": [
+       "Makeshift bandages"
+      ]
+     },
+     {
+      "t": "Talk to the Injured Tortugan again."
+     }
+    ]
+   },
+   {
+    "n": "The Great Conch",
+    "st": [
+     {
+      "t": "Sail to the docks at the southern edge of The Great Conch with Floopa."
+     },
+     {
+      "t": "Talk to Elder Korel at the docks of The Great Conch."
+     },
+     {
+      "t": "Head into The Summer Shore to the north and talk to Elder Raley in the south-east building."
+     }
+    ]
+   },
+   {
+    "n": "Making repairs",
+    "st": [
+     {
+      "t": "Gather materials and repair the objects around the town. Clear your inventory until you have 22 slots free for the material to speed up repairing.",
+      "i": [
+       "Any axe",
+       "Hammer",
+       "Saw"
+      ]
+     },
+     {
+      "t": "Gather sea shells on the beach south of The Summer Shore.",
+      "i": [
+       "Sea Shells (6)"
+      ]
+     },
+     {
+      "t": "Gather Tortugan scutes around the town.",
+      "i": [
+       "Tortugan scutes (6)"
+      ]
+     },
+     {
+      "t": "Chop Jatoba trees for jatoba logs. A big cluster of these trees can be found to the west of the town.",
+      "i": [
+       "Any axe",
+       "Jatoba Logs (10)"
+      ]
+     },
+     {
+      "t": "Repair Elder Krill's broken fish stall, on the north side of the marketplace.",
+      "i": [
+       "Hammer",
+       "Saw",
+       "Sea Shells",
+       "Tortugan scutes",
+       "Jatoba Logs (2)"
+      ]
+     },
+     {
+      "t": "Repair Elder Krill's damaged wall: the south wall of his store, directly north of his stall.",
+      "i": [
+       "Hammer",
+       "Saw",
+       "Tortugan scutes (2)",
+       "Jatoba Logs (2)"
+      ]
+     },
+     {
+      "t": "Repair Elder Strom's damaged wall: the north wall of his store, west of the marketplace.",
+      "i": [
+       "Hammer",
+       "Saw",
+       "Tortugan scutes (2)",
+       "Jatoba Logs (2)"
+      ]
+     },
+     {
+      "t": "Repair Elder Strom's broken crate, just outside the east side of his store, on the west side of the marketplace.",
+      "i": [
+       "Hammer",
+       "Saw",
+       "Sea Shells (2)",
+       "Jatoba Logs"
+      ]
+     },
+     {
+      "t": "Repair Elder Coco's broken crafting stall, on the south side of the marketplace.",
+      "i": [
+       "Hammer",
+       "Saw",
+       "Sea Shells",
+       "Tortugan scutes",
+       "Jatoba Logs (2)"
+      ]
+     },
+     {
+      "t": "Repair Elder Coco's broken coconut crate, directly south of his stall.",
+      "i": [
+       "Hammer",
+       "Saw",
+       "Sea Shells (2)",
+       "Jatoba Logs"
+      ]
+     },
+     {
+      "t": "Talk to Elder Raley after completing the town repairs."
+     }
+    ]
+   },
+   {
+    "n": "Tracking the Gryphon",
+    "st": [
+     {
+      "t": "Inspect the monument in the middle of town to pick up the Gryphon's trail.",
+      "i": [
+       "Any axe",
+       "Combat gear",
+       "Food",
+       "Prayer restore"
+      ]
+     },
+     {
+      "t": "Follow the Gryphon tracks west of town and inspect the red plant.",
+      "i": [
+       "Any axe",
+       "Combat gear",
+       "Food",
+       "Prayer restore"
+      ]
+     },
+     {
+      "t": "Follow the Gryphon tracks north and inspect the rockslide.",
+      "i": [
+       "Any axe",
+       "Combat gear",
+       "Food",
+       "Prayer restore"
+      ]
+     },
+     {
+      "t": "Follow the Gryphon tracks north up the hill and inspect the plant on the east side.",
+      "i": [
+       "Any axe",
+       "Combat gear",
+       "Food",
+       "Prayer restore"
+      ]
+     },
+     {
+      "t": "Follow the Gryphon tracks east and inspect the plant to reveal the final set of tracks.",
+      "i": [
+       "Any axe",
+       "Combat gear",
+       "Food",
+       "Prayer restore"
+      ]
+     },
+     {
+      "t": "Follow the Gryphon tracks east and unblock the cave entrance.",
+      "i": [
+       "Any axe",
+       "Combat gear",
+       "Food",
+       "Prayer restore"
+      ]
+     },
+     {
+      "t": "Enter the Gryphon's cave, prepared for a fight.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Combat gear",
+       "Food",
+       "Prayer restore"
+      ]
+     },
+     {
+      "t": "Defeat the Gryphon. It hits with melee, and does a special attack if your worn weight is less than 40kg.",
+      "i": [
+       "Combat gear",
+       "Food",
+       "Prayer restore"
+      ]
+     },
+     {
+      "t": "Return to Elder Raley with news about the Gryphon's defeat."
+     }
+    ],
+    "i": [
+     "Any axe",
+     "Combat gear",
+     "Food",
+     "Prayer restore"
+    ],
+    "c": 1,
+    "e": [
+     "Gryphon (lvl 95)"
+    ]
+   },
+   {
+    "n": "Attack on the Little Pearl",
+    "st": [
+     {
+      "t": "Talk to Elder Blunn at the north-eastern stall in the marketplace for a Tortugan shield. It goes in your cape slot: wear it for the fight."
+     },
+     {
+      "t": "Sail to Little Pearl island, south-east of The Great Conch, to confront the Shellbane gryphon.",
+      "i": [
+       "Combat gear",
+       "Food",
+       "Prayer restore",
+       "Tortugan shield"
+      ]
+     },
+     {
+      "t": "Defeat the Shellbane gryphon. Have your worn weight be at least 40kg to avoid some damage. Protect from ranged if you're ranging it, and protect from melee when in melee range. Avoid tornadoes. Move when it spits a slow blob at you.",
+      "i": [
+       "Combat gear",
+       "Food",
+       "Prayer restore",
+       "Tortugan shield"
+      ]
+     },
+     {
+      "t": "Talk to Elder Korel after defeating the Shellbane gryphon."
+     },
+     {
+      "t": "Return to Elder Raley at The Great Conch to complete the quest."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Gryphon (lvl 95)",
+     "Shellbane gryphon (lvl 235)"
+    ]
+   }
+  ]
+ }
+}

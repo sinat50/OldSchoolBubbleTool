@@ -1,0 +1,1863 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder thebloodmoonrises; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Blood Moon Rises",
+  "items": [
+   "Blisterwood flail",
+   "Vyre noble outfit"
+  ],
+  "rec": [
+   "Combat gear",
+   "Stamina potion",
+   "Drakan's medallion"
+  ],
+  "enemies": [
+   "Vyrewatch (lvl 103)",
+   "Vyrewatch Sentinel (lvl 151)",
+   "Monk of Zamorak (lvl 34)",
+   "Sanguidae (lvl 106)",
+   "Venator (lvl 195)",
+   "Ancient feral vyre (lvl 89)",
+   "Nylocas (lvl 46, 82, 104)",
+   "The Maiden of Sugadinti (lvl 340)",
+   "Nylocas Vasilias (lvl 323)",
+   "Wyrd (lvl 564)",
+   "Lowerniel Drakan (lvl 927, 1063)"
+  ],
+  "rewards": [
+   "4 Quest points",
+   "6 x 30,000 Experience Tomes (Any skill above 70)",
+   "Sunspear",
+   "Access to Vampyrium",
+   "Access to Veliaf's pub in Burgh de Rott",
+   "Vyres of morytania are now friendly to you without wearing a vyre noble outfit"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Take the boat to the Icyene Graveyard from southern Burgh de Rott, southern Meiyerditch or south-west of Slepe. Then talk to Sarius Guile there to start the quest.",
+      "s": [
+       "Icyene Graveyard.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Take the boat back to Meiyerditch, or use Drakan's medallion to Ver Sinhaza and walk out into Meiyerditch. Go to Old Man Ral's house in south Meiyerditch and go down the trapdoor inside it to the Myreque Hideout. Look for Ivan there."
+     },
+     {
+      "t": "Inspect the makeshift shrine in the Myreque Hideout below Old Man Ral's home in Meiyerditch."
+     },
+     {
+      "t": "Talk to Ivan in the Myreque Hideout below Old Man Ral's home in Meiyerditch while wearing the vyre noble outfit, ready for a fight.",
+      "s": [
+       "Are you ready to go to Darkmeyer?",
+       "I'm ready."
+      ],
+      "i": [
+       "Vyre noble outfit",
+       "Blisterwood flail",
+       "Combat gear",
+       "Good healing food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Kill the vyrewatches and defend Ivan Strom until he can teleport you both out. Kill the approaching acidic bloodvelds with a ranged weapon. Prioritize the Vyrewatch Sentinels.",
+      "i": [
+       "Blisterwood flail",
+       "Combat gear",
+       "Good healing food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Talk to Ivan in the Myreque Hideout below Old Man Ral's home in Meiyerditch after escaping."
+     }
+    ],
+    "i": [
+     "Blisterwood flail",
+     "Combat gear",
+     "Fast ranged weapon",
+     "Good healing food",
+     "Prayer potions",
+     "Vyre noble outfit"
+    ],
+    "c": 1,
+    "e": [
+     "Vyrewatch (lvl 103)",
+     "Vyrewatch Sentinel (lvl 151)"
+    ]
+   },
+   {
+    "n": "Finding Veliaf",
+    "st": [
+     {
+      "t": "Talk to Ivan Strom in the graveyard outside the Slepe church."
+     },
+     {
+      "t": "Talk to Roy the bartender in Slepe and ask him about Veliaf's whereabouts.",
+      "s": [
+       "We're looking for a friend of ours."
+      ]
+     },
+     {
+      "t": "If Ivan Strom isn't following you, talk to him in the graveyard outside Slepe church. Go down the stairs south of the church's graveyard, head north through the dungeon to Kroy's laboratory, then climb up into Crombwick Manor."
+     },
+     {
+      "t": "Help Veliaf kill the vampyres in Crombwick Manor.",
+      "i": [
+       "Blisterwood flail",
+       "Combat gear",
+       "Good healing food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Talk to Veliaf after helping him kill the vampyres in Crombwick Manor."
+     }
+    ],
+    "i": [
+     "Blisterwood flail",
+     "Combat gear",
+     "Good healing food",
+     "Prayer potions"
+    ],
+    "c": 1
+   },
+   {
+    "n": "The Writings",
+    "st": [
+     {
+      "t": "Go down the trapdoor on the east side of Paterdomus and talk with Ivan in the dungeon."
+     },
+     {
+      "t": "Read the Squire's journal Ivan just gave you.",
+      "i": [
+       "Squire's journal"
+      ]
+     },
+     {
+      "t": "Talk with Ivan again after reading the Squire's journal."
+     },
+     {
+      "t": "Head west through the dungeon and climb the ladder. Go in through the doors of Paterdomus temple, then kill the monks of Zamorak on the ground floor.",
+      "i": [
+       "Combat gear",
+       "Good healing food"
+      ]
+     },
+     {
+      "t": "Climb the spiral stairs in the Paterdomus temple and talk to Ivan Strom on the first floor."
+     },
+     {
+      "t": "Leave six inventory spaces free. Search the bookcases on the first floor of the Paterdomus temple for six books, then place them on the plinths in this order from north to south: Pious Proceedings, The Life of Friar, Scruffy notebook, From Misthalin to Morytania, Sarl's journal, Essiandar's notes.",
+      "s": [
+       "Both.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Ivan Strom after solving the puzzle."
+     },
+     {
+      "t": "Read Ivandis' writings.",
+      "i": [
+       "Ivandis' writings"
+      ]
+     },
+     {
+      "t": "Talk to Ivan Strom after reading Ivandis' writings."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Good healing food"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Infiltrating Castle Drakan",
+    "st": [
+     {
+      "t": "Stock up on combat gear and supplies, then go down the trapdoor on the east side of Paterdomus. Talk to Ivan Strom in the dungeon to head to Ivandis' tomb.",
+      "s": [
+       "Lead the way."
+      ],
+      "i": [
+       "Blisterwood flail",
+       "Combat gear",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Investigate the blockage just south west of Ivandis' coffin."
+     },
+     {
+      "t": "Mine the blockage just south west of Ivandis' coffin. If you have no pickaxe, ask Ivan Strom for one.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Head through the cave entrance just south west of Ivandis' coffin, ready for a fight.",
+      "i": [
+       "Blisterwood flail",
+       "Combat gear",
+       "Good healing food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Head into the daeyalt processing room through the tunnel to the north-east.",
+      "i": [
+       "Blisterwood flail",
+       "Combat gear",
+       "Good healing food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Kill vampyres. Focus on the Vyrewatch Sentinels. Avoid the Blood orb. Lure Vyrewatches into the Blood orbs to deal massive damage to them.",
+      "i": [
+       "Blisterwood flail",
+       "Combat gear",
+       "Good healing food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Talk to Ivan after killing the vampyres."
+     },
+     {
+      "t": "Enter the Castle Drakan cellars through the entry to the north."
+     },
+     {
+      "t": "Climb up the stairs to the Castle Drakan lobby."
+     },
+     {
+      "t": "Pray at the shrine to let your Drakan's Medallion teleport you here.",
+      "i": [
+       "Drakan's medallion"
+      ]
+     },
+     {
+      "t": "Enter the ominous red portal in the Castle Drakan lobby.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Blisterwood flail",
+       "Melee combat gear"
+      ]
+     }
+    ],
+    "i": [
+     "Blisterwood flail",
+     "Combat gear",
+     "Good healing food",
+     "Prayer potions",
+     "Any pickaxe",
+     "Drakan's medallion"
+    ],
+    "c": 1,
+    "e": [
+     "Vyrewatch (lvl 103)",
+     "Vyrewatch Sentinel (lvl 151)"
+    ]
+   },
+   {
+    "n": "Escaping Castle Drakan - Half moon key",
+    "st": [
+     {
+      "t": "Go through the east door of the dining room to enter the throne room."
+     },
+     {
+      "t": "Investigate the throne."
+     },
+     {
+      "t": "Pull the second southern-most bust."
+     },
+     {
+      "t": "Pull the southern-most bust."
+     },
+     {
+      "t": "Pull the northern-most bust."
+     },
+     {
+      "t": "Pull the second northern-most bust."
+     },
+     {
+      "t": "Investigate the throne again."
+     },
+     {
+      "t": "If you did not get the half moon key, search the throne again."
+     }
+    ],
+    "i": [
+     "Blisterwood flail",
+     "Combat gear",
+     "Drakan's medallion"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Escaping Castle Drakan - Fixing the clocks",
+    "st": [
+     {
+      "t": "Enter the room south of the throne room."
+     },
+     {
+      "t": "Search the shelves for a small clock hand in the room south of the throne room."
+     },
+     {
+      "t": "Enter the throne room."
+     },
+     {
+      "t": "Enter the dining room."
+     },
+     {
+      "t": "Enter the hallway west of the dining room."
+     },
+     {
+      "t": "Enter the western room, avoiding the floor traps."
+     },
+     {
+      "t": "Search the sparkling crate for a tinderbox."
+     },
+     {
+      "t": "Climb up the stairs."
+     },
+     {
+      "t": "Pick up the explosive barrel.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Enter the room south of the explosive-barrel room."
+     },
+     {
+      "t": "Search the crate for a drakan emblem."
+     },
+     {
+      "t": "Return to the explosive-barrel room."
+     },
+     {
+      "t": "Enter the eastern door."
+     },
+     {
+      "t": "Enter the northern door, avoiding the floor traps."
+     },
+     {
+      "t": "Enter the northern room."
+     },
+     {
+      "t": "Enter the scratched door on the north wall."
+     },
+     {
+      "t": "Place the drakan emblem on the empty receptacle next to the southern door down the hall, avoiding traps on the way.",
+      "i": [
+       "Explosive barrel",
+       "Tinderbox",
+       "Drakan emblem"
+      ]
+     },
+     {
+      "t": "Enter Vanescula's study."
+     },
+     {
+      "t": "Search the crate in the north-west corner of Vanescula's study for a large clock hand.",
+      "i": [
+       "Explosive barrel",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Leave Vanescula's study."
+     },
+     {
+      "t": "Return through the western hallway, avoiding the floor traps."
+     },
+     {
+      "t": "Return to the first-floor lobby."
+     },
+     {
+      "t": "Climb down to the ground-floor lobby."
+     },
+     {
+      "t": "Enter the dining room."
+     },
+     {
+      "t": "Place the small clock hand on the western Grandfather clock.",
+      "i": [
+       "Small clock hand"
+      ]
+     },
+     {
+      "t": "Tap the western clock.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Set the big hand to 11 and the small hand to 9."
+     },
+     {
+      "t": "Close the clock."
+     },
+     {
+      "t": "Place the large clock hand on the eastern Grandfather clock.",
+      "i": [
+       "Large clock hand"
+      ]
+     },
+     {
+      "t": "Tap the eastern clock.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Set the big hand to 12 and the small hand to 4."
+     },
+     {
+      "t": "Close the clock."
+     },
+     {
+      "t": "Get the emblem from the fireplace in the dining room.",
+      "s": [
+       "Search the fireplace."
+      ]
+     }
+    ],
+    "i": [
+     "Blisterwood flail",
+     "Combat gear",
+     "Drakan's medallion",
+     "Tinderbox",
+     "Explosive barrel"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Escaping Castle Drakan - Crescent moon key",
+    "st": [
+     {
+      "t": "Enter the ground-floor lobby."
+     },
+     {
+      "t": "Climb up to the first-floor lobby."
+     },
+     {
+      "t": "Enter the northern room."
+     },
+     {
+      "t": "Enter the scratched door on the north wall."
+     },
+     {
+      "t": "Enter Vanescula's study, avoiding the floor traps."
+     },
+     {
+      "t": "Place the emblem in Vanescula's study.",
+      "i": [
+       "Drakan emblem"
+      ]
+     },
+     {
+      "t": "Enter Vanescula's chamber."
+     },
+     {
+      "t": "Place the explosive barrel on the cracked wall in Vanescula's chamber. If you have lost either item, the tinderbox is in the storage room and the explosive barrel is in the room above it.",
+      "i": [
+       "Explosive barrel",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Enter the hole in the wall."
+     },
+     {
+      "t": "Remove the emblem from the room with the Venator. Protect from ranged or melee depending on if you're in melee range or not. Turn off your protection prayer when it shrieks."
+     },
+     {
+      "t": "Leave through the hole in the wall."
+     },
+     {
+      "t": "Leave Vanescula's chamber."
+     },
+     {
+      "t": "Take emblem from Vanescula's study."
+     },
+     {
+      "t": "Leave Vanescula's study."
+     },
+     {
+      "t": "Take the emblem out of the receptacle beside the door to Vanescula's study, the door you just came out of. You should now have three emblems."
+     },
+     {
+      "t": "Place an emblem in the empty receptacle by the east wall.",
+      "i": [
+       "Drakan emblem"
+      ]
+     },
+     {
+      "t": "Enter the eastern door, avoiding the floor traps."
+     },
+     {
+      "t": "Place an emblem in the empty receptacle at the north door.",
+      "i": [
+       "Drakan emblem"
+      ]
+     },
+     {
+      "t": "Enter Ranis' parlour."
+     },
+     {
+      "t": "Get the ornate skull from the table in the room."
+     },
+     {
+      "t": "Leave Ranis' parlour."
+     },
+     {
+      "t": "Remove emblem from the receptacle.",
+      "i": [
+       "Ornate skull"
+      ]
+     },
+     {
+      "t": "Climb down the stairs."
+     },
+     {
+      "t": "Place an emblem in the receptacle to the west, avoiding the traps on the floor.",
+      "i": [
+       "Ornate skull",
+       "Drakan emblem"
+      ]
+     },
+     {
+      "t": "Enter the western door, avoiding the floor traps."
+     },
+     {
+      "t": "Place an emblem in the empty receptacle by the western door.",
+      "i": [
+       "Drakan emblem"
+      ]
+     },
+     {
+      "t": "Enter the emblem gallery."
+     },
+     {
+      "t": "Talk to Veliaf Hurtz in the emblem gallery."
+     },
+     {
+      "t": "Search the chest in the northern part of the emblem gallery where you talked to Veliaf Hurtz."
+     },
+     {
+      "t": "The solution to this puzzle is Right Down Right Left Left."
+     },
+     {
+      "t": "If solving the chest did not give you the crescent moon key, search the chest again."
+     }
+    ],
+    "i": [
+     "Blisterwood flail",
+     "Combat gear",
+     "Drakan's medallion"
+    ],
+    "c": 1,
+    "e": [
+     "Venator (lvl 195)"
+    ]
+   },
+   {
+    "n": "Escaping Castle Drakan - New moon key",
+    "st": [
+     {
+      "t": "Leave the emblem gallery through the western door."
+     },
+     {
+      "t": "Enter the south-west kitchen."
+     },
+     {
+      "t": "Kill the bugs and take the Syringe barrel."
+     },
+     {
+      "t": "Search the crate in the south-east corner for a venator stomach.",
+      "i": [
+       "Syringe barrel"
+      ]
+     },
+     {
+      "t": "Retrieve the plug from the sink to the west.",
+      "s": [
+       "Remove the plug."
+      ],
+      "i": [
+       "Syringe barrel",
+       "Venator stomach"
+      ]
+     },
+     {
+      "t": "Enter the larder through the north-west door."
+     },
+     {
+      "t": "Put the sink plug into the sink.",
+      "i": [
+       "Sink plug"
+      ]
+     },
+     {
+      "t": "Turn the tap on in the sink.",
+      "s": [
+       "Turn the tap on.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Take the pipe from the now-broken sink.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Use the broken pipe on the cabinet to reach behind it.",
+      "i": [
+       "Broken pipe"
+      ]
+     },
+     {
+      "t": "Search the crate for a syringe plunger."
+     },
+     {
+      "t": "Return to the kitchen."
+     },
+     {
+      "t": "Use the sharp kitchen knife on the venator corpse.",
+      "i": [
+       "Sharp knife"
+      ]
+     },
+     {
+      "t": "Search the venator corpse for tongs."
+     },
+     {
+      "t": "Use the tongs on the sink to get a syringe needle.",
+      "i": [
+       "Tongs"
+      ]
+     },
+     {
+      "t": "Combine the syringe parts to assemble a syringe.",
+      "i": [
+       "Syringe barrel",
+       "Syringe plunger",
+       "Syringe needle"
+      ]
+     },
+     {
+      "t": "Use the empty syringe on the venator stomach in your inventory to draw blood from it.",
+      "i": [
+       "Empty syringe",
+       "Venator stomach"
+      ]
+     },
+     {
+      "t": "Use the full syringe on the chest to receive the left crest half.",
+      "i": [
+       "Full syringe"
+      ]
+     },
+     {
+      "t": "Search the chest in the kitchen for the left crest half.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Leave the kitchen."
+     },
+     {
+      "t": "Enter the ground-floor lobby."
+     },
+     {
+      "t": "Climb down to the basement."
+     },
+     {
+      "t": "Enter the eastern crescent moon door, ready to fight a Venator."
+     },
+     {
+      "t": "Kill the Venator. Protect from ranged or melee depending on if you're in melee range or not. Turn off your protection prayer when it shrieks."
+     },
+     {
+      "t": "Search the weapons rack to the east for one battleaxe.",
+      "s": [
+       "Take a battleaxe."
+      ]
+     },
+     {
+      "t": "Place the battleaxe on the east-most empty statue.",
+      "i": [
+       "Battleaxe"
+      ]
+     },
+     {
+      "t": "Search the weapons rack to the east for two maces.",
+      "s": [
+       "Take a mace."
+      ]
+     },
+     {
+      "t": "Place a mace on the northern statue of the second pair of statues from the west.",
+      "i": [
+       "Mace"
+      ]
+     },
+     {
+      "t": "Place a mace on the southern statue of the second pair of statues from the west.",
+      "i": [
+       "Mace"
+      ]
+     },
+     {
+      "t": "Search the weapons rack to the east for a sword.",
+      "s": [
+       "Take a sword."
+      ]
+     },
+     {
+      "t": "Place a sword on the western empty statue.",
+      "i": [
+       "Sword"
+      ]
+     },
+     {
+      "t": "Search the chest for the right half of a crest."
+     },
+     {
+      "t": "Combine the two pieces of crests in your inventory.",
+      "i": [
+       "Left crest half",
+       "Right crest half"
+      ]
+     },
+     {
+      "t": "Leave the basement weapons room."
+     },
+     {
+      "t": "Climb up to the ground-floor lobby."
+     },
+     {
+      "t": "Enter the dining room."
+     },
+     {
+      "t": "Enter the throne room."
+     },
+     {
+      "t": "Enter the study north of the throne room."
+     },
+     {
+      "t": "Place the full crest on the fireplace in the study, north of the throne room.",
+      "i": [
+       "Full crest"
+      ]
+     },
+     {
+      "t": "Search the fireplace for the new moon key in the study, north of the throne room.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Blisterwood flail",
+     "Combat gear",
+     "Drakan's medallion"
+    ],
+    "c": 1,
+    "e": [
+     "Venator (lvl 195)"
+    ]
+   },
+   {
+    "n": "Escaping Castle Drakan - Gilded and gibbous keys",
+    "st": [
+     {
+      "t": "Enter the throne room."
+     },
+     {
+      "t": "Enter the dining room."
+     },
+     {
+      "t": "Enter the ground-floor lobby."
+     },
+     {
+      "t": "Climb down to the basement."
+     },
+     {
+      "t": "Enter through the new moon door to the north to free Safalaan and Vanescula."
+     },
+     {
+      "t": "Watch the cutscene."
+     },
+     {
+      "t": "Take the gibbous moon key from the bench."
+     },
+     {
+      "t": "Leave the prison."
+     },
+     {
+      "t": "Climb up to the ground-floor lobby."
+     },
+     {
+      "t": "Climb up to the first-floor lobby."
+     },
+     {
+      "t": "Enter the south-east gibbous moon door."
+     },
+     {
+      "t": "Enter the eastern door."
+     },
+     {
+      "t": "Enter the southern door."
+     },
+     {
+      "t": "Enter the south-east door, avoiding the floor traps."
+     },
+     {
+      "t": "Search the eastern crate for an ornate knife."
+     },
+     {
+      "t": "Pull the lever to the west."
+     },
+     {
+      "t": "Enter the portal to the guest chamber storeroom."
+     },
+     {
+      "t": "Leave the guest chamber storeroom."
+     },
+     {
+      "t": "Enter the gibbous moon door on the eastern wall."
+     },
+     {
+      "t": "Kill the Venator. Protect from ranged or melee depending on if you're in melee range or not. Turn off your protection prayer when it shrieks."
+     },
+     {
+      "t": "Light the fireplace. If you have lost your tinderbox, you can get another one from the storage room, through the hallway west of the ground-floor dining room.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Search the chest."
+     },
+     {
+      "t": "Open the small lockbox.",
+      "i": [
+       "Lockbox"
+      ]
+     },
+     {
+      "t": "Open the small lockbox using the code ⠿ ᴟ ⁘."
+     },
+     {
+      "t": "Place the fancy gem on the venator head.",
+      "i": [
+       "Fancy gem"
+      ]
+     },
+     {
+      "t": "Enter the south-west door."
+     },
+     {
+      "t": "Open the door using the code SPEAR."
+     },
+     {
+      "t": "Search the south-western bookcase."
+     },
+     {
+      "t": "Open the mysterious book.",
+      "i": [
+       "Mysterious book"
+      ]
+     },
+     {
+      "t": "Leave the library.",
+      "i": [
+       "Fancy gem"
+      ]
+     },
+     {
+      "t": "Place the fancy gem on the venator head.",
+      "i": [
+       "Fancy gem"
+      ]
+     },
+     {
+      "t": "Search the venator head for the ornate hourglass.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Leave via the western gibbous moon door."
+     },
+     {
+      "t": "Place the items on the display case.",
+      "i": [
+       "Ornate hourglass",
+       "Ornate knife",
+       "Ornate skull"
+      ]
+     },
+     {
+      "t": "Search the display case for the gilded key.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Blisterwood flail",
+     "Combat gear",
+     "Drakan's medallion"
+    ],
+    "c": 1,
+    "e": [
+     "Venator (lvl 195)"
+    ]
+   },
+   {
+    "n": "Escaping Castle Drakan - Full moon key",
+    "st": [
+     {
+      "t": "Climb down to the first-floor lobby."
+     },
+     {
+      "t": "Enter the northern room."
+     },
+     {
+      "t": "Enter the western gilded door."
+     },
+     {
+      "t": "Enter the north-western door."
+     },
+     {
+      "t": "Kill the Venator. Protect from ranged or melee depending on if you're in melee range or not. Turn off your protection prayer when it shrieks."
+     },
+     {
+      "t": "Talk to Ivan Strom after killing the Venator."
+     },
+     {
+      "t": "Search the northern bookcase for the gilded book."
+     },
+     {
+      "t": "Use the gilded book on the western bookcase.",
+      "i": [
+       "Gilded book"
+      ]
+     },
+     {
+      "t": "Tap the gilded bookcase to start rearranging the books.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Rearrange the symbols of the Vampyric Houses into alphabetical order. For help, search the south-eastern bookcase for a vampyre book."
+     },
+     {
+      "t": "Enter the secret passage."
+     },
+     {
+      "t": "Take the full moon key from the table."
+     }
+    ],
+    "i": [
+     "Blisterwood flail",
+     "Combat gear",
+     "Drakan's medallion"
+    ],
+    "c": 1,
+    "e": [
+     "Venator (lvl 195)"
+    ]
+   },
+   {
+    "n": "Escaping Castle Drakan - Solid key",
+    "st": [
+     {
+      "t": "Leave the secret room through the eastern door."
+     },
+     {
+      "t": "If you came out in the gilded bookcase room instead of the small hallway, go through the door to the small gilded-door hallway."
+     },
+     {
+      "t": "Leave through the gilded door."
+     },
+     {
+      "t": "Enter the scratched door on the north wall."
+     },
+     {
+      "t": "Enter the eastern door, avoiding the floor traps."
+     },
+     {
+      "t": "Climb down the stairs."
+     },
+     {
+      "t": "Enter the western door, avoiding the floor traps."
+     },
+     {
+      "t": "Enter the eastern full moon door."
+     },
+     {
+      "t": "Search Shelves, taking one of each bottle.",
+      "s": [
+       "Take a cloudy grey potion.",
+       "Take a weightless black potion.",
+       "Take a thick red potion.",
+       "Take a cold bluish-white potion."
+      ]
+     },
+     {
+      "t": "Pour the thick red potion into the north-west basin.",
+      "i": [
+       "Thick red potion"
+      ]
+     },
+     {
+      "t": "Pour the cloudy grey potion into the south-west basin.",
+      "i": [
+       "Cloudy grey potion"
+      ]
+     },
+     {
+      "t": "Pour the cold bluish-white potion into the south-east basin.",
+      "i": [
+       "Cold bluish-white potion"
+      ]
+     },
+     {
+      "t": "Pour the weightless black potion into the north-east basin.",
+      "i": [
+       "Weightless black potion"
+      ]
+     },
+     {
+      "t": "Search the altar for an ancient symbol."
+     },
+     {
+      "t": "Enter the south-east door."
+     },
+     {
+      "t": "Pull the lever."
+     },
+     {
+      "t": "Enter the portal to the servants' quarters."
+     },
+     {
+      "t": "Leave the servants' quarters."
+     },
+     {
+      "t": "Enter the eastern door."
+     },
+     {
+      "t": "Go through the gibbous moon door at the east end of this hallway to the first-floor dining room, avoiding the floor traps."
+     },
+     {
+      "t": "Enter the eastern door."
+     },
+     {
+      "t": "Enter the northern full moon door."
+     },
+     {
+      "t": "Search the crate to the north for the ancient shield."
+     },
+     {
+      "t": "Combine the ancient shield and ancient symbol.",
+      "i": [
+       "Ancient shield",
+       "Ancient symbol"
+      ]
+     },
+     {
+      "t": "Leave the room above the study."
+     },
+     {
+      "t": "Return to the first-floor dining room."
+     },
+     {
+      "t": "Return to the first-floor lobby."
+     },
+     {
+      "t": "Climb up to the display-case room."
+     },
+     {
+      "t": "Enter the gibbous moon door on the eastern wall."
+     },
+     {
+      "t": "Enter the south-eastern full moon door."
+     },
+     {
+      "t": "Use the shield with symbol on the empty mount on the southern wall.",
+      "i": [
+       "Shield with symbol"
+      ]
+     },
+     {
+      "t": "Search the mounted shield for the solid key.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Blisterwood flail",
+     "Combat gear",
+     "Drakan's medallion"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Escaping Castle Drakan - Destroying the stockpile",
+    "st": [
+     {
+      "t": "Leave through the northern full moon door."
+     },
+     {
+      "t": "Leave via the western gibbous moon door."
+     },
+     {
+      "t": "Enter the north-eastern full moon door."
+     },
+     {
+      "t": "Enter the eastern solid door."
+     },
+     {
+      "t": "Search the shelves for 2 vials of water, 3 vials of blood, and 3 pure essence. You can destroy all keys, the tinderbox, and the pickaxe to make room in your inventory.",
+      "s": [
+       "Take a vial of water.",
+       "Take a vial of blood.",
+       "Take a piece of pure essence."
+      ]
+     },
+     {
+      "t": "Combine a vial of blood and pure essence on the refiner to make the first vial.",
+      "i": [
+       "Vial of blood",
+       "Pure essence"
+      ]
+     },
+     {
+      "t": "Combine a vial of blood and pure essence on the refiner to make the second vial.",
+      "i": [
+       "Vial of blood",
+       "Pure essence"
+      ]
+     },
+     {
+      "t": "Combine a vial of blood and vial of water on the refiner to make the third vial.",
+      "i": [
+       "Vial of blood",
+       "Vial of water"
+      ]
+     },
+     {
+      "t": "Combine a pure essence and vial of water on the refiner to make the fourth vial.",
+      "i": [
+       "Pure essence",
+       "Vial of water"
+      ]
+     },
+     {
+      "t": "Pour all the chemical vials into the basin. Fill the basin to the north until it reads 53. If something has gone wrong, overfill the basin and start over.",
+      "i": [
+       "Chemical vial (4)"
+      ]
+     },
+     {
+      "t": "Enter the now-unlocked north-eastern door."
+     },
+     {
+      "t": "Destroy the blood stockpile."
+     },
+     {
+      "t": "Watch the cutscene."
+     },
+     {
+      "t": "Go back the way you came: through the door to the laboratory, through the solid door, then through the full moon door into the display-case room. Climb down to the first-floor lobby, then down again to the ground-floor lobby, and try to leave through the portal there."
+     },
+     {
+      "t": "Watch the cutscene."
+     }
+    ],
+    "i": [
+     "Blisterwood flail",
+     "Combat gear",
+     "Drakan's medallion"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Let the hunt begin",
+    "st": [
+     {
+      "t": "Leave Castle Drakan."
+     },
+     {
+      "t": "Pick up the crank wheel from the house east of the altar, north-west of where you started after the cutscene.",
+      "i": [
+       "Crank wheel"
+      ]
+     },
+     {
+      "t": "Keep tapping the crank base outside the house to the north-west. Drakan will start chasing you. Run away if he gets too close.",
+      "i": [
+       "Crank wheel"
+      ]
+     },
+     {
+      "t": "Enter the house north of the crank base."
+     },
+     {
+      "t": "Search the bookshelf in the house north of the crank base for a dusty book, then read it to retrieve the vitur key."
+     },
+     {
+      "t": "Read the dusty book and retrieve the vitur key.",
+      "i": [
+       "Dusty book"
+      ]
+     },
+     {
+      "t": "Enter the north-eastern vitur manor and search the shed in the north-eastern room for a pair of bolt cutters."
+     },
+     {
+      "t": "Enter the code TOOLS on the shed."
+     },
+     {
+      "t": "Enter the building east of the altar and pick up the tooth half of key from the table.",
+      "i": [
+       "Tooth half of key"
+      ]
+     },
+     {
+      "t": "Go to the house south of the well. Use the bolt cutters on the chained door on its north side, go in, and pick up the loop half of key from the table.",
+      "i": [
+       "Loop half of key"
+      ]
+     },
+     {
+      "t": "Combine the loop and tooth half of key into the myrmel key.",
+      "i": [
+       "Loop half of key",
+       "Tooth half of key"
+      ]
+     },
+     {
+      "t": "Pick up the bucket from the house with the myrmel door, east of the well.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Use the bucket on the well outside the house.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Return to the myrmel house with the bucket of water.",
+      "i": [
+       "Bucket of water"
+      ]
+     },
+     {
+      "t": "Use the bucket of water on the northern barrel to retrieve the shadum key.",
+      "i": [
+       "Bucket of water"
+      ]
+     },
+     {
+      "t": "Pick up the trapdoor key from the shadum house south-west of the drawbridge.",
+      "i": [
+       "Trapdoor key"
+      ]
+     },
+     {
+      "t": "Enter the bank north-west of the well.",
+      "i": [
+       "Myrmel key",
+       "Trapdoor key",
+       "Crank wheel"
+      ]
+     },
+     {
+      "t": "Tap the crank base in the bank again and again until the yellow bar fills. Then open the gate.",
+      "i": [
+       "Trapdoor key",
+       "Crank wheel"
+      ]
+     },
+     {
+      "t": "Enter the trapdoor.",
+      "i": [
+       "Trapdoor key"
+      ]
+     },
+     {
+      "t": "Search the chest in the western room of the altar house."
+     },
+     {
+      "t": "Enter the code 35158 on the chest to get the Jovkai key."
+     },
+     {
+      "t": "Leave the altar room, then head to the smithy in the south-west.",
+      "i": [
+       "Jovkai key"
+      ]
+     },
+     {
+      "t": "Pick up the old cog from the table in the smithy in the south-west.",
+      "i": [
+       "Old cog"
+      ]
+     },
+     {
+      "t": "Return to Vanescula by the drawbridge to the south-east. Drakan will chase you when you leave the smithy.",
+      "i": [
+       "Old cog"
+      ]
+     },
+     {
+      "t": "Talk to Ivan Strom by the drawbridge if you want supplies. You can drop the bucket.",
+      "s": [
+       "Could I have those supplies you found?"
+      ],
+      "i": [
+       "Old cog"
+      ]
+     },
+     {
+      "t": "Return to Vanescula by the drawbridge to the south-east when you're ready to leave. Drakan will chase you through the woods. Dodge his attacks, protect from melee.",
+      "i": [
+       "Old cog"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Escaping the forest",
+    "st": [
+     {
+      "t": "Learn to fight Lowerniel Drakan. Protect from melee and dodge his attacks. During this tutorial segment, there will be glimmering sparks that attempt to show you where to tap to dodge his attacks."
+     },
+     {
+      "t": "Resupply at the shelter remains in the middle. When you've resupplied, tap the darkwood trees to the west to continue."
+     },
+     {
+      "t": "Kill the ancient feral vyres. They swap positions and heal, so try to focus one at a time."
+     },
+     {
+      "t": "Enter Darkwood trees to continue."
+     },
+     {
+      "t": "If you have no axe, take the axe from the stump at the start."
+     },
+     {
+      "t": "Make your way through the tangle of trees to the darkwood trees in the north-east, chopping down and climbing over trees on the way. Trees can only be chopped once per direction. Turn off run before you go through the darkwood trees."
+     },
+     {
+      "t": "Turn off run. Avoid the Maxilla beasts. Running nearby, walking within 2 tiles, or standing on the maxilla beast will cause them to attack you and probably kill you. The first and third follow predetermined paths, while the second one moves randomly. Be extra careful when passing it."
+     },
+     {
+      "t": "Keep walking with run off and leave through the cave in the south-east."
+     },
+     {
+      "t": "Continue through the cave."
+     },
+     {
+      "t": "Kill the nylocas. Pale ones (white or grey) with melee, and green or yellow ones with a ranged weapon. A nylocas attacked with the wrong style becomes immune to it. You can pick up the Spine near the Venator corpse to use as darts. If you do not kill them fast enough, they explode dealing 15 damage."
+     },
+     {
+      "t": "When all nylocas are dead, leave through the trees."
+     },
+     {
+      "t": "Wrangle the snakes, then combine them into one long snake. You must stand behind the snake when attempting to wrangle it.",
+      "i": [
+       "Dead blood serpent (3)"
+      ]
+     },
+     {
+      "t": "Combine the snakes into one long snake.",
+      "i": [
+       "Dead blood serpent (3)"
+      ]
+     },
+     {
+      "t": "Use the serpent rope on the long branched tree.",
+      "i": [
+       "Serpent rope"
+      ]
+     },
+     {
+      "t": "Swing across the water with your newly created swing."
+     },
+     {
+      "t": "Leave through the trees."
+     },
+     {
+      "t": "Talk to the Mysterious Woman."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Venator (lvl 195)",
+     "Ancient feral vyre (lvl 89)",
+     "Nylocas (lvl 46, 82, 104)",
+     "Lowerniel Drakan (lvl 927, 1063)"
+    ]
+   },
+   {
+    "n": "Curing Safalaan",
+    "st": [
+     {
+      "t": "Talk to Efaritay Hallow in the west room to help her with her son."
+     },
+     {
+      "t": "Leave the palace through the northern doors and pick some amitire leaves from the amitire plant, just east of the entrance."
+     },
+     {
+      "t": "Go back into the palace. Search the shelves next to the sink, south of Efaritay, for a bowl.",
+      "i": [
+       "Amitire leaves"
+      ]
+     },
+     {
+      "t": "Fill the bowl with water.",
+      "i": [
+       "Amitire leaves",
+       "Bowl"
+      ]
+     },
+     {
+      "t": "Take a potato from the cupboard.",
+      "s": [
+       "Potato."
+      ],
+      "i": [
+       "Amitire leaves",
+       "Bowl of water"
+      ]
+     },
+     {
+      "t": "Put the potato in the bowl of water.",
+      "i": [
+       "Amitire leaves",
+       "Bowl of water",
+       "Potato"
+      ]
+     },
+     {
+      "t": "Take some raw meat from the cupboard.",
+      "s": [
+       "Raw meat."
+      ],
+      "i": [
+       "Amitire leaves",
+       "Incomplete stew"
+      ]
+     },
+     {
+      "t": "Cook the raw meat on the range.",
+      "i": [
+       "Amitire leaves",
+       "Incomplete stew",
+       "Raw impaler meat"
+      ]
+     },
+     {
+      "t": "Put the cooked meat in the incomplete stew.",
+      "i": [
+       "Amitire leaves",
+       "Incomplete stew",
+       "Cooked meat"
+      ]
+     },
+     {
+      "t": "Cook the stew on the range.",
+      "i": [
+       "Uncooked stew"
+      ]
+     },
+     {
+      "t": "Put the amitire leaves into the stew.",
+      "i": [
+       "Amitire leaves",
+       "Stew"
+      ]
+     },
+     {
+      "t": "Long-press the amitire stew, choose Use, then tap Safalaan Hallow. If he won't take it, talk to Efaritay first.",
+      "i": [
+       "Amitire stew"
+      ]
+     },
+     {
+      "t": "Talk to Safalaan Hallow after feeding him the stew."
+     },
+     {
+      "t": "Talk to Efaritay Hallow after feeding Safalaan the stew."
+     }
+    ]
+   },
+   {
+    "n": "Gearing up",
+    "st": [
+     {
+      "t": "Free up seven inventory spaces. Search the workbench in the east room for a hammer.",
+      "s": [
+       "Hammer."
+      ],
+      "i": [
+       "Blisterwood flail"
+      ]
+     },
+     {
+      "t": "Search the workbench in the east room for a chisel.",
+      "s": [
+       "Chisel."
+      ],
+      "i": [
+       "Blisterwood flail",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Search the workbench in the east room for a knife.",
+      "s": [
+       "Knife."
+      ],
+      "i": [
+       "Blisterwood flail",
+       "Hammer",
+       "Chisel"
+      ]
+     },
+     {
+      "t": "Search the northern-most crate for some blisterwood logs.",
+      "i": [
+       "Blisterwood flail",
+       "Hammer",
+       "Chisel",
+       "Knife"
+      ]
+     },
+     {
+      "t": "Search the eastern-most crate for a blessed silver sickle.",
+      "i": [
+       "Blisterwood flail",
+       "Hammer",
+       "Chisel",
+       "Knife",
+       "Blisterwood logs"
+      ]
+     },
+     {
+      "t": "Search the eastern-most chest for a diamond.",
+      "i": [
+       "Blisterwood flail",
+       "Hammer",
+       "Chisel",
+       "Knife",
+       "Blisterwood logs",
+       "Silver sickle (b)"
+      ]
+     },
+     {
+      "t": "Put the unenchanted diamond on the blessed silver sickle.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Blisterwood flail",
+       "Hammer",
+       "Chisel",
+       "Knife",
+       "Blisterwood logs",
+       "Silver sickle (b)",
+       "Diamond"
+      ]
+     },
+     {
+      "t": "Search the western-most chest for a diamond tablet.",
+      "i": [
+       "Blisterwood flail",
+       "Hammer",
+       "Chisel",
+       "Knife",
+       "Blisterwood logs",
+       "Diamond sickle (b)"
+      ]
+     },
+     {
+      "t": "Enchant the diamond sickle with the enchant diamond tablet.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Blisterwood flail",
+       "Hammer",
+       "Chisel",
+       "Knife",
+       "Blisterwood logs",
+       "Diamond sickle (b)",
+       "Enchant diamond"
+      ]
+     },
+     {
+      "t": "Combine the blisterwood logs with your newly created enchanted diamond sickle to create an enhanced blisterwood sickle.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Blisterwood flail",
+       "Hammer",
+       "Knife",
+       "Blisterwood logs",
+       "Enchanted diamond sickle (b)"
+      ]
+     },
+     {
+      "t": "Take off your blisterwood flail so it is in your inventory, then smith a hallowed flail at the anvil.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Blisterwood flail",
+       "Hammer",
+       "Blisterwood sickle (e)",
+       "Hallowed marks"
+      ]
+     },
+     {
+      "t": "Talk to Ivan Strom after smithing the hallowed flail."
+     },
+     {
+      "t": "Search the workbench for a knife.",
+      "s": [
+       "Knife."
+      ]
+     },
+     {
+      "t": "Search the northern-most crate for some blisterwood logs to craft stakes."
+     },
+     {
+      "t": "Fletch the logs into stakes.",
+      "i": [
+       "Blisterwood logs",
+       "Knife"
+      ]
+     },
+     {
+      "t": "Return to Ivan Strom after crafting some stakes. You can craft more before continuing if you want to use them during the upcoming fights."
+     },
+     {
+      "t": "Go down the stairs at the south end of the palace to the dungeon and talk to Veliaf."
+     },
+     {
+      "t": "Talk to Vanescula Drakan."
+     },
+     {
+      "t": "Talk to Veliaf in the dungeon again."
+     },
+     {
+      "t": "Go back upstairs and talk to Sugadinti Vitur after helping out Ivan and Veliaf."
+     }
+    ]
+   },
+   {
+    "n": "Guarding the palace",
+    "st": [
+     {
+      "t": "Get ready for combat. Resupply at the supply table in the kitchen if needed. Speak to the Aranei next to the table if you want to deposit any items into your bank. Then leave the palace."
+     },
+     {
+      "t": "Protect the palace. Use the silvthrill ballista you picked up to shoot the portals in the sky. One shot destroys a portal. Keep shooting until the defence ends."
+     },
+     {
+      "t": "Leave the palace."
+     },
+     {
+      "t": "Heal fallen Aranei, repair damaged windows, and repair damaged pillars."
+     },
+     {
+      "t": "Pass through the barricade, ready to fight Lowerniel Drakan. You can resupply at the supply table in the kitchen. Protect from melee and dodge his attacks. Dodge at least one tile opposite of the telegraphed motion. When he holds his spear back, step to his side."
+     },
+     {
+      "t": "Watch the cutscene."
+     }
+    ],
+    "i": [
+     "Hallowed flail",
+     "Combat gear",
+     "Drakan's medallion"
+    ],
+    "c": 1,
+    "e": [
+     "Lowerniel Drakan (lvl 927, 1063)"
+    ]
+   },
+   {
+    "n": "Night at the theatre",
+    "st": [
+     {
+      "t": "Talk to Ivan Strom in the haunted woods."
+     },
+     {
+      "t": "Go down the trapdoor in the Burgh de Rott inn and talk to Veliaf Hurtz in the Myreque base."
+     },
+     {
+      "t": "Talk to Sugadinti Vitur in Burgh de Rott."
+     },
+     {
+      "t": "Gear up for theatre of blood. Bring melee gear with a range and mage switch, some food & potions, then talk to Sugadinti Vitur in front of the theatre of blood.",
+      "s": [
+       "I'm ready."
+      ],
+      "i": [
+       "Combat gear",
+       "Good healing food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Fight the waves. Nylocas first, with Protect from Missiles: hit white ones with melee, green ones with ranged and blue ones with magic. Kill the blue ones first and keep away from the white ones."
+     },
+     {
+      "t": "Fight the Maiden of Sugadinti with Protect from Magic, using ranged from the south side of the room. Kill the two healers as soon as they appear, or they heal her for 40. Avoid the blood puddles on the ground."
+     },
+     {
+      "t": "Kill a second wave of Nylocas the same way. Then fight the Nylocas Vasilias, which changes between white, green and blue: attack it with the matching style and pray against that style (white melee, green ranged, blue magic). Dying here is a normal death, so you would have to get your items back from your gravestone."
+     },
+     {
+      "t": "Talk to Sugadinti Vitur."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Good healing food",
+     "Prayer potions",
+     "Drakan's medallion"
+    ],
+    "c": 1,
+    "e": [
+     "Nylocas (lvl 46, 82, 104)",
+     "The Maiden of Sugadinti (lvl 340)"
+    ]
+   },
+   {
+    "n": "Safalaan's fate",
+    "st": [
+     {
+      "t": "Head to the abandoned building north-east of Burgh de Rott and talk to Veliaf.",
+      "i": [
+       "Combat gear",
+       "Hallowed flail",
+       "Good healing food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Head to the abandoned building north-east of Burgh de Rott and enter the entry."
+     },
+     {
+      "t": "Fight the Wyrd. Pray Protect from Melee against his punches, and turn it off each time he is about to screech, as with the venators. Each punch pushes you back a tile, so keep space behind you.",
+      "tip": "His attacks repeat: 2 punches, a screech, 2 punches, a screech, then he slams the ground twice on one side. Watch which arm he punches with in the second pair; once he screeches, step one tile to the other side to dodge the slams. Below about 60% health he sometimes covers the ground around him in blood pools instead of screeching: turn your prayer off and run away from him at once, through the gaps the lightning clears. Turn your prayer back on once the blue has gone."
+     },
+     {
+      "t": "Search for the escaped wyrd. Leave the lab, climbing over the broken fence, and follow the trail of blood north past Barrows to the walls of Castle Drakan. Inspect the broken fence there."
+     }
+    ],
+    "i": [
+     "Hallowed flail",
+     "Combat gear",
+     "Good healing food",
+     "Prayer potions",
+     "Drakan's medallion"
+    ],
+    "c": 1,
+    "e": [
+     "Venator (lvl 195)",
+     "Wyrd (lvl 564)"
+    ]
+   },
+   {
+    "n": "Night of the blood moon",
+    "st": [
+     {
+      "t": "Talk to Veliaf Hurtz in the Burgh de Rott hideout."
+     },
+     {
+      "t": "Talk to Sugadinti Vitur in the Burgh de Rott hideout, ready for another fight against Drakan.",
+      "s": [
+       "I'm ready."
+      ]
+     },
+     {
+      "t": "Fight Lowerniel Drakan. Protect from melee and dodge his attacks. Dodge at least one tile opposite of the telegraphed motion. When he holds his spear back, step to his side."
+     },
+     {
+      "t": "Talk to Veliaf Hurtz.",
+      "s": [
+       "I'll go now."
+      ]
+     },
+     {
+      "t": "Talk to Ivan Strom inside Castle Drakan."
+     },
+     {
+      "t": "Talk to Sugadinti Vitur inside Castle Drakan."
+     },
+     {
+      "t": "Talk to Efaritay Hallow in Icyene Graveyard.",
+      "s": [
+       "Icyene Graveyard."
+      ]
+     },
+     {
+      "t": "Enter the portal in Icyene Graveyard to get to Vampyrium, ready for the final confrontation.",
+      "i": [
+       "Hallowed flail",
+       "Melee combat gear"
+      ]
+     },
+     {
+      "t": "Enter the door, ready to fight Drakan. You can get supplies and deposit items at the chest next to the door.",
+      "i": [
+       "Hallowed flail",
+       "Melee combat gear"
+      ]
+     },
+     {
+      "t": "Fight Lowerniel Drakan. Protect from melee and dodge his attacks. Dodge at least one tile opposite of the telegraphed motion. When he holds his spear back, step to his side. Dodge over the blood waves. Protect from magic when he shoots his blood spears. Avoid shadows and blood pools on the ground. Step behind him when he raises his spear above his shoulder. When he rushes around you, dodge in the direction of his first cloud."
+     },
+     {
+      "t": "Talk to Efaritay Hallow in the icyene graveyard."
+     },
+     {
+      "t": "Congratulations on finishing the quest!"
+     }
+    ],
+    "i": [
+     "Hallowed flail",
+     "Combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "Lowerniel Drakan (lvl 927, 1063)"
+    ]
+   }
+  ]
+ }
+}

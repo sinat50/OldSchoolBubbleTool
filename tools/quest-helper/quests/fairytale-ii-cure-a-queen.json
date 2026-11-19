@@ -1,0 +1,193 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Fairytale II - Cure a Queen",
+  "items": [
+   "Dramen or lunar staff",
+   "Vial of water",
+   "Pestle and mortar"
+  ],
+  "rec": [
+   "Combat gear"
+  ],
+  "enemies": [
+   "At least 1 Gorak (level 145)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "3,500 Herblore XP",
+   "2,500 Thieving XP",
+   "2,500 Experience Lamp (Any skill over level 30.)",
+   "Access to Fairy Rings.",
+   "Access to Fairy Fixit's Fairy Enhancement Store."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Martin in the Draynor Market.",
+      "s": [
+       "Ask about the quest."
+      ]
+     },
+     {
+      "t": "Wait 5 minutes."
+     },
+     {
+      "t": "Return to Martin in the Draynor Market.",
+      "s": [
+       "Ask about the quest.",
+       "I suppose I'd better go and see what the problem is then."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Betrayal",
+    "st": [
+     {
+      "t": "Wield your dramen or lunar staff and enter the shed door in the middle of Lumbridge Swamp to travel to Zanaris.",
+      "i": [
+       "Dramen or lunar staff"
+      ]
+     },
+     {
+      "t": "Search the healing certificate in Fairy Nuff's room, just north of the bank in Zanaris."
+     },
+     {
+      "t": "Long-press the certificate in your inventory and choose Study.",
+      "i": [
+       "Nuff's certificate"
+      ]
+     },
+     {
+      "t": "Read the sign near the Cosmic Temple in the south of Zanaris."
+     },
+     {
+      "t": "Talk to the Fairy Godfather in the Throne Room.",
+      "s": [
+       "Where is the Fairy Queen?",
+       "Where could she have been taken to?",
+       "Yes, okay."
+      ]
+     },
+     {
+      "t": "Wield your dramen or lunar staff and go to the fairy ring west of the Throne Room, just south of the fountains.",
+      "i": [
+       "Dramen or lunar staff",
+       "Nuff's certificate"
+      ]
+     },
+     {
+      "t": "While carrying Nuff's certificate, use the fairy ring to travel to A.I.R., then D.L.R., then D.J.Q., then A.J.S. Each time, long-press the ring and choose Configure to set the code: just tapping it may repeat your last trip. D.J.Q. won't take you anywhere: that's normal, so just set A.J.S. next.",
+      "i": [
+       "Dramen or lunar staff",
+       "Nuff's certificate"
+      ],
+      "tip": "If you end up on an island with penguins, check you have Nuff's certificate and do all four codes again."
+     },
+     {
+      "t": "Follow the path from the fairy ring to the north-eastern room of the hideout and talk to Fairy Nuff."
+     },
+     {
+      "t": "Use the fairy ring near the hideout with code B.K.S. to return to Zanaris. Pickpocket the Fairy Godfather in the Throne Room while he and his henchmen are not looking.",
+      "i": [
+       "Dramen or lunar staff"
+      ]
+     },
+     {
+      "t": "While carrying Nuff's certificate, use the Fairy Rings to travel to A.I.R., D.L.R., D.J.Q. then A.J.S. Give Fairy Nuff the Queen's Secateurs, then talk to her again.",
+      "i": [
+       "Queen's secateurs",
+       "Nuff's certificate",
+       "Dramen or lunar staff"
+      ]
+     }
+    ],
+    "i": [
+     "Dramen or lunar staff",
+     "Vial of water",
+     "Pestle and mortar"
+    ]
+   },
+   {
+    "n": "Making a cure",
+    "st": [
+     {
+      "t": "Travel to C.K.P with a Fairy Ring. Even if you've already made a magic essence (unf), you'll need to make another.",
+      "i": [
+       "Dramen or lunar staff"
+      ]
+     },
+     {
+      "t": "Wait for a star flower to appear."
+     },
+     {
+      "t": "Pick a star flower."
+     },
+     {
+      "t": "Travel to D.I.R. with a Fairy Ring, ready to kill a Gorak. Goraks can hit through protection prayers.",
+      "i": [
+       "Dramen or lunar staff",
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Kill Goraks for their claws."
+     },
+     {
+      "t": "Pickup the gorak's claws.",
+      "i": [
+       "Gorak claws"
+      ]
+     },
+     {
+      "t": "Add the star flower to a vial of water.",
+      "i": [
+       "Star flower",
+       "Vial of water"
+      ]
+     },
+     {
+      "t": "Use a pestle and mortar on the gorak claws.",
+      "i": [
+       "Pestle and mortar",
+       "Gorak claws"
+      ]
+     },
+     {
+      "t": "Add the gorak claw powder on the unfinished potion.",
+      "i": [
+       "Gorak claw powder",
+       "Magic essence (unf)"
+      ]
+     },
+     {
+      "t": "While carrying Nuff's certificate, use the Fairy Rings to travel to A.I.R., D.L.R., D.J.Q. then A.J.S.",
+      "i": [
+       "Dramen or lunar staff",
+       "Nuff's certificate",
+       "Magic essence"
+      ]
+     },
+     {
+      "t": "Use the magic essence on the fairy queen.",
+      "i": [
+       "Magic essence"
+      ]
+     },
+     {
+      "t": "Talk to the Fairy Queen."
+     }
+    ],
+    "i": [
+     "Dramen or lunar staff",
+     "Vial of water",
+     "Pestle and mortar",
+     "Nuff's certificate"
+    ]
+   }
+  ]
+ }
+}

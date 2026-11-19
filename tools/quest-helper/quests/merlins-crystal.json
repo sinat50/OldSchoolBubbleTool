@@ -1,0 +1,267 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Merlin's Crystal",
+  "items": [
+   "Combat gear + food for Sir Mordred (level 39)",
+   "Bread",
+   "Tinderbox",
+   "Bucket of wax",
+   "Bat bones"
+  ],
+  "rec": [
+   "Teleport to Varrock",
+   "Teleport to Camelot",
+   "Teleports to Falador (2)"
+  ],
+  "enemies": [
+   "Sir Mordred (level 39)"
+  ],
+  "rewards": [
+   "6 Quest points",
+   "Excalibur"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to King Arthur in Camelot Castle to start.",
+      "s": [
+       "Yes.",
+       "I want to become a Knight of the Round Table!"
+      ]
+     },
+     {
+      "t": "Talk to Sir Gawain about how Merlin got trapped.",
+      "s": [
+       "Do you know how Merlin got trapped?"
+      ]
+     },
+     {
+      "t": "Go upstairs to talk to Lancelot."
+     },
+     {
+      "t": "Talk to Sir Lancelot about getting into Morgan Le Faye's stronghold.",
+      "s": [
+       "Any ideas on how to get into Morgan Le Faye's stronghold?",
+       "Thank you for the information."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Infiltrate the fortress",
+    "st": [
+     {
+      "t": "Hide in Arhein's crate behind the Candle Maker's shop in Catherby.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Go up the stairs in the fortress."
+     },
+     {
+      "t": "Go up another floor."
+     },
+     {
+      "t": "Attack Sir Mordred down to 0hp to cause Morgan Le Faye to spawn.",
+      "s": [
+       "Tell me how to untrap Merlin and I might.",
+       "Ok I will do all that."
+      ]
+     },
+     {
+      "t": "Go through Morgan le Faye's dialog. IF YOU EXIT FROM THIS DIALOG YOU WILL HAVE TO FIGHT MORDRED AGAIN.",
+      "s": [
+       "Tell me how to untrap Merlin and I might.",
+       "Ok I will do all that."
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear + food for Sir Mordred (level 39)"
+    ],
+    "c": 1,
+    "e": [
+     "Sir Mordred (level 39)"
+    ]
+   },
+   {
+    "n": "Get bat bones",
+    "st": [
+     {
+      "t": "Climb down from Keep Le Faye and step through the front door."
+     },
+     {
+      "t": "Kill a Giant bat outside Keep Le Faye for some bat bones.",
+      "i": [
+       "Bat bones"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Get a Black Candle",
+    "st": [
+     {
+      "t": "Return to Catherby."
+     },
+     {
+      "t": "If you already have a bucket of wax, skip to talking to the Candle Maker in Catherby. If you still need wax, go grab the insect repellent in a house in north Catherby.",
+      "i": [
+       "Insect repellent"
+      ]
+     },
+     {
+      "t": "Only if you still need wax: go grab the bucket in the bee field west of Catherby.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Only if you still need wax: use the insect repellent on a bee hive, then try to take some wax.",
+      "i": [
+       "Bucket",
+       "Insect repellent"
+      ]
+     },
+     {
+      "t": "Talk to the Candle Maker in Catherby twice until he gives you a black candle.",
+      "s": [
+       "Have you got any black candles?"
+      ],
+      "i": [
+       "Bucket of wax"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Get Excalibur",
+    "st": [
+     {
+      "t": "Talk to the Lady of the Lake in Taverley.",
+      "s": [
+       "I seek the sword Excalibur."
+      ]
+     },
+     {
+      "t": "Attempt to enter the jewelery store in Port Sarim.",
+      "s": [
+       "Yes certainly.",
+       "Yes, here you go."
+      ],
+      "i": [
+       "Bread"
+      ]
+     },
+     {
+      "t": "Talk to the beggar who appears and give him some bread.",
+      "s": [
+       "Yes certainly.",
+       "Yes, here you go."
+      ],
+      "i": [
+       "Bread"
+      ]
+     }
+    ],
+    "i": [
+     "Bread"
+    ]
+   },
+   {
+    "n": "Learn magic words",
+    "st": [
+     {
+      "t": "Check the altar in the Zamorak Temple in south east Varrock. If you've already learnt the spell, tap Done."
+     }
+    ]
+   },
+   {
+    "n": "Perform the spell",
+    "st": [
+     {
+      "t": "Enter the gates towards Camelot Castle.",
+      "i": [
+       "Excalibur",
+       "Black candle",
+       "Bat bones",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Go stand in the star symbol north east of Camelot Castle.",
+      "i": [
+       "Excalibur",
+       "Black candle",
+       "Bat bones",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Light the Black candle with your tinderbox.",
+      "i": [
+       "Black candle",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Standing in the star, long-press the bat bones in your inventory and choose Drop. Don't bury them.",
+      "s": [
+       "Snarthon Candtrick Termanto"
+      ],
+      "i": [
+       "Bat bones",
+       "Excalibur",
+       "Lit black candle"
+      ]
+     },
+     {
+      "t": "Say the spell 'Snarthon Candtrick Termanto'. Be careful not to tap the wrong option or you'll have to get another Black Candle.",
+      "s": [
+       "Snarthon Candtrick Termanto"
+      ],
+      "i": [
+       "Excalibur"
+      ]
+     }
+    ],
+    "i": [
+     "Black candle",
+     "Bat bones",
+     "Excalibur",
+     "Tinderbox"
+    ]
+   },
+   {
+    "n": "Free Merlin",
+    "st": [
+     {
+      "t": "Go up the ladder in the south east of Camelot castle.",
+      "i": [
+       "Excalibur"
+      ]
+     },
+     {
+      "t": "Go up the next ladder.",
+      "i": [
+       "Excalibur"
+      ]
+     },
+     {
+      "t": "Use Excalibur on the Giant Crystal to smash it. You don't need to be able to wield it.",
+      "i": [
+       "Excalibur"
+      ]
+     },
+     {
+      "t": "Tell King Arthur you've freed Merlin."
+     }
+    ]
+   }
+  ]
+ }
+}

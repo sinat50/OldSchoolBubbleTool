@@ -1,0 +1,162 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Black Knights' Fortress",
+  "items": [
+   "Bronze med helm",
+   "Iron chainbody",
+   "Cabbage (NOT from Draynor Manor)"
+  ],
+  "rec": [
+   "Teleport to Falador",
+   "Food",
+   "Armour"
+  ],
+  "enemies": [
+   "Able to survive being attacked by multiple level 33 Black Knights"
+  ],
+  "rewards": [
+   "3 Quest points",
+   "2500 x Coins"
+  ],
+  "sec": [
+   {
+    "n": "Talk to Sir Amik Varze",
+    "st": [
+     {
+      "t": "Speak to Sir Amik Varze on the 2nd floor of Falador Castle.",
+      "s": [
+       "I seek a quest!",
+       "I laugh in the face of danger!",
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Infiltrate the fortress",
+    "st": [
+     {
+      "t": "Put on the iron chainbody and bronze med helm. Enter the Black Knights' Fortress, north of Ice Mountain, through the sturdy door on its south side. Be prepared for multiple level 33 Black Knights to attack you.",
+      "i": [
+       "Iron chainbody",
+       "Bronze med helm",
+       "Cabbage (NOT from Draynor Manor)"
+      ]
+     },
+     {
+      "t": "Walk straight ahead from the door and push the wall in front of you to enter a secret room."
+     },
+     {
+      "t": "Climb up the ladder."
+     },
+     {
+      "t": "Climb up the next ladder."
+     },
+     {
+      "t": "Climb down the ladder south of you."
+     },
+     {
+      "t": "Climb up the ladder east of you."
+     },
+     {
+      "t": "Climb down the next ladder east of you."
+     },
+     {
+      "t": "Climb down the ladder west of you."
+     },
+     {
+      "t": "Listen at the grill."
+     }
+    ],
+    "i": [
+     "Bronze med helm",
+     "Iron chainbody",
+     "Cabbage (NOT from Draynor Manor)"
+    ]
+   },
+   {
+    "n": "Sabotage the potion",
+    "st": [
+     {
+      "t": "Climb back up the ladder from the listening room.",
+      "i": [
+       "Cabbage (NOT from Draynor Manor)"
+      ]
+     },
+     {
+      "t": "Climb up the ladder in the chapel room east of you.",
+      "i": [
+       "Cabbage (NOT from Draynor Manor)"
+      ]
+     },
+     {
+      "t": "Climb down the ladder west of you.",
+      "i": [
+       "Cabbage (NOT from Draynor Manor)"
+      ]
+     },
+     {
+      "t": "Climb up the ladder west of you.",
+      "i": [
+       "Cabbage (NOT from Draynor Manor)"
+      ]
+     },
+     {
+      "t": "Climb down the ladder north of you.",
+      "i": [
+       "Cabbage (NOT from Draynor Manor)"
+      ]
+     },
+     {
+      "t": "Climb down the next ladder.",
+      "i": [
+       "Cabbage (NOT from Draynor Manor)"
+      ]
+     },
+     {
+      "t": "Push the wall to leave the secret room.",
+      "i": [
+       "Cabbage (NOT from Draynor Manor)"
+      ]
+     },
+     {
+      "t": "Go through the east door into the dining room. Finish the guard's dialogue and choose option 2.",
+      "s": [
+       "I don't care. I'm going in anyway."
+      ],
+      "i": [
+       "Cabbage (NOT from Draynor Manor)"
+      ]
+     },
+     {
+      "t": "Climb the ladder at the north end of the dining room.",
+      "i": [
+       "Cabbage (NOT from Draynor Manor)"
+      ]
+     },
+     {
+      "t": "Push the wall to the south-east to enter the storage room",
+      "i": [
+       "Cabbage (NOT from Draynor Manor)"
+      ]
+     },
+     {
+      "t": "USE the cabbage on the hole. Be careful not to eat it.",
+      "i": [
+       "Cabbage (NOT from Draynor Manor)"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Return to Sir Amik Varze",
+    "st": [
+     {
+      "t": "Return to Sir Amik Varze in Falador Castle to complete the quest."
+     }
+    ]
+   }
+  ]
+ }
+}

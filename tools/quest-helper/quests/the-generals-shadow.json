@@ -1,0 +1,170 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The General's Shadow",
+  "items": [
+   "Coins (40)",
+   "Ghostly hood",
+   "Ghostly robe (top)",
+   "Ghostly robe (bottom)",
+   "Ghostly gloves",
+   "Ghostly boots",
+   "Ghostly cloak",
+   "Ring of visibility",
+   "Ghostspeak amulet",
+   "Combat gear"
+  ],
+  "rec": [
+   "Teleports to Rellekka",
+   "Necklace of Passage, or a teleport to Tree Gnome Stronghold",
+   "Teleport to Al Kharid",
+   "Teleport to Tai Bwo Wannai",
+   "Teleport to Draynor Manor",
+   "Teleport to Seer's Village",
+   "Teleport to Fishing Guild"
+  ],
+  "enemies": [
+   "Bouncer (level 160, can't use prayer)"
+  ],
+  "rewards": [
+   "2,000 Slayer XP",
+   "The Shadow Sword"
+  ],
+  "sec": [
+   {
+    "n": "Proving your Sin",
+    "st": [
+     {
+      "t": "Wear all your ghostly robes, the ring of visibility and the ghostspeak amulet whenever you talk to Khazard or the scouts. Talk to General Khazard just north of the log balance, south-east of Rellekka.",
+      "s": [
+       "I just have one of those faces.",
+       "I'm a very trustworthy person."
+      ],
+      "i": [
+       "Ghostly hood",
+       "Ghostly robe (top)",
+       "Ghostly robe (bottom)",
+       "Ghostly cloak",
+       "Ghostly boots",
+       "Ghostly gloves",
+       "Ring of visibility",
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Climb the ladder in the spinning wheel house in Seers' Village and talk to the Sin Seer upstairs. You need one free inventory slot.",
+      "s": [
+       "Bribe",
+       "Here's the money."
+      ],
+      "i": [
+       "Coins (40)"
+      ]
+     },
+     {
+      "t": "Return to General Khazard south east of Rellekka.",
+      "i": [
+       "Sin seer's note",
+       "Ghostly robes",
+       "Ring of visibility",
+       "Ghostspeak amulet"
+      ]
+     }
+    ],
+    "i": [
+     "Ghostly robes",
+     "Ring of visibility",
+     "Ghostspeak amulet",
+     "Coins (40)"
+    ]
+   },
+   {
+    "n": "Finding the Scouts",
+    "st": [
+     {
+      "t": "Talk to the scout near The Outpost, south of the Tree Gnome Stronghold.",
+      "i": [
+       "Ghostly robes",
+       "Ring of visibility",
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to the scout west of Draynor Manor.",
+      "i": [
+       "Ghostly robes",
+       "Ring of visibility",
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to the scout south of the Shantay Pass.",
+      "i": [
+       "Ghostly robes",
+       "Ring of visibility",
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Talk to the scout south east of Tai Bwo Wannai.",
+      "i": [
+       "Ghostly robes",
+       "Ring of visibility",
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Return to General Khazard south east of Rellekka.",
+      "i": [
+       "Ghostly robes",
+       "Ring of visibility",
+       "Ghostspeak amulet"
+      ]
+     }
+    ],
+    "i": [
+     "Ghostly robes",
+     "Ring of visibility",
+     "Ghostspeak amulet"
+    ]
+   },
+   {
+    "n": "Defeat Bouncer",
+    "st": [
+     {
+      "t": "Enter the cave south east of the Fishing Guild. Be prepared to fight Bouncer (level 160).",
+      "i": [
+       "Combat gear",
+       "Severed leg"
+      ]
+     },
+     {
+      "t": "Inside the cave, head north, then take the first passage east into a larger cavern. Enter the crack in the south wall of that cavern. You need the severed leg in your inventory.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Combat gear",
+       "Severed leg"
+      ]
+     },
+     {
+      "t": "Kill Bouncer. You cannot use prayers.",
+      "i": [
+       "Combat gear",
+       "Severed leg"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Severed leg"
+    ],
+    "c": 1,
+    "e": [
+     "Bouncer (level 160, can't use prayer)"
+    ]
+   }
+  ]
+ }
+}

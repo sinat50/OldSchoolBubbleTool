@@ -1,0 +1,112 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder thequeenofthieves; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Queen of Thieves",
+  "items": [
+   "Stew"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "2,000 Thieving XP",
+   "2000 x Coins",
+   "A page for Kharedst's Memoirs",
+   "Access to The Warrens."
+  ],
+  "sec": [
+   {
+    "n": "Investigation",
+    "st": [
+     {
+      "t": "Speak to Tomas Lawry outside the Port Piscarilius bank.",
+      "s": [
+       "I'm looking for a quest.",
+       "What are you investigating?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Speak to the poor looking woman in the house just south of the bridge in Port Piscarilius."
+     },
+     {
+      "t": "Speak to Robert O'Reilly in the house just west of the bridge, south of Tomas Lawry, and give him the bowl of stew.",
+      "s": [
+       "Okay."
+      ],
+      "i": [
+       "Stew"
+      ]
+     }
+    ],
+    "i": [
+     "Stew"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Gaining Trust",
+    "st": [
+     {
+      "t": "Enter the Warrens through the manhole a short walk east of Robert O'Reilly's house, marked by the dungeon icon on the minimap."
+     },
+     {
+      "t": "From the bottom of the manhole, go a little south, then west over the two small bridges to the large island. Speak to Devan Rutter near the fish stall.",
+      "s": [
+       "Nope, sounds good to me."
+      ]
+     },
+     {
+      "t": "Exit the Warrens."
+     },
+     {
+      "t": "Murder Conrad King on the dock on the south side of the Piscarilius Foodhall, the largest building, east of the manhole."
+     },
+     {
+      "t": "Enter the Warrens."
+     },
+     {
+      "t": "Tell Devan Rutter about the murder."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Exposing Hughes",
+    "st": [
+     {
+      "t": "Enter the tent just north of Devan Rutter and talk to the Queen of Thieves."
+     },
+     {
+      "t": "Exit the Warrens."
+     },
+     {
+      "t": "Go to Kingstown and head east to the council members' houses. Councillor Hughes' home is the house immediately north, south of the rare trees icon on the minimap. Go up the stairs inside."
+     },
+     {
+      "t": "Pick the locked chest."
+     },
+     {
+      "t": "Go downstairs."
+     },
+     {
+      "t": "Speak to Tomas Lawry in Port Piscarilius.",
+      "s": [
+       "Let's talk about my quest."
+      ],
+      "i": [
+       "Letter"
+      ]
+     },
+     {
+      "t": "Enter the Warrens."
+     },
+     {
+      "t": "Talk to Lady Shauna Piscarilius, the Queen of Thieves, in the tent north of Devan Rutter."
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

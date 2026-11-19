@@ -1,0 +1,157 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder ernestthechicken; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Ernest the Chicken",
+  "items": [],
+  "rec": [],
+  "enemies": [
+   "Able to survive a skeleton (level 22) attacking you"
+  ],
+  "rewards": [
+   "4 Quest points",
+   "300 x Coins",
+   "Access to the Killerwatt plane (Members Only).",
+   "Ability to be assigned Killerwatts as a Slayer task."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Veronica outside of Draynor Manor.",
+      "s": [
+       "Aha, sounds like a quest. I'll help."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Get the Gauge and Tube",
+    "st": [
+     {
+      "t": "Enter Draynor Manor's ground floor."
+     },
+     {
+      "t": "Go upstairs and pick up the fish food."
+     },
+     {
+      "t": "Pick up the fish food in the south room.",
+      "i": [
+       "Fish food"
+      ]
+     },
+     {
+      "t": "Go back downstairs and pick up the poison from the north west room."
+     },
+     {
+      "t": "Pick up the poison from the north west room.",
+      "i": [
+       "Poison"
+      ]
+     },
+     {
+      "t": "Use the poison on the fish food",
+      "i": [
+       "Poison",
+       "Fish food"
+      ]
+     },
+     {
+      "t": "Pick up the spade in the east room. Exit the manor through the door in the same room.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Search the compost heap west of the manor.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Use the poisoned fish food on the fountain south west of the manor.",
+      "i": [
+       "Poisoned fish food"
+      ]
+     },
+     {
+      "t": "Search the fountain."
+     },
+     {
+      "t": "Go back into the manor's ground floor."
+     },
+     {
+      "t": "Enter the small room north of the staircase with the key and pick up the rubber tube.",
+      "i": [
+       "Rubber tube"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Get the oil can",
+    "st": [
+     {
+      "t": "Search the bookcase in the west room to enter the secret room."
+     },
+     {
+      "t": "Climb down the ladder into the basement."
+     },
+     {
+      "t": "Pull down lever A."
+     },
+     {
+      "t": "Pull down lever B."
+     },
+     {
+      "t": "Go through the door that has opened, then pull down lever D."
+     },
+     {
+      "t": "Go back through the same door, then pull up lever B."
+     },
+     {
+      "t": "Pull up lever A."
+     },
+     {
+      "t": "Go through doors 3, 4 and 5 to reach levers E and F, then pull down lever F. To see the door numbers, tap Puzzle solutions, then Basement doors."
+     },
+     {
+      "t": "Pull down lever E."
+     },
+     {
+      "t": "Go through doors 6 and 7 to reach lever C, then pull down lever C."
+     },
+     {
+      "t": "Go back through the same two doors, then pull up lever E."
+     },
+     {
+      "t": "From lever E, go through doors 6, 8 and 3, then door 9 into the west room. Pick up the oil can there. The Solution button shows the door numbers. If the doors won't open, leave the basement to reset the levers and start again from lever A.",
+      "i": [
+       "Oil can"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Bring items to Oddenstein",
+    "st": [
+     {
+      "t": "Climb out of the basement and pull the lever in the secret room to leave it. Go up the stairs to the top floor of the manor and talk to Professor Oddenstein.",
+      "s": [
+       "I'm looking for a guy called Ernest.",
+       "Change him back this instant!"
+      ]
+     },
+     {
+      "t": "Give Professor Oddenstein the items to finish.",
+      "i": [
+       "Oil can",
+       "Rubber tube",
+       "Pressure gauge"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

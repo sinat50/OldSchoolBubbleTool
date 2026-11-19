@@ -1,0 +1,179 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder bonevoyage; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Bone Voyage",
+  "items": [
+   "Vodka (2)",
+   "Marrentill potion (unf)"
+  ],
+  "rec": [
+   "Teleports to the Digsite (4)",
+   "Teleport to the Woodcutting Guild",
+   "Varrock teleport",
+   "Port Sarim teleport",
+   "Lumberyard teleport (2)",
+   "Hammer",
+   "Iron bar",
+   "Oak plank (2)",
+   "Nails (5)"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "Access to Fossil Island"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Curator Haig in the Varrock Museum.",
+      "s": [
+       "Have you any interesting news?",
+       "Sign me up!",
+       "Yes."
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Securing materials",
+    "st": [
+     {
+      "t": "Talk to the Barge Foreman north of the Dig Site."
+     },
+     {
+      "t": "Talk to the Sawmill Operator north east of Varrock.",
+      "s": [
+       "I'm here on behalf of the museum archaeological team."
+      ]
+     },
+     {
+      "t": "Talk to the Sawmill Operator in the Woodcutting Guild on Zeah. Without 60 Woodcutting, attempt to enter the Woodcutting Guild on Zeah to talk to the guild's sawmill operator.",
+      "s": [
+       "I'm here on behalf of the museum archaeological team."
+      ],
+      "i": [
+       "Sawmill proposal"
+      ]
+     },
+     {
+      "t": "Return to the Sawmill Operator north east of Varrock.",
+      "s": [
+       "I'm here on behalf of the museum archaeological team."
+      ],
+      "i": [
+       "Sawmill agreement"
+      ]
+     },
+     {
+      "t": "Return to the Barge Foreman north of the Dig Site."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Lucky charms",
+    "st": [
+     {
+      "t": "Talk to the barge guard at the canal barge north of the Dig Site to board the barge.",
+      "s": [
+       "Can I go onto the barge?"
+      ]
+     },
+     {
+      "t": "Talk to the Lead Navigator.",
+      "s": [
+       "Yep, that would be me.",
+       "No, what happened?"
+      ]
+     },
+     {
+      "t": "Talk to Jack Seagull in the Port Sarim Pub.",
+      "s": [
+       "Ever made any cursed voyages?"
+      ]
+     },
+     {
+      "t": "Return to the barge.",
+      "s": [
+       "Can I go onto the barge?"
+      ]
+     },
+     {
+      "t": "Talk to the Lead Navigator again."
+     },
+     {
+      "t": "Talk to the Odd Old Man north of the Dig Site.",
+      "s": [
+       "Talk about lucky charms.",
+       "I'm making a cursed voyage."
+      ]
+     },
+     {
+      "t": "Talk to the Apothecary in south west Varrock.",
+      "s": [
+       "Talk about something else.",
+       "Talk about Bone Voyage."
+      ],
+      "i": [
+       "Marrentill potion (unf)",
+       "Vodka (2)"
+      ]
+     },
+     {
+      "t": "Talk to the Apothecary again.",
+      "s": [
+       "Talk about something else.",
+       "Talk about Bone Voyage."
+      ],
+      "i": [
+       "Marrentill potion (unf)",
+       "Vodka (2)"
+      ]
+     },
+     {
+      "t": "Board the barge.",
+      "s": [
+       "Can I go onto the barge?"
+      ],
+      "i": [
+       "Bone charm",
+       "Potion of sealegs"
+      ]
+     },
+     {
+      "t": "Give the Junior Navigator the bone charm.",
+      "i": [
+       "Bone charm"
+      ]
+     },
+     {
+      "t": "Give the Lead Navigator the potion.",
+      "i": [
+       "Potion of sealegs"
+      ]
+     }
+    ],
+    "i": [
+     "Marrentill potion (unf)",
+     "Vodka (2)"
+    ],
+    "c": 0
+   },
+   {
+    "n": "The voyage",
+    "st": [
+     {
+      "t": "Talk to the Junior Navigator to set sail, as the Lead Navigator has passed out. When the top arrow tilts left, tap the right arrow. When it tilts right, tap the left arrow. Raise the sails to go faster, and keep going until the progress bar is full.",
+      "s": [
+       "I'm ready, let's go."
+      ]
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Family Pest",
+  "items": [
+   "Coins (500000)"
+  ],
+  "rec": [
+   "Ring of Dueling",
+   "Camelot Teleports",
+   "Varrock Teleports",
+   "Lumberyard Teleport"
+  ],
+  "enemies": [],
+  "rewards": [
+   "Ability to own all three Steel Gauntlets simultaneously"
+  ],
+  "sec": [
+   {
+    "n": "Talk to the Brothers",
+    "st": [
+     {
+      "t": "Talk to Dimintheis (south-east of Varrock).",
+      "s": [
+       "Have you got any quests for me?",
+       "Oh come on, however menial, I want to help!"
+      ]
+     },
+     {
+      "t": "Talk to Avan (Entrance to the Al Kharid Mine).",
+      "s": [
+       "Family Pest"
+      ]
+     },
+     {
+      "t": "Talk to Caleb (Northeast of Catherby bank).",
+      "s": [
+       "Family Pest"
+      ]
+     },
+     {
+      "t": "Go upstairs in the Jolly Boar Inn (Northeast of Varrock) and talk to Johnathon.",
+      "s": [
+       "Family Pest"
+      ]
+     },
+     {
+      "t": "Return to Dimintheis and pay him 500k.",
+      "s": [
+       "Family Pest",
+       "Yes"
+      ]
+     }
+    ],
+    "i": [
+     "Coins (500000)"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

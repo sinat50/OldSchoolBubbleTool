@@ -1,0 +1,357 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder thefremennikexiles; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Fremennik Exiles",
+  "items": [
+   "Combat gear",
+   "Mirror shield",
+   "2x kegs of beer or 650 coins",
+   "Molten glass",
+   "Astral runes (100)",
+   "Pet rock",
+   "Rune thrownaxe, or a friend to help enter Waterbirth Isle Dungeon",
+   "Fishing rod",
+   "Fremennik shield",
+   "Ice gloves or smiths gloves(i)",
+   "Hammer",
+   "Glassblowing pipe",
+   "Any pickaxe",
+   "Seal of passage"
+  ],
+  "rec": [
+   "Food",
+   "Rellekka teleports",
+   "Restore potions"
+  ],
+  "enemies": [
+   "Basilisk Youngling (level 53)",
+   "Basilisk (level 61)",
+   "Monstrous Basilisk (level 135)",
+   "Typhor (level 218)",
+   "The Jormungand (level 363)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "50,000 Slayer XP",
+   "50,000 Crafting XP",
+   "30,000 Runecraft XP",
+   "V's Shield",
+   "Access to the Isle of Stone",
+   "Ability to kill Basilisk Knights as a slayer task",
+   "Ability to craft and equip the Neitiznot faceguard."
+  ],
+  "sec": [
+   {
+    "n": "Investigating",
+    "st": [
+     {
+      "t": "Buy 2 kegs of beer from Thora in Rellekka. She will be unavailable to trade later in the quest.",
+      "i": [
+       "Coins (650)"
+      ]
+     },
+     {
+      "t": "Talk to Brundt in Rellekka's longhall.",
+      "s": [
+       "Ask for a quest.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Freygerd in north Rellekka.",
+      "i": [
+       "Combat gear",
+       "Mirror shield"
+      ]
+     },
+     {
+      "t": "Equip your mirror shield, then search the sand pit near Freygerd, ready to fight a basilisk youngling.",
+      "i": [
+       "Combat gear",
+       "Mirror shield"
+      ]
+     },
+     {
+      "t": "Defeat the Basilisk Youngling.",
+      "i": [
+       "Combat gear",
+       "Mirror shield"
+      ]
+     },
+     {
+      "t": "Pick up the letter.",
+      "i": [
+       "Unsealed letter"
+      ]
+     },
+     {
+      "t": "Read the letter.",
+      "i": [
+       "Unsealed letter"
+      ]
+     },
+     {
+      "t": "Search the rockslide west of the sand pit."
+     },
+     {
+      "t": "Search the boxes south of Freygerd."
+     },
+     {
+      "t": "Return to Freygerd with the items you found.",
+      "i": [
+       "Unsealed letter",
+       "Fang",
+       "Venom gland"
+      ]
+     },
+     {
+      "t": "Return to Brundt in Rellekka's longhall. If he gives you a note, read it, then talk to him again until the cutscene plays.",
+      "s": [
+       "Ask about the investigation.",
+       "Ask about the Jormungand."
+      ]
+     },
+     {
+      "t": "Talk to Brundt south east of Rellekka, asking him all available questions."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Mirror shield"
+    ],
+    "c": 1,
+    "e": [
+     "Basilisk Youngling (level 53)",
+     "Basilisk (level 61)"
+    ]
+   },
+   {
+    "n": "A Fremennik Shield",
+    "st": [
+     {
+      "t": "You can get a fremennik shield from dagannoths in Waterbirth Dungeon or Bardur in Waterbirth Dungeon for 150k, or for free with the Ring of Charos(a). You'll need a friend to get there, or a rune thrownaxe and a pet rock.",
+      "i": [
+       "Ring of Charos(a) or 150k coins"
+      ]
+     }
+    ],
+    "i": [
+     "Ring of Charos(a) or 150k coins",
+     "Pet rock",
+     "Rune thrownaxe, or a friend to help enter Waterbirth Isle Dungeon"
+    ]
+   },
+   {
+    "n": "Making Lunar Glass",
+    "st": [
+     {
+      "t": "Talk to Baba Yaga in the chicken-legged house in the north of Lunar Isle's town.",
+      "s": [
+       "I was wondering if you could help me make Lunar Glass?"
+      ],
+      "i": [
+       "Seal of passage",
+       "Molten glass"
+      ]
+     },
+     {
+      "t": "Go to the Astral Altar in the south-east of Lunar Isle and use it, with the molten glass (i) and 100 astral runes in your inventory, to make some lunar glass.",
+      "i": [
+       "Molten glass (i)",
+       "Astral runes (100)"
+      ]
+     }
+    ],
+    "i": [
+     "Seal of passage",
+     "Molten glass",
+     "Astral runes (100)"
+    ]
+   },
+   {
+    "n": "Making V's Sigil",
+    "st": [
+     {
+      "t": "Enter the mine in the north east of Lunar Isle.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Mine 3 lunar ores from the stalagmites in the area.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Smelt the lunar ore into bars at any furnace.",
+      "i": [
+       "Lunar ore (3)"
+      ]
+     },
+     {
+      "t": "Make the V sigil on any anvil.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Lunar bar (3)"
+      ]
+     },
+     {
+      "t": "Go to the strange altar on the small peninsula south-west of Rellekka. Interact with the altar to summon the Fossegrimen, then talk to her to enchant the sigil.",
+      "s": [
+       "Ask about V's Sigil."
+      ],
+      "i": [
+       "V sigil"
+      ]
+     }
+    ],
+    "i": [
+     "Any pickaxe",
+     "Hammer"
+    ]
+   },
+   {
+    "n": "Making a Polishing Rock",
+    "st": [
+     {
+      "t": "Inspect the geyser north of the Mountain Camp.",
+      "s": [
+       "It's for the good of the Province!"
+      ],
+      "i": [
+       "Pet rock"
+      ]
+     },
+     {
+      "t": "Talk to Peer the Seer south west of the Rellekka market."
+     },
+     {
+      "t": "Return to the geyser north of the Mountain Camp. Wear your ice gloves or smiths gloves (i), then inspect the geyser again.",
+      "i": [
+       "Pet rock",
+       "Ice gloves or smiths gloves(i)",
+       "Fishing rod"
+      ]
+     },
+     {
+      "t": "Retrieve your rock from the geyser.",
+      "i": [
+       "Ice gloves or smiths gloves(i)",
+       "Fishing rod"
+      ]
+     }
+    ],
+    "i": [
+     "Pet rock",
+     "Ice gloves or smiths gloves(i)",
+     "Fishing rod"
+    ]
+   },
+   {
+    "n": "Forging the shield",
+    "st": [
+     {
+      "t": "Use the shield parts together to make V's Shield.",
+      "i": [
+       "Fremennik shield",
+       "Lunar glass",
+       "Polishing rock",
+       "V sigil (e)",
+       "Glassblowing pipe"
+      ]
+     },
+     {
+      "t": "Talk to Brundt south east of Rellekka with V's shield.",
+      "i": [
+       "V's shield",
+       "Kegs of beer (2)"
+      ]
+     },
+     {
+      "t": "Talk to Brundt with 2 kegs of beer.",
+      "i": [
+       "Kegs of beer (2)"
+      ]
+     }
+    ],
+    "i": [
+     "Fremennik shield",
+     "Lunar glass",
+     "Polishing rock",
+     "V sigil (e)",
+     "Glassblowing pipe",
+     "Kegs of beer (2)"
+    ]
+   },
+   {
+    "n": "Defending Rellekka",
+    "st": [
+     {
+      "t": "Return to Brundt in Rellekka's longhall.",
+      "s": [
+       "Ask about the Jormungand."
+      ],
+      "i": [
+       "Combat gear",
+       "Food"
+      ]
+     },
+     {
+      "t": "Kill basilisks until you're told to stop.",
+      "i": [
+       "V's shield",
+       "Combat gear",
+       "Food"
+      ]
+     },
+     {
+      "t": "Board the north-westernmost Fremennik boat in Rellekka, on the pier with the Waterbirth Island boat, to travel to the Island of Stone."
+     },
+     {
+      "t": "Talk to Brundt outside the cave entrance."
+     },
+     {
+      "t": "Attempt to open the door and solve the puzzle. The code is four runes from air, water, earth, fire, astral and cosmic, and a rune can appear more than once. After each guess, a green tick means a right rune in the right place, and a red tick means a right rune in the wrong place. To start, set all four slots to one rune: the green ticks show how many of that rune are in the code. Then swap runes around and use the ticks to place them. After nine wrong guesses the code changes and you start again."
+     },
+     {
+      "t": "Equip V's shield and keep it on for the whole fight. Then enter the door, ready to fight.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Combat gear",
+       "V's shield"
+      ]
+     },
+     {
+      "t": "Fight Typhor, who attacks with both Melee and Magic. He is weak to crush.",
+      "i": [
+       "V's shield"
+      ]
+     },
+     {
+      "t": "Defeat the Jormungand. When the screen turns red, have your character face away from him. When frozen in rock, tap repeatedly to break out.",
+      "i": [
+       "V's shield"
+      ]
+     },
+     {
+      "t": "Watch the cutscenes. If the quest hasn't finished, talk to Brundt in Rellekka's longhall to complete it."
+     }
+    ],
+    "i": [
+     "Combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "Basilisk (level 61)",
+     "Typhor (level 218)",
+     "The Jormungand (level 363)"
+    ]
+   }
+  ]
+ }
+}

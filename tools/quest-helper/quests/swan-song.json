@@ -1,0 +1,287 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder swansong; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Swan Song",
+  "items": [
+   "Mist rune (10)",
+   "Lava rune (10)",
+   "Blood rune (5)",
+   "Bones (7)",
+   "Pot",
+   "Pot lid",
+   "Iron bar (5)",
+   "Any log",
+   "Tinderbox",
+   "Hammer (obtainable in quest)"
+  ],
+  "rec": [
+   "Teleport to Draynor Village",
+   "Piscatoris teleport (2)",
+   "Yanille teleport or Nightmare Zone minigame teleport",
+   "Crafting Guild teleport",
+   "Cooking gauntlets for lower burn chance on monkfish"
+  ],
+  "enemies": [
+   "11 Sea trolls (levels 65/79/87/101)",
+   "Sea troll queen (level 170)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "15,000 Magic XP",
+   "10,000 Prayer XP",
+   "50,000 Fishing XP",
+   "25000 x Coins",
+   "Access to the Piscatoris Fishing Colony",
+   "The ability to fish Monkfish"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Herman Caranos outside the Piscatoris Fishing Colony, north of fairy ring AKQ.",
+      "s": [
+       "What's the rush?",
+       "Do you need any help?",
+       "I'm a brave adventurer! Can I try?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to the Wise Old Man in Draynor Village.",
+      "s": [
+       "Draynor Village",
+       "You used to be a famous adventurer, didn't you?"
+      ],
+      "i": [
+       "Blood rune (5)",
+       "Lava rune (10)",
+       "Mist rune (10)"
+      ]
+     }
+    ],
+    "i": [
+     "Blood rune (5)",
+     "Mist rune (10)",
+     "Lava rune (10)"
+    ],
+    "tr": [
+     "Piscatoris teleport",
+     "Teleport to Draynor Village"
+    ]
+   },
+   {
+    "n": "Entering the colony",
+    "st": [
+     {
+      "t": "Talk to the Wise Old Man outside the Fishing Colony. Be prepared to fight sea trolls.",
+      "s": [
+       "I'm ready to fight."
+      ],
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "If you aren't inside the Fishing Colony yet, enter through the hole next to the Wise Old Man. Kill the sea trolls.",
+      "i": [
+       "Combat gear",
+       "Any log",
+       "Tinderbox",
+       "Iron bars (5)",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Go into the building in the east of the Fishing Colony and talk to Herman. Tap the floor inside the building first, as tapping Herman from outside can send you running around to the north."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Any log",
+     "Tinderbox",
+     "Iron bar (5)",
+     "Hammer (obtainable in quest)"
+    ],
+    "tr": [
+     "Piscatoris teleport"
+    ],
+    "c": 1,
+    "e": [
+     "11 Sea trolls (levels 65/79/87/101)"
+    ]
+   },
+   {
+    "n": "Helping Franklin",
+    "st": [
+     {
+      "t": "Talk to Franklin in the middle of the Fishing Colony."
+     },
+     {
+      "t": "Add some logs to the firebox in the building with a furnace.",
+      "i": [
+       "Any log"
+      ]
+     },
+     {
+      "t": "Light the logs in the firebox in the building with a furnace.",
+      "i": [
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Flatten 5 iron bars using the metal press.",
+      "i": [
+       "Iron bars (5)"
+      ]
+     },
+     {
+      "t": "Repair all 5 broken walls to the west, using an iron sheet on each. If you have no hammer, tell Franklin you have the iron sheets and he will give you one.",
+      "i": [
+       "Iron sheet (5)",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Talk to Franklin again."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Any log",
+     "Tinderbox",
+     "Iron bar (5)",
+     "Hammer (obtainable in quest)"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Helping Arnold",
+    "st": [
+     {
+      "t": "Talk to Arnold at the bank in the Fishing Colony."
+     },
+     {
+      "t": "Fish at least 5 fresh monkfish at the fishing spot in the north-west of the colony, using a small fishing net (Arnold gives you one if you have none). Sea Trolls will appear, and you'll need to kill them.",
+      "i": [
+       "Small fishing net",
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Cook 5 monkfish on the stove in the kitchen, south of the fishing spot. If you burn any, catch some more.",
+      "i": [
+       "Fresh monkfish (5)"
+      ]
+     },
+     {
+      "t": "Bring the monkfish to Arnold at the bank.",
+      "i": [
+       "Fresh monkfish (5)"
+      ]
+     },
+     {
+      "t": "Talk to Herman in the east of the colony again."
+     }
+    ],
+    "i": [
+     "Combat gear"
+    ],
+    "r": [
+     "Cooking gauntlets for lower burn chance on monkfish"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Making an army",
+    "st": [
+     {
+      "t": "Talk to Wizard Frumscone in the Wizards' Guild basement.",
+      "s": [
+       "I'll see what the necromancer needs me to do."
+      ]
+     },
+     {
+      "t": "Talk to Malignius Mortifer, south of Falador and north of Port Sarim, a little north-west of Betty's magic shop.",
+      "s": [
+       "I need help with saving a fishing colony."
+      ],
+      "i": [
+       "Bones (7)"
+      ]
+     },
+     {
+      "t": "Wear the brown apron Malignius gave you to enter the Crafting Guild, then talk to the Master Crafter with dreadlocks on its east side.",
+      "s": [
+       "Swan Song."
+      ],
+      "i": [
+       "Brown apron"
+      ]
+     },
+     {
+      "t": "Add a pot lid to a pot.",
+      "i": [
+       "Pot",
+       "Pot lid"
+      ]
+     },
+     {
+      "t": "Bring the airtight pot and 7 bones to Malignius Mortifer near Port Sarim. Make sure you're equipped for the fight before speaking to Malignus.",
+      "s": [
+       "I've spoken to the master crafter..."
+      ],
+      "i": [
+       "Airtight pot"
+      ]
+     }
+    ],
+    "i": [
+     "Bones (7)",
+     "Pot",
+     "Pot lid",
+     "Ranged or melee combat gear"
+    ],
+    "tr": [
+     "Yanille teleport or Nightmare Zone minigame teleport",
+     "Crafting Guild teleport"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Defeating the trolls",
+    "st": [
+     {
+      "t": "Be prepared to fight, and talk to Herman in the colony.",
+      "s": [
+       "I'm ready. Let's fight!"
+      ],
+      "i": [
+       "Ranged or melee combat gear"
+      ]
+     },
+     {
+      "t": "Kill the Sea Troll Queen.",
+      "s": [
+       "No, I'm ready to move on with the quest."
+      ],
+      "i": [
+       "Ranged or melee combat gear"
+      ]
+     },
+     {
+      "t": "Talk to Herman to finish the quest."
+     }
+    ],
+    "i": [
+     "Ranged or melee combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "11 Sea trolls (levels 65/79/87/101)",
+     "Sea troll queen (level 170)"
+    ]
+   }
+  ]
+ }
+}

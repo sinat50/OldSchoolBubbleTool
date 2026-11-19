@@ -1,0 +1,252 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Icthlarin's Little Helper",
+  "items": [
+   "Any cat or kitten",
+   "Tinderbox",
+   "Coins or more for various payments (600)",
+   "Bag of Salt from a Slayer Master, or an empty bucket to get some",
+   "Willow logs",
+   "Bucket of sap",
+   "Waterskin(4), bring a few to avoid drinking it",
+   "1 x Linen or 30 coins to buy some"
+  ],
+  "rec": [
+   "Combat equipment",
+   "Food",
+   "Prayer potions",
+   "Antipoison"
+  ],
+  "enemies": [
+   "Level 75 or 81 guardian",
+   "Possessed priest (level 91)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "4,500 Thieving XP",
+   "4,000 Agility XP",
+   "4,000 Woodcutting XP",
+   "Catspeak Amulet",
+   "Access to the city of Sophanem.",
+   "Ability to take carpet rides from Pollnivneach to Sophanem and Menaphos."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "With your cat following you (drop it from your inventory), talk to the Wanderer west of the Agility Pyramid.",
+      "s": [
+       "Yes.",
+       "Why? What's your problem with it?",
+       "Ok I'll get your supplies."
+      ],
+      "i": [
+       "Waterskin(4), bring a few to avoid drinking it",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Talk to the Wanderer again with the required items.",
+      "s": [
+       "Yes. I have them all here."
+      ],
+      "i": [
+       "Waterskin(4), bring a few to avoid drinking it",
+       "Tinderbox"
+      ]
+     }
+    ],
+    "i": [
+     "Any cat or kitten",
+     "Waterskin(4), bring a few to avoid drinking it",
+     "Tinderbox",
+     "Coins or more for various payments (600)",
+     "Bag of Salt from a Slayer Master, or an empty bucket to get some",
+     "Willow logs",
+     "Bucket of sap"
+    ]
+   },
+   {
+    "n": "Remembering",
+    "st": [
+     {
+      "t": "If you aren't in Sophanem yet, enter the rock just north-east of the Wanderer's tent. Use this rock whenever you need to get back in. Then enter the pyramid in the south of Sophanem, through the door with a cat on it."
+     },
+     {
+      "t": "Follow the path until you reach a pit, and jump it. Move using the minimap to avoid all the traps."
+     },
+     {
+      "t": "Attempt to open the western door."
+     }
+    ]
+   },
+   {
+    "n": "Returning the jar",
+    "st": [
+     {
+      "t": "With your cat following you (drop it from your inventory), talk to the Sphinx in Sophanem and answer its riddle with '9.'.",
+      "s": [
+       "I need help.",
+       "Okay, that sounds fair.",
+       "9.",
+       "Totally positive."
+      ]
+     },
+     {
+      "t": "Talk to the High Priest in the south west of Sophanem.",
+      "i": [
+       "Sphinx's token"
+      ]
+     },
+     {
+      "t": "With your cat following you, go to the pyramid in the south of Sophanem. Long-press the door with a cat on it and choose Open."
+     },
+     {
+      "t": "Follow the path again until you reach a pit, and jump it. Move using the minimap to avoid all the traps."
+     },
+     {
+      "t": "Try picking up the canopic jars in the north west room until a level 75-81 enemy spawns. Kill them. You can safespot them on the central table."
+     },
+     {
+      "t": "Try picking up the canopic jars in the north west room again."
+     },
+     {
+      "t": "Jump back over the pit with the jar."
+     },
+     {
+      "t": "Jump back over to the north side of the pit. Move using the minimap to avoid all the traps inside the pyramid."
+     },
+     {
+      "t": "Solve the door puzzle again."
+     },
+     {
+      "t": "Drop the canopic jar in the spot you took it from.",
+      "i": [
+       "Canopic jar"
+      ]
+     },
+     {
+      "t": "Leave the pyramid and return to the High Priest.",
+      "s": [
+       "Sure, no problem."
+      ]
+     }
+    ],
+    "i": [
+     "Combat equipment",
+     "Food",
+     "Any cat or kitten"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Prepare the ritual",
+    "st": [
+     {
+      "t": "Talk to the Embalmer just south of the High Priest.",
+      "i": [
+       "Bag of Salt from a Slayer Master, or an empty bucket to get some",
+       "Bucket of sap"
+      ]
+     },
+     {
+      "t": "Get some linen. You can buy some from Raetul in east Sophanem for 30 coins.",
+      "i": [
+       "Coins (30)"
+      ]
+     },
+     {
+      "t": "Only if you brought an empty bucket instead of a bag of salt: crawl through the hole in Sophanem's east wall to leave the town, and fill the bucket with salt water from the lake north of Sophanem. Go back in through the rocks on the east side of the Wanderer's tent, then use the bucket of saltwater on the suntrap in the south east of Sophanem to get salt. Otherwise, skip this step.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Talk to the Embalmer again just south of the High Priest.",
+      "i": [
+       "Bag of Salt from a Slayer Master, or an empty bucket to get some",
+       "Linen",
+       "Bucket of sap"
+      ]
+     },
+     {
+      "t": "Talk to the Carpenter in the east of Sophanem until he gives you the holy symbol.",
+      "s": [
+       "Alright, I'll get the wood for you."
+      ],
+      "i": [
+       "Willow logs"
+      ]
+     }
+    ],
+    "i": [
+     "Bucket of sap",
+     "Bag of Salt from a Slayer Master, or an empty bucket to get some",
+     "1 x Linen or 30 coins to buy some",
+     "Willow logs"
+    ]
+   },
+   {
+    "n": "Save the ritual",
+    "st": [
+     {
+      "t": "With your cat following you, go to the pyramid in the south of Sophanem. Long-press the door with a cat on it and choose Open.",
+      "i": [
+       "Holy symbol"
+      ]
+     },
+     {
+      "t": "Follow the path again until you reach a pit, and jump it. Move using the minimap to avoid all the traps.",
+      "i": [
+       "Holy symbol"
+      ]
+     },
+     {
+      "t": "Enter the east room."
+     },
+     {
+      "t": "Use the unholy symbol on a sarcophagus.",
+      "i": [
+       "Unholy symbol"
+      ]
+     },
+     {
+      "t": "Leave the east room."
+     },
+     {
+      "t": "Jump over the pit.",
+      "i": [
+       "Holy symbol"
+      ]
+     },
+     {
+      "t": "Enter the east room again."
+     },
+     {
+      "t": "Kill the possessed priest. Pray protect from magic against the priest."
+     },
+     {
+      "t": "Talk to the High Priest in the north east room of the pyramid."
+     },
+     {
+      "t": "Leave the pyramid and witness a cutscene at the exit."
+     },
+     {
+      "t": "Return to the High Priest in the south west of Sophanem to finish the quest."
+     }
+    ],
+    "i": [
+     "Combat equipment",
+     "Food",
+     "Any cat or kitten"
+    ],
+    "c": 1,
+    "e": [
+     "Possessed priest (level 91)"
+    ]
+   }
+  ]
+ }
+}

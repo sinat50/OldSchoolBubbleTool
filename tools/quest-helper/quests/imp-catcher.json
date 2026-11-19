@@ -1,0 +1,72 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Imp Catcher",
+  "items": [
+   "Black bead",
+   "White bead",
+   "Red bead",
+   "Yellow bead"
+  ],
+  "rec": [],
+  "enemies": [
+   "Imps (level 2) if you plan on collecting the beads yourself"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "875 Magic XP",
+   "An Amulet of Accuracy"
+  ],
+  "sec": [
+   {
+    "n": "Bring Mizgog his beads",
+    "st": [
+     {
+      "t": "Collect one of each bead. You can kill imps for these beads, or buy them on the Grand Exchange.",
+      "i": [
+       "Black bead",
+       "White bead",
+       "Red bead",
+       "Yellow bead"
+      ]
+     },
+     {
+      "t": "Head to the Wizards' Tower, south of Draynor Village, and climb the staircase to the top floor with the required beads, choosing Up on the way.",
+      "s": [
+       "Up"
+      ],
+      "i": [
+       "Black bead",
+       "White bead",
+       "Red bead",
+       "Yellow bead"
+      ]
+     },
+     {
+      "t": "Talk to Wizard Mizgog with the required beads to finish the quest.",
+      "s": [
+       "Give me a quest please.",
+       "Yes."
+      ],
+      "i": [
+       "Black bead",
+       "White bead",
+       "Red bead",
+       "Yellow bead"
+      ]
+     }
+    ],
+    "i": [
+     "Black bead",
+     "White bead",
+     "Red bead",
+     "Yellow bead"
+    ],
+    "c": 1,
+    "e": [
+     "Imps (level 2) if you plan on collecting the beads yourself"
+    ]
+   }
+  ]
+ }
+}

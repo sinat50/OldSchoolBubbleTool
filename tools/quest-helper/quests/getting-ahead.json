@@ -1,0 +1,137 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Getting Ahead",
+  "items": [
+   "You can get all the required items during the quest.",
+   "Bear Fur",
+   "Soft Clay",
+   "Hammer",
+   "Any saw",
+   "Planks (2)",
+   "Nails (6)",
+   "Knife",
+   "Red Dye",
+   "Pot of Flour",
+   "Needle",
+   "Thread"
+  ],
+  "rec": [
+   "Food",
+   "Stamina Potion",
+   "Combat gear",
+   "Skills Necklace"
+  ],
+  "enemies": [
+   "Headless Beast (level 82, safespottable)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "4,000 Crafting XP",
+   "3,200 Construction XP",
+   "3000 x Coins",
+   "Access to the tannery on Kebos Lowlands"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Gordon south of the Farming Guild.",
+      "s": [
+       "Need a hand with anything?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Mary inside the main building, west of Gordon."
+     }
+    ]
+   },
+   {
+    "n": "Killing the Beast",
+    "st": [
+     {
+      "t": "If you have no pot of flour, climb the staircase in the farmhouse west of Gordon. Upstairs, take the pot of flour, or fill a pot at the barrel of flour in the south west room, then go back down. Use the pot of flour on the southern gate of the cow pen, east of Gordon."
+     },
+     {
+      "t": "Follow the flour trail south past the bridge, then west to the cave at the Kebos Lowlands mine. Enter it and kill the Headless Beast (level 82). You can safespot it from the south west corner of the pond in the cave.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Leave the cave. If you still need them, take the pickaxe from the rocks in the mine, mine some clay and pick up the 2 planks just west of the cave entrance. Return to Gordon and talk to him."
+     }
+    ],
+    "i": [
+     "Pot of Flour"
+    ],
+    "c": 1,
+    "e": [
+     "Headless Beast (level 82, safespottable)"
+    ]
+   },
+   {
+    "n": "Making the fake head",
+    "st": [
+     {
+      "t": "Talk to Mary inside the house."
+     },
+     {
+      "t": "If your clay is not soft yet, take the bucket in the farmhouse, fill it at the sink and use it on the clay. Take the knife near Mary. Use the knife on the soft clay, then talk to Gordon.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "If you have no bear fur, kill a bear west of the farm. Take the needle and thread upstairs in the farmhouse. Use the bear fur on the clay head, then talk to Gordon.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Use the red dye on the fur head then talk to Gordon. If you have no red dye, get some from the shelves in the farmhouse first.",
+      "s": [
+       "Take some red dye.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "If you're missing anything for the next step, get it now. The hammer is east of the farmhouse by the cow pen gate. The saw is in the building north of the farmhouse, and the nails are in that building's workbench. The planks are just west of the Headless Beast's cave entrance.",
+      "s": [
+       "Take the nails."
+      ]
+     },
+     {
+      "t": "Build the Mounted Head Space on the wall just south of the stairs inside the farmhouse.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Planks (2)",
+       "Nails (6)",
+       "Hammer",
+       "Any saw"
+      ]
+     },
+     {
+      "t": "Return to Gordon to finish the quest."
+     }
+    ],
+    "i": [
+     "Bear Fur",
+     "Soft Clay",
+     "Hammer",
+     "Any saw",
+     "Planks (2)",
+     "Nails (6)",
+     "Knife",
+     "Red Dye",
+     "Needle",
+     "Thread"
+    ]
+   }
+  ]
+ }
+}

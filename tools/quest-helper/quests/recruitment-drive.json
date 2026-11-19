@@ -1,0 +1,171 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder recruitmentdrive; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Recruitment Drive",
+  "items": [],
+  "rec": [],
+  "enemies": [
+   "Sir Leye (level 20) with no items"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "1,000 Prayer XP",
+   "1,000 Agility XP",
+   "1,000 Herblore XP",
+   "Initiate Helm",
+   "3000 x Coins",
+   "Ability to respawn in Falador",
+   "Access to Initiate Armor"
+  ],
+  "sec": [
+   {
+    "n": "Starting out",
+    "st": [
+     {
+      "t": "In the west part of Falador Castle, climb the stairs to the first floor, then the next stairs a few steps east to the second floor. Talk to Sir Amik Varze there.",
+      "s": [
+       "Yes please",
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Start the testing",
+    "st": [
+     {
+      "t": "Bank everything you carry and wear: the test needs an empty inventory and nothing worn. Then talk to Sir Tiffy Cashien on the bench at the entrance of Falador Park.",
+      "s": [
+       "Yes, let's go!"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Sir Tinley",
+    "st": [
+     {
+      "t": "You get five of these seven rooms, in a random order, and one is always Sir Kuam Ferentse's fight with Sir Leye. Use the section named after whoever is in your room. For Sir Tinley's room, read the next step before you talk to him."
+     },
+     {
+      "t": "Talk to Sir Tinley. Once you have pressed continue do not do anything or you will fail."
+     },
+     {
+      "t": "Press Continue and do nothing. Sir Tinley will eventually talk to you and let you pass."
+     },
+     {
+      "t": "Leave through the portal to continue."
+     }
+    ]
+   },
+   {
+    "n": "Ms. Hynn Terprett",
+    "st": [
+     {
+      "t": "Talk to Ms Hynn Terprett and answer her riddle. Death sentence riddle: the wolves. Husband and daughter riddle: 10. Identical stones riddle: Bucket A (32 degrees). Fingers on the left hand riddle: zero. Which statement is true riddle: the number of false statements here is three. A wrong answer fails the test: you go back to Falador and start the rooms again."
+     },
+     {
+      "t": "Leave through the door to enter the portal and continue."
+     }
+    ]
+   },
+   {
+    "n": "Sir Kuam Ferentse",
+    "st": [
+     {
+      "t": "Talk to Sir Kuam Ferentse to have him spawn Sir Leye."
+     },
+     {
+      "t": "Defeat Sir Leye to win this challenge. Four steel weapons are in the room: pick up the steel warhammer and wield it, or fight bare-handed. If you are wielding a bladed weapon when he dies, you fail the test."
+     },
+     {
+      "t": "Leave through the portal to continue."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Sir Leye (level 20) with no items"
+    ]
+   },
+   {
+    "n": "Sir Spishyus",
+    "st": [
+     {
+      "t": "Pick up the Chicken on the east and move it to the west side by crossing the bridge, then drop the Chicken from your equipped items."
+     },
+     {
+      "t": "Pick up the Fox on the east and move it to the west side by crossing the bridge, then drop the Fox from your equipped items."
+     },
+     {
+      "t": "Pick up the Chicken on the west and move it to the east side by crossing the bridge, then drop the Chicken from your equipped items."
+     },
+     {
+      "t": "Pick up the Grain on the east and move it to the west side by crossing the bridge, then drop the Grain from your equipped items."
+     },
+     {
+      "t": "Pick up the Chicken on the east and move it to the west side by crossing the bridge, then drop the Chicken from your equipped items."
+     },
+     {
+      "t": "Leave through the portal to continue."
+     }
+    ]
+   },
+   {
+    "n": "Sir Ren Itchood",
+    "st": [
+     {
+      "t": "Talk to Sir Ren Itchood to receive the clue.",
+      "s": [
+       "Can I have the clue for the door?"
+      ]
+     },
+     {
+      "t": "Open the door to be prompted to enter a code."
+     },
+     {
+      "t": "Solve the door combination lock. The code is the four-letter word made from the first letter of each line of Sir Ren Itchood's clue: BITE, FISH, LAST, MEAT, RAIN or TIME."
+     },
+     {
+      "t": "Leave through the door to enter the portal and continue."
+     }
+    ]
+   },
+   {
+    "n": "Miss Cheevers",
+    "st": [
+     {
+      "t": "Search the bookshelves, shelves and crates and take everything, including a knife, the vials, and the tin from the crate.",
+      "s": [
+       "Take both vials.",
+       "Take all three vials",
+       "YES"
+      ]
+     },
+     {
+      "t": "First door: take the metal spade from the table and use it on the Bunsen burner, use the spade on the stone door, then use cupric sulfate on the door, then a vial of liquid on the door, and open it, but don't walk through it yet."
+     },
+     {
+      "t": "Second door: use a vial of liquid on the tin, then gypsum on the tin, then the tin on the key on the ground by the entrance portal."
+     },
+     {
+      "t": "Use cupric ore powder and tin ore powder on the tin, use the tin on the Bunsen burner, then use the knife on the tin to get a bronze key."
+     },
+     {
+      "t": "Use the key on the second door and leave through it to the portal."
+     }
+    ]
+   },
+   {
+    "n": "Lady Table",
+    "st": [
+     {
+      "t": "Solve Lady Table's puzzle. One of the 12 statues is missing when you enter and you only have a few seconds, so take a screenshot straight away (talking to Lady Table holds the room as it is until the chat ends). Find the colour (bronze, silver or gold) with only three statues and see which weapon that colour is missing. When the missing statue returns, tap it. Tapping the wrong statue fails the test: you go back to Falador and start the rooms again."
+     },
+     {
+      "t": "Leave through the door to enter the portal and continue."
+     }
+    ]
+   }
+  ]
+ }
+}

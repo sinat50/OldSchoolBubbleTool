@@ -1,0 +1,96 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Ribbiting Tale of a Lily Pad Labour Dispute",
+  "items": [
+   "Any axe"
+  ],
+  "rec": [],
+  "enemies": [
+   "Cuthbert, Lord of Dread (level 1)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "2,000 Woodcutting XP",
+   "Access to a new Hardwood Farming Patch"
+  ],
+  "sec": [
+   {
+    "n": "Toad-aly mad",
+    "st": [
+     {
+      "t": "Talk to Marcellus near the Locus Oasis south of Civitas illa Fortis. AJP Fairy ring is fastest.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to the blue frogs in the north-east of the oasis."
+     },
+     {
+      "t": "Return to Marcellus."
+     },
+     {
+      "t": "Return to the blue frogs Sue and Gary in the north-east of the oasis."
+     }
+    ],
+    "i": [
+     "Any axe"
+    ]
+   },
+   {
+    "n": "Rig-it",
+    "st": [
+     {
+      "t": "Talk to the yellow frogs Jane and Dave to the south of Gary."
+     },
+     {
+      "t": "Chop down the orange tree next to the yellow frogs. If you have no axe, take the bronze axe from the logs next to Marcellus.",
+      "i": [
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Sabotage the lily pad near to the yellow frogs."
+     },
+     {
+      "t": "Return to Sue and Gary in the north-east of the oasis."
+     }
+    ]
+   },
+   {
+    "n": "Hopping to conclusions",
+    "st": [
+     {
+      "t": "Return to Marcellus."
+     },
+     {
+      "t": "Go talk to Sue and Gary to discuss framing the flies."
+     },
+     {
+      "t": "Search the chest in the building next to Marcellus and enter the code NALIA."
+     },
+     {
+      "t": "Plant the plushy in the capybara dung east of Marcellus, south of the orange tree."
+     },
+     {
+      "t": "If Cuthbert doesn't appear when you plant the plushy, inspect the dung east of Marcellus, south of the orange tree."
+     },
+     {
+      "t": "Defeat Cuthbert, Lord of Dread."
+     },
+     {
+      "t": "Tell Marcellus about the plushy."
+     },
+     {
+      "t": "Talk to Sue and Gary to resolve the dispute!"
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Cuthbert, Lord of Dread (level 1)"
+    ]
+   }
+  ]
+ }
+}

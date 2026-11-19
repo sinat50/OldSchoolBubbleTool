@@ -1,0 +1,226 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder hazeelcult; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Hazeel Cult",
+  "items": [],
+  "rec": [
+   "Ardougne cloak for Monastery teleport"
+  ],
+  "enemies": [
+   "Alomone (level 13) if taking Ceril's side"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "1,500 Thieving XP",
+   "2000 x (2,005 if siding with Ceril) Coins",
+   "Hazeel's mark (if you sided with Hazeel)",
+   "Carnillean armour (if you sided with Ceril)"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Ceril Carnillean in the south west of East Ardougne.",
+      "s": [
+       "What's wrong?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Enter the cave south east of the Clock Tower entrance."
+     },
+     {
+      "t": "Talk to Clivet. You can choose to either side with him or with the Carnilleans: say \"I'll help you.\" to side with Hazeel, or \"I won't help you.\" to side with Ceril.",
+      "s": [
+       "Alright, I've made my decision.",
+       "Actually, I have no questions.",
+       "I have no more questions.",
+       "What do you mean?"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Siding with Ceril",
+    "st": [
+     {
+      "t": "Follow this section only if you told Clivet \"I won't help you.\" If you said \"I'll help you.\", skip to Siding with Hazeel. Go back to the surface."
+     },
+     {
+      "t": "Turn the valve west of the Clocktower to the right.",
+      "s": [
+       "Turn it to the right."
+      ]
+     },
+     {
+      "t": "Turn the valve next to the Carnillean home to the right.",
+      "s": [
+       "Turn it to the right."
+      ]
+     },
+     {
+      "t": "Turn the valve east of the Clocktower to the left.",
+      "s": [
+       "Turn it to the left."
+      ]
+     },
+     {
+      "t": "Turn the valve next to the zoo to the right.",
+      "s": [
+       "Turn it to the right."
+      ]
+     },
+     {
+      "t": "Turn the valve north of the monastery to the right.",
+      "s": [
+       "Turn it to the right."
+      ]
+     },
+     {
+      "t": "Re-enter the cave."
+     },
+     {
+      "t": "Board the raft."
+     },
+     {
+      "t": "Talk to Alomone. Be ready to fight him (level 13)."
+     },
+     {
+      "t": "Kill Alomone."
+     },
+     {
+      "t": "Retrieve armour from the chest. If you'd like to keep a set of the armour for yourself, drop it and search the chest for more.",
+      "i": [
+       "Carnillean armour"
+      ]
+     },
+     {
+      "t": "Board the raft back, leave the cave and bring the armour to Ceril in the house in the south west of East Ardougne. You'll see a quest complete screen, but the quest isn't finished yet: carry on with the next steps.",
+      "i": [
+       "Carnillean armour"
+      ]
+     },
+     {
+      "t": "You don't need to talk to Butler Jones. Tap Done and carry on to the cupboard."
+     },
+     {
+      "t": "Go upstairs in the house and search the cupboard in the east room."
+     },
+     {
+      "t": "Talk to Ceril to finish the quest."
+     }
+    ]
+   },
+   {
+    "n": "Siding with Hazeel",
+    "st": [
+     {
+      "t": "Follow this section only if you are siding with Hazeel. Tell Clivet \"I'll help you.\" and \"Alright, how do I do it?\" and he gives you some poison. If you already have the poison, mark this step done.",
+      "s": [
+       "Alright, I've made my decision.",
+       "I'll help you.",
+       "Alright, how do I do it?"
+      ]
+     },
+     {
+      "t": "Go back to the surface.",
+      "i": [
+       "Poison"
+      ]
+     },
+     {
+      "t": "Climb down the ladder in the Carnillean house to the kitchen.",
+      "i": [
+       "Poison"
+      ]
+     },
+     {
+      "t": "Use the poison on the range."
+     },
+     {
+      "t": "Leave the kitchen."
+     },
+     {
+      "t": "Talk to Ceril Carnillean to confirm the results of the poison."
+     },
+     {
+      "t": "Turn the valve west of the Clocktower to the right.",
+      "s": [
+       "Turn it to the right."
+      ]
+     },
+     {
+      "t": "Turn the valve next to the Carnillean home to the right.",
+      "s": [
+       "Turn it to the right."
+      ]
+     },
+     {
+      "t": "Turn the valve east of the Clocktower to the left.",
+      "s": [
+       "Turn it to the left."
+      ]
+     },
+     {
+      "t": "Turn the valve next to the zoo to the right.",
+      "s": [
+       "Turn it to the right."
+      ]
+     },
+     {
+      "t": "Turn the valve north of the monastery to the right.",
+      "s": [
+       "Turn it to the right."
+      ]
+     },
+     {
+      "t": "Return to Clivet."
+     },
+     {
+      "t": "Board the raft."
+     },
+     {
+      "t": "Talk to Alomone."
+     },
+     {
+      "t": "Board the raft back and leave the cave. Talk to Butler Jones in the Carnillean house. Then climb down the ladder to the basement kitchen and search a crate there for a key. Finish the chat so the key goes in your inventory."
+     },
+     {
+      "t": "Go back upstairs from the kitchen.",
+      "i": [
+       "Chest key"
+      ]
+     },
+     {
+      "t": "Go upstairs in the house.",
+      "i": [
+       "Chest key"
+      ]
+     },
+     {
+      "t": "Knock on the wall on the northern side of the east room to enter the hidden room, then climb up the ladder.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Chest key"
+      ]
+     },
+     {
+      "t": "Use the chest key on the chest to get the scroll.",
+      "i": [
+       "Chest key"
+      ]
+     },
+     {
+      "t": "Go back to the cave and board the raft to return to Alomone. If the raft doesn't go to Alomone, repeat the valve steps first. Talk to Alomone with the scroll to finish the quest.",
+      "i": [
+       "Hazeel scroll"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

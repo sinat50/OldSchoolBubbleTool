@@ -1,0 +1,110 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder gertrudescat; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Gertrude's Cat",
+  "items": [
+   "Bucket of milk",
+   "Coins (100)",
+   "Raw Sardine"
+  ],
+  "rec": [
+   "Varrock teleports (2)",
+   "Lumberyard teleport"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "1,525 Cooking XP",
+   "A pet Kitten",
+   "Chocolate Cake",
+   "Stew",
+   "Ability to raise kittens."
+  ],
+  "sec": [
+   {
+    "n": "Starting out",
+    "st": [
+     {
+      "t": "Talk to Gertrude west of Varrock to start the quest.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Pickup some Doogle Leaves south of Gertrude's house.",
+      "i": [
+       "Doogle Leaves",
+       "Raw Sardine"
+      ]
+     },
+     {
+      "t": "Use your Doogle Leaves on the Sardine.",
+      "i": [
+       "Doogle Leaves",
+       "Raw Sardine"
+      ]
+     },
+     {
+      "t": "Talk to Shilop or Wilough in the Varrock Square.",
+      "s": [
+       "What will make you tell me?",
+       "Okay then, I'll pay."
+      ],
+      "i": [
+       "Seasoned Sardine",
+       "Coins (100)"
+      ]
+     }
+    ],
+    "i": [
+     "Raw Sardine",
+     "Coins (100)"
+    ],
+    "c": 0
+   },
+   {
+    "n": "The secret playground (Lumber Yard)",
+    "st": [
+     {
+      "t": "Go to the Lumberyard north east of Varrock and climb over the broken fence on its south side. Go up the ladder in the middle of the yard and use a bucket of milk on Gertrude's cat.",
+      "i": [
+       "Bucket of milk"
+      ]
+     },
+     {
+      "t": "Use a seasoned sardine on Gertrude's cat upstairs in the Lumberyard north east of Varrock.",
+      "i": [
+       "Seasoned Sardine"
+      ]
+     },
+     {
+      "t": "Search different crates downstairs in the Lumberyard until you find the kitten.",
+      "i": [
+       "Bucket of milk"
+      ]
+     },
+     {
+      "t": "Return the kitten to Gertrude's cat.",
+      "i": [
+       "Fluffs' Kitten"
+      ]
+     }
+    ],
+    "i": [
+     "Seasoned Sardine",
+     "Bucket of milk"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Finish the quest",
+    "st": [
+     {
+      "t": "Return to Gertrude west of Varrock to complete the quest."
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

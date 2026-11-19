@@ -1,0 +1,246 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Slug Menace",
+  "items": [
+   "Commorb (can get another from Sir Tiffy)",
+   "Swamp paste",
+   "Rune/pure essence, 15 to be safe (5)",
+   "Chisel",
+   "Access to the Air, Water, Earth, Fire, and Mind runecrafting altars"
+  ],
+  "rec": [
+   "Teleport near Air Altar",
+   "Teleport near Earth Altar",
+   "Teleport near Fire Altar",
+   "Teleport near Water Altar",
+   "Teleport near Mind Altar",
+   "Ardougne teleports (3)",
+   "Necklace of Passage"
+  ],
+  "enemies": [
+   "Slug Prince (level 62) (can only be hurt by melee)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "3,500 Runecraft XP",
+   "3,500 Crafting XP",
+   "3,500 Thieving XP",
+   "Ability to purchase and equip Proselyte equipment."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Sir Tiffy Cashien in Falador Park.",
+      "s": [
+       "Do you have any jobs for me yet?"
+      ],
+      "i": [
+       "Commorb (can get another from Sir Tiffy)"
+      ]
+     }
+    ],
+    "i": [
+     "Commorb (can get another from Sir Tiffy)"
+    ]
+   },
+   {
+    "n": "Investigating",
+    "st": [
+     {
+      "t": "Talk to Col. O'Niall on the pier in Witchaven, east of Ardougne.",
+      "s": [
+       "Who are the important people in Witchaven?",
+       "Nothing at the moment thanks."
+      ]
+     },
+     {
+      "t": "Talk to Brother Maledict in the church.",
+      "s": [
+       "That's enough for now."
+      ]
+     },
+     {
+      "t": "Talk to Mayor Hobb in north west Witchaven. When Savant asks you to, scan with your commorb v2.",
+      "s": [
+       "I'm just looking around.",
+       "Nothing at the moment thanks."
+      ]
+     },
+     {
+      "t": "Talk to Holgart north of Witchaven.",
+      "s": [
+       "Nothing at the moment thanks."
+      ]
+     },
+     {
+      "t": "Return to Col. O'Niall on the pier in Witchaven."
+     },
+     {
+      "t": "Enter the old ruin entrance west of Witchaven.",
+      "s": [
+       "That's enough for now."
+      ]
+     },
+     {
+      "t": "Push the wall just east of where you come down."
+     },
+     {
+      "t": "Follow the path until you reach an imposing door, and try opening it. After, try scanning with the commorb v2.",
+      "i": [
+       "Commorb v2"
+      ]
+     },
+     {
+      "t": "Try scanning with the commorb.",
+      "i": [
+       "Commorb (can get another from Sir Tiffy)"
+      ]
+     },
+     {
+      "t": "Pick up the dead sea slug next to the imposing door.",
+      "i": [
+       "Dead sea slug"
+      ]
+     }
+    ],
+    "i": [
+     "Commorb v2"
+    ]
+   },
+   {
+    "n": "Uncovering the truth",
+    "st": [
+     {
+      "t": "Talk to Jorral at the Outpost, north-west of Ardougne. A necklace of passage teleports you there.",
+      "s": [
+       "Translations"
+      ],
+      "i": [
+       "Door transcription",
+       "Necklace of Passage"
+      ]
+     },
+     {
+      "t": "Return to Col. O'Niall on the pier in Witchaven."
+     },
+     {
+      "t": "Talk to Brother Maledict in the church."
+     },
+     {
+      "t": "Search the study desk in the Mayor's house for a page."
+     },
+     {
+      "t": "Talk to Ezekial Lovecraft in the fishing shop in east Witchaven for a page."
+     },
+     {
+      "t": "Talk to Col. O'Niall on the pier in Witchaven for a page."
+     },
+     {
+      "t": "Use some swamp paste on one of the page fragments.",
+      "i": [
+       "Swamp paste",
+       "Fragment 1",
+       "Fragment 2",
+       "Fragment 3"
+      ]
+     },
+     {
+      "t": "Talk to Jeb north of Witchaven to travel to the Fishing Platform.",
+      "i": [
+       "Dead sea slug"
+      ]
+     },
+     {
+      "t": "Talk to Bailey on the Fishing Platform.",
+      "i": [
+       "Dead sea slug"
+      ]
+     },
+     {
+      "t": "Use the slug glue on one of the fragments.",
+      "i": [
+       "Sea slug glue",
+       "Fragment 1"
+      ]
+     },
+     {
+      "t": "Combine the fragments."
+     },
+     {
+      "t": "Long-press each page and choose its shape option to turn rune or pure essence into empty runes. Take each empty rune and use it on its respective Runecrafting Altar. Bring extra essence (~10 extra) as it is possible to accidentally destroy the essence upon creation.",
+      "i": [
+       "Page 1",
+       "Page 2",
+       "Page 3",
+       "Rune or Pure Essence",
+       "Chisel"
+      ]
+     }
+    ],
+    "i": [
+     "Door transcription",
+     "Commorb v2",
+     "Dead sea slug",
+     "Swamp paste",
+     "Chisel",
+     "Rune/pure essence, 15 to be safe (5)",
+     "Access to the Air, Water, Earth, Fire, and Mind runecrafting altars"
+    ]
+   },
+   {
+    "n": "Facing the prince",
+    "st": [
+     {
+      "t": "Prepare to fight the Slug Prince (level 62). Only melee can hurt it. Then, enter the old ruin entrance west of Witchaven.",
+      "i": [
+       "Melee weapon to fight the Slug Prince",
+       "Air rune",
+       "Water rune",
+       "Earth rune",
+       "Fire rune",
+       "Mind rune"
+      ]
+     },
+     {
+      "t": "Enter the wall just east of where you come down."
+     },
+     {
+      "t": "Use the runes on the imposing doors at the end of the path.",
+      "i": [
+       "Air rune",
+       "Water rune",
+       "Earth rune",
+       "Fire rune",
+       "Mind rune"
+      ]
+     },
+     {
+      "t": "Kill the Slug Prince. Only melee can hurt it."
+     },
+     {
+      "t": "Report back to Sir Tiffy Cashien in Falador Park.",
+      "s": [
+       "Slug Menace."
+      ]
+     }
+    ],
+    "i": [
+     "Melee weapon to fight the Slug Prince",
+     "Air rune",
+     "Water rune",
+     "Earth rune",
+     "Fire rune",
+     "Mind rune",
+     "Commorb v2"
+    ],
+    "c": 1,
+    "e": [
+     "Slug Prince (level 62) (can only be hurt by melee)"
+    ]
+   }
+  ]
+ }
+}

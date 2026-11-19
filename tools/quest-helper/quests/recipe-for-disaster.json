@@ -1,0 +1,1166 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Recipe for Disaster",
+  "items": [
+   "Eye of newt",
+   "Greenman's ale",
+   "Rotten tomato",
+   "Ashes",
+   "Fruit blast",
+   "Coins (320)",
+   "Bucket of milk",
+   "Pot of flour",
+   "Egg",
+   "Bowl of water",
+   "Asgarnian ale (4)",
+   "Ice gloves/smiths gloves(i)/normal gloves/telekinetic grab",
+   "Bread",
+   "Orange",
+   "Knife",
+   "A blue, green, or purple dye",
+   "Spice or gnome spice",
+   "Fishing bait",
+   "Bucket of water",
+   "Charcoal",
+   "Empty fishbowl",
+   "Needle",
+   "Bronze wire (3)",
+   "Pestle and mortar",
+   "Raw cod (more if you burn cake)",
+   "Bread (more if you burn cake)",
+   "Cake tin",
+   "A non-overgrown cat for catching rats",
+   "Many stews",
+   "M'speak amulet",
+   "Banana",
+   "Monkey nuts",
+   "Rope",
+   "Gorilla greegree",
+   "Ninja greegree",
+   "Zombie greegree",
+   "Any axe",
+   "Any machete",
+   "Dramen/lunar staff",
+   "Raw chicken",
+   "Pot of cream",
+   "Pot of cornflour",
+   "Dramen branch",
+   "Vanilla pod",
+   "Ice gloves or smiths gloves(i)",
+   "Raw chompy",
+   "Iron spit",
+   "Any log to burn",
+   "Tinderbox",
+   "Any pickaxe",
+   "Ogre bellows",
+   "Balls of wool",
+   "Ogre bow + ogre arrows",
+   "Ice gloves",
+   "Restore potions for Karamel",
+   "Combat gear, food and potions"
+  ],
+  "rec": [
+   "Teleport to Falador (2)",
+   "Teleport to Lumbridge",
+   "Teleport to Taverley",
+   "Teleport to Falador",
+   "Combat gear",
+   "Teleport to Khazard",
+   "Lumbridge Teleport",
+   "Necklace of Passage for Wizards' Tower teleport",
+   "Teleport to Edgeville",
+   "Anti-dragon shield",
+   "Antifire potion",
+   "Draynor Village teleport",
+   "Lumbridge teleport (2)",
+   "Feldip teleport. Fairy Ring (AKS), Gnome Glider",
+   "Karamja teleport. Brimhaven Teleport tablet, Fairy Ring (CKR)"
+  ],
+  "enemies": [
+   "Icefiend if you don't have Ice Gloves",
+   "5 Mudskippers (level 30/31)",
+   "Crab (level 21/23)",
+   "Big Snake (level 84)",
+   "If you need the greegrees still, a zombie, ninja, and guard monkey",
+   "Evil Chicken (level )",
+   "Black dragon (level 227) (Can be safespotted)",
+   "Jubbly (level 9)",
+   "Agrith-Na-Na (level 146)",
+   "Flambeed (level 149)",
+   "Karamel (level 136)",
+   "Dessourt (level 121)",
+   "Gelatinnoth Mother (level 130)",
+   "Culinaromancer (level 75)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "20,000 Experience Lamp (Any skill over level 50)",
+   "Full access to the Culinaromancer's Chest"
+  ],
+  "sec": [
+   {
+    "n": "Another Cook's Quest: Help the Cook",
+    "st": [
+     {
+      "t": "Talk to the Lumbridge Cook.",
+      "s": [
+       "Do you have any other quests for me?",
+       "Angry! It makes me angry!",
+       "I don't really care to be honest.",
+       "What seems to be the problem?",
+       "YES"
+      ],
+      "i": [
+       "Eye of newt",
+       "Greenman's ale",
+       "Rotten tomato",
+       "Ashes",
+       "Fruit blast"
+      ]
+     },
+     {
+      "t": "Use ashes on the fruit blast.",
+      "i": [
+       "Ashes",
+       "Fruit blast"
+      ]
+     },
+     {
+      "t": "Talk to the Lumbridge Cook with the required items.",
+      "s": [
+       "About those ingredients you wanted for the banquet..."
+      ],
+      "i": [
+       "Eye of newt",
+       "Greenman's ale",
+       "Rotten tomato",
+       "Dirty blast"
+      ]
+     },
+     {
+      "t": "Go through the door behind the Cook, in the Lumbridge Castle kitchen, to enter the dining room and watch the cutscene."
+     }
+    ],
+    "i": [
+     "Eye of newt",
+     "Greenman's ale",
+     "Rotten tomato",
+     "Ashes",
+     "Fruit blast"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Mountain Dwarf: Saving the Dwarf",
+    "st": [
+     {
+      "t": "Inspect the dwarf in the Lumbridge Castle dining room."
+     },
+     {
+      "t": "Talk to Kaylee in the pub in Falador.",
+      "s": [
+       "What can you tell me about dwarves and ale?",
+       "I could offer you some in return, how about 200 gold?"
+      ],
+      "i": [
+       "Coins (320)"
+      ]
+     },
+     {
+      "t": "Add coins to asgarnian ale to make 4 asgoldian ale. You can buy ale from Kaylee for 3gp each.",
+      "i": [
+       "Coin",
+       "Asgarnian ale"
+      ]
+     },
+     {
+      "t": "Enter the tunnel under White Wolf Mountain.",
+      "i": [
+       "Asgoldian ale (4)",
+       "Bucket of milk",
+       "Pot of flour",
+       "Egg",
+       "Bowl of water",
+       "Ice gloves/smiths gloves(i)/normal gloves/telekinetic grab"
+      ]
+     },
+     {
+      "t": "Talk to the old dwarf, Rohak, in the tunnel. Keep talking to him until he's drunk on your 4 asgoldian ales and agrees to make the rock cake.",
+      "i": [
+       "Asgoldian ale (4)"
+      ]
+     },
+     {
+      "t": "Talk to Rohak more, about 3 times, until he puts a dwarven rock cake on the table.",
+      "i": [
+       "Coins (100)",
+       "Bucket of milk",
+       "Pot of flour",
+       "Egg",
+       "Bowl of water"
+      ]
+     },
+     {
+      "t": "Pick up the dwarven rock cake. If you have ice gloves, wear them to pick it up. Otherwise, wear other gloves or telegrab it. If it despawns you'll need to bring Rohak more ingredients.",
+      "i": [
+       "Dwarven rock cake"
+      ]
+     },
+     {
+      "t": "If you didn't pick up the rock cake with ice gloves, kill an icefiend on Ice Mountain to cool the rock cake.",
+      "i": [
+       "Dwarven rock cake"
+      ]
+     },
+     {
+      "t": "Use the dwarven rock cake on the dwarf.",
+      "i": [
+       "Dwarven rock cake"
+      ]
+     }
+    ],
+    "i": [
+     "Coins (320)",
+     "Bucket of milk",
+     "Pot of flour",
+     "Egg",
+     "Bowl of water",
+     "Asgarnian ale (4)",
+     "Ice gloves/smiths gloves(i)/normal gloves/telekinetic grab"
+    ]
+   },
+   {
+    "n": "Wartface & Bentnoze: Saving the Generals",
+    "st": [
+     {
+      "t": "Inspect Wartface or Bentnoze in the Lumbridge Castle dining room."
+     },
+     {
+      "t": "Go talk to the Goblin Cook down the ladder in the Goblin Village.",
+      "s": [
+       "I need your help...",
+       "What do you need? Maybe I can get it for you."
+      ]
+     },
+     {
+      "t": "Give the Goblin Cook some charcoal.",
+      "s": [
+       "I've got the charcoal you were after."
+      ]
+     },
+     {
+      "t": "Talk to the Goblin Cook again.",
+      "s": [
+       "I need your help..."
+      ]
+     },
+     {
+      "t": "Use a bucket of water on some bread.",
+      "i": [
+       "Bucket of water",
+       "Bread"
+      ]
+     },
+     {
+      "t": "Use a knife on an orange and SLICE it.",
+      "i": [
+       "Knife",
+       "Orange"
+      ]
+     },
+     {
+      "t": "Use a dye on the sliced orange.",
+      "i": [
+       "A blue, green, or purple dye",
+       "Orange slices"
+      ]
+     },
+     {
+      "t": "Use spices on the fishing bait.",
+      "i": [
+       "Spice or gnome spice",
+       "Fishing bait"
+      ]
+     },
+     {
+      "t": "Talk to the Goblin Cook again with the ingredients.",
+      "s": [
+       "I've got the ingredients we need..."
+      ]
+     },
+     {
+      "t": "Use the slop on Wartface or Bentnoze.",
+      "i": [
+       "Slop of compromise"
+      ]
+     }
+    ],
+    "i": [
+     "Bread",
+     "Orange",
+     "Knife",
+     "A blue, green, or purple dye",
+     "Spice or gnome spice",
+     "Fishing bait",
+     "Bucket of water",
+     "Charcoal"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Pirate Pete: Starting off",
+    "st": [
+     {
+      "t": "Inspect Pirate Pete in the Lumbridge Castle dining room."
+     },
+     {
+      "t": "Talk to the Lumbridge Cook and ask him all the options about Pirate Pete.",
+      "s": [
+       "Protecting the Pirate",
+       "Where do I get Ground Cod?",
+       "Where do I get Ground Kelp?",
+       "Where do I get Ground Giant Crab Meat?",
+       "Where do I get Breadcrumbs?"
+      ]
+     },
+     {
+      "t": "Talk to Murphy in Port Khazard.",
+      "s": [
+       "Talk about Recipe for Disaster."
+      ],
+      "i": [
+       "Empty fishbowl"
+      ]
+     },
+     {
+      "t": "Talk to Murphy again.",
+      "s": [
+       "Talk about Recipe for Disaster."
+      ],
+      "i": [
+       "Empty fishbowl"
+      ]
+     }
+    ],
+    "i": [
+     "Empty fishbowl"
+    ]
+   },
+   {
+    "n": "Pirate Pete: Get Crab and Kelp",
+    "st": [
+     {
+      "t": "Wear the fishbowl helmet and diving apparatus, make sure you weigh less than 27 kg, and have at least 7 free inventory spaces. You can't go down with a pet. Then talk to Murphy again to go diving.",
+      "s": [
+       "Talk about Recipe for Disaster.",
+       "Yes, Let's go diving."
+      ],
+      "i": [
+       "Diving apparatus",
+       "Fishbowl helmet",
+       "Bronze wire (3)",
+       "Needle"
+      ]
+     },
+     {
+      "t": "Pick some kelp. Get 3 or so in case you burn a fishcake or two."
+     },
+     {
+      "t": "Talk to Nung in the north of the area."
+     },
+     {
+      "t": "Pick up 5 rocks in the west of the area.",
+      "i": [
+       "Rock (5)"
+      ]
+     },
+     {
+      "t": "Enter the underwater cave entrance."
+     },
+     {
+      "t": "Kill mudskippers for 5 hides.",
+      "i": [
+       "Mudskipper hide (5)"
+      ]
+     },
+     {
+      "t": "Bring the hides to Nung.",
+      "i": [
+       "Mudskipper hide (5)"
+      ]
+     },
+     {
+      "t": "Bring bronze wire and a needle to Nung.",
+      "i": [
+       "Bronze wire (3)",
+       "Needle"
+      ]
+     },
+     {
+      "t": "Enter the crab pen and kill the crabs for some crab meat. Get 2-3 to be safe. You need 5 rocks for this: if you no longer have yours, pick up 5 more in the west of the area first.",
+      "i": [
+       "Crab meat"
+      ]
+     },
+     {
+      "t": "Climb the anchor to the south to return to the surface."
+     }
+    ],
+    "i": [
+     "Fishbowl helmet",
+     "Diving apparatus",
+     "Bronze wire (3)",
+     "Needle",
+     "Empty inventory slots at minimum (6)"
+    ],
+    "r": [
+     "Combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "5 Mudskippers (level 30/31)",
+     "Crab (level 21/23)"
+    ]
+   },
+   {
+    "n": "Pirate Pete: Saving Pete",
+    "st": [
+     {
+      "t": "Use a pestle and mortar on the crab.",
+      "i": [
+       "Pestle and mortar",
+       "Crab meat"
+      ]
+     },
+     {
+      "t": "Use a pestle and mortar on the kelp.",
+      "i": [
+       "Pestle and mortar",
+       "Kelp"
+      ]
+     },
+     {
+      "t": "Use a pestle and mortar on a raw cod.",
+      "i": [
+       "Pestle and mortar",
+       "Raw cod (more if you burn cake)"
+      ]
+     },
+     {
+      "t": "Use a knife on some bread and make BREADCRUMBS.",
+      "i": [
+       "Knife",
+       "Bread (more if you burn cake)"
+      ]
+     },
+     {
+      "t": "Talk to the Lumbridge Cook about Pirate Pete again.",
+      "s": [
+       "Protecting the Pirate"
+      ],
+      "i": [
+       "Ground cod",
+       "Ground crab meat",
+       "Ground kelp",
+       "Breadcrumbs"
+      ]
+     },
+     {
+      "t": "Use the ingredients together to make the cake.",
+      "i": [
+       "Ground crab meat",
+       "Ground kelp",
+       "Ground cod",
+       "Breadcrumbs"
+      ]
+     },
+     {
+      "t": "Cook the fishcake. It's possible to burn it.",
+      "i": [
+       "Raw fishcake"
+      ]
+     },
+     {
+      "t": "Give the fishcake to Pirate Pete to finish the quest. BE CAREFUL NOT TO EAT IT.",
+      "i": [
+       "Cooked fishcake"
+      ]
+     }
+    ],
+    "i": [
+     "Pestle and mortar",
+     "Knife",
+     "Raw cod (more if you burn cake)",
+     "Bread (more if you burn cake)",
+     "Crab meat",
+     "Kelp"
+    ],
+    "c": 1,
+    "e": [
+     "Crab (level 21/23)"
+    ]
+   },
+   {
+    "n": "Lumbridge Guide: Saving the Guide",
+    "st": [
+     {
+      "t": "Inspect the Lumbridge Guide in the Lumbridge Castle dining room.",
+      "s": [
+       "Yes, I'm sure I can make a cake."
+      ]
+     },
+     {
+      "t": "Go upstairs in the Wizards' Tower and talk to Traiborn.",
+      "s": [
+       "Ask about helping the Lumbridge Guide."
+      ],
+      "i": [
+       "Egg",
+       "Pot of flour",
+       "Bucket of milk",
+       "Cake tin"
+      ]
+     },
+     {
+      "t": "Talk to Traiborn again to enchant the egg, and name the people he shows you. Ponytail and book: Reldo. Ghostly green woman: Velorina. Desert robes and white beard: Ali Morrisane. Elf: Islwyn. Purple shirt: Unferth. Brown vest: Observatory Professor Gronigen. Pink top: Gertrude. Green witch: Hetty. Hooded man: Pirate Pete. Crown: King Lathas.",
+      "s": [
+       "Ask about helping the Lumbridge Guide.",
+       "Okay. Let's start!"
+      ],
+      "i": [
+       "Egg"
+      ]
+     },
+     {
+      "t": "Talk to Traiborn again to enchant the milk, and answer his questions. Defence to wear a Mystic hat: 20. Ingredients in a cake: Flour, Eggs and milk. Combat level of goblins near Lumbridge: 2. Coins to bribe an Al Kharid gate guard: 10. Not between Morytania and Asgarnia: Keep Le Faye. Gold ring is to 5 as a holy symbol is to: 16. Glass vial is to 33 as a glass orb is to: 46. Guild closest to the Fishing Platform: Legends'. Bar west of Pollnivneach: Bandit camp. The River Salve runs: North to South. Howling one way and buzzing the other: Catherby. To make glass you first need: Sand, bucket, soda ash, glass blowing pipe. Tower closest to the Crafting Guild: Dark Wizards'. The sum using Fire Strike, Wind Strike and Earth Wave runes: 10.",
+      "s": [
+       "Ask about helping the Lumbridge Guide.",
+       "Okay. I'm ready!"
+      ],
+      "i": [
+       "Bucket of milk"
+      ]
+     },
+     {
+      "t": "Talk to Traiborn again to enchant the flour. Close the window of items with its X button, then answer. Item beginning with M: Mind Talisman. Item not shown: Trout. How many weapons: Three. How many types of rune: Two. Items you were shown: Guthix Prayer Book, Magic Logs, Pike.",
+      "s": [
+       "Ask about helping the Lumbridge Guide.",
+       "Quiz me!"
+      ],
+      "i": [
+       "Pot of flour"
+      ]
+     },
+     {
+      "t": "Talk to Traiborn for the enchanted ingredients, then mix them in a tin.",
+      "i": [
+       "Enchanted egg",
+       "Enchanted flour",
+       "Enchanted milk",
+       "Cake tin"
+      ]
+     },
+     {
+      "t": "Cook the Guidance Cake.",
+      "i": [
+       "Raw guide cake"
+      ]
+     },
+     {
+      "t": "Use the Guidance Cake on the Lumbridge Guide to finish the quest.",
+      "i": [
+       "Guidance cake"
+      ]
+     }
+    ],
+    "i": [
+     "Bucket of milk",
+     "Egg",
+     "Pot of flour",
+     "Cake tin"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Evil Dave: Saving Evil Dave",
+    "st": [
+     {
+      "t": "Inspect Evil Dave in the Lumbridge Castle dining room."
+     },
+     {
+      "t": "Enter Doris's basement in Edgeville."
+     },
+     {
+      "t": "Talk to Evil Dave.",
+      "s": [
+       "What did you eat at the secret council meeting?",
+       "You've got to tell me because the magic requires it!"
+      ]
+     },
+     {
+      "t": "Go up to Doris."
+     },
+     {
+      "t": "Talk to Doris."
+     },
+     {
+      "t": "Go back down to Evil Dave with your cat and about 10 stews.",
+      "i": [
+       "A non-overgrown cat",
+       "Stew (10)"
+      ]
+     },
+     {
+      "t": "Have your cat catch Hell-Rats in the basement: long-press the cat and choose Chase. They give red, orange, yellow and brown spices. Collect at least 3 of each colour."
+     },
+     {
+      "t": "Find the right amount of each colour, which is 1, 2 or 3 and differs per player. Add 1 of a colour to a stew and use the stew on Evil Dave. If he says you've got the amount of one spice right, note it down. If not, try 2 of that colour; if 2 is wrong as well, the answer is 3. Let him finish talking each time. If you add too much of a spice, eat the stew and start again."
+     },
+     {
+      "t": "Add the right amount of all four colours to one stew and use it on Evil Dave in the basement."
+     },
+     {
+      "t": "Use the spicy stew on Evil Dave in the Lumbridge Castle dining room to finish.",
+      "i": [
+       "Spicy stew"
+      ]
+     }
+    ],
+    "i": [
+     "A non-overgrown cat for catching rats",
+     "Many stews"
+    ],
+    "c": 0
+   },
+   {
+    "n": "King Awowogei: Starting off",
+    "st": [
+     {
+      "t": "Inspect Awowogei in the Lumbridge Castle dining room."
+     }
+    ]
+   },
+   {
+    "n": "King Awowogei: Saving Awowogei",
+    "st": [
+     {
+      "t": "Wearing a greegree and your M'speak amulet, talk to Awowogei on Ape Atoll, south of the temple.",
+      "i": [
+       "Any greegree",
+       "M'speak amulet"
+      ]
+     },
+     {
+      "t": "Talk to any one of the three monkeys sitting in the north-west corner of the temple.",
+      "s": [
+       "Do you know anything about the King's favourite dish?"
+      ],
+      "i": [
+       "Any greegree",
+       "M'speak amulet"
+      ]
+     },
+     {
+      "t": "Use a banana on any of the three monkeys.",
+      "i": [
+       "Banana",
+       "Any greegree",
+       "M'speak amulet"
+      ]
+     },
+     {
+      "t": "Use some monkey nuts on any of the three monkeys.",
+      "i": [
+       "Monkey nuts",
+       "Any greegree",
+       "M'speak amulet"
+      ]
+     },
+     {
+      "t": "Talk to Lumdo at the landing area on the south coast of Ape Atoll and travel to Crash Island.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Enter the hole on Crash Island. Protect melee when entering as you'll be attacked straight away by snakes.",
+      "s": [
+       "Yes, I'm as hard as nails."
+      ],
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Kill a Big Snake for its corpse. Kill a few in case you burn it.",
+      "i": [
+       "Snake corpse"
+      ]
+     },
+     {
+      "t": "Leave the hole."
+     },
+     {
+      "t": "Travel back to Ape Atoll with Lumdo."
+     },
+     {
+      "t": "Use a rope on the red banana tree on the north west of Ape Atoll as a gorilla.",
+      "i": [
+       "Gorilla greegree",
+       "Rope"
+      ]
+     },
+     {
+      "t": "Equip your ninja greegree and start the Ape Atoll Agility Course. After swinging on the rope, go down the hole.",
+      "i": [
+       "Ninja greegree"
+      ]
+     },
+     {
+      "t": "Take a nut from the bush. Take a few in case you burn the final meal."
+     },
+     {
+      "t": "Use a pestle and mortar on the tchiki nuts.",
+      "i": [
+       "Pestle and mortar",
+       "Tchiki monkey nuts"
+      ]
+     },
+     {
+      "t": "Use a knife/slash weapon on the red banana.",
+      "i": [
+       "Knife",
+       "Red banana"
+      ]
+     },
+     {
+      "t": "Use the tchiki nut paste and the sliced red banana on the snake corpse to stuff it.",
+      "i": [
+       "Tchiki nut paste",
+       "Sliced red banana",
+       "Snake corpse"
+      ]
+     },
+     {
+      "t": "Enter the trapdoor in the monkey temple.",
+      "i": [
+       "Zombie greegree",
+       "Raw stuffed snake"
+      ]
+     },
+     {
+      "t": "Go down one of the ramps and enter the crack in the wall between the two ramps.",
+      "i": [
+       "Zombie greegree",
+       "Raw stuffed snake"
+      ]
+     },
+     {
+      "t": "Go across the hot rocks with the zombie greegree equipped. Cook the stuffed snake on the rock at the end of the room.",
+      "i": [
+       "Zombie greegree",
+       "Raw stuffed snake"
+      ]
+     },
+     {
+      "t": "Give the snake to Awowogei to finish the quest.",
+      "i": [
+       "Stuffed snake"
+      ]
+     }
+    ],
+    "i": [
+     "M'speak amulet",
+     "Banana",
+     "Monkey nuts",
+     "Rope",
+     "Knife",
+     "Pestle and mortar",
+     "Zombie greegree",
+     "Ninja greegree",
+     "Gorilla greegree"
+    ],
+    "c": 1,
+    "e": [
+     "Big Snake (level 84)"
+    ]
+   },
+   {
+    "n": "Sir Amik Varze: Starting off",
+    "st": [
+     {
+      "t": "Inspect Sir Amik Varze in the Lumbridge Castle dining room."
+     },
+     {
+      "t": "Talk to the Lumbridge Cook and ask him all the options about Sir Amik Varze.",
+      "s": [
+       "More...",
+       "Protecting Sir Amik Varze"
+      ]
+     },
+     {
+      "t": "Talk to the Wise Old Man in Draynor Village (an amulet of glory teleports you there) about strange beasts and the Evil Chicken. Finish the whole chat, or you can't go on.",
+      "s": [
+       "I'd just like to ask you something.",
+       "Strange beasts",
+       "The Evil Chicken"
+      ]
+     }
+    ],
+    "i": [
+     "Draynor Village teleport"
+    ],
+    "c": 1,
+    "e": [
+     "Evil Chicken (level )"
+    ]
+   },
+   {
+    "n": "Sir Amik Varze: Get token and egg",
+    "st": [
+     {
+      "t": "Travel to Zanaris.",
+      "i": [
+       "Dramen/lunar staff"
+      ]
+     },
+     {
+      "t": "Use a raw chicken on the Chicken Shrine in the north east of Zanaris.",
+      "i": [
+       "Raw chicken",
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "The shrine takes you to the Evil Chicken's lair. Run north past the black dragons and kill the Evil Chicken. Pray Protect from Magic against it."
+     },
+     {
+      "t": "Pick up the evil chicken egg.",
+      "i": [
+       "Evil chickens egg"
+      ]
+     },
+     {
+      "t": "Kill a black dragon.",
+      "i": [
+       "Combat gear",
+       "Anti-dragon shield"
+      ]
+     },
+     {
+      "t": "Pick up the dragon token.",
+      "i": [
+       "Dragon token"
+      ]
+     }
+    ],
+    "i": [
+     "Dramen/lunar staff",
+     "Raw chicken",
+     "Combat gear",
+     "Anti-dragon shield",
+     "Antifire potion"
+    ],
+    "c": 1,
+    "e": [
+     "Evil Chicken (level )",
+     "Black dragon (level 227) (Can be safespotted)"
+    ]
+   },
+   {
+    "n": "Sir Amik Varze: Making the brulee",
+    "st": [
+     {
+      "t": "Use a bucket of milk on a pot of cream.",
+      "i": [
+       "Bucket of milk",
+       "Pot of cream"
+      ]
+     },
+     {
+      "t": "Use cornflour on the milky mixture.",
+      "i": [
+       "Pot of cornflour",
+       "Milky mixture"
+      ]
+     },
+     {
+      "t": "Add a vanilla pod to the cornflour mixture.",
+      "i": [
+       "Vanilla pod",
+       "Cornflour mixture"
+      ]
+     },
+     {
+      "t": "Use the evil chickens egg on the brulee.",
+      "i": [
+       "Evil chickens egg",
+       "Brulee",
+       "Pestle and mortar"
+      ]
+     },
+     {
+      "t": "Use a pestle and mortar on the dramen branch.",
+      "i": [
+       "Pestle and mortar",
+       "Dramen branch"
+      ]
+     },
+     {
+      "t": "Use the cinnamon on the brulee.",
+      "i": [
+       "Cinnamon",
+       "Brulee"
+      ]
+     },
+     {
+      "t": "If you're still in the Evil Chicken's lair, leave through the portal in the south to return to Zanaris."
+     },
+     {
+      "t": "In Zanaris or Lumbridge, equip your Ice Gloves and rub the dragon token. Ask the fairy dragon to cook your brulee.",
+      "s": [
+       "Please flambe this creme brulee for me."
+      ],
+      "i": [
+       "Dragon token",
+       "Brulee",
+       "Ice gloves or smiths gloves(i)"
+      ]
+     },
+     {
+      "t": "Give the Brulee to Sir Amik Varze to finish the quest.",
+      "i": [
+       "Brulee supreme"
+      ]
+     }
+    ],
+    "i": [
+     "Bucket of milk",
+     "Pot of cream",
+     "Cornflour mixture",
+     "Pestle and mortar",
+     "Dramen branch",
+     "Vanilla pod",
+     "Evil chickens egg",
+     "Dragon token",
+     "Ice gloves or smiths gloves(i)"
+    ],
+    "tr": [
+     "Lumbridge Teleport"
+    ],
+    "c": 1,
+    "e": [
+     "Evil Chicken (level )"
+    ]
+   },
+   {
+    "n": "Skrach Uglogwee: Starting off",
+    "st": [
+     {
+      "t": "Inspect Skrach Uglogwee in the Lumbridge Castle dining room.",
+      "s": [
+       "Yes, I'm sure I can get some Jubbly Chompy.",
+       "Oh Ok then, I guess I'll talk to Rantz."
+      ]
+     }
+    ],
+    "i": [
+     "Lumbridge teleport"
+    ]
+   },
+   {
+    "n": "Skrach Uglogwee: Help Rantz",
+    "st": [
+     {
+      "t": "Talk to Rantz in Feldip Hills.",
+      "s": [
+       "I'm trying to free Skrach, can you help?",
+       "Ok, I'll do it."
+      ]
+     },
+     {
+      "t": "Talk to Rantz on the east coast of Feldip Hills.",
+      "s": [
+       "Ok, here I am...I guess this is the watery place? What now?"
+      ]
+     },
+     {
+      "t": "Use an axe on the old tree near Rantz.",
+      "i": [
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Use an axe on the old tree near Rantz again.",
+      "i": [
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Talk to Rantz again on the east coast of Feldip Hills.",
+      "s": [
+       "Ok, the boat's ready, now tell me how to get a Jubbly?"
+      ]
+     },
+     {
+      "t": "Use an iron spit on a chompy.",
+      "i": [
+       "Iron spit",
+       "Raw chompy"
+      ]
+     },
+     {
+      "t": "Go to Karamja's west coast, just south of the transportation icon west of Tai Bwo Wannai (fairy ring CKR, then run north along the coast). Find the small tree with an arrow in it. Light a fire right next to that tree, then use your skewered chompy on the fire.",
+      "i": [
+       "Any log to burn",
+       "Tinderbox",
+       "Skewered chompy"
+      ]
+     },
+     {
+      "t": "Travel back with Rantz's kids and talk to Rantz again.",
+      "s": [
+       "Yes please, I'll get a lift back with you.",
+       "Ok, now tell me how to get Jubbly!"
+      ]
+     }
+    ],
+    "i": [
+     "Any axe",
+     "Any log to burn",
+     "Tinderbox",
+     "Raw chompy",
+     "Iron spit",
+     "Ogre bow + ogre arrows",
+     "Any pickaxe",
+     "Ogre bellows",
+     "Balls of wool"
+    ],
+    "tr": [
+     "Feldip teleport. Fairy Ring (AKS), Gnome Glider",
+     "Karamja teleport. Brimhaven Teleport tablet, Fairy Ring (CKR)",
+     "Lumbridge teleport"
+    ]
+   },
+   {
+    "n": "Skrach Uglogwee: Save Skrach",
+    "st": [
+     {
+      "t": "Fill your ogre bellows at the swamp bubbles a short walk east of the Feldip Hills fairy ring, then use them on a toad nearby to blow it up. Keep at least 1 charge in the bellows for later.",
+      "i": [
+       "Ogre bellows"
+      ]
+     },
+     {
+      "t": "Mine a pile of rocks near the Feldip Hills Fairy Ring for a rock.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Use the bellows on your toad with a ball of wool in your inventory.",
+      "i": [
+       "Ogre bellows",
+       "Bloated toad",
+       "Balls of wool"
+      ]
+     },
+     {
+      "t": "Drop the balloon toad in the dark area south of Rantz's cave and wait for a Jubbly to arrive.",
+      "i": [
+       "Balloon toad",
+       "Ogre bow + ogre arrows"
+      ]
+     },
+     {
+      "t": "Kill then pluck jubbly.",
+      "i": [
+       "Ogre bow + ogre arrows"
+      ]
+     },
+     {
+      "t": "Pluck the jubbly's carcass."
+     },
+     {
+      "t": "Pick up the raw jubbly.",
+      "i": [
+       "Raw jubbly"
+      ]
+     },
+     {
+      "t": "Cook the raw jubbly on Rantz's spit.",
+      "i": [
+       "Raw jubbly"
+      ]
+     },
+     {
+      "t": "Give the jubbly to Skrach Uglogwee to finish the quest.",
+      "i": [
+       "Cooked jubbly"
+      ]
+     }
+    ],
+    "i": [
+     "Ogre bow + ogre arrows",
+     "Any pickaxe",
+     "Ogre bellows",
+     "Balls of wool"
+    ],
+    "tr": [
+     "Lumbridge teleport"
+    ],
+    "c": 1,
+    "e": [
+     "Jubbly (level 9)"
+    ]
+   },
+   {
+    "n": "Culinaromancer: Defeating the Culinaromancer",
+    "st": [
+     {
+      "t": "Enter the portal in Lumbridge Castle, ready to fight. You can leave between fights to re-gear. Have your ice gloves pre-equipped for the second fight against Flambeed to avoid them making you drop your weapon on the floor.",
+      "i": [
+       "Ice gloves",
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Kill Agrith-Na-Na. He uses magic at ranged, and melee up close."
+     },
+     {
+      "t": "Equip ice gloves and kill Flambeed. Water spells are especially effective. FLAMBEED WILL MAKE YOU DROP YOUR WEAPON ON THE FLOOR if you do not have ice gloves on and have a full inventory.",
+      "i": [
+       "Ice gloves"
+      ]
+     },
+     {
+      "t": "Kill Karamel. Stand in melee distance, and bring restore potions, as she drains your stats. Fire spells are especially effective.",
+      "i": [
+       "Combat gear, food and potions",
+       "Restore potions for Karamel"
+      ]
+     },
+     {
+      "t": "Kill Dessourt."
+     },
+     {
+      "t": "Kill the Gelatinnoth mother. You'll need to use air spells when she's white, earth when brown, fire when red and water when blue, melee when orange and ranged when green."
+     },
+     {
+      "t": "Kill the Culinaromancer. Try to keep your distance."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Agrith-Na-Na (level 146)",
+     "Flambeed (level 149)",
+     "Karamel (level 136)",
+     "Dessourt (level 121)",
+     "Gelatinnoth Mother (level 130)",
+     "Culinaromancer (level 75)"
+    ]
+   }
+  ]
+ }
+}

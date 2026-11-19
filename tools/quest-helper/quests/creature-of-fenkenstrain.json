@@ -1,0 +1,273 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Creature of Fenkenstrain",
+  "items": [
+   "Hammer",
+   "Ghostspeak amulet",
+   "Silver bar",
+   "Bronze wire (3)",
+   "Needle",
+   "Thread (5)",
+   "Spade",
+   "Coins at least (100)",
+   "33 Magic and runes to cast telegrab, or 50 coins",
+   "Armour and weapons defeat a level 51 monster and run past level 72 monsters"
+  ],
+  "rec": [
+   "Fenkenstrain's Castle Teleport (2)",
+   "Teleport to any furnace such as glory for Edgeville teleport, Ectophial to Port Phasmatys or a Falador teleport",
+   "Stamina potions"
+  ],
+  "enemies": [
+   "Able to defeat an experiment (level 51)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "1,000 Thieving XP",
+   "Ring of Charos",
+   "Access to the Werewolf Agility Course"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Head to the Canifis bar and either buy the pickled brain for 50 coins, or telegrab it.",
+      "s": [
+       "I'll buy one."
+      ],
+      "i": [
+       "33 Magic and runes to cast telegrab, or 50 coins"
+      ]
+     },
+     {
+      "t": "Talk to Dr. Fenkenstrain in Fenkenstrain's Castle, north-east of Canifis, to start the quest.",
+      "s": [
+       "Yes.",
+       "Braindead",
+       "Grave-digging"
+      ]
+     }
+    ],
+    "i": [
+     "33 Magic and runes to cast telegrab, or 50 coins"
+    ]
+   },
+   {
+    "n": "Graverobbing",
+    "st": [
+     {
+      "t": "Go up the staircase to grab the items you will need."
+     },
+     {
+      "t": "Search the bookcase in the east room for Handy Maggot Avoidance Techniques.",
+      "s": [
+       "Handy Maggot Avoidance Techniques"
+      ]
+     },
+     {
+      "t": "Search the west bookcase for The Joy of Grave Digging.",
+      "s": [
+       "The Joy of Gravedigging"
+      ]
+     },
+     {
+      "t": "Combine the two amulet by using one on the other.",
+      "i": [
+       "Marble Amulet",
+       "Obsidian Amulet"
+      ]
+     },
+     {
+      "t": "Go back to the ground floor."
+     },
+     {
+      "t": "Talk to the Gardener Ghost behind the castle, at the north end of the grounds, while wearing your Ghostspeak amulet.",
+      "s": [
+       "What happened to your head?"
+      ],
+      "i": [
+       "Ghostspeak amulet"
+      ]
+     },
+     {
+      "t": "Go to the cross-shaped grave marker in the Haunted Woods, south-east of the castle and immediately east of fairy ring ALQ. Long-press the grave and choose Dig to get his head.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Use the decapitated head on the pickled brain to create a decapitated head.",
+      "i": [
+       "Decapitated Head",
+       "Pickled Brain"
+      ]
+     },
+     {
+      "t": "Use the Star Amulet on the easternmost memorial, south-east of the castle, and push it to go in the caves.",
+      "i": [
+       "Star Amulet"
+      ]
+     },
+     {
+      "t": "Push the memorial south east of the castle."
+     },
+     {
+      "t": "Kill the level 51 Experiment north-west of the ladder to get a key."
+     },
+     {
+      "t": "Leave the caves by going north-west, be sure to pick up the key from the level 51 experiment."
+     },
+     {
+      "t": "Go up the ladder and walk north to the three graves. Long-press the west grave and choose Dig to get the torso.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Long-press the middle grave and choose Dig to get the arms.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Long-press the east grave and choose Dig to get the legs.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Deliver the body parts to Dr. Fenkenstrain, use a teleport to Fenkenstrain's castle or run back through the caves.",
+      "s": [
+       "I have some body parts for you."
+      ]
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Spade",
+     "Armour and weapons defeat a level 51 monster and run past level 72 monsters",
+     "Needle",
+     "Thread (5)"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Getting tools",
+    "st": [
+     {
+      "t": "Get a needle and 5 threads and deliver them to Dr. Fenkenstrain.",
+      "i": [
+       "Needle",
+       "Thread (5)"
+      ]
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Needle",
+     "Thread (5)"
+    ]
+   },
+   {
+    "n": "Attracting lightning",
+    "st": [
+     {
+      "t": "Talk to the Gardener Ghost and ask for the shed key.",
+      "s": [
+       "Do you know where the key to the shed is?"
+      ],
+      "i": [
+       "Ghostspeak amulet",
+       "Bronze wire (3)",
+       "Silver bar"
+      ]
+     },
+     {
+      "t": "Unlock the shed next to the Gardener Ghost with the shed key and go inside. Open the cupboard and search it for a brush.",
+      "i": [
+       "Bronze wire (3)",
+       "Silver bar"
+      ]
+     },
+     {
+      "t": "Grab 3 canes from the pile.",
+      "i": [
+       "Bronze wire (3)",
+       "Silver bar"
+      ]
+     },
+     {
+      "t": "Use 3 canes on the brush one at a time.",
+      "i": [
+       "Garden Cane",
+       "Brush",
+       "Bronze wire (3)",
+       "Silver bar"
+      ]
+     },
+     {
+      "t": "Go upstairs to the first floor of the castle."
+     },
+     {
+      "t": "In the west room of this floor, use the extended brush on the centre of the fireplace to get the conductor mould.",
+      "i": [
+       "Extended Brush"
+      ]
+     },
+     {
+      "t": "Go to any furnace (the closest is in Port Phasmatys) and, with the conductor mould in your inventory, smelt your silver bar into a lightning rod.",
+      "i": [
+       "Silver bar",
+       "Conductor Mold"
+      ]
+     },
+     {
+      "t": "Return to the castle and go upstairs."
+     },
+     {
+      "t": "Walk to the room furthest south on this floor and climb the ladder there to the roof."
+     },
+     {
+      "t": "Repair the lightning Conductor."
+     },
+     {
+      "t": "Go back down to the ground floor of the castle and talk to Dr. Fenkenstrain."
+     }
+    ],
+    "i": [
+     "Ghostspeak amulet",
+     "Bronze wire (3)",
+     "Silver bar",
+     "Hammer"
+    ]
+   },
+   {
+    "n": "Facing the monster",
+    "st": [
+     {
+      "t": "Go upstairs to the first floor to confront Fenkenstrain's monster."
+     },
+     {
+      "t": "Use the Tower Key on the metal door to the central room on this floor."
+     },
+     {
+      "t": "Go up the ladder."
+     },
+     {
+      "t": "Talk to Fenkenstrain's monster."
+     }
+    ]
+   },
+   {
+    "n": "Finishing off",
+    "st": [
+     {
+      "t": "Go back to Dr. Fenkenstrain. Instead of talking to him, long-press him and choose Pickpocket. You need 25 Thieving."
+     }
+    ]
+   }
+  ]
+ }
+}

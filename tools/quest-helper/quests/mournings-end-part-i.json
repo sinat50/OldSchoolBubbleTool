@@ -1,0 +1,386 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder mourningsendparti; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Mourning's End Part I",
+  "items": [
+   "Bear fur",
+   "Silk (2)",
+   "Red dye",
+   "Yellow dye",
+   "Blue dye",
+   "Green dye",
+   "Bucket of water",
+   "Feather",
+   "Rotten apple",
+   "Toad crunchies (can be Premade t'd crunch)",
+   "Magic logs",
+   "Leather",
+   "Ogre bellows",
+   "Barrel of coal tar + 10-20 coal, or a barrel of naphtha"
+  ],
+  "rec": [
+   "Teleport to the Outpost. Necklace of passage (The Outpost [2])",
+   "Teleport to Taverley. Taverley Teleport, Games necklace (Burthorpe. [1])",
+   "Lletya teleport. Teleport crystal",
+   "West ardougne teleport (3)"
+  ],
+  "enemies": [
+   "Mourner (level 11) (will decrease all combat skills to 20, including Hitpoints)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "40,000 Thieving XP",
+   "25,000 Hitpoints XP",
+   "Elven Teleport Crystal",
+   "Access to the Mourner HQ"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Find Islwyn and Eluned in the woods of Isafdar, either north-east of Tyras Camp or west of Lletya. If they aren't there, hop worlds until they appear. Talk to Islwyn to start the quest. If he doesn't offer it, talk to Eluned.",
+      "s": [
+       "I'm ready now.",
+       "I'm ready.",
+       "Yes.",
+       "Yes, I should go see him now."
+      ]
+     },
+     {
+      "t": "Talk to Arianwyn in Lletya.",
+      "s": [
+       "Okay, let's begin."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Get Mourner's outfit",
+    "st": [
+     {
+      "t": "Kill a mourner travelling through the Arandar pass. This is more easily accessed from the north entrance. You'll need 7 free inventory spaces."
+     },
+     {
+      "t": "Pick up everything the mourner dropped.",
+      "i": [
+       "Mourner boots",
+       "Mourner cloak",
+       "Mourner gloves",
+       "Ripped mourner trousers",
+       "Gas mask",
+       "Mourner letter",
+       "Bloody mourner top"
+      ]
+     }
+    ],
+    "i": [
+     "Teleport to the Outpost. Necklace of passage (The Outpost [2])",
+     "Teleport to Taverley. Taverley Teleport, Games necklace (Burthorpe. [1])"
+    ],
+    "c": 1,
+    "e": [
+     "Mourner (level 11) (will decrease all combat skills to 20, including Hitpoints)"
+    ]
+   },
+   {
+    "n": "Clean Mourner top",
+    "st": [
+     {
+      "t": "Search Tegid's laundry basket in south Taverley for some soap.",
+      "s": [
+       "Steal the soap."
+      ]
+     },
+     {
+      "t": "Use the soap on the bloody mourner top",
+      "i": [
+       "Tegid's soap",
+       "Bucket of water",
+       "Bloody mourner top"
+      ]
+     }
+    ],
+    "i": [
+     "Bucket of water",
+     "Bloody mourner top"
+    ],
+    "tr": [
+     "Teleport to Taverley. Taverley Teleport, Games necklace (Burthorpe. [1])",
+     "Lletya teleport. Teleport crystal"
+    ],
+    "c": 1,
+    "e": [
+     "Mourner (level 11) (will decrease all combat skills to 20, including Hitpoints)"
+    ]
+   },
+   {
+    "n": "Repair Mourner trousers",
+    "st": [
+     {
+      "t": "Teleport to Lletya using a crystal teleport seed and talk to Oronwen to have them repair your trousers. Buy dyes here if you still need them.",
+      "s": [
+       "Do you mend clothes?",
+       "I have all I need to mend my trousers."
+      ],
+      "i": [
+       "Ripped mourner trousers",
+       "Bear fur",
+       "Silk (2)"
+      ]
+     }
+    ],
+    "i": [
+     "Bear fur",
+     "Silk (2)",
+     "Ripped mourner trousers"
+    ],
+    "tr": [
+     "Lletya teleport. Teleport crystal"
+    ]
+   },
+   {
+    "n": "Infiltrate the Mourners",
+    "st": [
+     {
+      "t": "Equip the full mourners outfit and enter the Mourners' Headquarters in West Ardougne.",
+      "i": [
+       "Toad crunchies (can be Premade t'd crunch)",
+       "Feather",
+       "Magic logs",
+       "Leather",
+       "Gas mask",
+       "Mourner top",
+       "Mourner trousers",
+       "Mourner boots",
+       "Mourner gloves",
+       "Mourner cloak",
+       "Mourner letter"
+      ]
+     },
+     {
+      "t": "Go down the trapdoor in the north west corner of the HQ."
+     },
+     {
+      "t": "Talk to Essyllt in the south room."
+     },
+     {
+      "t": "Talk to the gnome on a rack.",
+      "s": [
+       "You talked about toad crunchies and being tickled."
+      ],
+      "i": [
+       "Tarnished key",
+       "Feather",
+       "Toad crunchies (can be Premade t'd crunch)"
+      ]
+     },
+     {
+      "t": "Use a feather on the gnome with toad crunchies in your inventory.",
+      "i": [
+       "Tarnished key",
+       "Feather",
+       "Toad crunchies (can be Premade t'd crunch)"
+      ]
+     },
+     {
+      "t": "Talk to the gnome again with the required items.",
+      "i": [
+       "Toad crunchies (can be Premade t'd crunch)",
+       "Magic logs",
+       "Leather"
+      ]
+     },
+     {
+      "t": "Long-press the gnome on the rack and choose Release, with the items in your inventory.",
+      "i": [
+       "Tarnished key",
+       "Magic logs",
+       "Leather",
+       "Toad crunchies (can be Premade t'd crunch)",
+       "Broken device"
+      ]
+     },
+     {
+      "t": "Give the gnome a magic log, some soft leather and some toad crunchies.",
+      "i": [
+       "Tarnished key",
+       "Magic logs",
+       "Leather",
+       "Toad crunchies (can be Premade t'd crunch)",
+       "Broken device"
+      ]
+     },
+     {
+      "t": "Ask the gnome about ammo."
+     }
+    ],
+    "i": [
+     "Full mourners' outfit",
+     "Mourner letter",
+     "Feather",
+     "Toad crunchies (can be Premade t'd crunch)",
+     "Magic logs",
+     "Leather"
+    ],
+    "tr": [
+     "West ardougne teleport"
+    ],
+    "c": 1,
+    "e": [
+     "Mourner (level 11) (will decrease all combat skills to 20, including Hitpoints)"
+    ]
+   },
+   {
+    "n": "Dye the sheep",
+    "st": [
+     {
+      "t": "You need to make some dyed toads. Go to Feldip Hills (AKS), use a dye on your empty bellows, then use the bellows to inflate a toad. Get at least one toad of each colour.",
+      "i": [
+       "Red toad",
+       "Yellow toad",
+       "Green toad",
+       "Blue toad"
+      ]
+     },
+     {
+      "t": "Dye one sheep of each colour north of Ardougne. The red flock is closest to the city, green is north-east of red, yellow is furthest north, and blue is far to the west. Use the matching toad on the fixed device and wield it. Near the flock, choose Aim and Fire in your combat options, aim the crosshair at a sheep and press the red button in its centre. A miss uses up the toad.",
+      "i": [
+       "Red toad",
+       "Yellow toad",
+       "Green toad",
+       "Blue toad",
+       "Fixed device"
+      ]
+     },
+     {
+      "t": "Equip the full mourners outfit and enter the Mourners' Headquarters in West Ardougne.",
+      "i": [
+       "Gas mask",
+       "Mourner top",
+       "Mourner trousers",
+       "Mourner boots",
+       "Mourner gloves",
+       "Mourner cloak"
+      ]
+     },
+     {
+      "t": "Go down the trapdoor in the north west corner of the HQ."
+     },
+     {
+      "t": "Talk to Essyllt in the south room."
+     }
+    ],
+    "i": [
+     "Full mourners' outfit",
+     "Fixed device",
+     "Ogre bellows",
+     "Red dye",
+     "Yellow dye",
+     "Green dye",
+     "Blue dye"
+    ],
+    "c": 1,
+    "e": [
+     "Mourner (level 11) (will decrease all combat skills to 20, including Hitpoints)"
+    ]
+   },
+   {
+    "n": "Poison the citizens",
+    "st": [
+     {
+      "t": "Squeeze through the gap in the western fence north-west of the Mourner HQ and pick up the rotten apple there.",
+      "i": [
+       "Rotten apple"
+      ]
+     },
+     {
+      "t": "Talk to Elena in north-west of East Ardougne.",
+      "i": [
+       "Rotten apple"
+      ]
+     },
+     {
+      "t": "Go to the apple orchard directly west of the Combat Training Camp, north-east of the Outpost, and pick up a barrel there.",
+      "i": [
+       "Barrel"
+      ]
+     },
+     {
+      "t": "Use the barrel on a rotten apple pile.",
+      "i": [
+       "Barrel"
+      ]
+     },
+     {
+      "t": "Use the rotten apples on the apple press.",
+      "i": [
+       "Rotten apples"
+      ]
+     },
+     {
+      "t": "Make some Naphtha. Grab another barrel, fill it on the swamp south of the elven lands, then refine it on the fractionalising still at the Chemist in Rimmington with 10-20 coal. To do this, rotate the 'Tar regulator' wheel twice. Wait until the 'Pressure' indicator is in the green, then rotate the 'Pressure valve' regulator clockwise once. Now all you need to do is occasionally tap the 'Add coal' text to add coal, to push the 'Heat' into the green. Be careful to do this slowly so as to not hit the orange heat and ruin the tar.",
+      "i": [
+       "Barrel of coal tar + 10-20 coal, or a barrel of naphtha"
+      ]
+     },
+     {
+      "t": "Use a barrel of naptha on the apple barrel.",
+      "i": [
+       "Barrel of naphtha",
+       "Apple barrel"
+      ]
+     },
+     {
+      "t": "Use the sieve on the naphtha apple mix",
+      "i": [
+       "Sieve",
+       "Naphtha apple mix"
+      ]
+     },
+     {
+      "t": "Cook the toxic naphtha on a range. DO NOT USE IT ON A FIRE, and MAKE SURE TO HAVE TWO FREE INVENTORY SPACES.",
+      "i": [
+       "Toxic naphtha"
+      ]
+     },
+     {
+      "t": "Use the toxic powder on the food store in the room north west of West Ardougne's town centre.",
+      "i": [
+       "Toxic powder"
+      ]
+     },
+     {
+      "t": "Use the toxic powder on the food store in the church south of West Ardougne's town centre.",
+      "i": [
+       "Toxic powder"
+      ]
+     },
+     {
+      "t": "Return to Essyllt in the Mourner HQ basement."
+     }
+    ],
+    "i": [
+     "Barrel of coal tar + 10-20 coal, or a barrel of naphtha",
+     "Full mourners' outfit"
+    ],
+    "tr": [
+     "West ardougne teleport",
+     "Lletya teleport. Teleport crystal"
+    ],
+    "c": 1,
+    "e": [
+     "Mourner (level 11) (will decrease all combat skills to 20, including Hitpoints)"
+    ]
+   },
+   {
+    "n": "Report back to Arianwyn",
+    "st": [
+     {
+      "t": "Return to Arianwyn in Lletya."
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,330 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder eaglespeak; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Eagles' Peak",
+  "items": [
+   "Yellow dye",
+   "Coins (50)",
+   "Swamp tar"
+  ],
+  "rec": [
+   "Teleport to Eagle's Peak. Fairy ring (AKQ), Necklace of passage (The Outpost [2]) (2)",
+   "Varrock teleport",
+   "Ardougne teleport (2)"
+  ],
+  "enemies": [],
+  "rewards": [
+   "2 Quest points",
+   "2,500 Hunter XP",
+   "Ability to use Box Traps",
+   "Ability to use Eagle Transport System",
+   "Ability to hunt Rabbits."
+  ],
+  "sec": [
+   {
+    "n": "Start the quest",
+    "st": [
+     {
+      "t": "Speak to Charlie in the Ardougne Zoo.",
+      "s": [
+       "Ah, you sound like someone who needs a quest doing!",
+       "Sure. Any idea where I should start looking?",
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Ardougne teleport"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Go to Eagles' Peak",
+    "st": [
+     {
+      "t": "Go to the camp north of Eagles' Peak and search the pile of books for a Bird Book. The closest fairy ring is AKQ or teleport to The Outpost using the Necklace of Passage.",
+      "s": [
+       "The Outpost"
+      ]
+     },
+     {
+      "t": "Tap the Bird Book in your inventory for a Metal Feather.",
+      "i": [
+       "Bird book"
+      ]
+     },
+     {
+      "t": "Climb the rocks next to the campsite (25 Agility), or follow the grey path south-east of the camp up the mountain. Use the Metal Feather on the Rocky Outcrop at the top.",
+      "i": [
+       "Metal feather"
+      ]
+     }
+    ],
+    "i": [
+     "Teleport to Eagle's Peak. Fairy ring (AKQ), Necklace of passage (The Outpost [2])"
+    ],
+    "c": 0
+   },
+   {
+    "n": "In Eagles' Peak",
+    "st": [
+     {
+      "t": "Enter Eagles' Peak through the Rocky Outcrop."
+     },
+     {
+      "t": "In the dungeon, go east to the Y-shaped junction, then south to the edge of the chasm where the giant feathers lie. Shout to Nickolaus across the chasm. If you can't, try to take a feather from the south-western pile and he will shout to you.",
+      "s": [
+       "The Ardougne zookeeper sent me to find you.",
+       "Well if you gave me a ferret I could take it back for you.",
+       "Could I help at all?"
+      ]
+     },
+     {
+      "t": "Pick up 10 Eagle feathers from the piles in the main cavern.",
+      "i": [
+       "Eagle feather (10)"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Make a disguise",
+    "st": [
+     {
+      "t": "Go speak to Asyff in south-east Varrock to have a disguise made.",
+      "s": [
+       "Well, specifically I'm after a couple of bird costumes."
+      ],
+      "i": [
+       "Yellow dye",
+       "Coins (50)",
+       "Swamp tar",
+       "Eagle feather (10)"
+      ]
+     },
+     {
+      "t": "Speak to Asyff again.",
+      "s": [
+       "I've got the feathers and materials you requested.",
+       "Okay, here are the materials. Eagle me up."
+      ],
+      "i": [
+       "Yellow dye",
+       "Coins (50)",
+       "Swamp tar",
+       "Eagle feather (10)"
+      ]
+     }
+    ],
+    "i": [
+     "Yellow dye",
+     "Coins (50)",
+     "Swamp tar",
+     "Eagle feather (10)"
+    ],
+    "tr": [
+     "Varrock teleport",
+     "Teleport to Eagle's Peak. Fairy ring (AKQ), Necklace of passage (The Outpost [2])"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Return to Eagles' Peak",
+    "st": [
+     {
+      "t": "Enter Eagles' Peak through the Rocky Outcrop.",
+      "i": [
+       "Fake beak (2)",
+       "Eagle cape (2)"
+      ]
+     }
+    ],
+    "i": [
+     "Fake beak (2)",
+     "Eagle cape (2)"
+    ],
+    "tr": [
+     "Teleport to Eagle's Peak. Fairy ring (AKQ), Necklace of passage (The Outpost [2])"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Get the bronze feather",
+    "st": [
+     {
+      "t": "Enter the south-western cavern of Eagles' Peak."
+     },
+     {
+      "t": "Try to take the feather from the pedestal."
+     },
+     {
+      "t": "Use the winches in the corners of the room."
+     },
+     {
+      "t": "Take the feather from the pedestal."
+     },
+     {
+      "t": "Return to the main cavern."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Get the silver feather",
+    "st": [
+     {
+      "t": "Enter the north-western cavern of Eagles' Peak."
+     },
+     {
+      "t": "Inspect the Stone Pedestal here."
+     },
+     {
+      "t": "Inspect the rocks east of the pedestal."
+     },
+     {
+      "t": "Inspect the rocks north east of the last rock."
+     },
+     {
+      "t": "Inspect the opening north of the second rock."
+     },
+     {
+      "t": "Long-press the Kebbit that appears and choose Threaten. If the kebbit's gone, re-inspect the opening.",
+      "s": [
+       "Taunt the kebbit."
+      ]
+     },
+     {
+      "t": "Pick up the silver feather. If it's despawned, inspect the opening to get it."
+     },
+     {
+      "t": "Return to the main cavern."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Get the golden feather",
+    "st": [
+     {
+      "t": "Enter the tunnel in the north east of the main cavern."
+     },
+     {
+      "t": "Collect 6 birdseed from the Birdseed holder.",
+      "i": [
+       "Odd bird seed (6)"
+      ]
+     },
+     {
+      "t": "Pull the lever west of the entrance down."
+     },
+     {
+      "t": "Use the odd bird seed on the Bird feeder in the far south eastern corner.",
+      "i": [
+       "Odd bird seed"
+      ]
+     },
+     {
+      "t": "Use the odd bird seed on the bird feeder next to the one you just filled, just to its north-west.",
+      "i": [
+       "Odd bird seed"
+      ]
+     },
+     {
+      "t": "Pull the lever in the south east corner down."
+     },
+     {
+      "t": "Push the lever west of the entrance up."
+     },
+     {
+      "t": "Put odd bird feed into the feeder in the south of the room, south of the lever you just pushed up and east of the south west lever.",
+      "i": [
+       "Odd bird seed"
+      ]
+     },
+     {
+      "t": "Pull the lever in the south west corner down."
+     },
+     {
+      "t": "Go back to the lever west of the entrance and put odd bird feed into the feeder just north of it.",
+      "i": [
+       "Odd bird seed"
+      ]
+     },
+     {
+      "t": "Pull the lever in the north west corner down."
+     },
+     {
+      "t": "Put odd bird feed into the feeder in the south west of the room",
+      "i": [
+       "Odd bird seed"
+      ]
+     },
+     {
+      "t": "Put odd bird feed into the same feeder you filled just after pushing the lever west of the entrance back up.",
+      "i": [
+       "Odd bird seed"
+      ]
+     },
+     {
+      "t": "Grab the Golden feather from the pedestal."
+     },
+     {
+      "t": "Return to the main cavern."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Free Nickolaus",
+    "st": [
+     {
+      "t": "Use all three feathers on the large stone door with the eagle carving. From the south-west end of the main cavern take the path east: the door is just east of the tunnel to the bronze feather room.",
+      "i": [
+       "Golden feather",
+       "Silver feather",
+       "Bronze feather"
+      ]
+     },
+     {
+      "t": "Go through the feather door and sneak past the Eagle whilst wearing your eagle disguise.",
+      "i": [
+       "Fake beak (2)",
+       "Eagle cape (2)"
+      ]
+     },
+     {
+      "t": "Speak to Nickolaus.",
+      "i": [
+       "Fake beak (2)",
+       "Eagle cape (2)"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Learn how to catch ferrets",
+    "st": [
+     {
+      "t": "Speak to Nickolaus in his camp north of Eagles' Peak.",
+      "s": [
+       "Well I was originally sent to find you because of a ferret.",
+       "That sounds good to me."
+      ]
+     },
+     {
+      "t": "Bring the ferret back to Charlie in Ardougne Zoo.",
+      "i": [
+       "Ferret"
+      ]
+     }
+    ],
+    "i": [
+     "Ardougne teleport"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

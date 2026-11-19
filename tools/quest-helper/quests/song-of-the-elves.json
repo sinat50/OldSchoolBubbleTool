@@ -1,0 +1,1189 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder songoftheelves; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Song of the Elves",
+  "items": [
+   "Steel full helm",
+   "Steel platebody",
+   "Steel platelegs",
+   "Red dye",
+   "Purple dye",
+   "Silk",
+   "Full mourners' outfit",
+   "Runite bar",
+   "Limestone brick (8)",
+   "Tinderbox",
+   "Rope",
+   "Nature rune",
+   "Irit leaf or a flower",
+   "Adamant chainbody",
+   "Wine of Zamorak or Zamorak brew",
+   "Cabbage",
+   "Black knife or black dagger",
+   "Cadantine seed",
+   "Seed dibber",
+   "Vial of water",
+   "Pestle and mortar",
+   "Hammer",
+   "Saw",
+   "Any pickaxe",
+   "Any axe",
+   "Spade"
+  ],
+  "rec": [
+   "Teleport crystal",
+   "Iorwerth camp teleport",
+   "Games necklace",
+   "Combat gear, food and potions",
+   "Magic combat gear, food and potions",
+   "Saradomin brews",
+   "Super restores",
+   "or more Stamina potions (6)"
+  ],
+  "enemies": [
+   "Many Mourners, Paladins and Knights of Ardougne",
+   "Arianwyn (level 182)",
+   "Essyllt (level 236)",
+   "Fragment of Seren (level 494)"
+  ],
+  "rewards": [
+   "4 Quest points",
+   "40,000 Agility XP",
+   "40,000 Construction XP",
+   "40,000 Farming XP",
+   "40,000 Herblore XP",
+   "40,000 Hunter XP",
+   "40,000 Mining XP",
+   "40,000 Smithing XP",
+   "40,000 Woodcutting XP",
+   "Access to Prifddinas",
+   "Ability to fight Zalcano",
+   "Access to The Gauntlet",
+   "Access to Trahaearn Mine",
+   "Access to Iorwerth Dungeon",
+   "Ability to respawn at Prifddinas",
+   "Ability to move POH to Prifddinas",
+   "Prifddinas Teleport added to Crystal Teleport Seed",
+   "Ability to make Divine Potions",
+   "Ability to make Crystal Tools, Weapons and Armor"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Edmond in East Ardougne.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Climb the stairs on the west side of East Ardougne castle and talk to King Lathas upstairs."
+     },
+     {
+      "t": "Return to Edmond in East Ardougne.",
+      "s": [
+       "How do I get this disguise?"
+      ]
+     },
+     {
+      "t": "Talk to Alrena in East Ardougne.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Purple dye",
+       "Silk"
+      ]
+     },
+     {
+      "t": "Use red dye on a steel full helm.",
+      "i": [
+       "Red dye",
+       "Steel full helm"
+      ]
+     },
+     {
+      "t": "Add the tabard to a steel platebody.",
+      "i": [
+       "Ardougne knight tabard",
+       "Steel platebody"
+      ]
+     },
+     {
+      "t": "Return to Edmond in East Ardougne.",
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody"
+      ]
+     },
+     {
+      "t": "Wear the Ardougne knight helm, Ardougne knight platebody and steel platelegs, then enter the basement of East Ardougne castle by the stairs down on its west side.",
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "Talk to Elena in the cell."
+     },
+     {
+      "t": "Leave the prison."
+     },
+     {
+      "t": "Go to Elena's house in East Ardougne, where you started Biohazard, just west of the log balance. Search the cabinet there.",
+      "s": [
+       "The thick clear liquid."
+      ]
+     },
+     {
+      "t": "Return to Elena in the cell with the clear liquid, wearing your Ardougne knight disguise.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Clear liquid",
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "Return to Edmond in East Ardougne."
+     }
+    ],
+    "i": [
+     "Steel full helm",
+     "Steel platebody",
+     "Steel platelegs",
+     "Red dye",
+     "Purple dye",
+     "Silk",
+     "Full mourners' outfit",
+     "Tinderbox"
+    ]
+   },
+   {
+    "n": "Inciting the citizens",
+    "st": [
+     {
+      "t": "Search the bed in the house west of the Mourner base.",
+      "s": [
+       "Climb through it."
+      ]
+     },
+     {
+      "t": "Talk to Elena in the hideout.",
+      "s": [
+       "It's not good, but it might be our only option.",
+       "It's all in a day's work.",
+       "I am."
+      ]
+     },
+     {
+      "t": "Leave the hideout."
+     },
+     {
+      "t": "Wear your full Mourner outfit, including the gas mask, for all of West Ardougne. Use a tinderbox on the grain in the West Ardougne council building, the large building north of the church.",
+      "i": [
+       "Tinderbox",
+       "Gas mask",
+       "Mourner top",
+       "Mourner trousers",
+       "Mourner boots",
+       "Mourner gloves",
+       "Mourner cloak"
+      ]
+     },
+     {
+      "t": "Talk to the priest in the West Ardougne church and ask him for taxes.",
+      "i": [
+       "Gas mask",
+       "Mourner top",
+       "Mourner trousers",
+       "Mourner boots",
+       "Mourner gloves",
+       "Mourner cloak"
+      ]
+     },
+     {
+      "t": "Use a tinderbox on the grain in the West Ardougne church.",
+      "i": [
+       "Tinderbox",
+       "Gas mask",
+       "Mourner top",
+       "Mourner trousers",
+       "Mourner boots",
+       "Mourner gloves",
+       "Mourner cloak"
+      ]
+     },
+     {
+      "t": "Talk to Nurse Sarah in the building just south-west of the West Ardougne church, and tell her about retraining.",
+      "i": [
+       "Gas mask",
+       "Mourner top",
+       "Mourner trousers",
+       "Mourner boots",
+       "Mourner gloves",
+       "Mourner cloak"
+      ]
+     },
+     {
+      "t": "Use a tinderbox on the grain outside the West Ardougne general store, in the far south-west corner of the city.",
+      "i": [
+       "Tinderbox",
+       "Gas mask",
+       "Mourner top",
+       "Mourner trousers",
+       "Mourner boots",
+       "Mourner gloves",
+       "Mourner cloak"
+      ]
+     },
+     {
+      "t": "Talk to Chadwell in the West Ardougne general store.",
+      "s": [
+       "I'm here to tell you about some new taxes."
+      ],
+      "i": [
+       "Gas mask",
+       "Mourner top",
+       "Mourner trousers",
+       "Mourner boots",
+       "Mourner gloves",
+       "Mourner cloak"
+      ]
+     },
+     {
+      "t": "Wear the Ardougne knight helm, Ardougne knight platebody and steel platelegs for all of East Ardougne. Talk to the silver merchant in the East Ardougne Market.",
+      "s": [
+       "I'm here to tell you about some new taxes."
+      ],
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "Talk to both bakers in the East Ardougne Market, one on the east side and one on the west side.",
+      "s": [
+       "I'm here to tell you about some new taxes."
+      ],
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "Talk to the gem merchant in the East Ardougne Market.",
+      "s": [
+       "I'm here to tell you about some new taxes."
+      ],
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "Talk to the fur trader in the East Ardougne Market.",
+      "s": [
+       "I'm here to tell you about some new taxes."
+      ],
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "Talk to the spice seller in the East Ardougne Market.",
+      "s": [
+       "I'm here to tell you about some new taxes."
+      ],
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "Talk to the silk merchant in the East Ardougne Market.",
+      "s": [
+       "I'm here to tell you about some new taxes."
+      ],
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "Talk to the town crier in the East Ardougne Market.",
+      "s": [
+       "Could you help me tell people about some new taxes?"
+      ],
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "Talk to Zenesha south of the East Ardougne Market.",
+      "s": [
+       "I'm here to tell you about some new taxes."
+      ],
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "Talk to the Estate Agent, just west of the East Ardougne Market.",
+      "s": [
+       "I'm here to tell you about some new taxes."
+      ],
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "Talk to Probita the pet insurer, just west of the Estate Agent.",
+      "s": [
+       "I'm here to tell you about some new taxes."
+      ],
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "Talk to Aemad in the East Ardougne General Store.",
+      "s": [
+       "I'm here to tell you about some new taxes."
+      ],
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "Talk to the priest in the East Ardougne church.",
+      "s": [
+       "I'm here to tell you about some new taxes."
+      ],
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     },
+     {
+      "t": "You need 80 recruits, and everyone so far gives 83, so you should already have enough. If you skipped anyone, also talk to Doctor Orbon in the East Ardougne church, then move on.",
+      "s": [
+       "I'm here to tell you about some new taxes."
+      ],
+      "i": [
+       "Ardougne knight helm",
+       "Ardougne knight platebody",
+       "Steel platelegs"
+      ]
+     }
+    ],
+    "i": [
+     "Tinderbox",
+     "Full mourners' outfit",
+     "Ardougne knight helm",
+     "Ardougne knight platebody",
+     "Steel platelegs"
+    ]
+   },
+   {
+    "n": "Overthrowing the King",
+    "st": [
+     {
+      "t": "Talk to Elena in the hideout, ready for a fight.",
+      "s": [
+       "Are you sure you're okay with this Elena?",
+       "I'm ready."
+      ],
+      "i": [
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Kill the 10 mourners."
+     },
+     {
+      "t": "Go through the trapdoor in the north building of the Mourner HQ to enter its basement."
+     },
+     {
+      "t": "Kill the 11 mourners."
+     },
+     {
+      "t": "Talk to Elena in the hideout, ready for a fight.",
+      "s": [
+       "I'm ready."
+      ],
+      "i": [
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Defeat 15 knights in the East Ardougne castle courtyard and upstairs."
+     },
+     {
+      "t": "When all 15 are dead, a cutscene brings out King Lathas. Speak to him, then choose \"We're done here, take him away.\" If you end up back in the hideout instead, talk to Elena.",
+      "s": [
+       "We're done here, take him away."
+      ],
+      "i": [
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Watch the cutscenes."
+     }
+    ],
+    "i": [
+     "Combat gear, food and potions"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Helping Arianwyn",
+    "st": [
+     {
+      "t": "Talk to Arianwyn in Lletya."
+     },
+     {
+      "t": "Climb the ladder in the north-east of Lletya and talk to Ysgawyn on the upper middle platform."
+     },
+     {
+      "t": "Talk to Elena in the south west of Lletya.",
+      "s": [
+       "It is. I'm here for you if you need me though.",
+       "Go ahead.",
+       "I don't know."
+      ]
+     },
+     {
+      "t": "Talk to Arianwyn again."
+     },
+     {
+      "t": "Talk to Arianwyn after the meeting."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Arianwyn (level 182)"
+    ]
+   },
+   {
+    "n": "Freeing Baxtorian",
+    "st": [
+     {
+      "t": "Board the log raft west of Almera.",
+      "i": [
+       "Rope",
+       "Irit leaf or a flower",
+       "Cabbage",
+       "Wine of Zamorak or Zamorak brew",
+       "Nature rune",
+       "Adamant chainbody",
+       "Black knife or black dagger"
+      ]
+     },
+     {
+      "t": "Use a rope on the rock to the south.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Use a rope on the dead tree.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Enter the falls."
+     },
+     {
+      "t": "Search the northern stack of crates in the east room for a key."
+     },
+     {
+      "t": "Go through the doors from the west room.",
+      "i": [
+       "Key"
+      ]
+     },
+     {
+      "t": "Talk to Arianwyn.",
+      "s": [
+       "Let's just crack on."
+      ]
+     },
+     {
+      "t": "Read the Ode to eternity book Arianwyn gave you before placing any items. Then solve the pillar puzzle: inspect the pillars to get their hints. Each hint ends in 1st, 2nd, 3rd, 4th, 5th or 6th. Go by the words of each hint, not by the pillar you read it on: most hints give the item for a different pillar. You can skip the hint that says it is not opposite a number, as that item is the one left over. Placing an item on the wrong pillar fails the puzzle, so you must get the items again and the numbers change."
+     },
+     {
+      "t": "The ending of a hint names the item: 1st is the nature rune, 2nd the irit leaf or a flower, 3rd the black knife or black dagger, 4th the wine of Zamorak or Zamorak brew, 5th the adamant chainbody and 6th the cabbage."
+     },
+     {
+      "t": "Place each item by the wording of its hint: \"I am the\" goes on the south west pillar, \"I am next to the\" on the west pillar, \"I am opposite the\" on the north west pillar, \"I am not next to the\" on the east pillar and \"I am not the\" on the north east pillar. The item left over goes on the south east pillar.",
+      "i": [
+       "Nature rune",
+       "Irit leaf or a flower",
+       "Black knife or black dagger",
+       "Wine of Zamorak or Zamorak brew",
+       "Adamant chainbody",
+       "Cabbage"
+      ]
+     },
+     {
+      "t": "Talk to Baxtorian."
+     }
+    ],
+    "i": [
+     "Rope",
+     "Irit leaf or a flower",
+     "Cabbage",
+     "Wine of Zamorak or Zamorak brew",
+     "Nature rune",
+     "Adamant chainbody",
+     "Black knife or black dagger"
+    ],
+    "tr": [
+     "Teleport crystal"
+    ],
+    "c": 1,
+    "e": [
+     "Arianwyn (level 182)"
+    ]
+   },
+   {
+    "n": "Finding Amlodd",
+    "st": [
+     {
+      "t": "Talk to Arianwyn in Lletya."
+     },
+     {
+      "t": "Talk to Elena in the south west of Lletya.",
+      "s": [
+       "Now's not the time for stories, Elena."
+      ],
+      "i": [
+       "Seed dibber",
+       "Cadantine seed"
+      ]
+     },
+     {
+      "t": "Plant a cadantine seed in the Lletya farm patch.",
+      "i": [
+       "Seed dibber",
+       "Cadantine seed"
+      ]
+     },
+     {
+      "t": "Talk to Baxtorian in the central building just north of Lletya's bank, next to Arianwyn.",
+      "s": [
+       "How do I find Lord Amlodd?"
+      ]
+     },
+     {
+      "t": "Talk to Eluned in Lletya, just south of the archery shop and north of the pond.",
+      "s": [
+       "I have a seed from Baxtorian that I think needs enchanting."
+      ]
+     },
+     {
+      "t": "Rub the crystal seed to teleport.",
+      "i": [
+       "Crystal seed"
+      ]
+     },
+     {
+      "t": "Talk to the Mysterious Figure."
+     }
+    ],
+    "i": [
+     "Seed dibber",
+     "Cadantine seed"
+    ],
+    "c": 1,
+    "e": [
+     "Arianwyn (level 182)"
+    ]
+   },
+   {
+    "n": "Finding Trahaearn",
+    "st": [
+     {
+      "t": "Talk to Baxtorian in Lletya about Trahaearn.",
+      "s": [
+       "How do I find Lady Trahaearn?"
+      ]
+     },
+     {
+      "t": "Leave Lletya heading west and pass through the trees north of the dire wolves. Run across the clearing, step over the tripwire and go west through the 3 dense forests. Go north through the leaf trap, then east to the cave. Enter the cave to the Underground Pass from the Elven Lands entrance.",
+      "i": [
+       "Any pickaxe",
+       "Hammer",
+       "Runite bar"
+      ]
+     },
+     {
+      "t": "Use a pickaxe on the wall south of the Well of Voyage.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Enter the hole in the wall."
+     },
+     {
+      "t": "Use a hammer on the elderly elf.",
+      "i": [
+       "Hammer",
+       "Runite bar"
+      ]
+     },
+     {
+      "t": "Talk to Lady Tangwen Trahaearn."
+     }
+    ],
+    "i": [
+     "Any pickaxe",
+     "Hammer",
+     "Runite bar"
+    ]
+   },
+   {
+    "n": "Making the potion",
+    "st": [
+     {
+      "t": "Return to Elena in the south west of Lletya."
+     },
+     {
+      "t": "Talk to Arianwyn in Lletya.",
+      "i": [
+       "Elder cadantine"
+      ]
+     },
+     {
+      "t": "Use a pestle and mortar on the crystal.",
+      "i": [
+       "Pestle and mortar",
+       "Crystal"
+      ]
+     },
+     {
+      "t": "Add the cadantine to a vial of water.",
+      "i": [
+       "Elder cadantine",
+       "Vial of water"
+      ]
+     },
+     {
+      "t": "Add the crystal dust to a cadantine potion.",
+      "i": [
+       "Crystal dust",
+       "Elder cadantine potion (unf)"
+      ]
+     },
+     {
+      "t": "Bring the potion to Arianwyn.",
+      "i": [
+       "Inversion potion"
+      ]
+     }
+    ],
+    "i": [
+     "Pestle and mortar",
+     "Vial of water"
+    ],
+    "c": 1,
+    "e": [
+     "Arianwyn (level 182)"
+    ]
+   },
+   {
+    "n": "Entering the Crystal",
+    "st": [
+     {
+      "t": "Talk to Lord Amlodd in Lletya.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "If you arrive on the ground floor, go up to the middle floor of the library. Touch the Seal of the Forgotten, a short way south of the way up."
+     }
+    ],
+    "i": [
+     "or more Stamina potions (6)"
+    ]
+   },
+   {
+    "n": "Ithell Seal",
+    "st": [
+     {
+      "t": "Go to the south east room on the middle floor. The light shows you each next mirror. Pillar 1 is the first the light reaches, on the west side of the room. The light must leave it going south, so rotate it if it can turn. If a mirror already sends the light the right way, leave it."
+     },
+     {
+      "t": "Mirror 2 of 14: rotate the next mirror the light reaches so the light goes east."
+     },
+     {
+      "t": "Mirror 3 of 14: rotate the next mirror the light reaches so the light goes north."
+     },
+     {
+      "t": "Mirror 4 of 14: rotate the next mirror the light reaches so the light goes east."
+     },
+     {
+      "t": "Mirror 5 of 14: rotate the next mirror the light reaches so the light goes north."
+     },
+     {
+      "t": "Mirror 6 of 14: rotate the next mirror the light reaches so the light goes east."
+     },
+     {
+      "t": "Mirror 7 of 14: rotate the next mirror the light reaches so the light goes south."
+     },
+     {
+      "t": "Mirror 8 of 14: rotate the next mirror the light reaches so the light goes west."
+     },
+     {
+      "t": "Mirror 9 of 14: rotate the next mirror the light reaches so the light goes south."
+     },
+     {
+      "t": "Mirror 10 of 14: rotate the next mirror the light reaches so the light goes east."
+     },
+     {
+      "t": "Mirror 11 of 14: rotate the next mirror the light reaches so the light goes north."
+     },
+     {
+      "t": "Mirror 12 of 14: rotate the next mirror the light reaches so the light goes east."
+     },
+     {
+      "t": "Mirror 13 of 14: rotate the next mirror the light reaches so the light goes north."
+     },
+     {
+      "t": "Mirror 14 of 14: rotate it so the light goes east into the Seal of Ithell."
+     },
+     {
+      "t": "Touch the Seal of Ithell in the south east room."
+     }
+    ]
+   },
+   {
+    "n": "Cadarn Seal",
+    "st": [
+     {
+      "t": "Solve the Cadarn light puzzle: open its Solution and follow it until the light reaches the Seal of Cadarn.",
+      "s": [
+       "Take everything."
+      ]
+     },
+     {
+      "t": "Touch the Seal of Cadarn in the south of the ground floor."
+     }
+    ]
+   },
+   {
+    "n": "Crwys Seal",
+    "st": [
+     {
+      "t": "Solve the Crwys light puzzle: open its Solution and follow it until the light reaches the Seal of Crwys.",
+      "s": [
+       "Pull the lever.",
+       "Pull it.",
+       "Take everything."
+      ]
+     },
+     {
+      "t": "Touch the Seal of Crwys in the north west of the middle floor."
+     }
+    ]
+   },
+   {
+    "n": "Amlodd Seal",
+    "st": [
+     {
+      "t": "Solve the Amlodd light puzzle: open its Solution and follow it until the light reaches the Seal of Amlodd.",
+      "s": [
+       "Pull the lever.",
+       "Pull it.",
+       "Take everything."
+      ]
+     },
+     {
+      "t": "Touch the Seal of Amlodd in the middle of the ground floor."
+     }
+    ]
+   },
+   {
+    "n": "Meilyr Seal",
+    "st": [
+     {
+      "t": "Solve the Meilyr light puzzle: open its Solution and follow it until the light reaches the Seal of Meilyr.",
+      "s": [
+       "Pull the lever.",
+       "Pull it.",
+       "Take everything."
+      ]
+     },
+     {
+      "t": "Go back to the middle floor if you aren't on it. Climb the north-west stairs to the top floor, then touch the Seal of Meilyr in the middle of that floor.",
+      "s": [
+       "Climb up."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Hefin Seal",
+    "st": [
+     {
+      "t": "Solve the Hefin light puzzle: open its Solution and follow it until the light reaches the Seal of Hefin.",
+      "s": [
+       "Pull the lever.",
+       "Pull it.",
+       "Take everything."
+      ]
+     },
+     {
+      "t": "Touch the Seal of Hefin in the south west of the top floor."
+     }
+    ]
+   },
+   {
+    "n": "Trahaearn Seal",
+    "st": [
+     {
+      "t": "Solve the Trahaearn light puzzle: open its Solution and follow it until the light reaches the Seal of Trahaearn.",
+      "s": [
+       "Pull the lever.",
+       "Pull it.",
+       "Take everything."
+      ]
+     },
+     {
+      "t": "Touch the Seal of Trahaearn in the east of the top floor."
+     }
+    ]
+   },
+   {
+    "n": "Iorwerth Seal",
+    "st": [
+     {
+      "t": "Solve the Iorwerth light puzzle: open its Solution and follow it until the light reaches the Seal of Iorwerth.",
+      "s": [
+       "Pull the lever.",
+       "Pull it.",
+       "Take everything."
+      ]
+     },
+     {
+      "t": "Touch the Seal of Iorwerth in the north east of the middle floor."
+     }
+    ]
+   },
+   {
+    "n": "Finding Crwys and Hefin",
+    "st": [
+     {
+      "t": "Leave the library. A quick way to do this is hopping worlds."
+     },
+     {
+      "t": "Talk to Arianwyn in Lletya."
+     },
+     {
+      "t": "Ask Baxtorian about how to find Crwys and Lady Hefin. Ask about both.",
+      "s": [
+       "How do I find Lord Crwys?",
+       "How do I find Lady Hefin?"
+      ]
+     },
+     {
+      "t": "Hop across the stepping stones in the swamp south of the magic trees near Lletya. Talk to the Elf Hermit on the island you reach."
+     },
+     {
+      "t": "Go to the western side of Isafdar, south of the Iorwerth Camp. The Iorwerth camp teleport is quickest, and Iorwerth elves will attack you now. Cross the log balance and the stick trap south-west of it into the clearing, then chop the dead tree north of the pond. Talk to Crwys when he appears.",
+      "i": [
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Talk to Lord Crwys."
+     }
+    ],
+    "i": [
+     "Any axe"
+    ],
+    "c": 1,
+    "e": [
+     "Arianwyn (level 182)"
+    ]
+   },
+   {
+    "n": "Retrieving the orb",
+    "st": [
+     {
+      "t": "Return to Baxtorian in Lletya."
+     },
+     {
+      "t": "Enter the cave in the Iorwerth camp.",
+      "i": [
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Kill the guards."
+     },
+     {
+      "t": "Search the chest for the orb."
+     },
+     {
+      "t": "Return to Baxtorian in Lletya."
+     }
+    ],
+    "i": [
+     "Combat gear, food and potions"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Locating Ysgawyn",
+    "st": [
+     {
+      "t": "Talk to Elena in the south west of Lletya.",
+      "s": [
+       "That's fair. Anyway, I wanted to ask you about Ysgawyn."
+      ]
+     },
+     {
+      "t": "Inspect the mushrooms just outside Lletya."
+     },
+     {
+      "t": "Inspect the rocks to the west."
+     },
+     {
+      "t": "Inspect the rocks to the west over the tripwire."
+     },
+     {
+      "t": "Inspect the elven lamp to the south over the leaf trap."
+     },
+     {
+      "t": "Inspect the mushrooms to the west."
+     },
+     {
+      "t": "Inspect the rocks to the north west."
+     },
+     {
+      "t": "Climb over the tripwire into the clearing."
+     },
+     {
+      "t": "Talk to Ysgawyn.",
+      "s": [
+       "So what have you been discussing?"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear, food and potions"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Defending Lletya",
+    "st": [
+     {
+      "t": "Enter Lletya.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Enter the house to the south and search its east table to find Eoin."
+     },
+     {
+      "t": "Go upstairs."
+     },
+     {
+      "t": "Search the cooking pots by the south cooking range to find Iona."
+     },
+     {
+      "t": "Defeat Arianwyn. Protect from Ranged. Move when he shoots orange arrows."
+     }
+    ],
+    "i": [
+     "Combat gear, food and potions"
+    ],
+    "c": 1,
+    "e": [
+     "Arianwyn (level 182)"
+    ]
+   },
+   {
+    "n": "Finding Ithell and Meilyr",
+    "st": [
+     {
+      "t": "Talk to Baxtorian in Lletya about Ithell and Meilyr. Ask for both clues.",
+      "s": [
+       "What's Lady Ithell's clue?",
+       "What's Lady Meilyr's clue?"
+      ]
+     },
+     {
+      "t": "Touch the symbol on the bank's wall."
+     },
+     {
+      "t": "Touch the symbol in the building north of Elena."
+     },
+     {
+      "t": "Touch the symbol in the General Store."
+     },
+     {
+      "t": "Go up to the top floor of Lletya."
+     },
+     {
+      "t": "Touch the symbol above the General Store."
+     },
+     {
+      "t": "Touch the symbol at the altar."
+     },
+     {
+      "t": "Make a statue in the middle of Lletya.",
+      "i": [
+       "Saw",
+       "Hammer",
+       "Limestone brick (8)"
+      ]
+     },
+     {
+      "t": "Talk to Lady Kelyn Ithell in Lletya."
+     },
+     {
+      "t": "Dig south-east of Port Tyras, near a yew tree, 4 squares south of a group of three mushrooms. A charter ship to Port Tyras is the quick way: go through the camp, north through the dense forest, east and south through the next dense forest, then over a tripwire and south to the spot. If digging finds nothing, ask the Observatory professor about treasure trails for a sextant, watch and chart, destroy the clue, and get a new one from Baxtorian.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Dig in Zul-Andra, on the east side of the northernmost hut, two squares north of the small hole in the ground (or the STASH unit, if you've built it). A Zul-andra teleport takes you there. You can also use fairy ring BJS and the stepping stones (76 Agility), or charter a ship to Port Tyras and head south, then south-east.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Dig outside Prifddinas's south gate, one square north of the north-eastern elven lamp. The Iorwerth camp teleport is quickest: go east through the dense forests, then north to the gate."
+     },
+     {
+      "t": "Spin outside of the Underground Pass's cave entrance with nothing equipped."
+     },
+     {
+      "t": "Talk to Lady Meilyr."
+     }
+    ],
+    "i": [
+     "Limestone brick (8)",
+     "Saw",
+     "Hammer",
+     "Spade",
+     "Combat gear, food and potions"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Defending the Temple",
+    "st": [
+     {
+      "t": "Make sure you're prepared for battle. Enter the Underground Pass from the Elven Lands entrance, then enter the Well of Voyage. Leave the well area through the door and follow the winding path south. Enter the south cave to go down to the lower level, then go to the dwarven camp.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Talk to Baxtorian in the dwarven camp."
+     },
+     {
+      "t": "Talk to Elena in the dwarven camp.",
+      "s": [
+       "Baxtorian said you had an idea to help our defence."
+      ]
+     },
+     {
+      "t": "Fill the 7 holes around the camp's entrance. You can get more explosive potions from Elena.",
+      "i": [
+       "Explosive potion"
+      ]
+     },
+     {
+      "t": "Talk to Baxtorian in the dwarven camp.",
+      "s": [
+       "I'm ready."
+      ]
+     },
+     {
+      "t": "Defend the camp for four minutes. You don't have to kill every elf: attack any that are hitting the barricade to draw them onto you."
+     },
+     {
+      "t": "Defeat Essyllt. Protect from melee. He can drain your stats, so drink super restores when needed. When he shoves you, flick to Protect from Ranged then back to Protect from Melee."
+     }
+    ],
+    "i": [
+     "Combat gear, food and potions"
+    ],
+    "c": 1,
+    "e": [
+     "Essyllt (level 236)"
+    ]
+   },
+   {
+    "n": "Defeat the Fragment",
+    "st": [
+     {
+      "t": "After Essyllt, a cutscene starts the Fragment of Seren fight straight away. Only magic can hurt her. If you aren't in magic gear, teleport out, bank and gear up."
+     },
+     {
+      "t": "If you left, go back the way you reached the dwarven camp: enter the Underground Pass from the Elven Lands entrance, then enter the Well of Voyage. Leave the well area through the door and follow the winding path south. Enter the south cave and the fight starts again.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Defeat the Fragment of Seren. Protect from Ranged, and keep your distance. She is only susceptible to magic damage, so bring your best magic gear. If she moves you close to her and locks you in place, she is about to hit 99% of your max health. Eat up. If she spawns a healing spell, attack it to destroy it. If she splits into multiple fragments, attack the light coloured one."
+     },
+     {
+      "t": "Talk to Baxtorian outside of Prifddinas to finish the quest, and unlock Prifddinas!"
+     }
+    ],
+    "i": [
+     "Magic combat gear, food and potions",
+     "Saradomin brews",
+     "Super restores"
+    ],
+    "c": 1,
+    "e": [
+     "Fragment of Seren (level 494)"
+    ]
+   }
+  ]
+ }
+}

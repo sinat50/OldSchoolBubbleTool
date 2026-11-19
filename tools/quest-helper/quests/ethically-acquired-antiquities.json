@@ -1,0 +1,161 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Ethically Acquired Antiquities",
+  "items": [],
+  "rec": [
+   "Coins (3000)",
+   "Varrock Teleport",
+   "Civitas Illa Fortis Teleport (2)",
+   "Stamina potion"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "6,000 Thieving XP",
+   "5000 x Coins"
+  ],
+  "sec": [
+   {
+    "n": "Grand Museum",
+    "st": [
+     {
+      "t": "Inspect the empty display case in the north-east corner of the Grand Museum in Civitas illa Fortis to start the quest.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Speak to Curator Herminius in the centre of the Grand Museum.",
+      "s": [
+       "Could you tell me more about that empty display?"
+      ]
+     },
+     {
+      "t": "Investigate the tools behind the empty display case."
+     },
+     {
+      "t": "Inspect the empty display case again."
+     },
+     {
+      "t": "Talk to any academic in the room."
+     },
+     {
+      "t": "Talk to any tourist in the room."
+     },
+     {
+      "t": "Talk to any citizen in the room."
+     }
+    ],
+    "i": [
+     "Civitas Illa Fortis Teleport"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Done with museum visit",
+    "st": [
+     {
+      "t": "Speak to Regulus Cento south of the Grand Museum.",
+      "s": [
+       "Have you seen anybody suspicious around?"
+      ]
+     },
+     {
+      "t": "Head east to the docks and speak to any Trader Crewmember.",
+      "s": [
+       "Have you seen a man with a case?",
+       "As long as it is just the one favour..."
+      ]
+     },
+     {
+      "t": "Head south of the Fortis Cothon to Artima's crafting store and speak to her.",
+      "s": [
+       "I was hoping for some help.",
+       "Go on then.",
+       "So about those sails..."
+      ],
+      "i": [
+       "Tattered sails"
+      ]
+     },
+     {
+      "t": "Return up north and speak to any Trader Crewmember.",
+      "s": [
+       "So, about that man with the case."
+      ]
+     },
+     {
+      "t": "Head to Port Sarim and speak to Trader Stan or any Trader Crewmember on the southern deck. To get to Port Sarim quickly, you can charter a ship.",
+      "s": [
+       "Port Sarim (wily cats)",
+       "Have you seen a grey-haired man with a case?"
+      ]
+     },
+     {
+      "t": "Head to the Rune Shop in north western Port Sarim and speak to Betty.",
+      "s": [
+       "Have you seen a grey-haired man with a case?"
+      ]
+     },
+     {
+      "t": "Read Betty's notes.",
+      "i": [
+       "Betty's Notes"
+      ]
+     }
+    ],
+    "i": [
+     "Coins (3000)"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Nevermind, another one",
+    "st": [
+     {
+      "t": "Head to Varrock Museum and speak to Curator Haig Halen.",
+      "s": [
+       "I'm looking for Xerna's Diadem."
+      ]
+     },
+     {
+      "t": "Long-press Curator Haig Halen and choose Pickpocket."
+     },
+     {
+      "t": "Open the door to the room in the north east and search the crate."
+     },
+     {
+      "t": "Go speak to Curator Haig Halen again.",
+      "s": [
+       "I found Xerna's Diadem..."
+      ]
+     },
+     {
+      "t": "Talk to Curator Haig Halen. A shame meter appears. Keep choosing lines that raise it until it reaches 100%. The lines offered differ for each player. Every line that is NOT in the list below raises it, for example \"Stealing is against the law!\", \"You've committed a crime.\", \"Just give it back already!\", \"A real historian would never steal!\" or \"You ought to be ashamed.\". Avoid these lines, which lower it, even the harsh ones: \"Do you even have room to display this artefact?\", \"Don't you have enough artefacts of your own?\", \"Have you no respect for your colleagues in Varlamore?\", \"How do you explain the other stolen artefacts you have in storage?\", \"How do you sleep at night?\", \"I'm sick of your excuses!\", \"Is the artefact really safer here?\", \"This artefact doesn't belong to you! It belongs to Varlamore!\", \"This could destroy your reputation! Everyone will think you're a thief!\", \"What if I came into your house and stole your stuff?\", \"What if it's cursed?! It could be dangerous!\", \"What if Varlamore finds out what you've done?\", \"What makes you think you know better?\", \"Why don't you just cooperate with Varlamore?\", \"Why should you decide who gets to keep their artefacts?\", \"You don't even have room to display it! It's just sitting in storage!\", \"You should be ashamed of yourself.\", \"You should return all these artefacts. It's the only right thing to do.\", \"You're not preserving anything. You're just a thief.\", \"You're nothing but a common thief!\", \"You've ruined Varlamore's museum.\", \"You've stolen from several other museums, too!\".",
+      "s": [
+       "I found Xerna's Diadem..."
+      ]
+     },
+     {
+      "t": "Talk to Curator Haig Halen again. A cutscene follows."
+     },
+     {
+      "t": "Watch cutscene."
+     },
+     {
+      "t": "Speak to the Curator in the centre of the Grand Museum to complete the quest.",
+      "s": [
+       "About that empty display..."
+      ]
+     }
+    ],
+    "i": [
+     "Varrock Teleport",
+     "Civitas Illa Fortis Teleport"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

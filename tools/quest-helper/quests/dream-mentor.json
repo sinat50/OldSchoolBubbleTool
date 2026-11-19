@@ -1,0 +1,327 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder dreammentor; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Dream Mentor",
+  "items": [
+   "Seal of passage",
+   "some type of food (7)",
+   "some other type of food (7)",
+   "a third type of food (6)",
+   "Goutweed",
+   "Astral rune",
+   "Hammer",
+   "Pestle and mortar",
+   "Tinderbox",
+   "Combat gear"
+  ],
+  "rec": [
+   "Lunar isle teleport (3)",
+   "Stamina potion"
+  ],
+  "enemies": [
+   "The Inadequacy (level 343)",
+   "The Everlasting (level 223, safespottable)",
+   "The Untouchable (level 274, safespottable)",
+   "The Illusive (level 108, won't attack you)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "15,000 Hitpoints XP",
+   "10,000 Magic XP",
+   "15,000 Experience Lamp (Combat, No Prayer or Attack)",
+   "7 New Lunar Spells",
+   "Ability to bank without the Seal of Passage by talking to 'Birds-Eye-Jack'"
+  ],
+  "sec": [
+   {
+    "n": "Helping Cyrisus",
+    "st": [
+     {
+      "t": "Enter the mine in the north east of Lunar Isle.",
+      "i": [
+       "food: 5x some type food, 5x some other type of food, 4x a third type of food (14)"
+      ]
+     },
+     {
+      "t": "Enter the cave entrance on the north wall."
+     },
+     {
+      "t": "Attempt to talk to the fallen man.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Feed the fallen man 4 food. You'll need to alternate between at least 3 different types of food.",
+      "i": [
+       "food: 1x some type of food, 1x some other type of food, 2x a third type of food (4)"
+      ]
+     },
+     {
+      "t": "Talk to the fallen man."
+     },
+     {
+      "t": "Feed the fallen man 4 food. You'll need to alternate between at least 3 different types of food.",
+      "i": [
+       "food: 1x some type of food, 1x some other type of food, 2x a third type of food (4)"
+      ]
+     },
+     {
+      "t": "Talk to the fallen man. Keep choosing the positive replies and talk to him again until he sits up.",
+      "s": [
+       "You're looking better now.",
+       "Well, you look and sound more lively.",
+       "Are you looking forward to getting out?",
+       "That's the spirit!",
+       "You seem like a nice guy.",
+       "Just being honest.",
+       "When we get out of here I'll buy you a drink!",
+       "Whatever and wherever you want - my treat.",
+       "I'm very impressed you managed to get into this cave.",
+       "I would have given up personally.",
+       "You'll survive this easily.",
+       "Think of all the places you can visit when you get out!",
+       "Just don't worry.",
+       "Of course.",
+       "What are you going to do when you get out of here?",
+       "That's up to you. You could travel with me!",
+       "It's a good thing you have me to look after you.",
+       "Not that I'm bragging or anything.",
+       "Not long now and you'll be back on your feet!",
+       "On whether you mind me helping you further.",
+       "You're sounding much better.",
+       "If you need anything, just let me know.",
+       "It's quite cosy in here.",
+       "The perfect environment for getting back on your feet!",
+       "You're very safe in this little cave.",
+       "The suqah will never fit through that tunnel.",
+       "Tell me a bit about yourself.",
+       "Fishing!"
+      ]
+     },
+     {
+      "t": "Feed Cyrisus 6 food. You'll need to alternate between at least 3 different types of food.",
+      "i": [
+       "food: 2x some type of food, 2x some other type of food, 2x a third type of food (6)"
+      ]
+     },
+     {
+      "t": "Talk to Cyrisus. Keep choosing the positive replies and talk to him again until he stands up, then talk to him once more.",
+      "s": [
+       "You're looking better now.",
+       "Well, you look and sound more lively.",
+       "Are you looking forward to getting out?",
+       "That's the spirit!",
+       "You seem like a nice guy.",
+       "Just being honest.",
+       "When we get out of here I'll buy you a drink!",
+       "Whatever and wherever you want - my treat.",
+       "I'm very impressed you managed to get into this cave.",
+       "I would have given up personally.",
+       "You'll survive this easily.",
+       "Think of all the places you can visit when you get out!",
+       "Just don't worry.",
+       "Of course.",
+       "What are you going to do when you get out of here?",
+       "That's up to you. You could travel with me!",
+       "It's a good thing you have me to look after you.",
+       "Not that I'm bragging or anything.",
+       "Not long now and you'll be back on your feet!",
+       "On whether you mind me helping you further.",
+       "You're sounding much better.",
+       "If you need anything, just let me know.",
+       "It's quite cosy in here.",
+       "The perfect environment for getting back on your feet!",
+       "You're very safe in this little cave.",
+       "The suqah will never fit through that tunnel.",
+       "Tell me a bit about yourself.",
+       "Fishing!"
+      ]
+     },
+     {
+      "t": "Talk to 'Bird's-Eye' Jack in the Lunar Isle bank for Cyrisus's equipment. Work out three numbers from your own levels: Attack + Strength, Ranged x 1.5 and Magic x 1.5.",
+      "s": [
+       "Cyrisus in the mine"
+      ],
+      "i": [
+       "Seal of passage"
+      ]
+     },
+     {
+      "t": "Take the set for your highest number. Melee: dragon med helm, Ahrim's robetop, Ahrim's robeskirt, ranger boots, abyssal whip. Ranged: splitbark helm, Karil's leathertop, Torag's platelegs, adamant boots, magic shortbow. Magic: Robin Hood hat, dragon chainbody, black d'hide chaps, infinity boots, ancient staff. A tie with melee counts as melee, and a tie between Ranged and Magic counts as Magic."
+     },
+     {
+      "t": "Take 6 more food from the bank: 2 each of 3 different types. You'll feed Cyrisus again after he has his equipment.",
+      "i": [
+       "food: 2x some type of food, 2x some other type of food, 2x a third type of food (6)"
+      ]
+     },
+     {
+      "t": "Go back down the mine in the north east of Lunar Isle, through the cave entrance on the north wall, and give Cyrisus his equipment.",
+      "s": [
+       "Talk about the Armament"
+      ],
+      "i": [
+       "Cyrisus's chest",
+       "food: 2x some type of food, 2x some other type of food, 2x a third type of food (6)"
+      ]
+     },
+     {
+      "t": "Feed Cyrisus alternating types of food.",
+      "i": [
+       "food: 2x some type of food, 2x some other type of food, 2x a third type of food (6)"
+      ]
+     },
+     {
+      "t": "Talk to Cyrisus until he's fully recovered.",
+      "s": [
+       "You're looking better now.",
+       "Well, you look and sound more lively.",
+       "Are you looking forward to getting out?",
+       "That's the spirit!",
+       "You seem like a nice guy.",
+       "Just being honest.",
+       "When we get out of here I'll buy you a drink!",
+       "Whatever and wherever you want - my treat.",
+       "I'm very impressed you managed to get into this cave.",
+       "I would have given up personally.",
+       "You'll survive this easily.",
+       "Think of all the places you can visit when you get out!",
+       "Just don't worry.",
+       "Of course.",
+       "What are you going to do when you get out of here?",
+       "That's up to you. You could travel with me!",
+       "It's a good thing you have me to look after you.",
+       "Not that I'm bragging or anything.",
+       "Not long now and you'll be back on your feet!",
+       "On whether you mind me helping you further.",
+       "You're sounding much better.",
+       "If you need anything, just let me know.",
+       "It's quite cosy in here.",
+       "The perfect environment for getting back on your feet!",
+       "You're very safe in this little cave.",
+       "The suqah will never fit through that tunnel.",
+       "Tell me a bit about yourself.",
+       "Fishing!"
+      ]
+     }
+    ],
+    "i": [
+     "some type of food (7)",
+     "some other type of food (7)",
+     "a third type of food (6)",
+     "Seal of passage"
+    ],
+    "tr": [
+     "Lunar isle teleport (3)"
+    ],
+    "r": [
+     "Stamina potion"
+    ]
+   },
+   {
+    "n": "Defeating his fear",
+    "st": [
+     {
+      "t": "Talk to the Oneiromancer in the south east of Lunar Isle.",
+      "s": [
+       "Cyrisus."
+      ],
+      "i": [
+       "Seal of passage"
+      ]
+     },
+     {
+      "t": "Fill the vial with water at the sink just west of the bank in Lunar Isle's town.",
+      "i": [
+       "Dream vial (empty)"
+      ]
+     },
+     {
+      "t": "Add a goutweed to the dream vial.",
+      "i": [
+       "Dream vial (water)",
+       "Goutweed"
+      ]
+     },
+     {
+      "t": "Use a hammer on an astral rune.",
+      "i": [
+       "Hammer",
+       "Astral rune"
+      ]
+     },
+     {
+      "t": "Use a pestle and mortar on the astral rune shards.",
+      "i": [
+       "Pestle and mortar",
+       "Astral rune shards"
+      ]
+     },
+     {
+      "t": "Add the ground astral rune to the dream vial.",
+      "i": [
+       "Ground astral rune",
+       "Dream vial (herb)"
+      ]
+     },
+     {
+      "t": "Equip your combat equipment, food, and light the Brazier in the west of Lunar Isle's town. The upcoming fight is hard, and you can only leave via the lecturn in the arena and cannot pray. Magic attacks are extremely effective for the fight.",
+      "i": [
+       "Seal of passage",
+       "Tinderbox",
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Talk to Cyrisus to enter the dream.",
+      "s": [
+       "Yes, let's go!"
+      ],
+      "i": [
+       "Combat gear",
+       "Seal of passage"
+      ]
+     },
+     {
+      "t": "Kill The Inadequacy."
+     },
+     {
+      "t": "Kill The Everlasting. You can safespot it by standing directly west of the lectern on the north side of the arena."
+     },
+     {
+      "t": "Kill The Untouchable. You can safespot it by the lectern on the north side of the arena."
+     },
+     {
+      "t": "Kill The Illusive."
+     },
+     {
+      "t": "Talk to the Oneiromancer to finish the quest!",
+      "s": [
+       "Cyrisus."
+      ],
+      "i": [
+       "Seal of passage"
+      ]
+     }
+    ],
+    "i": [
+     "Seal of passage",
+     "Goutweed",
+     "Astral rune",
+     "Hammer",
+     "Pestle and mortar",
+     "Tinderbox",
+     "Combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "The Inadequacy (level 343)",
+     "The Everlasting (level 223, safespottable)",
+     "The Untouchable (level 274, safespottable)",
+     "The Illusive (level 108, won't attack you)"
+    ]
+   }
+  ]
+ }
+}

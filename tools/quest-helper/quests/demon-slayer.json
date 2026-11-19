@@ -1,0 +1,147 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Demon Slayer",
+  "items": [
+   "Coin",
+   "Bones (UNNOTED) (25)",
+   "Bucket of water",
+   "Armour",
+   "Food"
+  ],
+  "rec": [
+   "Varrock teleport",
+   "Teleport to the Wizards' Tower"
+  ],
+  "enemies": [
+   "Delrith (level 27)"
+  ],
+  "rewards": [
+   "3 Quest points",
+   "Silverlight"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Aris in her tent in Varrock Square. Write down the five magic words from the cutscene, in order: they are different for every player.",
+      "s": [
+       "The Demon Slayer Quest",
+       "Yes.",
+       "Ok, here you go.",
+       "Okay, where is he? I'll kill him for you!",
+       "So how did Wally kill Delrith?"
+      ],
+      "i": [
+       "Coin"
+      ]
+     },
+     {
+      "t": "Talk to Sir Prysin in the south west corner of Varrock Castle.",
+      "s": [
+       "Aris said I should come and talk to you.",
+       "I need to find Silverlight.",
+       "He's back and unfortunately I've got to deal with him.",
+       "So give me the keys!",
+       "Can you give me your key?"
+      ]
+     }
+    ],
+    "i": [
+     "Coin",
+     "Bucket of water"
+    ]
+   },
+   {
+    "n": "Get Rovin's key",
+    "st": [
+     {
+      "t": "Talk to Captain Rovin in Varrock Castle: go two flights up the north-west stairs.",
+      "s": [
+       "Yes I know, but this is important.",
+       "There's a demon who wants to invade this city.",
+       "Yes, very.",
+       "It's not them who are going to fight the demon, it's me.",
+       "Sir Prysin said you would give me the key.",
+       "Why did he give you one of the keys then?"
+      ]
+     }
+    ],
+    "i": [
+     "Bucket of water"
+    ]
+   },
+   {
+    "n": "Get Prysin's key",
+    "st": [
+     {
+      "t": "Go to the kitchen in the north-east of Varrock Castle. If you have no bucket of water, take the bucket from the room upstairs and fill it at the kitchen sink."
+     },
+     {
+      "t": "Use the bucket of water on the drain outside the kitchen's east wall.",
+      "i": [
+       "Bucket of water"
+      ]
+     },
+     {
+      "t": "Go down into Varrock Sewer via the Manhole south east of Varrock Castle."
+     },
+     {
+      "t": "Take the north-west path through the sewer to its end, by the stream. Take the rusty key from the muddy patch next to a pile of skeletons. It doesn't show on the minimap."
+     }
+    ]
+   },
+   {
+    "n": "Get Traiborn's key",
+    "st": [
+     {
+      "t": "Bring Wizard Traiborn, upstairs in the Wizards' Tower, 25 bones. You don't need to bring them all at once.",
+      "s": [
+       "Talk about Demon Slayer.",
+       "I need to get a key given to you by Sir Prysin.",
+       "Well, have you got any keys knocking around?",
+       "I'll get the bones for you."
+      ],
+      "i": [
+       "Bones (UNNOTED) (25)"
+      ]
+     }
+    ],
+    "i": [
+     "Bones (UNNOTED) (25)"
+    ]
+   },
+   {
+    "n": "Kill Delrith",
+    "st": [
+     {
+      "t": "Return to Sir Prysin in the south west of Varrock Castle.",
+      "i": [
+       "Silverlight key"
+      ]
+     },
+     {
+      "t": "Kill Delrith (level 27) with Silverlight equipped, at the dark wizards south of Varrock.",
+      "i": [
+       "Silverlight",
+       "Armour"
+      ]
+     },
+     {
+      "t": "When he's defeated, long-press Delrith and choose Banish if the words don't come up by themselves. Choose the five magic words Aris gave you, in the same order. They are different for every player. A wrong word heals him to full health, so you have to fight him again. Don't wait too long, or he disappears and you have to leave and come back. If you've forgotten the words, ask Aris before the fight."
+     }
+    ],
+    "i": [
+     "Silverlight key",
+     "Armour",
+     "Food"
+    ],
+    "c": 1,
+    "e": [
+     "Delrith (level 27)"
+    ]
+   }
+  ]
+ }
+}

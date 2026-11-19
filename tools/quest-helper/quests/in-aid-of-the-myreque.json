@@ -1,0 +1,433 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder inaidofthemyreque; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "In Aid of the Myreque",
+  "items": [
+   "Food to put in a chest, multiple pieces in case a Ghast eats some",
+   "Spade",
+   "buckets (Can use 1 but is much slower) (5)",
+   "Any pickaxe",
+   "Hammer",
+   "Plank (11)",
+   "Any nails (44)",
+   "Swamp paste (2)",
+   "10 Raw mackerel or raw snail meat (random for each player)",
+   "Bronze axe (10)",
+   "Tinderbox (4)",
+   "Steel bar (2)",
+   "Coal",
+   "Silver weapon (including Silverlight + varieties), blessed axe or Efaritay's Aid to damage vampyres",
+   "Soft clay",
+   "Rope",
+   "Silver bar",
+   "Mithril bar",
+   "Sapphire",
+   "Cosmic rune",
+   "Water rune"
+  ],
+  "rec": [
+   "Steel med helm",
+   "Steel chainbody",
+   "Steel platelegs",
+   "Silver sickle",
+   "Teleports to Mort'ton (minigame tele, teleport scroll)",
+   "Canifis teleports (ancients spell, nearby fairy ring bip)"
+  ],
+  "enemies": [
+   "Gadderanks (level 35)",
+   "Vampyre Juvinates (levels 50-75)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "2,000 Attack XP",
+   "2,000 Strength XP",
+   "2,000 Crafting XP",
+   "2,000 Defence XP",
+   "Access to Temple Trekking Minigame.",
+   "Ability to make the Rod of Ivandis"
+  ],
+  "sec": [
+   {
+    "n": "Finding a new base",
+    "st": [
+     {
+      "t": "Climb down the trapdoor behind the Canifis pub."
+     },
+     {
+      "t": "Search the wall south of the ladder to open it. In the tunnel beyond, find the alcove on the east side and tap the wall in its south-east corner to enter the hidden cave. Turn the camera if you can't see the entrance."
+     },
+     {
+      "t": "Talk to Veliaf to start. If you're asked to confirm, choose \"Yes.\"",
+      "s": [
+       "I want to join your organisation.",
+       "Ok, tell me this information you have to impart.",
+       "Can you tell me about the job?",
+       "Ok, I'll do the job."
+      ]
+     },
+     {
+      "t": "Travel to Burgh de Rott, south of Mort'ton. From the hideout: leave the cave, go through the doors to the south, cross the bridge to the south, then board the boat to the south to Mort'ton. Talk to Florin at the entrance to Burgh de Rott."
+     },
+     {
+      "t": "Place some food in the nearby chest.",
+      "i": [
+       "Any food"
+      ]
+     },
+     {
+      "t": "Talk to Razvan in Burgh de Rott.",
+      "s": [
+       "Are there any 'out of the way' places here?"
+      ]
+     },
+     {
+      "t": "Go into the pub just south of Razvan, climb over the broken wall and use a pickaxe on the rubble covering the trapdoor.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Enter the trapdoor."
+     },
+     {
+      "t": "Mine all the rubble in the room, and then clean it up with a spade. You'll need an empty bucket when using the spade. You can empty the buckets outside on the rubble pile.",
+      "i": [
+       "Any pickaxe",
+       "Spade",
+       "Bucket"
+      ]
+     }
+    ],
+    "i": [
+     "Food to put in a chest, multiple pieces in case a Ghast eats some",
+     "Any pickaxe",
+     "buckets (Can use 1 but is much slower) (5)",
+     "Spade"
+    ]
+   },
+   {
+    "n": "Repairing the shop",
+    "st": [
+     {
+      "t": "Talk to Aurel in north east Burgh de Rott.",
+      "s": [
+       "I'd like to help fix up the town."
+      ]
+     },
+     {
+      "t": "Go to the roof of Aurel's shop.",
+      "i": [
+       "Hammer",
+       "Plank (3)",
+       "Nails (12)"
+      ]
+     },
+     {
+      "t": "Repair the broken roof.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Hammer",
+       "Plank (3)",
+       "Nails (12)"
+      ]
+     },
+     {
+      "t": "Climb back down the ladder."
+     },
+     {
+      "t": "Repair the shop's wall.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Hammer",
+       "Plank (3)",
+       "Nails (12)"
+      ]
+     },
+     {
+      "t": "Talk to Aurel again.",
+      "s": [
+       "What should I do now?"
+      ]
+     }
+    ],
+    "i": [
+     "Hammer",
+     "Plank (6)",
+     "Nails (24)"
+    ]
+   },
+   {
+    "n": "Stocking the shop",
+    "st": [
+     {
+      "t": "Fill the crate with 3 tinderboxes, 10 bronze axes, and whichever Aurel asked for: 10 raw mackerel or 10 raw snails (lean, thin or fat).",
+      "i": [
+       "Tinderbox (3)",
+       "Bronze axe (10)",
+       "Raw mackerel or raw snail meat (random for each player) (10)"
+      ]
+     }
+    ],
+    "i": [
+     "Tinderbox (3)",
+     "Bronze axe (10)",
+     "10 Raw mackerel or raw snail meat (random for each player)",
+     "Hammer",
+     "Plank (5)",
+     "Nails (20)",
+     "Swamp paste (2)"
+    ]
+   },
+   {
+    "n": "Repairing the bank",
+    "st": [
+     {
+      "t": "Return to Aurel with the filled crate.",
+      "i": [
+       "Crate"
+      ]
+     },
+     {
+      "t": "Repair the bank booth in the ruined bank in the south-west of Burgh de Rott.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Hammer",
+       "Plank (2)",
+       "Swamp paste (2)",
+       "Nails (8)"
+      ]
+     },
+     {
+      "t": "Repair the bank's outside wall.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Hammer",
+       "Plank (3)",
+       "Nails (12)"
+      ]
+     },
+     {
+      "t": "Talk to Cornelius and ask him to be the banker.",
+      "s": [
+       "What should I do now?"
+      ]
+     }
+    ],
+    "i": [
+     "Hammer",
+     "Plank (5)",
+     "Nails (20)",
+     "Swamp paste (2)"
+    ]
+   },
+   {
+    "n": "Repairing the furnace",
+    "st": [
+     {
+      "t": "Talk to Razvan.",
+      "s": [
+       "What should I do now?"
+      ]
+     },
+     {
+      "t": "Repair the furnace in the south east of Burgh de Rott. You can use the bank you just made to get items out.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Hammer",
+       "Steel bar (2)",
+       "Coal",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Add coal to the furnace.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Coal",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Light the furnace.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Tinderbox"
+      ]
+     }
+    ],
+    "i": [
+     "Hammer",
+     "Steel bar (2)",
+     "Coal",
+     "Tinderbox"
+    ]
+   },
+   {
+    "n": "Defending Burgh de Rott",
+    "st": [
+     {
+      "t": "Talk to Gadderanks in the shop."
+     },
+     {
+      "t": "Talk to a juvinate in the shop."
+     },
+     {
+      "t": "Talk to Wiskit in the shop. Be prepared to fight the vampyres and Gadderanks.",
+      "i": [
+       "Silver weapon (including Silverlight + varieties), blessed axe or Efaritay's Aid to damage vampyres"
+      ]
+     },
+     {
+      "t": "Defeat Gadderanks and the juvinates.",
+      "i": [
+       "Silver weapon (including Silverlight + varieties), blessed axe or Efaritay's Aid to damage vampyres"
+      ]
+     },
+     {
+      "t": "Talk to Gadderanks."
+     },
+     {
+      "t": "Talk to Veliaf in Burgh de Rott."
+     }
+    ],
+    "i": [
+     "Silver weapon (including Silverlight + varieties), blessed axe or Efaritay's Aid to damage vampyres"
+    ],
+    "c": 1,
+    "e": [
+     "Gadderanks (level 35)"
+    ]
+   },
+   {
+    "n": "Relocating",
+    "st": [
+     {
+      "t": "Return to the Myreque Hideout under the Canifis Pub and talk to Veliaf there. Bank any followers before going."
+     },
+     {
+      "t": "Talk to Polmafi in the Myreque Hideout."
+     },
+     {
+      "t": "Talk to Ivan in the Myreque Hideout to temple trek with him. The long route has 4 level 50 Juvinates and the short route has 2 level 75 Juvinates. You can give him a steel med helm / chainbody / platelegs, and salmon to help him survive."
+     }
+    ],
+    "i": [
+     "Silver weapon (including Silverlight + varieties), blessed axe or Efaritay's Aid to damage vampyres"
+    ],
+    "r": [
+     "Steel med helm",
+     "Steel chainbody",
+     "Steel platelegs",
+     "Silver sickle"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Ivandis' legacy",
+    "st": [
+     {
+      "t": "Go down the trapdoor north of Paterdomus Temple and talk to Drezel under the temple.",
+      "s": [
+       "Veliaf told me about Ivandis.",
+       "Is there somewhere that I might get more information on Ivandis?",
+       "The lives of those pitiful few left in Morytania could rest on this!"
+      ]
+     },
+     {
+      "t": "Use the key on the keyhole near Drezel.",
+      "i": [
+       "Temple library key"
+      ]
+     },
+     {
+      "t": "Climb down the trapdoor beside the keyhole to enter the library."
+     },
+     {
+      "t": "Search the middle bookcase on the west wall of the library for 'The Sleeping Seven' book."
+     },
+     {
+      "t": "Read 'The Sleeping Seven'.",
+      "i": [
+       "The sleeping seven"
+      ]
+     },
+     {
+      "t": "Enter the trapdoor behind the Canifis pub."
+     },
+     {
+      "t": "In the tunnel just outside the Myreque hideout, find the two wooden boards forming an X, just east of the northern brick wall. Use a hammer on this boarded up cave.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Enter the cave."
+     },
+     {
+      "t": "Use a piece of soft clay on the coffin.",
+      "i": [
+       "Soft clay"
+      ]
+     },
+     {
+      "t": "Make a silvthrill rod at any furnace.",
+      "i": [
+       "Rod mould",
+       "Mithril bar",
+       "Silver bar",
+       "Sapphire"
+      ]
+     },
+     {
+      "t": "Cast Lvl-1 enchant on the rod.",
+      "i": [
+       "Silvthrill rod",
+       "Water rune",
+       "Cosmic rune"
+      ]
+     },
+     {
+      "t": "Bring a rope. Go down the trapdoor north of Paterdomus Temple and use the enchanted Silvthrill rod on the well in the room next to Drezel.",
+      "i": [
+       "Enchanted Silvthrill rod",
+       "Rope"
+      ]
+     },
+     {
+      "t": "Bring the rod to Veliaf in the Burgh de Rott pub's basement to finish the quest."
+     }
+    ],
+    "i": [
+     "Hammer",
+     "Soft clay",
+     "Mithril bar",
+     "Silver bar",
+     "Cosmic rune",
+     "Water rune",
+     "Rope",
+     "Sapphire"
+    ]
+   }
+  ]
+ }
+}

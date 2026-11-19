@@ -1,0 +1,105 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Depths of Despair",
+  "items": [],
+  "rec": [
+   "Skills necklace",
+   "Xeric's Talisman",
+   "Food (if low level)",
+   "Super Energy or Stamina potions",
+   "Access to Fairy Rings"
+  ],
+  "enemies": [
+   "Sand Snake (level 36)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "1,500 Agility XP",
+   "4000 x Coins",
+   "A Kharedst's Memoirs page"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Lord Kandur Hosidius in the house west of the vinery.",
+      "s": [
+       "Anything I can help you with?",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Speak to Chef Olivia in Lord Kandur's kitchen."
+     }
+    ]
+   },
+   {
+    "n": "The Envoy to Varlamore",
+    "st": [
+     {
+      "t": "Speak to Galana in the Arceuus Library."
+     },
+     {
+      "t": "Find the Varlamore Envoy. Ask Galana for the approximate location if you can't find it.",
+      "i": [
+       "Varlamore Envoy"
+      ]
+     },
+     {
+      "t": "Read the Varlamore Envoy.",
+      "i": [
+       "Varlamore Envoy"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "The Crabclaw Caves",
+    "st": [
+     {
+      "t": "Enter the Crabclaw Caves, south of the Woodcutting Guild near the water, shown by the dungeon icon on the map."
+     },
+     {
+      "t": "Enter the crevice. Kill a sandcrab for the easy diary while you're here."
+     },
+     {
+      "t": "Cross the stepping stones."
+     },
+     {
+      "t": "Climb the rocks."
+     },
+     {
+      "t": "Climb down the tunnel at the end."
+     },
+     {
+      "t": "Speak to Artur Hosidius."
+     },
+     {
+      "t": "Kill the Sand Snake."
+     },
+     {
+      "t": "Search the chest."
+     }
+    ],
+    "i": [
+     "Food (if low level)",
+     "A Weapon"
+    ],
+    "c": 1,
+    "e": [
+     "Sand Snake (level 36)"
+    ]
+   },
+   {
+    "n": "Finishing up",
+    "st": [
+     {
+      "t": "Return to Lord Kandur Hosidius and talk to him."
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -142,7 +142,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
     }
 
     private fun hodChest(c: LinearLayout) {
-        c.addView(label("Read the book: four of its letters are white. Type them in the order they appear:", 13f, bold = true), full(8))
+        c.addView(label("Read the book: take the first letter of each white word. Type the four letters in order:", 13f, bold = true), full(8))
         val result = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL }
         fun update(raw: String) {
             result.removeAllViews()
@@ -165,9 +165,9 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
     }
 
     private fun baxtorian(c: LinearLayout) {
-        c.addView(label("Inspect each pillar. Its hint ends with a number (\"…the 4th.\"). Pick that number for each pillar:", 13f, bold = true), full(8))
+        c.addView(label("Inspect the pillars. Match each hint's words to a row below and pick the number the hint ends with. Each row is named for the pillar the item goes on, not the pillar you read the hint on. You don't need the hint \"I am not opposite the …\".", 13f, bold = true), full(8))
         val numbers = S.BAX_PILLARS.mapIndexed { i, (pillar, hint) ->
-            c.addView(label("$pillar pillar: \"$hint\"", 12f, bold = true), full(8))
+            c.addView(label("\"$hint\": item goes on the ${pillar.lowercase()} pillar", 12f, bold = true), full(8))
             choiceGrid(c, "bax_$i", listOf("1st", "2nd", "3rd", "4th", "5th", "6th"), perRow = 6) + 1
         }
         val items = S.baxtorian(numbers)

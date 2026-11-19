@@ -1,0 +1,185 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Meat and Greet",
+  "items": [],
+  "rec": [
+   "Stamina potion",
+   "Prayer potion",
+   "Combat gear",
+   "Food",
+   "Teleport to Civitas illa Fortis (3)"
+  ],
+  "enemies": [
+   "Dire Wolf Alpha (lvl 113)",
+   "Minotaur (lvl 193)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "8,000 Cooking XP",
+   "Access to Emelio's Kebab Shop"
+  ],
+  "sec": [
+   {
+    "n": "Supply chain issues",
+    "st": [
+     {
+      "t": "Talk to Emelio in Outer Fortis at the south-eastern entrance of Civitas illa Fortis to start the quest.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to the Spice Merchant in the Bazaar in the middle of Civitas illa Fortis about the missing delivery.",
+      "s": [
+       "I'm here about a missing delivery.",
+       "Could I have a look at that locked box?",
+       "About that missing delivery..."
+      ]
+     },
+     {
+      "t": "Enter the code 2546 on the locked box of spices, then tap the right-facing arrow to open it."
+     },
+     {
+      "t": "Talk to Alba in the farmhouse west of Civitas illa Fortis."
+     },
+     {
+      "t": "Head west from the farm and enter the Wolf Den, prepared to kill the Dire Wolf Alpha.",
+      "i": [
+       "Combat gear",
+       "Food"
+      ]
+     },
+     {
+      "t": "Kill the Dire Wolf Alpha. Use Protect from Melee to avoid most damage. His pups deal ranged damage.",
+      "i": [
+       "Combat gear",
+       "Food"
+      ]
+     },
+     {
+      "t": "Return to Alba in the farmhouse west of Civitas illa Fortis to tell them about the Dire Wolf Alpha's demise."
+     }
+    ],
+    "i": [
+     "Stamina potion",
+     "Prayer potion",
+     "Combat gear",
+     "Food"
+    ],
+    "c": 1,
+    "e": [
+     "Dire Wolf Alpha (lvl 113)"
+    ]
+   },
+   {
+    "n": "The golden ratio",
+    "st": [
+     {
+      "t": "Return to Emelio in Outer Fortis at the south-eastern entrance of Civitas illa Fortis to find the perfect ratio of ingredients for the kebab."
+     },
+     {
+      "t": "Talk to Emelio and set the recipe to 4 portions of meat, 2 of salad, 1 of spice and 3 of sauce.",
+      "s": [
+       "I think so.",
+       "Adjust meat (currently at one portion).",
+       "Adjust meat (currently at two portions).",
+       "Adjust meat (currently at three portions).",
+       "Adjust salad (currently at one portion).",
+       "Adjust salad (currently at three portions).",
+       "Adjust salad (currently at four portions).",
+       "Adjust spice (currently at two portions).",
+       "Adjust spice (currently at three portions).",
+       "Adjust spice (currently at four portions).",
+       "Adjust sauce (currently at one portion).",
+       "Adjust sauce (currently at two portions).",
+       "Adjust sauce (currently at four portions).",
+       "Cancel.",
+       "Four (current).",
+       "Four.",
+       "Two (current).",
+       "Two.",
+       "One (current).",
+       "One.",
+       "Three (current).",
+       "Three."
+      ]
+     },
+     {
+      "t": "Tell Emelio the recipe is perfect. He gives you a test kebab.",
+      "s": [
+       "I think that's perfect!",
+       "Sounds good to me."
+      ]
+     },
+     {
+      "t": "Give the test kebab to Renata outside. Vincens or Lucas will do as well.",
+      "i": [
+       "Test kebab"
+      ]
+     },
+     {
+      "t": "Return to Emelio with news of your kebab success!"
+     }
+    ],
+    "i": [
+     "Stamina potion",
+     "Prayer potion",
+     "Combat gear",
+     "Food"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Guerilla marketing",
+    "st": [
+     {
+      "t": "Head into the Fortis Colosseum, then into the southern room and talk to Lelia about kebab sales.",
+      "i": [
+       "Combat gear",
+       "Food",
+       "Test kebab (2)"
+      ]
+     },
+     {
+      "t": "Talk to Lelia after letting her taste your test kebab.",
+      "i": [
+       "Combat gear",
+       "Food",
+       "Test kebab"
+      ]
+     },
+     {
+      "t": "Talk to Lelia in the southern room, ready to fight the Minotaur.",
+      "s": [
+       "I think so."
+      ],
+      "i": [
+       "Combat gear",
+       "Food",
+       "Test kebab"
+      ]
+     },
+     {
+      "t": "Fight the Minotaur. Protect from Melee to avoid most damage. When it shouts Moo! switch to Protect from Magic for one attack."
+     },
+     {
+      "t": "Talk to Lelia in the southern room of the Fortis Colosseum after defeating the Minotaur."
+     },
+     {
+      "t": "Return to Emelio in Outer Fortis at the south-eastern entrance of Civitas illa Fortis and tell him about your success."
+     }
+    ],
+    "i": [
+     "Prayer potion",
+     "Combat gear",
+     "Food"
+    ],
+    "c": 1,
+    "e": [
+     "Minotaur (lvl 193)"
+    ]
+   }
+  ]
+ }
+}

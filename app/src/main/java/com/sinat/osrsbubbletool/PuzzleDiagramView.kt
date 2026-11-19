@@ -142,12 +142,12 @@ class PuzzleDiagramView(context: Context, private val diagram: QuestPuzzles.Diag
         for (p in QuestPuzzles.SOTE_PILLARS) {
             if (p.floor != floor) continue
             fill.color = GRID
-            canvas.drawCircle(px(QuestPuzzles.pillarX(p.col)), py(QuestPuzzles.pillarY(p.row)), cell * 0.14f, fill)
+            canvas.drawCircle(px(QuestPuzzles.pillarX(p.col)), py(QuestPuzzles.pillarY(p.floor, p.col, p.row)), cell * 0.14f, fill)
         }
 
         val onFloor = steps.withIndex().filter { it.value.floor == floor }
         fun sx(s: QuestPuzzles.LightStep) = px(QuestPuzzles.pillarX(s.col))
-        fun sy(s: QuestPuzzles.LightStep) = py(QuestPuzzles.pillarY(s.row))
+        fun sy(s: QuestPuzzles.LightStep) = py(QuestPuzzles.pillarY(s.floor, s.col, s.row))
 
         // pieces still to come: faint outlines with their step number
         for ((i, s) in onFloor) {

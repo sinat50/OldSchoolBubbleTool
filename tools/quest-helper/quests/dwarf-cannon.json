@@ -1,0 +1,113 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder dwarfcannon; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Dwarf Cannon",
+  "items": [
+   "Hammer"
+  ],
+  "rec": [
+   "Stamina Potions",
+   "Teleport to Falador, Amulet of Glory, or Combat Bracelet",
+   "Teleport to Ardougne, Skills Necklace, or Games Necklace"
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "750 Crafting XP",
+   "Ability to purchase and use the Dwarf Multicannon.",
+   "Ability to make cannonballs."
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Captain Lawgof near the Coal Truck Mining Site (north of Fishing Guild, West of McGrubor's Wood).",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Repair and Retrieval",
+    "st": [
+     {
+      "t": "If you have no railings left, talk to Captain Lawgof to get more. Otherwise skip this step.",
+      "i": [
+       "Hammer",
+       "Railing"
+      ]
+     },
+     {
+      "t": "Inspect the six damaged railings on the west and south sides of the camp's fence to fix them. Zoom in to spot the bent ones. A repair can fail, so keep inspecting until each one is fixed.",
+      "i": [
+       "Hammer",
+       "Railing"
+      ]
+     },
+     {
+      "t": "Talk to Captain Lawgof after repairing the damaged railings."
+     },
+     {
+      "t": "Go to the top floor of the tower, south of Captain Lawgof, and get the remains there."
+     },
+     {
+      "t": "Return the remains to Captain Lawgof."
+     }
+    ],
+    "i": [
+     "Hammer"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Finding the lad",
+    "st": [
+     {
+      "t": "Enter the goblin cave, east of the Fishing Guild entrance."
+     },
+     {
+      "t": "Go as far north-west as you can in the cave. In the north-westernmost room, search the northernmost crate by the east wall to find Lollk."
+     },
+     {
+      "t": "Return to Captain Lawgof.",
+      "s": [
+       "Okay, I'll see what I can do."
+      ]
+     },
+     {
+      "t": "Use the toolkit on the broken multicannon next to Captain Lawgof. Use the hook on the spring, the pliers on the safety switch at the bottom, then the toothed tool on the gear at the bottom.",
+      "i": [
+       "Toolkit"
+      ]
+     },
+     {
+      "t": "Talk to Captain Lawgof after repairing the multicannon.",
+      "s": [
+       "Okay then, just for you!"
+      ]
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Get Ammo Mould",
+    "st": [
+     {
+      "t": "Talk to Nulodion at the Dwarven Black Guard camp, south of Ice Mountain."
+     },
+     {
+      "t": "Return to Captain Lawgof with the ammo mould and Nulodion's Notes.",
+      "i": [
+       "Nulodion's notes",
+       "Ammo mould"
+      ]
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

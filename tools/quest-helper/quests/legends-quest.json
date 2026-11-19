@@ -1,0 +1,1069 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder legendsquest; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Legends' Quest",
+  "items": [
+   "Radimus notes",
+   "Charcoal",
+   "Papyrus (3)",
+   "A machete",
+   "Rune or Dragon axe",
+   "Gold bar (2)",
+   "Hammer",
+   "Rope",
+   "Lockpick (multiple in case they break)",
+   "Any pickaxe",
+   "Vial of water",
+   "Ardrigal",
+   "Snake weed",
+   "Sapphire",
+   "Emerald",
+   "Ruby",
+   "Diamond",
+   "Opal",
+   "Jade",
+   "Red topaz",
+   "Soul rune",
+   "Mind rune",
+   "Earth rune",
+   "Law rune (2)",
+   "Unpowered orb",
+   "Runes for any charge orb spell you have the level to cast",
+   "Combat gear, food and potions"
+  ],
+  "rec": [],
+  "enemies": [
+   "Nezikchened (level 187) 3 times",
+   "Ranalph Devere (level 92)",
+   "Irvig Senay (level 100)",
+   "San Tojalon (level 106)"
+  ],
+  "rewards": [
+   "4 Quest points",
+   "4 x 30,000 experience in four skills of your choice (limited to Attack, Defence, Strength, Hitpoints, Prayer, Magic, Woodcutting, Crafting, Smithing, Herblore, Agility or Thieving",
+   "Ability to wield the dragon sq shield",
+   "Ability to charge your Skills necklace or Combat bracelet at the Legends' Guild",
+   "Access to the Kharazi Jungle"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to one of the guards outside the Legends' Guild.",
+      "s": [
+       "Can I speak to someone in charge?",
+       "Can I go on the quest?",
+       "Yes, I'd like to talk to Grand Vizier Erkle."
+      ]
+     },
+     {
+      "t": "Talk to Radimus Erkle inside the Legends' Guild's grounds.",
+      "s": [
+       "Yes actually, what's involved?",
+       "Yes, it sounds great!",
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Fairy ring BLR, or Ardougne Teleport then run north-east"
+    ]
+   },
+   {
+    "n": "Mapping Kharazi",
+    "st": [
+     {
+      "t": "Travel to the Kharazi Jungle in south Karamja. You'll need to cut through some trees and bushes to enter. To save a trip, also bring lockpicks, any pickaxe, a soul, mind and earth rune, 2 law runes, and an opal, jade, red topaz, sapphire, emerald, ruby and diamond.",
+      "i": [
+       "Radimus notes",
+       "Any axe",
+       "A machete",
+       "Papyrus (3)",
+       "Charcoal"
+      ]
+     },
+     {
+      "t": "Stand in the west of the Kharazi Jungle, long-press the Radimus notes and tap Complete. Make sure this part is mapped before you move on.",
+      "s": [
+       "Start Mapping Kharazi Jungle."
+      ],
+      "i": [
+       "Radimus notes",
+       "Papyrus",
+       "Charcoal"
+      ]
+     },
+     {
+      "t": "Stand in the middle of the Kharazi Jungle, long-press the Radimus notes and tap Complete. Make sure this part is mapped before you move on.",
+      "s": [
+       "Start Mapping Kharazi Jungle."
+      ],
+      "i": [
+       "Radimus notes",
+       "Papyrus",
+       "Charcoal"
+      ]
+     },
+     {
+      "t": "Stand in the east of the Kharazi Jungle, long-press the Radimus notes and tap Complete. Make sure this part is mapped before you move on.",
+      "s": [
+       "Start Mapping Kharazi Jungle."
+      ],
+      "i": [
+       "Radimus notes",
+       "Papyrus",
+       "Charcoal"
+      ]
+     },
+     {
+      "t": "Use the Radimus notes on a Jungle Forester outside the Kharazi Jungle. Whilst in the jungle, consider grabbing a Vanilla Pod from a Vanilla plant in the south west of the Kharazi.",
+      "s": [
+       "Go ahead, make a copy!"
+      ],
+      "i": [
+       "Radimus notes"
+      ]
+     }
+    ],
+    "i": [
+     "Papyrus (3)",
+     "Charcoal",
+     "Radimus notes",
+     "Any axe",
+     "A machete",
+     "Lockpick (multiple in case they break)",
+     "Any pickaxe",
+     "Soul rune",
+     "Mind rune",
+     "Earth rune",
+     "Law rune (2)",
+     "Opal",
+     "Jade",
+     "Red topaz",
+     "Sapphire",
+     "Emerald",
+     "Ruby",
+     "Diamond"
+    ],
+    "tr": [
+     "Fairy ring CKR then run south, or take Hajedy's cart from Brimhaven to Shilo Village for 200 coins (by Brimhaven teleport or Amulet of Glory [2])"
+    ]
+   },
+   {
+    "n": "Contacting the locals",
+    "st": [
+     {
+      "t": "Re-enter the Kharazi Jungle. You'll need to cut through some trees and bushes to enter.",
+      "i": [
+       "Radimus notes",
+       "Bullroarer",
+       "Any axe",
+       "A machete",
+       "Lockpick (multiple in case they break)",
+       "Any pickaxe",
+       "Soul rune",
+       "Mind rune",
+       "Earth rune",
+       "Law rune (2)",
+       "Opal",
+       "Jade",
+       "Red topaz",
+       "Sapphire",
+       "Emerald",
+       "Ruby",
+       "Diamond"
+      ]
+     },
+     {
+      "t": "Swing the bullroarer next to a totem pole, such as the one east of the water pool, until Gujuo appears. If nothing happens, try another totem pole.",
+      "i": [
+       "Bullroarer"
+      ]
+     },
+     {
+      "t": "Talk to Gujuo.",
+      "s": [
+       "I was hoping to attract the attention of a Kharazi tribe member.",
+       "I've been sent by the Legends' Guild.",
+       "Can you get everyone together?",
+       "Is there any way I could help?",
+       "How do we make the totem pole?",
+       "I'll go find Ungadulu."
+      ]
+     },
+     {
+      "t": "Search and then enter the Mossy Rocks in the north west of the Kharazi.",
+      "s": [
+       "Yes, I'll crawl through. I'm very athletic."
+      ]
+     },
+     {
+      "t": "Long-press the fire wall and choose Investigate.",
+      "s": [
+       "How can I extinguish the flames?",
+       "Where do I get pure water from?"
+      ]
+     },
+     {
+      "t": "Leave the cave back to the surface."
+     },
+     {
+      "t": "Swing the Bullroarer until Gujuo appears.",
+      "i": [
+       "Bullroarer"
+      ]
+     },
+     {
+      "t": "Talk to Gujuo about pure water and the vessel needed for it.",
+      "s": [
+       "I need some pure water to douse some magic flames.",
+       "What kind of vessel?",
+       "Where is this sacred pool of yours?"
+      ]
+     }
+    ],
+    "i": [
+     "Radimus notes",
+     "Bullroarer",
+     "Any axe",
+     "A machete",
+     "Lockpick (multiple in case they break)",
+     "Any pickaxe",
+     "Soul rune",
+     "Mind rune",
+     "Earth rune",
+     "Law rune (2)",
+     "Opal",
+     "Jade",
+     "Red topaz",
+     "Sapphire",
+     "Emerald",
+     "Ruby",
+     "Diamond"
+    ]
+   },
+   {
+    "n": "Unlocking the caves",
+    "st": [
+     {
+      "t": "Search and then enter the Mossy Rocks in the north west of the Kharazi.",
+      "s": [
+       "Yes, I'll crawl through. I'm very athletic."
+      ],
+      "i": [
+       "Lockpick (multiple in case they break)",
+       "Any pickaxe",
+       "Soul rune",
+       "Mind rune",
+       "Earth rune",
+       "Law rune (2)",
+       "Opal",
+       "Jade",
+       "Red topaz",
+       "Sapphire",
+       "Emerald",
+       "Ruby",
+       "Diamond"
+      ]
+     },
+     {
+      "t": "Search the bookcase and slide past it.",
+      "s": [
+       "Yes please, I love crevices!"
+      ]
+     },
+     {
+      "t": "Long-press the gate and choose Search, then pick its lock.",
+      "i": [
+       "Lockpick (multiple in case they break)"
+      ]
+     },
+     {
+      "t": "Smash through the boulders with your pickaxe and enter the gate at the end of the corridor.",
+      "s": [
+       "Yes, I'm very strong, I'll force them open."
+      ]
+     },
+     {
+      "t": "Follow the cave south-west, then north-west, jumping over the jagged walls on the way, until you reach the marked wall. Kill a Deathwing for the Karamja Achievement Diary whilst you're here."
+     },
+     {
+      "t": "Long-press the marked wall, choose Search and read it before using any runes: runes used before you've searched it are lost. The runes then go on in this order: Soul, Mind, Earth, Law, Law.",
+      "s": [
+       "Investigate the outline of the door.",
+       "Yes, I'll go through!",
+       "Yes, I'll read it."
+      ]
+     },
+     {
+      "t": "Use a Soul Rune on the marked wall.",
+      "i": [
+       "Soul rune"
+      ]
+     },
+     {
+      "t": "Use a Mind Rune on the marked wall.",
+      "i": [
+       "Mind rune"
+      ]
+     },
+     {
+      "t": "Use an Earth Rune on the marked wall.",
+      "i": [
+       "Earth rune"
+      ]
+     },
+     {
+      "t": "Use a Law Rune on the marked wall.",
+      "i": [
+       "Law rune"
+      ]
+     },
+     {
+      "t": "Use another Law Rune on the marked wall.",
+      "i": [
+       "Law rune"
+      ]
+     }
+    ],
+    "i": [
+     "Radimus notes",
+     "Bullroarer",
+     "Any axe",
+     "A machete",
+     "Lockpick (multiple in case they break)",
+     "Any pickaxe",
+     "Soul rune",
+     "Mind rune",
+     "Earth rune",
+     "Law rune (2)",
+     "Opal",
+     "Jade",
+     "Red topaz",
+     "Sapphire",
+     "Emerald",
+     "Ruby",
+     "Diamond"
+    ]
+   },
+   {
+    "n": "Getting a binding book",
+    "st": [
+     {
+      "t": "Use a sapphire on the south-east carved rock. If you already put one there on an earlier visit, search the rock instead.",
+      "i": [
+       "Sapphire"
+      ]
+     },
+     {
+      "t": "Use a diamond on the south carved rock. If you already put one there on an earlier visit, search the rock instead.",
+      "i": [
+       "Diamond"
+      ]
+     },
+     {
+      "t": "Use a ruby on the south-west carved rock. If you already put one there on an earlier visit, search the rock instead.",
+      "i": [
+       "Ruby"
+      ]
+     },
+     {
+      "t": "Use a topaz on the east carved rock. If you already put one there on an earlier visit, search the rock instead.",
+      "i": [
+       "Red topaz"
+      ]
+     },
+     {
+      "t": "Use a jade on the north-east carved rock. If you already put one there on an earlier visit, search the rock instead.",
+      "i": [
+       "Jade"
+      ]
+     },
+     {
+      "t": "Use an emerald on the west carved rock. If you already put one there on an earlier visit, search the rock instead.",
+      "i": [
+       "Emerald"
+      ]
+     },
+     {
+      "t": "Use an opal on the north-west carved rock, the northernmost one. If you already put one there on an earlier visit, search the rock instead.",
+      "i": [
+       "Opal"
+      ]
+     },
+     {
+      "t": "Pick up the binding book",
+      "i": [
+       "Binding book"
+      ]
+     }
+    ],
+    "i": [
+     "Radimus notes",
+     "Bullroarer",
+     "Any axe",
+     "A machete",
+     "Lockpick (multiple in case they break)",
+     "Any pickaxe",
+     "Opal",
+     "Jade",
+     "Red topaz",
+     "Sapphire",
+     "Emerald",
+     "Ruby",
+     "Diamond"
+    ]
+   },
+   {
+    "n": "Freeing Ungadulu",
+    "st": [
+     {
+      "t": "Travel to an anvil and make a gold bowl.",
+      "s": [
+       "Yes."
+      ],
+      "i": [
+       "Gold bar (2)",
+       "Sketch",
+       "Hammer"
+      ]
+     },
+     {
+      "t": "Return to the Kharazi Jungle with your gold bowl, and be prepared for a fight.",
+      "i": [
+       "Radimus notes",
+       "Bullroarer",
+       "Gold bowl",
+       "Binding book",
+       "Any axe",
+       "A machete",
+       "Combat gear, food and potions",
+       "Prayer potions for blessing the gold bowl"
+      ]
+     },
+     {
+      "t": "Swing the Bullroarer until Gujuo appears.",
+      "i": [
+       "Bullroarer",
+       "Gold bowl"
+      ]
+     },
+     {
+      "t": "Talk to Gujuo to bless the gold bowl.",
+      "s": [
+       "Yes, I'd like you to bless my gold bowl.",
+       "Yes please!"
+      ],
+      "i": [
+       "Prayer potions for blessing the gold bowl"
+      ]
+     },
+     {
+      "t": "Use a machete on the tall reeds by the edge of the water pool, towards the middle of the Kharazi Jungle.",
+      "i": [
+       "A machete"
+      ]
+     },
+     {
+      "t": "Use the reed on the water pool.",
+      "i": [
+       "Hollow reed",
+       "Blessed gold bowl"
+      ]
+     },
+     {
+      "t": "Search and then enter the Mossy Rocks in the north west of the Kharazi.",
+      "s": [
+       "Yes, I'll crawl through. I'm very athletic."
+      ],
+      "i": [
+       "Golden bowl",
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Use the golden bowl on the wall of fire.",
+      "i": [
+       "Golden bowl"
+      ]
+     },
+     {
+      "t": "Use the binding book on Ungadulu.",
+      "i": [
+       "Binding book"
+      ]
+     },
+     {
+      "t": "Fight Nezikchened."
+     },
+     {
+      "t": "Long-press Ungadulu and choose Talk-to. If you've left the cave, enter the Mossy Rocks again and touch the wall of fire to pass it first.",
+      "s": [
+       "I need to collect some Yommi tree seeds for Gujuo.",
+       "How do I grow the Yommi tree?",
+       "What will you do now?",
+       "Ok, thanks...",
+       "How do I get out of here?"
+      ]
+     }
+    ],
+    "i": [
+     "Radimus notes",
+     "Bullroarer",
+     "Gold bar (2)",
+     "Hammer",
+     "Any axe",
+     "A machete",
+     "Binding book",
+     "Combat gear, food and potions"
+    ],
+    "tr": [
+     "Fairy ring CKR then run south, or take Hajedy's cart from Brimhaven to Shilo Village for 200 coins (by Brimhaven teleport or Amulet of Glory [2])"
+    ],
+    "r": [
+     "Prayer potions for blessing the gold bowl"
+    ],
+    "c": 1,
+    "e": [
+     "Nezikchened (level 187) 3 times"
+    ]
+   },
+   {
+    "n": "Attempted planting",
+    "st": [
+     {
+      "t": "Use the blessed bowl of water on the yommi seeds.",
+      "i": [
+       "Yommi tree seeds",
+       "Golden bowl"
+      ]
+     },
+     {
+      "t": "Leave the cave back to the surface."
+     },
+     {
+      "t": "Use a machete on the tall reeds next to the Kharazi's water pool.",
+      "i": [
+       "A machete"
+      ]
+     },
+     {
+      "t": "Use the reed on the water pool.",
+      "i": [
+       "Hollow reed",
+       "Blessed gold bowl"
+      ]
+     },
+     {
+      "t": "Swing the Bullroarer until Gujuo appears.",
+      "i": [
+       "Bullroarer"
+      ]
+     },
+     {
+      "t": "Talk to Gujuo about what's happened to the water pool.",
+      "s": [
+       "The water pool has dried up, but I need more water.",
+       "Where's the source of the pure water?"
+      ]
+     }
+    ],
+    "i": [
+     "Radimus notes",
+     "A machete",
+     "Any axe",
+     "Golden bowl",
+     "Yommi tree seeds",
+     "Bullroarer"
+    ]
+   },
+   {
+    "n": "To the source",
+    "st": [
+     {
+      "t": "Add ardrigal and snake weed to a vial of water to make a bravery potion.",
+      "i": [
+       "Ardrigal",
+       "Vial of water"
+      ]
+     },
+     {
+      "t": "Return to the Kharazi Jungle and be prepared for some fights.",
+      "i": [
+       "Radimus notes",
+       "Rune or Dragon axe",
+       "A machete",
+       "Any pickaxe",
+       "Lockpick (multiple in case they break)",
+       "Bravery potion",
+       "Runes for any charge orb spell you have the level to cast",
+       "Unpowered orb",
+       "Rope",
+       "Blessed gold bowl",
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Search and then enter the Mossy Rocks in the north west of the Kharazi.",
+      "s": [
+       "Yes, I'll crawl through. I'm very athletic."
+      ]
+     },
+     {
+      "t": "Search the bookcase and slide past it.",
+      "s": [
+       "Yes please, I love crevices!"
+      ]
+     },
+     {
+      "t": "Long-press the gate and choose Search, then pick its lock.",
+      "i": [
+       "Lockpick (multiple in case they break)"
+      ]
+     },
+     {
+      "t": "Smash through the boulders and enter the gate at the end of the corridor.",
+      "s": [
+       "Yes, I'm very strong, I'll force them open."
+      ],
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Follow the cave around, jumping over the jagged wall, until you reach the marked wall. Long-press it, choose Search and go through the door.",
+      "s": [
+       "Investigate the outline of the door.",
+       "Yes, I'll go through!"
+      ]
+     },
+     {
+      "t": "Cross the room with the pools to the ancient gate on the far side. Open the standard spellbook, tap any Charge Orb spell you can cast, then tap the gate.",
+      "i": [
+       "Runes for any charge orb spell you have the level to cast",
+       "Unpowered orb"
+      ]
+     },
+     {
+      "t": "Use a rope on the winch. If you tied one on an earlier visit and it has gone, search the winch to make it reappear.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Drink the bravery potion, then climb down the winch.",
+      "s": [
+       "Yes, I'll bravely drink the Bravery Potion.",
+       "Yes, I'll shimmy down the rope into possible doom.",
+       "I'm not scared. Let's go!"
+      ],
+      "i": [
+       "Bravery potion"
+      ]
+     }
+    ],
+    "i": [
+     "Radimus notes",
+     "Ardrigal",
+     "Snake weed",
+     "Vial of water",
+     "A machete",
+     "Rune or Dragon axe",
+     "Lockpick (multiple in case they break)",
+     "Any pickaxe",
+     "Runes for any charge orb spell you have the level to cast",
+     "Unpowered orb",
+     "Rope",
+     "Blessed gold bowl",
+     "Yommi tree seeds",
+     "Combat gear, food and potions"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Unlocking the source",
+    "st": [
+     {
+      "t": "Follow the path down, and kill each of the 3 skeletons (Irvig, San, and Ranalph) for crystal pieces. Use them on the furnace in the north east of the area.",
+      "s": [
+       "Yes, I can think of nothing more exciting!",
+       "Yes, I want to climb over the rocks."
+      ],
+      "i": [
+       "Lump of crystal",
+       "Chunk of crystal",
+       "Hunk of crystal"
+      ]
+     },
+     {
+      "t": "Use the crystal heart on the mossy rock in the centre of the area.",
+      "i": [
+       "Heart crystal"
+      ]
+     },
+     {
+      "t": "Use the heart on the recess next to the barrier to the south.",
+      "i": [
+       "Heart crystal"
+      ]
+     },
+     {
+      "t": "Enter the south room and attempt to push one of the boulders to the west."
+     },
+     {
+      "t": "Talk to Echned Zekin.",
+      "s": [
+       "Who's asking?",
+       "Yes, I need it for my quest.",
+       "What can I do about that?",
+       "I'll do what I must to get the water.",
+       "Ok, I'll do it."
+      ]
+     },
+     {
+      "t": "Choose one route. To save Viyeldi: don't touch the wizard hat. Teleport out now, skip \"Option 1: Kill Viyeldi\" and do \"Option 2: Save Viyeldi\". To kill Viyeldi: equip the dark dagger, try to pick up the wizard hat near the rope down and kill him when he appears, then do \"Option 1: Kill Viyeldi\" and skip \"Option 2: Save Viyeldi\". If he doesn't appear, you need the holy force, so teleport out and do \"Option 2: Save Viyeldi\".",
+      "s": [
+       "Ok, I'll do it."
+      ],
+      "i": [
+       "Dark dagger"
+      ]
+     }
+    ],
+    "i": [
+     "Radimus notes",
+     "A machete",
+     "Rune or Dragon axe",
+     "Lockpick (multiple in case they break)",
+     "Any pickaxe",
+     "Runes for any charge orb spell you have the level to cast",
+     "Unpowered orb",
+     "Blessed gold bowl",
+     "Yommi tree seeds",
+     "Combat gear, food and potions"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Option 1: Kill Viyeldi",
+    "st": [
+     {
+      "t": "Only if you chose to kill Viyeldi: kill him with the dark dagger. If you're saving him, skip to \"Option 2: Save Viyeldi\".",
+      "i": [
+       "Dark dagger"
+      ]
+     },
+     {
+      "t": "Go back to the south room and push one of the boulders so Echned appears. Be prepared for a fight with Nezikchened again.",
+      "i": [
+       "Glowing dagger"
+      ]
+     },
+     {
+      "t": "Use the glowing dagger on Echned Zekin."
+     }
+    ],
+    "i": [
+     "Radimus notes",
+     "A machete",
+     "Rune or Dragon axe",
+     "Lockpick (multiple in case they break)",
+     "Any pickaxe",
+     "Runes for any charge orb spell you have the level to cast",
+     "Unpowered orb",
+     "Blessed gold bowl",
+     "Yommi tree seeds",
+     "Combat gear, food and potions"
+    ],
+    "c": 1,
+    "e": [
+     "Nezikchened (level 187) 3 times"
+    ]
+   },
+   {
+    "n": "Option 2: Save Viyeldi",
+    "st": [
+     {
+      "t": "Only if you chose to save Viyeldi. If you killed him, skip to \"The water\". Search and then enter the Mossy Rocks in the north west of the Kharazi.",
+      "s": [
+       "Yes, I'll crawl through. I'm very athletic."
+      ],
+      "i": [
+       "Dark dagger",
+       "Rune or Dragon axe",
+       "A machete",
+       "Any pickaxe",
+       "Lockpick (multiple in case they break)",
+       "Runes for any charge orb spell you have the level to cast",
+       "Unpowered orb",
+       "Blessed gold bowl",
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Investigate the fire wall to pass through it, then use the dark dagger on Ungadulu for the holy force."
+     },
+     {
+      "t": "Search the bookcase and slide past it.",
+      "s": [
+       "Yes please, I love crevices!"
+      ]
+     },
+     {
+      "t": "Long-press the gate and choose Search, then pick its lock.",
+      "i": [
+       "Lockpick (multiple in case they break)"
+      ]
+     },
+     {
+      "t": "Smash through the boulders and enter the gate at the end of the corridor.",
+      "s": [
+       "Yes, I'm very strong, I'll force them open."
+      ],
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Follow the cave around, jumping over the jagged wall, until you reach the marked wall. Long-press it, choose Search and go through the door.",
+      "s": [
+       "Investigate the outline of the door.",
+       "Yes, I'll go through!"
+      ]
+     },
+     {
+      "t": "Cross the room with the pools to the ancient gate on the far side. Open the standard spellbook, tap any Charge Orb spell you can cast, then tap the gate.",
+      "i": [
+       "Runes for any charge orb spell you have the level to cast",
+       "Unpowered orb"
+      ]
+     },
+     {
+      "t": "Climb down the winch. If the rope isn't there, search the winch to make it reappear.",
+      "s": [
+       "I'm not scared. Let's go!",
+       "Yes, I'll shimmy down the rope into possible doom."
+      ]
+     },
+     {
+      "t": "Return to Echned in the south room with the holy force. Be prepared for a fight with Nezikchened again.",
+      "s": [
+       "Yes, I can think of nothing more exciting!",
+       "Yes, I want to climb over the rocks."
+      ],
+      "i": [
+       "Holy force",
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Push one of the boulders so Echned appears. Don't tell him you lost the dagger. With him near you, tap the holy force in your inventory to cast it. He turns into Nezikchened, so be ready to fight.",
+      "i": [
+       "Holy force"
+      ]
+     }
+    ],
+    "i": [
+     "Radimus notes",
+     "A machete",
+     "Rune or Dragon axe",
+     "Lockpick (multiple in case they break)",
+     "Any pickaxe",
+     "Runes for any charge orb spell you have the level to cast",
+     "Unpowered orb",
+     "Blessed gold bowl",
+     "Yommi tree seeds",
+     "Combat gear, food and potions"
+    ],
+    "c": 1,
+    "e": [
+     "Nezikchened (level 187) 3 times"
+    ]
+   },
+   {
+    "n": "The water",
+    "st": [
+     {
+      "t": "Defeat Nezikchened."
+     },
+     {
+      "t": "Push one of the boulders in the south room."
+     },
+     {
+      "t": "Use the blessed bowl on the sacred water.",
+      "i": [
+       "Blessed gold bowl"
+      ]
+     },
+     {
+      "t": "Return to the surface. Teleporting out will evaporate the water but the pool above ground is restored and can be used."
+     }
+    ],
+    "i": [
+     "Radimus notes",
+     "A machete",
+     "Rune or Dragon axe",
+     "Lockpick (multiple in case they break)",
+     "Any pickaxe",
+     "Runes for any charge orb spell you have the level to cast",
+     "Unpowered orb",
+     "Blessed gold bowl",
+     "Yommi tree seeds",
+     "Combat gear, food and potions"
+    ],
+    "c": 1,
+    "e": [
+     "Nezikchened (level 187) 3 times"
+    ]
+   },
+   {
+    "n": "Making a totem",
+    "st": [
+     {
+      "t": "Return to the Kharazi Jungle and be prepared for some fights.",
+      "i": [
+       "Radimus notes",
+       "Rune or Dragon axe",
+       "A machete",
+       "Blessed gold bowl",
+       "Yommi tree seeds",
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Use a machete on the tall reeds next to the Kharazi's water pool.",
+      "i": [
+       "A machete",
+       "Blessed gold bowl"
+      ]
+     },
+     {
+      "t": "Use the reed on the water pool.",
+      "i": [
+       "Hollow reed",
+       "Blessed gold bowl"
+      ]
+     },
+     {
+      "t": "Plant the seeds in any patch of fertile soil. It's a bare patch that shows brown on the map. One is about 8 steps north and 5 steps west of the water pool. Another is in the west of the Kharazi Jungle, due west of the pool and south of the Mossy Rocks.",
+      "i": [
+       "Yommi tree seeds"
+      ]
+     },
+     {
+      "t": "Use the golden bowl on the sapling.",
+      "i": [
+       "Golden bowl"
+      ]
+     },
+     {
+      "t": "Use your axe on the adult yommi tree.",
+      "i": [
+       "Rune or Dragon axe"
+      ]
+     },
+     {
+      "t": "Use your axe on the felled yommi tree.",
+      "i": [
+       "Rune or Dragon axe"
+      ]
+     },
+     {
+      "t": "Use your axe once more on the tree.",
+      "i": [
+       "Rune or Dragon axe"
+      ]
+     },
+     {
+      "t": "Pick up the totem pole."
+     }
+    ],
+    "i": [
+     "Radimus notes",
+     "A machete",
+     "Rune or Dragon axe",
+     "Blessed gold bowl",
+     "Yommi tree seeds",
+     "Combat gear, food and potions"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Placing the totem",
+    "st": [
+     {
+      "t": "Put Protect from Melee on, and use the new totem on one of the old brown totem poles in the jungle, such as the one east of the water pool. If you investigated the totem accidentally, wait for a few seconds before trying again.",
+      "i": [
+       "Yommi totem",
+       "Combat gear, food and potions"
+      ]
+     },
+     {
+      "t": "Only if you killed Viyeldi: kill San when he appears. If you saved Viyeldi, tap Done."
+     },
+     {
+      "t": "Only if you killed Viyeldi: kill Irvig when he appears. If you saved Viyeldi, tap Done."
+     },
+     {
+      "t": "Only if you killed Viyeldi: kill Ranalph when he appears. If you saved Viyeldi, tap Done."
+     },
+     {
+      "t": "Defeat Nezikchened."
+     },
+     {
+      "t": "Use the new totem on one of the corrupted totems.",
+      "i": [
+       "Yommi totem"
+      ]
+     }
+    ],
+    "i": [
+     "Radimus notes",
+     "A machete",
+     "Rune or Dragon axe",
+     "Yommi totem",
+     "Combat gear, food and potions"
+    ],
+    "c": 1,
+    "e": [
+     "Nezikchened (level 187) 3 times"
+    ]
+   },
+   {
+    "n": "Finishing off",
+    "st": [
+     {
+      "t": "Swing the Bullroarer until Gujuo appears.",
+      "i": [
+       "Bullroarer"
+      ]
+     },
+     {
+      "t": "Talk to Gujuo for a gilded totem."
+     },
+     {
+      "t": "Return to Radimus Erkle inside the Legends' Guild's grounds.",
+      "i": [
+       "Gilded totem",
+       "Radimus notes"
+      ]
+     },
+     {
+      "t": "Talk to Radimus Erkle inside the Legends' Guild.",
+      "s": [
+       "Yes, I'll train now."
+      ]
+     },
+     {
+      "t": "Talk to Radimus Erkle inside the Legends' Guild once more."
+     }
+    ],
+    "i": [
+     "Gilded totem",
+     "Radimus notes"
+    ]
+   }
+  ]
+ }
+}

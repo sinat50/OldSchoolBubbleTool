@@ -1,0 +1,131 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Troll Stronghold",
+  "items": [
+   "Climbing boots or 12 coins"
+  ],
+  "rec": [
+   "Games necklace",
+   "Food + prayer potions",
+   "Mage or ranged gear for safe spotting"
+  ],
+  "enemies": [
+   "Dad (level 101) (safespottable)",
+   "Troll General (level 113) (safespottable)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "Law Talisman",
+   "Ability to make Law Runes",
+   "Access to Trollheim and the Troll Stronghold",
+   "Access to the God Wars Dungeon"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Denulth in Burthorpe.",
+      "s": [
+       "How goes your fight with the trolls?",
+       "Is there anything I can do to help?",
+       "I'll get Godric back!"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Reach the Stronghold",
+    "st": [
+     {
+      "t": "Follow the path west of Burthorpe, then go along the path going south to Tenzing's hut. If you don't have climbing boots, buy a pair from Tenzing for 12 coins.",
+      "s": [
+       "Can I buy some Climbing boots?",
+       "OK, sounds good."
+      ]
+     },
+     {
+      "t": "Climb over the stile north of Tenzing."
+     },
+     {
+      "t": "Follow the path until you reach some rocks. Climb over them.",
+      "i": [
+       "Climbing boots"
+      ]
+     },
+     {
+      "t": "Follow the path from here east until you enter the arena."
+     },
+     {
+      "t": "Fight Dad until he gives up. You can safe spot him from the gate you entered through.",
+      "s": [
+       "I accept your challenge!"
+      ]
+     },
+     {
+      "t": "Leave the arena and continue through the cave to the north.",
+      "s": [
+       "I'll be going now."
+      ]
+     },
+     {
+      "t": "Enter the cave entrance."
+     },
+     {
+      "t": "Leave through cave's north exit."
+     },
+     {
+      "t": "Follow the path around Trollheim until you reach the Stronghold's entrance. Be wary of thrower trolls on the path, you'll want to use Protect from Ranged."
+     }
+    ],
+    "i": [
+     "Climbing boots or 12 coins",
+     "Mage or ranged gear for safe spotting",
+     "Food + prayer potions"
+    ]
+   },
+   {
+    "n": "Free the prisoners",
+    "st": [
+     {
+      "t": "Enter the west rooms and kill any of the Troll Generals for a prison key."
+     },
+     {
+      "t": "Climb down the north staircase."
+     },
+     {
+      "t": "Enter the prison door."
+     },
+     {
+      "t": "Climb down the stairs to the prison."
+     },
+     {
+      "t": "Pickpocket or kill Berry for a cell key."
+     },
+     {
+      "t": "Unlock Eadgar's cell."
+     },
+     {
+      "t": "Pickpocket or kill Twig for a cell key."
+     },
+     {
+      "t": "Unlock Godric's cell."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Troll General (level 113) (safespottable)"
+    ]
+   },
+   {
+    "n": "Finish off",
+    "st": [
+     {
+      "t": "Talk to Dunstan in north east Burthorpe to finish the quest."
+     }
+    ]
+   }
+  ]
+ }
+}

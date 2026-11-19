@@ -1,0 +1,69 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Skippy and the Mogres",
+  "items": [
+   "Bucket of water",
+   "Nettle tea",
+   "Bucket of milk",
+   "Chocolate dust",
+   "Snape grass"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "Ability to kill Mogres",
+   "Ability to receive Mogres as a Slayer task"
+  ],
+  "sec": [
+   {
+    "n": "Help Skippy",
+    "st": [
+     {
+      "t": "Long-press Skippy, south-west of Port Sarim, and choose Sober-up.",
+      "s": [
+       "Throw the water!"
+      ],
+      "i": [
+       "Bucket of water"
+      ]
+     },
+     {
+      "t": "Talk to Skippy.",
+      "i": [
+       "Nettle tea"
+      ]
+     },
+     {
+      "t": "Use some chocolate dust on a bucket of milk.",
+      "i": [
+       "Chocolate dust",
+       "Bucket of milk"
+      ]
+     },
+     {
+      "t": "Use some snape grass on the chocolatey milk.",
+      "i": [
+       "Snape grass",
+       "Chocolatey milk"
+      ]
+     },
+     {
+      "t": "Use the hangover cure on Skippy.",
+      "i": [
+       "Hangover cure"
+      ]
+     }
+    ],
+    "i": [
+     "Bucket of water",
+     "Nettle tea",
+     "Bucket of milk",
+     "Chocolate dust",
+     "Snape grass"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

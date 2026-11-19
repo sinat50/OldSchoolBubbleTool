@@ -1,0 +1,147 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder fallenfromgrace; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Fallen From Grace",
+  "items": [
+   "A raft or a skiff",
+   "Any pickaxe",
+   "Chisel",
+   "Hammer",
+   "Combat gear"
+  ],
+  "rec": [],
+  "enemies": [
+   "Mad Angel (lvl 270)",
+   "3 Mountain Trolls (level 69)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "10,000 Crafting XP",
+   "12,500 Sailing XP",
+   "5,000 Mining XP",
+   "5,000 Runecraft XP",
+   "Access to Mad Angel boss",
+   "Access to Sunstone Golem Crafting & Mining",
+   "Teleports to Wyrmscraig on the Slayer Ring and Necklace of Passage"
+  ],
+  "sec": [
+   {
+    "n": "Investigating",
+    "st": [
+     {
+      "t": "Bring all your combat gear and food now: you can't bank or teleport to the island until the quest is finished. Sail to Wyrmscraig, slightly south-west of Charred Island, in a raft or skiff. Don't bring a sloop: it won't fit in the cave later in the quest."
+     },
+     {
+      "t": "Dock at Wyrmscraig and try to walk onto the island. When Ffion stops you, talk to her to be allowed on."
+     },
+     {
+      "t": "Talk to Cormac in Auchrie village on Wyrmscraig island.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Muriel in the house north east of Cormac."
+     },
+     {
+      "t": "Search the tent to the south east on the coast for a pickaxe, hammer, and chisel."
+     },
+     {
+      "t": "Inspect the sunstone monolith on the coast south east of Muriel."
+     },
+     {
+      "t": "Mine a sunstone fragment off the sunstone monolith.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Use a chisel on the sunstone fragment.",
+      "i": [
+       "Sunstone",
+       "Chisel"
+      ]
+     },
+     {
+      "t": "Investigate the large hat on a basalt column on the south west corner of the island.",
+      "i": [
+       "Large hat"
+      ]
+     },
+     {
+      "t": "Return to Cormac in Auchrie village on Wyrmscraig island."
+     }
+    ]
+   },
+   {
+    "n": "Below the church",
+    "st": [
+     {
+      "t": "Sail into the cave on the south west of the island with either a skiff or a raft.",
+      "i": [
+       "Combat gear",
+       "Sunstone core"
+      ]
+     },
+     {
+      "t": "Disembark onto the gangplank and talk to Mortimer."
+     },
+     {
+      "t": "Kill the 3 trolls near to Mortimer."
+     },
+     {
+      "t": "Talk to Mortimer again."
+     },
+     {
+      "t": "Investigate the broken golem in the far north of the cavern."
+     },
+     {
+      "t": "Use your sunstone core on the broken golem.",
+      "i": [
+       "Sunstone core"
+      ]
+     },
+     {
+      "t": "Unlock the chest in the north west of the northern room. The code is RIGHT, LEFT, DOWN, DOWN."
+     },
+     {
+      "t": "Long-press the ancient sunstone core in your inventory and choose Destroy to get the staircase key.",
+      "i": [
+       "Ancient sunstone core"
+      ]
+     },
+     {
+      "t": "Climb the staircase, ready for the boss fight.",
+      "i": [
+       "Combat gear",
+       "Staircase key"
+      ]
+     },
+     {
+      "t": "Defeat the Mad Angel. Use Protect from Melee. If she pulls her sword back slowly, run behind her. If she charges a blue attack, protect from magic. If you activate it the tick it hits you, you get a guaranteed max hit on her next hit. If she launches a projectile at a tile, stand on the tile to bounce it back to her."
+     },
+     {
+      "t": "Search the body in the church."
+     },
+     {
+      "t": "Read the final letter.",
+      "i": [
+       "Final letter"
+      ]
+     },
+     {
+      "t": "Return to Cormac to finish the quest."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Sunstone core"
+    ],
+    "c": 1,
+    "e": [
+     "Mad Angel (lvl 270)"
+    ]
+   }
+  ]
+ }
+}

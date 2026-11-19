@@ -1,0 +1,138 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder observatoryquest; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Observatory Quest",
+  "items": [
+   "Plank (3)",
+   "Bronze bar",
+   "Molten glass"
+  ],
+  "rec": [
+   "Ring of dueling",
+   "Antipoison (there is a spawn of superantipoison near the Observatory)",
+   "Food"
+  ],
+  "enemies": [
+   "Goblin Guard (level 42, or you can lure it/have someone else kill it)"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "2,250 Crafting XP",
+   "A reward depending on which constellation you observed."
+  ],
+  "sec": [
+   {
+    "n": "Helping the Professor",
+    "st": [
+     {
+      "t": "Talk to the Observatory professor north of Castle Wars.",
+      "s": [
+       "Talk about the Observatory quest.",
+       "An Observatory?",
+       "Sounds interesting. How can I help?",
+       "Yes."
+      ],
+      "i": [
+       "Plank (3)",
+       "Molten glass",
+       "Bronze bar"
+      ]
+     },
+     {
+      "t": "Give the professor 3 planks.",
+      "s": [
+       "Talk about the Observatory quest."
+      ],
+      "i": [
+       "Plank (3)"
+      ]
+     },
+     {
+      "t": "Give the professor a bronze bar.",
+      "s": [
+       "Talk about the Observatory quest."
+      ],
+      "i": [
+       "Bronze bar"
+      ]
+     },
+     {
+      "t": "Give the professor some molten glass.",
+      "s": [
+       "Talk about the Observatory quest."
+      ],
+      "i": [
+       "Molten glass"
+      ]
+     },
+     {
+      "t": "Enter the dungeon east of the Professor."
+     },
+     {
+      "t": "Search the chests in the dungeon until you find the goblin kitchen key. The right chest differs per player. Try the two chests south-east of the stairs first; if neither has it, it's in the last chest in the dungeon. Read the chat to the end when you find it, or you won't get the key. Wrong chests can hold a poisonous spider (level 31)."
+     },
+     {
+      "t": "Prod the sleeping guard by the kitchen gate in the north of the dungeon. He wakes and attacks you. Either kill him (level 42), or lure him north of the gate, about five squares north of where he slept, until he gets stuck behind the column there. A trapped guard attacks you again when you come back out."
+     },
+     {
+      "t": "With the guard dead or stuck, open the kitchen gate with the goblin kitchen key, then search the goblin stove inside to get the lens mould.",
+      "i": [
+       "Goblin kitchen key"
+      ]
+     },
+     {
+      "t": "Climb the stairs back to the surface."
+     },
+     {
+      "t": "Give the professor the lens mould. If you don't have it, check your bank.",
+      "s": [
+       "Talk about the Observatory quest."
+      ],
+      "i": [
+       "Lens mould"
+      ]
+     },
+     {
+      "t": "Use the molten glass on the mould.",
+      "i": [
+       "Molten glass",
+       "Lens mould"
+      ]
+     },
+     {
+      "t": "Give the professor the lens mould and lens.",
+      "s": [
+       "Talk about the Observatory quest."
+      ],
+      "i": [
+       "Observatory lens"
+      ]
+     },
+     {
+      "t": "Enter the dungeon east of the Professor."
+     },
+     {
+      "t": "Follow the dungeon around anti-clockwise to a staircase, then climb it. A cutscene plays: don't tap anything in the observatory while it runs, or it will restart."
+     },
+     {
+      "t": "Climb up the stairs in the observatory."
+     },
+     {
+      "t": "Use the telescope and remember the shape of the constellation you see. It differs per player. The star charts on the walls of the floor below show every constellation with its name, so you can match yours there."
+     },
+     {
+      "t": "Talk to the professor and tell him which constellation you saw through the telescope. Pick its name from the list: \"~ next ~\" and \"~ previous ~\" show more names. The wiki's Observatory Quest page has a picture of each one.",
+      "s": [
+       "Talk about the Observatory quest."
+      ]
+     }
+    ],
+    "i": [
+     "Plank (3)",
+     "Bronze bar",
+     "Molten glass"
+    ]
+   }
+  ]
+ }
+}

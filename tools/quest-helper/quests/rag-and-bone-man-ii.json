@@ -1,0 +1,324 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Rag and Bone Man II",
+  "items": [
+   "Coins (902)",
+   "Pot (27)",
+   "Tinderbox",
+   "Light source",
+   "Rope",
+   "Ranged weapon for killing vultures",
+   "Ice coolers (10)",
+   "Fishing explosive (10)",
+   "Mirror shield",
+   "Any axe"
+  ],
+  "rec": [
+   "Antifire shield",
+   "Inoculation bracelet or a potion for Disease",
+   "Digsite pendant",
+   "Ectophial",
+   "Ring of dueling",
+   "Games necklace",
+   "Varrock teleport",
+   "Lumbridge teleport",
+   "Nardah teleport",
+   "Draynor teleport",
+   "Karamja teleport",
+   "Taverley teleport",
+   "Rellekka teleport",
+   "Teleport to Gnome Stronghold (Spirit tree/Gnome Glider",
+   "Teleport to Feldip Hills (Gnome Glider or Fairy Ring (AKS))",
+   "Dramen staff"
+  ],
+  "enemies": [
+   "27 low to mid leveled monsters for their bones"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "5,000 Prayer XP",
+   "A Bonesack",
+   "A Ram Skull Helm"
+  ],
+  "sec": [
+   {
+    "n": "Morytania bones",
+    "st": [
+     {
+      "t": "If you haven't spoken to the Odd Old Man since finishing Rag and Bone Man I, talk to him. He's in Silvarea, north-east of Varrock by the Limestone Mine, on the path to Paterdomus."
+     },
+     {
+      "t": "Kill bats south of the Odd Old Man. On this quest each monster has a 1 in 4 chance to drop its bone, so keep killing until it drops, and pick it up every time."
+     },
+     {
+      "t": "Kill undead cows west of the Ectofuntus."
+     },
+     {
+      "t": "Push the easternmost memorial in the graveyard south-east of Fenkenstrain's Castle to enter the Experiment Cave. You need to be part way through Creature of Fenkenstrain."
+     },
+     {
+      "t": "Kill Experiments."
+     },
+     {
+      "t": "Kill the citizens/werewolves in Canifis. (Do not use Wolfbane)"
+     },
+     {
+      "t": "Kill Ghouls west of Canifis."
+     }
+    ],
+    "i": [
+     "Ectophial"
+    ]
+   },
+   {
+    "n": "Varrock Sewer bones",
+    "st": [
+     {
+      "t": "Go down into Varrock Sewer via the Manhole south east of Varrock Castle."
+     },
+     {
+      "t": "Kill zombies in the sewer."
+     },
+     {
+      "t": "Kill rats in the sewer. Most giant rats don't drop the rat bone, but the level 26 ones do."
+     }
+    ]
+   },
+   {
+    "n": "Lumbridge Swamp bone",
+    "st": [
+     {
+      "t": "If no rope is tied to the hole yet, use a rope on it. Then enter the hole to the Lumbridge Swamp caves.",
+      "i": [
+       "Rope",
+       "Light source",
+       "Tinderbox"
+      ]
+     },
+     {
+      "t": "Kill Cave Goblins in the far east of the Lumbridge Swamp Caves. Wall Beasts on the way there can grab you, so wear a spiny helmet or slayer helmet if you have one, and keep running as you pass them."
+     }
+    ],
+    "i": [
+     "Rope",
+     "Light source",
+     "Tinderbox"
+    ]
+   },
+   {
+    "n": "Desert bones",
+    "st": [
+     {
+      "t": "Kill Jackals north of Nardah."
+     },
+     {
+      "t": "Kill desert snakes north of Nardah."
+     },
+     {
+      "t": "Kill a level 42 lizard north of Nardah. The level 24 desert lizards don't drop the bone. When it's nearly dead, use an ice cooler on it to finish it off.",
+      "i": [
+       "Ice coolers (10)"
+      ]
+     },
+     {
+      "t": "Kill vultures south west of Nardah.",
+      "i": [
+       "Ranged weapon for killing vultures"
+      ]
+     }
+    ],
+    "i": [
+     "Ice coolers (10)",
+     "Ranged weapon for killing vultures"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Port Sarim bones",
+    "st": [
+     {
+      "t": "Kill seagulls on the Port Sarim docks."
+     },
+     {
+      "t": "Enter the Asgarnia Dungeon by Mudskipper Point."
+     },
+     {
+      "t": "Kill Ice Giants at the end of the dungeon."
+     },
+     {
+      "t": "On Mudskipper Point, use a fishing explosive on the Ominous Fishing Spot to bring up a Mogre. You need to have finished Skippy and the Mogres.",
+      "i": [
+       "Fishing explosive (10)"
+      ]
+     },
+     {
+      "t": "Kill the Mogre."
+     }
+    ],
+    "i": [
+     "Fishing explosive (10)"
+    ]
+   },
+   {
+    "n": "Karamja bones",
+    "st": [
+     {
+      "t": "Kill Jogres on Karamja, near the crashed gnome glider east of Tai Bwo Wannai (fairy ring DKP is close). Pick up the jogre bone, not the ordinary jogre bones."
+     },
+     {
+      "t": "Enter Brimhaven Dungeon.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Any axe",
+       "Coins (875)"
+      ]
+     },
+     {
+      "t": "Kill Moss Giants near the entrance."
+     },
+     {
+      "t": "Kill fire giants deep in the dungeon."
+     }
+    ],
+    "i": [
+     "Coins (875)",
+     "Any axe"
+    ]
+   },
+   {
+    "n": "Taverley Dungeon bone",
+    "st": [
+     {
+      "t": "Go to Taverley Dungeon. Bring an antifire shield if you can. The baby blue dragons are in the deeper part: squeeze through the obstacle pipe (needs 70 Agility), or use a dusty key on the gate to the deeper dungeon."
+     },
+     {
+      "t": "Only if you need a dusty key: travel through Taverley Dungeon to the Black Knights' Base. Kill the Jailer in the east side of the base and pick up the jail key. Use it on the south door and talk to Velrak for a dusty key.",
+      "s": [
+       "So... do you know anywhere good to explore?",
+       "Yes please!"
+      ]
+     },
+     {
+      "t": "Kill baby blue dragons. South east near the lava is a good spot without any adult dragons."
+     }
+    ],
+    "tr": [
+     "Taverley teleport"
+    ],
+    "r": [
+     "Antifire shield"
+    ]
+   },
+   {
+    "n": "Fremennik bones",
+    "st": [
+     {
+      "t": "Enter the cave north east of Rellekka."
+     },
+     {
+      "t": "Kill trolls."
+     },
+     {
+      "t": "Kill bunnies south east of Rellekka."
+     },
+     {
+      "t": "Enter the Fremennik Slayer Dungeon.",
+      "i": [
+       "Mirror shield"
+      ]
+     },
+     {
+      "t": "Kill basilisks in the middle of the dungeon.",
+      "i": [
+       "Mirror shield"
+      ]
+     },
+     {
+      "t": "Talk to Jarvald on the Rellekka docks to travel to Waterbirth Island."
+     },
+     {
+      "t": "Enter waterbirth dungeon."
+     },
+     {
+      "t": "Kill dagannoths."
+     }
+    ],
+    "i": [
+     "Mirror shield"
+    ],
+    "tr": [
+     "Rellekka teleport",
+     "Fairy Ring (DKS)"
+    ]
+   },
+   {
+    "n": "Gnome Stronghold bones",
+    "st": [
+     {
+      "t": "Kill a Terrorbird in the pen on the west side of the Tree Gnome Stronghold, across the river. Mounted terrorbird gnomes don't drop the bone."
+     }
+    ]
+   },
+   {
+    "n": "Feldip Hills bones",
+    "st": [
+     {
+      "t": "Kill wolves in Feldip Hills."
+     },
+     {
+      "t": "Kill ogres in Feldip Hills."
+     },
+     {
+      "t": "Kill a Zogre at Jiggig, south of Castle Wars (fairy ring BKP is close). Most weapons barely hurt them, so use Crumble Undead, an ogre bow with ogre arrows, or a comp ogre bow with brutal arrows. They can give you disease.",
+      "i": [
+       "Inoculation bracelet or a potion for Disease"
+      ]
+     }
+    ],
+    "i": [
+     "Teleport to Feldip Hills (Gnome Glider or Fairy Ring (AKS))"
+    ]
+   },
+   {
+    "n": "Preparing the bones",
+    "st": [
+     {
+      "t": "Buy 27 jugs of vinegar from Fortunato in Draynor Village, then use them on 27 pots.",
+      "i": [
+       "Jug of vinegar (27)",
+       "Pot (27)"
+      ]
+     },
+     {
+      "t": "Use the bones on the pots of vinegar.",
+      "i": [
+       "Pot of vinegar"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Cleaning the bones",
+    "st": [
+     {
+      "t": "Use one bone in vinegar on the fire by the Odd Old Man. All your bones in vinegar then boil one after another by themselves, leaving you with 27 polished bones. Any fire or range works too.",
+      "i": [
+       "Bone in vinegar (27)"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Handing the bones in",
+    "st": [
+     {
+      "t": "Give the Odd Old Man the bones."
+     }
+    ]
+   }
+  ]
+ }
+}

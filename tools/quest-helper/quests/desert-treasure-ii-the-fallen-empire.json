@@ -1,0 +1,1075 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder deserttreasureii; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Desert Treasure II - The Fallen Empire",
+  "items": [
+   "Combat gear",
+   "Runes for shadow, smoke, blood, and ice burst",
+   "Facemask",
+   "Ring of visibility"
+  ],
+  "rec": [
+   "Nardah teleport, or Fairy Ring to DLQ",
+   "Full waterskin, or any protection from the desert",
+   "Senntisten teleport",
+   "Stamina potions (4)",
+   "Freezing spells STRONGLY recommended + reasonable mage accuracy",
+   "Xeric's talisman",
+   "Teleport to Temple of the Eye via minigame teleport or Amulet of the Eye",
+   "Icy basalt",
+   "Mind altar or lassar teleport"
+  ],
+  "enemies": [
+   "Ancient Guardian (level 153)",
+   "Vardorvis (level 553)",
+   "Kasonde (level 193)",
+   "A number of lesser demons, black demons, and abyssal creatures",
+   "The Leviathan (level 577)",
+   "Jhallan (level 491)",
+   "Duke Sucellus (level 519)",
+   "The Whisperer (level 568)",
+   "Mysterious Figure (level 271)",
+   "The Forsaken Assassin (level 252)",
+   "Ketla the Unworthy (level 236)",
+   "Kasonde the Craven (level 221)",
+   "Persten the Deceitful (level 264)"
+  ],
+  "rewards": [
+   "5 Quest points",
+   "Ring of Shadows",
+   "3 x Ancient Lamp (100k exp in a combat skill)",
+   "Ability to use Ancient Rings.",
+   "Access to four new bosses"
+  ],
+  "sec": [
+   {
+    "n": "The Vault",
+    "st": [
+     {
+      "t": "Switch to the Ancient Magicks spellbook first: the door won't open without it. Then attempt to enter the Vault door north-east of Nardah.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Asgarnia Smith inside the Vault."
+     },
+     {
+      "t": "Inspect the plaque."
+     },
+     {
+      "t": "Inspect the north-east statue."
+     },
+     {
+      "t": "Inspect the north-west statue."
+     },
+     {
+      "t": "Inspect the south-west statue."
+     },
+     {
+      "t": "Inspect the south-east statue."
+     },
+     {
+      "t": "Talk to Asgarnia Smith inside the Vault."
+     }
+    ],
+    "tr": [
+     "Nardah teleport, or Fairy Ring to DLQ",
+     "Senntisten teleport"
+    ],
+    "r": [
+     "Full waterskin, or any protection from the desert"
+    ]
+   },
+   {
+    "n": "Learning of the Ancients",
+    "st": [
+     {
+      "t": "Talk to the Terry Balando in the Exam Centre found south-east of Varrock, directly south of the Digsite."
+     },
+     {
+      "t": "Enter the winch on the east side of the Digsite.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Talk to Dr Banikan."
+     },
+     {
+      "t": "Get a pickaxe from the crate in the north-east of the cavern."
+     },
+     {
+      "t": "Mine the rocks in the south-east of the cavern.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Enter the hole in the south-east of the cavern, ready for a fight.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Kill the Ancient Guardian. The shield needs to be broken to hurt it, and it will regenerate the shield unless you are using melee attacks with a pickaxe in the inventory.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Talk to Dr Banikan in the room you defeated the Ancient Guardian."
+     },
+     {
+      "t": "Inspect the golem to the north."
+     },
+     {
+      "t": "Inspect the altar to the north-west."
+     },
+     {
+      "t": "Cast blood burst or higher on the blood totem.",
+      "i": [
+       "Blood burst runes"
+      ]
+     },
+     {
+      "t": "Cast shadow burst or higher on the shadow totem.",
+      "i": [
+       "Shadow burst runes"
+      ]
+     },
+     {
+      "t": "Cast smoke burst or higher on the smoke totem.",
+      "i": [
+       "Smoke burst runes"
+      ]
+     },
+     {
+      "t": "Cast ice burst or higher on the ice totem.",
+      "i": [
+       "Ice burst runes"
+      ]
+     },
+     {
+      "t": "Search the crate in the room with the golem."
+     },
+     {
+      "t": "Imbue the cells at the altar.",
+      "i": [
+       "Uncharged cells"
+      ]
+     },
+     {
+      "t": "Inspect the golem again."
+     },
+     {
+      "t": "Drag the charges to the right tiles."
+     },
+     {
+      "t": "Tap the power-on button to finish the puzzle."
+     },
+     {
+      "t": "Operate the golem and search for one term at a time: \"Vardorvis\", \"Perseriya\", \"Sucellus\", then \"Whisperer\". After each search, talk to Banikan and ask about that term, for example \"Any thoughts on Vardorvis?\", before you search for the next one.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Banikan about what to do next."
+     },
+     {
+      "t": "Try operating the golem again until Banikan leaves, and the golem lets you know the last search term."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Runes for shadow, smoke, blood, and ice burst"
+    ],
+    "tr": [
+     "Senntisten teleport"
+    ],
+    "c": 1,
+    "e": [
+     "Ancient Guardian (level 153)",
+     "Vardorvis (level 553)"
+    ]
+   },
+   {
+    "n": "Vardorvis",
+    "st": [
+     {
+      "t": "Talk to Elissa in the north-east of the Digsite on the surface, then talk to Barus near the burning man in south-west Lovakengj.",
+      "s": [
+       "I hear you visited Lovakengj recently."
+      ]
+     },
+     {
+      "t": "Search the desk in the house south of the Hosidius Estate Agent."
+     },
+     {
+      "t": "Read the potion note."
+     },
+     {
+      "t": "Drink the strange potion."
+     },
+     {
+      "t": "Board the boat south of Quidamortem into The Stranglewood. You can use the Fairy Ring BLS to get nearby, or travel with the Mountain Guide."
+     },
+     {
+      "t": "Follow the path south and run into the city: south to a fork, then west to the entrance, where a cutscene plays. Be careful of the Strangled, as they'll bind you and deal damage."
+     },
+     {
+      "t": "Talk to Kasonde."
+     },
+     {
+      "t": "Hide away in the Entry in the north-west of the room."
+     },
+     {
+      "t": "Defend Kasonde from the Strangled. You get 1 minute to set up, so read the next two steps now: they tell you how. Then hold out for 3 minutes. If you fail, the defence just starts again. With freezes from Ancient Magicks you can mostly ignore the barricades and explosives."
+     },
+     {
+      "t": "Pick up the hammer at the start and empty the two open chests. The six stone chests hold 2 barricades and 4 satchels. Put a barricade to the south first, as the first wave comes from there. Place satchels where the Strangled bunch up and set them off with the Detonator. The blast kills every Strangled in a 7x7 area, but also hurts you and Kasonde if you're inside it."
+     },
+     {
+      "t": "Four of the chests are locked with a code you have to guess. Press confirm: a right number in the right place shows green, and a right number in the wrong place shows blue. Keep the green numbers, move the others up by one and confirm again. It takes at most 8 tries."
+     },
+     {
+      "t": "Leave the dungeon up the ladder, then talk to Kasonde on the surface."
+     },
+     {
+      "t": "Go get the korbal herb from the north-west corner of the area, on a small outcrop with a strangled boar, north-west of the large temple. The Strangled will attack you, so have food. If your infected bar reaches full, you'll respawn at the last place you were uninfected. You can get some stink bombs from the chest in the south-east corner of Kasonde's room, which when used attract the Strangled to the location. This can be useful for avoiding them. Freezes and blood spells are useful for trapping them and healing up."
+     },
+     {
+      "t": "Get the berry from the camp in the south-west of the area, near a strangled lynx. From the herb, run south until you hit a wall, go west, then south across a bridge. Keep going south until you see the lynx: the bush is in the camp south-west of the old campfire. Beware the Strangled still."
+     },
+     {
+      "t": "Go to Kasonde, who is inside the main pyramid of the area to the north. Be ready to fight a few Strangled.",
+      "i": [
+       "Combat gear",
+       "Argian berries",
+       "Korbal herb"
+      ]
+     },
+     {
+      "t": "Defeat the Strangled attacking Kasonde."
+     },
+     {
+      "t": "Talk to Kasonde.",
+      "i": [
+       "Argian berries",
+       "Korbal herb"
+      ]
+     },
+     {
+      "t": "Add the herb to unfinished serum."
+     },
+     {
+      "t": "Add the berries to the serum."
+     },
+     {
+      "t": "Drink the strangler serum."
+     },
+     {
+      "t": "Go to the ritual site, the snowy square west of the temple, ready to fight the boss of the area. The first time, run south, west to the bridge, south over the bridge, west across another bridge, then north over a final bridge. Enter by climbing the rocks in the north-west clearing.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Defeat Vardorvis. He's weak to slash weapons, and uses Melee. It's recommended to watch a video to get an understanding of his abilities. Swinging axes: He will spawn axes around the arena, which will go to the opposite corner to which they appear. Avoid them. Homing spikes: Vardorvis hits the ground, causing a spike to appear under you. Move off the tile to avoid. Head projectile: A tentacle will appear with a head on it, firing a green projectile. Protect from Missiles should be flicked to. Virus cells: Red splotches appear on the screen. Tap them all within the time limit to avoid damage."
+     },
+     {
+      "t": "Pick up the Temple Key in the Vardorvis arena."
+     },
+     {
+      "t": "Return to Kasonde with the temple key, inside the main pyramid east of the ritual site. Be ready for another fight: if your supplies are low, resupply at a bank first.",
+      "i": [
+       "Combat gear",
+       "Temple key"
+      ]
+     },
+     {
+      "t": "Defeat Kasonde in the pyramid. Avoid the potions he throws. If he throws his hands up, hide behind a pillar.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Talk to Kasonde again in the pyramid."
+     },
+     {
+      "t": "Search the north-east chest in Kasonde's initial hideout for a medallion."
+     },
+     {
+      "t": "Return to the Vault door north-east of Nardah. If this is your last medallion, go straight to the Secrets section instead of this step and the next one.",
+      "i": [
+       "Vardorvis' medallion"
+      ]
+     },
+     {
+      "t": "Use the medallion on the north-east statue."
+     }
+    ],
+    "i": [
+     "Combat gear"
+    ],
+    "r": [
+     "Xeric's talisman",
+     "Freezing spells STRONGLY recommended + reasonable mage accuracy"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Perseriya - The Abyss",
+    "st": [
+     {
+      "t": "Talk to the Catalytic Guardian by the portal in the Temple of the Eye.",
+      "i": [
+       "Combat gear",
+       "Facemask"
+      ],
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Kill all the demons and abyssal entities in the rift.",
+      "i": [
+       "Combat gear",
+       "Facemask"
+      ]
+     },
+     {
+      "t": "Hop across the stepping stone."
+     },
+     {
+      "t": "Attempt to board the boat to the east.",
+      "i": [
+       "Facemask"
+      ]
+     },
+     {
+      "t": "Talk to Wizard Persten in the Rift.",
+      "i": [
+       "Facemask"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Facemask",
+     "Teleport to Temple of the Eye via minigame teleport or Amulet of the Eye",
+     "Stamina potions (4)",
+     "Arclight"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Perseriya - Room 1",
+    "st": [
+     {
+      "t": "Enter the first open passage, north-west of the camp. The passages can be shuffled: if the first room you reach isn't the pathfinder room, follow the Room section that starts with the room you find (Room 2 starts with the Abyssal Axon room, Room 3 with the memory puzzle room)."
+     },
+     {
+      "t": "Enter the pathfinder room to the east of the entrance."
+     },
+     {
+      "t": "Turn run off. Stay on the 3x3 dotted platform around the orb you're moving: stepping off shocks you and sends you back to the start. Green pathfinders move away from the side you hit them from; red pathbreakers move towards it. Follow each orb until you can step onto the next platform. 1: Pathfinder, hit from the north, move south. 2: Pathfinder, hit from the west, move east. 3: Pathfinder, hit from the north, move south. 4: Pathbreaker, hit from the west, move west. 5: Pathbreaker, hit from the east, move east. 6: Pathbreaker, hit from the south, move south, then touch the abyssal tether."
+     },
+     {
+      "t": "Enter the neural teleporter in the north-east corner."
+     },
+     {
+      "t": "Enter the catalyst room in the south-west corner of the area."
+     },
+     {
+      "t": "You need to use the rune nerves on the catalyst which match the current symbol until the walkers die. You can make additional rune nerves by combining nerves: Mind + mind = soul. Water + earth = nature. Soul + nature = cosmic. Cosmic + earth = astral. Fire + air = smoke. Mind + water = blood. Smoke + blood = wrath."
+     },
+     {
+      "t": "Enter the blue teleporter to the west of the area."
+     },
+     {
+      "t": "Enter the damage growth room to the south."
+     },
+     {
+      "t": "Take lures from the light leeches to repair the growths. Protect from Melee to not take damage from them."
+     },
+     {
+      "t": "Work out the correct order to activate the runes. The six energies in the middle of the room are earth, cosmic, death, nature, law and fire, and the order is different for every player. Keep Protect from Melee on, as the leeches still attack."
+     },
+     {
+      "t": "Touch an energy. If it turns white it's right, so try another one next. If one doesn't turn white, your progress is lost: touch the ones you've found again, in order, before trying a new one. The Rune rift order page under Puzzle solutions keeps track for you."
+     },
+     {
+      "t": "Head to the south-east room via the blue neural teleporter."
+     },
+     {
+      "t": "Enter the south-east room via the southern corridor."
+     },
+     {
+      "t": "Search the north-west skeleton for a key."
+     },
+     {
+      "t": "Open the chest in the north of the room for a tablet.",
+      "i": [
+       "Slimy key"
+      ]
+     },
+     {
+      "t": "Read the tablet."
+     },
+     {
+      "t": "Search the south-west skeleton for gunpowder."
+     },
+     {
+      "t": "Search the south-eastern crate for a tinderbox."
+     },
+     {
+      "t": "Burn the boat."
+     }
+    ],
+    "i": [
+     "Facemask",
+     "Teleport to Temple of the Eye via minigame teleport or Amulet of the Eye",
+     "Stamina potions (4)",
+     "Arclight"
+    ]
+   },
+   {
+    "n": "Perseriya - Room 2",
+    "st": [
+     {
+      "t": "Talk to Wizard Persten."
+     },
+     {
+      "t": "Wear your facemask or slayer helmet, then enter the next open passage, to the south on the east wall. The passages can be shuffled: if the first room you reach isn't the Abyssal Axon room, follow the Room section that starts with the room you find.",
+      "i": [
+       "Facemask"
+      ]
+     },
+     {
+      "t": "Enter the Abyssal Axon room to the west."
+     },
+     {
+      "t": "Hit each abyssal axon towards the terminal of the same rune: cosmic, fire, nature, then water. You can hit them directly or diagonally. Avoid the lightning strikes by walking away from the shadows on the ground. If an axon gets stuck, use its Reset option."
+     },
+     {
+      "t": "Enter the blue neural teleporter to the west of the area to reach the nerve endings room."
+     },
+     {
+      "t": "Take off anything in your hands, then enter the nerve endings room."
+     },
+     {
+      "t": "Break off 3 fire, 2 air, 2 earth and 1 water nerve, then combine them: steam = fire + water, lava = fire + earth, dust = earth + air, smoke = fire + air. Use each new nerve on the broken ending with the same name. Enter air bubbles whenever low on air."
+     },
+     {
+      "t": "Return through the blue teleporter."
+     },
+     {
+      "t": "Enter the green teleporter in the south-west."
+     },
+     {
+      "t": "Enter the room with a summoning circle in it."
+     },
+     {
+      "t": "Kill the scarred imps around the room to remove the lesser demons' protection prayers, then kill the lesser demons in the centre. Ignore the other scarred monsters that appear: they die with the lesser demons."
+     },
+     {
+      "t": "Enter the boat room to the north-east."
+     },
+     {
+      "t": "Search the skeleton in the south-east for a slimy key."
+     },
+     {
+      "t": "Search the chest for a tablet."
+     },
+     {
+      "t": "Read the tablet."
+     },
+     {
+      "t": "Search the crate in the south-west of the room for a tinderbox."
+     },
+     {
+      "t": "Search the skeleton near the crate for some gunpowder."
+     },
+     {
+      "t": "Burn the shipwreck."
+     }
+    ],
+    "i": [
+     "Facemask",
+     "Teleport to Temple of the Eye via minigame teleport or Amulet of the Eye",
+     "Stamina potions (4)",
+     "Arclight"
+    ]
+   },
+   {
+    "n": "Perseriya - Room 3",
+    "st": [
+     {
+      "t": "Talk to Wizard Persten."
+     },
+     {
+      "t": "Wear your facemask or slayer helmet, then enter the last open passage, south of Persten. The passages can be shuffled: if the first room you reach isn't the memory puzzle room, follow the Room section that starts with the room you find.",
+      "s": [
+       "I'll be alright."
+      ],
+      "i": [
+       "Facemask"
+      ]
+     },
+     {
+      "t": "Take off anything in your hands, then enter the memory puzzle room to the east."
+     },
+     {
+      "t": "Touch the abyssal stem in the middle, watch the order the four abyssal growths light up, then touch them in the same order. Swim into an air bubble whenever your air is low."
+     },
+     {
+      "t": "Enter the room with a tree in the south of the area."
+     },
+     {
+      "t": "Kill all creatures which come through the portals."
+     },
+     {
+      "t": "Enter the green teleporter in the north of the area."
+     },
+     {
+      "t": "Enter the light leech room."
+     },
+     {
+      "t": "Take illuminating lures from the light leeches and use them to repair all four growths. Use Protect from Melee, as the leeches attack you."
+     },
+     {
+      "t": "With Protect from Magic on, kill crimson sanguisphera for crimson fibre and repair all 3 crimson veins. Then kill radiant sanguisphera for radiant fibre and repair all 3 radiant veins."
+     },
+     {
+      "t": "Return back through the green portal to the south."
+     },
+     {
+      "t": "Enter the boat room in the north-east."
+     },
+     {
+      "t": "Search the skeleton in the north-west for a slimy key."
+     },
+     {
+      "t": "Search the chest to the south for a tablet."
+     },
+     {
+      "t": "Read the tablet."
+     },
+     {
+      "t": "Search the north-east crate for a tinderbox."
+     },
+     {
+      "t": "Search the skeleton in the south-east corner for gunpowder."
+     },
+     {
+      "t": "Burn the shipwreck."
+     }
+    ],
+    "i": [
+     "Facemask",
+     "Teleport to Temple of the Eye via minigame teleport or Amulet of the Eye",
+     "Stamina potions (4)",
+     "Arclight"
+    ]
+   },
+   {
+    "n": "Perseriya - The battle",
+    "st": [
+     {
+      "t": "Talk to Wizard Persten."
+     },
+     {
+      "t": "Consider re-gearing, then board the boat to fight the Leviathan. Use ranged combat. Its attacks register as 'hitting' you upon actual contact, so make sure to pray when projectiles are hitting you rather than being created. Shadow spells will stun it. Blue projectiles are magic attacks, green ranged, and orange melee. Avoid dropping rocks. Run away from electricity attacks. When boulders start falling, walk them in a line to create a wall which you can hide behind from the Leviathan, as after 10 rocks you will need to use them to avoid a blast attack. At 20% health, the leviathan will become enraged, constantly dropping rocks. You need to locate an abyssal pathfinder and stay near it until you kill the Leviathan."
+     },
+     {
+      "t": "Climb down the handholds in the north-eastern corner of the Leviathan area, cross the stepping stone to the ship, and talk to Persten there."
+     },
+     {
+      "t": "Search the debris next to the ship."
+     },
+     {
+      "t": "Return to the Vault door north-east of Nardah. Be wary of the Mysterious Figure, who may attack you while you carry a medallion. She can run, freeze and teleblock you, so keep an emergency teleport. If this is your last medallion, go straight to the Secrets section instead of this step and the next one.",
+      "i": [
+       "Perseriya's medallion"
+      ]
+     },
+     {
+      "t": "Use the medallion on the south-east statue."
+     }
+    ],
+    "i": [
+     "Ranged combat gear",
+     "Shadow burst runes",
+     "Teleport to Temple of the Eye via minigame teleport or Amulet of the Eye",
+     "Stamina potions (4)",
+     "Food",
+     "Prayer potions"
+    ],
+    "c": 1,
+    "e": [
+     "The Leviathan (level 577)"
+    ]
+   },
+   {
+    "n": "Sucellus",
+    "st": [
+     {
+      "t": "Enter the basalt cave in Weiss.",
+      "i": [
+       "Melee combat gear",
+       "Food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Enter the cave to the south.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Enter the heavy door in the north-eastern room."
+     },
+     {
+      "t": "Move deeper into the prison."
+     },
+     {
+      "t": "Inspect the wall on the north side of the cell to talk to the soldier. Search the skeleton for a letter and read it. Search the bucket for a knife and give it to the soldier through the wall: he gives you a chisel. Search the bed for a lockpick and give that to the soldier through the wall. He will free you."
+     },
+     {
+      "t": "Talk to the Assassin outside the cell."
+     },
+     {
+      "t": "Head north from the assassin to the junction, and then east. Lockpick the gate you end up at: press confirm, keep the numbers that show green, move the others up by one and confirm again until it opens.",
+      "i": [
+       "Lockpick"
+      ]
+     },
+     {
+      "t": "From the gate, take the south path and follow it all the way round to the east entrance of the refugee camp, the large area. Open the gate on the camp's south side to reach the room with the altar. Unlock the chest east of the altar. The code is '214013'."
+     },
+     {
+      "t": "Go back to the main block and open the sapphire gate just north of it, with the sapphire key in your inventory. Then go to the most north-western room. Open the chest closest to the room's west door. The code for it is 'LIES'.",
+      "s": [
+       "Attempt to open the chest."
+      ]
+     },
+     {
+      "t": "When you're not in a room, Jhallan will now chase you down. Use Protect from Magic to reduce his damage. Run east into the room with a crevice. Clear it, and go through it.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Enter the room with beds in it, south of the crevice. Open the south-eastern chest, next to the crates. The code is 'UP RIGHT LEFT DOWN RIGHT UP'."
+     },
+     {
+      "t": "Enter the crevice to the south to shortcut back to the main room."
+     },
+     {
+      "t": "Open the chest in the cell to the west of the main room, through the Ruby Gate. The code for it is 'WRATH'."
+     },
+     {
+      "t": "Get your equipment back from the chest in the cell next to the Assassin. You'll need to go through some dialog with him to enter."
+     },
+     {
+      "t": "Talk to the assassin."
+     },
+     {
+      "t": "Get a full inventory of food, and return to the refugee camp in the south-eastern room. Light the firecrackers there. Once you do, you'll need to survive Jhallan attacking you for 2 minutes.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Survive Jhallan's attacks for 2 minutes. Protect from Mage, keep your health high, and avoid the shadow attacks."
+     },
+     {
+      "t": "Talk to the assassin after the fight."
+     },
+     {
+      "t": "Go down the stairs in the far north-east of the prison. Be prepared for fighting the boss of the area.",
+      "i": [
+       "Melee combat gear",
+       "Food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Enter the boss arena."
+     },
+     {
+      "t": "Defeat the Duke. You must first wake him with two 'Arder-musca poison'. Make sure to avoid any of the enviromental effects, such as gas, lightning, and the Extremitys' vision. To make the poison, get 3 Arder mushrooms from the north-eastern corner, and 3 Musca from the north-western corner. Grab the pestle and mortar from the shelves west of the entrance, and a pickaxe from the east of it. Use the pestle and mortar on the mushrooms, and then mine 12 salt from the salt deposits in the middle of the room. With the ground mushrooms and salts, add them to the fermentation vats near the entrance. Empty them for 2 poisons. Use both poisons on the boss to start the fight. Stay close to him where possible, and Protect from Melee. He will use the following attacks: Blue orb: Magic attack. Spikes: the Duke hits the floor, causing spikes to appear. Avoid them. Gas vent: the Duke activates one of the gas vents. Keep away from it. Duke's gaze: the duke opens his eye to deal massive damage. Hide behind a pillar to avoid this."
+     },
+     {
+      "t": "Pick up the odd key."
+     },
+     {
+      "t": "Enter the room south-west of the Duke."
+     },
+     {
+      "t": "Talk to the assassin in the room."
+     },
+     {
+      "t": "Open the chest in the south-east of the room for sucellus' medallion."
+     },
+     {
+      "t": "Return to the Vault door north-east of Nardah. Be wary of the Mysterious Figure, who may attack you while you carry a medallion. She can run, freeze and teleblock you, so keep an emergency teleport. If this is your last medallion, go straight to the Secrets section instead of this step and the next one.",
+      "i": [
+       "Sucellus' medallion"
+      ]
+     },
+     {
+      "t": "Use the medallion on the south-west statue.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Melee combat gear",
+     "Food",
+     "Prayer potions",
+     "Stamina potions (4)",
+     "Icy basalt"
+    ],
+    "c": 1,
+    "e": [
+     "Jhallan (level 491)"
+    ]
+   },
+   {
+    "n": "The Whisperer - The Unknown",
+    "st": [
+     {
+      "t": "Enter Camdozaal, west of Ice Mountain."
+     },
+     {
+      "t": "Talk to Ramarno to the north by the sacred forge.",
+      "s": [
+       "Have you seen any archeologists around here?"
+      ]
+     },
+     {
+      "t": "Talk to Prescott to the east."
+     },
+     {
+      "t": "Tie the rope to a rock in the north west of the cavern, in the mine by the sinkhole."
+     },
+     {
+      "t": "Descend into the sinkhole.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Activate every teleporter you pass. From the rope, activate the teleporters to the south-east, further south-east (Plaza) and south in the Science District."
+     },
+     {
+      "t": "In the north-western building of the Science District, take the shadow blocker schematic and the shadow key."
+     },
+     {
+      "t": "Take the shadow key from the building to the south, and activate the teleporter in the far south of the Science District."
+     },
+     {
+      "t": "Teleport to the Plaza and run east to activate the teleporter in the north-west of the residential area, then the one in the south of it."
+     },
+     {
+      "t": "Run south-east to try to enter the Sunken Cathedral: you faint and wake near Ketla."
+     },
+     {
+      "t": "Talk to Ketla, next to the Western Residential District teleport, with your ring of visibility and a free inventory space, to get the blackstone fragment."
+     },
+     {
+      "t": "Give her the blocker schematic and take the shadow blocker from her workbench.",
+      "s": [
+       "I have a schematic here.",
+       "Take it."
+      ]
+     },
+     {
+      "t": "In the Southern Science District, place the blocker next to the locked doors in the building with furnaces."
+     },
+     {
+      "t": "Enter the puddle outside, unlock the doors while standing next to the blocker, take the basic shadow torch schematic from the north room and activate the blackstone fragment to leave."
+     },
+     {
+      "t": "Use Recall on the fragment to get the blocker back.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Bring the schematic to Ketla and take the shadow torch from her workbench.",
+      "s": [
+       "I have a schematic here.",
+       "Take it.",
+       "Take the Shadow Torch."
+      ]
+     },
+     {
+      "t": "Enter the puddle south-east of Ketla, destroy the tentacles outside the building to the east and leave with the fragment."
+     },
+     {
+      "t": "Take the revitalising idol schematic from inside that house, and run east through it to activate the far-east teleporter."
+     },
+     {
+      "t": "Bring the schematic to Ketla and take the idol.",
+      "s": [
+       "I have a schematic here.",
+       "Take it.",
+       "Take the Revitalising Idol."
+      ]
+     },
+     {
+      "t": "Place the idol by the far-east teleporter."
+     },
+     {
+      "t": "Enter the puddle south-east of Ketla again, restore sanity at the idol, run north and around to the door with tentacles, destroy them and leave."
+     },
+     {
+      "t": "Take the shadow key from that building."
+     },
+     {
+      "t": "Recall your devices, place the shadow blocker at the pub's entrance next to the Western Residential District teleport, enter the puddle south-east of Ketla, open the pub's doors, take the superior torch schematic and leave.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Bring the superior torch schematic to Ketla and take the superior shadow torch.",
+      "s": [
+       "I have a schematic here.",
+       "Take it.",
+       "Take the Superior Shadow Torch."
+      ]
+     },
+     {
+      "t": "Teleport to the Science District and go to the building with furnaces in the middle of the district, where you used the shadow blocker before. Enter the puddle outside it."
+     },
+     {
+      "t": "In the Shadow Realm, go round the north-western building of the district, where you found the blocker schematic, and climb the stairs to its north. Burn the tentacles there, take the anima portal schematic and leave with the blackstone fragment."
+     },
+     {
+      "t": "Bring the anima portal schematic to Ketla and take the anima portal.",
+      "s": [
+       "I have a schematic here.",
+       "Take it.",
+       "Take the Anima Portal."
+      ]
+     },
+     {
+      "t": "Enter the puddle on the Plaza, destroy the tentacles in front of the building to the south and leave."
+     },
+     {
+      "t": "Take the shadow key from that house."
+     },
+     {
+      "t": "Recall your devices and go to the locked chest in the north-west of the Palace.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Place the shadow blocker in front of the chest, the anima portal between the two braziers, and the idol a few squares south-east of the portal."
+     },
+     {
+      "t": "Enter the puddle on the Plaza, run to the chest, use the idol to restore sanity, light the 4 braziers, open the chest and leave."
+     },
+     {
+      "t": "Recall your devices, bring the perfected shadow torch schematic to Ketla and talk to her again.",
+      "s": [
+       "Yes.",
+       "I have a schematic here."
+      ]
+     }
+    ],
+    "i": [
+     "Magic combat gear",
+     "Ring of visibility",
+     "Food",
+     "Prayer potions",
+     "Stamina potions (4)",
+     "Mind altar or lassar teleport"
+    ],
+    "c": 1
+   },
+   {
+    "n": "The Whisperer - Choir",
+    "st": [
+     {
+      "t": "Enter the puddle south-east of Ketla, go upstairs in the pub, touch the remnant in the north-east room and leave with the blackstone fragment."
+     },
+     {
+      "t": "When your sanity has returned, enter the puddle again, burn the tentacles outside the square building next to the Cathedral teleport, then outside the rectangular building just west of it, and leave."
+     },
+     {
+      "t": "Take the shadow key from the rectangular building, then place the shadow blocker next to the chest in the square building."
+     },
+     {
+      "t": "Enter the puddle south-east of Ketla again, open the chest in the square building and leave."
+     },
+     {
+      "t": "Go to the Southern Science District, enter the puddle there, destroy the tentacles outside the small house to the south, open the chest inside and leave."
+     },
+     {
+      "t": "Combine the icon halves."
+     },
+     {
+      "t": "Enter the drain in the middle of the Residential District, go through the gate, go down the ladder to the east and inspect the Ancient Pillar."
+     },
+     {
+      "t": "Talk to yourself in the vision, then talk to Ketla, next to the Western Residential District teleport."
+     },
+     {
+      "t": "Take the perfected shadow torch from her workbench.",
+      "s": [
+       "Take it.",
+       "Take the Shadow Torch."
+      ]
+     },
+     {
+      "t": "Enter the puddle south-east of Ketla for the final time, destroy the tentacles at the Cathedral to the south and leave."
+     },
+     {
+      "t": "Gear up, bring your blackstone fragment, then enter the Cathedral and disturb the Odd Figure. The Whisperer will attack with magic and ranged attacks, and use a homing tentacle attack after each one. Protect appropriately, and move to avoid the tentacle splashes. At 1/3rd health, she will cast a special attack: Soul Siphon: Activate the blackstone fragment in your inventory. 12 souls spawn. Kill them to avoid the Whisperer dealing a massive hit. Corrupted seeds: Activate the blackstone fragment in your inventory. Avoid the dark green seeds, and step on the light green ones. Screech: Pillars appear, which you must hide behind to avoid damage. After each special attack, the Whisperer fire out a binding spell if you are within 10 tiles of her, dealing Melee damage. When she hits 0 health, she will heal back to 100, and start attacking rapidly, starting with ranged, and alternating every two attacks until the fight ends. Finish her off.",
+      "i": [
+       "Blackstone fragment",
+       "Magic combat gear",
+       "Food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Search the entrails dropped by the Whisperer.",
+      "s": [
+       "The Cathedral."
+      ]
+     },
+     {
+      "t": "If this is your last medallion, go straight to the Secrets section instead of this step and the next one. Otherwise, return to the Vault door north-east of Nardah. Be wary of the Mysterious Figure, who may attack you while you carry a medallion. She can run, freeze and teleblock you, so keep an emergency teleport.",
+      "i": [
+       "Whisperer's medallion"
+      ]
+     },
+     {
+      "t": "If this wasn't your last medallion, use the medallion on the north-west statue. If it was your last, skip this step and follow the Secrets section."
+     }
+    ],
+    "i": [
+     "Magic combat gear",
+     "Ring of visibility",
+     "Food",
+     "Prayer potions",
+     "Stamina potions (4)",
+     "Mind altar or lassar teleport"
+    ],
+    "c": 1,
+    "e": [
+     "The Whisperer (level 568)"
+    ]
+   },
+   {
+    "n": "Secrets",
+    "st": [
+     {
+      "t": "Return to the Vault door north-east of Nardah with the final medallion. Come equipped with two combat styles.",
+      "i": [
+       "Whisperer's medallion",
+       "Vardorvis' medallion",
+       "Sucellus' medallion",
+       "Perseriya's medallion",
+       "Melee combat gear",
+       "Ranged combat gear",
+       "Food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Search the bed for a hairclip."
+     },
+     {
+      "t": "Escape the cell by unlocking the gate with the hair clip. Press confirm: a right number in the right place shows green, and a right number in the wrong place shows blue. Keep the green numbers, move the others up by one and confirm again until it opens.",
+      "i": [
+       "Hair clip"
+      ]
+     },
+     {
+      "t": "Retrieve your items from the chest in the north-east room."
+     },
+     {
+      "t": "Inspect the altar in the north-west room."
+     },
+     {
+      "t": "Fight the Mysterious Figure. When frozen, keep tapping the ground away from where you stand, so you move as soon as the freeze ends and dodge the purple orb. Use Protect from Magic for the entire fight. If you die or leave, return through the portal just south of the Desert Quarry."
+     },
+     {
+      "t": "Pick up the medallion.",
+      "i": [
+       "Medallion"
+      ]
+     },
+     {
+      "t": "Enter to the Vault door north-east of Nardah with the final medallion, ready to fight.",
+      "i": [
+       "Whisperer's medallion",
+       "Vardorvis' medallion",
+       "Sucellus' medallion",
+       "Perseriya's medallion",
+       "Combat gear",
+       "Food",
+       "Prayer potions"
+      ]
+     },
+     {
+      "t": "Go deeper into the Vault down the steps.",
+      "i": [
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Watch the cutscene, then defeat the wights."
+     },
+     {
+      "t": "Defeat The Forsaken Assassin. Protect from ranged, and lure him into the white smoke. He will sometimes throw 3 vials, avoid them, as they will poison you and deal large damage."
+     },
+     {
+      "t": "Defeat Ketla the Unworthy. Protect from ranged. She will spawn shadow clones, which you should hide behind whenever she has a skull above her."
+     },
+     {
+      "t": "Defeat Kasonde the Craven. Protect from ranged if at a distance or melee if up close. The fight is similar to earlier in the quest."
+     },
+     {
+      "t": "Defeat Persten the Deceitful. Protect from Magic. Avoid the lighting strikes by moving. Destroy any portals she spawns, or run from corner to corner avoiding the leeches that spawn from the portal."
+     },
+     {
+      "t": "Talk to Azzanadra."
+     }
+    ],
+    "i": [
+     "Melee combat gear",
+     "Ranged combat gear",
+     "Food",
+     "Prayer potions"
+    ],
+    "tr": [
+     "Nardah teleport, or Fairy Ring to DLQ"
+    ],
+    "r": [
+     "Stamina potions (4)"
+    ],
+    "c": 1,
+    "e": [
+     "Kasonde (level 193)",
+     "Mysterious Figure (level 271)",
+     "The Forsaken Assassin (level 252)",
+     "Ketla the Unworthy (level 236)",
+     "Kasonde the Craven (level 221)",
+     "Persten the Deceitful (level 264)"
+    ]
+   }
+  ]
+ }
+}

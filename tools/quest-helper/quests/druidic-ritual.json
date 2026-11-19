@@ -1,0 +1,80 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Druidic Ritual",
+  "items": [
+   "Raw rat meat",
+   "Raw bear meat",
+   "Raw beef",
+   "Raw chicken"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "4 Quest points",
+   "250 Herblore XP",
+   "Access to the Herblore Skill"
+  ],
+  "sec": [
+   {
+    "n": "Helping the druids",
+    "st": [
+     {
+      "t": "Talk to Kaqemeex in the Druids' Circle in Taverley.",
+      "s": [
+       "I'm in search of a quest.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Sanfew upstairs in the Taverley herblore store.",
+      "s": [
+       "I've been sent to help purify the Varrock stone circle.",
+       "Ok, I'll do that then."
+      ]
+     },
+     {
+      "t": "Enter Taverley Dungeon south of Taverley.",
+      "i": [
+       "Raw rat meat",
+       "Raw bear meat",
+       "Raw beef",
+       "Raw chicken"
+      ]
+     },
+     {
+      "t": "In Taverley Dungeon, head north past the skeletons to the Prison door on the east side, with a suit of armour on each side. Keep tapping the door until it opens to enter the room with the cauldron. This lets you skip the fight with the suits of armour.",
+      "i": [
+       "Raw rat meat",
+       "Raw bear meat",
+       "Raw beef",
+       "Raw chicken"
+      ]
+     },
+     {
+      "t": "Use the four meats on the cauldron in Taverley dungeon."
+     },
+     {
+      "t": "Bring the enchanted meats to Sanfew upstairs in the Taverley herblore store.",
+      "i": [
+       "Enchanted rat",
+       "Enchanted bear",
+       "Enchanted beef",
+       "Enchanted chicken"
+      ]
+     },
+     {
+      "t": "Return to Kaqemeex in the Druids' Circle to finish the quest."
+     }
+    ],
+    "i": [
+     "Raw rat meat",
+     "Raw bear meat",
+     "Raw beef",
+     "Raw chicken"
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

@@ -1,0 +1,319 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Underground Pass",
+  "items": [
+   "Rope, multiple in case you fail an agility check",
+   "Bow (not crossbow)",
+   "Arrows (metal, unpoisoned)",
+   "Spade",
+   "Plank",
+   "Bucket",
+   "Tinderbox",
+   "Combat Equipment"
+  ],
+  "rec": [
+   "Food",
+   "Stamina Potions",
+   "Coins (to buy food, 75 ea) (750)",
+   "Agility Potions",
+   "Telegrab Runes"
+  ],
+  "enemies": [
+   "3 Demons (level 91, safespottable)",
+   "3 Paladins (level 62, safespottable)",
+   "Kalrag (level 89)",
+   "Disciple of Iban (level 13)"
+  ],
+  "rewards": [
+   "5 Quest points",
+   "3,000 Agility XP",
+   "3,000 Attack XP",
+   "Iban's Staff"
+  ],
+  "sec": [
+   {
+    "n": "Starting out",
+    "st": [
+     {
+      "t": "Go up the stairs in East Ardougne Castle to the first floor and talk to King Lathas.",
+      "s": [
+       "I am. What's our plan?",
+       "I'm ready.",
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Koftik outside the West Ardougne cave.",
+      "s": [
+       "I'll take my chances."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "The Underground Pass",
+    "st": [
+     {
+      "t": "Enter the cave and run south at the first junction. Don't take the middle path, as its swamp drags you down. Climb over the rockslides and talk to Koftik by the fire."
+     },
+     {
+      "t": "If you have no oily cloth, search the abandoned equipment by the fire next to Koftik. Use the cloth on an arrow, then light it with a tinderbox or on the fire. Walk to the room north of Koftik, wield your bow and the lit arrow, and shoot the guide-rope.",
+      "i": [
+       "Bow (not crossbow)",
+       "Lit Arrow"
+      ]
+     },
+     {
+      "t": "Continue until you reach the water and a pit. Use your rope on the rock above the pit to swing across. If you fail, you lose the rope.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Climb over the rockslides to reach the large grid. Cross it by trial and error, keeping your health above 15, and remember the path for Regicide. Then pull the lever next to the gate."
+     },
+     {
+      "t": "Go west along the corridor past the five wall traps. For each one, either disable it or walk past it."
+     },
+     {
+      "t": "From the well, take the north path, using a plank on each flat rock to cross it, and take the first orb of light.",
+      "i": [
+       "Plank"
+      ]
+     },
+     {
+      "t": "Take the second orb of light north west of the well."
+     },
+     {
+      "t": "Take the third orb of light west of the well. Remember to use a plank on the flat rocks to cross them."
+     },
+     {
+      "t": "Search the flat rock to remove the trap and take the fourth orb to the south west of the well.",
+      "s": [
+       "Yes, I'll give it a go."
+      ]
+     },
+     {
+      "t": "Return to the furnace to the east, and use the orbs on it."
+     },
+     {
+      "t": "Climb down the well."
+     }
+    ],
+    "i": [
+     "Rope, multiple in case you fail an agility check",
+     "Bow (not crossbow)",
+     "Arrows (metal, unpoisoned)",
+     "Spade",
+     "Plank",
+     "Bucket",
+     "Tinderbox",
+     "Combat Equipment"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Descending Deeper",
+    "st": [
+     {
+      "t": "Head west to the cages and pick the lock of the first cage on the left, in the south-east. Inside, use a spade on the loose mud at the back to dig through.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Cross the narrow ledge, then get through the maze of raised beams: take the first right, then left, then left again. With 50 Thieving you can skip the maze by picking the lock of the gate a little further south. Then go south and enter the pipe to the next section."
+     },
+     {
+      "t": "Search the unicorn cage."
+     },
+     {
+      "t": "Use the railing on the boulder.",
+      "i": [
+       "Railing"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Cold-blooded Killing",
+    "st": [
+     {
+      "t": "Search the cage again."
+     },
+     {
+      "t": "Travel through the tunnel to find some knights."
+     },
+     {
+      "t": "Kill Sir Jerro and take his badge. Optionally: talk to one of the knights first to receive food and potions.",
+      "i": [
+       "Badge (Sir Jerro)"
+      ]
+     },
+     {
+      "t": "Kill Sir Harry and take his badge.",
+      "i": [
+       "Badge (Sir Harry)"
+      ]
+     },
+     {
+      "t": "Kill Sir Carl and take his badge.",
+      "i": [
+       "Badge (Sir Carl)"
+      ]
+     },
+     {
+      "t": "Continue along the path, using your plank on a flat rock to cross it, until you reach a well. Use the badges and unicorn horn on the well.",
+      "i": [
+       "Plank",
+       "Badge (Sir Jerro)",
+       "Badge (Sir Harry)",
+       "Badge (Sir Carl)",
+       "Unicorn horn"
+      ]
+     },
+     {
+      "t": "Open the door at the end of the path."
+     }
+    ]
+   },
+   {
+    "n": "The Witch Kardia",
+    "st": [
+     {
+      "t": "Run south along the edge of the cavern as far as you can and enter the cave in the south wall. Talk to Niloof the dwarf in the encampment on the lower level."
+     },
+     {
+      "t": "Talk to Klank to obtain his gauntlets. You need one free inventory slot. If you've done so before, you may need to pay 5,000gp for them.",
+      "s": [
+       "What happened to them?"
+      ]
+     },
+     {
+      "t": "Go back up through the cave to Iban's Cavern. From the south-east corner of the bridges, follow them to the witch's cat. Letters are compass directions and numbers are tiles: E23, N14, E1, N7, W1, N14, W20, N1, W8, N2, W1, N8, W1, N2, W6, S3, W4, N8. The W20 and W8 stretches each cross a broken bridge: jump across it. Then retrieve the cat."
+     },
+     {
+      "t": "Use the cat on the witch's door in the south east corner of the area to distract her.",
+      "i": [
+       "Witch's Cat"
+      ]
+     },
+     {
+      "t": "Search the chest in the witch's house. You'll need 4 empty inventory slots."
+     }
+    ]
+   },
+   {
+    "n": "Imbuing the Doll",
+    "st": [
+     {
+      "t": "From the witch's house, head north, then west, then take the first path left (south) all the way down to the three demons. Kill Holthion and pick up his amulet.",
+      "i": [
+       "Amulet of Holthion"
+      ]
+     },
+     {
+      "t": "Kill Doomion and pick up his amulet.",
+      "i": [
+       "Amulet of Doomion"
+      ]
+     },
+     {
+      "t": "Kill Othainian and pick up his amulet.",
+      "i": [
+       "Amulet of Othanian"
+      ]
+     },
+     {
+      "t": "Search the chest north of Doomion for Iban's shadow. With the doll in your inventory it goes onto the doll by itself. If it doesn't, use the shadow on the doll.",
+      "i": [
+       "Doll of Iban"
+      ]
+     },
+     {
+      "t": "Return to the dwarf encampment on the lower level."
+     },
+     {
+      "t": "Use a bucket on the brew barrel in the eastern house of the dwarf encampment. If you have no bucket, there's one in the corner of the larger house to the west.",
+      "i": [
+       "Bucket"
+      ]
+     },
+     {
+      "t": "Use the bucket of brew on the tomb in the south east corner of the area.",
+      "i": [
+       "Dwarf brew"
+      ]
+     },
+     {
+      "t": "Light the tomb with a tinderbox. With the doll in your inventory the ashes go onto it by themselves. If they drop on the ground instead, pick them up and use them on the doll.",
+      "i": [
+       "Tinderbox",
+       "Doll of Iban"
+      ]
+     },
+     {
+      "t": "Run north from the tomb to the spider pit and kill Kalrag the spider. Protect From Melee can keep you safe in this fight.",
+      "i": [
+       "Doll of Iban"
+      ]
+     },
+     {
+      "t": "Leave Kalrag's pit, head north-west and go up through the cave entrance to the upper level."
+     },
+     {
+      "t": "Wear Klank's gauntlets. Follow the ledge along the west wall to the first broken bridge on its east side and jump across. Go north at the junction, east at the next junction, then north, then west to a cage on a dead-end platform. Search that cage. The dove's remains go onto the doll by themselves, so watch the chat box, as there may be no pop-up.",
+      "i": [
+       "Klank's gauntlets",
+       "Doll of Iban"
+      ]
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Kalrag (level 89)"
+    ]
+   },
+   {
+    "n": "Entering the Temple",
+    "st": [
+     {
+      "t": "From the cage where you got the dove, head south to the broken bridge you crossed earlier, then east, then south to the middle of the area. Kill a disciple of Iban and take their robes.",
+      "i": [
+       "Doll of Iban"
+      ]
+     },
+     {
+      "t": "Enter the Temple of Iban wearing monk robes. Prepare to use Iban's doll on the well, as Iban can deal lots of damage quickly.",
+      "i": [
+       "Zamorak monk top",
+       "Zamorak monk bottom"
+      ]
+     },
+     {
+      "t": "Long-press the doll, choose Use, then tap the well. Don't choose Investigate. Standing north of the well can prevent Iban from hitting.",
+      "i": [
+       "Doll of Iban"
+      ]
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Disciple of Iban (level 13)"
+    ]
+   },
+   {
+    "n": "Foggy Memories",
+    "st": [
+     {
+      "t": "Talk to Koftik."
+     },
+     {
+      "t": "Return to King Lathas to finish the quest."
+     }
+    ]
+   }
+  ]
+ }
+}

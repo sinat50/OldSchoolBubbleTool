@@ -1,0 +1,105 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "A Porcine of Interest",
+  "items": [
+   "Rope",
+   "A knife or slash weapon",
+   "Combat gear"
+  ],
+  "rec": [
+   "Teleport to north Draynor",
+   "Teleport to Falador Farm"
+  ],
+  "enemies": [
+   "Sourhog (level 37)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "1,000 Slayer XP",
+   "5000 x Coins",
+   "30 Slayer Points",
+   "Access to Sourhog Cave",
+   "Sourhogs can be assigned as a slayer task by Spria"
+  ],
+  "sec": [
+   {
+    "n": "Helping Sarah",
+    "st": [
+     {
+      "t": "Read the notice board in Draynor Village.",
+      "s": [
+       "Yes."
+      ]
+     },
+     {
+      "t": "Talk to Sarah in the South Falador Farm.",
+      "s": [
+       "Talk about the bounty.",
+       "I think that'll be all for now."
+      ]
+     },
+     {
+      "t": "Use a rope on the Strange Hole east of Draynor Manor.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Climb down into the Strange Hole east of Draynor Manor."
+     },
+     {
+      "t": "Go to the end of the cave and investigate the skeleton there."
+     },
+     {
+      "t": "Talk to Spria in Draynor Village."
+     },
+     {
+      "t": "Wear the reinforced goggles, then climb down into the Strange Hole east of Draynor Manor. Be prepared to fight Sourhog (level 37).",
+      "i": [
+       "Reinforced goggles",
+       "A knife or slash weapon",
+       "Combat gear"
+      ]
+     },
+     {
+      "t": "Kill Sourhog.",
+      "s": [
+       "Yes"
+      ],
+      "i": [
+       "Reinforced goggles"
+      ]
+     },
+     {
+      "t": "Cut off Sourhog's foot.",
+      "i": [
+       "A knife or slash weapon"
+      ]
+     },
+     {
+      "t": "Return to Sarah in the South Falador Farm.",
+      "s": [
+       "Talk about the bounty."
+      ],
+      "i": [
+       "Sourhog foot"
+      ]
+     },
+     {
+      "t": "Return to Spria in Draynor Village."
+     }
+    ],
+    "i": [
+     "Rope",
+     "A knife or slash weapon",
+     "Combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "Sourhog (level 37)"
+    ]
+   }
+  ]
+ }
+}

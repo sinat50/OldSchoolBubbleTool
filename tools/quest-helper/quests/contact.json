@@ -1,0 +1,172 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Contact!",
+  "items": [
+   "A light source",
+   "Tinderbox",
+   "Combat gear, preferably magic/ranged",
+   "Food",
+   "Prayer potions"
+  ],
+  "rec": [
+   "Coins for carpet rides (1000)",
+   "Amulet of glory for getting to Osman",
+   "Antipoisons",
+   "Waterskins for desert travel"
+  ],
+  "enemies": [
+   "Giant Scarab (level 191)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "7,000 Thieving XP",
+   "2 x 7,000 Experience Lamps (Combat Skills)",
+   "Keris",
+   "Access to Sophanem's Bank"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to the High Priest in Sophanem.",
+      "s": [
+       "Yes.",
+       "Sounds like a quest for me; I can't turn that down!",
+       "Is there any way into Menaphos from below?"
+      ]
+     },
+     {
+      "t": "Talk to Jex in the building in north east Sophanem."
+     }
+    ],
+    "i": [
+     "A light source",
+     "Tinderbox",
+     "Antipoisons"
+    ]
+   },
+   {
+    "n": "Explore the dungeon",
+    "st": [
+     {
+      "t": "Go down the ladder east of Jex.",
+      "i": [
+       "A light source"
+      ]
+     },
+     {
+      "t": "Go down the trapdoor.",
+      "i": [
+       "A light source"
+      ]
+     },
+     {
+      "t": "Be careful of traps, and use protection prayers against the monsters. From the bottom of the trapdoor walk 8 squares south, 5 west, 7 north, 7 west, 2 north, 10 west, 6 south and 3 east to the first break in the path. Disarm the trap there."
+     },
+     {
+      "t": "Carry on 5 squares east, 4 south, 4 east, 4 south, 13 east and 6 south to the second break. Disarm the trap there."
+     },
+     {
+      "t": "Carry on 8 squares south, 9 west, 6 north, 7 west, 3 north, 8 west, 4 south, 4 east, 13 south and 2 east to the third break. Disarm the trap there."
+     },
+     {
+      "t": "Carry on 6 squares east, 5 south, 12 west, 8 south, 12 west, 2 north, 5 west, 1 south, 3 west, 2 north and 8 west to the south west ladder."
+     },
+     {
+      "t": "Follow the path along, and search Kaleef's corpse there."
+     },
+     {
+      "t": "Read the parchment",
+      "i": [
+       "Parchment"
+      ]
+     },
+     {
+      "t": "Talk to Maisa on the west side of the chasm.",
+      "s": [
+       "Draynor Village.",
+       "Leela."
+      ]
+     },
+     {
+      "t": "Talk to Osman in Al Kharid.",
+      "s": [
+       "I want to talk to you about Sophanem.",
+       "It could drive a wedge between the Menaphite cities."
+      ]
+     }
+    ],
+    "i": [
+     "A light source",
+     "Tinderbox",
+     "Antipoisons"
+    ]
+   },
+   {
+    "n": "Help Osman",
+    "st": [
+     {
+      "t": "Talk to Osman north of Sophanem.",
+      "s": [
+       "I know of a secret entrance to the north."
+      ]
+     },
+     {
+      "t": "Prepare to fight a level 191 Giant Scarab. Go down the ladder east of Jex.",
+      "i": [
+       "A light source",
+       "Combat gear, preferably magic/ranged"
+      ]
+     },
+     {
+      "t": "Go down the trapdoor.",
+      "i": [
+       "A light source"
+      ]
+     },
+     {
+      "t": "Be careful of traps, and use protection prayers against the monsters. From the bottom of the trapdoor walk 8 squares south, 5 west, 7 north, 7 west, 2 north, 10 west, 6 south and 3 east to the first break in the path. Disarm the trap there."
+     },
+     {
+      "t": "Carry on 5 squares east, 4 south, 4 east, 4 south, 13 east and 6 south to the second break. Disarm the trap there."
+     },
+     {
+      "t": "Carry on 8 squares south, 9 west, 6 north, 7 west, 3 north, 8 west, 4 south, 4 east, 13 south and 2 east to the third break. Disarm the trap there."
+     },
+     {
+      "t": "Carry on 6 squares east, 5 south, 12 west, 8 south, 12 west, 2 north, 5 west, 1 south, 3 west, 2 north and 8 west to the south west ladder."
+     },
+     {
+      "t": "Kill the Giant Scarab near the chasm. It can extinguish your light source and poison you, so be careful. Pray melee if you are meleeing it, range if you are attacking it from a distance."
+     },
+     {
+      "t": "Talk to Osman in the chasm."
+     },
+     {
+      "t": "Pick up the Keris.",
+      "i": [
+       "Keris"
+      ]
+     },
+     {
+      "t": "Report back to the High Priest in Sophanem."
+     }
+    ],
+    "i": [
+     "Combat gear, preferably magic/ranged",
+     "Food",
+     "Prayer potions",
+     "A light source",
+     "Tinderbox",
+     "Antipoisons"
+    ],
+    "c": 1,
+    "e": [
+     "Giant Scarab (level 191)"
+    ]
+   }
+  ]
+ }
+}

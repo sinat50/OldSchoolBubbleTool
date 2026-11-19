@@ -1,0 +1,371 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder watchtower; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Watchtower",
+  "items": [
+   "Coins (20)",
+   "Gold bar",
+   "Death rune",
+   "Any pickaxe",
+   "Dragon bones",
+   "Rope (2)",
+   "Guam potion (unf)",
+   "A light source",
+   "Pestle and mortar",
+   "Bat bones",
+   "Jangerberries"
+  ],
+  "rec": [
+   "Shields/potions that mitigate dragon's fire"
+  ],
+  "enemies": [
+   "Gorad (level 68)",
+   "Able to survive blue dragons, ogres, and greater demons attacking you"
+  ],
+  "rewards": [
+   "4 Quest points",
+   "15,250 Magic XP",
+   "5000 x Coins",
+   "Ability to use the Watchtower Teleport"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Climb the trellis on the north side of the Watchtower, north of Yanille, then climb the ladder to the top floor and talk to the Watchtower Wizard.",
+      "s": [
+       "What's the matter?",
+       "So how come the spell doesn't work?",
+       "Can I be of help?"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Investigate",
+    "st": [
+     {
+      "t": "Climb down both ladders and search the far north-west bush, north of the Watchtower, for the fingernails."
+     },
+     {
+      "t": "Return to the Watchtower Wizard with the fingernails.",
+      "s": [
+       "What do you suggest I do?",
+       "So what do I do?"
+      ],
+      "i": [
+       "Fingernails"
+      ]
+     },
+     {
+      "t": "Talk to Og north west of Yanille.",
+      "s": [
+       "I seek entrance to the city of ogres."
+      ]
+     },
+     {
+      "t": "Use your rope on a branch to swing to the island west of Yanille.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Talk to Grew on the island west of Yanille.",
+      "s": [
+       "Don't eat me; I can help you."
+      ]
+     },
+     {
+      "t": "Leave Grew's island."
+     },
+     {
+      "t": "Enter the hole south of Gu'Tanoth, shown by a dungeon icon south of Jiggig. Fairy ring AKS or a Feldip Hills teleport is the quickest way there."
+     },
+     {
+      "t": "Kill Gorad and pick up his tooth."
+     },
+     {
+      "t": "Talk to Toban on the island east of Gu'Tanoth.",
+      "s": [
+       "I seek entrance to the city of ogres.",
+       "I could do something for you..."
+      ]
+     },
+     {
+      "t": "Give Toban some dragon bones on the island east of Gu'Tanoth.",
+      "i": [
+       "Dragon bones"
+      ]
+     },
+     {
+      "t": "Open the chest on the island east of Gu'Tanoth using Toban's Key.",
+      "i": [
+       "Toban's key"
+      ]
+     },
+     {
+      "t": "Return to Og with his stolen gold north west of Yanille.",
+      "i": [
+       "Toban's gold"
+      ]
+     },
+     {
+      "t": "Return to Grew with Gorad's teeth on the island west of Yanille.",
+      "i": [
+       "Rope"
+      ]
+     },
+     {
+      "t": "Return to the Watchtower Wizard with the relic pieces.",
+      "i": [
+       "Relic part 1",
+       "Relic part 2",
+       "Relic part 3"
+      ]
+     }
+    ],
+    "i": [
+     "Dragon bones",
+     "Rope (2)"
+    ],
+    "c": 1,
+    "e": [
+     "Gorad (level 68)"
+    ]
+   },
+   {
+    "n": "Enter Gu'Tanoth",
+    "st": [
+     {
+      "t": "Enter Gu'Tanoth by the path at the north-east corner of the hills, then head west to the gate. Talk to the Ogre Guard there with the ogre relic in your inventory.",
+      "i": [
+       "Ogre relic"
+      ]
+     },
+     {
+      "t": "Steal a rock cake from Gu'Tanoth's market."
+     },
+     {
+      "t": "From the market, go back to the upper walkway and head around to the south until you reach guards at a battlement. Talk to an Ogre Guard there.",
+      "s": [
+       "But I am a friend to ogres..."
+      ]
+     },
+     {
+      "t": "Attempt to cross the battlement again with a rock cake.",
+      "i": [
+       "Rock cake"
+      ]
+     },
+     {
+      "t": "Head north-east to the broken bridge. Long-press your side of the gap and choose Jump-over. Agree to pay the guards 20 coins.",
+      "s": [
+       "Okay, I'll pay it."
+      ],
+      "i": [
+       "Coins (20)"
+      ]
+     },
+     {
+      "t": "Talk to the City Guard.",
+      "s": [
+       "I seek passage into the skavid caves."
+      ]
+     },
+     {
+      "t": "Talk to the City Guard again.",
+      "i": [
+       "Death rune"
+      ]
+     }
+    ],
+    "i": [
+     "Ogre relic",
+     "Coins (20)",
+     "Death rune",
+     "Gold bar",
+     "A light source"
+    ]
+   },
+   {
+    "n": "Learn the Skavid language",
+    "st": [
+     {
+      "t": "Go back across the bridges, over the battlement and out through the north-west gate. Walk east, then south towards the second city gate. Enter the skavid cave just north of that gate.",
+      "i": [
+       "Skavid map",
+       "A light source"
+      ]
+     },
+     {
+      "t": "Talk to the scared skavid.",
+      "s": [
+       "Okay, okay, I'm not going to hurt you."
+      ]
+     },
+     {
+      "t": "Leave this cave. Enter the skavid cave north-east of Gu'Tanoth, along the main path into the city, and talk to the skavid. When it says \"Bidith tanath...\", answer Cur.",
+      "s": [
+       "I'll be fine without a tinderbox.",
+       "Cur."
+      ],
+      "i": [
+       "Skavid map",
+       "A light source"
+      ]
+     },
+     {
+      "t": "Enter the cave north of Gu'Tanoth, near the start of the main path into the city, and talk to the skavid. When it says \"Gor cur...\", answer Ar.",
+      "s": [
+       "I'll be fine without a tinderbox.",
+       "Ar."
+      ],
+      "i": [
+       "Skavid map",
+       "A light source"
+      ]
+     },
+     {
+      "t": "Enter the cave further north of Gu'Tanoth, south of the west gate to Yanille, and talk to the skavid. When it says \"Cur bidith...\", answer Ig.",
+      "s": [
+       "I'll be fine without a tinderbox.",
+       "Ig."
+      ],
+      "i": [
+       "Skavid map",
+       "A light source"
+      ]
+     },
+     {
+      "t": "Enter the cave east of Gu'Tanoth, outside the city on the east side of the mountain, and talk to the skavid. When it says \"Tanath gor...\", answer Nod.",
+      "s": [
+       "I'll be fine without a tinderbox.",
+       "Nod."
+      ],
+      "i": [
+       "Skavid map",
+       "A light source"
+      ]
+     },
+     {
+      "t": "Try to go through the gate to the south east cave of Gu'Tanoth. Give the guard a gold bar and go through.",
+      "i": [
+       "Gold bar"
+      ]
+     },
+     {
+      "t": "Enter the mad skavid's cave.",
+      "s": [
+       "I'll be fine without a tinderbox."
+      ]
+     },
+     {
+      "t": "Talk to the mad skavid. Answer what he says: \"Bidith ig...\" with Cur., \"Ar cur...\" with Gor., \"Gor nod...\" with Tanath., \"Cur tanath...\" with Bidith., \"Bidith tanath...\" with Cur., \"Tanath gor...\" with Nod., \"Cur bidith...\" with Ig. and \"Gor cur...\" with Ar."
+     },
+     {
+      "t": "Pick up 2 cave nightshade. You can world hop to get a second one.",
+      "i": [
+       "Cave nightshade (2)"
+      ]
+     },
+     {
+      "t": "Use a nightshade on an Enclave Guard in the Gu'Tanoth market.",
+      "i": [
+       "Cave nightshade"
+      ]
+     }
+    ],
+    "i": [
+     "Gold bar",
+     "A light source",
+     "Skavid map"
+    ],
+    "r": [
+     "Shields/potions that mitigate dragon's fire"
+    ]
+   },
+   {
+    "n": "Getting the other crystals",
+    "st": [
+     {
+      "t": "Leave the enclave: teleport out, or run past the blue dragons to the exit at the north-east end."
+     },
+     {
+      "t": "Return to the Watchtower Wizard at the top of the Watchtower."
+     },
+     {
+      "t": "Use some jangerberries on a guam potion (unf)",
+      "i": [
+       "Guam potion (unf)",
+       "Jangerberries"
+      ]
+     },
+     {
+      "t": "Use a pestle and mortar on some bat bones.",
+      "i": [
+       "Pestle and mortar",
+       "Bat bones"
+      ]
+     },
+     {
+      "t": "Use the ground bat bones on the potion",
+      "i": [
+       "Ground bat bones",
+       "Vial"
+      ]
+     },
+     {
+      "t": "Return to the Watchtower Wizard with the potion.",
+      "i": [
+       "Potion"
+      ]
+     },
+     {
+      "t": "Use a nightshade on an Enclave Guard in the Gu'Tanoth market to enter the enclave again.",
+      "i": [
+       "Cave nightshade",
+       "Magic ogre potion",
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Use the magic ogre potion on all 6 ogre shamans.",
+      "i": [
+       "Magic ogre potion"
+      ]
+     },
+     {
+      "t": "Mine the Rock of Dalgroth in the enclave.",
+      "i": [
+       "Any pickaxe"
+      ]
+     },
+     {
+      "t": "Return to the Watchtower Wizard with the crystals.",
+      "i": [
+       "Crystal"
+      ]
+     },
+     {
+      "t": "Use each crystal on the right pillar: yellow in the south-west, magenta in the north-east, cyan in the north-west and grey in the south-east.",
+      "i": [
+       "Crystal"
+      ]
+     },
+     {
+      "t": "Pull the lever to finish the quest."
+     }
+    ],
+    "i": [
+     "Guam potion (unf)",
+     "Jangerberries",
+     "Pestle and mortar",
+     "Bat bones",
+     "Cave nightshade",
+     "Any pickaxe"
+    ]
+   }
+  ]
+ }
+}

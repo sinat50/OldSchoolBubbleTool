@@ -1,0 +1,90 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder insearchofknowledge; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "In Search of Knowledge",
+  "items": [
+   "Knife or slash weapon to cut through a web",
+   "Food (5)",
+   "Combat gear"
+  ],
+  "rec": [],
+  "enemies": [
+   "Many monsters in the Forthos Dungeon"
+  ],
+  "rewards": [
+   "10,000 Experience Lamp (any skill over level 40)."
+  ],
+  "sec": [
+   {
+    "n": "Helping Aimeri",
+    "st": [
+     {
+      "t": "Go to the Forthos Ruins, north-east of the Woodcutting Guild, and enter the Forthos Dungeon.",
+      "i": [
+       "Knife or slash weapon to cut through a web",
+       "Food (5)"
+      ]
+     },
+     {
+      "t": "Cut through the web to the south and go to the south-east corner of the dungeon, outside the entrance to Sarachnis' lair. Use 5 pieces of food (fish, meat or vegetables) on Aimeri there.",
+      "i": [
+       "Food (5)",
+       "Knife or slash weapon to cut through a web"
+      ]
+     },
+     {
+      "t": "Talk to Aimeri again.",
+      "s": [
+       "Who are you?"
+      ]
+     }
+    ],
+    "i": [
+     "Knife or slash weapon to cut through a web",
+     "Food (5)",
+     "Combat gear"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Getting the books",
+    "st": [
+     {
+      "t": "Turn on Protect from Magic and run west along the long hallway to the room with the undead druids. Search the musty bookshelves there until you have the tomes of moon, sun and temple. Each tome is on a different bookshelf."
+     }
+    ]
+   },
+   {
+    "n": "Repairing the books",
+    "st": [
+     {
+      "t": "Kill any monsters in the Forthos Dungeon for pages for the tomes. You'll need to use 4 pages on each tome.",
+      "i": [
+       "Combat gear"
+      ]
+     }
+    ],
+    "i": [
+     "Combat gear"
+    ],
+    "c": 1
+   },
+   {
+    "n": "Document the Tomes",
+    "st": [
+     {
+      "t": "Give the tomes to Logosia in the Arceuus library.",
+      "i": [
+       "Tome of the moon"
+      ]
+     }
+    ],
+    "i": [
+     "Tome of the moon",
+     "Tome of the sun",
+     "Tome of the temple"
+    ]
+   }
+  ]
+ }
+}

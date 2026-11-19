@@ -1,0 +1,171 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; puzzle answers checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Another Slice of H.A.M.",
+  "items": [
+   "A light source",
+   "Tinderbox",
+   "Magic or ranged combat gear",
+   "Rope"
+  ],
+  "rec": [
+   "Lumbridge teleports (3)"
+  ],
+  "enemies": [
+   "H.A.M. Archer (level 30)",
+   "H.A.M. Mage (level 30)",
+   "Sigmund (level 64)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "3,000 Mining XP",
+   "3,000 Prayer XP",
+   "An Ancient Mace",
+   "Dorgeshuun Train Access.",
+   "Ability to buy Goblin Village Teleport Spheres"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Go down the trapdoor into the Lumbridge Castle basement and climb through the hole in the wall. Talk to Kazgar and travel to Mistag, then enter Dorgesh-Kaan through the door. Climb up to the next floor and talk to Ur-tag in the north east building.",
+      "s": [
+       "What are you arguing about?",
+       "I'd love to help!"
+      ]
+     },
+     {
+      "t": "On the middle level of Dorgesh-Kaan, go to the south-west corner and enter the railway doorway (transport icon on the minimap). Walk south along the tracks and talk to Tegdak."
+     },
+     {
+      "t": "Walk south along the railway tunnel and use your trowel on the 6 artefacts. They look like the other rocks but are bigger."
+     },
+     {
+      "t": "Use each artefact on the specimen table to clean it."
+     },
+     {
+      "t": "Show the cleaned artefacts to Tegdak."
+     },
+     {
+      "t": "Talk to Zanik in the railway so she follows you. Take her out of the railway and north to the Goblin Scribe, in the house just west of Ur-tag's, and talk to him.",
+      "s": [
+       "Yes"
+      ]
+     }
+    ],
+    "i": [
+     "A light source"
+    ]
+   },
+   {
+    "n": "To Goblin Village",
+    "st": [
+     {
+      "t": "With Zanik following you, go down the stairs in the house just west of the scribe and talk to Oldak in the north-west of Dorgesh-Kaan's lower level.",
+      "s": [
+       "Yes"
+      ]
+     },
+     {
+      "t": "Talk to General Wartface and General Bentnoze in Goblin Village.",
+      "i": [
+       "Magic or ranged combat gear"
+      ]
+     },
+     {
+      "t": "Make your way to the tower to the south, staying behind the houses on the west side so you aren't hit: go south, step a little west, go south again, then east to the ladder and climb up."
+     },
+     {
+      "t": "Kill the H.A.M. Mage and H.A.M. Archer with a ranged/magic weapon.",
+      "i": [
+       "Magic or ranged combat gear"
+      ]
+     },
+     {
+      "t": "Talk to General Wartface and General Bentnoze in Goblin Village again."
+     }
+    ],
+    "i": [
+     "Magic or ranged combat gear"
+    ],
+    "c": 1,
+    "e": [
+     "H.A.M. Archer (level 30)",
+     "H.A.M. Mage (level 30)"
+    ]
+   },
+   {
+    "n": "Saving Zanik",
+    "st": [
+     {
+      "t": "Talk to the Sergeants by the Lumbridge Swamp Caves entrance in Lumbridge Swamp.",
+      "i": [
+       "Combat gear",
+       "Ancient mace",
+       "A light source"
+      ]
+     },
+     {
+      "t": "Enter the Lumbridge Swamp Caves.",
+      "i": [
+       "Combat gear",
+       "Ancient mace",
+       "A light source",
+       "Rope"
+      ]
+     },
+     {
+      "t": "Read the next five steps before you climb, as this part is time sensitive. Then climb down the nearby ladder to the secret H.A.M. base."
+     },
+     {
+      "t": "Read all of this section first, as the guards keep moving. As soon as you're down the ladder, talk to the sergeants and tell one of them to wait.",
+      "s": [
+       "One of you wait here"
+      ]
+     },
+     {
+      "t": "Run down the hallway into the nearby room and wait there while 2 guards go past."
+     },
+     {
+      "t": "Talk to the sergeant with you and tell him to wait in the room.",
+      "s": [
+       "Wait here"
+      ]
+     },
+     {
+      "t": "Run to the stacked crates and hide behind one until a third guard walks past, then run back to the room."
+     },
+     {
+      "t": "Talk to your sergeant and tell him to follow you. Walk, don't run, to the end of the tunnel so he stays beside you, and wait for the last guard to fight him.",
+      "s": [
+       "Follow me"
+      ]
+     },
+     {
+      "t": "Climb down the ladder."
+     },
+     {
+      "t": "When Sigmund starts using protection prayers, use the ancient mace's special attack on Sigmund to remove them and then defeat him.",
+      "i": [
+       "Ancient mace"
+      ]
+     },
+     {
+      "t": "Untie Zanik."
+     }
+    ],
+    "i": [
+     "Combat gear",
+     "Ancient mace",
+     "A light source",
+     "Rope"
+    ],
+    "c": 1,
+    "e": [
+     "Sigmund (level 64)"
+    ]
+   }
+  ]
+ }
+}

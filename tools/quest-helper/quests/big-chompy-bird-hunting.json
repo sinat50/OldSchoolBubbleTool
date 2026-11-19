@@ -1,0 +1,209 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Big Chompy Bird Hunting",
+  "items": [
+   "Any axe",
+   "Feathers (100)",
+   "Knife",
+   "Chisel",
+   "Wolf bones (4)",
+   "Cabbage",
+   "Tomato",
+   "Onion",
+   "Potato",
+   "Equa leaves",
+   "Doogle leaves"
+  ],
+  "rec": [],
+  "enemies": [
+   "Chompy"
+  ],
+  "rewards": [
+   "2 Quest points",
+   "262 Fletching XP",
+   "1,470 Cooking XP",
+   "735 Ranged XP",
+   "An Ogre Bow",
+   "The ability to fletch Ogre Arrows.",
+   "The ability to hunt and cook Chompy Birds."
+  ],
+  "sec": [
+   {
+    "n": "Getting Rantz Arrows",
+    "st": [
+     {
+      "t": "Talk to Rantz in the east of Feldip Hills.",
+      "s": [
+       "Yes.",
+       "Ok, I'll make you some 'stabbers'."
+      ]
+     },
+     {
+      "t": "Get some achey tree logs near Rantz.",
+      "i": [
+       "Any axe"
+      ]
+     },
+     {
+      "t": "Use your knife on the achey logs to make arrow shafts.",
+      "i": [
+       "Knife",
+       "Achey tree logs"
+      ]
+     },
+     {
+      "t": "Use the feathers on the arrow shafts.",
+      "i": [
+       "Feathers",
+       "Ogre arrow shafts (make more for later) (6)"
+      ]
+     },
+     {
+      "t": "Use a chisel on some wolf bones.",
+      "i": [
+       "Chisel",
+       "Wolf bones"
+      ]
+     },
+     {
+      "t": "Add the bone arrow tips to the flighted ogre arrows.",
+      "i": [
+       "Wolfbone arrowtips",
+       "Flighted ogre arrow"
+      ]
+     },
+     {
+      "t": "Use at least 6 ogre arrows on Rantz.",
+      "i": [
+       "Ogre arrow (6)"
+      ]
+     }
+    ],
+    "i": [
+     "Any axe",
+     "Knife",
+     "Feathers (100)",
+     "Chisel",
+     "Wolf bones (4)"
+    ]
+   },
+   {
+    "n": "Making Bloated Toads",
+    "st": [
+     {
+      "t": "Ask Rantz all the available questions.",
+      "s": [
+       "How do we make the chompys come?"
+      ]
+     },
+     {
+      "t": "Enter Rantz's cave."
+     },
+     {
+      "t": "Open the chest in the cave for some ogre bellows."
+     },
+     {
+      "t": "Leave the cave."
+     },
+     {
+      "t": "Fill the bellows on the swamp bubbles in the swamp south-west of Rantz.",
+      "i": [
+       "Ogre bellows (empty)"
+      ]
+     },
+     {
+      "t": "Inflate 3 toads near the swamp.",
+      "i": [
+       "Ogre bellows"
+      ]
+     },
+     {
+      "t": "Bring the toads to Rantz.",
+      "i": [
+       "Bloated toad"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Hunting Chompy",
+    "st": [
+     {
+      "t": "Drop the bloated toad in the clearing south of Rantz."
+     },
+     {
+      "t": "Wait for a chompy to spawn. If the frog despawns, you'll need to place another one in the clearing south of Rantz."
+     },
+     {
+      "t": "Talk to Rantz again for an ogre bow.",
+      "s": [
+       "Come on, let me have a go...",
+       "I'm actually quite strong... please let me try."
+      ]
+     },
+     {
+      "t": "Drop another bloated toad in the clearing south of Rantz, and wait for a chompy to come.",
+      "i": [
+       "Ogre bow",
+       "Ogre arrow"
+      ]
+     },
+     {
+      "t": "Kill the chompy. You can only hurt it with an ogre bow + ogre arrows. Then pluck the dead chompy to get a raw chompy.",
+      "i": [
+       "Ogre bow",
+       "Ogre arrow"
+      ]
+     },
+     {
+      "t": "Talk to Rantz in the east of Feldip Hills.",
+      "i": [
+       "Raw chompy"
+      ]
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Chompy"
+    ]
+   },
+   {
+    "n": "Cooking Chompy",
+    "st": [
+     {
+      "t": "Enter Rantz's cave."
+     },
+     {
+      "t": "Talk to Bugs."
+     },
+     {
+      "t": "Talk to Fycie."
+     },
+     {
+      "t": "Leave the cave."
+     },
+     {
+      "t": "Get the ingredient each of them asked for. Rantz: an onion (west of Rantz) or a potato (south-east). Bugs: cabbage (west) or equa leaves (south-east). Fycie: a tomato or doogle leaves (both west)."
+     },
+     {
+      "t": "Cook the chompy on Rantz's spit-roast.",
+      "i": [
+       "Raw chompy"
+      ]
+     },
+     {
+      "t": "Bring Rantz the seasoned chompy to finish the quest.",
+      "i": [
+       "Seasoned chompy"
+      ]
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Chompy"
+    ]
+   }
+  ]
+ }
+}

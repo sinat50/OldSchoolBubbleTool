@@ -1,0 +1,234 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder zogreflesheaters; routes and dialogue checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Zogre Flesh Eaters",
+  "items": [
+   "Either brutal arrows or Crumble Undead for fighting Slash Bash"
+  ],
+  "rec": [],
+  "enemies": [
+   "Slash Bash (level 111)",
+   "Zombie (level 39)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "2,000 Fletching XP",
+   "2,000 Ranged XP",
+   "2,000 Herblore XP",
+   "3 x Ourg Bones",
+   "2 x Zogre Bones",
+   "Ability to make Relicym's balm",
+   "Ability to fletch Comp Ogre Bows and Brutal Arrows",
+   "Ability to wear Inoculation Bracelets"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Grish south of Castle Wars.",
+      "s": [
+       "What do you mean sickies?",
+       "Can I help in any way?",
+       "Ok, I'll check things out then and report back.",
+       "Yes, I'm really sure!",
+       "Yes, I want to help you out and find out about the zogres."
+      ]
+     },
+     {
+      "t": "Talk to the guard east of Grish."
+     },
+     {
+      "t": "Climb over the crushed barricade east of the guard, then run east to the stairs and climb down."
+     },
+     {
+      "t": "Search the skeleton in the north west corner of this area."
+     },
+     {
+      "t": "Kill the zombie which appeared, and pick up the ruined backpack that appeared."
+     },
+     {
+      "t": "Open the backpack for a knife and a dragon inn tankard.",
+      "i": [
+       "Ruined backpack"
+      ]
+     },
+     {
+      "t": "Search the broken lecturn in the north west corner of the tombs."
+     },
+     {
+      "t": "Search the ogre coffin next to the skeleton."
+     },
+     {
+      "t": "Use a knife on the ogre coffin next to the skeleton.",
+      "i": [
+       "Knife"
+      ]
+     },
+     {
+      "t": "Search the coffin next to the skeleton again. It may take a few attempts to open."
+     },
+     {
+      "t": "Search the coffin for a black prism."
+     }
+    ],
+    "c": 1,
+    "e": [
+     "Zombie (level 39)"
+    ]
+   },
+   {
+    "n": "Investigating",
+    "st": [
+     {
+      "t": "Talk to Zavistic Rarve at the Yanille Wizards' Guild. If you don't have 66 Magic, ring the bell outside the guild.",
+      "s": [
+       "I'm here about the sicks...err Zogres"
+      ]
+     },
+     {
+      "t": "Go upstairs in the house north of the Wizards' Guild and talk to Sithik Ints in the bed to the west.",
+      "s": [
+       "Do you mind if I look around?"
+      ]
+     },
+     {
+      "t": "Search Sithik's wardrobe."
+     },
+     {
+      "t": "Search Sithik's cupboard."
+     },
+     {
+      "t": "Search Sithik's drawers for more papyrus."
+     },
+     {
+      "t": "Use the book of portraiture on Sithik Ints, then use the papyrus on him with charcoal in your inventory to draw him. Use the portrait on him: he must praise its honesty. If he praises its truth, or its examine text isn't \"A classic realist charcoal portrait of Sithik.\", drop it, search the drawers for more papyrus and draw him again.",
+      "i": [
+       "Papyrus",
+       "Charcoal"
+      ]
+     },
+     {
+      "t": "Travel to the Dragon Inn in Yanille and use the dragon inn tankard on the bartender.",
+      "i": [
+       "Dragon inn tankard"
+      ]
+     },
+     {
+      "t": "Use the portrait on the bartender.",
+      "i": [
+       "Sithik portrait"
+      ]
+     },
+     {
+      "t": "Bring the books, the signed portrait and the dragon inn tankard to Zavistic Rarve at the Yanille Wizards' Guild. If you don't have 66 Magic, ring the bell outside the guild.",
+      "s": [
+       "I'm here about the sicks...err Zogres",
+       "I have some items that I'd like you to look at."
+      ],
+      "i": [
+       "Signed portrait",
+       "Book of 'h.a.m'",
+       "Necromancy book",
+       "Dragon inn tankard"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Discover the truth",
+    "st": [
+     {
+      "t": "Go upstairs and talk to Sithik in the house north of the Wizards' Guild.",
+      "i": [
+       "Strange potion"
+      ]
+     },
+     {
+      "t": "Use the strange potion on the cup of tea next to Sithik.",
+      "i": [
+       "Strange potion"
+      ]
+     },
+     {
+      "t": "Leave Sithik Int's house."
+     },
+     {
+      "t": "Go upstairs and talk to Sithik in the house north of the Wizards' Guild."
+     },
+     {
+      "t": "Talk to the transformed Sithik Ints and ask him all three questions.",
+      "s": [
+       "How do I remove the effects of the spell from the area?",
+       "How do I get rid of the undead ogres?",
+       "How do I get rid of the disease?"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Help the ogres",
+    "st": [
+     {
+      "t": "Talk to Grish south of Castle Wars. Be prepared to fight Slash Bash. You'll need to use either brutal arrows or the Crumble Undead spell.",
+      "s": [
+       "I found who's responsible for the Zogres being here."
+      ]
+     },
+     {
+      "t": "Talk to Grish south of Castle Wars again to learn how to make composite ogre bows.",
+      "s": [
+       "There must be an easier way to kill these zogres!"
+      ]
+     },
+     {
+      "t": "Climb over the barricade east of Grish, prepared to fight Slash Bash.",
+      "s": [
+       "Sorry, I have to go."
+      ],
+      "i": [
+       "Ogre gate key"
+      ]
+     },
+     {
+      "t": "Climb down the stairs to the east."
+     },
+     {
+      "t": "Enter the doors at the west side of the area.",
+      "i": [
+       "Ogre gate key"
+      ]
+     },
+     {
+      "t": "Go down the stairs to the boss."
+     },
+     {
+      "t": "Search the stand in the north east corner, and kill Slash Bash when he spawns."
+     },
+     {
+      "t": "Pick up the ogre artefact.",
+      "i": [
+       "Ogre artefact"
+      ]
+     },
+     {
+      "t": "Return to Grish with the ogre artefact.",
+      "s": [
+       "Yeah, I have them here!"
+      ],
+      "i": [
+       "Ogre artefact"
+      ]
+     }
+    ],
+    "i": [
+     "Either brutal arrows or Crumble Undead for fighting Slash Bash"
+    ],
+    "c": 1,
+    "e": [
+     "Slash Bash (level 111)"
+    ]
+   }
+  ]
+ }
+}

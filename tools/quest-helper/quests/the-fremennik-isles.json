@@ -1,0 +1,317 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder thefremennikisles; corrected against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "The Fremennik Isles",
+  "items": [],
+  "rec": [],
+  "enemies": [
+   "10 Ice Trolls (level 74-82)",
+   "Ice Troll King (level 122)"
+  ],
+  "rewards": [
+   "1 Quest point",
+   "5,000 Construction XP",
+   "5,000 Crafting XP",
+   "10,000 Woodcutting XP",
+   "2 x 10,000 Exp. Lamp (Combat)",
+   "Helm of Neitiznot",
+   "Jester Outfit",
+   "Around 20,000 coins in assorted rewards during quest"
+  ],
+  "sec": [
+   {
+    "n": "Travel to Jatizso",
+    "st": [
+     {
+      "t": "Talk to Mord Gunnars on a pier in north Rellekka."
+     },
+     {
+      "t": "Travel to Jatizso with Mord.",
+      "s": [
+       "Can you ferry me to Jatizso?"
+      ]
+     }
+    ],
+    "i": [
+     "Raw tuna",
+     "Mithril ore (6)",
+     "Coal (7)",
+     "Tin ore (8)"
+    ]
+   },
+   {
+    "n": "Helping Gjuki",
+    "st": [
+     {
+      "t": "Talk to King Gjuki Sorvott IV on Jatizso. When his cat intervenes, use the raw tuna on the cat.",
+      "i": [
+       "Raw tuna"
+      ]
+     },
+     {
+      "t": "Talk to King Gjuki Sorvott IV on Jatizso. He asks for 6 mithril ore, 7 coal or 8 tin ore, based on your Mining level. You can mine them in the underground mine north west of Jatizso. Bring them to him, then talk to him again.",
+      "i": [
+       "Tin, coal or mithril ores (based on your Mining level)"
+      ]
+     },
+     {
+      "t": "Search the chest behind Gjuki's throne for a silly jester outfit.",
+      "s": [
+       "Take the jester's hat.",
+       "Take the jester's top.",
+       "Take the jester's tights.",
+       "Take the jester's boots."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Spy on Mawnis",
+    "st": [
+     {
+      "t": "Return to Rellekka with Mord at the dock south of the king, then travel to Neitiznot with Maria Gunnars, next to Mord. Wearing nothing but your Silly Jester outfit, with your weapon and shield slots empty, talk to Slug Hemligssen just north of the Neitiznot bank.",
+      "s": [
+       "Can you ferry me to Rellekka?",
+       "Free stuff please.",
+       "I am ready."
+      ],
+      "i": [
+       "Silly jester hat",
+       "Silly jester body",
+       "Silly jester tights",
+       "Silly jester boots"
+      ]
+     },
+     {
+      "t": "Talk to Mawnis in the building just south of the Neitiznot bank to start spying on him. During the performance, do everything he asks using the jester control panel on screen.",
+      "i": [
+       "Silly jester hat",
+       "Silly jester body",
+       "Silly jester tights",
+       "Silly jester boots"
+      ]
+     },
+     {
+      "t": "Report back to Slug Hemligssen.",
+      "s": [
+       "Yes I have.",
+       "They will be ready in two days.",
+       "Seventeen militia have been trained.",
+       "There are two bridges to repair."
+      ]
+     },
+     {
+      "t": "Take off the jester outfit, and talk to Mawnis."
+     },
+     {
+      "t": "Bring Mawnis the 8 split logs, 8 rope, and a knife, with one free inventory space. To make split logs, cut down the arctic pines nearby and split them on the woodcutting stump in central Neitiznot. Then talk to Mawnis again.",
+      "i": [
+       "Split logs (8)",
+       "Rope (8)",
+       "Knife"
+      ]
+     },
+     {
+      "t": "Talk to Thakkrad next to Mawnis to learn how to repair the bridges.",
+      "s": [
+       "How do I repair these bridges again?"
+      ]
+     },
+     {
+      "t": "Turn on Protect from Missiles, as you'll automatically cross the aggressive trolls. Long-press each of the 2 bridges to the north of Neitiznot and choose Repair.",
+      "i": [
+       "Split logs (8)",
+       "Rope (8)",
+       "Knife"
+      ]
+     },
+     {
+      "t": "Report back to Mawnis."
+     }
+    ]
+   },
+   {
+    "n": "Collecting window tax",
+    "st": [
+     {
+      "t": "Travel back to Rellekka with Maria Gunnars at the dock in south-west Neitiznot, then to Jatizso with Mord. Report back to King Gjuki Sorvott IV.",
+      "s": [
+       "Can you ferry me to Jatizso?"
+      ]
+     },
+     {
+      "t": "Collect 5000 coins from Keepa in north east Jatizso.",
+      "s": [
+       "But rules are rules. Pay up!"
+      ]
+     },
+     {
+      "t": "Collect 5000 coins from Vanligga north of Gjuki's building.",
+      "s": [
+       "But, rules are rules. Pay up!"
+      ]
+     },
+     {
+      "t": "Collect 6000 coins from Skuli in north west Jatizso.",
+      "s": [
+       "But, rules are rules. Pay up!"
+      ]
+     },
+     {
+      "t": "Collect 8000 coins from Hring Hring in south west Jatizso.",
+      "s": [
+       "But rules are rules. Pay up!"
+      ]
+     },
+     {
+      "t": "Report back to King Gjuki Sorvott IV on Jatizso."
+     }
+    ]
+   },
+   {
+    "n": "Collecting beard tax",
+    "st": [
+     {
+      "t": "Collect tax from Hring Hring in south west Jatizso.",
+      "s": [
+       "But rules are rules. Pay up!"
+      ]
+     },
+     {
+      "t": "Collect tax from Raum in south west Jatizso.",
+      "s": [
+       "But rules are rules. Pay up!"
+      ]
+     },
+     {
+      "t": "Collect tax from Skuli in north west Jatizso.",
+      "s": [
+       "But rules are rules. Pay up!"
+      ]
+     },
+     {
+      "t": "Collect tax from Keepa in north east Jatizso.",
+      "s": [
+       "But rules are rules. Pay up!"
+      ]
+     },
+     {
+      "t": "Collect tax from Flossi in north east Jatizso.",
+      "s": [
+       "But rules are rules. Pay up!"
+      ]
+     },
+     {
+      "t": "Report back to King Gjuki Sorvott IV on Jatizso."
+     }
+    ]
+   },
+   {
+    "n": "Spy on Mawnis again",
+    "st": [
+     {
+      "t": "Return to Rellekka with Mord, then travel to Neitiznot with Maria Gunnars. Wearing nothing but your Silly Jester outfit, talk to Slug Hemligssen just north of the Neitiznot bank.",
+      "s": [
+       "Can you ferry me to Rellekka?"
+      ],
+      "i": [
+       "Silly jester hat",
+       "Silly jester body",
+       "Silly jester tights",
+       "Silly jester boots"
+      ]
+     },
+     {
+      "t": "Talk to Mawnis in the building just south of the Neitiznot bank to start spying on him. During the performance, do everything he asks using the jester control panel on screen.",
+      "i": [
+       "Silly jester hat",
+       "Silly jester body",
+       "Silly jester tights",
+       "Silly jester boots"
+      ]
+     },
+     {
+      "t": "Report to Slug Hemligssen.",
+      "s": [
+       "Yes, I am.",
+       "They are in a secluded bay, near Etceteria.",
+       "They will be given some potions.",
+       "I have been helping Neitiznot."
+      ]
+     },
+     {
+      "t": "Travel back to Rellekka with Maria Gunnars at the dock in south-west Neitiznot, then to Jatizso with Mord. Report back to King Gjuki Sorvott IV.",
+      "s": [
+       "Can you ferry me to Jatizso?"
+      ]
+     },
+     {
+      "t": "Return to Rellekka with Mord, then travel to Neitiznot with Maria Gunnars. Take off your jester outfit and talk to Mawnis in the building just south of the bank.",
+      "s": [
+       "Can you ferry me to Rellekka?"
+      ],
+      "i": [
+       "Royal decree"
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Killing the king",
+    "st": [
+     {
+      "t": "Talk to Mawnis with full yak-hide armour. To make it, kill yaks for 3 hides, have Thakkrad next to Mawnis cure them, and use a needle and thread on them.",
+      "i": [
+       "Yak-hide armour (top)",
+       "Yak-hide armour (bottom)"
+      ]
+     },
+     {
+      "t": "Talk to Mawnis with a Neitiznot shield. To make one, use 2 arctic pine logs, a bronze nail, a hammer and a rope on the woodcutting stump in central Neitiznot.",
+      "i": [
+       "Neitiznot shield"
+      ]
+     },
+     {
+      "t": "Enter the cave in the north east of the islands. Be prepared in your yak armour, Neitiznot shield, and a melee weapon.",
+      "i": [
+       "Yak-hide armour (top)",
+       "Yak-hide armour (bottom)",
+       "Neitiznot shield",
+       "Melee gear",
+       "Food + potions"
+      ]
+     },
+     {
+      "t": "Kill 10 ice trolls."
+     },
+     {
+      "t": "Cross the rope bridge. Be prepared to fight the Ice Troll King. Use the Protect from Magic prayer for the fight."
+     },
+     {
+      "t": "Kill the king. Use the Protect from Magic prayer for the fight."
+     },
+     {
+      "t": "Decapitate the king's head."
+     },
+     {
+      "t": "Talk to Mawnis with the Ice Troll King's head to complete the quest.",
+      "i": [
+       "Decapitated head"
+      ]
+     }
+    ],
+    "i": [
+     "Neitiznot shield",
+     "Melee gear",
+     "Food + potions"
+    ],
+    "c": 1,
+    "e": [
+     "10 Ice Trolls (level 74-82)",
+     "Ice Troll King (level 122)"
+    ]
+   }
+  ]
+ }
+}

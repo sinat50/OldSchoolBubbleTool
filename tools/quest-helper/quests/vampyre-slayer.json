@@ -1,0 +1,106 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Vampyre Slayer",
+  "items": [
+   "Hammer",
+   "A beer, or 2 coins to buy one",
+   "Combat gear + food to defeat Count Draynor"
+  ],
+  "rec": [
+   "Teleport to Varrock",
+   "Draynor manor teleport",
+   "Garlic"
+  ],
+  "enemies": [
+   "Count Draynor (level 34)"
+  ],
+  "rewards": [
+   "3 Quest points",
+   "4,825 Attack XP"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Morgan in the north of Draynor Village.",
+      "s": [
+       "Yes."
+      ]
+     }
+    ]
+   },
+   {
+    "n": "Get garlic",
+    "st": [
+     {
+      "t": "Optional: climb the stairs in Morgan's house and search the cupboard upstairs for garlic, which weakens Count Draynor. If you don't want any, skip this step."
+     }
+    ]
+   },
+   {
+    "n": "Get a stake",
+    "st": [
+     {
+      "t": "Talk to Dr. Harlow in the Blue Moon Inn in Varrock.",
+      "s": [
+       "I need your help dealing with a vampyre.",
+       "Morgan needs your help!"
+      ],
+      "i": [
+       "A beer, or 2 coins to buy one"
+      ]
+     },
+     {
+      "t": "Buy a beer from the bartender in the Blue Moon Inn in Varrock.",
+      "s": [
+       "A glass of your finest ale please."
+      ],
+      "i": [
+       "Coins (2)"
+      ]
+     },
+     {
+      "t": "Talk to Dr. Harlow again with a beer.",
+      "s": [
+       "Yes. Here you go."
+      ],
+      "i": [
+       "Beer"
+      ]
+     }
+    ],
+    "i": [
+     "A beer, or 2 coins to buy one"
+    ]
+   },
+   {
+    "n": "Kill Count Draynor",
+    "st": [
+     {
+      "t": "Prepare to fight Count Draynor (level 34), and enter Draynor Manor."
+     },
+     {
+      "t": "Enter Draynor Manor's basement using the stairs on the east side of the manor, not through the west room."
+     },
+     {
+      "t": "Open the coffin and kill Count Draynor."
+     }
+    ],
+    "i": [
+     "Hammer",
+     "Stake",
+     "Combat gear + food to defeat Count Draynor"
+    ],
+    "r": [
+     "Garlic"
+    ],
+    "c": 1,
+    "e": [
+     "Count Draynor (level 34)"
+    ]
+   }
+  ]
+ }
+}

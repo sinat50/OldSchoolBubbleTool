@@ -1,0 +1,135 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e; locations and wording checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "Sea Slug",
+  "items": [
+   "Swamp paste"
+  ],
+  "rec": [],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "7,175 Fishing XP",
+   "Oyster pearls",
+   "Access to the Fishing Platform"
+  ],
+  "sec": [
+   {
+    "n": "Starting off",
+    "st": [
+     {
+      "t": "Talk to Caroline just north of Witchaven, east of East Ardougne.",
+      "s": [
+       "I suppose so, how do I get there?",
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Swamp paste"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Investigation",
+    "st": [
+     {
+      "t": "Talk to Holgart nearby and give him some swamp paste.",
+      "i": [
+       "Swamp paste"
+      ]
+     },
+     {
+      "t": "Travel with Holgart to the fishing platform.",
+      "s": [
+       "Will you take me there?"
+      ]
+     },
+     {
+      "t": "Climb the ladder in the north east corner of the platform."
+     },
+     {
+      "t": "Talk to Kennith from inside the cabin on the west side of the first floor."
+     },
+     {
+      "t": "Go back down the ladder."
+     },
+     {
+      "t": "Travel with Holgart to a nearby island."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Talking with Kent",
+    "st": [
+     {
+      "t": "Talk to Kent on the island."
+     },
+     {
+      "t": "Return to the platform with Holgart."
+     }
+    ],
+    "c": 0
+   },
+   {
+    "n": "Saving Kennith",
+    "st": [
+     {
+      "t": "Talk to Bailey in the small room in the south-west corner of the fishing platform for an unlit torch."
+     },
+     {
+      "t": "Pick up the broken glass in the room.",
+      "i": [
+       "Broken glass"
+      ]
+     },
+     {
+      "t": "Pick up the damp sticks in the north east corner of the platform.",
+      "i": [
+       "Damp sticks"
+      ]
+     },
+     {
+      "t": "Use the broken glass on damp sticks to dry them.",
+      "i": [
+       "Broken glass",
+       "Damp sticks"
+      ]
+     },
+     {
+      "t": "Rub the dry sticks to light the unlit torch.",
+      "i": [
+       "Dry sticks"
+      ]
+     },
+     {
+      "t": "Go up the ladder in the north east corner of the platform."
+     },
+     {
+      "t": "Talk to Kennith to the west."
+     },
+     {
+      "t": "Go outside Kennith's cabin and kick in the badly repaired wall on the east side of his room."
+     },
+     {
+      "t": "Talk to Kennith again."
+     },
+     {
+      "t": "Rotate the crane east of Kennith's cabin."
+     },
+     {
+      "t": "Go back down the ladder."
+     },
+     {
+      "t": "Travel with Holgart back to the mainland."
+     },
+     {
+      "t": "Talk to Caroline to complete the quest."
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}

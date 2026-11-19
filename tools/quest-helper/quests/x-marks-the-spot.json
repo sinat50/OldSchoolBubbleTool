@@ -1,0 +1,87 @@
+{
+ "source": "Quest Helper plugin (github.com/Zoinkwiz/quest-helper) commit b9b93706618a7b7fe7e5ea30e9a9ef35ba09673e, folder xmarksthespot; checked against the OSRS Wiki quest guides (CC BY-NC-SA 3.0), November 2026",
+ "guide": {
+  "n": "X Marks the Spot",
+  "items": [
+   "Spade"
+  ],
+  "rec": [
+   "Amulet of Glory for faster teleport to Draynor Village."
+  ],
+  "enemies": [],
+  "rewards": [
+   "1 Quest point",
+   "300 Exp. Lamp (Any Skill)",
+   "200 x Coins",
+   "A Beginner Clue Scroll"
+  ],
+  "sec": [
+   {
+    "n": "Speak to Veos",
+    "st": [
+     {
+      "t": "Talk to Veos in The Sheared Ram pub in Lumbridge to start the quest.",
+      "s": [
+       "I'm looking for a quest.",
+       "Sounds good, what should I do?",
+       "Can I help?",
+       "Yes."
+      ]
+     }
+    ],
+    "i": [
+     "Spade"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Solve the clue scroll",
+    "st": [
+     {
+      "t": "Dig north of Bob's Brilliant Axes, on the west side of the plant against the wall of his house.",
+      "s": [
+       "Okay, thanks Veos."
+      ],
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Dig behind Lumbridge Castle, just outside the kitchen door: stand one tile south-west of the large crate there.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Go to Draynor Village. Dig north-west of the jail, by the wheat farm: four tiles north of the bush near Leela.",
+      "i": [
+       "Spade"
+      ]
+     },
+     {
+      "t": "Dig just inside the pig pen in the Draynor Market.",
+      "i": [
+       "Spade"
+      ]
+     }
+    ],
+    "i": [
+     "Spade"
+    ],
+    "c": 0
+   },
+   {
+    "n": "Bring the casket to Veos",
+    "st": [
+     {
+      "t": "Talk to Veos directly south of the Rusty Anchor Inn in Port Sarim to finish the quest.",
+      "i": [
+       "Ancient casket"
+      ]
+     }
+    ],
+    "c": 0
+   }
+  ]
+ }
+}
