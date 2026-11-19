@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
-import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.Size
@@ -61,24 +60,13 @@ class SyncScanActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val preview = PreviewView(this)
-        status = TextView(this).apply {
-            text = "Point the camera at the QR code in RuneLite's Bubble Tool Sync panel."
-            textSize = 15f
-            setTextColor(Color.WHITE)
+        val ui = Ui(this)
+        status = ui.text("Point the camera at the QR code in RuneLite's Bubble Tool Sync panel.", 14f, Color.WHITE, 500).apply {
             gravity = Gravity.CENTER
             setPadding(dp(12), dp(10), dp(12), dp(10))
             background = GradientDrawable().apply { setColor("#B0000000".toColorInt()); cornerRadius = dp(8).toFloat() }
         }
-        val cancel = TextView(this).apply {
-            text = "Cancel"
-            textSize = 15f
-            setTextColor(Color.WHITE)
-            setTypeface(typeface, Typeface.BOLD)
-            gravity = Gravity.CENTER
-            setPadding(dp(24), dp(10), dp(24), dp(10))
-            background = GradientDrawable().apply { setColor(Palette.BUTTON_BROWN); cornerRadius = dp(8).toFloat() }
-            setOnClickListener { finish() }
-        }
+        val cancel = ui.button("Cancel") { finish() }
         val controls = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL

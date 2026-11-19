@@ -1,5 +1,5 @@
 /*
- * Zulrah rotation data and arena layout adapted from the "Zulrah Helper" RuneLite plugin
+ * Zulrah arena layout adapted from the "Zulrah Helper" RuneLite plugin
  * (github.com/while-loop/runelite-plugins).
  *
  * Copyright (c) 2020, Anthony Alves
@@ -31,386 +31,420 @@ package com.sinat.osrsbubbletool
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.Typeface
-import android.graphics.drawable.GradientDrawable
-import android.util.Base64
+import android.graphics.Path
+import android.graphics.RectF
+import android.os.SystemClock
 import android.view.Gravity
-import android.view.MotionEvent
+import android.view.HapticFeedbackConstants
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.edit
 import androidx.core.graphics.toColorInt
+import androidx.core.graphics.withRotation
 
-// Zulrah Helper, drawn like the RuneLite plugin: a big picture of the current phase on top
-// (Zulrah's coloured dot, where to stand, which prayer), and the possible next phases
-// underneath. Tap the next phase that Zulrah comes up as.
+// Zulrah Helper, made for a thin window against the side of the screen during the fight. Like the RuneLite plugin, every
+// map shows only three things: Zulrah (the coloured circle), where to stand (the cross) and the prayer (an icon in the top
+// left corner; on the "Jad" phase the first prayer is top left and the second top right). From the top: the phase you're
+// on, then a map for each thing Zulrah could do next, to tap when it does it. The buttons you
+// shouldn't press by accident are at the far end, and Reset asks twice. The fight itself is in ZulrahFight.
+// To change sides, drag the strip's top bar across: it settles against the nearer side (BubbleService.dockZulrah).
 class ZulrahTool(private val context: Context) {
+    private companion object {
+        const val TOOL_ROW_DP = 32
+        const val GAP_DP = 3
+        const val FOOTER_DP = 22        // (keeps the next-phase buttons clear of the window's resize corner)
+        const val TAP_GUARD_MS = 350L   // a second tap this soon is a slip, not a second phase
+        const val RESET_WAIT_MS = 2500L
 
-    companion object {
-        private val WINDOW_BG = "#1E1E1E".toColorInt()
-        private val CARD_BG = "#2B2B2B".toColorInt()
-        private val BUTTON_BG = "#3C3C3C".toColorInt()
-        private val CURRENT_BORDER = "#FF9900".toColorInt()
-        private val NEXT_BORDER = "#555555".toColorInt()
-        private val ZULRAH_BORDER = Color.rgb(140, 140, 140)
+        // The prayer icons: our own drawings, made to look like the game's Protect from Magic (a fiery bolt) and
+        // Protect from Missiles (an arrow with a green head), both with a purple rim as in the plugin
+        val ICON_EDGE = "#140616".toColorInt()
+        val ICON_RIM = "#8A2BB4".toColorInt()
+        val BOLT_OUTER = "#B8300C".toColorInt()
+        val BOLT_INNER = "#E8661A".toColorInt()
+        val BOLT_CORE = "#F2C21E".toColorInt()
+        val SHAFT = "#3A1446".toColorInt()
+        val HEAD = "#3E9A22".toColorInt()
+        val HEAD_SHADE = "#1F5A10".toColorInt()
+        val NOCK = "#6E3A14".toColorInt()
+        const val ICON_SIZE = 26f   // in the drawing's units
 
-        // Plugin picture size, in plugin pixels. Everything on a card is drawn in these units.
-        private const val CARD = 105f
-        private const val PAD = 2f
-        private const val FLOOR_X = 13f   // where the floor picture sits on the card
-        private const val FLOOR_Y = 22f
+        // The drawing's colours stay the same in light and dark mode, like a map
+        val WATER = "#2B2B2B".toColorInt()
+        val ISLAND = "#111111".toColorInt()
+        val SHORE = "#6E6E6E".toColorInt()
+        val PILLAR = "#878787".toColorInt()
+        val GRID = "#3A3A3A".toColorInt()
+        val RING = "#D8D8D8".toColorInt()
 
-        // Pictures from the plugin (arena floor) and the game (prayer icons)
-        private const val FLOOR_PNG =
-            "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"
-        private const val PRAY_MAGIC_PNG =
-            "iVBORw0KGgoAAAANSUhEUgAAABsAAAAbBAMAAAB/+ulmAAAAElBMVEX////69wCpBu37AACELggAAAHVryFiAAAAAXRSTlMAQObYZgAAAI1JREFUeNpVkMEJBTEIBXNJAcYKFFKAmA6SAhbB/lv57H5ijLfHqIyWcsr9SakY5+jWngtm6tbSrF+wGl+Q4YIEPWJ1xtZTKwl7MCNsu7c6Mx7oTDAkoBHo3IvcGXRI8y1OOKZsBwPQNcPBUMfScDBca8boF/Xov1FC6R9D6V2lcm4zAICe/8ecTv1qpx/hzyOI5FedcgAAAABJRU5ErkJggg=="
-        private const val PRAY_MISSILES_PNG =
-            "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAFVBMVEX///93d3ckewmpBu2ELgg/LgsAAAFThWx1AAAAAXRSTlMAQObYZgAAAHNJREFUeNptj7ENhUAMQ1Mxwh8gEixgKSMwAAU1/wzefwQKSO4K3D29OErMnkzSYRkBBROD6qIxkhguRELzXR1mXyL7bXNG9i9foFy8i3GkIAaBPEe4cuYVdcq30CiIoUH9SxjPXwnjuZYwqv4wI9BBUlVuJ30pch5UtPcAAAAASUVORK5CYII="
+        const val MAP_SIZE = 105f   // the drawing's own units
+        const val ISLAND_X = 13f
+        const val ISLAND_Y = 22f
+
+        // A game tile's place in the drawing's units: 5 units a tile, laid out like the plugin's picture (south at the
+        // top, so east is on the left), the pillar at 2271, 3071 at 23, 14
+        const val TILE = 5f
+        fun tileLeft(x: Int) = 23f + (2271 - x) * TILE
+        fun tileTop(y: Int) = 14f + (y - 3071) * TILE
+
+        // The island's shore as the game draws it, rounder and a little wider than the floor tiles (traced on the
+        // plugin's picture, in the same units)
+        val OUTLINE = floatArrayOf(37f, 0f, 54f, 2f, 60f, 6f, 70f, 9f, 74f, 13f, 74f, 29f, 76f, 30f, 79f, 37f, 80f, 48f, 78f, 52f,
+            75f, 54f, 75f, 56f, 68f, 61f, 59f, 61f, 55f, 57f, 54f, 51f, 56f, 48f, 56f, 38f, 58f, 35f, 58f, 30f, 56f, 26f, 48f, 18f,
+            44f, 18f, 32f, 19f, 24f, 29f, 23f, 35f, 25f, 37f, 25f, 48f, 27f, 51f, 27f, 55f, 24f, 59f, 12f, 60f, 9f, 57f, 2f, 57f,
+            0f, 54f, 1f, 45f, 6f, 37f, 5f, 24f, 8f, 15f, 11f, 13f, 11f, 11f, 15f, 10f, 19f, 6f)
+
+
+        fun colourOf(form: ZulrahFight.Form) = when (form) {
+            ZulrahFight.Form.GREEN -> Color.rgb(25, 194, 4)
+            ZulrahFight.Form.RED -> Color.rgb(251, 0, 7)
+            ZulrahFight.Form.BLUE -> Color.rgb(0, 51, 255)
+        }
     }
 
-    // ---------------- The rotation data ----------------
-
-    enum class Form(val color: Int) {
-        GREEN(Color.rgb(25, 194, 4)),
-        RED(Color.rgb(251, 0, 7)),
-        BLUE(Color.rgb(0, 51, 255))
-    }
-
-    // Where Zulrah surfaces, in floor-picture pixels
-    enum class Spot(val x: Float, val y: Float) {
-        MIDDLE(40f, 30f),
-        SOUTH(39f, -10f),
-        WEST(82f, 25f),
-        EAST(-5f, 35f)
-    }
-
-    // Places to stand, in floor-picture pixels
-    enum class Stand(val x: Float, val y: Float) {
-        START(19f, 52f),
-        START_MAGMA(11f, 43f),
-        PILLAR_1_SOUTH(20f, 23f),
-        NORTH(41f, 10f),
-        PILLAR_2_SOUTH(62f, 23f),
-        PILLAR_2_EAST(63f, 16f)
-    }
-
-    enum class Pray { MISSILES, MAGIC }
-
-    class Phase(
-        val form: Form,
-        val spot: Spot,
-        val prayers: List<Pray>,
-        val attacks: Int,
-        val venom: Int,
-        @Suppress("unused") val snakelings: Int,   // (from the plugin's phase list; not shown)
-        val stands: List<Stand>
-    ) {
-        var title: String? = null
-        fun named(t: String): Phase { title = t; return this }
-        fun sameLook(other: Phase) = form == other.form && spot == other.spot
-    }
-
-    class Rotation(val phases: List<Phase>)
-
-    private fun p(form: Form, spot: Spot, prayers: List<Pray>, attacks: Int, venom: Int, snakes: Int, vararg stands: Stand) =
-        Phase(form, spot, prayers, attacks, venom, snakes, stands.toList())
-
-    private val none = emptyList<Pray>()
-    private val missiles = listOf(Pray.MISSILES)
-    private val magic = listOf(Pray.MAGIC)
-
-    private val first = p(Form.GREEN, Spot.MIDDLE, missiles, 5, 4, 0, Stand.START).named("Start")
-    private val magmaStart = listOf(
-        first,
-        p(Form.RED, Spot.MIDDLE, none, 2, 0, 0, Stand.START, Stand.START_MAGMA).named("Magma"),
-        p(Form.BLUE, Spot.MIDDLE, magic, 4, 0, 0, Stand.START)
-    )
-
-    private val rotations = listOf(
-        Rotation(magmaStart + listOf(
-            p(Form.GREEN, Spot.SOUTH, missiles, 5, 2, 2, Stand.PILLAR_2_SOUTH).named("Magma A"),
-            p(Form.RED, Spot.MIDDLE, none, 2, 0, 0, Stand.PILLAR_2_SOUTH),
-            p(Form.BLUE, Spot.WEST, magic, 5, 0, 0, Stand.NORTH),
-            p(Form.GREEN, Spot.SOUTH, none, 0, 3, 2, Stand.PILLAR_1_SOUTH),
-            p(Form.BLUE, Spot.SOUTH, magic, 5, 2, 2, Stand.PILLAR_1_SOUTH),
-            p(Form.GREEN, Spot.WEST, listOf(Pray.MISSILES, Pray.MAGIC), 10, 4, 0, Stand.PILLAR_2_SOUTH),
-            p(Form.RED, Spot.MIDDLE, none, 2, 0, 0, Stand.START, Stand.START_MAGMA)
-        )),
-        Rotation(magmaStart + listOf(
-            p(Form.GREEN, Spot.WEST, none, 0, 3, 2, Stand.PILLAR_2_SOUTH).named("Magma B"),
-            p(Form.BLUE, Spot.SOUTH, magic, 5, 2, 2, Stand.PILLAR_2_SOUTH),
-            p(Form.RED, Spot.MIDDLE, none, 2, 0, 0, Stand.PILLAR_2_SOUTH),
-            p(Form.GREEN, Spot.EAST, missiles, 5, 0, 0, Stand.NORTH),
-            p(Form.BLUE, Spot.SOUTH, magic, 5, 2, 2, Stand.PILLAR_2_SOUTH),
-            p(Form.GREEN, Spot.WEST, listOf(Pray.MISSILES, Pray.MAGIC), 10, 4, 0, Stand.PILLAR_2_SOUTH),
-            p(Form.RED, Spot.MIDDLE, none, 2, 0, 0, Stand.START, Stand.START_MAGMA)
-        )),
-        Rotation(listOf(
-            first,
-            p(Form.GREEN, Spot.EAST, missiles, 5, 0, 2, Stand.START).named("Serp"),
-            p(Form.RED, Spot.MIDDLE, none, 2, 3, 2, Stand.PILLAR_1_SOUTH),
-            p(Form.BLUE, Spot.WEST, magic, 5, 0, 0, Stand.NORTH),
-            p(Form.GREEN, Spot.SOUTH, missiles, 5, 0, 0, Stand.NORTH),
-            p(Form.BLUE, Spot.EAST, magic, 5, 0, 0, Stand.NORTH),
-            p(Form.GREEN, Spot.MIDDLE, none, 0, 3, 2, Stand.PILLAR_2_SOUTH),
-            p(Form.GREEN, Spot.WEST, missiles, 5, 0, 0, Stand.PILLAR_2_SOUTH),
-            p(Form.BLUE, Spot.MIDDLE, magic, 5, 2, 2, Stand.PILLAR_1_SOUTH),
-            p(Form.GREEN, Spot.EAST, listOf(Pray.MAGIC, Pray.MISSILES), 10, 0, 0, Stand.PILLAR_1_SOUTH),
-            p(Form.BLUE, Spot.MIDDLE, none, 0, 0, 2, Stand.START)
-        )),
-        Rotation(listOf(
-            first,
-            p(Form.BLUE, Spot.EAST, magic, 6, 0, 2, Stand.START).named("Tanz"),
-            p(Form.GREEN, Spot.SOUTH, missiles, 4, 2, 0, Stand.PILLAR_2_SOUTH),
-            p(Form.BLUE, Spot.WEST, magic, 4, 0, 2, Stand.PILLAR_2_SOUTH),
-            p(Form.RED, Spot.MIDDLE, none, 2, 2, 0, Stand.PILLAR_1_SOUTH),
-            p(Form.GREEN, Spot.EAST, missiles, 4, 0, 0, Stand.PILLAR_1_SOUTH),
-            p(Form.GREEN, Spot.SOUTH, none, 0, 3, 2, Stand.PILLAR_1_SOUTH),
-            p(Form.BLUE, Spot.WEST, magic, 5, 4, 0, Stand.PILLAR_2_EAST),
-            p(Form.GREEN, Spot.MIDDLE, missiles, 5, 0, 0, Stand.PILLAR_1_SOUTH),
-            p(Form.BLUE, Spot.MIDDLE, magic, 4, 3, 0, Stand.PILLAR_1_SOUTH),
-            p(Form.GREEN, Spot.EAST, listOf(Pray.MAGIC, Pray.MISSILES), 8, 0, 0, Stand.PILLAR_1_SOUTH),
-            p(Form.BLUE, Spot.MIDDLE, none, 0, 0, 2, Stand.START)
-        ))
-    )
-
-    // ---------------- Where we are in the fight ----------------
-
-    private class State(val candidates: List<Int>, val index: Int)
-
-    // One possible next phase: what it looks like, and which rotations it would mean
-    private class Option(val phase: Phase, val rotations: List<Int>, val restart: Boolean)
-
-    private var state = State(rotations.indices.toList(), 0)
-    private val history = ArrayDeque<State>()
-
+    private val ui = Ui(context)
+    private val fight = ZulrahFight()
     private val prefs = context.getSharedPreferences("zulrah", Context.MODE_PRIVATE)
-    private var turned = prefs.getBoolean("north_up", false)
 
-    private fun phasesOf(r: Int) = rotations[r].phases
-    private fun current(): Phase = phasesOf(state.candidates.first())[state.index]
+    // How far the map is turned, in quarter turns (older versions could only turn it upside down)
+    private var turn = prefs.getInt("turn", if (prefs.getBoolean("north_up", false)) 2 else 0)
 
-    private fun nextOptions(): List<Option> {
-        val groups = mutableListOf<Pair<Phase, MutableList<Int>>>()
-        for (r in state.candidates) {
-            val phases = phasesOf(r)
-            if (state.index + 1 >= phases.size) {
-                // End of the rotation: Zulrah starts over, and it could be any rotation again
-                return listOf(Option(first, rotations.indices.toList(), restart = true))
-            }
-            val next = phases[state.index + 1]
-            val group = groups.firstOrNull { it.first.sameLook(next) }
-            if (group != null) group.second.add(r) else groups.add(next to mutableListOf(r))
-        }
-        return groups.map { Option(it.first, it.second, restart = false) }
-    }
+    private lateinit var body: LinearLayout
+    private lateinit var nowColumn: LinearLayout
+    private lateinit var map: MapView
+    private lateinit var nextColumn: LinearLayout
+    private lateinit var resetWord: TextView
+    private lateinit var resetIcon: ImageView
 
-    private fun choose(option: Option) {
-        history.addLast(state)
-        state = if (option.restart) State(rotations.indices.toList(), 0)
-                else State(option.rotations, state.index + 1)
-        refresh()
-    }
+    private var lastTap = 0L
+    private var resetArmed = false
+    private var bodyW = 0
+    private var bodyH = 0
 
-    fun goBack() {
-        if (history.isEmpty()) return
-        state = history.removeLast()
-        refresh()
-    }
-
-    private fun reset() {
-        history.clear()
-        state = State(rotations.indices.toList(), 0)
-        refresh()
-    }
-
-    // ---------------- Screen ----------------
-
-    private lateinit var titleText: TextView
-    private lateinit var board: Board
-
-    private fun dp(value: Int) = (value * context.resources.displayMetrics.density).toInt()
-
-    private fun decode(b64: String): Bitmap {
-        val bytes = Base64.decode(b64, Base64.DEFAULT)
-        return BitmapFactory.decodeByteArray(bytes, 0, bytes.size).apply {
-            density = Bitmap.DENSITY_NONE  // draw at exactly the size we ask for
-        }
-    }
-
-    private val floorImg by lazy { decode(FLOOR_PNG) }
-    private val magicImg by lazy { decode(PRAY_MAGIC_PNG) }
-    private val missilesImg by lazy { decode(PRAY_MISSILES_PNG) }
+    private fun dp(value: Int) = ui.dp(value)
 
     fun buildView(): View {
-        titleText = TextView(context).apply {
-            textSize = 11f
-            setTextColor(Color.WHITE)
-            setTypeface(typeface, Typeface.BOLD)
-            gravity = Gravity.CENTER
+        map = MapView()
+        nowColumn = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            addView(map, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0))
         }
-        board = Board()
-
-        fun smallButton(label: String, onClick: () -> Unit) = TextView(context).apply {
-            text = label
-            textSize = 12f
-            setTextColor(Color.WHITE)
-            gravity = Gravity.CENTER
-            background = GradientDrawable().apply { setColor(BUTTON_BG); cornerRadius = dp(5).toFloat() }
-            setOnClickListener { onClick() }
+        nextColumn = LinearLayout(context).apply { orientation = LinearLayout.HORIZONTAL }
+        body = object : LinearLayout(context) {
+            override fun onSizeChanged(w: Int, h: Int, oldW: Int, oldH: Int) {
+                super.onSizeChanged(w, h, oldW, oldH)
+                bodyW = w; bodyH = h
+                post { fit() }
+            }
+        }.apply {
+            addView(nowColumn)
+            addView(nextColumn)
         }
-
-        val buttons = LinearLayout(context).apply {
-            orientation = LinearLayout.HORIZONTAL
-            fun add(v: View) = addView(v, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f).apply {
-                leftMargin = dp(3); rightMargin = dp(3)
-            })
-            add(smallButton("Undo") { goBack() })
-            add(smallButton("Turn") {
-                turned = !turned
-                prefs.edit { putBoolean("north_up", turned) }
-                refresh()
-            })
-            add(smallButton("Reset") { reset() })
-        }
-
         refresh()
         return LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setBackgroundColor(WINDOW_BG)
-            setPadding(dp(4), dp(3), dp(4), dp(4))
-            addView(titleText, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
-            addView(board, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
-            addView(buttons, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dp(30)))
+            setBackgroundColor(Palette.SURFACE)
+            setPadding(dp(4), dp(3), dp(4), 0)
+            addView(toolRow(), LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dp(TOOL_ROW_DP)))
+            addView(body, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f).apply { topMargin = dp(GAP_DP) })
+            addView(View(context), LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dp(FOOTER_DP)))
         }
     }
 
-    private fun refresh() {
-        if (!::titleText.isInitialized) return
-        val phases = phasesOf(state.candidates.first())
-        val title = (state.index downTo 0).firstNotNullOfOrNull { phases[it].title } ?: ""
-        titleText.text = "$title #${state.index + 1}"
-        board.show(current(), nextOptions())
+    // ◀ in the window's top bar takes back the last tap
+    fun goBack() {
+        fight.undo()
+        refresh()
     }
 
-    // The big current-phase picture plus the smaller next-phase pictures, all in one view
-    @SuppressLint("ViewConstructor")
-    private inner class Board : View(this@ZulrahTool.context) {
-        private var phase: Phase? = null
-        private var options: List<Option> = emptyList()
-        private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-        private val pixelPaint = Paint().apply { isFilterBitmap = false }  // keeps pixel art sharp
+    // ---------------- The row of rarely used buttons, at the far end from the next-phase buttons ----------------
 
-        fun show(phase: Phase, options: List<Option>) {
+    private fun toolRow() = LinearLayout(context).apply {
+        orientation = LinearLayout.HORIZONTAL
+        fun cell(view: View, gapBefore: Boolean) = addView(view,
+            LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f).apply { if (gapBefore) leftMargin = dp(GAP_DP) })
+        cell(toolButton("turn_map", "Turn the map") {
+            turn = (turn + 1) % 4
+            prefs.edit { putInt("turn", turn) }
+            refresh()
+        }, false)
+
+        resetIcon = ui.icon("reset", Palette.TEXT, 18)
+        resetWord = ui.text("Sure?", 12f, Palette.BAD, 700).apply { gravity = Gravity.CENTER; visibility = View.GONE }
+        cell(FrameLayout(context).apply {
+            contentDescription = "Reset the fight"
+            ui.press(this, Palette.RAISED, 8)
+            addView(resetIcon, FrameLayout.LayoutParams(dp(18), dp(18), Gravity.CENTER))
+            addView(resetWord, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+            setOnClickListener { pressReset(this) }
+        }, true)
+    }
+
+    private fun toolButton(icon: String, label: String, onClick: () -> Unit) = FrameLayout(context).apply {
+        contentDescription = label
+        ui.press(this, Palette.RAISED, 8)
+        addView(ui.icon(icon, Palette.TEXT, 18), FrameLayout.LayoutParams(dp(18), dp(18), Gravity.CENTER))
+        setOnClickListener { onClick() }
+    }
+
+    // The first tap asks, a second one within a moment resets
+    private fun pressReset(button: View) {
+        if (resetArmed) {
+            disarmReset()
+            fight.reset()
+            refresh()
+            return
+        }
+        resetArmed = true
+        resetIcon.visibility = View.GONE
+        resetWord.visibility = View.VISIBLE
+        button.removeCallbacks(disarm)
+        button.postDelayed(disarm, RESET_WAIT_MS)
+    }
+
+    private val disarm = Runnable { disarmReset() }
+
+    private fun disarmReset() {
+        resetArmed = false
+        resetIcon.visibility = View.VISIBLE
+        resetWord.visibility = View.GONE
+    }
+
+    // ---------------- What's on screen ----------------
+
+    private fun refresh() {
+        val phase = fight.current
+        map.show(phase)
+        showNext()
+        fit()
+    }
+
+    private fun showNext() {
+        nextColumn.removeAllViews()
+        // side by side, each as wide as the others
+        fight.nextOptions().forEachIndexed { i, option ->
+            nextColumn.addView(nextButton(option), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f).apply { if (i > 0) leftMargin = dp(GAP_DP) })
+        }
+    }
+
+    // A big button for one thing Zulrah could do next: just its map
+    private fun nextButton(option: ZulrahFight.Option) = FrameLayout(context).apply {
+        setPadding(dp(3), dp(3), dp(3), dp(3))
+        ui.press(this, Palette.RAISED, 8)
+        val phase = option.phase
+        val name = when {
+            option.restart -> "Restart"
+            phase.title != null -> phase.title
+            else -> phase.form.word
+        }
+        addView(MapView().apply { show(phase) }, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+        contentDescription = "Next: $name, ${prayerWords(phase)}"
+        setOnClickListener {
+            val now = SystemClock.uptimeMillis()
+            if (now - lastTap < TAP_GUARD_MS) return@setOnClickListener
+            lastTap = now
+            if (AppSettings.vibrates(context)) performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+            fight.choose(option)
+            refresh()
+        }
+    }
+
+    // Shares the window out. The phase you're on always gets the biggest map. Taller than it is wide: it's on top, with
+    // the next phases in a row under it, at most 3/4 of its height. Wider than it is tall: it's on the left, with the
+    // row of next phases on the right, at most 3/4 of its width.
+    private fun fit() {
+        if (bodyW <= 0 || bodyH <= 0) return
+        val sideBySide = bodyW > bodyH * 1.6f
+        val gap = dp(GAP_DP)
+        body.orientation = if (sideBySide) LinearLayout.HORIZONTAL else LinearLayout.VERTICAL
+        if (sideBySide) {
+            val mapSize = minOf(bodyH, (bodyW - gap) * 4 / 7)
+            (map.layoutParams as LinearLayout.LayoutParams).height = bodyH
+            nowColumn.layoutParams = LinearLayout.LayoutParams(mapSize, ViewGroup.LayoutParams.MATCH_PARENT)
+            nextColumn.layoutParams = LinearLayout.LayoutParams(minOf(bodyW - mapSize - gap, mapSize * 3 / 4),
+                ViewGroup.LayoutParams.MATCH_PARENT).apply { leftMargin = gap }
+        } else {
+            val mapSize = minOf(bodyW, (bodyH - gap) * 4 / 7)
+            (map.layoutParams as LinearLayout.LayoutParams).height = mapSize
+            nowColumn.layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            nextColumn.layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                minOf(bodyH - mapSize - gap, mapSize * 3 / 4)).apply { topMargin = gap }
+        }
+        body.requestLayout()
+    }
+
+    // The prayer in words, for screen readers
+    private fun prayerWords(phase: ZulrahFight.Phase) =
+        if (phase.prayers.isEmpty()) "no prayer" else phase.prayers.joinToString(" then ") { "pray ${it.word}" }
+
+    // ---------------- The arena drawing ----------------
+
+    // The island's shape with its floor tiles, where to stand (one white tile) and Zulrah (the coloured circle). Original drawing, made
+    // from the game's own floor and the plugin's arena layout.
+    @SuppressLint("ViewConstructor")
+    private inner class MapView : View(context) {
+        private var phase: ZulrahFight.Phase? = null
+        private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            strokeCap = Paint.Cap.ROUND
+            strokeJoin = Paint.Join.ROUND
+        }
+        private fun tile(x: Int, y: Int) = RectF(tileLeft(x), tileTop(y), tileLeft(x) + TILE, tileTop(y) + TILE)
+        private val island = Path().apply {
+            moveTo(OUTLINE[0], OUTLINE[1])
+            for (i in 2 until OUTLINE.size step 2) lineTo(OUTLINE[i], OUTLINE[i + 1])
+            close()
+        }
+
+        fun show(phase: ZulrahFight.Phase) {
             this.phase = phase
-            this.options = options
+            contentDescription = prayerWords(phase)
             invalidate()
         }
 
         override fun onDraw(canvas: Canvas) {
-            val cur = phase ?: return
-            val w = width.toFloat()
-            val h = height.toFloat()
-            val gap = dp(6).toFloat()
-            val n = options.size.coerceAtLeast(1)
-
-            // Sizes: next pictures are ~60% of the big one, everything must fit without scrolling
-            var big = minOf(w, (h - gap) / 1.6f)
-            val small = minOf(big * 0.6f, (w - gap * (n - 1)) / n)
-            big = minOf(w, h - gap - small)
-
-            val totalH = big + gap + small
-            val top = (h - totalH) / 2f
-            drawCard(canvas, cur, (w - big) / 2f, top, big, border = CURRENT_BORDER)
-
-            val rowW = small * n + gap * (n - 1)
-            var x = (w - rowW) / 2f
-            val y = top + big + gap
-            // remembered so a tap can be matched to a picture
-            optionsLeft = x; optionsTop = y; optionSize = small; optionStep = small + gap
-            for (o in options) {
-                drawCard(canvas, o.phase, x, y, small, NEXT_BORDER)
-                x += small + gap
-            }
-        }
-
-        // Where the row of next-phase pictures is (set when it's drawn)
-        private var optionsLeft = 0f
-        private var optionsTop = 0f
-        private var optionSize = 0f
-        private var optionStep = 0f
-
-        @SuppressLint("ClickableViewAccessibility")
-        override fun onTouchEvent(event: MotionEvent): Boolean {
-            if (event.action == MotionEvent.ACTION_UP && optionStep > 0f) {
-                // which picture the tap is on (not in the gaps between them)
-                val along = event.x - optionsLeft
-                val i = (along / optionStep).toInt()
-                val onPicture = along >= 0f && along - i * optionStep <= optionSize &&
-                    event.y >= optionsTop && event.y <= optionsTop + optionSize
-                if (onPicture && i < options.size) choose(options[i])
-            }
-            return true
-        }
-
-        // Draws one phase picture, the same way the plugin does, at the given place and size
-        private fun drawCard(canvas: Canvas, ph: Phase, left: Float, top: Float, size: Float, border: Int) {
+            val shown = phase ?: return
+            val size = minOf(width, height).toFloat()
+            val scale = size / MAP_SIZE
             canvas.save()
-            canvas.translate(left, top)
-            canvas.scale(size / CARD, size / CARD)
+            canvas.translate((width - size) / 2f, (height - size) / 2f)
+            canvas.scale(scale, scale)
 
             paint.style = Paint.Style.FILL
-            paint.color = CARD_BG
-            canvas.drawRect(0f, 0f, CARD, CARD, paint)
+            paint.color = WATER
+            canvas.drawRoundRect(0f, 0f, MAP_SIZE, MAP_SIZE, 6f, 6f, paint)
 
-            // Arena, stand spots and Zulrah (these turn with the map; the icons don't)
-            canvas.save()
-            if (turned) canvas.rotate(180f, CARD / 2f, CARD / 2f)
-            canvas.drawBitmap(floorImg, FLOOR_X, FLOOR_Y, pixelPaint)
+            canvas.withRotation(turn * 90f, MAP_SIZE / 2f, MAP_SIZE / 2f) {
+                translate(ISLAND_X, ISLAND_Y)
+                paint.style = Paint.Style.FILL
+                paint.color = ISLAND
+                drawPath(island, paint)
+                paint.style = Paint.Style.STROKE
+                paint.strokeWidth = 1.2f
+                paint.color = SHORE
+                drawPath(island, paint)
+                // faint lines between the tiles across the whole island, so you can count them from the pillars
+                paint.strokeWidth = 0.35f
+                paint.color = GRID
+                save()
+                clipPath(island)
+                var line = tileLeft(2271) - 5 * TILE
+                while (line <= 85f) { drawLine(line, -5f, line, 70f, paint); line += TILE }
+                line = tileTop(3071) - 4 * TILE
+                while (line <= 70f) { drawLine(-5f, line, 85f, line, paint); line += TILE }
+                restore()
+                paint.style = Paint.Style.FILL
+                paint.color = PILLAR
+                ZulrahFight.Arena.pillars.forEach { (x, y) -> drawRect(tile(x, y), paint) }
 
+                // the tile to stand on: white, with a dark edge so it shows on the dark floor
+                for (stand in shown.stands) {
+                    val spot = tile(stand.x, stand.y)
+                    paint.style = Paint.Style.FILL
+                    paint.color = Color.WHITE
+                    drawRect(spot, paint)
+                    paint.style = Paint.Style.STROKE
+                    paint.strokeWidth = 0.8f
+                    paint.color = Color.BLACK
+                    drawRect(spot, paint)
+                }
+
+                paint.style = Paint.Style.FILL
+                paint.color = colourOf(shown.form)
+                drawCircle(shown.spot.x, shown.spot.y, 7.5f, paint)
+                paint.style = Paint.Style.STROKE
+                paint.strokeWidth = 1.4f
+                paint.color = RING
+                drawCircle(shown.spot.x, shown.spot.y, 7.5f, paint)
+            }
+
+            // the prayer icons stay upright in the corners however the map is turned
+            shown.prayers.forEachIndexed { i, pray ->
+                val x = if (i == 0) 2f else MAP_SIZE - ICON_SIZE - 2f
+                canvas.save()
+                canvas.translate(x, 2f)
+                canvas.scale(ICON_SIZE / 24f, ICON_SIZE / 24f)
+                if (pray == ZulrahFight.Pray.MAGIC) magicIcon(canvas) else missilesIcon(canvas)
+                canvas.restore()
+            }
+            canvas.restore()
+        }
+
+        // Shapes on a 24 x 24 grid, pointing up and to the right like the game's icons
+        // A ball of magic flying down to the bottom left: a round glowing head with a tail that fades to the top right
+        private fun comet(x: Float, y: Float, r: Float, tipX: Float, tipY: Float) = Path().apply {
+            addCircle(x, y, r, Path.Direction.CW)
+            op(Path().apply {
+                moveTo(tipX, tipY); lineTo(x + r * 0.707f, y + r * 0.707f); lineTo(x - r * 0.707f, y - r * 0.707f); close()
+            }, Path.Op.UNION)
+        }
+        private val bolt = comet(7.4f, 16.6f, 5.4f, 19.6f, 4.4f)
+        private val boltInside = comet(7.6f, 16.4f, 3.6f, 15.4f, 8.6f)
+        private val arrowHead = Path().apply {     // a small head at the top right, with two barbs
+            moveTo(21.8f, 2.2f); lineTo(20.6f, 9.6f); lineTo(17.6f, 8.2f); lineTo(15.8f, 6.4f); lineTo(14.4f, 3.4f); close()
+        }
+        private val arrowHeadShade = Path().apply {
+            moveTo(21.8f, 2.2f); lineTo(20.6f, 9.6f); lineTo(17.6f, 8.2f); close()
+        }
+
+        private fun outlined(canvas: Canvas, path: Path, fill: Int) {
             paint.style = Paint.Style.STROKE
+            paint.strokeWidth = 3.4f
+            paint.color = ICON_EDGE
+            canvas.drawPath(path, paint)
+            paint.strokeWidth = 1.6f
+            paint.color = ICON_RIM
+            canvas.drawPath(path, paint)
+            paint.style = Paint.Style.FILL
+            paint.color = fill
+            canvas.drawPath(path, paint)
+        }
+
+        private fun magicIcon(canvas: Canvas) {
+            outlined(canvas, bolt, BOLT_OUTER)
+            paint.style = Paint.Style.FILL
+            paint.color = BOLT_INNER
+            canvas.drawPath(boltInside, paint)
+            paint.color = BOLT_CORE                               // the bright middle of the ball
+            canvas.drawCircle(7.8f, 16.2f, 2f, paint)
+            // two sparks trailing behind it
+            paint.style = Paint.Style.STROKE
+            paint.strokeWidth = 2.6f
+            paint.color = ICON_EDGE
+            canvas.drawPoint(21.2f, 2.8f, paint)
+            canvas.drawPoint(15.6f, 3.4f, paint)
+            paint.style = Paint.Style.FILL
+            paint.color = BOLT_INNER
+            canvas.drawCircle(21.2f, 2.8f, 1f, paint)
+            canvas.drawCircle(15.6f, 3.4f, 0.9f, paint)
+        }
+
+        private fun missilesIcon(canvas: Canvas) {
+            // the shaft: a dark stick with a purple rim, from the nock at the bottom left to the head
+            paint.style = Paint.Style.STROKE
+            paint.strokeWidth = 6.4f
+            paint.color = ICON_EDGE
+            canvas.drawLine(4.2f, 19.8f, 17f, 7f, paint)
+            paint.strokeWidth = 4.6f
+            paint.color = ICON_RIM
+            canvas.drawLine(4.2f, 19.8f, 17f, 7f, paint)
             paint.strokeWidth = 2f
-            paint.strokeCap = Paint.Cap.SQUARE
-            paint.color = Color.WHITE
-            for (s in ph.stands) {
-                val cx = FLOOR_X + s.x
-                val cy = FLOOR_Y + s.y
-                canvas.drawLine(cx - 3.5f, cy - 3f, cx + 2.5f, cy + 3f, paint)
-                canvas.drawLine(cx - 3.5f, cy + 3f, cx + 2.5f, cy - 3f, paint)
-            }
-
-            val zx = FLOOR_X + ph.spot.x + 0.5f
-            val zy = FLOOR_Y + ph.spot.y + 0.5f
+            paint.color = SHAFT
+            canvas.drawLine(4.2f, 19.8f, 17f, 7f, paint)
+            // the nock, a small brown square at the end
             paint.style = Paint.Style.FILL
-            paint.color = ph.form.color
-            canvas.drawCircle(zx, zy, 6.5f, paint)
-            paint.style = Paint.Style.STROKE
-            paint.strokeWidth = 1f
-            paint.color = ZULRAH_BORDER
-            canvas.drawCircle(zx, zy, 6.5f, paint)
-            canvas.restore()
-
-            // Prayer icons in the top corners (second one is for the Jad phase swap)
-            ph.prayers.forEachIndexed { i, pray ->
-                val img = if (pray == Pray.MAGIC) magicImg else missilesImg
-                val x = if (i == 1) CARD - img.width - PAD else PAD
-                canvas.drawBitmap(img, x, PAD, pixelPaint)
-            }
-
-            paint.style = Paint.Style.STROKE
-            paint.strokeWidth = 1.5f
-            paint.color = border
-            canvas.drawRect(0.75f, 0.75f, CARD - 0.75f, CARD - 0.75f, paint)
-            canvas.restore()
+            paint.color = NOCK
+            canvas.drawRect(2.6f, 19.2f, 5.0f, 21.6f, paint)
+            outlined(canvas, arrowHead, HEAD)
+            paint.style = Paint.Style.FILL
+            paint.color = HEAD_SHADE
+            canvas.drawPath(arrowHeadShade, paint)
         }
-
     }
 }

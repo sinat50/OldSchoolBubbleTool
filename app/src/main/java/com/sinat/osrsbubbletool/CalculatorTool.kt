@@ -1,21 +1,11 @@
 package com.sinat.osrsbubbletool
 
 import android.content.Context
-import android.graphics.Color
-import android.graphics.Typeface
-import android.graphics.drawable.GradientDrawable
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.sinat.osrsbubbletool.Palette.BUTTON_BROWN
-import com.sinat.osrsbubbletool.Palette.DARK_BROWN
-import com.sinat.osrsbubbletool.Palette.FADED
-import com.sinat.osrsbubbletool.Palette.GO_GREEN
-import com.sinat.osrsbubbletool.Palette.PARCHMENT
-import com.sinat.osrsbubbletool.Palette.RED
-import com.sinat.osrsbubbletool.Palette.SELECTED_BROWN
 import java.math.BigDecimal
 import java.math.MathContext
 import java.math.RoundingMode
@@ -25,6 +15,8 @@ import java.text.DecimalFormat
 // What you typed is kept while the bubble is running.
 class CalculatorTool(private val context: Context) {
 
+    private val ui = Ui(context)
+
     private var expression = ""      // what's been typed, e.g. "1.5m*3"
     private var lastSum = ""         // the previous calculation, shown small above
     private var justAnswered = false // after =, a digit starts fresh and an operator carries on from the answer
@@ -33,69 +25,109 @@ class CalculatorTool(private val context: Context) {
     private lateinit var expressionView: TextView
     private lateinit var resultView: TextView
 
-    private fun dp(v: Int) = (v * context.resources.displayMetrics.density).toInt()
+    private fun dp(v: Int) = ui.dp(v)
 
-    // Scrolls if a phone's window is too short to fit it all
-    fun buildView(): View = android.widget.ScrollView(context).apply {
-        setBackgroundColor(PARCHMENT)
-        addView(keypad())
-    }
+    private lateinit var displayCard: LinearLayout
+    private val keys = mutableListOf<TextView>()
 
-    private fun keypad(): View = LinearLayout(context).apply {
+    // The whole calculator always fits its window: when the window's height changes, the display and the keys both
+    // grow or shrink to share it, so no key is ever cut off
+    fun buildView(): View = object : LinearLayout(context) {
+        override fun onSizeChanged(w: Int, h: Int, oldW: Int, oldH: Int) {
+            super.onSizeChanged(w, h, oldW, oldH)
+            if (h != oldH) post { fitTo(h - paddingTop - paddingBottom) }
+        }
+    }.apply {
         orientation = LinearLayout.VERTICAL
-        setBackgroundColor(PARCHMENT)
+        setBackgroundColor(Palette.SURFACE)
         setPadding(dp(4), dp(4), dp(4), dp(4))
 
         // The display: the sum (with the previous one small above it) and the answer
-        addView(LinearLayout(context).apply {
-            orientation = LinearLayout.VERTICAL
-            setPadding(dp(6), dp(1), dp(6), dp(2))
-            background = GradientDrawable().apply {
-                setColor(Palette.PAPER); setStroke(dp(1), BUTTON_BROWN); cornerRadius = dp(6).toFloat()
-            }
-            sumView = text(9f, FADED)
-            expressionView = text(13f, DARK_BROWN)
-            resultView = text(17f, DARK_BROWN).apply { setTypeface(typeface, Typeface.BOLD) }
+        displayCard = ui.card {
+            setPadding(dp(10), dp(2), dp(10), dp(2))
+            gravity = Gravity.CENTER_VERTICAL
+            sumView = text(12f, Palette.MUTED)
+            expressionView = text(14f, Palette.TEXT)
+            resultView = text(18f, Palette.TEXT, 700)
             addView(sumView); addView(expressionView); addView(resultView)
-        }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+        }
+        addView(displayCard, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
+            bottomMargin = dp(2)
+        })
 
-        // The keys
+        // The keys: five rows that share the rest of the window's height equally ("=" is two keys wide)
         val rows = listOf(
-            listOf("C", "⌫", "(", ")"),
-            listOf("7", "8", "9", "÷"),
-            listOf("4", "5", "6", "×"),
-            listOf("1", "2", "3", "−"),
-            listOf("0", ".", "=", "+"),
-            listOf("k", "m", "b", "00")
+            listOf("C", "⌫", "(", ")", "k"),
+            listOf("7", "8", "9", "÷", "m"),
+            listOf("4", "5", "6", "×", "b"),
+            listOf("1", "2", "3", "−", "00"),
+            listOf("0", ".", "=", "+")
         )
         for (row in rows) {
             addView(LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
-                for (k in row) addView(key(k), LinearLayout.LayoutParams(0, dp(34), 1f).apply { setMargins(dp(2), dp(2), dp(2), dp(2)) })
-            }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+                for (k in row) addView(key(k).also { keys.add(it) },
+                    LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, if (k == "=") 2f else 1f).apply { setMargins(dp(1), dp(1), dp(1), dp(1)) })
+            }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
         }
         refresh()
     }
 
-    private fun text(size: Float, color: Int) = TextView(context).apply {
-        textSize = size
-        setTextColor(color)
+    // Shares out `height` pixels between the display and the keys, and sizes the writing to fit. A tall display shows
+    // the last sum, what you typed and the answer; a shorter one drops the last sum; a very short one puts what you
+    // typed and the answer side by side on one line.
+    private fun fitTo(height: Int) {
+        val displayHeight = (height * 0.24f).toInt().coerceIn(dp(26), dp(84))
+        val roomInside = displayHeight - dp(4)
+        val keyHeight = (height - displayHeight - dp(2)) / 5 - dp(2)
+
+        val oneLine = displayHeight < dp(42)
+        sumView.visibility = if (displayHeight >= dp(66)) View.VISIBLE else View.GONE
+        displayCard.orientation = if (oneLine) LinearLayout.HORIZONTAL else LinearLayout.VERTICAL
+        expressionView.layoutParams = if (oneLine) LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
+            else LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        resultView.layoutParams = if (oneLine) LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = dp(8) }
+            else LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+        when {
+            oneLine -> { writing(expressionView, 14f, roomInside * 0.7f); writing(resultView, 14f, roomInside * 0.7f) }
+            sumView.visibility == View.VISIBLE -> { writing(sumView, 12f, roomInside * 0.24f); writing(expressionView, 14f, roomInside * 0.28f); writing(resultView, 18f, roomInside * 0.36f) }
+            else -> { writing(expressionView, 14f, roomInside * 0.36f); writing(resultView, 18f, roomInside * 0.46f) }
+        }
+        keys.forEach { writing(it, 15f, keyHeight * 0.5f) }
+
+        displayCard.layoutParams = (displayCard.layoutParams as LinearLayout.LayoutParams).apply { this.height = displayHeight }
+    }
+
+    // Writing at its normal size, or smaller if it has less than that much height (in pixels) to fit in
+    private fun writing(view: TextView, normalSp: Float, mostPixels: Float) {
+        val normal = android.util.TypedValue.applyDimension(android.util.TypedValue.COMPLEX_UNIT_SP, normalSp, context.resources.displayMetrics)
+        view.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, minOf(normal, mostPixels))
+    }
+
+    private fun text(size: Float, color: Int, weight: Int = 400) = ui.text("", size, color, weight).apply {
         gravity = Gravity.END
         maxLines = 1
+        includeFontPadding = false
         ellipsize = android.text.TextUtils.TruncateAt.START   // a long sum shows its end
     }
 
-    private fun key(k: String) = TextView(context).apply {
-        text = k
-        textSize = 15f
-        setTextColor(Color.WHITE)
-        gravity = Gravity.CENTER
-        setTypeface(typeface, Typeface.BOLD)
-        background = GradientDrawable().apply {
-            setColor(when (k) { "=" -> GO_GREEN; "C" -> RED; "÷", "×", "−", "+", "(", ")", "⌫" -> SELECTED_BROWN; else -> BUTTON_BROWN })
-            cornerRadius = dp(6).toFloat()
+    // One key. "=" is the gold main key, C is in the stop-and-clear colour, and the maths signs are in gold writing.
+    private fun key(k: String): TextView {
+        val colour = when (k) {
+            "=" -> Palette.ON_GOLD
+            "C" -> Palette.BAD
+            "÷", "×", "−", "+", "(", ")", "⌫" -> Palette.ACCENT
+            else -> Palette.TEXT
         }
-        setOnClickListener { press(k) }
+        // (the rub-out key is still called "⌫" in the workings below; it just says Del on screen)
+        return ui.text(if (k == "⌫") "Del" else k, 15f, colour, 600).apply {
+            gravity = Gravity.CENTER
+            includeFontPadding = false
+            contentDescription = when (k) { "⌫" -> "Delete"; "C" -> "Clear"; else -> k }
+            ui.press(this, if (k == "=") Palette.GOLD else Palette.RAISED, 8)
+            setOnClickListener { press(k) }
+        }
     }
 
     // ---------------- Keys ----------------

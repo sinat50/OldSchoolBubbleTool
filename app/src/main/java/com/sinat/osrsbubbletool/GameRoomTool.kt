@@ -19,16 +19,9 @@ import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.edit
+import androidx.core.graphics.ColorUtils
 import androidx.core.graphics.toColorInt
 import androidx.core.view.isNotEmpty
-import com.sinat.osrsbubbletool.Palette.BUTTON_BROWN
-import com.sinat.osrsbubbletool.Palette.DARK_BROWN
-import com.sinat.osrsbubbletool.Palette.FADED
-import com.sinat.osrsbubbletool.Palette.GO_GREEN
-import com.sinat.osrsbubbletool.Palette.PAPER
-import com.sinat.osrsbubbletool.Palette.PARCHMENT
-import com.sinat.osrsbubbletool.Palette.RED
-import com.sinat.osrsbubbletool.Palette.ROW_BROWN
 import chess.Move
 import chess.Piece
 import java.io.File
@@ -112,7 +105,12 @@ class GameRoomTool(
 
     private enum class Screen { MENU, G2048, FLYER, SAND, CHESS }
 
+    private val ui = Ui(context)
     private val prefs = context.getSharedPreferences("game_room", Context.MODE_PRIVATE)
+
+    // The Zen Garden's and chess's own round buttons sit on the game's wooden frame, so they keep these colours
+    private val frameGreen get() = (if (Palette.dark) "#3F7F33" else "#2F6B34").toColorInt()
+    private val frameRed get() = (if (Palette.dark) "#B5473A" else "#A32D25").toColorInt()
 
     private var screen = Screen.MENU
     private lateinit var holder: FrameLayout
@@ -123,10 +121,10 @@ class GameRoomTool(
         try { File(context.filesDir, "game_room").takeIf { it.exists() }?.deleteRecursively() } catch (e: Exception) { }
     }
 
-    private fun dp(v: Int) = (v * context.resources.displayMetrics.density).toInt()
+    private fun dp(v: Int) = ui.dp(v)
 
     fun buildView(): View {
-        holder = FrameLayout(context).apply { setBackgroundColor(PARCHMENT) }
+        holder = FrameLayout(context).apply { setBackgroundColor(Palette.SURFACE) }
         show()
         return holder
     }
@@ -181,8 +179,7 @@ class GameRoomTool(
     // ---------------- The menu ----------------
 
     private fun menu(): View = scrolling {
-        addView(label("Game Room", 16f, bold = true), full())
-        addView(label("Something to play while you wait.", 11f).apply { setTextColor(FADED) }, full(1))
+        addView(ui.note("Something to play while you wait."), full(1))
         // the games, two to a row
         val games = listOf(
             Triple(GameIcon.G2048, "2048", "Join the tiles, reach 2048") to { open(Screen.G2048) },
@@ -206,10 +203,10 @@ class GameRoomTool(
         orientation = LinearLayout.VERTICAL
         gravity = Gravity.CENTER_HORIZONTAL
         setPadding(dp(6), dp(10), dp(6), dp(10))
-        background = GradientDrawable().apply { setColor(ROW_BROWN); cornerRadius = dp(8).toFloat() }
+        ui.press(this, Palette.BG, 8)
         addView(GameIcon(context, icon), LinearLayout.LayoutParams(dp(48), dp(48)))
-        addView(label(name, 12f, bold = true).apply { gravity = Gravity.CENTER }, full(6))
-        addView(label(about, 10f).apply { gravity = Gravity.CENTER; setTextColor(FADED) }, full(2))
+        addView(label(name, 13f, bold = true).apply { gravity = Gravity.CENTER }, full(6))
+        addView(ui.note(about).apply { gravity = Gravity.CENTER }, full(2))
         setOnClickListener { onClick() }
     }
 
@@ -232,27 +229,20 @@ class GameRoomTool(
     }
 
     // Not scrolling: swipes are for the tiles. The board shrinks to fit whatever space is left.
+    // (the small gaps above and below make up for the taller buttons, so the board has as much room as before)
     private fun game2048(): View = LinearLayout(context).apply {
         orientation = LinearLayout.VERTICAL
-        setPadding(dp(8), dp(8), dp(8), dp(8))
+        setPadding(dp(8), dp(2), dp(8), dp(6))
         val game = g2048
 
-        fun box(title: String) = LinearLayout(context).apply {
-            orientation = LinearLayout.VERTICAL
-            gravity = Gravity.CENTER
-            setPadding(dp(8), dp(2), dp(8), dp(3))
-            background = GradientDrawable().apply { setColor(BUTTON_BROWN); cornerRadius = dp(5).toFloat() }
-            addView(label(title, 9f).apply { setTextColor("#F2E3C0".toColorInt()); gravity = Gravity.CENTER })
-            addView(label("", 13f, bold = true).apply { setTextColor(Color.WHITE); gravity = Gravity.CENTER })
-        }
-        val scoreBox = box("SCORE")
-        val bestBox = box("BEST")
+        val scoreBox = scoreCard("SCORE")
+        val bestBox = scoreCard("BEST")
         lateinit var board: Game2048View
         val over = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
             gravity = Gravity.CENTER
             isClickable = true   // swipes don't reach the board while it's covered
-            background = GradientDrawable().apply { setColor("#CCF2E3C0".toColorInt()); cornerRadius = dp(8).toFloat() }
+            background = GradientDrawable().apply { setColor(ColorUtils.setAlphaComponent(Palette.SURFACE, 0xE6)); cornerRadius = dp(8).toFloat() }
         }
 
         fun update() {
@@ -267,13 +257,13 @@ class GameRoomTool(
             if (lost) {
                 over.addView(label("No more moves!", 16f, bold = true).apply { gravity = Gravity.CENTER })
                 over.addView(label("Score: " + "%,d".format(game.score), 12f).apply { gravity = Gravity.CENTER }, full(2))
-                over.addView(button("Try again", GO_GREEN) {
+                over.addView(button("Try again", Ui.ButtonStyle.GOLD) {
                     game.newGame(); prefs.edit { putBoolean("g2048_won_seen", false) }
                     save2048(); board.refresh(); update()
                 }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(8) })
             } else if (won) {
-                over.addView(label("You made 2048!", 16f, bold = true).apply { gravity = Gravity.CENTER; setTextColor("#9C6A10".toColorInt()) })
-                over.addView(button("Keep going", GO_GREEN) {
+                over.addView(label("You made 2048!", 16f, bold = true).apply { gravity = Gravity.CENTER; setTextColor(Palette.ACCENT) })
+                over.addView(button("Keep going", Ui.ButtonStyle.GOLD) {
                     prefs.edit { putBoolean("g2048_won_seen", true) }; update()
                 }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(8) })
             }
@@ -285,22 +275,22 @@ class GameRoomTool(
         addView(LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            addView(label("2048", 18f, bold = true).apply { setTextColor("#C8900E".toColorInt()) })
-            addView(helpButton("2048", help2048), LinearLayout.LayoutParams(dp(22), dp(22)).apply { leftMargin = dp(5) })
-            addView(View(context), LinearLayout.LayoutParams(0, 1, 1f))
+            // (the title gives way first in a narrow window, so the buttons and scores always fit)
+            addView(ui.oneLine(ui.text("2048", 18f, Palette.ACCENT, 700)), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+            addView(helpButton("2048", help2048), LinearLayout.LayoutParams(dp(Ui.TAP_SIZE), dp(Ui.TAP_SIZE)).apply { rightMargin = dp(4) })
             addView(scoreBox, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = dp(4) })
             addView(bestBox, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = dp(4) })
-            addView(button("New", RED) {
+            addView(button("New", Ui.ButtonStyle.DANGER) {
                 game.newGame(); prefs.edit { putBoolean("g2048_won_seen", false) }
                 save2048(); board.refresh(); update()
-            }.apply { textSize = 11f; setPadding(dp(8), dp(6), dp(8), dp(6)) })
+            }.apply { setPadding(dp(8), 0, dp(8), 0) })
         }, full())
 
         // The board, centred, with the covers on top of it
         addView(FrameLayout(context).apply {
             addView(board, FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER))
             addView(over, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
-        }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f).apply { topMargin = dp(4) })
+        }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f).apply { topMargin = dp(2) })
         update()
     }
 
@@ -309,19 +299,12 @@ class GameRoomTool(
     private var flyerView: FlyerView? = null
 
     // Not scrolling: taps are for the bird. The game fills whatever space the window has.
+    // (the small gaps above and below make up for the taller help button, so the game has as much room as before)
     private fun flyer(): View = LinearLayout(context).apply {
         orientation = LinearLayout.VERTICAL
-        setPadding(dp(8), dp(8), dp(8), dp(8))
-        fun box(title: String) = LinearLayout(context).apply {
-            orientation = LinearLayout.VERTICAL
-            gravity = Gravity.CENTER
-            setPadding(dp(8), dp(2), dp(8), dp(3))
-            background = GradientDrawable().apply { setColor(BUTTON_BROWN); cornerRadius = dp(5).toFloat() }
-            addView(label(title, 9f).apply { setTextColor("#F2E3C0".toColorInt()); gravity = Gravity.CENTER })
-            addView(label("", 13f, bold = true).apply { setTextColor(Color.WHITE); gravity = Gravity.CENTER })
-        }
-        val scoreBox = box("SCORE")
-        val bestBox = box("BEST")
+        setPadding(dp(8), dp(2), dp(8), dp(8))
+        val scoreBox = scoreCard("SCORE")
+        val bestBox = scoreCard("BEST")
         fun showScores(score: Int) {
             (scoreBox.getChildAt(1) as TextView).text = score.toString()
             (bestBox.getChildAt(1) as TextView).text = prefs.getInt("flyer_best", 0).toString()
@@ -329,9 +312,9 @@ class GameRoomTool(
         addView(LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            addView(label("Wing It", 17f, bold = true).apply { setTextColor("#C8900E".toColorInt()) })
-            addView(helpButton("Wing It", helpFlyer), LinearLayout.LayoutParams(dp(22), dp(22)).apply { leftMargin = dp(5) })
-            addView(View(context), LinearLayout.LayoutParams(0, 1, 1f))
+            // (the title gives way first in a narrow window, so the button and scores always fit)
+            addView(ui.oneLine(ui.text("Wing It", 17f, Palette.ACCENT, 700)), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+            addView(helpButton("Wing It", helpFlyer), LinearLayout.LayoutParams(dp(Ui.TAP_SIZE), dp(Ui.TAP_SIZE)).apply { rightMargin = dp(4) })
             addView(scoreBox, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = dp(4) })
             addView(bestBox)
         }, full())
@@ -341,7 +324,7 @@ class GameRoomTool(
         }
         flyerView = game
         showScores(0)
-        addView(game, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f).apply { topMargin = dp(6) })
+        addView(game, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f).apply { topMargin = dp(2) })
     }
 
     // ---------------- Zen Garden ----------------
@@ -384,7 +367,7 @@ class GameRoomTool(
             gravity = Gravity.CENTER_VERTICAL
             setPadding(dp(10), dp(4), dp(10), dp(4))
             background = GradientDrawable().apply { setColor(iconBack); cornerRadius = dp(18).toFloat() }
-            addView(label(left, 10f).apply { setTextColor(Color.WHITE) })
+            addView(label(left, 12f).apply { setTextColor(Color.WHITE) })
             addView(SeekBar(context).apply {
                 max = 100
                 progress = value
@@ -396,7 +379,7 @@ class GameRoomTool(
                     override fun onStopTrackingTouch(bar: SeekBar) { done(bar.progress) }
                 })
             }, LinearLayout.LayoutParams(dp(170), ViewGroup.LayoutParams.WRAP_CONTENT))
-            addView(label(right, 10f).apply { setTextColor(Color.WHITE) })
+            addView(label(right, 12f).apply { setTextColor(Color.WHITE) })
         }
         fun toggleSlider(make: () -> View) {
             val was = openSlider
@@ -435,7 +418,7 @@ class GameRoomTool(
             text = "Automatic"
             textSize = 12f
             setTextColor(Color.WHITE)
-            setTypeface(typeface, Typeface.BOLD)
+            typeface = ui.font(700)
             gravity = Gravity.CENTER
             setPadding(dp(12), 0, dp(12), 0)
             background = autoBack
@@ -460,7 +443,7 @@ class GameRoomTool(
             addView(icon(ZenIcon.HELP) { showHelp("Zen Garden", helpSand) })
         }
         // the name of the pattern Auto is raking, above the icons
-        val pattern = label("", 11f).apply {
+        val pattern = label("", 12f).apply {
             setTextColor(Color.WHITE)
             setShadowLayer(dp(2).toFloat(), 0f, 0f, Color.BLACK)
             visibility = View.GONE
@@ -469,7 +452,7 @@ class GameRoomTool(
             raking = name
             pattern.text = name ?: ""
             pattern.visibility = if (name == null) View.GONE else View.VISIBLE
-            autoBack.setColor(if (name == null) iconBack else GO_GREEN)
+            autoBack.setColor(if (name == null) iconBack else frameGreen)
         }
         val dock = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
@@ -492,9 +475,9 @@ class GameRoomTool(
     // Automatic's list of patterns (hold the button): tap one to rake it now; afterwards it carries on in its random
     // order. Grouped as in the help: rows and weaves, spirals, ripples and rain, then the circles and curves.
     private fun choosePattern(garden: SandGardenView) = showCard("Patterns") { close ->
-        addView(label("Tap one to rake it now; afterwards Automatic carries on in a random order.", 11f).apply { setTextColor(FADED) }, full(6))
-        // (green marks only the pattern being raked now, so nothing is green while Automatic is off)
-        addView(button("Random order", BUTTON_BROWN) {
+        addView(ui.note("Tap one to rake it now; afterwards Automatic carries on in a random order."), full(6))
+        // (gold marks only the pattern being raked now, so nothing is gold while Automatic is off)
+        addView(button("Random order") {
             if (!garden.autoOn) garden.setAuto(true)
             close()
         }.apply { textSize = 12f }, full(6))
@@ -510,7 +493,7 @@ class GameRoomTool(
                     val name = names.getOrNull(start + k)
                     val lp = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { rightMargin = dp(4) }
                     if (name == null) { addView(View(context), lp); continue }
-                    addView(button(name, if (name == raking) GO_GREEN else BUTTON_BROWN) {
+                    addView(button(name, pickStyle(name == raking)) {
                         garden.rakePattern(SandGardenView.AUTO_PATTERNS.indexOf(name))
                         close()
                     }.apply { textSize = 12f }, lp)
@@ -524,18 +507,18 @@ class GameRoomTool(
         val names = SandGardenView.TOOL_NAMES
         fun row(tools: IntRange) = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
-            for (t in tools) addView(button(names[t], if (t == garden.tool) GO_GREEN else BUTTON_BROWN) {
+            for (t in tools) addView(button(names[t], pickStyle(t == garden.tool)) {
                 garden.tool = t
                 prefs.edit { putInt("sand_tool", t) }
                 picked()
                 close()
             }.apply { textSize = 12f }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { rightMargin = dp(4) })
         }
-        addView(label("Draw in the sand", 11f).apply { setTextColor(FADED) }, full(6))
+        addView(ui.note("Draw in the sand"), full(6))
         addView(row(SandGardenView.RAKE..SandGardenView.BRUSH), full(3))
-        addView(label("Place (tap the sand; tap one again to take it away)", 11f).apply { setTextColor(FADED) }, full(8))
+        addView(ui.note("Place (tap the sand; tap one again to take it away)"), full(8))
         addView(row(SandGardenView.STONE..SandGardenView.BONSAI), full(3))
-        addView(label("Let out (tap the sand; tap one to let it fly away)", 11f).apply { setTextColor(FADED) }, full(8))
+        addView(ui.note("Let out (tap the sand; tap one to let it fly away)"), full(8))
         addView(row(SandGardenView.FIREFLY..SandGardenView.FIREFLY), full(3))
     }
 
@@ -550,40 +533,53 @@ class GameRoomTool(
         addView(LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            addView(label("Sand", 12f), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-            val swatches = ArrayList<View>()
-            fun mark() = swatches.forEachIndexed { i, v ->
-                (v.background as GradientDrawable).setStroke(if (i == garden.sand) dp(3) else dp(1), if (i == garden.sand) DARK_BROWN else FADED)
+            addView(label("Sand", 13f))
+            // Each sand's colour on a square of its own: a fixed mid brown, as white and black sand must both show on
+            // it in light and dark mode. The picked one is gold, with a tick.
+            val swatchBack = "#7D6C5B".toColorInt()
+            val cells = ArrayList<FrameLayout>()
+            val ticks = ArrayList<View>()
+            fun mark() = cells.forEachIndexed { i, cell ->
+                val on = i == garden.sand
+                ui.press(cell, if (on) Palette.GOLD else swatchBack, 8)
+                cell.isSelected = on
+                ticks[i].visibility = if (on) View.VISIBLE else View.GONE
             }
             SandGardenView.SANDS.forEachIndexed { i, colours ->
-                val v = View(context).apply {
+                val tick = ui.icon("check", if (ColorUtils.calculateLuminance(colours[1]) < 0.3) Color.WHITE else Palette.ON_GOLD, 18)
+                val cell = FrameLayout(context).apply {
                     contentDescription = SandGardenView.SAND_NAMES[i]
-                    background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(colours[1]) }
+                    addView(View(context).apply {
+                        background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(colours[1]) }
+                    }, FrameLayout.LayoutParams(dp(30), dp(30), Gravity.CENTER))
+                    addView(tick, FrameLayout.LayoutParams(dp(18), dp(18), Gravity.CENTER))
                     setOnClickListener {
                         garden.sand = i
                         prefs.edit { putInt("sand_colour", i) }
                         mark()
                     }
                 }
-                swatches.add(v)
-                addView(v, LinearLayout.LayoutParams(dp(30), dp(30)).apply { leftMargin = dp(6) })
+                cells.add(cell)
+                ticks.add(tick)
+                addView(cell, LinearLayout.LayoutParams(0, dp(Ui.TAP_SIZE), 1f).apply { leftMargin = dp(4) })
             }
             mark()
         }, full(8))
-        addView(button("Clear placed things", RED) { garden.clearItems(); close() }, full(10))
+        addView(button("Clear placed things", Ui.ButtonStyle.DANGER) { garden.clearItems(); close() }, full(10))
         addView(button("Save picture to phone") { saveGardenPicture(garden) }, full(6))
-        addView(button("Done", GO_GREEN) { close() }, full(6))
+        addView(button("Done", Ui.ButtonStyle.GOLD) { close() }, full(6))
     }
 
     // A setting with an On/Off button, remembered in the Game Room's settings
     private fun toggleRow(text: String, key: String, default: Boolean, apply: (Boolean) -> Unit) = LinearLayout(context).apply {
         orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
-        addView(label(text, 12f), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-        val b = button("") {}.apply { textSize = 11f; setPadding(dp(8), dp(5), dp(8), dp(5)) }
+        addView(label(text, 13f), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+        val b = button("") {}.apply { setPadding(dp(8), 0, dp(8), 0) }
         fun show(on: Boolean) {
             b.text = if (on) "On" else "Off"
-            (b.background as GradientDrawable).setColor(if (on) GO_GREEN else BUTTON_BROWN)
+            b.setTextColor(if (on) Palette.ON_GOLD else Palette.TEXT)
+            ui.press(b, if (on) Palette.GOLD else Palette.RAISED, 8)
         }
         show(prefs.getBoolean(key, default))
         b.setOnClickListener {
@@ -693,7 +689,7 @@ class GameRoomTool(
             this.text = text
             textSize = 12f
             setTextColor(Color.WHITE)
-            setTypeface(typeface, Typeface.BOLD)
+            typeface = ui.font(700)
             gravity = Gravity.CENTER
             setPadding(dp(12), 0, dp(12), 0)
             background = GradientDrawable().apply { setColor(color); cornerRadius = dp(15).toFloat() }
@@ -767,13 +763,13 @@ class GameRoomTool(
                 if (promotion) {
                     for (kind in listOf(Piece.WQUEEN, Piece.WROOK, Piece.WBISHOP, Piece.WKNIGHT)) {
                         val m = moves.first { Piece.makeWhite(it.promoteTo) == kind }
-                        row(PieceButton(context, m.promoteTo, GO_GREEN).apply {
+                        row(PieceButton(context, m.promoteTo, frameGreen).apply {
                             contentDescription = when (kind) { Piece.WQUEEN -> "Queen"; Piece.WROOK -> "Rook"; Piece.WBISHOP -> "Bishop"; else -> "Knight" }
                             setOnClickListener { play(m) }
                         }, dp(30))
                     }
                 } else {
-                    row(pill("Play", GO_GREEN) { play(moves[0]) })
+                    row(pill("Play", frameGreen) { play(moves[0]) })
                 }
                 row(pill("Cancel") { hideConfirm(); board.clearSelection(); refresh() })
                 confirm.visibility = View.VISIBLE
@@ -799,7 +795,7 @@ class GameRoomTool(
             }
         }
         dock.apply {
-            addView(pill("New game", RED) {
+            addView(pill("New game", frameRed) {
                 newChessGame { stopThinking(); chessVersion++; hideConfirm(); board.clearSelection() }
             }.apply { tag = 0f; layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, size) })
             addView(undo)
@@ -826,11 +822,11 @@ class GameRoomTool(
 
     // New game: which side you play (the level stays as it is: the Level button changes it any time)
     private fun newChessGame(starting: () -> Unit) = showCard("New game") { close ->
-        addView(label("Play as", 11f).apply { setTextColor(FADED) }, full(4))
+        addView(ui.note("Play as"), full(4))
         addView(LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             for ((name, side) in listOf("White" to true, "Black" to false, "Random" to null)) {
-                addView(button(name, BUTTON_BROWN) {
+                addView(button(name) {
                     val white = side ?: (Math.random() < 0.5)
                     starting()
                     prefs.edit { putBoolean("chess_white", white) }
@@ -842,8 +838,7 @@ class GameRoomTool(
                 }.apply { textSize = 12f }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { rightMargin = dp(4) })
             }
         }, full(3))
-        addView(label("Level: ${ChessEngine.LEVELS[chessLevel].name} (the Level button changes it, any time)", 11f)
-            .apply { setTextColor(FADED) }, full(8))
+        addView(ui.note("Level: ${ChessEngine.LEVELS[chessLevel].name} (the Level button changes it, any time)"), full(8))
     }
 
     // How strong the computer plays (it applies from its next move)
@@ -854,12 +849,12 @@ class GameRoomTool(
             addView(LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
-                addView(button(l.name, if (i == chessLevel) GO_GREEN else BUTTON_BROWN) {
+                addView(button(l.name, pickStyle(i == chessLevel)) {
                     prefs.edit { putInt("chess_level", i) }
                     close()
                     changed()
                 }.apply { textSize = 12f }, LinearLayout.LayoutParams(dp(96), ViewGroup.LayoutParams.WRAP_CONTENT))
-                addView(label(about[i], 11f).apply { setTextColor(FADED) },
+                addView(ui.note(about[i]),
                     LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { leftMargin = dp(8) })
             }, full(if (i == 0) 4 else 3))
         }
@@ -869,19 +864,26 @@ class GameRoomTool(
         addView(toggleRow("Confirm each move", "chess_confirm", true) { changed() }, full(6))
         addView(toggleRow("Show where pieces can go", "chess_hints", true) { changed() }, full(4))
         addView(toggleRow("Letters and numbers on the board", "chess_coords", true) { changed() }, full(4))
-        addView(button("Done", GO_GREEN) { close() }, full(10))
+        addView(button("Done", Ui.ButtonStyle.GOLD) { close() }, full(10))
     }
 
     // ---------------- Small building blocks ----------------
 
-    private fun helpButton(title: String, help: String) = TextView(context).apply {
-        text = "?"
-        textSize = 12f
-        setTextColor(Color.WHITE)
+    private fun helpButton(title: String, help: String) = ui.text("?", 15f, Palette.TEXT, 700).apply {
         gravity = Gravity.CENTER
-        setTypeface(typeface, Typeface.BOLD)
-        background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(BUTTON_BROWN) }
+        contentDescription = "How to play"
+        ui.press(this, Palette.RAISED, 8)
         setOnClickListener { showHelp(title, help) }
+    }
+
+    // A score or best score above a game: its name, and the number under it (filled in by the game)
+    private fun scoreCard(title: String) = LinearLayout(context).apply {
+        orientation = LinearLayout.VERTICAL
+        gravity = Gravity.CENTER
+        setPadding(dp(8), dp(2), dp(8), dp(3))
+        background = GradientDrawable().apply { setColor(Palette.RAISED); cornerRadius = dp(8).toFloat() }
+        addView(ui.text(title, 12f, Palette.MUTED, 600).apply { gravity = Gravity.CENTER })
+        addView(ui.text("", 13f, Palette.TEXT, 700).apply { gravity = Gravity.CENTER })
     }
 
     // How to play, as a card on top of the game (so nothing underneath moves)
@@ -891,14 +893,14 @@ class GameRoomTool(
         openHelp = title to help
         showCard("How to play: $title", onClose = { openHelp = null }) { close ->
             addView(label(help, 12f).apply { setLineSpacing(0f, 1.1f) }, full(6))
-            addView(button("Got it", GO_GREEN) { close() }, full(10))
+            addView(button("Got it", Ui.ButtonStyle.GOLD) { close() }, full(10))
         }
     }
 
     // A card on top of the screen; tapping outside it closes it
     private fun showCard(title: String, onClose: () -> Unit = {}, build: LinearLayout.(close: () -> Unit) -> Unit) {
         val cover = FrameLayout(context).apply {
-            setBackgroundColor("#993E2C12".toColorInt())
+            setBackgroundColor(ColorUtils.setAlphaComponent(Palette.BG, 0xCC))
             isClickable = true
         }
         val close: () -> Unit = { onClose(); holder.removeView(cover) }
@@ -907,18 +909,15 @@ class GameRoomTool(
             addView(LinearLayout(context).apply {
                 orientation = LinearLayout.VERTICAL
                 setPadding(dp(12), dp(10), dp(12), dp(10))
-                background = GradientDrawable().apply { setColor(PAPER); setStroke(dp(1), BUTTON_BROWN); cornerRadius = dp(8).toFloat() }
+                background = GradientDrawable().apply { setColor(Palette.SURFACE); cornerRadius = dp(8).toFloat() }
                 isClickable = true   // taps on the card don't close it
-                // the title, with a ✕ in the top right corner to close the card (tapping outside it closes it too)
+                // the title, with a cross in the top right corner to close the card (tapping outside it closes it too)
                 addView(LinearLayout(context).apply {
                     orientation = LinearLayout.HORIZONTAL
                     gravity = Gravity.CENTER_VERTICAL
-                    addView(label(title, 13f, bold = true), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-                    addView(label("✕", 16f, bold = true).apply {
-                        gravity = Gravity.CENTER
-                        contentDescription = "Close"
-                        setOnClickListener { close() }
-                    }, LinearLayout.LayoutParams(dp(36), dp(36)).apply { setMargins(0, -dp(6), -dp(6), 0) })
+                    addView(label(title, 14f, bold = true), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+                    addView(ui.iconButton("close", "Close") { close() },
+                        LinearLayout.LayoutParams(dp(Ui.TAP_SIZE), dp(Ui.TAP_SIZE)).apply { setMargins(0, -dp(8), -dp(8), -dp(8)) })
                 }, full())
                 build(close)
             })
@@ -941,23 +940,15 @@ class GameRoomTool(
     private fun full(top: Int = 0) =
         LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(top) }
 
-    private fun button(text: String, color: Int = BUTTON_BROWN, onClick: () -> Unit) = TextView(context).apply {
-        this.text = text
-        textSize = 13f
-        setTextColor(Color.WHITE)
-        gravity = Gravity.CENTER
-        setPadding(dp(8), dp(8), dp(8), dp(8))
-        setTypeface(typeface, Typeface.BOLD)
-        background = GradientDrawable().apply { setColor(color); cornerRadius = dp(6).toFloat() }
-        setOnClickListener { onClick() }
-    }
+    // (no smallest width: these often share a row three across)
+    private fun button(text: String, style: Ui.ButtonStyle = Ui.ButtonStyle.PLAIN, onClick: () -> Unit) =
+        ui.button(text, style, onClick).apply { minWidth = 0 }
 
-    private fun label(text: String, size: Float, bold: Boolean = false) = TextView(context).apply {
-        this.text = text
-        textSize = size
-        setTextColor(DARK_BROWN)
-        if (bold) setTypeface(typeface, Typeface.BOLD)
-    }
+    // The option that's in use is gold
+    private fun pickStyle(picked: Boolean) = if (picked) Ui.ButtonStyle.GOLD else Ui.ButtonStyle.PLAIN
+
+    private fun label(text: String, size: Float, bold: Boolean = false) =
+        ui.text(text, size, Palette.TEXT, if (bold) 700 else 400)
 }
 
 // The little pictures on the Game Room menu, drawn in code so they're sharp at any size.

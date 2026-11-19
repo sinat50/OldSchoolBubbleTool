@@ -9,8 +9,6 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.edit
-import com.sinat.osrsbubbletool.Palette.GO_GREEN
-import com.sinat.osrsbubbletool.Palette.RED
 
 // Your quests, levels and achievement diary tasks, as read by the Bubble Tool Sync plugin in RuneLite on a PC.
 // The plugin shows them as a QR code (or text to copy); the Bubble Sync tool scans it, and the Quest Helper,
@@ -223,7 +221,7 @@ object SyncBadge {
         setTypeface(typeface, Typeface.BOLD)
         gravity = Gravity.CENTER
         setPadding((8 * d).toInt(), (3 * d).toInt(), (8 * d).toInt(), (3 * d).toInt())
-        background = GradientDrawable().apply { setColor(if (ok) GO_GREEN else RED); cornerRadius = 20 * d }
+        background = GradientDrawable().apply { setColor(if (ok) Palette.TAG_GREEN else Palette.TAG_RED); cornerRadius = 20 * d }
         if (onClick != null) setOnClickListener { onClick() }
     }
 

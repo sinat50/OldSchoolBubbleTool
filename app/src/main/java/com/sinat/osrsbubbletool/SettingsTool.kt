@@ -3,15 +3,12 @@ package com.sinat.osrsbubbletool
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Configuration
-import android.graphics.Color
-import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.ScrollView
-import android.widget.TextView
 import androidx.core.content.edit
 
 // The app's settings, saved on the phone. The bubble watches them (BubbleService.settingsChanged), so a change
@@ -27,6 +24,7 @@ object AppSettings {
     const val VIBRATE = "vibrate"              // a little buzz when the menu opens
     const val WINDOW_WIDTH = "window_width"    // tool windows' width in landscape, in hundredths of an inch
     const val HIDDEN_TOOLS = "hidden_tools"    // tools left out of the menu (their names)
+    const val FAVOURITE_TOOLS = "favourite_tools"  // the menu's favourites, in order (see Favourites)
     const val CHECK_UPDATES = "check_updates"  // look for a newer version when the app opens
     const val WINDOWS_RESET = "windows_reset"  // changed when "Reset windows" is tapped, so the bubble hears of it
     const val OFF = 0
@@ -41,7 +39,7 @@ object AppSettings {
 
     fun prefs(context: Context): SharedPreferences = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
-    fun darkMode(context: Context) = prefs(context).getInt(DARK_MODE, OFF)
+    fun darkMode(context: Context) = prefs(context).getInt(DARK_MODE, MATCH_PHONE)
 
     // Whether the app should be dark right now (with "Match phone", that's whatever the phone is set to)
     fun isDark(context: Context) = when (darkMode(context)) {
@@ -58,28 +56,31 @@ object AppSettings {
     fun vibrates(context: Context) = prefs(context).getBoolean(VIBRATE, true)
     fun windowWidthInches(context: Context) = prefs(context).getInt(WINDOW_WIDTH, 200) / 100f
     fun hiddenTools(context: Context): Set<String> = prefs(context).getStringSet(HIDDEN_TOOLS, emptySet()) ?: emptySet()
+    fun favourites(context: Context) = Favourites.read(prefs(context).getString(FAVOURITE_TOOLS, null))
+    fun setFavourites(context: Context, names: List<String>) = prefs(context).edit { putString(FAVOURITE_TOOLS, Favourites.write(names)) }
     fun checksUpdates(context: Context) = prefs(context).getBoolean(CHECK_UPDATES, true)
 }
 
 // The Settings page: the bubble's Settings window, and the Settings screen in the app. Both show the same
 // settings. onRedraw: the page needs building again (dark mode or the tools' text size changed; in the bubble,
 // the bubble rebuilds its windows on its own).
-class SettingsTool(private val context: Context, private val onRedraw: () -> Unit = {}) {
+// wide: there's room for the tool list in two columns.
+class SettingsTool(private val context: Context, private val wide: Boolean = false, private val onRedraw: () -> Unit = {}) {
 
     companion object {
         private var savedScroll = 0   // where the bubble's Settings window was scrolled to (kept when it's rebuilt)
     }
 
-    private fun dp(v: Int) = (v * context.resources.displayMetrics.density).toInt()
+    private val ui = Ui(context)
+    private fun dp(v: Int) = ui.dp(v)
     private val prefs = AppSettings.prefs(context)
 
     // For the bubble's window: the settings on a scrolling page
     fun buildView(): View = ScrollView(context).apply {
-        setBackgroundColor(Palette.PARCHMENT)
+        setBackgroundColor(Palette.SURFACE)
         addView(LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(8), dp(8), dp(8), dp(12))
-            addView(label("Settings", 16f, bold = true))
+            setPadding(dp(12), 0, dp(12), dp(24))
             addSettings(this)
         })
         val saved = savedScroll   // (not scrollY: in here that would be the page's own)
@@ -135,11 +136,11 @@ class SettingsTool(private val context: Context, private val onRedraw: () -> Uni
             prefs.edit { putInt(AppSettings.WINDOW_WIDTH, it) }
         }, full(4))
         note("For windows you haven't resized yourself.")
-        val reset = button("Reset all window sizes and places", Palette.BUTTON_BROWN) {}
+        val reset = ui.button("Reset all window sizes and places") {}
         reset.setOnClickListener {
             context.getSharedPreferences("window_sizes", Context.MODE_PRIVATE).edit { clear() }
             prefs.edit { putLong(AppSettings.WINDOWS_RESET, System.currentTimeMillis()) }
-            reset.text = "✓ Windows reset"
+            reset.text = "Windows reset"
         }
         addView(reset, full(10))
 
@@ -155,62 +156,78 @@ class SettingsTool(private val context: Context, private val onRedraw: () -> Uni
         note("Asks GitHub for the latest version number. Nothing about you is sent.")
     }
 
-    // The tools, two to a row: green with a tick when they're in the menu, faded when they're not
+    // The tools, ticked when they're in the menu (two columns when there's room)
     private fun toolTicks(): View = LinearLayout(context).apply {
         orientation = LinearLayout.VERTICAL
+        background = GradientDrawable().apply { setColor(Palette.RAISED); cornerRadius = dp(8).toFloat() }
+        clipToOutline = true
         val tools = BubbleService.Tool.entries.filter { it.inMenu }
-        for (pair in tools.chunked(2)) {
+        for (row in tools.chunked(if (wide) 2 else 1)) {
             addView(LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
-                for ((i, tool) in pair.withIndex()) {
-                    val b = button("", Palette.GO_GREEN) {}
-                    fun look() {
-                        val shown = tool.name !in AppSettings.hiddenTools(context)
-                        b.text = (if (shown) "✓ " else "") + tool.label
-                        (b.background as GradientDrawable).setColor(if (shown) Palette.GO_GREEN else Palette.LIGHT_BUTTON)
-                    }
-                    b.setOnClickListener {
-                        val hidden = AppSettings.hiddenTools(context).toMutableSet()
-                        if (!hidden.remove(tool.name)) hidden.add(tool.name)
-                        prefs.edit { putStringSet(AppSettings.HIDDEN_TOOLS, hidden) }
-                        look()
-                    }
-                    b.textSize = 11f
-                    look()
-                    addView(b, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f).apply { if (i > 0) leftMargin = dp(4) })
-                }
-                if (pair.size == 1) addView(View(context), LinearLayout.LayoutParams(0, 1, 1f).apply { leftMargin = dp(4) })
-            }, full(4))
+                for (tool in row) addView(toolTick(tool), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+                if (row.size < (if (wide) 2 else 1)) addView(View(context), LinearLayout.LayoutParams(0, 1, 1f))
+            })
         }
     }
 
-    // A row of buttons to pick one of; the picked one is green
+    private fun toolTick(tool: BubbleService.Tool) = LinearLayout(context).apply {
+        orientation = LinearLayout.HORIZONTAL
+        gravity = Gravity.CENTER_VERTICAL
+        minimumHeight = dp(Ui.TAP_SIZE)
+        setPadding(dp(12), 0, dp(12), 0)
+        ui.press(this, null)
+        addView(ui.icon(tool.icon))
+        addView(ui.oneLine(ui.text(tool.label, 13f, Palette.TEXT, 500)).apply { setPadding(dp(10), 0, dp(6), 0) },
+            LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+        val tick = ui.icon("check", Palette.ACCENT)
+        fun look() {
+            val shown = tool.name !in AppSettings.hiddenTools(context)
+            tick.alpha = if (shown) 1f else 0f
+            contentDescription = tool.label + if (shown) ", in the menu" else ", left out of the menu"
+        }
+        addView(tick)
+        look()
+        setOnClickListener {
+            val hidden = AppSettings.hiddenTools(context).toMutableSet()
+            if (!hidden.remove(tool.name)) hidden.add(tool.name)
+            prefs.edit { putStringSet(AppSettings.HIDDEN_TOOLS, hidden) }
+            look()
+        }
+    }
+
+    // A row of options to pick one of; the picked one is gold
     private fun choices(options: List<Pair<Int, String>>, current: Int, wide: Int? = null, onPick: (Int) -> Unit): View =
         LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
-            val buttons = mutableListOf<TextView>()
-            for ((i, option) in options.withIndex()) {
-                val (value, name) = option
-                val b = button(name, if (value == current) Palette.GO_GREEN else Palette.LIGHT_BUTTON) {}
-                b.setOnClickListener {
-                    for ((j, other) in buttons.withIndex())
-                        (other.background as GradientDrawable).setColor(if (j == i) Palette.GO_GREEN else Palette.LIGHT_BUTTON)
+            background = GradientDrawable().apply { setColor(Palette.RAISED); cornerRadius = dp(8).toFloat() }
+            var picked = current
+            val cells = options.map { (_, name) -> ui.oneLine(ui.text(name, 13f)).apply { gravity = Gravity.CENTER; minHeight = dp(Ui.TAP_SIZE) } }
+            fun look() = options.forEachIndexed { i, (value, _) ->
+                val on = value == picked
+                cells[i].setTextColor(if (on) Palette.ON_GOLD else Palette.TEXT)
+                cells[i].typeface = ui.font(if (on) 700 else 500)
+                ui.press(cells[i], if (on) Palette.GOLD else null, 8)
+            }
+            options.forEachIndexed { i, (value, _) ->
+                cells[i].setOnClickListener {
+                    picked = value
+                    look()
                     onPick(value)
                 }
-                buttons.add(b)
-                addView(b, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, if (value == wide) 1.6f else 1f)
-                    .apply { if (i > 0) leftMargin = dp(4) })
+                addView(cells[i], LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, if (value == wide) 1.6f else 1f))
             }
+            look()
         }
 
     private fun onOff(on: Boolean, onChange: (Boolean) -> Unit) =
         choices(listOf(0 to "Off", 1 to "On"), if (on) 1 else 0) { onChange(it == 1) }
 
-    // − 100% +
+    // − 100% +, side by side
     private fun stepper(get: () -> Int, min: Int, max: Int, onChange: (Int) -> Unit): View = LinearLayout(context).apply {
         orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
-        val sizeText = label("", 15f, bold = true).apply { gravity = Gravity.CENTER }
+        val sizeText = ui.text("", 14f, Palette.TEXT, 600).apply { gravity = Gravity.CENTER }
         fun showSize() {
             val size = get()
             sizeText.text = if (size == AppSettings.TEXT_NORMAL) "$size% (normal)" else "$size%"
@@ -222,41 +239,17 @@ class SettingsTool(private val context: Context, private val onRedraw: () -> Uni
             showSize()
         }
         showSize()
-        addView(button("−", Palette.BUTTON_BROWN) { change(-AppSettings.TEXT_STEP) }.apply { textSize = 18f },
-            LinearLayout.LayoutParams(dp(52), ViewGroup.LayoutParams.WRAP_CONTENT))
-        addView(sizeText, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-        addView(button("+", Palette.BUTTON_BROWN) { change(AppSettings.TEXT_STEP) }.apply { textSize = 18f },
-            LinearLayout.LayoutParams(dp(52), ViewGroup.LayoutParams.WRAP_CONTENT))
+        addView(ui.iconButton("minus", "Smaller", fill = Palette.RAISED) { change(-AppSettings.TEXT_STEP) })
+        addView(sizeText, LinearLayout.LayoutParams(dp(128), ViewGroup.LayoutParams.WRAP_CONTENT))
+        addView(ui.iconButton("plus", "Bigger", fill = Palette.RAISED) { change(AppSettings.TEXT_STEP) })
     }
 
-    private fun LinearLayout.section(title: String) {
-        addView(label(title, 15f, bold = true).apply { setTextColor(Palette.GO_GREEN) }, full(16))
-        addView(View(context).apply { setBackgroundColor(Palette.ROW_BROWN) },
-            LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dp(1)).apply { topMargin = dp(2) })
-    }
+    private fun LinearLayout.section(title: String) = addView(ui.text(title, 12f, Palette.ACCENT, 700), full(20))
 
-    private fun LinearLayout.heading(text: String) = addView(label(text, 13f, bold = true), full(10))
+    private fun LinearLayout.heading(text: String) = addView(ui.text(text, 13f, Palette.TEXT, 600), full(12))
 
-    private fun LinearLayout.note(text: String) = addView(label(text, 11f).apply { setTextColor(Palette.FADED) }, full(4))
+    private fun LinearLayout.note(text: String) = addView(ui.text(text, 12f, Palette.MUTED), full(4))
 
     private fun full(top: Int = 0) =
         LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(top) }
-
-    private fun button(text: String, color: Int, onClick: () -> Unit) = TextView(context).apply {
-        this.text = text
-        textSize = 13f
-        setTextColor(Color.WHITE)
-        gravity = Gravity.CENTER
-        setPadding(dp(6), dp(8), dp(6), dp(8))
-        setTypeface(typeface, Typeface.BOLD)
-        background = GradientDrawable().apply { setColor(color); cornerRadius = dp(6).toFloat() }
-        setOnClickListener { onClick() }
-    }
-
-    private fun label(text: String, size: Float, bold: Boolean = false) = TextView(context).apply {
-        this.text = text
-        textSize = size
-        setTextColor(Palette.DARK_BROWN)
-        if (bold) setTypeface(typeface, Typeface.BOLD)
-    }
 }

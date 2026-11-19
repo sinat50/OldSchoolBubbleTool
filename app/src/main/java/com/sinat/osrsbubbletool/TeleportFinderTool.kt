@@ -1,9 +1,6 @@
 package com.sinat.osrsbubbletool
 
 import android.content.Context
-import android.graphics.Color
-import android.graphics.Typeface
-import android.graphics.drawable.GradientDrawable
 import android.os.Handler
 import android.os.Looper
 import android.text.Editable
@@ -17,16 +14,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.ScrollView
-import android.widget.TextView
 import androidx.core.content.edit
-import com.sinat.osrsbubbletool.Palette.BUTTON_BROWN
-import com.sinat.osrsbubbletool.Palette.DARK_BROWN
-import com.sinat.osrsbubbletool.Palette.FADED
-import com.sinat.osrsbubbletool.Palette.LIGHT_BUTTON
-import com.sinat.osrsbubbletool.Palette.PAPER
-import com.sinat.osrsbubbletool.Palette.PARCHMENT
-import com.sinat.osrsbubbletool.Palette.ROW_BROWN
-import com.sinat.osrsbubbletool.Palette.WARN
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
@@ -43,6 +31,7 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
         private const val RESULTS = 25   // results in the list (it scrolls)
     }
 
+    private val ui = Ui(context)
     private val handler = Handler(Looper.getMainLooper())
     private val work = Executors.newSingleThreadExecutor()
     private var destroyed = false   // set when the tool is closed down (bubble closed, or dark mode/text size changed)
@@ -81,10 +70,10 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
     private var message: String? = null
     private var searchId = 0
 
-    private fun dp(v: Int) = (v * context.resources.displayMetrics.density).toInt()
+    private fun dp(v: Int) = ui.dp(v)
 
     fun buildView(): View {
-        holder = FrameLayout(context).apply { setBackgroundColor(PARCHMENT) }
+        holder = FrameLayout(context).apply { setBackgroundColor(Palette.SURFACE) }
         // The title and search box stay put at the top; the suggestions and results scroll underneath
         holder.addView(LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
@@ -94,20 +83,13 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
                 addView(LinearLayout(context).apply {
                     orientation = LinearLayout.HORIZONTAL
                     gravity = Gravity.CENTER_VERTICAL
-                    addView(label("Teleport Finder (Beta)", 15f, bold = true), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+                    addView(ui.note("Type an NPC, monster or place."), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                     badgeSlot = FrameLayout(context)
                     addView(badgeSlot)
                 }, full())
-                addView(label("Type an NPC, monster or place.", 11f).apply { setTextColor(FADED) }, full(1))
-                field = EditText(context).apply {
-                    setHintTextColor(FADED)
-                    hint = "e.g. Zaff, Barrows, abyssal demon"
-                    textSize = 14f
+                field = ui.textBox("e.g. Zaff, Barrows, abyssal demon").apply {
                     setSingleLine()
                     imeOptions = EditorInfo.IME_ACTION_SEARCH
-                    setTextColor(DARK_BROWN)
-                    setPadding(dp(10), dp(8), dp(10), dp(8))
-                    background = GradientDrawable().apply { setColor(PAPER); setStroke(dp(1), BUTTON_BROWN); cornerRadius = dp(6).toFloat() }
                     setText(query)
                     setOnEditorActionListener { _, _, _ ->
                         // the first suggestion, if it's for what's typed now (not still for an earlier, shorter search)
@@ -140,9 +122,9 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
                     setPadding(dp(8), 0, dp(8), dp(12))
                     results = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL }
                     addView(results, full(2))
-                    addView(label("Places from the OSRS Wiki. Teleports, the walking map and dungeon entrances from the Shortest Path plugin and RuneLite, and obstacles from the Golems Don't Die plugin. " +
+                    addView(ui.note("Places from the OSRS Wiki. Teleports, the walking map and dungeon entrances from the Shortest Path plugin and RuneLite, and obstacles from the Golems Don't Die plugin. " +
                         "Distances are walking routes, counting walls, doors, ladders and cave entrances. With Bubble Sync, " +
-                        "shortcuts you can't use yet are left out.", 9f).apply { setTextColor(FADED) }, full(12))
+                        "shortcuts you can't use yet are left out."), full(12))
                 })
             }
             addView(resultsScroll, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
@@ -311,13 +293,13 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
     private fun refresh() {
         if (!::results.isInitialized) return
         results.removeAllViews()
-        message?.let { results.addView(label(it, 12f).apply { setTextColor(FADED) }, full(4)) }
+        message?.let { results.addView(ui.note(it), full(4)) }
 
         val p = page
         if (p == null) {
             // still typing: suggestions, or recent searches
             val list = if (query.trim().length >= 2) suggestions else recent()
-            if (list.isNotEmpty() && query.trim().length < 2) results.addView(label("Recent", 11f, bold = true).apply { setTextColor(FADED) }, full(4))
+            if (list.isNotEmpty() && query.trim().length < 2) results.addView(ui.heading("Recent"), full(4))
             for (t in list) results.addView(row(t) { pick(t) }, full(3))
             return
         }
@@ -325,16 +307,21 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
 
         // More than one spot (versions of an NPC, or areas a monster lives): pick one
         if (spots.size > 1) {
-            results.addView(label("Where?", 11f, bold = true).apply { setTextColor(FADED) }, full(4))
+            results.addView(ui.heading("Where?"), full(4))
             val wrap = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL }
             for ((i, s) in spots.withIndex()) {
-                wrap.addView(TextView(context).apply {
-                    text = if (s.levels.isEmpty()) s.label else "${s.label}  ·  ${s.levels}"
-                    textSize = 12f
-                    setTextColor(Color.WHITE)
-                    setTypeface(typeface, if (i == spot) Typeface.BOLD else Typeface.NORMAL)
+                val picked = i == spot
+                wrap.addView(LinearLayout(context).apply {
+                    orientation = LinearLayout.HORIZONTAL
+                    gravity = Gravity.CENTER_VERTICAL
+                    minimumHeight = dp(Ui.TAP_SIZE)
                     setPadding(dp(10), dp(6), dp(10), dp(6))
-                    background = GradientDrawable().apply { setColor(if (i == spot) BUTTON_BROWN else LIGHT_BUTTON); cornerRadius = dp(6).toFloat() }
+                    ui.press(this, if (picked) Palette.GOLD else Palette.RAISED, 8)
+                    if (picked) addView(ui.icon("check", Palette.ON_GOLD, 16))
+                    addView(ui.text(if (s.levels.isEmpty()) s.label else "${s.label}  ·  ${s.levels}", 13f,
+                        if (picked) Palette.ON_GOLD else Palette.TEXT, if (picked) 700 else 500).apply {
+                        if (picked) setPadding(dp(6), 0, 0, 0)
+                    }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                     setOnClickListener { spot = i; refresh(); toTop() }
                 }, full(3))
             }
@@ -343,13 +330,13 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
 
         val s = spots[spot.coerceIn(0, spots.size - 1)]
         results.addView(label(s.label, 14f, bold = true), full(10))
-        if (s.levels.isNotEmpty()) results.addView(label(s.levels, 11f).apply { setTextColor(FADED) }, full(1))
+        if (s.levels.isNotEmpty()) results.addView(ui.note(s.levels), full(1))
         val layer = TeleportData.layerOf(s.x, s.y)
-        results.addView(label(when (layer) {
+        results.addView(ui.note(when (layer) {
             TeleportData.Layer.UNDERGROUND -> "Underground: distances include the walk to the way down."
             TeleportData.Layer.SEPARATE -> "In a separate area (like Zanaris): distances include the walk to the way in."
             else -> "Closest teleports first."
-        }, 10f).apply { setTextColor(FADED) }, full(2))
+        }), full(2))
 
         val data = sync.cached
         fun missing(t: TeleportData.Teleport) = if (data == null) emptyList() else TeleportData.unmet(t,
@@ -358,7 +345,7 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
         val key = "${s.x},${s.y},${s.plane}|${sync.state.hashCode()}"
         if (key != lastKey) {
             // Working out the walking routes takes a moment, so it's done in the background
-            results.addView(label("Working out the walking routes…", 12f).apply { setTextColor(FADED) }, full(8))
+            results.addView(ui.note("Working out the walking routes…"), full(8))
             if (working != key) {
                 working = key
                 val title = page.orEmpty()   // read here: the page can change while this works in the background
@@ -396,10 +383,8 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
         val list = lastList
         if (lastNeeds.isNotEmpty()) {
             // closed off for you: the ways in need levels or quests you don't have yet (from Bubble Sync)
-            results.addView(label("You can't walk here yet. The way in needs " +
-                (if (lastNeeds.size <= 4) lastNeeds.joinToString(", ") else lastNeeds.take(4).joinToString(", ") + " or more") + ".", 12f).apply {
-                setTextColor(WARN)
-            }, full(8))
+            results.addView(ui.banner("You can't walk here yet. The way in needs " +
+                (if (lastNeeds.size <= 4) lastNeeds.joinToString(", ") else lastNeeds.take(4).joinToString(", ") + " or more") + "."), full(8))
         }
         if (list.isEmpty()) {
             if (lastNeeds.isNotEmpty()) return
@@ -409,47 +394,47 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
         }
         for (r in list) {
             val miss = missing(r.teleport)
-            results.addView(LinearLayout(context).apply {
+            results.addView(ui.card {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
                 setPadding(dp(10), dp(7), dp(10), dp(7))
-                background = GradientDrawable().apply { setColor(ROW_BROWN); cornerRadius = dp(6).toFloat() }
                 if (miss.isNotEmpty()) alpha = 0.55f
                 addView(LinearLayout(context).apply {
                     orientation = LinearLayout.VERTICAL
                     addView(label(r.teleport.name, 13f, bold = true))
                     val how = listOfNotNull(r.teleport.category, r.teleport.how.takeIf { it.isNotEmpty() }).joinToString(" · ")
-                    addView(label(how, 10f).apply { setTextColor(FADED) })
+                    addView(ui.note(how))
                     // other teleports landing in the same place
                     if (r.also.isNotEmpty()) {
                         val names = r.also.take(3).joinToString(", ") { it.name } + if (r.also.size > 3) " and ${r.also.size - 3} more" else ""
-                        addView(label("Also: $names", 10f).apply { setTextColor(FADED) })
+                        addView(ui.note("Also: $names"))
                     }
                     // the way in or out the route goes through, e.g. "Then: Climb-down Trapdoor"
-                    r.via?.let { addView(label("Then: $it", 10f).apply { setTextColor(DARK_BROWN) }) }
-                    if (r.guess) addView(label("The way in isn't on the walking map, so this distance is a guess.", 9f).apply { setTextColor(WARN) })
+                    r.via?.let { addView(label("Then: $it", 12f)) }
+                    if (r.guess) addView(ui.text("The way in isn't on the walking map, so this distance is a guess.", 12f, Palette.CAUTION))
                     when {
-                        miss.isNotEmpty() -> addView(label("You still need: " + miss.joinToString(", "), 10f, bold = true).apply { setTextColor(WARN) })
-                        r.teleport.requirements.isNotBlank() -> addView(label("Needs: " + r.teleport.requirements, 10f).apply { setTextColor(FADED) })
+                        miss.isNotEmpty() -> addView(ui.text("You still need: " + miss.joinToString(", "), 12f, Palette.CAUTION, 600))
+                        r.teleport.requirements.isNotBlank() -> addView(ui.note("Needs: " + r.teleport.requirements))
                     }
                 }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                 addView(LinearLayout(context).apply {
                     orientation = LinearLayout.VERTICAL
                     gravity = Gravity.END
-                    addView(label(TeleportData.describe(r.tiles).substringBefore(" · "), 11f, bold = true).apply { gravity = Gravity.END })
-                    if (r.tiles > 6) addView(label(TeleportData.describe(r.tiles).substringAfter(" · "), 9f).apply { setTextColor(FADED); gravity = Gravity.END })
-                    if (r.viaEntrance && r.via == null && !r.guess) addView(label("via entrance", 9f).apply { setTextColor(WARN); gravity = Gravity.END })
+                    addView(label(TeleportData.describe(r.tiles).substringBefore(" · "), 12f, bold = true).apply { gravity = Gravity.END })
+                    if (r.tiles > 6) addView(ui.note(TeleportData.describe(r.tiles).substringAfter(" · ")).apply { gravity = Gravity.END })
+                    if (r.viaEntrance && r.via == null && !r.guess) addView(ui.text("via entrance", 12f, Palette.CAUTION).apply { gravity = Gravity.END })
                 }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = dp(6) })
             }, full(4))
         }
-        if (data != null) results.addView(label("Faded: teleports your quests or levels don't allow yet. Items you own aren't checked.", 9f)
-            .apply { setTextColor(FADED) }, full(6))
+        if (data != null) results.addView(ui.note("Faded: teleports your quests or levels don't allow yet. Items you own aren't checked."), full(6))
     }
 
     private fun row(text: String, onClick: () -> Unit) = LinearLayout(context).apply {
         orientation = LinearLayout.VERTICAL
+        gravity = Gravity.CENTER_VERTICAL
+        minimumHeight = dp(Ui.TAP_SIZE)
         setPadding(dp(10), dp(8), dp(10), dp(8))
-        background = GradientDrawable().apply { setColor(ROW_BROWN); cornerRadius = dp(6).toFloat() }
+        ui.press(this, Palette.BG, 8)
         addView(label(text, 13f, bold = true))
         setOnClickListener { onClick() }
     }
@@ -474,10 +459,6 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
     private fun full(top: Int = 0) =
         LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(top) }
 
-    private fun label(text: String, size: Float, bold: Boolean = false) = TextView(context).apply {
-        this.text = text
-        textSize = size
-        setTextColor(DARK_BROWN)
-        if (bold) setTypeface(typeface, Typeface.BOLD)
-    }
+    private fun label(text: String, size: Float, bold: Boolean = false) =
+        ui.text(text, size, Palette.TEXT, if (bold) 600 else 400)
 }

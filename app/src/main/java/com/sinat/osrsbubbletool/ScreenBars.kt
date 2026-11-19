@@ -75,6 +75,13 @@ object ScreenBars {
         return Spot(x.coerceIn(minOf(bars.left, maxX), maxX), if (moveY) y.coerceIn(minOf(bars.top, maxY), maxY) else y)
     }
 
+    // Where a window w wide sits against the left or right side of the screen, clear of the bars and the camera
+    fun dockX(w: Int, onRight: Boolean, screenW: Int, bars: Bars, cutoutLeft: Int, cutoutRight: Int): Int =
+        if (onRight) maxOf(0, screenW - maxOf(bars.right, cutoutRight) - w) else maxOf(bars.left, cutoutLeft)
+
+    // Whether a window at x, w wide, is nearer the right side of the screen than the left
+    fun nearerRight(x: Int, w: Int, screenW: Int) = x + w / 2 > screenW / 2
+
     // A window at (x, y) resized to w × h: no smaller than minW × minH, and not past the bars
     fun resize(w: Int, h: Int, x: Int, y: Int, minW: Int, minH: Int, screenW: Int, screenH: Int, bars: Bars): Box =
         Box(x, y, w.coerceIn(minW, maxOf(minW, bars.clearRight(screenW) - x)), h.coerceIn(minH, maxOf(minH, bars.clearBottom(screenH) - y)))

@@ -1,11 +1,8 @@
 package com.sinat.osrsbubbletool
 
 import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
 import android.os.Handler
 import android.os.Looper
-import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.JsResult
@@ -13,9 +10,6 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.sinat.osrsbubbletool.Palette.BUTTON_BROWN
-import com.sinat.osrsbubbletool.Palette.DARK_BROWN
-import com.sinat.osrsbubbletool.Palette.PARCHMENT
 import org.json.JSONObject
 
 // The DPS Calculator tool: the wiki's calculator, plus "Import my gear", which reads your equipment tab from the screen
@@ -79,6 +73,7 @@ class DpsTool(
         """
     }
 
+    private val ui = Ui(context)
     private val handler = Handler(Looper.getMainLooper())
     private val calculatorItems = CalculatorItems.shared(context)   // the calculator's item list
     // Items that look exactly alike share an icon (assets/items/canvas.tsv; no pictures are read)
@@ -90,7 +85,7 @@ class DpsTool(
     private var status: TextView? = null
     private var busy = false
 
-    private fun dp(value: Int) = (value * context.resources.displayMetrics.density).toInt()
+    private fun dp(value: Int) = ui.dp(value)
 
     // ---------------- Called by BubbleService ----------------
 
@@ -114,15 +109,13 @@ class DpsTool(
         val buttons = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             setPadding(dp(6), dp(4), dp(6), dp(4))
-            setBackgroundColor(PARCHMENT)
-            addView(button("Import my gear") { importGear() }, LinearLayout.LayoutParams(
+            setBackgroundColor(Palette.SURFACE)
+            addView(ui.button("Import my gear", Ui.ButtonStyle.GOLD) { importGear() }, LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
         }
 
-        val statusView = TextView(context).apply {
-            textSize = 12f
-            setTextColor(DARK_BROWN)
-            setBackgroundColor(PARCHMENT)
+        val statusView = ui.text("", 12f).apply {
+            setBackgroundColor(Palette.SURFACE)
             setPadding(dp(8), 0, dp(8), dp(4))
             visibility = View.GONE
         }
@@ -138,20 +131,7 @@ class DpsTool(
         }
     }
 
-    // ---------------- Small building blocks ----------------
-
-    private fun button(label: String, onClick: () -> Unit) = TextView(context).apply {
-        text = label
-        textSize = 13f
-        setTextColor(Color.WHITE)
-        gravity = Gravity.CENTER
-        setPadding(dp(6), dp(6), dp(6), dp(6))
-        background = GradientDrawable().apply {
-            setColor(BUTTON_BROWN)
-            cornerRadius = dp(6).toFloat()
-        }
-        setOnClickListener { onClick() }
-    }
+    // ---------------- The status line ----------------
 
     private fun showStatus(text: String?) {
         status?.text = text ?: ""

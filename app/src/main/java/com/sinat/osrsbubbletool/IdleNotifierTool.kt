@@ -5,7 +5,6 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
-import android.graphics.drawable.GradientDrawable
 import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.os.Build
@@ -24,7 +23,6 @@ import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.SeekBar
-import android.widget.TextView
 import androidx.core.content.edit
 import kotlin.random.Random
 
@@ -75,6 +73,7 @@ class IdleNotifierTool(
 
     private enum class Mode { READY, SETTING_ZOOM, WATCHING }
 
+    private val ui = Ui(context)
     private val handler = Handler(Looper.getMainLooper())
     private val prefs = context.getSharedPreferences("idle_notifier", Context.MODE_PRIVATE)
     private val watch = IdleWatch()
@@ -125,35 +124,39 @@ class IdleNotifierTool(
     fun buildView(): View {
         holder = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setBackgroundColor(Palette.PARCHMENT)
+            setBackgroundColor(Palette.SURFACE)
             setPadding(dp(8), dp(8), dp(8), dp(8))
         }
         show()
         // (in a scroll box, so the open Sound list can be scrolled in a small window)
         return ScrollView(context).apply {
-            setBackgroundColor(Palette.PARCHMENT)
+            setBackgroundColor(Palette.SURFACE)
             addView(holder)
         }
     }
 
-    private fun button(label: String, onClick: () -> Unit) = TextView(context).apply {
-        text = label
-        textSize = 14f
-        setTextColor(Color.WHITE)
-        gravity = Gravity.CENTER
-        setPadding(dp(8), dp(8), dp(8), dp(8))
-        background = GradientDrawable().apply {
-            setColor(Palette.BUTTON_BROWN)
-            cornerRadius = dp(6).toFloat()
+    // (buttons share a row, so they drop the usual button's smallest width, and long words can wrap)
+    private fun button(label: String, style: Ui.ButtonStyle = Ui.ButtonStyle.PLAIN, onClick: () -> Unit) =
+        ui.button(label, style, onClick).apply {
+            minWidth = 0
+            setPadding(dp(6), dp(4), dp(6), dp(4))
         }
-        setOnClickListener { onClick() }
+
+    private fun text(words: String, size: Float = 12f) = ui.text(words, size).apply {
+        setPadding(0, dp(4), 0, dp(4))
     }
 
-    private fun text(words: String, size: Float = 12f) = TextView(context).apply {
-        text = words
-        textSize = size
-        setTextColor(Palette.DARK_BROWN)
-        setPadding(0, dp(4), 0, dp(4))
+    // The Sound dropdown's button: the chosen sound, and an arrow that points up while the list is open
+    private fun soundButton() = LinearLayout(context).apply {
+        orientation = LinearLayout.HORIZONTAL
+        gravity = Gravity.CENTER
+        minimumHeight = dp(Ui.TAP_SIZE)
+        setPadding(dp(6), dp(4), dp(6), dp(4))
+        ui.press(this, Palette.RAISED, 8)
+        addView(ui.text("Sound: $soundName", 13f, Palette.TEXT, 600).apply { gravity = Gravity.CENTER },
+            LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+        addView(ui.icon("down", Palette.TEXT, 16).apply { if (soundListOpen) rotation = 180f })
+        setOnClickListener { soundListOpen = !soundListOpen; show() }
     }
 
     private fun full() = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -161,8 +164,10 @@ class IdleNotifierTool(
 
     private fun row(vararg views: View) = LinearLayout(context).apply {
         orientation = LinearLayout.HORIZONTAL
+        isBaselineAligned = false
         views.forEachIndexed { i, v ->
-            addView(v, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply {
+            // (all as tall as the tallest, when one's words wrap)
+            addView(v, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f).apply {
                 if (i > 0) leftMargin = dp(6)
             })
         }
@@ -174,11 +179,11 @@ class IdleNotifierTool(
         h.removeAllViews()
         when (mode) {
             Mode.READY -> {
-                h.addView(text("Buzzes once when your character stops working, so you can put the phone down while " +
+                h.addView(ui.note("Buzzes once when your character stops working, so you can put the phone down while " +
                     "skilling. It watches your character in the middle of the screen; it never taps anything."), full())
-                h.addView(button("Set up") { setUp() }, full())
+                h.addView(button("Set up", Ui.ButtonStyle.GOLD) { setUp() }, full())
                 h.addView(row(
-                    button("Sound: $soundName " + if (soundListOpen) "▴" else "▾") { soundListOpen = !soundListOpen; show() },
+                    soundButton(),
                     button("Vibrate: " + when {
                         soundName == SILENT -> "always on"
                         vibrateSetting -> "on"
@@ -195,18 +200,21 @@ class IdleNotifierTool(
             }
             Mode.SETTING_ZOOM -> {
                 // (the window is shrunk to these few buttons in a corner, out of the way of the box)
-                h.addView(text("Zoom until your character is as tall as the box.", 11f), full())
-                h.addView(row(button("Start") { startWatching() }, button("Cancel") { stop(null) }), full())
+                // (no gap above the words, and short words: the taller buttons mustn't make this any bigger)
+                h.addView(ui.text("Zoom until you're as tall as the box.", 12f),
+                    LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+                h.addView(row(button("Start", Ui.ButtonStyle.GOLD) { startWatching() }, button("Cancel") { stop(null) }), full())
             }
             Mode.WATCHING -> {
                 h.addView(text("Watching since $startedAt. It buzzes after about $waitSeconds seconds of standing still, " +
                     "then waits until you've worked again."), full())
                 if (alerts > 0) h.addView(text("Alerted $alerts time" + (if (alerts == 1) "" else "s") + ", last at $lastAlertAt."), full())
-                h.addView(text("If you zoom in or out, tap Stop and set it up again."), full())
-                h.addView(button("Stop") { stop(null) }, full())
+                h.addView(ui.note("If you zoom in or out, tap Stop and set it up again."), full())
+                h.addView(button("Stop", Ui.ButtonStyle.DANGER) { stop(null) }, full())
             }
         }
-        note?.let { h.addView(text(it), full()) }
+        // (a problem gets the warning sign; "Waiting for permission" is only news)
+        note?.let { h.addView(if (it.startsWith("Waiting")) text(it) else ui.banner(it), full()) }
     }
 
     // ---------------- Setting the zoom ----------------
@@ -322,21 +330,21 @@ class IdleNotifierTool(
 
     // The Sound dropdown's list: every sound, then Silent, with a tick by the chosen one. Tapping one chooses it and
     // plays it (Silent gives one buzz); the list stays open to try others, and the Sound button closes it.
-    private fun soundList() = LinearLayout(context).apply {
-        orientation = LinearLayout.VERTICAL
-        background = GradientDrawable().apply {
-            setColor(Palette.PARCHMENT)
-            setStroke(dp(1), Palette.DARK_BROWN)
-            cornerRadius = dp(6).toFloat()
-        }
+    private fun soundList() = ui.card {
+        setPadding(0, 0, 0, 0)   // (the rows reach the card's edges, so the whole row can be tapped)
         for (name in SOUNDS.map { it.first } + SILENT) {
             val chosen = name == soundName
-            addView(TextView(context).apply {
-                text = (if (chosen) "✓  " else "     ") + name
-                textSize = 14f
-                setTextColor(Palette.DARK_BROWN)
-                if (chosen) setTypeface(typeface, android.graphics.Typeface.BOLD)
-                setPadding(dp(10), dp(7), dp(10), dp(7))
+            addView(LinearLayout(context).apply {
+                orientation = LinearLayout.HORIZONTAL
+                gravity = Gravity.CENTER_VERTICAL
+                minimumHeight = dp(Ui.TAP_SIZE)
+                setPadding(dp(10), 0, dp(10), 0)
+                ui.press(this, null, 8)
+                // (the tick's space is kept on every row, so the names line up)
+                addView(ui.icon("check", Palette.ACCENT, 16).apply { visibility = if (chosen) View.VISIBLE else View.INVISIBLE })
+                addView(ui.text(name, 14f, if (chosen) Palette.ACCENT else Palette.TEXT, if (chosen) 700 else 500).apply {
+                    setPadding(dp(8), 0, 0, 0)
+                }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                 setOnClickListener { chooseSound(name) }
             }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
         }
@@ -348,7 +356,7 @@ class IdleNotifierTool(
         gravity = Gravity.CENTER_VERTICAL
         val label = text("Volume: $volume%", 13f)
         addView(label, LinearLayout.LayoutParams(dp(96), ViewGroup.LayoutParams.WRAP_CONTENT))
-        addView(SeekBar(context).apply {
+        addView(ui.slider(SeekBar(context)).apply {
             max = 95                     // 0..95 on the bar = 5..100%
             progress = volume - 5
             setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -367,7 +375,7 @@ class IdleNotifierTool(
         gravity = Gravity.CENTER_VERTICAL
         val label = text("Wait: $waitSeconds s", 13f)
         addView(label, LinearLayout.LayoutParams(dp(96), ViewGroup.LayoutParams.WRAP_CONTENT))
-        addView(SeekBar(context).apply {
+        addView(ui.slider(SeekBar(context)).apply {
             max = LONGEST_WAIT - SHORTEST_WAIT     // 0..10 on the bar = 5..15 s
             progress = waitSeconds - SHORTEST_WAIT
             setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {

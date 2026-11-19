@@ -1,8 +1,6 @@
 package com.sinat.osrsbubbletool
 
 import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.Handler
 import android.os.HandlerThread
@@ -13,13 +11,11 @@ import android.os.SystemClock
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
-import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.ScrollView
-import android.widget.TextView
 import androidx.core.content.edit
 
 // Mastering Mixology: while you're in the Mastering Mixology lab, writes each order's recipe after its name in the
@@ -53,6 +49,7 @@ class MixologyTool(
         const val SAME_ROW = 0.1            // look before no longer ago than this, its spacing within a tenth
     }
 
+    private val ui = Ui(context)
     private val handler = Handler(Looper.getMainLooper())
     private val prefs = context.getSharedPreferences("mixology", Context.MODE_PRIVATE)
     private val overlay = MixologyOverlay(context, windowManager)
@@ -167,33 +164,24 @@ class MixologyTool(
     fun buildView(): View {
         holder = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setBackgroundColor(Palette.PARCHMENT)
+            setBackgroundColor(Palette.SURFACE)
             setPadding(dp(8), dp(8), dp(8), dp(8))
         }
         show()
         return ScrollView(context).apply {
-            setBackgroundColor(Palette.PARCHMENT)
+            setBackgroundColor(Palette.SURFACE)
             addView(holder)
         }
     }
 
-    private fun button(label: String, onClick: () -> Unit) = TextView(context).apply {
-        text = label
-        textSize = 14f
-        setTextColor(Color.WHITE)
-        gravity = Gravity.CENTER
-        setPadding(dp(8), dp(8), dp(8), dp(8))
-        background = GradientDrawable().apply {
-            setColor(Palette.BUTTON_BROWN)
-            cornerRadius = dp(6).toFloat()
+    // (three buttons share a row, so they drop the usual button's smallest width, and long words can wrap)
+    private fun button(label: String, style: Ui.ButtonStyle = Ui.ButtonStyle.PLAIN, onClick: () -> Unit) =
+        ui.button(label, style, onClick).apply {
+            minWidth = 0
+            setPadding(dp(6), dp(4), dp(6), dp(4))
         }
-        setOnClickListener { onClick() }
-    }
 
-    private fun text(words: String, size: Float = 12f) = TextView(context).apply {
-        text = words
-        textSize = size
-        setTextColor(Palette.DARK_BROWN)
+    private fun text(words: String, size: Float = 12f) = ui.text(words, size).apply {
         setPadding(0, dp(4), 0, dp(4))
     }
 
@@ -202,8 +190,10 @@ class MixologyTool(
 
     private fun row(vararg views: View) = LinearLayout(context).apply {
         orientation = LinearLayout.HORIZONTAL
+        isBaselineAligned = false
         views.forEachIndexed { i, v ->
-            addView(v, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply {
+            // (all as tall as the tallest, when one's words wrap)
+            addView(v, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f).apply {
                 if (i > 0) leftMargin = dp(6)
             })
         }
@@ -215,7 +205,7 @@ class MixologyTool(
         if (running) {
             h.addView(text(status.ifEmpty { "Starting..." }, 13f), full())
         } else {
-            h.addView(text("Shows each order's recipe, marks the levers and your potions, points to the next " +
+            h.addView(ui.note("Shows each order's recipe, marks the levers and your potions, points to the next " +
                 "station, and tells you when to tap the Alembic or Agitator. Face the camera north or south."), full())
         }
         h.addView(row(
@@ -228,8 +218,10 @@ class MixologyTool(
             button("Arrow: " + if (showArrow) "on" else "off") { showArrow = !showArrow; arrow = null; redraw(); show() },
             button("Buzz: " + if (buzz) "on" else "off") { buzz = !buzz; show() }
         ), full())
-        h.addView(if (running) button("Stop") { stop(null) } else button("Start") { start() }, full())
-        note?.let { h.addView(text(it), full()) }
+        h.addView(if (running) button("Stop", Ui.ButtonStyle.DANGER) { stop(null) }
+                  else button("Start", Ui.ButtonStyle.GOLD) { start() }, full())
+        // (a problem gets the warning sign; "Waiting for permission" is only news)
+        note?.let { h.addView(if (it.startsWith("Waiting")) text(it) else ui.banner(it), full()) }
     }
 
     private fun setStatus(words: String) {

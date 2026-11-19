@@ -1,9 +1,6 @@
 package com.sinat.osrsbubbletool
 
 import android.content.Context
-import android.graphics.Color
-import android.graphics.Typeface
-import android.graphics.drawable.GradientDrawable
 import android.os.Handler
 import android.os.Looper
 import android.text.Editable
@@ -13,20 +10,10 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.ScrollView
-import android.widget.TextView
 import androidx.core.content.edit
-import com.sinat.osrsbubbletool.Palette.BUTTON_BROWN
-import com.sinat.osrsbubbletool.Palette.DARK_BROWN
-import com.sinat.osrsbubbletool.Palette.FADED
-import com.sinat.osrsbubbletool.Palette.GO_GREEN
-import com.sinat.osrsbubbletool.Palette.PAPER
-import com.sinat.osrsbubbletool.Palette.PARCHMENT
-import com.sinat.osrsbubbletool.Palette.RED
-import com.sinat.osrsbubbletool.Palette.ROW_BROWN
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -55,6 +42,7 @@ class NotesTool(private val context: Context) {
 
     class Note(val id: Long, var title: String, var body: String, var updated: Long)
 
+    private val ui = Ui(context)
     private val prefs = context.getSharedPreferences("notes", Context.MODE_PRIVATE)
     private val handler = Handler(Looper.getMainLooper())
     private val notes: MutableList<Note> = load()
@@ -63,10 +51,10 @@ class NotesTool(private val context: Context) {
     private var confirmDelete = false
     private lateinit var holder: FrameLayout
 
-    private fun dp(v: Int) = (v * context.resources.displayMetrics.density).toInt()
+    private fun dp(v: Int) = ui.dp(v)
 
     fun buildView(): View {
-        holder = FrameLayout(context).apply { setBackgroundColor(PARCHMENT) }
+        holder = FrameLayout(context).apply { setBackgroundColor(Palette.SURFACE) }
         show()
         return holder
     }
@@ -108,32 +96,33 @@ class NotesTool(private val context: Context) {
         addView(LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(dp(8), dp(8), dp(8), dp(12))
-            addView(button("+ New note", GO_GREEN) {
+            addView(ui.button("New note", Ui.ButtonStyle.GOLD) {
                 val note = Note(System.currentTimeMillis(), "", "", System.currentTimeMillis())
                 notes.add(0, note)
                 openNote(note, edit = true)
             }, full())
             if (notes.isEmpty()) {
-                addView(label("No notes yet. Tap New note to write one: a shopping list, a drop you're chasing, " +
-                    "what to do next time you log in…", 12f).apply { setTextColor(FADED) }, full(10))
+                addView(ui.note("No notes yet. Tap New note to write one: a shopping list, a drop you're chasing, " +
+                    "what to do next time you log in…"), full(10))
             }
             for (note in notes.sortedByDescending { it.updated }) {
                 addView(LinearLayout(context).apply {
                     orientation = LinearLayout.VERTICAL
-                    setPadding(dp(10), dp(8), dp(10), dp(8))
-                    background = GradientDrawable().apply { setColor(ROW_BROWN); cornerRadius = dp(6).toFloat() }
+                    gravity = Gravity.CENTER_VERTICAL
+                    minimumHeight = dp(Ui.TAP_SIZE)
+                    setPadding(dp(12), dp(8), dp(12), dp(8))
+                    ui.press(this, Palette.BG, 8)
                     addView(LinearLayout(context).apply {
                         orientation = LinearLayout.HORIZONTAL
-                        addView(label(titleOf(note), 13f, bold = true).apply { maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END },
+                        gravity = Gravity.CENTER_VERTICAL
+                        addView(ui.oneLine(ui.text(titleOf(note), 14f, Palette.TEXT, 600)),
                             LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-                        addView(label(dateOf(note.updated), 10f).apply { setTextColor(FADED) })
+                        addView(ui.note(dateOf(note.updated)).apply { setPadding(dp(8), 0, 0, 0) })
                     })
                     val preview = note.body.lines().firstOrNull { it.isNotBlank() && it.trim() != note.title.trim() }
-                    if (preview != null) addView(label(preview.trim(), 11f).apply {
-                        setTextColor(FADED); maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END
-                    }, full(2))
+                    if (preview != null) addView(ui.oneLine(ui.note(preview.trim())), full(2))
                     setOnClickListener { openNote(note) }
-                }, full(5))
+                }, full(4))
             }
         })
     }
@@ -175,19 +164,18 @@ class NotesTool(private val context: Context) {
     private fun reader(note: Note): View = ScrollView(context).apply {
         addView(LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(10), dp(8), dp(10), dp(14))
+            setPadding(dp(12), dp(8), dp(12), dp(14))
             addView(LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
-                addView(label(titleOf(note), 16f, bold = true), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-                addView(button("✎ Edit") { openNote(note, edit = true) }.apply { setPadding(dp(10), dp(5), dp(10), dp(5)) },
+                addView(ui.text(titleOf(note), 16f, Palette.TEXT, 700), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+                addView(ui.button("Edit") { openNote(note, edit = true) }.apply { minWidth = dp(64) },
                     LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = dp(6) })
             })
-            addView(label("Edited " + dateOf(note.updated), 10f).apply { setTextColor(FADED) }, full(1))
-            addView(label(note.body.ifBlank { "(no text)" }, 14f).apply {
+            addView(ui.note("Edited " + dateOf(note.updated)), full(1))
+            addView(ui.text(note.body.ifBlank { "(no text)" }, 14f, if (note.body.isBlank()) Palette.MUTED else Palette.TEXT).apply {
                 setTextIsSelectable(true)   // press and hold to copy
                 setLineSpacing(0f, 1.15f)
-                if (note.body.isBlank()) setTextColor(FADED)
             }, full(10))
         })
     }
@@ -197,18 +185,13 @@ class NotesTool(private val context: Context) {
         setPadding(dp(6), dp(6), dp(6), dp(6))
 
         // Title and Done on one row, so the note itself gets as much room as possible
-        val title = EditText(context).apply {
-            setHintTextColor(FADED)
+        val title = ui.textBox("Title").apply {
             setText(note.title)
-            hint = "Title"
-            textSize = 14f
-            setTypeface(typeface, Typeface.BOLD)
+            typeface = ui.font(600)
             setSingleLine()
-            setTextColor(DARK_BROWN)
-            setPadding(dp(8), dp(4), dp(8), dp(4))
-            background = GradientDrawable().apply { setColor(PAPER); setStroke(dp(1), BUTTON_BROWN); cornerRadius = dp(5).toFloat() }
         }
-        val deleteButton = button(if (confirmDelete) "Delete?" else "🗑", RED) {
+        // The first tap on the bin asks "Delete?"; the second deletes the note
+        val deleteNote: () -> Unit = {
             if (confirmDelete) {
                 handler.removeCallbacksAndMessages(null)
                 notes.remove(note); persist()
@@ -216,33 +199,30 @@ class NotesTool(private val context: Context) {
                 open = null
                 show()
             } else { confirmDelete = true; show() }
-        }.apply { textSize = if (confirmDelete) 11f else 13f; setPadding(dp(8), dp(4), dp(8), dp(4)) }
+        }
+        val deleteButton: View =
+            if (confirmDelete) ui.button("Delete?", Ui.ButtonStyle.DANGER) { deleteNote() }.apply { minWidth = dp(64) }
+            else ui.iconButton("trash", "Delete note", Palette.BAD, Palette.RAISED) { deleteNote() }
         addView(LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            addView(title, LinearLayout.LayoutParams(0, dp(36), 1f))
-            addView(deleteButton, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, dp(36)).apply { leftMargin = dp(4) })
-            addView(button("Done", GO_GREEN) { closeNote() }.apply { setPadding(dp(10), dp(4), dp(10), dp(4)) },
-                LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, dp(36)).apply { leftMargin = dp(4) })
+            addView(title, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+            addView(deleteButton, LinearLayout.LayoutParams(if (confirmDelete) ViewGroup.LayoutParams.WRAP_CONTENT else dp(Ui.TAP_SIZE), dp(Ui.TAP_SIZE)).apply { leftMargin = dp(4) })
+            addView(ui.button("Done", Ui.ButtonStyle.GOLD) { closeNote() }.apply { minWidth = dp(64) },
+                LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, dp(Ui.TAP_SIZE)).apply { leftMargin = dp(4) })
         }, full())
 
         // The note. It fills the rest of the window (resize the window to make it bigger) and scrolls inside.
-        val body = EditText(context).apply {
-            setHintTextColor(FADED)
+        val body = ui.textBox("Write your note…").apply {
             setText(note.body)
-            hint = "Write your note…"
-            textSize = 13f
-            setTextColor(DARK_BROWN)
             gravity = Gravity.TOP or Gravity.START
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE or InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
             isSingleLine = false
             isVerticalScrollBarEnabled = true
-            setPadding(dp(8), dp(6), dp(8), dp(6))
-            background = GradientDrawable().apply { setColor(PAPER); setStroke(dp(1), BUTTON_BROWN); cornerRadius = dp(5).toFloat() }
         }
         addView(body, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f).apply { topMargin = dp(5) })
         // on the left, clear of the window's resize corner at the bottom right
-        addView(label("Saved as you type", 10f).apply { setTextColor(FADED) }, full(2))
+        addView(ui.note("Saved as you type"), full(2))
 
         fun changed() {
             note.title = title.text.toString()
@@ -310,22 +290,4 @@ class NotesTool(private val context: Context) {
 
     private fun full(top: Int = 0) =
         LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(top) }
-
-    private fun button(text: String, color: Int = BUTTON_BROWN, onClick: () -> Unit) = TextView(context).apply {
-        this.text = text
-        textSize = 13f
-        setTextColor(Color.WHITE)
-        gravity = Gravity.CENTER
-        setPadding(dp(8), dp(8), dp(8), dp(8))
-        setTypeface(typeface, Typeface.BOLD)
-        background = GradientDrawable().apply { setColor(color); cornerRadius = dp(6).toFloat() }
-        setOnClickListener { onClick() }
-    }
-
-    private fun label(text: String, size: Float, bold: Boolean = false) = TextView(context).apply {
-        this.text = text
-        textSize = size
-        setTextColor(DARK_BROWN)
-        if (bold) setTypeface(typeface, Typeface.BOLD)
-    }
 }

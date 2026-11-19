@@ -1,31 +1,19 @@
 package com.sinat.osrsbubbletool
 
 import android.content.Context
-import android.graphics.Color
-import android.graphics.Typeface
-import android.graphics.drawable.GradientDrawable
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.ScrollView
-import android.widget.TextView
 import androidx.core.content.edit
-import com.sinat.osrsbubbletool.Palette.BUTTON_BROWN
-import com.sinat.osrsbubbletool.Palette.DARK_BROWN
-import com.sinat.osrsbubbletool.Palette.FADED
-import com.sinat.osrsbubbletool.Palette.GO_GREEN
-import com.sinat.osrsbubbletool.Palette.LIGHT_BUTTON
-import com.sinat.osrsbubbletool.Palette.PAPER
-import com.sinat.osrsbubbletool.Palette.PARCHMENT
-import com.sinat.osrsbubbletool.Palette.ROW_BROWN
-import com.sinat.osrsbubbletool.Palette.WARN
 
 // Hunters' Rumours: pick your tier (and guild hunter), pick the rumour you're on, and see where the
 // creature is, how to get there and what to bring. Everything is built in, so it works offline.
 class HunterRumourTool(private val context: Context, private val openSync: () -> Unit = {}) {
 
+    private val ui = Ui(context)
     private val prefs = context.getSharedPreferences("hunter_rumours", Context.MODE_PRIVATE)
     private val sync = AccountSync(context)   // your Hunter level, if you've scanned your account (Bubble Sync)
     private lateinit var holder: FrameLayout
@@ -45,10 +33,10 @@ class HunterRumourTool(private val context: Context, private val openSync: () ->
 
     private var showing: HunterRumours.Rumour? = null   // null = the list
 
-    private fun dp(v: Int) = (v * context.resources.displayMetrics.density).toInt()
+    private fun dp(v: Int) = ui.dp(v)
 
     fun buildView(): View {
-        holder = FrameLayout(context).apply { setBackgroundColor(PARCHMENT) }
+        holder = FrameLayout(context).apply { setBackgroundColor(Palette.SURFACE) }
         showing = null
         show()
         // back from the Bubble Sync tool: redraw so the tag and faded rumours are up to date
@@ -82,7 +70,7 @@ class HunterRumourTool(private val context: Context, private val openSync: () ->
         addView(LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            addView(label("Hunters' Rumours", 15f, bold = true), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+            addView(android.view.View(context), LinearLayout.LayoutParams(0, 1, 1f))   // (the window's top bar has the name)
             addView(SyncBadge.view(context, sync) { openSync() })
         }, full())
 
@@ -91,50 +79,52 @@ class HunterRumourTool(private val context: Context, private val openSync: () ->
             addView(LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
-                setPadding(dp(10), dp(8), dp(10), dp(8))
-                background = GradientDrawable().apply { setColor(GO_GREEN); cornerRadius = dp(6).toFloat() }
-                addView(label("Your rumour: ${cur.name}", 13f, bold = true).apply { setTextColor(Color.WHITE) },
+                minimumHeight = dp(Ui.TAP_SIZE)
+                setPadding(dp(12), dp(6), dp(8), dp(6))
+                ui.press(this, Palette.GOLD, 8)
+                addView(ui.text("Your rumour: ${cur.name}", 13f, Palette.ON_GOLD, 700),
                     LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-                addView(label("Open ▸", 12f, bold = true).apply { setTextColor(Color.WHITE) })
+                addView(ui.text("Open", 12f, Palette.ON_GOLD, 600))
+                addView(ui.icon("next", Palette.ON_GOLD, 16))
                 setOnClickListener { showing = cur; show() }
             }, full(6))
         }
 
         // Tier, then which hunter (Adept and Expert each have two, with different rumours)
-        addView(label("Your tier", 11f, bold = true).apply { setTextColor(FADED) }, full(10))
+        addView(ui.heading("Your tier"), full(10))
         addView(choiceRow(HunterRumours.TIERS, tier) { tier = it; show() }, full(3))
         val hunters = HunterRumours.huntersFor(tier)
         if (hunters.size > 1) {
-            addView(label("Guild hunter", 11f, bold = true).apply { setTextColor(FADED) }, full(8))
+            addView(ui.heading("Guild hunter"), full(8))
             addView(choiceRow(hunters.map { it.label.substringAfterLast(' ') }, hunter.label.substringAfterLast(' ')) { name ->
                 hunters.firstOrNull { it.label.endsWith(name) }?.let { hunter = it; show() }
             }, full(3))
         }
         val h = hunter
         val level = hunterLevel()
-        addView(label("${h.label} · needs ${h.level} Hunter" +
+        addView(ui.note("${h.label} · needs ${h.level} Hunter" +
             (if (h.tier == "Master") " and At First Light" else "") +
-            (if (h == HunterRumours.Hunter.GILMAN) " · can give every rumour" else ""), 11f).apply { setTextColor(FADED) }, full(4))
+            (if (h == HunterRumours.Hunter.GILMAN) " · can give every rumour" else "")), full(4))
 
-        addView(label("Tap the rumour you're on:", 12f, bold = true), full(10))
-        val cur = current   // (read out here: inside the row's background below, "current" is the drawable's own)
+        addView(ui.heading("Tap the rumour you're on:"), full(10))
+        val cur = current
         for (r in HunterRumours.ALL.filter { h in it.hunters }) {
             val tooHigh = level != null && level < r.level
             addView(LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
-                setPadding(dp(10), dp(7), dp(10), dp(7))
-                background = GradientDrawable().apply {
-                    setColor(ROW_BROWN); cornerRadius = dp(6).toFloat()
-                    if (r == cur) setStroke(dp(2), GO_GREEN)
-                }
+                minimumHeight = dp(Ui.TAP_SIZE)
+                setPadding(dp(12), dp(6), dp(12), dp(6))
+                // the rumour you're on stands out by its lighter shade and a tick
+                ui.press(this, if (r == cur) Palette.RAISED else Palette.BG, 8)
                 if (tooHigh) alpha = 0.5f
                 addView(LinearLayout(context).apply {
                     orientation = LinearLayout.VERTICAL
-                    addView(label(r.name, 13f, bold = true))
-                    addView(label(r.method.name + (r.requires?.let { " · needs $it" } ?: ""), 10f).apply { setTextColor(FADED) })
+                    addView(ui.text(r.name, 14f, Palette.TEXT, 600))
+                    addView(ui.note(r.method.name + (r.requires?.let { " · needs $it" } ?: "")))
                 }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-                addView(label("Lv ${r.level}", 11f, bold = true).apply { setTextColor(FADED) })
+                if (r == cur) addView(ui.icon("check", Palette.ACCENT, 16), LinearLayout.LayoutParams(dp(16), dp(16)).apply { rightMargin = dp(6) })
+                addView(ui.text("Lv ${r.level}", 12f, Palette.MUTED, 600))
                 setOnClickListener {
                     current = r
                     showing = r
@@ -142,9 +132,8 @@ class HunterRumourTool(private val context: Context, private val openSync: () ->
                 }
             }, full(4))
         }
-        if (level != null) addView(label("Faded rumours need a higher Hunter level than your $level (from Bubble Sync).", 10f)
-            .apply { setTextColor(FADED) }, full(6))
-        addView(label("Rumour lists, travel and equipment from the OSRS Wiki.", 9f).apply { setTextColor(FADED) }, full(10))
+        if (level != null) addView(ui.note("Faded rumours need a higher Hunter level than your $level (from Bubble Sync)."), full(6))
+        addView(ui.note("Rumour lists, travel and equipment from the OSRS Wiki."), full(10))
     }
 
     // ---------------- One rumour ----------------
@@ -153,88 +142,69 @@ class HunterRumourTool(private val context: Context, private val openSync: () ->
         addView(LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            addView(label(r.name, 16f, bold = true), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-            addView(label("Lv ${r.level}", 12f, bold = true).apply { setTextColor(FADED) })
+            addView(ui.text(r.name, 16f, Palette.TEXT, 700), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+            addView(ui.text("Lv ${r.level}", 12f, Palette.MUTED, 600))
         }, full())
-        addView(label("${r.method.name} · given by " + r.hunters.joinToString(", ") { it.label.substringAfterLast(' ') }, 11f)
-            .apply { setTextColor(FADED) }, full(2))
-        r.requires?.let { addView(label("Needs: $it", 12f, bold = true).apply { setTextColor(WARN) }, full(6)) }
+        addView(ui.note("${r.method.name} · given by " + r.hunters.joinToString(", ") { it.label.substringAfterLast(' ') }), full(2))
+        r.requires?.let { addView(ui.text("Needs: $it", 12f, Palette.CAUTION, 600), full(6)) }
 
         // Where, and how to get there
-        addView(heading("Where to find them"), full(12))
+        addView(ui.heading("Where to find them"), full(12))
         for (p in r.places) {
-            addView(card {
-                addView(label(p.name, 13f, bold = true))
-                p.note?.let { addView(label(it, 10f).apply { setTextColor(WARN) }, full(1)) }
-                for (t in p.travel) addView(label("•  $t", 12f), full(2))
+            addView(ui.card {
+                addView(ui.text(p.name, 13f, Palette.TEXT, 600))
+                p.note?.let { addView(ui.text(it, 12f, Palette.CAUTION), full(1)) }
+                for (t in p.travel) addView(ui.text("•  $t", 12f), full(2))
             }, full(5))
         }
 
         // What to bring
-        addView(heading("What to bring"), full(12))
-        addView(card {
-            addView(label("Required", 12f, bold = true))
-            for (item in r.method.required) addView(label("•  $item", 12f), full(2))
+        addView(ui.heading("What to bring"), full(12))
+        addView(ui.card {
+            addView(ui.text("Required", 12f, Palette.TEXT, 600))
+            for (item in r.method.required) addView(ui.text("•  $item", 12f), full(2))
             val level = hunterLevel()
             if (r.method in listOf(HunterRumours.BOX_TRAP, HunterRumours.BIRD_SNARE, HunterRumours.NET_TRAP)) {
                 // with a synced account, the number at your level; without, how it goes up
                 val text = if (level != null) HunterRumours.trapsAt(level).let { n ->
                     "At level $level you can lay $n trap${if (n == 1) "" else "s"} (one more in the Wilderness)."
                 } else "You can lay 1 trap, and one more at levels 20, 40, 60 and 80 Hunter (one more again in the Wilderness)."
-                addView(label(text, 11f).apply { setTextColor(FADED) }, full(3))
+                addView(ui.note(text), full(3))
             }
         }, full(5))
         if (r.method.usesLogs) {
             // The traps use logs: most people cut them at the hunting spot
-            addView(card {
-                addView(label("You'll need logs for every trap", 12f, bold = true).apply { setTextColor(GO_GREEN) })
-                addView(label("Cut them at the hunting spot with your axe. Wear Kandarin headgear (from the Kandarin Diary) to get " +
+            addView(ui.card {
+                addView(ui.text("You'll need logs for every trap", 12f, Palette.TEXT, 600))
+                addView(ui.text("Cut them at the hunting spot with your axe. Wear Kandarin headgear (from the Kandarin Diary) to get " +
                     "double logs from normal trees.", 12f), full(2))
             }, full(5))
         }
         val useful = r.method.useful.filter { !(r.method.usesLogs && (it.startsWith("Any axe") || it.startsWith("Kandarin"))) }
-        if (useful.isNotEmpty()) addView(card {
-            addView(label("Useful", 12f, bold = true))
-            for (item in useful) addView(label("•  $item", 12f), full(2))
+        if (useful.isNotEmpty()) addView(ui.card {
+            addView(ui.text("Useful", 12f, Palette.TEXT, 600))
+            for (item in useful) addView(ui.text("•  $item", 12f), full(2))
         }, full(5))
-        addView(card {
-            addView(label("Good for every rumour", 12f, bold = true))
-            for (item in HunterRumours.ALWAYS_USEFUL) addView(label("•  $item", 11f), full(2))
+        addView(ui.card {
+            addView(ui.text("Good for every rumour", 12f, Palette.TEXT, 600))
+            for (item in HunterRumours.ALWAYS_USEFUL) addView(ui.text("•  $item", 12f), full(2))
         }, full(5))
 
         addView(LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
-            addView(button("◀ All rumours") { showing = null; show() },
+            addView(ui.button("All rumours") { showing = null; show() },
                 LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { rightMargin = dp(3) })
-            addView(button("✓ Done with it", GO_GREEN) { current = null; showing = null; show() },
+            addView(ui.button("Done with it", Ui.ButtonStyle.GOLD) { current = null; showing = null; show() },
                 LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { leftMargin = dp(3) })
         }, full(12))
-        addView(label("From the OSRS Wiki's Hunters' Rumours pages.", 9f).apply { setTextColor(FADED) }, full(8))
+        addView(ui.note("From the OSRS Wiki's Hunters' Rumours pages."), full(8))
     }
 
     // ---------------- Small building blocks ----------------
 
-    private fun choiceRow(options: List<String>, selected: String, onPick: (String) -> Unit) = LinearLayout(context).apply {
-        orientation = LinearLayout.HORIZONTAL
-        options.forEachIndexed { i, o ->
-            addView(button(o, if (o == selected) BUTTON_BROWN else LIGHT_BUTTON) { onPick(o) }.apply {
-                textSize = 11f
-                setPadding(dp(2), dp(7), dp(2), dp(7))
-                if (o != selected) setTypeface(null, Typeface.NORMAL)
-            }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply {
-                if (i > 0) leftMargin = dp(3)
-            })
-        }
-    }
-
-    private fun heading(text: String) = label(text, 13f, bold = true)
-
-    private fun card(build: LinearLayout.() -> Unit) = LinearLayout(context).apply {
-        orientation = LinearLayout.VERTICAL
-        setPadding(dp(10), dp(8), dp(10), dp(8))
-        background = GradientDrawable().apply { setColor(PAPER); setStroke(dp(1), ROW_BROWN); cornerRadius = dp(6).toFloat() }
-        build()
-    }
+    // A row of options where each option's name is also its value
+    private fun choiceRow(options: List<String>, selected: String, onPick: (String) -> Unit) =
+        ui.choices(options.map { it to it }, selected, onPick)
 
     private fun scrolling(build: LinearLayout.() -> Unit): View = ScrollView(context).apply {
         addView(LinearLayout(context).apply {
@@ -246,22 +216,4 @@ class HunterRumourTool(private val context: Context, private val openSync: () ->
 
     private fun full(top: Int = 0) =
         LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(top) }
-
-    private fun button(text: String, color: Int = BUTTON_BROWN, onClick: () -> Unit) = TextView(context).apply {
-        this.text = text
-        textSize = 13f
-        setTextColor(Color.WHITE)
-        gravity = Gravity.CENTER
-        setPadding(dp(8), dp(8), dp(8), dp(8))
-        setTypeface(typeface, Typeface.BOLD)
-        background = GradientDrawable().apply { setColor(color); cornerRadius = dp(6).toFloat() }
-        setOnClickListener { onClick() }
-    }
-
-    private fun label(text: String, size: Float, bold: Boolean = false) = TextView(context).apply {
-        this.text = text
-        textSize = size
-        setTextColor(DARK_BROWN)
-        if (bold) setTypeface(typeface, Typeface.BOLD)
-    }
 }

@@ -4,8 +4,6 @@ import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.Bundle
@@ -14,7 +12,6 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowInsets
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
@@ -26,11 +23,6 @@ import androidx.core.content.edit
 import androidx.core.net.toUri
 import androidx.core.view.isGone
 import androidx.core.view.WindowCompat
-import com.sinat.osrsbubbletool.Palette.BUTTON_BROWN
-import com.sinat.osrsbubbletool.Palette.DARK_BROWN
-import com.sinat.osrsbubbletool.Palette.GO_GREEN
-import com.sinat.osrsbubbletool.Palette.PARCHMENT
-import com.sinat.osrsbubbletool.Palette.ROW_BROWN
 
 // The app's own screens: the main screen, Settings, Permissions, and Legal.
 class MainActivity : Activity() {
@@ -38,7 +30,7 @@ class MainActivity : Activity() {
     companion object {
         private const val REQUEST_NOTIFICATIONS = 1
         // The app's Discord server (also in the README and at the top of every release's notes)
-        private const val DISCORD_INVITE = "https://discord.gg/MM6mFmkGh"
+        const val DISCORD_INVITE = "https://discord.gg/MM6mFmkGh"   // (Quest Helper's help page uses it too)
 
         // The BSD 2-Clause licence conditions and disclaimer (used by the Zulrah, ToA Puzzle Helper, Mastering Mixology, RuneLite, Teleport Finder and Quest Helper credits)
         private const val BSD_TERMS =
@@ -52,7 +44,8 @@ class MainActivity : Activity() {
     private var screen = Screen.MAIN
     private var backCallback: OnBackInvokedCallback? = null
 
-    private fun dp(value: Int) = (value * resources.displayMetrics.density).toInt()
+    private val ui by lazy { Ui(this) }
+    private fun dp(value: Int) = ui.dp(value)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,7 +87,7 @@ class MainActivity : Activity() {
         Palette.dark = AppSettings.isDark(this)   // (this screen's colours while it's in front, see show)
         // back from Bubble Sync's camera or file chooser: show what was read (or why a file couldn't be)
         if (screen == Screen.SYNC) syncPage.cameBack()
-        if (screen == Screen.PERMISSIONS || screen == Screen.SYNC || AppSettings.isDark(this) != shownDark) show(screen)
+        if (screen == Screen.MAIN || screen == Screen.PERMISSIONS || screen == Screen.SYNC || AppSettings.isDark(this) != shownDark) show(screen)
         // look for a newer version on GitHub each time the app is opened (unless that's switched off in Settings)
         if (AppSettings.checksUpdates(this)) UpdateChecker.check(this) { if (!isDestroyed) styleUpdateButton() }
     }
@@ -156,77 +149,146 @@ class MainActivity : Activity() {
 
     private fun mainScreen(): View {
         val landscape = resources.configuration.orientation == android.content.res.Configuration.ORIENTATION_LANDSCAPE
-        val logo = ImageView(this).apply { setImageResource(R.drawable.ic_bubble) }
-        val logoSize = if (landscape) 32 else 72
-        // landscape screens are short, so everything is a little smaller to fit without scrolling
-        fun TextView.compact() = apply { if (landscape) { textSize = 12f; setPadding(dp(12), dp(6), dp(12), dp(6)) } }
-
-        val middle = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            gravity = Gravity.CENTER
-            addView(logo, LinearLayout.LayoutParams(dp(logoSize), dp(logoSize)))
-            addView(label("Old School Bubble Tool", if (landscape) 18f else 22f, bold = true).apply { gravity = Gravity.CENTER },
-                matchWidth(if (landscape) 2 else 10))
-            addView(label("Tap Start Bubble, then open Old School RuneScape.\n\n" +
-                "Tap the bubble to open or hide a tool.\n" +
-                "Drag the bubble to move it.\n" +
-                "Long-press the bubble for the tool menu.", if (landscape) 12f else 14f).apply { gravity = Gravity.CENTER },
-                matchWidth(if (landscape) 4 else 16))
-            addView(button("Start Bubble", GO_GREEN) { startBubble() }.apply {
-                textSize = if (landscape) 15f else 17f
-                if (landscape) setPadding(dp(22), dp(8), dp(22), dp(8)) else setPadding(dp(28), dp(12), dp(28), dp(12))
-            }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(if (landscape) 8 else 24) })
-            // your quests, levels and diaries from the Bubble Tool Sync plugin, without starting the bubble
-            addView(button("Bubble Sync") { show(Screen.SYNC) }.compact(), wrap().apply { topMargin = dp(if (landscape) 6 else 12) })
-        }
-
-        // Legal in the left corner, Settings in the exact middle, Permissions in the right corner
-        // (laid on top of each other, so Settings stays centred even though the corner buttons differ in width)
-        fun at(side: Int) = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT,
-            side or Gravity.CENTER_VERTICAL)
-        val bottom = FrameLayout(this).apply {
-            addView(button("Legal") { show(Screen.LEGAL) }.compact(), at(Gravity.START))
-            addView(button("Settings") { show(Screen.SETTINGS) }.compact(), at(Gravity.CENTER_HORIZONTAL))
-            addView(button("Permissions") { show(Screen.PERMISSIONS) }.compact(), at(Gravity.END))
-        }
-
-        return page(padTop = if (landscape) 6 else 16, padBottom = if (landscape) 6 else 16) {
-            // top left: "Report An Issue"; top right: "Up To Date" or "Update Available"
+        val disclaimer = ui.text("Unofficial fan-made tool. Not affiliated with Jagex.", 12f, Palette.MUTED).apply { gravity = Gravity.CENTER }
+        if (!landscape) return page {
+            addView(mainHero(), matchWidth(12))
             addView(LinearLayout(this@MainActivity).apply {
-                orientation = LinearLayout.HORIZONTAL
-                addView(button("Report An Issue") { chooseWhereToReport() }.compact())
-                addView(View(this@MainActivity), LinearLayout.LayoutParams(0, 1, 1f))
-                if (AppSettings.checksUpdates(this@MainActivity))
-                    addView(button("") { openReleasePage() }.compact().also { updateButton = it; styleUpdateButton() })
-                else updateButton = null
-            }, matchWidth(0))
-            addView(middle, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
-            // a small thank-you link to the Ko-fi page (faded, so it doesn't compete with Start Bubble)
-            addView(label("Free and ad-free. Enjoying it? ☕ Buy me a coffee", if (landscape) 11f else 12f).apply {
-                gravity = Gravity.CENTER
-                setTextColor(Palette.FADED)
-                paintFlags = paintFlags or android.graphics.Paint.UNDERLINE_TEXT_FLAG
-                setPadding(0, dp(4), 0, dp(4))   // a little taller, so it's easy to tap
-                setOnClickListener { openKofi() }
-            }, matchWidth(if (landscape) 2 else 6))
-            addView(label("Unofficial fan-made tool. Not affiliated with Jagex.", if (landscape) 10f else 11f).apply { gravity = Gravity.CENTER },
-                matchWidth(if (landscape) 4 else 8))
-            addView(bottom, matchWidth(if (landscape) 4 else 8))
+                orientation = LinearLayout.VERTICAL
+                background = GradientDrawable().apply { setColor(Palette.SURFACE); cornerRadius = dp(12).toFloat() }
+                clipToOutline = true
+                addView(mainList())
+                addView(mainLinks())
+            }, matchWidth(24))
+            addView(disclaimer, matchWidth(16))
+        }
+
+        // Sideways: Start Bubble on the left, everything else in a panel on the right
+        val left = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            gravity = Gravity.CENTER_HORIZONTAL
+            setPadding(dp(24), dp(8), dp(24), dp(10))
+            addView(View(this@MainActivity), LinearLayout.LayoutParams(1, 0, 1f))
+            addView(mainHero(), matchWidth(0))
+            addView(View(this@MainActivity), LinearLayout.LayoutParams(1, 0, 1f))
+            addView(disclaimer, matchWidth(8))
+        }
+        val right = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setBackgroundColor(Palette.SURFACE)
+            addView(ScrollView(this@MainActivity).apply { addView(mainList()) },
+                LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
+            addView(mainLinks())
+        }
+        return LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            setBackgroundColor(Palette.BG)
+            addView(ScrollView(this@MainActivity).apply { isFillViewport = true; addView(left) },
+                LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f))
+            addView(right, LinearLayout.LayoutParams(dp(264), ViewGroup.LayoutParams.MATCH_PARENT))
+            keepClearOfBars(this)
         }
     }
 
-    // The update button on the main screen: brown "Up To Date", or green "Update Available"
-    private var updateButton: TextView? = null
+    // The logo, a few words on how it works, Start Bubble, and whether the permissions are ready
+    private fun mainHero() = LinearLayout(this).apply {
+        orientation = LinearLayout.VERTICAL
+        gravity = Gravity.CENTER_HORIZONTAL
+        addView(ImageView(this@MainActivity).apply { setImageResource(R.drawable.ic_bubble) }, LinearLayout.LayoutParams(dp(56), dp(56)))
+        addView(ui.text("Old School Bubble Tool", 22f, Palette.TEXT, 700).apply { gravity = Gravity.CENTER }, matchWidth(8))
+        addView(ui.text("Tap the bubble to open a tool, drag it to move it, and hold it for the menu.", 13f, Palette.MUTED).apply {
+            gravity = Gravity.CENTER
+        }, matchWidth(4))
+        addView(LinearLayout(this@MainActivity).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER
+            ui.press(this, Palette.GOLD, 10)
+            addView(ui.icon("play", Palette.ON_GOLD))
+            addView(ui.text("Start Bubble", 16f, Palette.ON_GOLD, 700).apply { setPadding(dp(8), 0, 0, 0) })
+            setOnClickListener { startBubble() }
+        }, LinearLayout.LayoutParams(dp(280), dp(56)).apply { topMargin = dp(16) })
+        addView(permissionStatus(), LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(4) })
+    }
+
+    // Says whether the app has what it needs. Tap it to see the Permissions page.
+    private fun permissionStatus(): View {
+        val allReady = FarmingTimers.notificationsAllowed(this) && FarmingTimers.canUseExactAlarms(this)
+        val canShow = Settings.canDrawOverlays(this)
+        val words = if (!canShow) "Allow the bubble to show over apps" else if (allReady) "Permissions ready" else "Some permissions are off"
+        val colour = if (canShow && allReady) Palette.OK else Palette.CAUTION
+        return LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER
+            minimumHeight = dp(Ui.TAP_SIZE)
+            setPadding(dp(10), 0, dp(10), 0)
+            ui.press(this, null, 8)
+            addView(ui.icon(if (canShow && allReady) "check" else "warning", colour, 16))
+            addView(ui.text(words, 13f, colour, 600).apply { setPadding(dp(6), 0, 0, 0) })
+            setOnClickListener { show(Screen.PERMISSIONS) }
+        }
+    }
+
+    // The main screen's list of pages
+    private fun mainList() = LinearLayout(this).apply {
+        orientation = LinearLayout.VERTICAL
+        addView(mainRow("sync", "Bubble Sync") { show(Screen.SYNC) })   // your quests, levels and diaries, without starting the bubble
+        addView(mainRow("gear", "Settings") { show(Screen.SETTINGS) })
+        addView(mainRow("shield", "Permissions") { show(Screen.PERMISSIONS) })
+        addView(mainRow("flag", "Report An Issue") { chooseWhereToReport() })
+        if (AppSettings.checksUpdates(this@MainActivity)) {
+            val state = ui.text("", 12f, Palette.MUTED, 600)
+            updateStatus = state
+            styleUpdateButton()
+            addView(mainRow("download", "Updates", state) { openReleasePage() })
+        } else updateStatus = null
+        addView(mainRow("doc", "Legal") { show(Screen.LEGAL) })
+    }
+
+    private fun mainRow(icon: String, title: String, status: TextView? = null, onClick: () -> Unit) = LinearLayout(this).apply {
+        orientation = LinearLayout.HORIZONTAL
+        gravity = Gravity.CENTER_VERTICAL
+        minimumHeight = dp(48)
+        setPadding(dp(16), 0, dp(14), 0)
+        ui.press(this, null)
+        addView(ui.icon(icon))
+        addView(ui.text(title, 14f, Palette.TEXT, 500).apply { setPadding(dp(12), 0, dp(8), 0) },
+            LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+        addView(status ?: ui.icon("next", Palette.MUTED))
+        setOnClickListener { onClick() }
+    }
+
+    // The Ko-fi and Discord links, always in view
+    private fun mainLinks() = LinearLayout(this).apply {
+        orientation = LinearLayout.HORIZONTAL
+        setBackgroundColor(Palette.RAISED)
+        fun link(icon: String, words: String, onClick: () -> Unit) = LinearLayout(this@MainActivity).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER
+            minimumHeight = dp(52)
+            ui.press(this, null)
+            addView(ui.icon(icon))
+            addView(ui.text(words, 13f, Palette.TEXT, 600).apply { setPadding(dp(8), 0, 0, 0) })
+            setOnClickListener { onClick() }
+        }
+        addView(link("coffee", "Buy me a coffee") { openKofi() }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.6f))
+        addView(link("chat", "Discord") { openDiscord() }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+    }
+
+    // How the update check went, in the Updates row
+    private var updateStatus: TextView? = null
 
     private fun styleUpdateButton() {
-        val b = updateButton ?: return
+        val status = updateStatus ?: return
         val state = UpdateChecker.state(this)
-        b.text = when (state) {
-            UpdateChecker.State.UPDATE_AVAILABLE -> "Update Available"
-            UpdateChecker.State.UP_TO_DATE -> "Up To Date"
-            UpdateChecker.State.NOT_CHECKED -> "Check for Update"
+        status.text = when (state) {
+            UpdateChecker.State.UPDATE_AVAILABLE -> "Update available"
+            UpdateChecker.State.UP_TO_DATE -> "Up to date"
+            UpdateChecker.State.NOT_CHECKED -> "Check now"
         }
-        (b.background as? GradientDrawable)?.setColor(if (state == UpdateChecker.State.UPDATE_AVAILABLE) GO_GREEN else BUTTON_BROWN)
+        status.setTextColor(when (state) {
+            UpdateChecker.State.UPDATE_AVAILABLE -> Palette.ACCENT
+            UpdateChecker.State.UP_TO_DATE -> Palette.OK
+            UpdateChecker.State.NOT_CHECKED -> Palette.MUTED
+        })
     }
 
     private fun openReleasePage() {
@@ -252,13 +314,13 @@ class MainActivity : Activity() {
         val choices = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(dp(20), dp(18), dp(20), dp(18))
-            addView(label("Report An Issue", 17f, bold = true))
+            addView(ui.text("Report An Issue", 17f, Palette.TEXT, 700))
             addView(label("Where would you like to tell us about it?", 13f), matchWidth(6))
             addView(button("GitHub") { box?.dismiss(); reportIssue() }, matchWidth(14))
             addView(button("Discord") { box?.dismiss(); openDiscord() }, matchWidth(8))
         }
         box = AlertDialog.Builder(this).setView(choices).create().apply {
-            window?.setBackgroundDrawable(GradientDrawable().apply { setColor(PARCHMENT); cornerRadius = dp(10).toFloat() })
+            window?.setBackgroundDrawable(GradientDrawable().apply { setColor(Palette.SURFACE); cornerRadius = dp(12).toFloat() })
             show()
         }
     }
@@ -317,10 +379,9 @@ class MainActivity : Activity() {
 
     // The same settings as the bubble's Settings window
     private fun settingsScreen(): View = page {
-        addView(backButton(), wrap())
-        addView(label("Settings", 20f, bold = true), matchWidth(10))
+        addView(pageTop("Settings"), matchWidth(0))
         // dark mode switched: draw this screen again in the new colours
-        SettingsTool(this@MainActivity) {
+        SettingsTool(this@MainActivity, wide = resources.configuration.screenWidthDp >= 600) {
             if (AppSettings.isDark(this@MainActivity) != shownDark) show(Screen.SETTINGS)
         }.addSettings(this)
     }
@@ -329,16 +390,15 @@ class MainActivity : Activity() {
     private val syncPage by lazy { SyncTool(this, inBubble = false) }
 
     private fun syncScreen(): View = page {
-        addView(backButton(), wrap())
+        addView(pageTop(""), matchWidth(0))   // (the page has its own title)
         syncPage.addTo(this) { show(Screen.SYNC) }
     }
 
     // ---------------- Permissions screen ----------------
 
     private fun permissionsScreen(): View = page {
-        addView(backButton(), wrap())
-        addView(label("Permissions", 20f, bold = true), matchWidth(10))
-        addView(label("What the app asks for, and why. Nothing here is sent anywhere.", 13f), matchWidth(4))
+        addView(pageTop("Permissions"), matchWidth(0))
+        addView(ui.text("What the app asks for, and why. Nothing here is sent anywhere.", 13f, Palette.MUTED), matchWidth(4))
 
         addView(permissionCard(
             "Display over other apps",
@@ -431,21 +491,26 @@ class MainActivity : Activity() {
     private fun permissionCard(title: String, text: String, allowed: Boolean?, onAllow: (() -> Unit)?): View {
         val card = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(12), dp(10), dp(12), dp(10))
-            background = GradientDrawable().apply { setColor(ROW_BROWN); cornerRadius = dp(8).toFloat() }
+            setPadding(dp(14), dp(12), dp(14), dp(12))
+            background = GradientDrawable().apply { setColor(Palette.SURFACE); cornerRadius = dp(12).toFloat() }
         }
         val top = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            addView(label(title, 15f, bold = true), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+            minimumHeight = dp(Ui.TAP_SIZE)
+            addView(ui.text(title, 14f, Palette.TEXT, 600).apply { setPadding(0, 0, dp(8), 0) },
+                LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
             when (allowed) {
-                true -> addView(label("✓ Allowed", 14f, bold = true).apply { setTextColor(GO_GREEN) })
-                false -> if (onAllow != null) addView(button("Allow", GO_GREEN, onAllow))
-                null -> addView(label("Asked when needed", 12f))
+                true -> {
+                    addView(ui.icon("check", Palette.OK, 16))
+                    addView(ui.text("Allowed", 13f, Palette.OK, 600).apply { setPadding(dp(4), 0, 0, 0) })
+                }
+                false -> if (onAllow != null) addView(ui.button("Allow", Ui.ButtonStyle.GOLD, onAllow))
+                null -> addView(ui.text("Asked when needed", 12f, Palette.MUTED))
             }
         }
         card.addView(top)
-        card.addView(label(text, 13f), matchWidth(6))
+        card.addView(ui.text(text, 13f, Palette.MUTED), matchWidth(4))
         return card
     }
 
@@ -460,19 +525,18 @@ class MainActivity : Activity() {
     // ---------------- Legal screen ----------------
 
     private fun legalScreen(): View = page {
-        addView(backButton(), wrap())
-        addView(label("Legal", 20f, bold = true), matchWidth(10))
+        addView(pageTop("Legal"), matchWidth(0))
 
         fun section(title: String, text: String, size: Float = 13f) {
             addView(label(title, 15f, bold = true), matchWidth(16))
-            addView(label(text, size), matchWidth(4))
+            addView(ui.text(text, maxOf(size, 12f), Palette.MUTED), matchWidth(4))
         }
 
         // A button that shows (and hides again) the full text of a licence kept in assets/licences/
         fun fullText(file: String) {
             val showLabel = "Show the full licence"
             val hideLabel = "Hide the full licence"
-            val text = label("", 10f).apply { isGone = true }
+            val text = ui.text("", 12f, Palette.MUTED).apply { isGone = true }
             val toggle = button(showLabel) {}
             toggle.setOnClickListener {
                 // read only when first asked for (the GPL is 35 KB of text)
@@ -523,13 +587,19 @@ class MainActivity : Activity() {
             "Copyright ZXing authors", size = 11f)
         fullText("apache-2.0.txt")
 
+        section("Inter font",
+            "The app's writing uses Inter (github.com/rsms/inter), used under the SIL Open Font License, Version 1.1 " +
+            "(openfontlicense.org).\n\n" +
+            "Copyright 2020 The Inter Project Authors", size = 11f)
+        fullText("ofl-1.1.txt")
+
         section("OSRS Wiki",
             "Text and data from the Old School RuneScape Wiki (oldschool.runescape.wiki) are used under the Creative Commons " +
             "Attribution-NonCommercial-ShareAlike 3.0 licence (creativecommons.org/licenses/by-nc-sa/3.0). " +
             "They have been shortened and reformatted for the app, and anything adapted from them is shared under the same licence. " +
             "(The wiki's pictures aren't under this licence: they're Jagex's, see above.) It includes:\n\n" +
             "\u2022 DPS Calculator's Import my gear and older Gear Loadouts' item lists: every item's name, ID and equipment slot, from the wiki's item pages\n" +
-            "\u2022 Quest Helper: some puzzle answers from the wiki's quick guides (such as Lunar Diplomacy's)\n" +
+            "\u2022 Quest Helper: some puzzle answers and step directions from the wiki's quest guides (such as Lunar Diplomacy's)\n" +
             "\u2022 Hunter Rumours: rumour lists, locations, travel and equipment from the pages Hunters' Rumours and Hunters' Rumours/Strategies\n" +
             "\u2022 Teleport Finder: search suggestions, where NPCs, monsters and places are on the map, monster levels, and descriptions of some teleport destinations\n" +
             "\u2022 ToA Puzzle Helper: the outline of the Path of Het room, traced from the wiki's map")
@@ -626,17 +696,22 @@ class MainActivity : Activity() {
     // ---------------- Small building blocks ----------------
 
     // A full screen with the app's background, scrolling, kept clear of the status and navigation bars
-    private fun page(padTop: Int = 16, padBottom: Int = 16, fill: LinearLayout.() -> Unit): View {
+    private fun page(padTop: Int = 8, padBottom: Int = 16, fill: LinearLayout.() -> Unit): View {
         val column = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(20), dp(padTop), dp(20), dp(padBottom))
+            setPadding(dp(16), dp(padTop), dp(16), dp(padBottom))
             fill()
         }
         // (the scroll view stretches short pages to fill the screen, so they can still be centred)
         val root: ViewGroup = ScrollView(this).apply { isFillViewport = true; addView(column) }
-        root.setBackgroundColor(PARCHMENT)
-        // Sideways, the camera hole keeps one side clear; the other side gets the same gap, so the page
-        // stays centred on the screen rather than shifted away from the camera
+        root.setBackgroundColor(Palette.BG)   // the darkest brown, so the bubble's menu and windows stand out against it
+        keepClearOfBars(root)
+        return root
+    }
+
+    // Sideways, the camera hole keeps one side clear; the other side gets the same gap, so the page
+    // stays centred on the screen rather than shifted away from the camera
+    private fun keepClearOfBars(root: View) {
         root.setOnApplyWindowInsetsListener { v, insets ->
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 val bars = insets.getInsets(WindowInsets.Type.systemBars() or WindowInsets.Type.displayCutout())
@@ -650,30 +725,22 @@ class MainActivity : Activity() {
             }
             insets
         }
-        return root
     }
 
-    private fun backButton() = button("◀ Back") { show(Screen.MAIN) }
+    // The top of a page: back to the main screen, and the page's name
+    private fun pageTop(title: String) = LinearLayout(this).apply {
+        orientation = LinearLayout.HORIZONTAL
+        gravity = Gravity.CENTER_VERTICAL
+        addView(ui.iconButton("back", "Back") { show(Screen.MAIN) })
+        addView(ui.text(title, 20f, Palette.TEXT, 700).apply { setPadding(dp(4), 0, 0, 0) })
+    }
 
     private fun matchWidth(top: Int) =
         LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(top) }
 
     private fun wrap() = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
-    private fun button(label: String, color: Int = BUTTON_BROWN, onClick: () -> Unit) = TextView(this).apply {
-        text = label
-        textSize = 14f
-        setTextColor(Color.WHITE)
-        gravity = Gravity.CENTER
-        setPadding(dp(16), dp(9), dp(16), dp(9))
-        background = GradientDrawable().apply { setColor(color); cornerRadius = dp(6).toFloat() }
-        setOnClickListener { onClick() }
-    }
+    private fun button(label: String, onClick: () -> Unit) = ui.button(label, onClick = onClick)
 
-    private fun label(text: String, size: Float, bold: Boolean = false) = TextView(this).apply {
-        this.text = text
-        textSize = size
-        setTextColor(DARK_BROWN)
-        if (bold) setTypeface(typeface, Typeface.BOLD)
-    }
+    private fun label(text: String, size: Float, bold: Boolean = false) = ui.text(text, size, Palette.TEXT, if (bold) 700 else 400)
 }

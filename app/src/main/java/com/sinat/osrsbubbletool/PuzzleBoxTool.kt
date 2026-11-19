@@ -2,9 +2,7 @@ package com.sinat.osrsbubbletool
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.Color
 import android.graphics.Rect
-import android.graphics.drawable.GradientDrawable
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
@@ -41,11 +39,11 @@ class PuzzleBoxTool(
         const val REPLAN_WAIT_MS = 150L    // let the outlines disappear before re-reading the tiles
     }
 
+    private val ui = Ui(context)
     private val handler = Handler(Looper.getMainLooper())
     private val puzzleArea = PuzzleAreaOverlay(context, windowManager)
     private val guide = MoveGuideOverlay(context, windowManager)
     private val prefs = context.getSharedPreferences("puzzle_box", Context.MODE_PRIVATE)
-    private var styleButtons: List<TextView> = emptyList()
     private val references = PuzzleReferences(context)
     private var status: TextView? = null
     private var scanButton: TextView? = null
@@ -88,78 +86,61 @@ class PuzzleBoxTool(
     // ---------------- Window contents ----------------
 
     fun buildView(): View {
-        fun button(label: String, size: Float, onClick: () -> Unit) = TextView(context).apply {
-            text = label
-            textSize = size
-            setTextColor(Color.WHITE)
-            gravity = Gravity.CENTER
-            setPadding(dp(6), dp(7), dp(6), dp(7))
-            background = GradientDrawable().apply {
-                setColor(Palette.BUTTON_BROWN)
-                cornerRadius = dp(6).toFloat()
-            }
-            setOnClickListener { onClick() }
+        // (this window is small and sits over the game: the two buttons share one row, and drop the usual smallest width)
+        scanButton = ui.button("Scan puzzle", Ui.ButtonStyle.GOLD) { if (tracking || solving) stopGuide("Stopped.") else scan() }.apply {
+            minWidth = 0
+            setPadding(dp(4), 0, dp(4), 0)
         }
-
-        scanButton = button("Scan puzzle", 13f) { if (tracking || solving) stopGuide("Stopped.") else scan() }
-        areaButton = button("Set area by hand", 11f) { toggleAreaSetup() }.apply {
-            setPadding(dp(6), dp(4), dp(6), dp(4))
+        areaButton = ui.button("Set area") { toggleAreaSetup() }.apply {
+            minWidth = 0
+            setPadding(dp(4), 0, dp(4), 0)
+        }
+        val buttonRow = LinearLayout(context).apply {
+            orientation = LinearLayout.HORIZONTAL
+            isBaselineAligned = false
+            addView(scanButton, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 3f))
+            addView(areaButton, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 2f).apply { leftMargin = dp(4) })
         }
 
         // Guide style: coloured boxes around the tiles, or dots that shrink with each move
         guide.dots = prefs.getBoolean("dots", false)
-        fun styleButton(label: String, dots: Boolean) = button(label, 11f) {
+        val styleChoice = ui.choices(listOf(false to "Boxes", true to "Dots"), guide.dots) { dots ->
             guide.dots = dots
             prefs.edit { putBoolean("dots", dots) }
-            refreshStyleButtons()
-        }.apply { setPadding(dp(4), dp(5), dp(4), dp(5)) }
-        val boxesButton = styleButton("▢ Boxes", false)
-        val dotsButton = styleButton("● Dots", true)
-        styleButtons = listOf(boxesButton, dotsButton)
-        refreshStyleButtons()
+        }.apply {
+            for (i in 0 until childCount) (getChildAt(i) as TextView).minHeight = dp(38)   // (a little low, to fit this window)
+        }
         val styleRow = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            addView(TextView(context).apply {
-                text = "Show moves as:"
-                textSize = 11f
-                setTextColor(Palette.DARK_BROWN)
-            }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = dp(4) })
-            addView(boxesButton, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { rightMargin = dp(3) })
-            addView(dotsButton, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+            addView(ui.text("Moves:", 12f, Palette.MUTED, 500),
+                LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = dp(6) })
+            addView(styleChoice, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
         }
 
-        status = TextView(context).apply {
-            text = "Open a puzzle box, then tap Scan puzzle. The moves appear on the puzzle."
-            textSize = 11f
-            setTextColor(Palette.DARK_BROWN)
-            setPadding(0, dp(6), 0, dp(6))
+        status = ui.text("Open a puzzle box and tap Scan puzzle. Moves appear on it.", 11f).apply {
+            setPadding(0, dp(4), 0, dp(4))
         }
 
         return LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setBackgroundColor(Palette.PARCHMENT)
-            setPadding(dp(8), dp(8), dp(8), dp(8))
-            addView(scanButton, LinearLayout.LayoutParams(
+            setBackgroundColor(Palette.SURFACE)
+            setPadding(dp(6), dp(4), dp(6), dp(4))
+            addView(buttonRow, LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
             addView(status, LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
             addView(styleRow, LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
-            ).apply { topMargin = dp(6) })
-            addView(areaButton, LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
-            ).apply { topMargin = dp(6) })
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
         }
     }
 
-    // The chosen style's button is darker
-    private fun refreshStyleButtons() {
-        styleButtons.forEachIndexed { i, b ->
-            val chosen = (i == 1) == guide.dots
-            (b.background as? GradientDrawable)?.setColor(if (chosen) Palette.SELECTED_BROWN else Palette.LIGHT_BUTTON)
-            b.setTypeface(null, if (chosen) android.graphics.Typeface.BOLD else android.graphics.Typeface.NORMAL)
-        }
+    // The main button: gold to scan, and a red-worded Stop while solving or guiding
+    private fun showScanButton(guiding: Boolean) {
+        val b = scanButton ?: return
+        b.text = if (guiding) "Stop" else "Scan puzzle"
+        b.setTextColor(if (guiding) Palette.BAD else Palette.ON_GOLD)
+        ui.press(b, if (guiding) Palette.RAISED else Palette.GOLD, 8)
     }
 
     // ---------------- Puzzle area by hand (only needed if it can't be found automatically) ----------------
@@ -167,7 +148,7 @@ class PuzzleBoxTool(
     private fun toggleAreaSetup() {
         if (puzzleArea.isShowing) {
             puzzleArea.saveAndHide()
-            areaButton?.text = "Set area by hand"
+            areaButton?.text = "Set area"
             status?.text = "Area saved. Tap Scan puzzle."
         } else {
             stopGuide(null)
@@ -254,7 +235,7 @@ class PuzzleBoxTool(
         if (scan.rough == null) {
             scanning = false
             status?.text = "Couldn't find the puzzle. Make sure it's open and not covered, then scan again. " +
-                "If it still isn't found, use Set area by hand."
+                "If it still isn't found, use Set area."
             return
         }
         val area = scan.area
@@ -324,7 +305,7 @@ class PuzzleBoxTool(
     private fun solveAndGuide(board: IntArray, name: String) {
         val id = planId
         solving = true
-        scanButton?.text = "Stop"
+        showScanButton(true)
         Thread {
             val moves = try { PuzzleSolver.solve(board) } catch (e: OutOfMemoryError) { null }   // a very hard scramble on a low-memory phone
             handler.post {
@@ -355,7 +336,7 @@ class PuzzleBoxTool(
         lastSeen = SystemClock.uptimeMillis()
         if (firstTime) guide.show(area)
         updateGuide()
-        scanButton?.text = "Stop"
+        showScanButton(true)
         if (!tracking) {
             tracking = true
             handler.postDelayed(trackRunnable, TRACK_INTERVAL_MS)
@@ -383,7 +364,7 @@ class PuzzleBoxTool(
         solution = emptyList()
         step = 0
         planId++
-        scanButton?.text = "Scan puzzle"
+        showScanButton(false)
         if (message != null) status?.text = message
     }
 
@@ -590,7 +571,7 @@ class PuzzleBoxTool(
     fun onWindowClosed() {
         if (puzzleArea.isShowing) {
             puzzleArea.hide()
-            areaButton?.text = "Set area by hand"
+            areaButton?.text = "Set area"
         }
     }
 
@@ -598,7 +579,7 @@ class PuzzleBoxTool(
         stopGuide("Screen rotated. Tap Scan puzzle to start again.")
         if (puzzleArea.isShowing) {
             puzzleArea.hide()
-            areaButton?.text = "Set area by hand"
+            areaButton?.text = "Set area"
         }
     }
 

@@ -30,7 +30,6 @@
 package com.sinat.osrsbubbletool
 
 import android.content.Context
-import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.text.Editable
@@ -47,17 +46,6 @@ import android.widget.TextView
 import androidx.core.content.edit
 import androidx.core.net.toUri
 import androidx.core.view.isEmpty
-import com.sinat.osrsbubbletool.Palette.BLUE
-import com.sinat.osrsbubbletool.Palette.BUTTON_BROWN
-import com.sinat.osrsbubbletool.Palette.CURRENT
-import com.sinat.osrsbubbletool.Palette.DARK_BROWN
-import com.sinat.osrsbubbletool.Palette.FADED
-import com.sinat.osrsbubbletool.Palette.GO_GREEN
-import com.sinat.osrsbubbletool.Palette.ORANGE
-import com.sinat.osrsbubbletool.Palette.PARCHMENT
-import com.sinat.osrsbubbletool.Palette.RED
-import com.sinat.osrsbubbletool.Palette.ROW_BROWN
-import com.sinat.osrsbubbletool.Palette.SELECTED_BROWN
 import com.sinat.osrsbubbletool.QuestBook.Met
 import com.sinat.osrsbubbletool.QuestBook.Req
 import com.sinat.osrsbubbletool.QuestBook.Status
@@ -227,12 +215,13 @@ class QuestHelperTool(
 
     private lateinit var holder: FrameLayout
 
-    private fun dp(value: Int) = (value * context.resources.displayMetrics.density).toInt()
+    private val ui = Ui(context)
+    private fun dp(value: Int) = ui.dp(value)
 
     // ---------------- Screens ----------------
 
     fun buildView(): View {
-        holder = FrameLayout(context).apply { setBackgroundColor(PARCHMENT) }
+        holder = FrameLayout(context).apply { setBackgroundColor(Palette.SURFACE) }
         show()
         // back from the Bubble Sync tool with a newly scanned account: redraw with it
         holder.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
@@ -285,9 +274,9 @@ class QuestHelperTool(
         showDetails = false; showItems = false; showPuzzles = false; expanded.clear()
     }
 
-    // A ▾ button that opens a section underneath it; the same button (now ▴) closes it again
+    // A button that opens a section underneath it; the same button closes it again
     private fun LinearLayout.foldOut(open: Boolean, closedText: String, openText: String, flip: () -> Unit, section: () -> View) {
-        addView(smallButton(if (open) openText else closedText) { flip(); show() }, full(6))
+        addView(foldButton(if (open) openText else closedText, open) { flip(); show() }, full(6))
         if (open) addView(section(), full(4))
     }
 
@@ -295,12 +284,8 @@ class QuestHelperTool(
 
     private fun listScreen(): View = page {
         addView(syncBadge())
-        addView(LinearLayout(context).apply {
-            orientation = LinearLayout.HORIZONTAL
-            addView(tabButton("Quests", tab == Tab.QUESTS) { tab = Tab.QUESTS; show(keepScroll = false) },
-                LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { rightMargin = dp(3) })
-            addView(tabButton("Diaries", tab == Tab.DIARIES) { tab = Tab.DIARIES; show(keepScroll = false) },
-                LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { leftMargin = dp(3) })
+        addView(ui.choices(listOf(Tab.QUESTS to "Quests", Tab.DIARIES to "Diaries"), tab) {
+            tab = it; show(keepScroll = false)
         }, full(8))
         if (tab == Tab.QUESTS) questList(this) else diaryList(this)
     }
@@ -314,18 +299,15 @@ class QuestHelperTool(
                 "   ·   Miniquests: ${miniquests.done} of ${miniquests.total}", 12f, bold = true), full(8))
         }
 
-        val field = EditText(context).apply {
-            setTextColor(DARK_BROWN)
-            setHintTextColor(FADED)
+        val field = ui.textBox("Search quests").apply {
             setText(search)
-            hint = "Search quests"
             textSize = 13f
             setSingleLine()
             imeOptions = EditorInfo.IME_ACTION_DONE
         }
         column.addView(field, full(4))
         if (data != null) {
-            column.addView(smallButton(if (hideFinished) "☑ Hide finished quests" else "☐ Hide finished quests") {
+            column.addView(toggle("Hide finished quests", hideFinished) {
                 hideFinished = !hideFinished
                 show()
             }, full(2))
@@ -359,7 +341,7 @@ class QuestHelperTool(
 
         fun group(title: String, quests: List<QuestBook.QuestInfo>) {
             if (quests.isEmpty()) return
-            list.addView(label("$title (${quests.size})", 13f, bold = true), full(10))
+            list.addView(ui.heading("$title (${quests.size})"), full(12))
             quests.forEach { q -> standing.getValue(q).let { (status, missing) -> list.addView(questRow(q, status, missing), full(3)) } }
         }
 
@@ -379,26 +361,23 @@ class QuestHelperTool(
 
     private fun questRow(q: QuestBook.QuestInfo, status: Status, missing: Int): View {
         val (mark, color) = when (status) {
-            Status.DONE -> "✓" to GO_GREEN
-            Status.STARTED -> "◐" to ORANGE
-            Status.READY -> "●" to GO_GREEN
-            Status.MISSING -> "✗" to RED
-            Status.UNKNOWN -> "•" to DARK_BROWN
+            Status.DONE -> "✓" to Palette.OK
+            Status.STARTED -> "◐" to Palette.CAUTION
+            Status.READY -> "●" to Palette.OK
+            Status.MISSING -> "✗" to Palette.BAD
+            Status.UNKNOWN -> "•" to Palette.TEXT
         }
         val note = when {
             status == Status.MISSING -> "$missing missing"
             q.miniquest -> "Miniquest"
             else -> ""
         }
-        return LinearLayout(context).apply {
-            orientation = LinearLayout.HORIZONTAL
-            gravity = Gravity.CENTER_VERTICAL
-            setPadding(dp(8), dp(7), dp(8), dp(7))
-            background = GradientDrawable().apply { setColor(ROW_BROWN); cornerRadius = dp(5).toFloat() }
+        return tapRow().apply {
+            setPadding(dp(8), dp(4), dp(8), dp(4))
             addView(label(mark, 13f, bold = true).apply { setTextColor(color); minWidth = dp(20) })
-            addView(label(q.name, 13f).apply { if (status == Status.DONE) setTextColor(FADED) },
+            addView(label(q.name, 13f).apply { if (status == Status.DONE) setTextColor(Palette.MUTED) },
                 LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-            if (note.isNotEmpty()) addView(label(note, 10f).apply { setTextColor(if (status == Status.MISSING) RED else FADED) })
+            if (note.isNotEmpty()) addView(label(note, 11f).apply { setTextColor(if (status == Status.MISSING) Palette.BAD else Palette.MUTED) })
             setOnClickListener { openQuestPage(q.name) }
         }
     }
@@ -417,53 +396,53 @@ class QuestHelperTool(
         addView(questFacts(info), full(2))
         addView(syncBadge(), full(6))
         addView(summary(name, info.requirements), full(6))
-        addView(card(ROW_BROWN) {
+        addView(card() {
             addView(label("Requirements", 12f, bold = true))
             if (info.requirements.isEmpty()) addView(label("None", 12f), full(2))
             reqRows(this, info.requirements, data, 0, name)
             if (info.requirements.any { it is Req.QuestDone }) {
-                addView(label("Tap a quest with ▸ to see what it needs.", 10f).apply { setTextColor(FADED) }, full(6))
+                addView(label("Tap a quest with ▸ to see what it needs.", 10f).apply { setTextColor(Palette.MUTED) }, full(6))
             }
             if (info.enemies.isNotEmpty()) {
-                addView(label("⚔ Enemies", 12f, bold = true).apply { setTextColor(RED) }, full(10))
+                addView(label("Enemies", 12f, bold = true).apply { setTextColor(Palette.BAD) }, full(10))
                 info.enemies.forEach { addView(label("• $it", 12f), full(1)) }
             } else {
-                addView(label("No required fights listed", 11f).apply { setTextColor(GO_GREEN) }, full(10))
+                addView(label("No required fights listed", 11f).apply { setTextColor(Palette.OK) }, full(10))
             }
         }, full(8))
         QuestPuzzles.forQuest(name).takeIf { it.isNotEmpty() }?.let { puzzles ->
-            addView(label("🧩 Puzzle solutions", 13f, bold = true), full(10))
-            puzzles.forEach { addView(smallButton("🧩 ${it.title}") { openPuzzleScreen(it) }, full(4)) }
+            addView(label("Puzzle solutions", 13f, bold = true), full(10))
+            puzzles.forEach { addView(smallButton(it.title) { openPuzzleScreen(it) }, full(4)) }
         }
         addView(label("There's no step-by-step guide for this quest in the app. The Wiki guide button " +
-            "opens the wiki's guide.", 11f).apply { setTextColor(FADED) }, full(10))
+            "opens the wiki's guide.", 11f).apply { setTextColor(Palette.MUTED) }, full(10))
     }
 
     // ---------------- Help improve this quest guide ----------------
 
     private fun helpButton(quest: String): View? {
         if (QuestPuzzles.HELP_WANTED[quest].isNullOrEmpty()) return null
-        return button("📷 Help improve this quest guide", BLUE) { showHelp = true; show(keepScroll = false) }
+        return button("Help improve this quest guide") { showHelp = true; show(keepScroll = false) }
             .apply { textSize = 12f }
     }
 
     private fun helpScreen(quest: String): View = page {
         val requests = QuestPuzzles.HELP_WANTED[quest].orEmpty()
-        addView(titleRow("📷 Help improve this guide", "◀ Guide") { showHelp = false; show(keepScroll = false) })
-        addView(label(quest, 11f).apply { setTextColor(FADED) }, full(1))
+        addView(titleRow("Help improve this guide", "Guide") { showHelp = false; show(keepScroll = false) })
+        addView(label(quest, 11f).apply { setTextColor(Palette.MUTED) }, full(1))
         addView(label("With a few screenshots from a phone, the app could read this puzzle from your screen and show " +
             "you what to do, like the Puzzle Box and Light Box Solvers. If you're doing this quest, you can help!", 13f), full(8))
 
         requests.forEach { r ->
-            addView(card(ROW_BROWN) {
-                addView(label("🧩 ${r.puzzle}", 13f, bold = true))
-                addView(label(r.better, 12f).apply { setTypeface(typeface, Typeface.ITALIC) }, full(3))
+            addView(card() {
+                addView(label(r.puzzle, 13f, bold = true))
+                addView(label(r.better, 12f).apply { setTypeface(Typeface.create(typeface, Typeface.ITALIC)) }, full(3))
                 addView(label("Screenshots needed:", 12f, bold = true), full(6))
                 r.needed.forEach { addView(label("• $it", 12f), full(2)) }
             }, full(8))
         }
 
-        addView(card(CURRENT) {
+        addView(card(current = true) {
             addView(label("How to take them", 13f, bold = true))
             listOf(
                 "Use your phone's normal screenshot (not a photo of the screen or a video).",
@@ -473,7 +452,7 @@ class QuestHelperTool(
             ).forEach { addView(label("• $it", 12f), full(2)) }
         }, full(8))
 
-        addView(card(CURRENT) {
+        addView(card(current = true) {
             addView(label("How to send them", 13f, bold = true))
             listOf(
                 "Tap the button below. It opens the app's GitHub page in your browser, with a form already filled in.",
@@ -483,11 +462,14 @@ class QuestHelperTool(
             ).forEachIndexed { i, t -> addView(label("${i + 1}. $t", 12f), full(3)) }
         }, full(8))
 
-        addView(button("Open GitHub to send screenshots", GO_GREEN) {
+        addView(button("Open GitHub to send screenshots", GOLD) {
             openInBrowser(QuestPuzzles.helpIssueUrl(quest, appVersion()))
         }, full(10))
+        // for players without a GitHub account
+        addView(label("No GitHub account? Post them in the app's Discord instead, and say which quest and puzzle they're for.", 12f), full(10))
+        addView(button("Open Discord to send screenshots") { openInBrowser(MainActivity.DISCORD_INVITE) }, full(6))
         addView(label("Thank you! Screenshots are only used to build the solver: they're never put in the app.", 11f)
-            .apply { setTextColor(FADED) }, full(8))
+            .apply { setTextColor(Palette.MUTED) }, full(8))
     }
 
     private fun appVersion(): String = try {
@@ -516,17 +498,17 @@ class QuestHelperTool(
         val at = prefs.getInt(p.key, 0).coerceIn(0, p.steps.size)
         fun go(i: Int) { prefs.edit { putInt(p.key, i.coerceIn(0, p.steps.size)) }; show() }
 
-        addView(titleRow("🧩 ${p.title}", "◀ Guide") { openPuzzle = null; show(keepScroll = false) })
-        addView(label(p.quest, 11f).apply { setTextColor(FADED) }, full(1))
+        addView(titleRow(p.title, "Guide") { openPuzzle = null; show(keepScroll = false) })
+        addView(label(p.quest, 11f).apply { setTextColor(Palette.MUTED) }, full(1))
         if (p.intro.isNotEmpty()) addView(label(p.intro, 13f), full(8))
         p.solver?.let { solverViews.build(it, this) }
         p.link?.let { (text, url) ->
-            addView(button("🔗 $text", BLUE) { openWiki(url) }, full(8))
-            addView(label("Opens in the Wiki window. Tap ◀ there to come back here.", 10f).apply { setTextColor(FADED) }, full(2))
+            addView(button(text) { openWiki(url) }, full(8))
+            addView(label("Opens in the Wiki window. Tap ◀ there to come back here.", 10f).apply { setTextColor(Palette.MUTED) }, full(2))
         }
 
         if (p.table.isNotEmpty()) {
-            addView(card(ROW_BROWN) {
+            addView(card() {
                 p.tableHeader?.let { (a, b) -> addView(tableRow(a, b, bold = true)) }
                 p.table.forEach { (a, b) -> addView(tableRow(a, b, bold = false), full(3)) }
             }, full(8))
@@ -540,33 +522,33 @@ class QuestHelperTool(
 
         if (p.steps.isNotEmpty()) {
             if (at >= p.steps.size) {
-                addView(card(CURRENT) {
-                    addView(label("Done! ✓", 15f, bold = true).apply { setTextColor(GO_GREEN) })
+                addView(card(current = true) {
+                    addView(label("Done! ✓", 15f, bold = true).apply { setTextColor(Palette.OK) })
                     p.outro?.let { addView(label(it, 13f), full(4)) }
                     addView(button("Start over") { go(0) }, full(6))
                 }, full(8))
             } else {
-                addView(card(CURRENT) {
-                    addView(label("Step ${at + 1} of ${p.steps.size}", 11f))
+                addView(card(current = true) {
+                    addView(label("Step ${at + 1} of ${p.steps.size}", 11f, bold = true).apply { setTextColor(Palette.ACCENT) })
                     addView(label(p.steps[at], 14f, bold = true), full(2))
                     addView(LinearLayout(context).apply {
                         orientation = LinearLayout.HORIZONTAL
-                        addView(button("◀ Back") { go(at - 1) }.apply { alpha = if (at == 0) 0.4f else 1f },
+                        addView(button("Back") { go(at - 1) }.apply { alpha = if (at == 0) 0.4f else 1f },
                             LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { rightMargin = dp(4) })
-                        addView(button("Done ✓", GO_GREEN) { go(at + 1) },
+                        addView(button("Done", GOLD) { go(at + 1) },
                             LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 2f).apply { leftMargin = dp(4) })
                     }, full(8))
                 }, full(8))
             }
             p.steps.forEachIndexed { i, text ->
-                addView(LinearLayout(context).apply {
-                    orientation = LinearLayout.HORIZONTAL
-                    setPadding(dp(4), dp(3), dp(4), dp(3))
-                    if (i == at) background = GradientDrawable().apply { setColor(ROW_BROWN); cornerRadius = dp(4).toFloat() }
+                addView(tapRow(highlight = i == at).apply {
+                    gravity = Gravity.TOP
+                    minimumHeight = 0
+                    setPadding(dp(4), dp(6), dp(4), dp(6))
                     addView(label(if (i < at) "✓" else "${i + 1}.", 12f, bold = i == at).apply {
-                        setTextColor(if (i < at) GO_GREEN else DARK_BROWN); minWidth = dp(24)
+                        setTextColor(if (i < at) Palette.OK else Palette.TEXT); minWidth = dp(24)
                     })
-                    addView(label(text, 12f).apply { if (i < at) setTextColor(FADED) },
+                    addView(label(text, 12f).apply { if (i < at) setTextColor(Palette.MUTED) },
                         LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                     setOnClickListener { go(i) }
                 }, full(2))
@@ -579,7 +561,7 @@ class QuestHelperTool(
     private fun tableRow(a: String, b: String, bold: Boolean): View = LinearLayout(context).apply {
         orientation = LinearLayout.HORIZONTAL
         addView(label(a, 12f, bold = true), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 2f))
-        addView(label(b, 12f, bold = bold).apply { if (!bold) setTextColor(BLUE) },
+        addView(label(b, 12f, bold = bold).apply { if (!bold) setTextColor(Palette.ACCENT) },
             LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 3f))
     }
 
@@ -587,7 +569,7 @@ class QuestHelperTool(
     private fun questFacts(info: QuestBook.QuestInfo): View =
         label(listOfNotNull(if (info.miniquest) "Miniquest" else if (info.members) "Members" else "Free to play",
             info.difficulty, if (info.questPoints > 0) "${info.questPoints} Quest point" + (if (info.questPoints > 1) "s" else "") else null)
-            .filter { it.isNotEmpty() }.joinToString("  ·  "), 11f).apply { setTextColor(FADED) }
+            .filter { it.isNotEmpty() }.joinToString("  ·  "), 11f).apply { setTextColor(Palette.MUTED) }
 
     // ---------------- A quest with a step-by-step guide ----------------
 
@@ -608,42 +590,43 @@ class QuestHelperTool(
         column.addView(summary(q.name, requirements), full(6))
 
         // Before you start
-        column.foldOut(showDetails, "Requirements & rewards ▾", "Hide requirements ▴", { showDetails = !showDetails }) {
+        column.foldOut(showDetails, "Requirements & rewards", "Hide requirements", { showDetails = !showDetails }) {
             detailsCard(q, requirements)
         }
         val puzzles = QuestPuzzles.forQuest(q.name)
         if (puzzles.isNotEmpty()) {
-            column.addView(smallButton("🧩 Puzzle solutions (${puzzles.size}) " + if (showPuzzles) "▴" else "▾") {
+            column.addView(foldButton("Puzzle solutions (${puzzles.size})", showPuzzles) {
                 showPuzzles = !showPuzzles
                 show()
             }, full(6))
             if (showPuzzles) puzzles.forEach { p ->
-                column.addView(smallButton("🧩 ${p.title}") { openPuzzleScreen(p) }.apply { alpha = 0.9f }, full(3))
+                column.addView(smallButton(p.title) { openPuzzleScreen(p) }, full(3))
             }
         }
 
         // The current step, big
         if (at >= steps.size) {
-            column.addView(card(CURRENT) {
-                addView(label("Quest complete! ✓", 15f, bold = true).apply { setTextColor(GO_GREEN) })
+            column.addView(card(current = true) {
+                addView(label("Quest complete! ✓", 15f, bold = true).apply { setTextColor(Palette.OK) })
                 addView(button("Start over") { setPosition(q, 0); show() }, full(6))
             }, full(8))
         } else {
             val step = steps[at]
             val section = sectionOf(q, at)
-            column.addView(card(CURRENT) {
-                addView(label(section.title, 11f, bold = true).apply { setTextColor(FADED) })
+            column.addView(card(current = true) {
+                addView(label(section.title, 11f, bold = true).apply { setTextColor(Palette.MUTED) })
                 addView(sectionInfo(section), full(2))
-                addView(label("Step ${at + 1} of ${steps.size}" + (if (step.optional) " (optional)" else ""), 11f), full(6))
+                addView(label("Step ${at + 1} of ${steps.size}" + (if (step.optional) " (optional)" else ""), 11f, bold = true)
+                    .apply { setTextColor(Palette.ACCENT) }, full(6))
                 addView(stepBody(step), full(2))
                 QuestPuzzles.forStep(q.name, section.title, step.text).forEach { p ->
-                    addView(button("🧩 Solution: ${p.title}", BLUE) { openPuzzleScreen(p) }, full(6))
+                    addView(button("Solution: ${p.title}") { openPuzzleScreen(p) }, full(6))
                 }
                 addView(LinearLayout(context).apply {
                     orientation = LinearLayout.HORIZONTAL
-                    addView(button("◀ Back") { setPosition(q, at - 1); show() }.apply { alpha = if (at == 0) 0.4f else 1f },
+                    addView(button("Back") { setPosition(q, at - 1); show() }.apply { alpha = if (at == 0) 0.4f else 1f },
                         LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { rightMargin = dp(4) })
-                    addView(button("Done ✓", GO_GREEN) { setPosition(q, at + 1); show() },
+                    addView(button("Done", GOLD) { setPosition(q, at + 1); show() },
                         LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 2f).apply { leftMargin = dp(4) })
                 }, full(8))
             }, full(8))
@@ -656,15 +639,15 @@ class QuestHelperTool(
             column.addView(sectionInfo(section), full(2))
             for (step in section.steps) {
                 val i = index++
-                val row = LinearLayout(context).apply {
-                    orientation = LinearLayout.HORIZONTAL
-                    setPadding(dp(4), dp(4), dp(4), dp(4))
-                    if (i == at) background = GradientDrawable().apply { setColor(ROW_BROWN); cornerRadius = dp(4).toFloat() }
+                val row = tapRow(highlight = i == at).apply {
+                    gravity = Gravity.TOP
+                    minimumHeight = 0
+                    setPadding(dp(4), dp(6), dp(4), dp(6))
                     addView(label(if (i < at) "✓" else "${i + 1}.", 12f, bold = i == at).apply {
-                        setTextColor(if (i < at) GO_GREEN else DARK_BROWN)
+                        setTextColor(if (i < at) Palette.OK else Palette.TEXT)
                         minWidth = dp(24)
                     })
-                    addView(label(step.text, 12f).apply { if (i < at) setTextColor(FADED) },
+                    addView(label(step.text, 12f).apply { if (i < at) setTextColor(Palette.MUTED) },
                         LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                     setOnClickListener { setPosition(q, i); show() }
                 }
@@ -693,16 +676,16 @@ class QuestHelperTool(
             addView(label("Items: " + section.items.joinToString(", "), 11f))
         }
         if (section.recommended.isNotEmpty()) {
-            addView(label("Recommended: " + section.recommended.joinToString(", "), 11f).apply { setTextColor(FADED) }, full(1))
+            addView(label("Recommended: " + section.recommended.joinToString(", "), 11f).apply { setTextColor(Palette.MUTED) }, full(1))
         }
-        section.travel?.let { addView(label("Travel: $it", 11f).apply { setTextColor(BLUE) }, full(1)) }
+        section.travel?.let { addView(label("Travel: $it", 11f).apply { setTextColor(Palette.ACCENT) }, full(1)) }
         if (section.combat == true) {
-            addView(label("⚔ Combat: bring combat gear", 11f, bold = true).apply { setTextColor(RED) }, full(1))
+            addView(label("Combat: bring combat gear", 11f, bold = true).apply { setTextColor(Palette.BAD) }, full(1))
             if (section.enemies.isNotEmpty()) {
-                addView(label("Enemies: " + section.enemies.joinToString(", "), 11f).apply { setTextColor(RED) }, full(1))
+                addView(label("Enemies: " + section.enemies.joinToString(", "), 11f).apply { setTextColor(Palette.BAD) }, full(1))
             }
         } else if (section.combat == false) {
-            addView(label("No combat", 11f).apply { setTextColor(GO_GREEN) }, full(1))
+            addView(label("No combat", 11f).apply { setTextColor(Palette.OK) }, full(1))
         }
     }
 
@@ -713,7 +696,7 @@ class QuestHelperTool(
         if (step.say.isNotEmpty()) {
             addView(label("Choose:", 11f, bold = true), full(6))
             step.say.forEachIndexed { n, option ->
-                addView(label("${n + 1}. “$option”", 13f).apply { setTextColor(BLUE) }, full(1))
+                addView(label("${n + 1}. “$option”", 13f).apply { setTextColor(Palette.ACCENT) }, full(1))
             }
         }
         // leave out anything the step already mentions ("Take the hammer" doesn't need "Bring: Hammer")
@@ -724,10 +707,10 @@ class QuestHelperTool(
         if (bring.isNotEmpty()) {
             addView(label("Bring: " + bring.joinToString(", "), 11f), full(6))
         }
-        step.tip?.let { addView(label("Tip: $it", 11f).apply { setTypeface(typeface, Typeface.ITALIC) }, full(6)) }
+        step.tip?.let { addView(label("Tip: $it", 11f).apply { setTypeface(Typeface.create(typeface, Typeface.ITALIC)) }, full(6)) }
     }
 
-    private fun detailsCard(q: Quest, requirements: List<Req>): View = card(ROW_BROWN) {
+    private fun detailsCard(q: Quest, requirements: List<Req>): View = card() {
         fun group(title: String, lines: List<String>) {
             if (lines.isEmpty()) return
             addView(label(title, 12f, bold = true), full(6))
@@ -751,10 +734,10 @@ class QuestHelperTool(
             column.addView(label("Scan your account (Bubble Sync) to see which tasks you've done.", 12f, bold = true), full(8))
         }
         for (diary in QuestBook.diaries) {
-            column.addView(LinearLayout(context).apply {
+            column.addView(tapRow().apply {
                 orientation = LinearLayout.VERTICAL
-                setPadding(dp(8), dp(7), dp(8), dp(7))
-                background = GradientDrawable().apply { setColor(ROW_BROWN); cornerRadius = dp(5).toFloat() }
+                gravity = Gravity.CENTER_VERTICAL or Gravity.START
+                setPadding(dp(8), dp(6), dp(8), dp(6))
                 addView(label(diary.region, 13f, bold = true))
                 addView(LinearLayout(context).apply {
                     orientation = LinearLayout.HORIZONTAL
@@ -769,10 +752,10 @@ class QuestHelperTool(
                         }
                         addView(label(text, 11f, bold = done != null && count >= total).apply {
                             setTextColor(when {
-                                done == null -> FADED
-                                count >= total -> GO_GREEN
-                                count > 0 -> ORANGE
-                                else -> DARK_BROWN
+                                done == null -> Palette.MUTED
+                                count >= total -> Palette.OK
+                                count > 0 -> Palette.CAUTION
+                                else -> Palette.TEXT
                             })
                         }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                     }
@@ -788,7 +771,7 @@ class QuestHelperTool(
                 }
             }, full(4))
         }
-        column.addView(label("E = Easy, M = Medium, H = Hard, El = Elite", 10f).apply { setTextColor(FADED) }, full(8))
+        column.addView(label("E = Easy, M = Medium, H = Hard, El = Elite", 10f).apply { setTextColor(Palette.MUTED) }, full(8))
     }
 
     private fun diaryScreen(region: String): View = page {
@@ -798,18 +781,12 @@ class QuestHelperTool(
         addView(syncBadge(), full(6))
 
         // Tier buttons
-        addView(LinearLayout(context).apply {
-            orientation = LinearLayout.HORIZONTAL
-            diary.tiers.forEachIndexed { i, tier ->
-                val done = data?.diaryTasks(region, tier.tier)
-                val finished = done != null && done.count { it } >= tier.tasks.size
-                addView(tabButton(tier.tier + if (finished) " ✓" else "", i == openTier) {
-                    openTier = i; closeSections(); show(keepScroll = false)
-                }.apply { textSize = 11f },
-                    LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply {
-                        if (i > 0) leftMargin = dp(2); if (i < diary.tiers.size - 1) rightMargin = dp(2)
-                    })
-            }
+        addView(ui.choices(diary.tiers.mapIndexed { i, tier ->
+            val done = data?.diaryTasks(region, tier.tier)
+            val finished = done != null && done.count { it } >= tier.tasks.size
+            i to tier.tier + if (finished) " ✓" else ""
+        }, openTier) {
+            openTier = it; closeSections(); show(keepScroll = false)
         }, full(8))
 
         val tier = diary.tiers[openTier.coerceIn(0, diary.tiers.size - 1)]
@@ -820,12 +797,12 @@ class QuestHelperTool(
             count >= tier.tasks.size -> "${tier.tier} diary complete ✓"
             else -> "$count of ${tier.tasks.size} tasks done"
         }, 13f, bold = true).apply {
-            setTextColor(if (done != null && count >= tier.tasks.size) GO_GREEN else DARK_BROWN)
+            setTextColor(if (done != null && count >= tier.tasks.size) Palette.OK else Palette.TEXT)
         }, full(8))
 
         // Everything the tier needs, and its rewards
-        foldOut(showDetails, "All requirements & rewards ▾", "Hide requirements ▴", { showDetails = !showDetails }) {
-            card(ROW_BROWN) {
+        foldOut(showDetails, "All requirements & rewards", "Hide requirements", { showDetails = !showDetails }) {
+            card() {
                 addView(label("To do every ${tier.tier} task you need", 12f, bold = true))
                 if (tier.requirements.isEmpty()) addView(label("Nothing special", 12f), full(2))
                 reqRows(this, tier.requirements, data, 0, "$region/${tier.tier}")
@@ -841,8 +818,8 @@ class QuestHelperTool(
         val items = QuestBook.itemsStillNeeded(tier, done)
         if (items.isNotEmpty()) {
             val title = if (done == null) "Items for every task" else "Items you still need"
-            foldOut(showItems, "$title (${items.size}) ▾", "Hide items ▴", { showItems = !showItems }) {
-                card(ROW_BROWN) {
+            foldOut(showItems, "$title (${items.size})", "Hide items", { showItems = !showItems }) {
+                card() {
                     addView(label(title, 12f, bold = true))
                     items.forEach { addView(label("• $it", 12f), full(1)) }
                 }
@@ -850,7 +827,7 @@ class QuestHelperTool(
         }
 
         if (done != null) {
-            addView(smallButton(if (hideDoneTasks) "☑ Hide finished tasks" else "☐ Hide finished tasks") {
+            addView(toggle("Hide finished tasks", hideDoneTasks) {
                 hideDoneTasks = !hideDoneTasks
                 show()
             }, full(6))
@@ -859,14 +836,14 @@ class QuestHelperTool(
         tier.tasks.forEachIndexed { i, task ->
             val isDone = done?.getOrNull(i) == true
             if (isDone && hideDoneTasks) return@forEachIndexed
-            addView(card(if (isDone) ROW_BROWN else CURRENT) {
+            addView(card(current = !isDone) {
                 addView(LinearLayout(context).apply {
                     orientation = LinearLayout.HORIZONTAL
                     addView(label(if (isDone) "✓" else "${i + 1}.", 13f, bold = true).apply {
-                        setTextColor(if (isDone) GO_GREEN else DARK_BROWN)
+                        setTextColor(if (isDone) Palette.OK else Palette.TEXT)
                         minWidth = dp(24)
                     })
-                    addView(label(task.name, 13f, bold = true).apply { if (isDone) setTextColor(FADED) },
+                    addView(label(task.name, 13f, bold = true).apply { if (isDone) setTextColor(Palette.MUTED) },
                         LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                 })
                 if (!isDone) {
@@ -891,10 +868,10 @@ class QuestHelperTool(
         for (req in reqs) {
             val c = QuestBook.check(req, data)
             val (mark, color) = when (c.met) {
-                Met.YES -> "✓" to GO_GREEN
-                Met.NO -> "✗" to RED
-                Met.PARTLY -> "✗" to ORANGE
-                Met.UNKNOWN -> "•" to DARK_BROWN
+                Met.YES -> "✓" to Palette.OK
+                Met.NO -> "✗" to Palette.BAD
+                Met.PARTLY -> "✗" to Palette.CAUTION
+                Met.UNKNOWN -> "•" to Palette.TEXT
             }
             val key = "$path>${(req as? Req.QuestDone)?.quest}"
             val sub = (req as? Req.QuestDone)?.let { QuestBook.quest(it.quest) }?.requirements.orEmpty()
@@ -921,15 +898,15 @@ class QuestHelperTool(
         val data = sync.cached
         val state = data?.questState(name)
         val (text, color) = when {
-            data == null -> "Scan your account (Bubble Sync) to check your requirements." to DARK_BROWN
-            state == Account.FINISHED -> "You've already finished this quest ✓" to GO_GREEN
+            data == null -> "Scan your account (Bubble Sync) to check your requirements." to Palette.TEXT
+            state == Account.FINISHED -> "You've already finished this quest ✓" to Palette.OK
             // a quest the plugin's RuneLite doesn't know yet (a new one): you may have done it already
-            state == null -> "Your last scan doesn't include this quest yet, so it can't tell if you've done it." to DARK_BROWN
+            state == null -> "Your last scan doesn't include this quest yet, so it can't tell if you've done it." to Palette.TEXT
             else -> {
                 val missing = QuestBook.missing(requirements, data).map { QuestBook.check(it, data).text.substringBefore(" (") }
                 if (missing.isEmpty()) "You meet every requirement ✓" +
-                    (if (state == Account.IN_PROGRESS) " (quest started)" else "") to GO_GREEN
-                else "Missing ${missing.size}: ${missing.joinToString(", ")}" to RED
+                    (if (state == Account.IN_PROGRESS) " (quest started)" else "") to Palette.OK
+                else "Missing ${missing.size}: ${missing.joinToString(", ")}" to Palette.BAD
             }
         }
         return label(text, 13f, bold = true).apply { setTextColor(color) }
@@ -957,13 +934,13 @@ class QuestHelperTool(
         })
     }
 
-    private fun card(color: Int, fill: LinearLayout.() -> Unit) = LinearLayout(context).apply {
+    // A block set apart by its shade, no outline: darker for most, lighter for the step you're on (current = true)
+    private fun card(current: Boolean = false, fill: LinearLayout.() -> Unit) = LinearLayout(context).apply {
         orientation = LinearLayout.VERTICAL
         setPadding(dp(10), dp(8), dp(10), dp(10))
         background = GradientDrawable().apply {
-            setColor(color)
-            setStroke(dp(1), BUTTON_BROWN)
-            cornerRadius = dp(6).toFloat()
+            setColor(if (current) Palette.RAISED else Palette.BG)
+            cornerRadius = dp(8).toFloat()
         }
         fill()
     }
@@ -971,32 +948,50 @@ class QuestHelperTool(
     private fun full(top: Int = 0) =
         LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(top) }
 
-    private fun button(text: String, color: Int = BUTTON_BROWN, onClick: () -> Unit) = TextView(context).apply {
-        this.text = text
-        textSize = 13f
-        setTextColor(Color.WHITE)
+    private val GOLD = Ui.ButtonStyle.GOLD
+
+    // A button at least 44 tall; GOLD for the page's main action (Done, Open GitHub)
+    private fun button(text: String, style: Ui.ButtonStyle = Ui.ButtonStyle.PLAIN, onClick: () -> Unit) =
+        ui.button(text, style, onClick).apply { minWidth = 0; minimumWidth = 0 }
+
+    private fun smallButton(text: String, onClick: () -> Unit) = button(text, onClick = onClick).apply { textSize = 12f }
+
+    // A button that opens a section underneath it; its arrow points up once the section is open
+    private fun foldButton(text: String, open: Boolean, onClick: () -> Unit): View = LinearLayout(context).apply {
+        orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER
-        setPadding(dp(6), dp(8), dp(6), dp(8))
-        background = GradientDrawable().apply { setColor(color); cornerRadius = dp(6).toFloat() }
+        minimumHeight = dp(Ui.TAP_SIZE)
+        setPadding(dp(10), 0, dp(10), 0)
+        ui.press(this, Palette.RAISED, 8)
+        addView(ui.oneLine(ui.text(text, 12f, Palette.TEXT, 600)))
+        addView(ui.icon("down", Palette.MUTED, 16).apply { rotation = if (open) 180f else 0f },
+            LinearLayout.LayoutParams(dp(16), dp(16)).apply { leftMargin = dp(6) })
         setOnClickListener { onClick() }
     }
 
-    private fun smallButton(text: String, onClick: () -> Unit) = button(text, onClick = onClick).apply {
-        textSize = 11f
-        setPadding(dp(8), dp(4), dp(8), dp(4))
+    // A tick box with its words, for the "Hide finished" settings
+    private fun toggle(text: String, on: Boolean, onClick: () -> Unit): View = LinearLayout(context).apply {
+        orientation = LinearLayout.HORIZONTAL
+        gravity = Gravity.CENTER_VERTICAL
+        minimumHeight = dp(Ui.TAP_SIZE)
+        setPadding(dp(4), 0, dp(4), 0)
+        ui.press(this, null, 8)
+        addView(FrameLayout(context).apply {
+            background = GradientDrawable().apply { setColor(if (on) Palette.GOLD else Palette.RAISED); cornerRadius = dp(5).toFloat() }
+            if (on) addView(ui.icon("check", Palette.ON_GOLD, 16), FrameLayout.LayoutParams(dp(16), dp(16), Gravity.CENTER))
+        }, LinearLayout.LayoutParams(dp(22), dp(22)))
+        addView(ui.text(text, 13f).apply { setPadding(dp(10), 0, 0, 0) })
+        contentDescription = text + if (on) ", on" else ", off"
+        setOnClickListener { onClick() }
     }
 
-    // A tab: darker when it's the one showing
-    private fun tabButton(text: String, selected: Boolean, onClick: () -> Unit) =
-        button(text, if (selected) SELECTED_BROWN else BUTTON_BROWN, onClick).apply {
-            setPadding(dp(4), dp(7), dp(4), dp(7))
-            if (selected) setTypeface(typeface, Typeface.BOLD)
-        }
-
-    private fun label(text: String, size: Float, bold: Boolean = false) = TextView(context).apply {
-        this.text = text
-        textSize = size
-        setTextColor(DARK_BROWN)
-        if (bold) setTypeface(typeface, Typeface.BOLD)
+    // A row in a list you can tap: flat, with a ripple, the step you're on (or the open item) a lighter shade
+    private fun tapRow(highlight: Boolean = false) = LinearLayout(context).apply {
+        orientation = LinearLayout.HORIZONTAL
+        gravity = Gravity.CENTER_VERTICAL
+        minimumHeight = dp(Ui.TAP_SIZE)
+        ui.press(this, if (highlight) Palette.RAISED else null, 6)
     }
+
+    private fun label(text: String, size: Float, bold: Boolean = false) = ui.text(text, size, Palette.TEXT, if (bold) 600 else 400)
 }

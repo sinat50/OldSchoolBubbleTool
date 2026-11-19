@@ -2,11 +2,9 @@ package com.sinat.osrsbubbletool
 
 import android.content.Context
 import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
-import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
@@ -33,6 +31,7 @@ class LightBoxTool(
         private const val LETTERS = "ABCDEFGH"
     }
 
+    private val ui = Ui(context)
     private val handler = Handler(Looper.getMainLooper())
     private val guide = LightBoxGuideOverlay(context, windowManager)
     private val prefs = context.getSharedPreferences("light_box", Context.MODE_PRIVATE)
@@ -70,35 +69,28 @@ class LightBoxTool(
     // ---------------- Window contents ----------------
 
     fun buildView(): View {
-        fun button(label: String, onClick: () -> Unit) = TextView(context).apply {
-            text = label
-            textSize = 15f
-            setTextColor(Color.WHITE)
-            gravity = Gravity.CENTER
-            setPadding(dp(8), dp(10), dp(8), dp(10))
-            background = GradientDrawable().apply {
-                setColor(Palette.BUTTON_BROWN)
-                cornerRadius = dp(6).toFloat()
-            }
-            setOnClickListener { onClick() }
+        // (this window is small and sits over the game, so its button and writing are a little under the usual size)
+        startButton = ui.button("Solve light box", Ui.ButtonStyle.GOLD) { if (tracking) stop("Stopped.") else start() }.apply {
+            minHeight = dp(40)
         }
-        startButton = button("Solve light box") { if (tracking) stop("Stopped.") else start() }.apply {
-            textSize = 13f
-            setPadding(dp(6), dp(7), dp(6), dp(7))
-        }
-        status = TextView(context).apply {
-            text = "Open a light box, then tap Solve. Instructions appear on the light box."
-            textSize = 11f
-            setTextColor(Palette.DARK_BROWN)
-            setPadding(0, dp(6), 0, 0)
+        status = ui.text("Open a light box, then tap Solve. Steps appear on it.", 11f).apply {
+            setPadding(0, dp(4), 0, 0)
         }
         return LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setBackgroundColor(Palette.PARCHMENT)
-            setPadding(dp(8), dp(8), dp(8), dp(8))
+            setBackgroundColor(Palette.SURFACE)
+            setPadding(dp(6), dp(4), dp(6), dp(4))
             addView(startButton, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
             addView(status, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
         }
+    }
+
+    // The main button: gold to start, and a red-worded Stop while solving
+    private fun showStartButton(solving: Boolean) {
+        val b = startButton ?: return
+        b.text = if (solving) "Stop" else "Solve light box"
+        b.setTextColor(if (solving) Palette.BAD else Palette.ON_GOLD)
+        ui.press(b, if (solving) Palette.RAISED else Palette.GOLD, 8)
     }
 
     // ---------------- Finding the light box ----------------
@@ -163,7 +155,7 @@ class LightBoxTool(
         guide.show(found)
         session++
         tracking = true
-        startButton?.text = "Stop"
+        showStartButton(true)
         expecting = 0
         update()
         handler.removeCallbacks(trackRunnable)   // never two tracking loops at once
@@ -281,7 +273,7 @@ class LightBoxTool(
         guide.hide()
         layout = null
         solution = null
-        startButton?.text = "Solve light box"
+        showStartButton(false)
         status?.text = message
     }
 

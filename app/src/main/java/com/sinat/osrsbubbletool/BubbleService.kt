@@ -24,6 +24,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -54,7 +55,8 @@ class BubbleService : Service() {
         const val TEARS_OF_GUTHIX_ZOOM_PERCENT = 85 // Tears of Guthix Worlds text size
         const val PRICES_URL = "https://prices.runescape.wiki/osrs/"
         const val PRICES_ZOOM_PERCENT = 85          // GE Prices text size
-        const val ZULRAH_WIDTH_INCHES = 1.2f // the Zulrah Helper window is thinner
+        const val ZULRAH_WIDTH_DP = 136      // the Zulrah Helper is a thin strip down the side of the screen
+        const val ZULRAH_MIN_WIDTH_DP = 112
         const val LIGHT_BOX_WIDTH_INCHES = 1.3f  // the Light Box Solver is a small box, top right
         const val PUZZLE_BOX_WIDTH_INCHES = 1.5f // so is the Puzzle Box Solver
         // where a tool's window can shrink to (setWindowCompact)
@@ -63,11 +65,11 @@ class BubbleService : Service() {
         const val COMPACT_BOTTOM_LEFT = 2
         const val BUBBLE_FADED_ALPHA = 0.4f // how see-through the bubble fades to (Settings → Fade when not in use)
         const val BUBBLE_FADE_MS = 3000L    // after this long without being touched
-        const val BAR_HEIGHT_DP = 28        // height of the window's button bar
-        const val BAR_BUTTON_WIDTH_DP = 66  // width of the back and close buttons
+        const val BAR_HEIGHT_DP = 30        // height of the window's top bar (thin, to leave room for the tool)
+        const val WINDOW_CORNER_DP = 12     // how rounded the windows and the menu are
         const val PAGE_ZOOM_PERCENT = 70    // wiki text size: 100 = normal, lower = smaller
         const val XP_CALCULATOR_ZOOM_PERCENT = 85  // XP Calculator text size
-        const val MENU_WIDTH_DP = 170       // width of the long-press menu
+        const val MENU_WIDTH_DP = 224       // width of the long-press menu
         const val MENU_MAX_PORTRAIT_DP = 340 // tallest the long-press menu gets in portrait (it scrolls past that)
         private const val CARVED = "carved"  // a window corner carved into the Zen Garden's frame (see applyFrameless)
 
@@ -233,33 +235,33 @@ class BubbleService : Service() {
         """
     }
 
-    // The tools the bubble can open, in menu order. A new tool gets added here and in makeParts()
-    // below (the build stops with an error until it's in both). Settings is last: the menu shows it
-    // apart from the tools, at the bottom.
+    // The tools the bubble can open, in menu order under their headings (`group`). A new tool gets added here and in
+    // makeParts() below (the build stops with an error until it's in both). Settings is last: the menu shows it apart
+    // from the tools, at the bottom. `icon` is its picture in Icons.
     // inMenu = false: not one of the tools (left out of the tool list in the menu and in Settings → Tools in the menu)
-    enum class Tool(val label: String, val inMenu: Boolean = true) {
-        SYNC("Bubble Sync"),   // your quests, levels and diaries, scanned from the Bubble Tool Sync plugin
-        WIKI("OSRS Wiki"),
-        PUZZLE_BOX("Puzzle Box Solver"),
-        LIGHT_BOX("Light Box Solver"),
-        TOA_PUZZLES("ToA Puzzle Helper"),
-        MIXOLOGY("Mastering Mixology"),   // recipes beside the orders and dots on the levers
-        INVENTORY_SETUPS("Gear Loadouts"),   // (named Inventory Setups before; the name stays, it's saved in settings)
-        XP_CALCULATOR("XP Calculator"),
-        DPS_CALCULATOR("DPS Calculator"),
-        SHOOTING_STARS("Shooting Star Tracker"),
-        TEARS_OF_GUTHIX("Tears of Guthix Worlds"),
-        ZULRAH("Zulrah Helper"),
-        FARMING("Timers"),
-        IDLE_NOTIFIER("Idle Notifier"),   // buzzes when your character stops working
-        PRICES("GE Prices"),
-        CALCULATOR("Calculator"),
-        NOTES("Notepad"),
-        QUESTS("Quest Helper (Beta)"),
-        HUNTER("Hunter Rumours"),
-        TELEPORTS("Teleport Finder (Beta)"),
-        GAMES("Game Room"),
-        SETTINGS("Settings", inMenu = false)   // (in the menu below the tools, by Close bubble)
+    enum class Tool(val label: String, val group: ToolGroup?, val icon: String, val beta: Boolean = false, val inMenu: Boolean = true) {
+        PUZZLE_BOX("Puzzle Box Solver", ToolGroup.GUIDES, "puzzle"),
+        LIGHT_BOX("Light Box Solver", ToolGroup.GUIDES, "bulb"),
+        TOA_PUZZLES("ToA Puzzle Helper", ToolGroup.GUIDES, "pyramid"),
+        MIXOLOGY("Mastering Mixology", ToolGroup.GUIDES, "flask"),   // recipes beside the orders and dots on the levers
+        ZULRAH("Zulrah Helper", ToolGroup.GUIDES, "island"),
+        QUESTS("Quest Helper", ToolGroup.GUIDES, "book", beta = true),
+        XP_CALCULATOR("XP Calculator", ToolGroup.CALCULATORS, "xp"),
+        DPS_CALCULATOR("DPS Calculator", ToolGroup.CALCULATORS, "sword"),
+        PRICES("GE Prices", ToolGroup.CALCULATORS, "chart"),
+        CALCULATOR("Calculator", ToolGroup.CALCULATORS, "calc"),
+        FARMING("Timers", ToolGroup.TRACKERS, "clock"),
+        IDLE_NOTIFIER("Idle Notifier", ToolGroup.TRACKERS, "bell"),   // buzzes when your character stops working
+        SHOOTING_STARS("Shooting Star Tracker", ToolGroup.TRACKERS, "star"),
+        TEARS_OF_GUTHIX("Tears of Guthix Worlds", ToolGroup.TRACKERS, "drop"),
+        HUNTER("Hunter Rumours", ToolGroup.TRACKERS, "target"),
+        SYNC("Bubble Sync", ToolGroup.UTILITIES, "sync"),   // your quests, levels and diaries, scanned from the Bubble Tool Sync plugin
+        WIKI("Wiki", ToolGroup.UTILITIES, "globe"),
+        INVENTORY_SETUPS("Gear Loadouts", ToolGroup.UTILITIES, "helmet"),   // (named Inventory Setups before; the name stays, it's saved in settings)
+        TELEPORTS("Teleport Finder", ToolGroup.UTILITIES, "pin", beta = true),
+        NOTES("Notepad", ToolGroup.UTILITIES, "note"),
+        GAMES("Game Room", ToolGroup.UTILITIES, "dice"),
+        SETTINGS("Settings", null, "gear", inMenu = false)   // (in the menu below the tools, by Close bubble)
     }
 
     private lateinit var windowManager: WindowManager
@@ -290,6 +292,7 @@ class BubbleService : Service() {
     private var windowY: Int? = null   // …and how far down (null = centred)
     private val sizes by lazy { getSharedPreferences("window_sizes", MODE_PRIVATE) }   // sizes you've dragged windows to
     private var menu: View? = null
+    private var menuList: ScrollView? = null   // the menu's scrolling list
     private val webViews = mutableListOf<WebView>()
 
     // The tools are built with this instead of the bubble itself: the same, except that its writing is the size
@@ -494,44 +497,29 @@ class BubbleService : Service() {
         hideMenu()
         val menuWidth = dp(MENU_WIDTH_DP)
 
-        fun menuItem(label: String, color: Int, onClick: () -> Unit) = TextView(this).apply {
-            text = label
-            textSize = 14f
-            setTextColor(color)
-            setPadding(dp(14), dp(10), dp(14), dp(10))
-            setOnClickListener { hideMenu(); onClick() }
-        }
-
-        val list = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            val hidden = AppSettings.hiddenTools(this@BubbleService)
-            for (tool in Tool.entries) {
-                if (!tool.inMenu) continue            // (Settings: at the bottom, below)
-                if (tool.name in hidden) continue     // left out in Settings
-                // the active tool shows in gold
-                val color = if (tool == currentTool) "#E8C766".toColorInt() else Color.WHITE
-                addView(menuItem(tool.label, color) { openTool(tool) })
-            }
-            // a line, then Settings and Close bubble, apart from the tools
-            addView(View(this@BubbleService).apply { setBackgroundColor("#C9A24A".toColorInt()) },
-                LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dp(1)).apply { setMargins(dp(10), dp(4), dp(10), dp(4)) })
-            val settingsColor = if (currentTool == Tool.SETTINGS) "#E8C766".toColorInt() else Color.WHITE
-            addView(menuItem("⚙  Settings", settingsColor) { openTool(Tool.SETTINGS) })
-            addView(menuItem("✕  Close bubble", "#E08A7A".toColorInt()) { stopSelf() })
-        }
+        val list = BubbleMenu(toolContext, currentTool, AppSettings.hiddenTools(this), AppSettings.favourites(this),
+            onOpen = { tool -> hideMenu(); openTool(tool) },
+            onHold = ::holdMenuTool,
+            onCloseBubble = { hideMenu(); stopSelf() }
+        ).build()
 
         // The list scrolls when there are more tools than fit on the screen
         val scroll = ScrollView(this).apply {
             background = GradientDrawable().apply {
-                setColor("#3E2C12".toColorInt())
-                setStroke(dp(1), "#C9A24A".toColorInt())
-                cornerRadius = dp(8).toFloat()
+                setColor(Palette.RAISED)   // lighter than the main screen and windows, so the menu stands out from them
+                cornerRadius = dp(WINDOW_CORNER_DP).toFloat()
             }
-            setPadding(dp(1), dp(1), dp(1), dp(1))
+            clipToOutline = true   // (so the open tool's shade keeps to the rounded corners)
             isVerticalScrollBarEnabled = true
             isScrollbarFadingEnabled = false   // always show the scrollbar so it's clear there's more
             addView(list)
 
+        }
+
+        // The thin frame goes on a holder round the list, so it stays still while the list scrolls
+        val framed = FrameLayout(this).apply {
+            addView(scroll, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+            foreground = thinFrame()
             // tapping anywhere outside the menu closes it
             setOnTouchListener { _, event ->
                 if (event.action == MotionEvent.ACTION_OUTSIDE) hideMenu()
@@ -587,8 +575,31 @@ class BubbleService : Service() {
         }
         allowScreenEdges(params)
 
-        windowManager.addView(scroll, params)
-        menu = scroll
+        windowManager.addView(framed, params)
+        menu = framed
+        menuList = scroll
+    }
+
+    // A tool was held in the menu: it joins or leaves Favourites, and the menu shows the change where you were
+    private fun holdMenuTool(tool: Tool) {
+        val hidden = AppSettings.hiddenTools(this)
+        val changed = Favourites.toggled(AppSettings.favourites(this).filter { it !in hidden }, tool.name)
+        if (changed == null) {
+            Toast.makeText(this, "Up to ${Favourites.MOST} favourites", Toast.LENGTH_SHORT).show()
+            return
+        }
+        AppSettings.setFavourites(this, changed)
+        if (AppSettings.vibrates(this)) bubble.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
+        val scrolledTo = menuList?.scrollY ?: 0
+        showMenu()
+        menuList?.post { menuList?.scrollTo(0, scrolledTo) }
+    }
+
+    // The thin frame round the menu and the tool windows, so they stand out from dark parts of the game
+    private fun thinFrame() = GradientDrawable().apply {
+        setColor(Color.TRANSPARENT)
+        setStroke(dp(1), Palette.BORDER)
+        cornerRadius = dp(WINDOW_CORNER_DP).toFloat()
     }
 
     private fun hideMenu() {
@@ -659,12 +670,14 @@ class BubbleService : Service() {
         if (textSizeWaiting) rebuildForTextSize.run()
         val window = toolWindows.getOrPut(currentTool) { buildToolWindow(currentTool) }
         if (currentTool == Tool.GAMES) applyFrameless(window)
+        if (currentTool == Tool.ZULRAH) placeResizeCorner(window)
         val params = makeWindowParams()
         rememberWanted(params)
         placeClearOfBars(params)
         windowManager.addView(window, params)
         shownWindow = window
         shownParams = params
+        if (currentTool == Tool.ZULRAH) moveBubbleOffZulrah(params)
         setWebPagesRunning(true)
         // re-add the bubble so it stays on top of the window
         windowManager.removeView(bubble)
@@ -699,6 +712,8 @@ class BubbleService : Service() {
         val on = gamesFrameless
         window.getChildAt(0).visibility = if (on) View.GONE else View.VISIBLE
         window.background?.alpha = if (on) 0 else 255
+        window.clipToOutline = !on
+        window.foreground = if (on) null else thinFrame()   // (the Zen Garden shows with no window round it)
         (window.getChildAt(1) as? ViewGroup)?.let { body ->
             if (body.childCount < 3) return@let
             val corner = body.getChildAt(1)
@@ -991,7 +1006,8 @@ class BubbleService : Service() {
 
     private fun buildToolWindow(tool: Tool): LinearLayout {
         val parts = partsFor(tool)
-        return buildFrame(parts.buildView(), parts.onBack)
+        val content = parts.buildView()
+        return buildFrame(content, parts.onBack, tool.label)
     }
 
     // Every tool, and how the bubble works with it. This is the one place a new tool gets set up.
@@ -1071,30 +1087,21 @@ class BubbleService : Service() {
         )
     }
 
-    // The shared window frame: button bar on top, tool content below
+    // The shared window frame: a slim top bar (back, the tool's name, close), with the tool's content below it
     @SuppressLint("ClickableViewAccessibility")
-    private fun buildFrame(content: View, onBack: (() -> Unit)?): LinearLayout {
-        fun barButton(label: String, onClick: () -> Unit) = TextView(this).apply {
-            text = label
-            textSize = 15f
-            setTextColor(Color.WHITE)
-            gravity = Gravity.CENTER
-            setOnClickListener { onClick() }
-            layoutParams = LinearLayout.LayoutParams(dp(BAR_BUTTON_WIDTH_DP), ViewGroup.LayoutParams.MATCH_PARENT)
-        }
-
-        val backButton = barButton("◀") { onBack?.invoke() }
+    private fun buildFrame(content: View, onBack: (() -> Unit)?, title: String): LinearLayout {
+        val ui = Ui(toolContext)
+        val backButton = ui.iconButton("back", "Back") { onBack?.invoke() }
         if (onBack == null) backButton.visibility = View.INVISIBLE // keep its space, hide it
-        val closeButton = barButton("✕") { hideToolWindow() }
+        val closeButton = ui.iconButton("close", "Close") { hideToolWindow() }
 
-        // Middle section: drag left/right to move the window
-        val dragHandle = TextView(this).apply {
-            text = "↔"
-            textSize = 15f
-            setTextColor("#D8C8A8".toColorInt())
+        // The tool's name: drag it to move the window
+        val dragHandle = ui.text(title, 14f, Palette.TEXT, 600).apply {
             gravity = Gravity.CENTER
-            setBackgroundColor("#54401F".toColorInt())
+            maxLines = 1
             layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f)
+            // a long name in a narrow window gets smaller instead of being cut off
+            setAutoSizeTextTypeUniformWithConfiguration(dp(10), textSize.toInt().coerceAtLeast(dp(11)), 1, android.util.TypedValue.COMPLEX_UNIT_PX)
         }
 
         var downRawX = 0f
@@ -1102,7 +1109,6 @@ class BubbleService : Service() {
         var startWindowX = 0
         var startWindowY = 0
         val canResize = isResizable(currentTool)
-        if (canResize) dragHandle.text = "✥"   // these windows move up and down too
         dragHandle.setOnTouchListener { _, event ->
             val params = shownParams ?: return@setOnTouchListener false
             when (event.action) {
@@ -1114,16 +1120,21 @@ class BubbleService : Service() {
                 }
                 MotionEvent.ACTION_MOVE -> moveWindowTo(params, startWindowX + (event.rawX - downRawX).toInt(),
                     startWindowY + (event.rawY - downRawY).toInt(), moveY = isResizable(currentTool))
+                // the Zulrah Helper settles against whichever side of the screen it was let go nearer to
+                MotionEvent.ACTION_UP -> if (currentTool == Tool.ZULRAH)
+                    dockZulrah(ScreenBars.nearerRight(params.x, params.width, screenWidth()))
             }
             true
         }
 
         val topBar = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
-            setBackgroundColor("#3E2C12".toColorInt())
-            addView(backButton)
+            gravity = Gravity.CENTER_VERTICAL
+            setBackgroundColor(Palette.RAISED)
+            // the buttons keep their full width to be easy to hit, but are only as tall as the bar
+            addView(backButton, LinearLayout.LayoutParams(dp(Ui.TAP_SIZE), ViewGroup.LayoutParams.MATCH_PARENT))
             addView(dragHandle)
-            addView(closeButton)
+            addView(closeButton, LinearLayout.LayoutParams(dp(Ui.TAP_SIZE), ViewGroup.LayoutParams.MATCH_PARENT))
         }
 
         // The content, with a resize corner at the bottom right (for the tools that can be resized)
@@ -1161,6 +1172,12 @@ class BubbleService : Service() {
             }
             orientation = LinearLayout.VERTICAL
             setBackgroundColor(Palette.WINDOW)
+            outlineProvider = object : android.view.ViewOutlineProvider() {   // gently rounded corners
+                override fun getOutline(view: View, outline: android.graphics.Outline) =
+                    outline.setRoundRect(0, 0, view.width, view.height, dp(WINDOW_CORNER_DP).toFloat())
+            }
+            clipToOutline = true
+            foreground = thinFrame()
             addView(topBar, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dp(BAR_HEIGHT_DP)))
             addView(body, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
         }
@@ -1222,10 +1239,11 @@ class BubbleService : Service() {
     // Each tool remembers its own size, separately for landscape and portrait
     private fun sizeKey(tool: Tool): String {
         val landscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
-        return tool.name + if (landscape) "_land" else "_port"
+        // (the Zulrah Helper's sizes from before it became a thin strip are left behind)
+        return tool.name + (if (tool == Tool.ZULRAH) "_strip" else "") + if (landscape) "_land" else "_port"
     }
 
-    private val minWindowWidth get() = dp(150)
+    private val minWindowWidth get() = dp(if (currentTool == Tool.ZULRAH) ZULRAH_MIN_WIDTH_DP else 150)
     private val minWindowHeight get() = dp(140)
 
     // Moves the open window while it's dragged (by its top bar or its move symbol), up and down too if moveY. Not under
@@ -1234,11 +1252,12 @@ class BubbleService : Service() {
         val (sw, sh) = fullScreenSize(windowManager)   // (once per finger movement, both at once)
         val spot = ScreenBars.drag(x, y, params.width, params.height, sw, sh, bars, moveY)
         params.x = spot.x
-        if (currentTool != Tool.LIGHT_BOX && currentTool != Tool.PUZZLE_BOX) windowX = params.x  // others share one position
+        // (others share one position)
+        if (currentTool != Tool.LIGHT_BOX && currentTool != Tool.PUZZLE_BOX && currentTool != Tool.ZULRAH) windowX = params.x
         shownWantX = params.x
         if (moveY) {
             params.y = spot.y
-            windowY = params.y
+            if (currentTool != Tool.ZULRAH) windowY = params.y
             shownWantY = params.y
         }
         shownWindow?.let { windowManager.updateViewLayout(it, params) }
@@ -1297,14 +1316,15 @@ class BubbleService : Service() {
             strokeWidth = dp(2).toFloat()
             strokeCap = android.graphics.Paint.Cap.ROUND
         }
-        private val back = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG).apply { color = "#B33E2C12".toColorInt() }
+        private val back = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG)
         override fun onDraw(canvas: android.graphics.Canvas) {
             if (tag == CARVED) return   // (carved into the garden's frame instead)
             val w = width.toFloat(); val h = height.toFloat()
-            // a dark quarter-circle in the corner with three diagonal lines, like a window's resize grip
+            // a soft quarter-circle in the corner with two diagonal lines, like a window's resize grip
+            back.color = (Palette.RAISED and 0x00FFFFFF) or (0xB3 shl 24)
             canvas.drawCircle(w, h, w * 0.95f, back)
-            paint.color = "#F2E3C0".toColorInt()
-            for (i in 1..3) {
+            paint.color = Palette.MUTED
+            for (i in 1..2) {
                 val d = w * 0.22f * i
                 canvas.drawLine(w - d, h - dp(3), w - dp(3), h - d, paint)
             }
@@ -1312,6 +1332,7 @@ class BubbleService : Service() {
     }.apply {
         var downX = 0f; var downY = 0f
         var startW = 0; var startH = 0
+        var startRight = 0   // (a window against the right side grows to the left, keeping its right edge there)
         var lastTap = 0L
         var moved = false
         setOnTouchListener { _, e ->
@@ -1323,6 +1344,7 @@ class BubbleService : Service() {
                 MotionEvent.ACTION_DOWN -> {
                     downX = e.rawX; downY = e.rawY
                     startW = params.width; startH = params.height
+                    startRight = params.x + params.width
                     moved = false
                     resizingWindow = true
                 }
@@ -1333,10 +1355,12 @@ class BubbleService : Service() {
                     if (abs(dx) > dp(3) || abs(dy) > dp(3)) moved = true
                     if (moved) {
                         val (sw, sh) = fullScreenSize(windowManager)
-                        val size = ScreenBars.resize(startW + dx, startH + dy, params.x, params.y, minWindowWidth, minWindowHeight,
-                            sw, sh, bars)
+                        val onRight = currentTool == Tool.ZULRAH && zulrahOnRight
+                        val size = ScreenBars.resize(if (onRight) startW - dx else startW + dx, startH + dy,
+                            if (onRight) bars.left else params.x, params.y, minWindowWidth, minWindowHeight, sw, sh, bars)
                         params.width = size.w
                         params.height = size.h
+                        if (onRight) { params.x = startRight - size.w; shownWantX = params.x }
                         shownWantW = params.width
                         shownWantH = params.height
                         shownWindow?.let { windowManager.updateViewLayout(it, params) }
@@ -1409,7 +1433,7 @@ class BubbleService : Service() {
         }
 
         val width = when {
-            currentTool == Tool.ZULRAH -> (ZULRAH_WIDTH_INCHES * metrics.xdpi).toInt()
+            currentTool == Tool.ZULRAH -> dp(ZULRAH_WIDTH_DP)
             !landscape -> (screenW * 0.9f).toInt()
             currentTool == Tool.DPS_CALCULATOR -> (screenW * DPS_WIDTH_FRACTION).toInt()
             else -> (AppSettings.windowWidthInches(this) * metrics.xdpi).toInt()
@@ -1420,6 +1444,7 @@ class BubbleService : Service() {
         // so the keyboard doesn't cover what you're typing
         val notesTop = NotesTool.topOffset(this)
         var h = if (currentTool == Tool.NOTES) ((screenH * 0.48f).toInt() - notesTop).coerceAtLeast(minWindowHeight)
+                else if (currentTool == Tool.ZULRAH) screenH   // the whole height of the screen, leaving the game its width
                 else (screenH * 0.9f).toInt()
         // a size you've dragged this tool to
         if (isResizable(currentTool)) {
@@ -1439,13 +1464,61 @@ class BubbleService : Service() {
             PixelFormat.TRANSLUCENT
         ).apply {
             gravity = Gravity.START or Gravity.TOP
-            x = windowX
+            x = if (currentTool == Tool.ZULRAH) zulrahDockX(w) else windowX
             // windows sit where you last dragged them. To start with they're centred, except the Notepad,
             // which starts at the top, just below the status bar (it catches touches at the very top).
             val start = if (currentTool == Tool.NOTES) notesTop else (screenH - h) / 2
-            y = (windowY ?: start).coerceIn(0, maxOf(0, screenH - h))
+            y = (if (currentTool == Tool.ZULRAH) zulrahPrefs.getInt("dock_y", 0) else windowY ?: start).coerceIn(0, maxOf(0, screenH - h))
             allowScreenEdges(this)
         }
+    }
+
+    // ---------------- The Zulrah Helper: a thin strip against the left or right side of the screen ----------------
+
+    private val zulrahPrefs by lazy { getSharedPreferences("zulrah", MODE_PRIVATE) }
+    private val zulrahOnRight get() = zulrahPrefs.getBoolean("dock_right", false)
+
+    private fun zulrahDockX(w: Int): Int {
+        var left = 0
+        var right = 0
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val hole = windowManager.currentWindowMetrics.windowInsets.getInsets(android.view.WindowInsets.Type.displayCutout())
+            left = hole.left
+            right = hole.right
+        }
+        return ScreenBars.dockX(w, zulrahOnRight, screenWidth(), bars, left, right)
+    }
+
+    private fun dockZulrah(onRight: Boolean) {
+        val params = shownParams ?: return
+        val window = shownWindow ?: return
+        zulrahPrefs.edit { putBoolean("dock_right", onRight).putInt("dock_y", params.y) }
+        params.x = zulrahDockX(params.width)
+        shownWantX = params.x
+        shownWantY = params.y
+        placeResizeCorner(window)
+        windowManager.updateViewLayout(window, params)
+        moveBubbleOffZulrah(params)
+        windowManager.updateViewLayout(bubble, bubbleParams)
+    }
+
+    // The bubble would cover the strip's writing: it waits just beside the strip instead
+    private fun moveBubbleOffZulrah(params: WindowManager.LayoutParams) {
+        val size = bubbleSize()
+        val overlaps = bubbleParams.x < params.x + params.width && bubbleParams.x + size > params.x
+        if (!overlaps) return
+        bubbleParams.x = if (zulrahOnRight) params.x - size - dp(6) else params.x + params.width + dp(6)
+        clampBubble()
+    }
+
+    // Against the right side, the resize corner goes to the window's bottom left, the corner that's free to move
+    private fun placeResizeCorner(window: LinearLayout) {
+        val corner = (window.getChildAt(1) as? ViewGroup)?.getChildAt(1) ?: return
+        (corner.layoutParams as? FrameLayout.LayoutParams)?.let {
+            it.gravity = Gravity.BOTTOM or if (zulrahOnRight) Gravity.START else Gravity.END
+            corner.layoutParams = it
+        }
+        corner.scaleX = if (zulrahOnRight) -1f else 1f
     }
 
     // Hide/show everything we draw, so it doesn't end up in screenshots

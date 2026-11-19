@@ -2,27 +2,14 @@ package com.sinat.osrsbubbletool
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.Typeface
-import android.graphics.drawable.GradientDrawable
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.ScrollView
-import android.widget.TextView
-import com.sinat.osrsbubbletool.Palette.BUTTON_BROWN
-import com.sinat.osrsbubbletool.Palette.DARK_BROWN
-import com.sinat.osrsbubbletool.Palette.FADED
-import com.sinat.osrsbubbletool.Palette.GO_GREEN
-import com.sinat.osrsbubbletool.Palette.PAPER
-import com.sinat.osrsbubbletool.Palette.PARCHMENT
-import com.sinat.osrsbubbletool.Palette.ROW_BROWN
-import com.sinat.osrsbubbletool.Palette.WARN
 
 // Bubble Sync: scan the QR code the Bubble Tool Sync plugin shows in RuneLite on a PC, and the tools that use your
 // quests, levels and diaries (Quest Helper, Hunter Rumours, Teleport Finder) all read it from here.
@@ -33,6 +20,7 @@ class SyncTool(
     private val inBubble: Boolean = true
 ) {
 
+    private val ui = Ui(context)
     private val sync = AccountSync(context)
     private lateinit var holder: FrameLayout
     private var pasting = false          // the "paste the code" box is open
@@ -40,10 +28,10 @@ class SyncTool(
     private var redraw: (() -> Unit)? = null   // on the main screen: draws the whole page again
     private var column: LinearLayout? = null   // on the main screen: where the page was last drawn
 
-    private fun dp(v: Int) = (v * context.resources.displayMetrics.density).toInt()
+    private fun dp(v: Int) = ui.dp(v)
 
     fun buildView(): View {
-        holder = FrameLayout(context).apply { setBackgroundColor(PARCHMENT) }
+        holder = FrameLayout(context).apply { setBackgroundColor(Palette.SURFACE) }
         show()
         // back from the camera: show what was scanned
         holder.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
@@ -83,18 +71,18 @@ class SyncTool(
         addView(LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            addView(label("Bubble Sync", 16f, bold = true), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+            // (in the bubble, the window's top bar has the name)
+            addView(ui.text(if (inBubble) "" else "Bubble Sync", 20f, Palette.TEXT, 700), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
             addView(SyncBadge.view(context, sync, onClick = null))
         }, full())
-        addView(label("Your quests, levels and achievement diaries, for the Quest Helper, Hunter Rumours and " +
-            "Teleport Finder. Scanned from the Bubble Tool Sync plugin in RuneLite: nothing goes over the internet.", 11f)
-            .apply { setTextColor(FADED) }, full(3))
+        addView(ui.note("Your quests, levels and achievement diaries, for the Quest Helper, Hunter Rumours and " +
+            "Teleport Finder. Scanned from the Bubble Tool Sync plugin in RuneLite: nothing goes over the internet."), full(3))
 
         val data = sync.cached
         if (data != null) {
-            addView(card {
-                addView(label(data.name.ifEmpty { "Your account" }, 15f, bold = true))
-                addView(label("Read in RuneLite " + ago(data.readAt), 11f).apply { setTextColor(FADED) }, full(1))
+            addView(ui.card {
+                addView(ui.text(data.name.ifEmpty { "Your account" }, 15f, Palette.TEXT, 700))
+                addView(ui.note("Read in RuneLite " + ago(data.readAt)), full(1))
                 val quests = QuestBook.tally(data, miniquests = false)
                 val miniquests = QuestBook.tally(data, miniquests = true)
                 val tiers = QuestBook.diaries.flatMap { d -> d.tiers.map { t -> data.diaryTasks(d.region, t.tier) } }
@@ -107,17 +95,14 @@ class SyncTool(
             }, full(10))
         }
 
-        addView(button(if (data == null) "📷 Scan from RuneLite" else "📷 Scan again", GO_GREEN) { scan() }, full(10))
+        // Gold marks the one main action: Scan, or Save while the paste box is open
+        addView(ui.button(if (data == null) "Scan from RuneLite" else "Scan again",
+            if (pasting) Ui.ButtonStyle.PLAIN else Ui.ButtonStyle.GOLD) { scan() }, full(10))
         if (pasting) {
-            val field = EditText(context).apply {
-                setHintTextColor(FADED)
-                hint = "BTS1:…"
+            val field = ui.textBox("BTS1:…").apply {
                 textSize = 12f
                 maxLines = 3
                 imeOptions = EditorInfo.IME_ACTION_DONE
-                setTextColor(DARK_BROWN)
-                setPadding(dp(10), dp(8), dp(10), dp(8))
-                background = GradientDrawable().apply { setColor(PAPER); setStroke(dp(1), BUTTON_BROWN); cornerRadius = dp(6).toFloat() }
             }
             val save = {
                 val text = field.text.toString()
@@ -129,35 +114,35 @@ class SyncTool(
                 }
             }
             field.setOnEditorActionListener { _, _, _ -> save(); true }
-            addView(label("Paste the text from the plugin's Copy text button (press and hold the box, then Paste):", 11f), full(8))
+            addView(ui.text("Paste the text from the plugin's Copy text button (press and hold the box, then Paste):", 12f), full(8))
             addView(field, full(3))
             addView(LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
-                addView(button("Save", GO_GREEN) { save() }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-                addView(button("Cancel") { pasting = false; message = null; hideKeyboard(); show() },
+                addView(ui.button("Save", Ui.ButtonStyle.GOLD) { save() }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+                addView(ui.button("Cancel") { pasting = false; message = null; hideKeyboard(); show() },
                     LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { leftMargin = dp(6) })
             }, full(4))
         } else {
             addView(LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
-                addView(button("Paste code") { pasting = true; message = null; show() },
+                addView(ui.button("Paste code") { pasting = true; message = null; show() },
                     LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-                addView(button("Import file") { importFile() },
+                addView(ui.button("Import file") { importFile() },
                     LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { leftMargin = dp(6) })
             }, full(6))
-            if (data != null) addView(button("Forget this account") { sync.forget(); message = null; show() }, full(6))
+            if (data != null) addView(ui.button("Forget this account", Ui.ButtonStyle.DANGER) { sync.forget(); message = null; show() }, full(6))
         }
-        message?.let { addView(label(it, 12f).apply { setTextColor(WARN) }, full(8)) }
+        message?.let { addView(ui.banner(it), full(8)) }
 
-        addView(card {
-            addView(label("How to sync", 12f, bold = true))
-            addView(label("1. On your PC, install the Bubble Tool Sync plugin in RuneLite (Plugin Hub).\n" +
+        addView(ui.card {
+            addView(ui.text("How to sync", 12f, Palette.TEXT, 600))
+            addView(ui.text("1. On your PC, install the Bubble Tool Sync plugin in RuneLite (Plugin Hub).\n" +
                 "2. Log in to the game and click the plugin's icon in RuneLite's side bar: it shows a QR code.\n" +
                 "3. Tap Scan here and point your phone's camera at the code.\n\n" +
                 "Or use the plugin's Copy text (then Paste code here), or its Export file: get the account-….txt " +
                 "file onto your phone (for example through Google Drive or a USB cable), then tap Import file.\n\n" +
                 "Scan again after finishing quests or diary tasks, or gaining levels. The app only knows what " +
-                "your last scan showed.", 11f), full(2))
+                "your last scan showed.", 12f), full(2))
         }, full(12))
     }
 
@@ -177,8 +162,8 @@ class SyncTool(
 
     private fun stat(name: String, value: String) = LinearLayout(context).apply {
         orientation = LinearLayout.HORIZONTAL
-        addView(label(name, 12f), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-        addView(label(value, 12f, bold = true))
+        addView(ui.text(name, 12f), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+        addView(ui.text(value, 12f, Palette.TEXT, 600))
     }
 
     private fun ago(time: Long): String {
@@ -196,31 +181,6 @@ class SyncTool(
         (context.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager)?.hideSoftInputFromWindow(token, 0)
     }
 
-    private fun card(build: LinearLayout.() -> Unit) = LinearLayout(context).apply {
-        orientation = LinearLayout.VERTICAL
-        setPadding(dp(10), dp(8), dp(10), dp(8))
-        background = GradientDrawable().apply { setColor(PAPER); setStroke(dp(1), ROW_BROWN); cornerRadius = dp(6).toFloat() }
-        build()
-    }
-
     private fun full(top: Int = 0) =
         LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(top) }
-
-    private fun button(text: String, color: Int = BUTTON_BROWN, onClick: () -> Unit) = TextView(context).apply {
-        this.text = text
-        textSize = 13f
-        setTextColor(Color.WHITE)
-        gravity = Gravity.CENTER
-        setPadding(dp(8), dp(8), dp(8), dp(8))
-        setTypeface(typeface, Typeface.BOLD)
-        background = GradientDrawable().apply { setColor(color); cornerRadius = dp(6).toFloat() }
-        setOnClickListener { onClick() }
-    }
-
-    private fun label(text: String, size: Float, bold: Boolean = false) = TextView(context).apply {
-        this.text = text
-        textSize = size
-        setTextColor(DARK_BROWN)
-        if (bold) setTypeface(typeface, Typeface.BOLD)
-    }
 }

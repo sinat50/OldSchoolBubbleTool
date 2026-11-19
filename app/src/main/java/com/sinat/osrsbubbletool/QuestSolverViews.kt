@@ -1,7 +1,6 @@
 package com.sinat.osrsbubbletool
 
 import android.content.Context
-import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.text.Editable
@@ -13,15 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.core.content.edit
-import com.sinat.osrsbubbletool.Palette.BLUE
-import com.sinat.osrsbubbletool.Palette.BUTTON_BROWN
-import com.sinat.osrsbubbletool.Palette.CURRENT
-import com.sinat.osrsbubbletool.Palette.DARK_BROWN
-import com.sinat.osrsbubbletool.Palette.FADED
-import com.sinat.osrsbubbletool.Palette.GO_GREEN
-import com.sinat.osrsbubbletool.Palette.RED
 import com.sinat.osrsbubbletool.QuestSolvers as S
 
 // The screens for the puzzle solvers where you enter what you see. What you've entered is kept
@@ -34,7 +25,8 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
     private val mageReadings = ArrayList<S.Reading>()
     private val prefs = context.getSharedPreferences("quest_helper", Context.MODE_PRIVATE)
 
-    private fun dp(v: Int) = (v * context.resources.displayMetrics.density).toInt()
+    private val ui = Ui(context)
+    private fun dp(v: Int) = ui.dp(v)
 
     // Adds the solver's questions and answer to the page
     fun build(solver: String, column: LinearLayout) {
@@ -73,7 +65,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
         val pick = choiceGrid(c, "dice", (12..30).map { "$it" }, perRow = 5)
         if (pick < 0) return
         val faces = S.dice(12 + pick) ?: return
-        c.addView(card(CURRENT) {
+        c.addView(card {
             addView(label("Flip the dice so these faces are up:", 13f, bold = true))
             S.DICE.forEachIndexed { i, (name, _) -> addView(pairRow(name, "${faces[i]}"), full(3)) }
         }, full(8))
@@ -90,10 +82,10 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
         if (north < 0 || south < 0 || west < 0) return
         val busts = S.crypt(north, south, west)
         if (busts == null) {
-            c.addView(label("Those answers point to the same bust twice. Read the story again.", 12f).apply { setTextColor(RED) }, full(8))
+            c.addView(label("Those answers point to the same bust twice. Read the story again.", 12f).apply { setTextColor(Palette.BAD) }, full(8))
             return
         }
-        c.addView(card(CURRENT) {
+        c.addView(card {
             addView(label("Put the busts on the plinths:", 13f, bold = true))
             listOf("North", "East", "South", "West").forEachIndexed { i, side -> addView(pairRow("$side plinth", busts[i] + " bust"), full(3)) }
         }, full(8))
@@ -110,7 +102,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
         c.addView(label("\"The one that was offered ___…\"", 12f, bold = true), full(8))
         val e = choiceList(c, "tomb_4", S.TOMB_ITEMS)
         if (listOf(a, b, d, e).any { it < 0 }) return
-        c.addView(card(CURRENT) {
+        c.addView(card {
             addView(label("Take the four emblems from the south-western plaque and put them in the urns:", 13f, bold = true))
             addView(pairRow("Northernmost urn", S.EMBLEMS[a] + " emblem"), full(3))
             addView(pairRow("Centre-north urn", S.EMBLEMS[b] + " emblem"), full(3))
@@ -128,10 +120,10 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
             if (text.length < 4) return
             val digits = S.metalDoor(text)
             if (digits == null) {
-                result.addView(label("The letters are always A to I. Check the code key again.", 12f).apply { setTextColor(RED) })
+                result.addView(label("The letters are always A to I. Check the code key again.", 12f).apply { setTextColor(Palette.BAD) })
                 return
             }
-            result.addView(card(CURRENT) {
+            result.addView(card {
                 addView(label("The door's code is ${digits.joinToString("  ")}", 16f, bold = true))
                 addView(label("For each number, press Up or Down until it shows, then press Enter.", 12f), full(4))
             })
@@ -149,7 +141,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
             val text = raw.trim().uppercase().take(4)   // the same letters hodPositions reads
             if (text.length < 4) return
             val pos = S.hodPositions(text)
-            result.addView(card(CURRENT) {
+            result.addView(card {
                 addView(label("Set the chest's dials to:", 13f, bold = true))
                 text.forEachIndexed { i, ch ->
                     val where = if (pos[i] > 0) "$ch  (letter ${pos[i]} of 10)" else "$ch isn't on this dial: check the book again"
@@ -172,7 +164,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
         }
         val items = S.baxtorian(numbers)
         if (items.all { it == null }) return
-        c.addView(card(CURRENT) {
+        c.addView(card {
             addView(label("Put on each pillar:", 13f, bold = true))
             (S.BAX_PILLARS.map { it.first } + "South east").forEachIndexed { i, pillar ->
                 addView(pairRow("$pillar pillar", items[i] ?: if (i == 5) "(pick all five above)" else "—"), full(3))
@@ -190,10 +182,10 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
             if (rows.size < 5 || cols.size < 5) return
             val grid = S.kakurasu(rows.take(5).toIntArray(), cols.take(5).toIntArray())
             if (grid == null) {
-                result.addView(label("No grid fits those numbers. Check them again.", 12f).apply { setTextColor(RED) })
+                result.addView(label("No grid fits those numbers. Check them again.", 12f).apply { setTextColor(Palette.BAD) })
                 return
             }
-            result.addView(card(CURRENT) {
+            result.addView(card {
                 addView(label("Press the green squares:", 13f, bold = true))
                 grid.forEach { row ->
                     addView(LinearLayout(context).apply {
@@ -202,7 +194,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
                         row.forEach { on ->
                             addView(View(context).apply {
                                 background = GradientDrawable().apply {
-                                    setColor(if (on) GO_GREEN else Palette.CELL); cornerRadius = dp(3).toFloat()
+                                    setColor(if (on) Palette.TAG_GREEN else Palette.BG); cornerRadius = dp(3).toFloat()
                                 }
                             }, LinearLayout.LayoutParams(dp(30), dp(30)).apply { setMargins(dp(2), dp(2), dp(2), dp(2)) })
                         }
@@ -229,21 +221,21 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
             c.addView(label("Tick the places you've already dug up:", 13f, bold = true), full(8))
             S.KEY_SPOTS.forEachIndexed { i, spot ->
                 val found = prefs.getBoolean("key_found_$i", false)
-                c.addView(button((if (found) "☑ " else "☐ ") + spot.name, if (found) GO_GREEN else BUTTON_BROWN) {
+                c.addView(button((if (found) "✓ " else "") + spot.name, if (found) GOLD else PLAIN) {
                     prefs.edit { putBoolean("key_found_$i", !found) }; refresh()
                 }.apply { textSize = 11f; gravity = Gravity.START or Gravity.CENTER_VERTICAL }, full(2))
             }
             spots = S.KEY_SPOTS.filterIndexed { i, _ -> !prefs.getBoolean("key_found_$i", false) }
         } else {
             c.addView(label("The bosses move about every 25 minutes, so clear the readings when you start looking for the next one.", 11f)
-                .apply { setTextColor(FADED) }, full(6))
+                .apply { setTextColor(Palette.MUTED) }, full(6))
         }
 
         c.addView(label("Add a reading: where are you, roughly?", 13f, bold = true), full(10))
         val place = choiceGrid(c, if (key) "hc_place_k" else "hc_place_m", places.map { it.name }, perRow = 2)
         c.addView(label(if (key) "What did the key say?" else "What did the symbol say?", 13f, bold = true), full(8))
         val temp = choiceGrid(c, if (key) "hc_temp_k" else "hc_temp_m", temps.map { it.text }, perRow = 3)
-        c.addView(button("Add this reading", BLUE) {
+        c.addView(button("Add this reading", GOLD) {
             if (place >= 0 && temp >= 0) {
                 readings.add(S.Reading(places[place], temps[temp]))
                 choices.remove(if (key) "hc_place_k" else "hc_place_m"); choices.remove(if (key) "hc_temp_k" else "hc_temp_m")
@@ -258,14 +250,14 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
         }
 
         val fits = S.hotCold(spots, readings, slack = 12)
-        c.addView(card(CURRENT) {
+        c.addView(card {
             addView(label(when {
                 readings.isEmpty() -> "It could be any of these:"
                 fits.isEmpty() -> "Nothing fits every reading. Clear them and try again."
                 fits.size == 1 -> if (key) "Dig here:" else "The boss is here:"
                 else -> "It's one of these (most likely first):"
             }, 13f, bold = true))
-            fits.forEach { addView(label("• " + it.name, 13f).apply { if (fits.size == 1) setTextColor(GO_GREEN) }, full(2)) }
+            fits.forEach { addView(label("• " + it.name, 13f).apply { if (fits.size == 1) setTextColor(Palette.OK) }, full(2)) }
         }, full(8))
     }
 
@@ -287,17 +279,17 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
             refresh()
         }
 
-        c.addView(card(CURRENT) {
+        c.addView(card {
             addView(label("Order found so far:", 13f, bold = true))
             addView(label(if (order.isEmpty()) "Nothing yet" else order.mapIndexed { i, r -> "${i + 1}. $r" }.joinToString("   "),
-                14f, bold = true).apply { setTextColor(BLUE) }, full(3))
+                14f, bold = true).apply { setTextColor(Palette.ACCENT) }, full(3))
             if (order.isNotEmpty() && order.size < runes.size) {
                 addView(label("If it resets, activate these again first, in this order.", 11f), full(4))
             }
         }, full(8))
 
         if (order.size >= runes.size) {
-            c.addView(label("All ${runes.size} found! ✓", 14f, bold = true).apply { setTextColor(GO_GREEN) }, full(8))
+            c.addView(label("All ${runes.size} found! ✓", 14f, bold = true).apply { setTextColor(Palette.OK) }, full(8))
         } else {
             c.addView(label("Number ${order.size + 1}: try one, then tap what happened.", 13f, bold = true), full(10))
             for (r in runes) {
@@ -307,11 +299,11 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
                     orientation = LinearLayout.HORIZONTAL
                     gravity = Gravity.CENTER_VERTICAL
                     addView(label(r + if (isWrong) "  (not this one)" else "", 13f, bold = !isWrong)
-                        .apply { if (isWrong) setTextColor(FADED) }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+                        .apply { if (isWrong) setTextColor(Palette.MUTED) }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                     if (!isWrong) {
-                        addView(button("✓ Worked", GO_GREEN) { save(order + r, emptyList()) }.apply { textSize = 11f },
+                        addView(button("✓ Worked", GOLD) { save(order + r, emptyList()) }.apply { textSize = 11f },
                             LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = dp(4) })
-                        addView(button("✗ Reset", RED) { save(order, wrong + r) }.apply { textSize = 11f })
+                        addView(button("✗ Reset", DANGER) { save(order, wrong + r) }.apply { textSize = 11f })
                     } else {
                         // tapped ✗ by mistake: put it back, without losing the order found so far
                         addView(button("Undo") { save(order, wrong - r) }.apply { textSize = 11f })
@@ -319,7 +311,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
                 }, full(3))
             }
             val left = runes.filter { it !in order && it !in wrong }
-            if (left.size == 1) c.addView(label("It must be ${left[0]}.", 13f, bold = true).apply { setTextColor(GO_GREEN) }, full(6))
+            if (left.size == 1) c.addView(label("It must be ${left[0]}.", 13f, bold = true).apply { setTextColor(Palette.OK) }, full(6))
         }
         c.addView(button("Start over") { save(emptyList(), emptyList()) }.apply { textSize = 11f }, full(10))
     }
@@ -328,7 +320,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
     private fun cloudTracker(c: LinearLayout) {
         val cells = (prefs.getString("cloud_tiles", null) ?: "0".repeat(32)).padEnd(32, '0')   // 0 unknown, 1 safe, 2 not safe
         c.addView(label("Tap a tile to mark it: once for safe (green), again for not safe (red), again to clear.", 12f), full(6))
-        c.addView(label("North ledge (start)", 11f, bold = true).apply { gravity = Gravity.CENTER; setTextColor(FADED) }, full(8))
+        c.addView(label("North ledge (start)", 11f, bold = true).apply { gravity = Gravity.CENTER; setTextColor(Palette.MUTED) }, full(8))
         for (row in 0 until 8) {
             c.addView(LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
@@ -336,8 +328,8 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
                 for (col in 0 until 4) {
                     val i = row * 4 + col
                     val state = cells[i]
-                    addView(button(when (state) { '1' -> "✓"; '2' -> "✗"; else -> "" },
-                        when (state) { '1' -> GO_GREEN; '2' -> RED; else -> Palette.CELL_DIM }) {
+                    addView(gridButton(when (state) { '1' -> "✓"; '2' -> "✗"; else -> "" },
+                        when (state) { '1' -> Palette.TAG_GREEN; '2' -> Palette.TAG_RED; else -> Palette.RAISED }) {
                         val next = when (state) { '0' -> '1'; '1' -> '2'; else -> '0' }
                         prefs.edit {
                             putString("cloud_tiles", cells.substring(0, i) + next + cells.substring(i + 1))
@@ -347,14 +339,14 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
                 }
             })
         }
-        c.addView(label("South ledge (finish)", 11f, bold = true).apply { gravity = Gravity.CENTER; setTextColor(FADED) }, full(2))
-        c.addView(label("You can step south, east or west. The path never goes back north.", 11f).apply { setTextColor(FADED) }, full(8))
+        c.addView(label("South ledge (finish)", 11f, bold = true).apply { gravity = Gravity.CENTER; setTextColor(Palette.MUTED) }, full(2))
+        c.addView(label("You can step south, east or west. The path never goes back north.", 11f).apply { setTextColor(Palette.MUTED) }, full(8))
         // There are only ten possible paths, so a few marks are usually enough to know the rest
         val fits = S.cloudMatches(cells)
-        c.addView(card(CURRENT) {
+        c.addView(card {
             when {
                 fits.isEmpty() -> addView(label("None of the ten known paths fit these marks. Check them, or clear the grid.", 12f)
-                    .apply { setTextColor(RED) })
+                    .apply { setTextColor(Palette.BAD) })
                 fits.size == 1 -> {
                     addView(label("Only one path fits. Walk on the green tiles:", 13f, bold = true))
                     val path = S.CLOUD_PATHS[fits[0]]
@@ -362,7 +354,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
                         orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER
                         for (col in 0 until 4) addView(View(context).apply {
                             background = GradientDrawable().apply {
-                                setColor(if (path[row * 4 + col] == '1') GO_GREEN else Palette.CELL); cornerRadius = dp(3).toFloat()
+                                setColor(if (path[row * 4 + col] == '1') Palette.TAG_GREEN else Palette.BG); cornerRadius = dp(3).toFloat()
                             }
                         }, LinearLayout.LayoutParams(dp(30), dp(22)).apply { setMargins(dp(2), dp(2), dp(2), dp(2)) })
                     })
@@ -397,11 +389,11 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
             val t = target() ?: return
             val count = (choices["disc_count"] ?: 0) + 1
             val combos = S.discCombos(t, count)
-            result.addView(card(CURRENT) {
+            result.addView(card {
                 addView(label("To make $t with $count disc" + (if (count > 1) "s" else "") + ":", 13f, bold = true))
-                if (combos.isEmpty()) addView(label("No way to do it with $count disc" + (if (count > 1) "s." else "."), 12f).apply { setTextColor(RED) })
+                if (combos.isEmpty()) addView(label("No way to do it with $count disc" + (if (count > 1) "s." else "."), 12f).apply { setTextColor(Palette.BAD) })
                 combos.forEach { combo -> addView(label("• " + combo.joinToString(" + ") { "${it.name} (${it.value})" }, 12f), full(2)) }
-                addView(label("Swap discs at the exchanger if you don't have these.", 11f).apply { setTextColor(FADED) }, full(6))
+                addView(label("Swap discs at the exchanger if you don't have these.", 11f).apply { setTextColor(Palette.MUTED) }, full(6))
             })
         }
         c.addView(numberBox("disc_target", "e.g. 24") { update() }, full(2))
@@ -410,7 +402,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
         val shape = choiceGrid(c, "disc_shape", S.DISC_SHAPES.map { it.first }, perRow = 4)
         c.addView(LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
-            addView(button("Add disc", BLUE) {
+            addView(button("Add disc", GOLD) {
                 if (colour >= 0 && shape >= 0) {
                     texts["disc_shown"] = (shown + (colour * 4 + shape)).joinToString(",")
                     texts.remove("disc_target"); refresh()
@@ -442,23 +434,23 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
             }
             refresh()
         }
-        c.addView(card(CURRENT) {
+        c.addView(card {
             addView(label("Set the tumblers to these heights (1 = lowest), then try the lock:", 13f, bold = true))
             heights.forEachIndexed { i, h -> addView(pairRow("Tumbler ${i + 1}", if (green[i]) "$h  ✓ green, leave it" else "$h"), full(3)) }
         }, full(8))
         if (green.all { it }) {
-            c.addView(label("All four are green: the lock opens! ✓", 14f, bold = true).apply { setTextColor(GO_GREEN) }, full(8))
+            c.addView(label("All four are green: the lock opens! ✓", 14f, bold = true).apply { setTextColor(Palette.OK) }, full(8))
         } else {
             c.addView(label("After trying, tap each tumbler that showed a green circle (red and blue don't matter):", 12f, bold = true), full(10))
             c.addView(LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
                 (0 until 4).forEach { i ->
-                    addView(button((if (green[i]) "✓ " else "") + "${i + 1}", if (green[i]) GO_GREEN else BUTTON_BROWN) {
+                    addView(button((if (green[i]) "✓ " else "") + "${i + 1}", if (green[i]) GOLD else PLAIN) {
                         save(heights, green.mapIndexed { j, g -> if (j == i) !g else g })
                     }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { setMargins(dp(2), 0, dp(2), 0) })
                 }
             }, full(4))
-            c.addView(button("Next try: raise the others by one", BLUE) {
+            c.addView(button("Next try: raise the others by one", GOLD) {
                 save(heights.mapIndexed { i, h -> if (green[i]) h else h + 1 }, green)
             }, full(8))
         }
@@ -474,7 +466,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
     private fun choiceList(c: LinearLayout, key: String, options: List<String>): Int {
         val picked = choices[key] ?: -1
         options.forEachIndexed { i, text ->
-            c.addView(button(text, if (i == picked) GO_GREEN else BUTTON_BROWN) { choices[key] = i; refresh() }
+            c.addView(button(text, if (i == picked) GOLD else PLAIN) { choices[key] = i; refresh() }
                 .apply { textSize = 12f }, full(3))
         }
         return picked
@@ -488,7 +480,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
                 orientation = LinearLayout.HORIZONTAL
                 row.forEachIndexed { j, text ->
                     val i = rowIndex * perRow + j
-                    addView(button(text, if (i == picked) GO_GREEN else BUTTON_BROWN) { choices[key] = i; refresh() }
+                    addView(button(text, if (i == picked) GOLD else PLAIN) { choices[key] = i; refresh() }
                         .apply { textSize = if (perRow >= 4) 11f else 12f; setPadding(dp(2), dp(7), dp(2), dp(7)) },
                         LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { setMargins(dp(2), 0, dp(2), 0) })
                 }
@@ -499,11 +491,8 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
     }
 
     // A box for a 4-letter code
-    private fun letterBox(key: String, hint: String, onChange: (String) -> Unit) = EditText(context).apply {
-        setTextColor(DARK_BROWN)
-        setHintTextColor(FADED)
+    private fun letterBox(key: String, hint: String, onChange: (String) -> Unit) = ui.textBox(hint).apply {
         setText(texts[key] ?: "")
-        this.hint = hint
         textSize = 18f
         setSingleLine()
         inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
@@ -511,11 +500,8 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
         addTextChangedListener(watcher { texts[key] = it; onChange(it) })
     }
 
-    private fun numberBox(key: String, hint: String, onChange: () -> Unit) = EditText(context).apply {
-        setTextColor(DARK_BROWN)
-        setHintTextColor(FADED)
+    private fun numberBox(key: String, hint: String, onChange: () -> Unit) = ui.textBox(hint).apply {
         setText(texts[key] ?: "")
-        this.hint = hint
         textSize = 16f
         setSingleLine()
         // numbers separated by spaces
@@ -529,38 +515,38 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
         override fun afterTextChanged(s: Editable?) { onText(s?.toString() ?: "") }
     }
 
-    private fun answer(text: String) = card(CURRENT) { addView(label(text, 14f, bold = true)) }
+    private fun answer(text: String) = card { addView(label(text, 14f, bold = true)) }
 
     private fun pairRow(a: String, b: String): View = LinearLayout(context).apply {
         orientation = LinearLayout.HORIZONTAL
         addView(label(a, 12f, bold = true), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 2f))
-        addView(label(b, 13f, bold = true).apply { setTextColor(BLUE) }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 3f))
+        addView(label(b, 13f, bold = true).apply { setTextColor(Palette.ACCENT) }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 3f))
     }
 
-    private fun card(color: Int, fill: LinearLayout.() -> Unit) = LinearLayout(context).apply {
+    // The answer: a lighter block, no outline
+    private fun card(fill: LinearLayout.() -> Unit) = LinearLayout(context).apply {
         orientation = LinearLayout.VERTICAL
         setPadding(dp(10), dp(8), dp(10), dp(10))
-        background = GradientDrawable().apply { setColor(color); setStroke(dp(1), BUTTON_BROWN); cornerRadius = dp(6).toFloat() }
+        background = GradientDrawable().apply { setColor(Palette.RAISED); cornerRadius = dp(8).toFloat() }
         fill()
     }
 
     private fun full(top: Int = 0) =
         LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(top) }
 
-    private fun button(text: String, color: Int = BUTTON_BROWN, onClick: () -> Unit) = TextView(context).apply {
-        this.text = text
-        textSize = 13f
-        setTextColor(Color.WHITE)
+    private val GOLD = Ui.ButtonStyle.GOLD      // a picked option, or the main thing to do
+    private val PLAIN = Ui.ButtonStyle.PLAIN
+    private val DANGER = Ui.ButtonStyle.DANGER
+
+    private fun button(text: String, style: Ui.ButtonStyle = PLAIN, onClick: () -> Unit) =
+        ui.button(text, style, onClick).apply { minWidth = 0; minimumWidth = 0 }
+
+    // A square in a grid you tap to mark: filled green or red with white writing, or empty
+    private fun gridButton(text: String, fill: Int, onClick: () -> Unit) = ui.text(text, 13f, android.graphics.Color.WHITE, 700).apply {
         gravity = Gravity.CENTER
-        setPadding(dp(8), dp(8), dp(8), dp(8))
-        background = GradientDrawable().apply { setColor(color); cornerRadius = dp(6).toFloat() }
+        ui.press(this, fill, 6)
         setOnClickListener { onClick() }
     }
 
-    private fun label(text: String, size: Float, bold: Boolean = false) = TextView(context).apply {
-        this.text = text
-        textSize = size
-        setTextColor(DARK_BROWN)
-        if (bold) setTypeface(typeface, Typeface.BOLD)
-    }
+    private fun label(text: String, size: Float, bold: Boolean = false) = ui.text(text, size, Palette.TEXT, if (bold) 600 else 400)
 }

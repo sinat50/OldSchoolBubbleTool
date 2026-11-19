@@ -8,7 +8,6 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.PixelFormat
 import android.graphics.RectF
-import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.Handler
@@ -28,14 +27,6 @@ import android.widget.TextView
 import androidx.core.content.edit
 import androidx.core.graphics.toColorInt
 import androidx.core.graphics.withRotation
-import com.sinat.osrsbubbletool.Palette.BUTTON_BROWN
-import com.sinat.osrsbubbletool.Palette.BUTTON_NOTE
-import com.sinat.osrsbubbletool.Palette.DARK_BROWN
-import com.sinat.osrsbubbletool.Palette.FADED
-import com.sinat.osrsbubbletool.Palette.GO_GREEN
-import com.sinat.osrsbubbletool.Palette.PAPER
-import com.sinat.osrsbubbletool.Palette.PARCHMENT
-import com.sinat.osrsbubbletool.Palette.WARN
 import com.sinat.osrsbubbletool.ToaColours.GLYPH_LIT
 import com.sinat.osrsbubbletool.ToaColours.INK
 import com.sinat.osrsbubbletool.ToaColours.MISS_GREY
@@ -66,7 +57,9 @@ class ToaPuzzleTool(
 ) {
 
     companion object {
-        private const val HELP_SIZE_DP = 30       // the ? button
+        private const val HELP_SIZE_DP = Ui.TAP_SIZE   // the ? button
+        private const val SMALL_BUTTON_DP = 28    // how tall the shrunk window's buttons are (every pixel counts in a raid)
+        private const val SMALL_ICON_W_DP = 27    // how wide its - and + buttons are
         private const val MAP_CELL_DP = 26        // a square of the boards drawn at the bottom while watching
         private const val ICON_W_DP = 64          // the little board pictures on the list of puzzles
         private const val ICON_H_DP = 44
@@ -104,6 +97,7 @@ class ToaPuzzleTool(
         HET("Path of Het: mirrors", "Mirrors turn the beam onto the statue")
     }
 
+    private val ui = Ui(context)
     private val prefs = context.getSharedPreferences("toa_puzzles", Context.MODE_PRIVATE)
     private lateinit var holder: FrameLayout
     private var scroll: ScrollView? = null
@@ -187,7 +181,7 @@ class ToaPuzzleTool(
     }
 
     fun buildView(): View {
-        holder = FrameLayout(context).apply { setBackgroundColor(PARCHMENT) }
+        holder = FrameLayout(context).apply { setBackgroundColor(Palette.SURFACE) }
         // the window moved or changed size (shrinking into its corner, a longer note): the Path of Het's map follows it
         holder.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ -> placeHetMap() }
         show()
@@ -299,13 +293,13 @@ class ToaPuzzleTool(
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
                 setPadding(dp(8), dp(6), dp(10), dp(6))
-                background = GradientDrawable().apply { setColor(BUTTON_BROWN); cornerRadius = dp(6).toFloat() }
+                ui.press(this, Palette.RAISED, 8)
                 // a little picture of the puzzle's board, then its name
                 addView(puzzleIcon(p), LinearLayout.LayoutParams(dp(ICON_W_DP), ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = dp(10) })
                 addView(LinearLayout(context).apply {
                     orientation = LinearLayout.VERTICAL
-                    addView(label(p.title, 14f, bold = true).apply { setTextColor(Color.WHITE) })
-                    addView(label(p.about, 11f).apply { setTextColor(BUTTON_NOTE) })
+                    addView(ui.text(p.title, 14f, Palette.TEXT, 600))
+                    addView(ui.note(p.about))
                 }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                 setOnClickListener { open(p) }
             }, full(6))
@@ -356,20 +350,20 @@ class ToaPuzzleTool(
     private fun LinearLayout.light() {
         val answer = ToaPuzzles.solveLights(lightLit)
         tip("close your chat and inventory first, so all eight plates can be seen.")
-        addView(bar(button("Read the screen", GO_GREEN) { readLights() } to 2f,
+        addView(bar(button("Read the screen", Ui.ButtonStyle.GOLD) { readLights() } to 2f,
             button("Clear") { lightLit = 0; lightEntered = false; lightNote = null; show() } to 1f), full(4))
         help("Stand still with all eight plates on screen and tap Read the screen (the bubble hides for a moment " +
             "while it looks). The answer appears at the bottom of the screen and this window shrinks to a corner; " +
             "Done brings it back. Or tap Solve manually and tap each plate that's lit in the game: it glows pale, with a beam of light. Then " +
             "step on the plates with a green border, in any order. Stepping on a plate switches it and the two " +
             "beside it. The map faces the direction nearest your camera. If a plate was read wrong, tap it.")
-        lightNote?.let { addView(label(it, 11f).apply { setTextColor(WARN) }, full(4)) }
+        lightNote?.let { pageNote(it) }
         // the map to tap is kept behind Solve manually (Read the screen shows the answer at the bottom of the screen)
         manualButton(lightManual) { lightManual = !lightManual }
         if (lightManual) {
-            addView(label("Tap each plate that's lit in the game.", 11f), full(4))
+            addView(label("Tap each plate that's lit in the game.", 12f), full(4))
             // the answer only shows once you've told it what's lit, so all eight don't start with borders
-            if (!lightEntered) addView(button("None are lit: show the answer") { lightEntered = true; show() }.apply { textSize = 12f }, full(4))
+            if (!lightEntered) addView(button("None are lit: show the answer") { lightEntered = true; show() }, full(4))
             addView(lightBoardView(230), full(6))
             val steps = Integer.bitCount(answer)
             if (lightEntered) {
@@ -391,8 +385,8 @@ class ToaPuzzleTool(
 
     // The window while the answer is at the bottom of the screen
     private fun LinearLayout.lightSmall() {
-        addView(smallRow(smallButton("Read again", GO_GREEN) { readLights() }, smallButton("Done", WARN) { leaveOnScreen() }))
-        lightNote?.takeIf { it.startsWith("Couldn't") }?.let { addView(label(it, 9f).apply { setTextColor(WARN) }, full(2)) }
+        addView(smallRow(smallButton("Read again", Ui.ButtonStyle.GOLD) { readLights() }, smallButton("Done") { leaveOnScreen() }))
+        lightNote?.takeIf { it.startsWith("Couldn't") }?.let { addView(smallNote(it), full(2)) }
     }
 
     private fun readLights() = readScreen({ lightNote = it }, ToaReader::readLights) { result ->
@@ -473,7 +467,7 @@ class ToaPuzzleTool(
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
             fun lp(weight: Float) = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, weight).apply { setMargins(dp(2), 0, dp(2), 0) }
-            addView(button("Read the number", GO_GREEN) { readAdditionNumber() }, lp(2.2f))
+            addView(button("Read the number", Ui.ButtonStyle.GOLD) { readAdditionNumber() }, lp(2.2f))
             addView(label(if (additionTarget == 0) "–" else "$additionTarget", 20f, bold = true).apply { gravity = Gravity.CENTER }, lp(1f))
             addView(helpButton(), LinearLayout.LayoutParams(dp(HELP_SIZE_DP), dp(HELP_SIZE_DP)).apply { leftMargin = dp(2) })
         }, full(4))
@@ -482,8 +476,8 @@ class ToaPuzzleTool(
             "has − and + to correct it. The walk appears at the bottom of the screen, and this window shrinks to the bottom-left corner, clear " +
             "of the chat; Done brings it back. Walk onto the green tiles one at a time, without crossing any others. If you go another way, open Solve manually and tap " +
             "the tiles that lit up and a new walk is worked out. Going over the number hurts: when the tiles go " +
-            "dark, tap Clear. Most players face east here; Turn ↻ turns the map to match your camera.")
-        additionNote?.let { addView(label(it, 11f).apply { setTextColor(WARN) }, full(4)) }
+            "dark, tap Clear. Most players face east here; the Turn button turns the map to match your camera.")
+        additionNote?.let { pageNote(it) }
         // By hand: − and + set the number, and tiles you've lit can be tapped on the map
         manualButton(additionManual) { additionManual = !additionManual }
         if (additionManual) {
@@ -491,11 +485,11 @@ class ToaPuzzleTool(
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
                 addView(label("Number:", 12f), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-                addView(button("−") { changeTarget(-1) }.apply { setPadding(dp(16), dp(5), dp(16), dp(5)) })
-                addView(button("+") { changeTarget(1) }.apply { setPadding(dp(16), dp(5), dp(16), dp(5)) },
-                    LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = dp(4) })
+                addView(ui.iconButton("minus", "Lower the number", fill = Palette.RAISED) { changeTarget(-1) })
+                addView(ui.iconButton("plus", "Raise the number", fill = Palette.RAISED) { changeTarget(1) },
+                    LinearLayout.LayoutParams(dp(Ui.TAP_SIZE), dp(Ui.TAP_SIZE)).apply { leftMargin = dp(4) })
             }, full(4))
-            if (additionTarget != 0) addView(label("Went another way? Tap the tiles you lit on the map.", 11f), full(4))
+            if (additionTarget != 0) addView(label("Went another way? Tap the tiles you lit on the map.", 12f), full(4))
         }
         if (additionTarget == 0) return
 
@@ -505,8 +499,8 @@ class ToaPuzzleTool(
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
             addView(label("Top of the map: $top", 12f), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-            addView(button("Turn ↻") { additionTurns = (turns + 3) % 4; show() }.apply { textSize = 12f; setPadding(dp(8), dp(5), dp(8), dp(5)) })
-            addView(button("Clear") { additionLit.clear(); show() }.apply { textSize = 12f; setPadding(dp(8), dp(5), dp(8), dp(5)) },
+            addView(rowButton("Turn") { additionTurns = (turns + 3) % 4; show() })
+            addView(rowButton("Clear") { additionLit.clear(); show() },
                 LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = dp(4) })
         }, full(6))
 
@@ -551,12 +545,12 @@ class ToaPuzzleTool(
 
     // The window while the walk is at the bottom of the screen (bottom-left, clear of the chat box)
     private fun LinearLayout.additionSmall() {
-        addView(smallRow(smallButton("−") { changeTarget(-1) },
-            label("$additionTarget", 16f, bold = true).apply { gravity = Gravity.CENTER; setPadding(dp(6), 0, dp(6), 0) },
-            smallButton("+") { changeTarget(1) },
-            smallButton("Read", GO_GREEN) { readAdditionNumber() },
-            smallButton("Done", WARN) { leaveOnScreen() }))
-        additionNote?.takeIf { it.startsWith("Couldn't") }?.let { addView(label(it, 9f).apply { setTextColor(WARN) }, full(2)) }
+        addView(smallRow(smallIconButton("minus", "Lower the number") { changeTarget(-1) },
+            label("$additionTarget", 16f, bold = true).apply { gravity = Gravity.CENTER; setPadding(dp(5), 0, dp(5), 0) },
+            smallIconButton("plus", "Raise the number") { changeTarget(1) },
+            smallButton("Read", Ui.ButtonStyle.GOLD) { readAdditionNumber() },
+            smallButton("Done") { leaveOnScreen() }))
+        additionNote?.takeIf { it.startsWith("Couldn't") }?.let { addView(smallNote(it), full(2)) }
     }
 
     // − and + next to the number: from nothing, − starts at the top and + at the bottom
@@ -572,26 +566,26 @@ class ToaPuzzleTool(
 
     private fun LinearLayout.sequence() {
         tip("close your chat and inventory first, so all nine tiles can be seen.")
-        addView(bar(button("Watch", GO_GREEN) { watchSequence() } to 1.4f,
+        addView(bar(button("Watch", Ui.ButtonStyle.GOLD) { watchSequence() } to 1.4f,
             button("Clear") { sequence.clear(); sequenceTurn = 0f; sequenceNote = null; show() } to 1f), full(4))
         // Watch finds the tiles once, when tapped, then keeps looking at those spots on the screen
         addView(label("Tap Watch where you'll press the button, then keep the camera still until the tiles flash " +
-            "(it waits ${WATCH_FIRST_FLASH_MS / 1000} seconds).", 10f), full(4))
+            "(it waits ${WATCH_FIRST_FLASH_MS / 1000} seconds).", 12f), full(4))
         help("Stand still with all nine tiles on screen, tap Watch, then press the button in the game. Watch finds " +
             "the tiles when you tap it, so don't walk, turn or zoom the camera until they've flashed. This window " +
             "shrinks to a Stop button and the tiles are numbered at the bottom of the screen as they flash; Done " +
             "brings the window back. Or tap Solve manually and tap each tile yourself as " +
             "it flashes (it glows pale, with a beam of light). Step on them from 1 to 5. Forgot it? Press the " +
             "button again for a new order, and tap Clear first.")
-        sequenceNote?.let { addView(label(it, 11f).apply { setTextColor(WARN) }, full(4)) }
+        sequenceNote?.let { pageNote(it) }
         // the map to tap is kept behind Solve manually (Watch numbers the tiles at the bottom of the screen)
         manualButton(sequenceManual) { sequenceManual = !sequenceManual }
         if (sequenceManual) {
             addView(LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
-                addView(label("Tap each tile as it flashes.", 11f), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-                addView(button("Undo") { sequence.removeLastOrNull(); show() }.apply { textSize = 12f; setPadding(dp(10), dp(5), dp(10), dp(5)) })
+                addView(label("Tap each tile as it flashes.", 12f), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+                addView(rowButton("Undo") { sequence.removeLastOrNull(); show() })
             }, full(4))
             addView(sequenceBoardView(230), full(6))
             addView(status(when (sequence.size) {
@@ -621,11 +615,11 @@ class ToaPuzzleTool(
             // the seconds left to press the button in the game, counting down
             val countdown = label(countdownText(), 12f, bold = true)
             sequenceCountdown = countdown
-            addView(smallRow(smallButton("Stop", WARN) { endWatch("Stopped.") }, countdown))
+            addView(smallRow(smallButton("Stop", Ui.ButtonStyle.DANGER) { endWatch("Stopped.") }, countdown))
         } else {
             sequenceCountdown = null
-            addView(smallRow(smallButton("Watch again", GO_GREEN) { watchSequence() }, smallButton("Done", WARN) { leaveOnScreen() }))
-            sequenceNote?.takeIf { !it.startsWith("Saw all") }?.let { addView(label(it, 9f).apply { setTextColor(WARN) }, full(2)) }
+            addView(smallRow(smallButton("Watch again", Ui.ButtonStyle.GOLD) { watchSequence() }, smallButton("Done") { leaveOnScreen() }))
+            sequenceNote?.takeIf { !it.startsWith("Saw all") }?.let { addView(smallNote(it), full(2)) }
         }
     }
 
@@ -705,15 +699,15 @@ class ToaPuzzleTool(
         addView(bar(button("Undo") { obeliskUndo.removeLastOrNull()?.let { (o, m) ->
                 obeliskOrder.clear(); obeliskOrder.addAll(o); obeliskMisses.clear(); obeliskMisses.addAll(m); show() } } to 1f,
             button("Clear") { remember(); obeliskOrder.clear(); obeliskMisses.clear(); show() } to 1f,
-            button("Turn ↻") { obeliskTurns = (obeliskTurns + 1) % 4; show() } to 1f), full())
+            button("Turn") { obeliskTurns = (obeliskTurns + 1) % 4; show() } to 1f), full())
         help("After each hit, tap the obelisk if it lit up (it turns light pink), or hold your finger on it if it " +
             "didn't. Numbered obelisks are the right order so far; try one marked ? next. A wrong hit puts them all " +
-            "out, so hit the numbered ones again first. The map shows the three obelisks on each wall; Turn ↻ " +
+            "out, so hit the numbered ones again first. The map shows the three obelisks on each wall; the Turn button " +
             "turns it a quarter turn at a time to match your camera.")
         val choices = ToaPuzzles.obeliskChoices(obeliskOrder, obeliskMisses)
         val numbers = (0 until ToaPuzzles.OBELISKS).map { o -> obeliskOrder.indexOf(o).let { if (it < 0) "" else "${it + 1}" } }
         // Top wall on the top row, bottom wall on the bottom row, the floor between them
-        // (Turn ↻ moves them round a quarter turn at a time, so the walls can be at the sides instead)
+        // (Turn moves them round a quarter turn at a time, so the walls can be at the sides instead)
         val cells = (0 until ToaPuzzles.OBELISKS).map { o ->
             var r = if (o < 3) 0 else 2; var c = o % 3
             repeat(obeliskTurns) { val nr = c; c = 2 - r; r = nr }
@@ -748,7 +742,7 @@ class ToaPuzzleTool(
 
     private fun LinearLayout.het() {
         tip("stand in the doorway looking down at the room, zoomed out so most of it shows, then tap Watch.")
-        addView(bar(button("Watch", GO_GREEN) { watchHet() } to 1f), full(4))
+        addView(bar(button("Watch", Ui.ButtonStyle.GOLD) { watchHet() } to 1f), full(4))
         help("Watch looks at the screen once a second as you walk through the room: it finds which of the three " +
             "rooms you're in, this raid's cracked walls and the fixed mirrors standing about, and fills in what the " +
             "statues and walls hide as they come into view.\n\n" +
@@ -758,17 +752,17 @@ class ToaPuzzleTool(
             "Keep it on while you mine the obelisk: it watches Het's seal's health bar (top left), clears the map as " +
             "soon as the seal starts losing health, and if it isn't broken reads the new layout as soon as its walls " +
             "rise. It stops once the seal is broken, after 10 minutes, or when you tap Done.")
-        hetNote?.let { addView(label(it, 11f).apply { setTextColor(WARN) }, full(4)) }
+        hetNote?.let { pageNote(it) }
     }
 
     // The window while the map is at the bottom of the screen: Rescan starts Watch afresh (on or stopped), Done
     // stops it and brings the full window back. Kept narrow, so the map sits close beside it (placeHetMap).
     private fun LinearLayout.hetSmall() {
-        addView(smallRow(smallButton("Rescan", GO_GREEN) { stopHetWatch(null); watchHet() },
-            smallButton("Done", WARN) { leaveOnScreen() }))
+        addView(smallRow(smallButton("Rescan", Ui.ButtonStyle.GOLD) { stopHetWatch(null); watchHet() },
+            smallButton("Done") { leaveOnScreen() }))
         // Only once Watch has stopped: why (so it's clear when Rescan is needed), wrapped to the buttons' width. While
         // it watches, the map says it all (the owner found the room and mirror count clutter).
-        if (!hetWatching) hetNote?.let { addView(label(it, 9f).apply { setTextColor(WARN); maxWidth = dp(HET_NOTE_MAX_DP) }, full(2)) }
+        if (!hetWatching) hetNote?.let { addView(smallNote(it).apply { maxWidth = dp(HET_NOTE_MAX_DP) }, full(2)) }
     }
 
     // Watch: a look about once a second as you walk through the room. The first finds the room; the next ones follow
@@ -937,7 +931,7 @@ class ToaPuzzleTool(
         if (matchWatching) { matchingSmall(); return }
         tip("close your chat and inventory first, so both boards can be seen.")
         // (while watching, the page is just matchingSmall's Stop button)
-        addView(bar(button("Watch", GO_GREEN) { watchMatching() } to 1.2f,
+        addView(bar(button("Watch", Ui.ButtonStyle.GOLD) { watchMatching() } to 1.2f,
             button("Clear") { memory.clear(); show() } to 1f), full(4))
         help("For Watch: camera facing east, looking straight down, with the zoom at 25%, so both boards and the " +
             "statue are on screen. While it watches, this window shrinks to a Stop button in the corner and the " +
@@ -945,20 +939,21 @@ class ToaPuzzleTool(
             "you flip a tile whose match is already known, both tiles turn green: step on the other one. Or tap " +
             "Solve manually: pick a symbol in the row above the boards, then tap the tile. ✓ marks a pair as matched; " +
             "✗ rubs a tile out. Each board has each symbol once. Solo: the line, crook, hand and bird pairs start matched.")
-        matchNote?.let { addView(label(it, 11f).apply { setTextColor(WARN) }, full(4)) }
+        matchNote?.let { pageNote(it) }
 
         // Filling it in by hand, boards and all, out of the way until asked for (Watch draws the boards at the
         // bottom of the screen)
         manualButton(matchManual) { matchManual = !matchManual }
         if (matchManual) {
-            // The brushes: nine symbols, then "matched" and "erase"
+            // The brushes: nine symbols, then "matched" and "erase". The one picked is gold.
             val brushes = (0..BRUSH_ERASE).map { 0 to it }
             addView(Board(1, 11, brushes, maxHeightDp = 44, onTap = { b -> matchBrush = b; show() }) { canvas, b, r ->
-                painter.tile(canvas, r, if (b == matchBrush) GO_GREEN else PAPER)
+                val picked = b == matchBrush
+                painter.tile(canvas, r, if (picked) Palette.GOLD else Palette.BG)
                 when (b) {
-                    in 0..8 -> painter.glyph(canvas, ToaPuzzles.MATCHING_SYMBOLS[b], r, if (b == matchBrush) YELLOW else GLYPH_LIT)
-                    BRUSH_MATCHED -> painter.text(canvas, "✓", r.centerX(), r.centerY(), r.height() * 0.55f, GO_GREEN)
-                    else -> painter.text(canvas, "✗", r.centerX(), r.centerY(), r.height() * 0.55f, WARN)
+                    in 0..8 -> painter.glyph(canvas, ToaPuzzles.MATCHING_SYMBOLS[b], r, if (picked) INK else GLYPH_LIT)
+                    BRUSH_MATCHED -> painter.text(canvas, "✓", r.centerX(), r.centerY(), r.height() * 0.55f, if (picked) Palette.ON_GOLD else Palette.OK)
+                    else -> painter.text(canvas, "✗", r.centerX(), r.centerY(), r.height() * 0.55f, if (picked) Palette.ON_GOLD else Palette.BAD)
                 }
             }, full(6))
             addView(matchBoardsView(maxHeightDp = 150), full(8))
@@ -1230,7 +1225,7 @@ class ToaPuzzleTool(
 
     // The page while Watch is on: the window shrinks to just Stop (the boards are drawn at the bottom of the screen)
     private fun LinearLayout.matchingSmall() {
-        addView(button("Stop", WARN) { stopMatchWatch(null) }.apply { textSize = 12f; setPadding(dp(12), dp(6), dp(12), dp(6)) })
+        addView(smallButton("Stop", Ui.ButtonStyle.DANGER) { stopMatchWatch(null) }.apply { setPadding(dp(11), dp(6), dp(11), dp(6)) })
     }
 
     private fun tapMatching(t: Int) {
@@ -1376,7 +1371,7 @@ class ToaPuzzleTool(
         })
     }
 
-    private fun status(text: String) = label(text, 13f, bold = true)
+    private fun status(text: String) = ui.text(text, 13f, Palette.TEXT, 600)
 
     // A row of buttons, each with how much of the width it gets, and the ? at the end
     private fun bar(vararg items: Pair<View, Float>) = LinearLayout(context).apply {
@@ -1389,16 +1384,39 @@ class ToaPuzzleTool(
     }
 
     // A short tip above a page's buttons
-    private fun LinearLayout.tip(text: String) = addView(label("Tip: $text", 11f).apply { setTextColor(FADED) }, full())
+    private fun LinearLayout.tip(text: String) = addView(ui.note("Tip: $text"), full())
+
+    // What the last reading or Watch said, on a full page
+    private fun LinearLayout.pageNote(text: String) = addView(ui.text(text, 12f, Palette.ACCENT, 500), full(4))
+
+    // The same on the shrunk window, in small writing so the window stays small
+    private fun smallNote(text: String) = ui.text(text, 9f, Palette.ACCENT)
 
     // The button that shows or hides a page's tap-it-in-yourself controls
     private fun LinearLayout.manualButton(open: Boolean, toggle: () -> Unit) =
-        addView(button(if (open) "Hide manual solve" else "Solve manually") { toggle(); show() }
-            .apply { textSize = 12f; setPadding(dp(8), dp(5), dp(8), dp(5)) }, full(6))
+        addView(button(if (open) "Hide manual solve" else "Solve manually") { toggle(); show() }, full(6))
 
-    // Buttons for the shrunk window: small, side by side
-    private fun smallButton(text: String, color: Int = BUTTON_BROWN, onClick: () -> Unit) =
-        button(text, color, onClick).apply { textSize = 12f; setPadding(dp(10), dp(6), dp(10), dp(6)) }
+    // Buttons for the shrunk window: small, side by side. The writing is a little lighter and closer to the button's
+    // edges than on a full page, so the window is no bigger than it has to be during a raid.
+    private fun smallButton(text: String, style: Ui.ButtonStyle = Ui.ButtonStyle.PLAIN, onClick: () -> Unit) =
+        ui.button(text, style, onClick).apply {
+            textSize = 12f
+            typeface = ui.font(500)
+            includeFontPadding = false
+            minWidth = 0
+            minHeight = dp(SMALL_BUTTON_DP)
+            setPadding(dp(7), dp(6), dp(7), dp(6))
+        }
+
+    // An icon button the same height as the small buttons
+    private fun smallIconButton(icon: String, name: String, onClick: () -> Unit) = FrameLayout(context).apply {
+        minimumWidth = dp(SMALL_ICON_W_DP)
+        minimumHeight = dp(SMALL_BUTTON_DP)
+        contentDescription = name
+        ui.press(this, Palette.RAISED, 8)
+        addView(ui.icon(icon, Palette.TEXT, 16), FrameLayout.LayoutParams(dp(16), dp(16), Gravity.CENTER))
+        setOnClickListener { onClick() }
+    }
 
     private fun smallRow(vararg views: View) = LinearLayout(context).apply {
         orientation = LinearLayout.HORIZONTAL
@@ -1409,46 +1427,33 @@ class ToaPuzzleTool(
     }
 
     // The small ? that shows or hides the page's instructions
-    private fun helpButton() = TextView(context).apply {
-        text = "?"
-        textSize = 15f
-        setTypeface(typeface, Typeface.BOLD)
-        setTextColor(if (helpOpen) Color.WHITE else DARK_BROWN)
+    private fun helpButton() = ui.text("?", 15f, if (helpOpen) Palette.ON_GOLD else Palette.TEXT, 700).apply {
         gravity = Gravity.CENTER
-        background = GradientDrawable().apply {
-            shape = GradientDrawable.OVAL
-            setColor(if (helpOpen) BUTTON_BROWN else PAPER)
-            setStroke(dp(1), BUTTON_BROWN)
-        }
+        contentDescription = if (helpOpen) "Hide instructions" else "Show instructions"
+        ui.press(this, if (helpOpen) Palette.GOLD else Palette.RAISED, 8)
         setOnClickListener { helpOpen = !helpOpen; show() }
     }
 
     // The instructions, only while the ? is on
     private fun LinearLayout.help(text: String) {
         if (!helpOpen) return
-        addView(label(text, 12f).apply {
-            setPadding(dp(8), dp(6), dp(8), dp(6))
-            background = GradientDrawable().apply { setColor(PAPER); setStroke(dp(1), BUTTON_BROWN); cornerRadius = dp(6).toFloat() }
-        }, full(6))
+        addView(ui.card { addView(ui.text(text, 12f)) }, full(6))
     }
 
     private fun full(top: Int = 0) =
         LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(top) }
 
-    private fun button(text: String, color: Int = BUTTON_BROWN, onClick: () -> Unit) = TextView(context).apply {
-        this.text = text
-        textSize = 13f
-        setTextColor(Color.WHITE)
-        gravity = Gravity.CENTER
-        setPadding(dp(8), dp(8), dp(8), dp(8))
-        background = GradientDrawable().apply { setColor(color); cornerRadius = dp(6).toFloat() }
-        setOnClickListener { onClick() }
-    }
+    // A button that shares its row with others, so it drops the usual smallest width
+    private fun button(text: String, style: Ui.ButtonStyle = Ui.ButtonStyle.PLAIN, onClick: () -> Unit) =
+        ui.button(text, style, onClick).apply {
+            minWidth = 0
+            setPadding(dp(6), 0, dp(6), 0)
+        }
 
-    private fun label(text: String, size: Float, bold: Boolean = false) = TextView(context).apply {
-        this.text = text
-        textSize = size
-        setTextColor(DARK_BROWN)
-        if (bold) setTypeface(typeface, Typeface.BOLD)
-    }
+    // A button only as wide as its word, beside some writing
+    private fun rowButton(text: String, onClick: () -> Unit) =
+        button(text, onClick = onClick).apply { setPadding(dp(12), 0, dp(12), 0) }
+
+    private fun label(text: String, size: Float, bold: Boolean = false) =
+        ui.text(text, size, Palette.TEXT, if (bold) 700 else 400)
 }

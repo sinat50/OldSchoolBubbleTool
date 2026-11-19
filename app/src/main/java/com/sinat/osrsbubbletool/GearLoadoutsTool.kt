@@ -4,9 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.Color
-import android.graphics.Typeface
-import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
@@ -24,12 +21,6 @@ import android.widget.ScrollView
 import android.widget.TextView
 import androidx.core.content.edit
 import com.sinat.osrsbubbletool.GuidedScan.Part
-import com.sinat.osrsbubbletool.Palette.BUTTON_BROWN
-import com.sinat.osrsbubbletool.Palette.DARK_BROWN
-import com.sinat.osrsbubbletool.Palette.DEEP_RED
-import com.sinat.osrsbubbletool.Palette.PAPER
-import com.sinat.osrsbubbletool.Palette.PARCHMENT
-import com.sinat.osrsbubbletool.Palette.ROW_BROWN
 import java.io.File
 import java.util.concurrent.Executors
 import org.json.JSONArray
@@ -54,6 +45,7 @@ class GearLoadoutsTool(
         private const val SPELLBOOK_SIZE = 44        // dp: the spellbook button's screenshot, about as big as in the game
     }
 
+    private val ui = Ui(context)
     private val handler = Handler(Looper.getMainLooper())
     // the scan's details go to the phone's log (adb logcat -s GearLoadouts) only in a debug build
     private val debugBuild = (context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0
@@ -72,13 +64,13 @@ class GearLoadoutsTool(
     private var notesField: EditText? = null
     private var readMessage: String? = null   // what the last Scan Current Loadout saved, shown on the loadout once
 
-    private fun dp(value: Int) = (value * context.resources.displayMetrics.density).toInt()
+    private fun dp(value: Int) = ui.dp(value)
 
     // ---------------- Called by BubbleService ----------------
 
     fun buildView(): View {
         val r = FrameLayout(context).apply {
-            setBackgroundColor(PARCHMENT)
+            setBackgroundColor(Palette.SURFACE)
             // take focus first, so the keyboard doesn't pop up until you tap a text box
             isFocusable = true
             isFocusableInTouchMode = true
@@ -108,36 +100,18 @@ class GearLoadoutsTool(
 
     // ---------------- Small building blocks ----------------
 
-    private fun button(label: String, color: Int = BUTTON_BROWN, onClick: () -> Unit) = TextView(context).apply {
-        text = label
-        textSize = 14f
-        setTextColor(Color.WHITE)
+    private fun label(text: String, size: Float = 13f, bold: Boolean = false) =
+        ui.text(text, size, Palette.TEXT, if (bold) 600 else 400)
+
+    // The list's main button: gold, with a plus sign
+    private fun newLoadoutButton() = LinearLayout(context).apply {
+        orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER
-        setPadding(dp(6), dp(8), dp(6), dp(8))
-        background = GradientDrawable().apply {
-            setColor(color)
-            cornerRadius = dp(6).toFloat()
-        }
-        setOnClickListener { onClick() }
-    }
-
-    private fun label(text: String, size: Float = 13f, bold: Boolean = false) = TextView(context).apply {
-        this.text = text
-        textSize = size
-        setTextColor(DARK_BROWN)
-        if (bold) setTypeface(typeface, Typeface.BOLD)
-    }
-
-    private fun textBox(hint: String) = EditText(context).apply {
-        this.hint = hint
-        setHintTextColor(Palette.FADED)
-        setTextColor(DARK_BROWN)
-        textSize = 15f
-        background = GradientDrawable().apply {
-            setColor(PAPER)
-            cornerRadius = dp(6).toFloat()
-        }
-        setPadding(dp(8), dp(6), dp(8), dp(6))
+        minimumHeight = dp(Ui.TAP_SIZE)
+        ui.press(this, Palette.GOLD, 8)
+        addView(ui.icon("plus", Palette.ON_GOLD, 18))
+        addView(ui.text("New loadout", 13f, Palette.ON_GOLD, 600).apply { setPadding(dp(6), 0, 0, 0) })
+        setOnClickListener { createLoadout() }
     }
 
     private fun hideKeyboard(view: View) {
@@ -165,24 +139,23 @@ class GearLoadoutsTool(
         notesField = null
 
         val list = column().apply { setPadding(dp(10), dp(10), dp(10), dp(10)) }
-        list.addView(button("+ New loadout") { createLoadout() }, fullWidth())
+        list.addView(newLoadoutButton(), fullWidth())
         if (loadouts.isEmpty()) {
-            list.addView(label("No loadouts yet. Tap New loadout, then Scan Current Loadout to save screenshots of " +
-                "your inventory, equipment, rune pouch and spellbook."), fullWidth(10))
+            list.addView(ui.text("No loadouts yet. Tap New loadout, then Scan Current Loadout to save screenshots of " +
+                "your inventory, equipment, rune pouch and spellbook.", 13f, Palette.MUTED), fullWidth(10))
         }
         for (l in loadouts) {
             val row = LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
-                setPadding(dp(12), dp(10), dp(12), dp(10))
-                background = GradientDrawable().apply {
-                    setColor(ROW_BROWN)
-                    cornerRadius = dp(6).toFloat()
-                }
+                minimumHeight = dp(Ui.TAP_SIZE)
+                setPadding(dp(12), dp(6), dp(8), dp(6))
+                ui.press(this, Palette.BG, 8)
                 setOnClickListener { showLoadout(l) }
             }
-            row.addView(label(l.name, 15f), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-            list.addView(row, fullWidth(8))
+            row.addView(ui.text(l.name, 14f, Palette.TEXT, 500), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+            row.addView(ui.icon("next", Palette.MUTED, 18))
+            list.addView(row, fullWidth(4))
         }
         setContent(ScrollView(context).apply { addView(list) })
     }
@@ -202,7 +175,7 @@ class GearLoadoutsTool(
 
         val page = column().apply { setPadding(dp(10), dp(10), dp(10), dp(10)) }
 
-        nameField = textBox("Name").apply {
+        nameField = ui.textBox("Name").apply {
             setText(l.name)
             setSingleLine()
             imeOptions = EditorInfo.IME_ACTION_DONE
@@ -213,13 +186,13 @@ class GearLoadoutsTool(
         // Take the screenshots from the game (the guided scan); a line under it says what happened, when there's news
         val readStatus = label(readMessage ?: "").apply { visibility = if (readMessage == null) View.GONE else View.VISIBLE }
         readMessage = null
-        page.addView(button("Scan Current Loadout") { startScan(l, readStatus) }, fullWidth(8))
+        page.addView(ui.button("Scan Current Loadout", Ui.ButtonStyle.GOLD) { startScan(l, readStatus) }, fullWidth(8))
         page.addView(readStatus, fullWidth(4))
 
         val pictures = Part.entries.mapNotNull { part -> pictureFile(l, part)?.let { part to it } }.toMap()
         if (pictures.isEmpty() && !l.hasItems) {
-            page.addView(label("Tap Scan Current Loadout, then open your inventory, equipment and rune pouch in the game. " +
-                "Each one is saved as a screenshot as it shows."), fullWidth(10))
+            page.addView(ui.text("Tap Scan Current Loadout, then open your inventory, equipment and rune pouch in the game. " +
+                "Each one is saved as a screenshot as it shows.", 13f, Palette.MUTED), fullWidth(10))
         }
 
         // Inventory on the left and equipment on the right, side by side if the window is wide enough; the rune
@@ -227,7 +200,7 @@ class GearLoadoutsTool(
         fun part(p: Part): View? {
             val file = pictures[p] ?: return null
             return column().apply {
-                addView(label(p.label, 14f, bold = true))
+                addView(ui.heading(p.label))
                 addView(picture(file, small = p == Part.SPELLBOOK), if (p == Part.SPELLBOOK)
                     LinearLayout.LayoutParams(dp(SPELLBOOK_SIZE), dp(SPELLBOOK_SIZE)).apply { topMargin = dp(4) } else fullWidth(4))
             }
@@ -244,9 +217,9 @@ class GearLoadoutsTool(
 
         // A loadout saved before screenshots: its items as text, until a scan replaces each part
         if (l.hasItems) {
-            page.addView(label("Saved items", 14f, bold = true), fullWidth(14))
-            page.addView(label("Saved before Gear Loadouts kept screenshots. Scan Current Loadout replaces each part " +
-                "with its screenshot.", 11f).apply { setTextColor(Palette.FADED) }, fullWidth(2))
+            page.addView(ui.heading("Saved items"), fullWidth(14))
+            page.addView(ui.note("Saved before Gear Loadouts kept screenshots. Scan Current Loadout replaces each part " +
+                "with its screenshot."), fullWidth(2))
             val itemsBox = column()
             page.addView(itemsBox, fullWidth())
             fun fillItems(data: ItemData) {
@@ -264,8 +237,8 @@ class GearLoadoutsTool(
             } else fillItems(data)
         }
 
-        page.addView(label("Notes", 14f, bold = true), fullWidth(12))
-        notesField = textBox("Anything to remember for this trip").apply {
+        page.addView(ui.heading("Notes"), fullWidth(12))
+        notesField = ui.textBox("Anything to remember for this trip").apply {
             setText(l.notes)
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE or InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
             minLines = 2
@@ -273,7 +246,7 @@ class GearLoadoutsTool(
         }
         page.addView(notesField, fullWidth(4))
 
-        val deleteButton = button("Delete loadout", DEEP_RED) {}
+        val deleteButton = ui.button("Delete loadout", Ui.ButtonStyle.DANGER) {}
         deleteButton.setOnClickListener {
             if (!deleteArmed) {
                 deleteArmed = true
@@ -368,15 +341,24 @@ class GearLoadoutsTool(
     }
 
     // The checklist shown while scanning: each part, ticked once saved, or what to open for it
-    private var checklistLines: TextView? = null
+    // (small writing and tight gaps, so the shrunk window hides no more of the game than it has to)
+    private class ChecklistLine(val mark: ImageView, val words: TextView, var done: Boolean = false)
+    private var checklistLines: List<ChecklistLine>? = null
 
     private fun showChecklist() {
-        val page = column().apply { setPadding(dp(10), dp(8), dp(10), dp(8)) }
-        page.addView(label("Saving from the game", 14f, bold = true))
-        val lines = label("", 13f)
-        checklistLines = lines
-        page.addView(lines, fullWidth(4))
-        page.addView(button("Done") { finishScan() }, fullWidth(6))
+        val page = column().apply { setPadding(dp(8), dp(6), dp(8), dp(4)) }
+        page.addView(label("Saving from the game", 13f, bold = true))
+        checklistLines = List(4) {
+            val line = ChecklistLine(ui.icon("dot", Palette.MUTED, 14), ui.text("", 12f))
+            page.addView(LinearLayout(context).apply {
+                orientation = LinearLayout.HORIZONTAL
+                gravity = Gravity.CENTER_VERTICAL
+                addView(line.mark)
+                addView(line.words.apply { setPadding(dp(4), 0, 0, 0) })
+            }, fullWidth(if (it == 0) 3 else 0))
+            line
+        }
+        page.addView(ui.button("Done", Ui.ButtonStyle.GOLD) { finishScan() }, fullWidth(4))
         root?.removeAllViews()
         root?.addView(page, FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT))
         updateChecklist()
@@ -385,17 +367,25 @@ class GearLoadoutsTool(
     private fun updateChecklist() {
         val sc = scan.progress ?: return
         fun has(p: Part) = p in sc.saved
+        val lines = checklistLines ?: return
         val pouchLine = when {
-            has(Part.RUNE_POUCH) -> "✓ Rune pouch"
-            else -> sc.pouchSecondsLeft(System.currentTimeMillis())?.let { "• Rune pouch, if you have one: tap it, Open (finishing in $it s)" }
-                ?: "• Rune pouch, if you have one: tap it, Open"
+            has(Part.RUNE_POUCH) -> "Rune pouch"
+            else -> sc.pouchSecondsLeft(System.currentTimeMillis())?.let { "Rune pouch, if you have one: tap it, Open (finishing in $it s)" }
+                ?: "Rune pouch, if you have one: tap it, Open"
         }
-        checklistLines?.text = listOf(
-            if (has(Part.SPELLBOOK)) "✓ Spellbook" else "• Spellbook: keep the side panel open",
-            if (has(Part.INVENTORY)) "✓ Inventory" else "• Inventory: open its tab",
-            pouchLine,
-            if (has(Part.EQUIPMENT)) "✓ Equipment" else "• Equipment: open its tab"
-        ).joinToString("\n")
+        showLine(lines[0], has(Part.SPELLBOOK), if (has(Part.SPELLBOOK)) "Spellbook" else "Spellbook: keep the side panel open")
+        showLine(lines[1], has(Part.INVENTORY), if (has(Part.INVENTORY)) "Inventory" else "Inventory: open its tab")
+        showLine(lines[2], has(Part.RUNE_POUCH), pouchLine)
+        showLine(lines[3], has(Part.EQUIPMENT), if (has(Part.EQUIPMENT)) "Equipment" else "Equipment: open its tab")
+    }
+
+    // One line of the checklist: a tick once its part is saved, a dot until then
+    private fun showLine(line: ChecklistLine, done: Boolean, words: String) {
+        if (done != line.done) {
+            line.done = done
+            line.mark.setImageDrawable(StrokeIcon(Icons.path(if (done) "check" else "dot"), if (done) Palette.OK else Palette.MUTED))
+        }
+        line.words.text = words
     }
 
     // Back to the loadout, saying what was saved and what wasn't (once every screenshot is written)
