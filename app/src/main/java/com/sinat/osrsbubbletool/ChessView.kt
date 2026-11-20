@@ -12,7 +12,7 @@ import android.view.View
 import android.view.ViewConfiguration
 import android.widget.FrameLayout
 import androidx.core.graphics.toColorInt
-import androidx.core.graphics.withTranslation
+import androidx.core.graphics.withRotation
 import chess.Move
 import chess.Piece
 import kotlin.math.abs
@@ -21,8 +21,9 @@ import kotlin.math.min
 
 // The chess board: draws the squares and pieces as big as the space allows (so resizing the window scales it),
 // and turns taps into moves. Tap one of your pieces, then the square to move it to; the move is then shown on the
-// board, waiting (pending) until it's confirmed with the button under the board. Its colours are fixed, like a
-// real board, so it looks the same in dark mode.
+// board, waiting (pending) until it's confirmed with the button under the board. Its squares are two warm greys
+// from the app's colours (light and dark mode, read when the board is made), with the picked piece, where it can go,
+// the waiting move and the last move in gold.
 @SuppressLint("ViewConstructor")
 class ChessView(
     context: Context,
@@ -51,7 +52,13 @@ class ChessView(
     // ---------------- Drawing ----------------
 
     private val fill = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val text = Paint(Paint.ANTI_ALIAS_FLAG).apply { typeface = Typeface.DEFAULT_BOLD }
+    private val text = Paint(Paint.ANTI_ALIAS_FLAG).apply { typeface = Ui(context).font(700) }
+
+    // the colours, read once (a dark mode switch builds the board again)
+    private val lightSquare = Palette.BOARD_LIGHT
+    private val darkSquare = Palette.BOARD_DARK
+    private val inkOnLight = Palette.BOARD_INK_ON_LIGHT
+    private val inkOnDark = Palette.BOARD_INK_ON_DARK
     private val board = RectF()
     private var cell = 0f
 
@@ -75,7 +82,7 @@ class ChessView(
         for (sq in 0 until 64) {
             val x = left(sq); val y = top(sq)
             val dark = (ChessGame.file(sq) + ChessGame.rank(sq)) % 2 == 0
-            fill.color = if (dark) DARK_SQUARE else LIGHT_SQUARE
+            fill.color = if (dark) darkSquare else lightSquare
             canvas.drawRect(x, y, x + cell, y + cell, fill)
             // the last move, the picked piece and the waiting move are tinted
             val tint = when {
@@ -119,17 +126,24 @@ class ChessView(
             drawPiece(canvas, if (ChessGame.isPromotion(waiting)) waiting.promoteTo else moving, left(waiting.to), top(waiting.to), cell, 255)
             if (rookFrom >= 0) drawPiece(canvas, game.piece(rookFrom), left(rookTo), top(rookTo), cell, 255)
         }
-        // where the picked piece can go: a dot on empty squares, a ring around pieces it can take
+        // where the picked piece can go: a gold dot on empty squares, a gold ring around pieces it can take (each with
+        // a thin dark edge, so they show on both square colours)
         if (showMoves && selected >= 0 && waiting == null) {
-            fill.color = HINT
             for (to in game.movesFrom(selected).map { it.to }.distinct()) {
                 val cx = left(to) + cell / 2; val cy = top(to) + cell / 2
                 if (game.piece(to) == Piece.EMPTY) {
                     fill.style = Paint.Style.FILL
+                    fill.color = HINT_EDGE
+                    canvas.drawCircle(cx, cy, cell * 0.15f + cell * 0.025f, fill)
+                    fill.color = Palette.GOLD
                     canvas.drawCircle(cx, cy, cell * 0.15f, fill)
                 } else {
                     fill.style = Paint.Style.STROKE
-                    fill.strokeWidth = cell * 0.08f
+                    fill.strokeWidth = cell * 0.11f
+                    fill.color = HINT_EDGE
+                    canvas.drawCircle(cx, cy, cell * 0.44f, fill)
+                    fill.strokeWidth = cell * 0.07f
+                    fill.color = Palette.GOLD
                     canvas.drawCircle(cx, cy, cell * 0.44f, fill)
                 }
             }
@@ -137,22 +151,23 @@ class ChessView(
         }
     }
 
-    // a-h along the bottom row and 1-8 down the left column, in the other square colour
+    // a-h along the bottom row and 1-8 down the left column: dark on the light squares, white on the dark ones, in
+    // bold so they read even on a small board
     private fun drawCoordinates(canvas: Canvas) {
-        text.textSize = cell * 0.2f
+        text.textSize = cell * 0.24f
         for (i in 0 until 8) {
             // bottom row: the files
             val fileSq = ChessGame.square(if (playerWhite) i else 7 - i, if (playerWhite) 0 else 7)
             val darkF = (ChessGame.file(fileSq) + ChessGame.rank(fileSq)) % 2 == 0
-            text.color = if (darkF) LIGHT_SQUARE else DARK_SQUARE
+            text.color = if (darkF) inkOnDark else inkOnLight
             text.textAlign = Paint.Align.RIGHT
             canvas.drawText(('a' + ChessGame.file(fileSq)).toString(), left(fileSq) + cell * 0.95f, top(fileSq) + cell * 0.95f, text)
             // left column: the ranks
             val rankSq = ChessGame.square(if (playerWhite) 0 else 7, if (playerWhite) 7 - i else i)
             val darkR = (ChessGame.file(rankSq) + ChessGame.rank(rankSq)) % 2 == 0
-            text.color = if (darkR) LIGHT_SQUARE else DARK_SQUARE
+            text.color = if (darkR) inkOnDark else inkOnLight
             text.textAlign = Paint.Align.LEFT
-            canvas.drawText(('1' + ChessGame.rank(rankSq)).toString(), left(rankSq) + cell * 0.06f, top(rankSq) + cell * 0.24f, text)
+            canvas.drawText(('1' + ChessGame.rank(rankSq)).toString(), left(rankSq) + cell * 0.06f, top(rankSq) + cell * 0.26f, text)
         }
     }
 
@@ -203,13 +218,13 @@ class ChessView(
     }
 
     companion object {
-        val LIGHT_SQUARE = "#EED8AE".toColorInt()
-        val DARK_SQUARE = "#B48A5A".toColorInt()
-        private val LAST_TINT = "#70E8C547".toColorInt()
-        private val SELECTED_TINT = "#9062B04A".toColorInt()
-        private val PENDING_TINT = "#A0F0A030".toColorInt()
+        // the app's gold (Palette.GOLD), see-through so the square still shows: faint for the last move, stronger for
+        // the picked piece and the waiting move
+        private val LAST_TINT = "#66E3B341".toColorInt()
+        private val SELECTED_TINT = "#C0E3B341".toColorInt()
+        private val PENDING_TINT = "#A8E3B341".toColorInt()
+        private val HINT_EDGE = "#8C1E1500".toColorInt()
         private val CHECK_GLOW = "#C0D8402A".toColorInt()
-        private val HINT = "#66302010".toColorInt()
     }
 }
 
@@ -320,20 +335,29 @@ object ChessPieces {
 @SuppressLint("ViewConstructor")
 class PieceButton(context: Context, private val piece: Int, fill: Int) : View(context) {
     private val back = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = fill }
+    // a thin edge round it, like the app's other buttons, so it shows on the frame in light and dark
+    private val edge = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.STROKE
+        strokeWidth = context.resources.displayMetrics.density
+        color = Palette.BORDER
+    }
     override fun onDraw(canvas: Canvas) {
         val s = min(width, height).toFloat()
-        canvas.drawCircle(width / 2f, height / 2f, s / 2, back)
+        canvas.drawCircle(width / 2f, height / 2f, s / 2 - edge.strokeWidth, back)
+        canvas.drawCircle(width / 2f, height / 2f, s / 2 - edge.strokeWidth, edge)
         ChessPieces.draw(canvas, piece, (width - s * 0.8f) / 2, (height - s * 0.8f) / 2, s * 0.8f)
     }
 }
 
-// The chess screen, like the Zen Garden's zen mode: no window around it, just the board in a plain wooden frame.
+// The chess screen, like the Zen Garden's zen mode: no window around it, just the board in a frame of the app's
+// colours (the grey of a tool window's top bar, with the same edge).
 // The frame is thin down the sides, with a bar along the top and bottom. A button sits in each corner of the
-// bars: Exit (top left), move (top right, drag it), resize (bottom right, drag it) and an arrow (bottom left) that
-// opens and closes the row of controls over the bottom of the board. The top bar says whose move it is; the bottom
-// bar holds Play and Cancel while a move waits. The bars are deep enough that the window's corner touch areas
+// bars: back (top left), close (top right), resize (bottom right, drag it) and an arrow (bottom left) that opens and
+// closes the row of controls over the bottom of the board; drag the top bar between them to move the board. The top
+// bar says whose move it is; the bottom bar holds Play and Cancel (or the four pieces a pawn can become) while a move
+// waits. The bars are deep enough that the window's corner touch areas
 // (BubbleService.applyFrameless: a triangle reaching CORNER from the corner) never reach the board.
-// (The move and resize corners are worked by the window itself; Exit and the arrow here.)
+// (The resize corner is worked by the window itself; back, close, the arrow and the top bar's drag here.)
 @SuppressLint("ViewConstructor")
 class ChessScreen(
     context: Context,
@@ -343,6 +367,8 @@ class ChessScreen(
 ) : FrameLayout(context) {
 
     var onExit: (() -> Unit)? = null
+    var onClose: (() -> Unit)? = null                          // the ✕ in the top-right corner: close the window
+    var onDrag: ((Int, Int, Boolean) -> Unit)? = null          // the top bar dragged: how far (x, y), and true as it starts
     var onTrayPlaced: ((Int, Int, Int, Int) -> Unit)? = null   // the frame's edges here (left, top, right, bottom)
     var open = false                                           // the controls are showing
         private set
@@ -361,7 +387,9 @@ class ChessScreen(
 
     private val tray = RectF()        // the frame's outer edges in this view (it sits in the top-left corner)
     private val placed = IntArray(4)
-    private var pressed = 0           // the corner this touch began on (EXIT or ARROW)
+    private var pressed = 0           // what this touch began on (EXIT, CLOSE, ARROW or the top bar, BAR)
+    private var downX = 0f            // where a drag of the top bar began, on the screen
+    private var downY = 0f
 
     init {
         setWillNotDraw(false)
@@ -431,16 +459,27 @@ class ChessScreen(
         val h = tray.height()
         return when {
             x + y <= k -> EXIT
+            (tray.width() - x) + y <= k -> CLOSE
             x + (h - y) <= k -> ARROW
+            y < bar -> BAR   // the rest of the top bar: drag it to move the board, like a tool window's top bar
             else -> 0
         }
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        if (ev.actionMasked == MotionEvent.ACTION_DOWN) pressed = cornerAt(ev.x, ev.y)
+        if (ev.actionMasked == MotionEvent.ACTION_DOWN) {
+            pressed = cornerAt(ev.x, ev.y)
+            if (pressed == BAR) { downX = ev.rawX; downY = ev.rawY; onDrag?.invoke(0, 0, true) }
+        }
         if (pressed != 0) {
-            if (ev.actionMasked == MotionEvent.ACTION_UP && cornerAt(ev.x, ev.y) == pressed) {
-                if (pressed == EXIT) onExit?.invoke() else setOpen(!open)
+            if (pressed == BAR && ev.actionMasked == MotionEvent.ACTION_MOVE)
+                onDrag?.invoke((ev.rawX - downX).toInt(), (ev.rawY - downY).toInt(), false)
+            if (ev.actionMasked == MotionEvent.ACTION_UP && pressed != BAR && cornerAt(ev.x, ev.y) == pressed) {
+                when (pressed) {
+                    EXIT -> onExit?.invoke()
+                    CLOSE -> onClose?.invoke()
+                    else -> setOpen(!open)
+                }
             }
             if (ev.actionMasked == MotionEvent.ACTION_UP || ev.actionMasked == MotionEvent.ACTION_CANCEL) pressed = 0
             return true
@@ -451,73 +490,73 @@ class ChessScreen(
 
     // ---------------- The frame ----------------
 
+    // In the app's colours (light or dark, read when the screen is built): the frame is the grey of a tool window's
+    // top bar, with the same thin double edge round it (a dark line outside a lighter one), and the corner symbols
+    // are the app's line icons
+    private val frameFill = Palette.RAISED
+    private val frameEdge = Palette.EDGE
+    private val frameLine = Palette.BORDER
+    private val ink = Palette.TEXT
+    private val quiet = Palette.MUTED
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val text = android.text.TextPaint(Paint.ANTI_ALIAS_FLAG).apply { typeface = Typeface.DEFAULT_BOLD; textAlign = Paint.Align.CENTER }
-    private val carving = Path()
+    private val text = android.text.TextPaint(Paint.ANTI_ALIAS_FLAG).apply { typeface = Ui(context).font(600); textAlign = Paint.Align.CENTER }
+    private val symbol = Path()
+    private val back = StrokeIcon(Icons.path("back"), ink)
+    private val chevron = StrokeIcon(Icons.path("down"), ink)
+    private val cross = StrokeIcon(Icons.path("close"), ink)
+    private val round = RectF()
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         val w = tray.width(); val h = tray.height()
         if (w <= 0f) return
         val k = corner * 1.1f
-        // the wood, a little lighter on the top and left (where the light comes from)
+        val r = dp(WINDOW_CORNER_DP)
+        val line = dp(1f)
+        // the frame, with rounded corners like the tool windows
         paint.style = Paint.Style.FILL
-        paint.color = WOOD
-        canvas.drawRect(0f, 0f, w, h, paint)
-        paint.color = WOOD_LIT
-        canvas.drawRect(0f, 0f, w, dp(2f), paint)
-        canvas.drawRect(0f, 0f, dp(2f), h, paint)
-        // the four corner blocks: a darker triangle each
-        paint.color = BLOCK
-        for ((cx, cy) in listOf(0f to 0f, w to 0f, w to h, 0f to h)) {
-            carving.reset()
-            carving.moveTo(cx, cy)
-            carving.lineTo(if (cx == 0f) k else w - k, cy)
-            carving.lineTo(cx, if (cy == 0f) k else h - k)
-            carving.close()
-            canvas.drawPath(carving, paint)
-        }
-        // edges: round the outside, round the board, and the corner blocks' slanted edges
+        paint.color = frameFill
+        round.set(0f, 0f, w, h)
+        canvas.drawRoundRect(round, r, r, paint)
+        // its edge: the dark line on the very outside, the lighter one just inside it
         paint.style = Paint.Style.STROKE
-        paint.strokeWidth = dp(1.2f)
-        paint.color = EDGE
-        canvas.drawRect(dp(0.6f), dp(0.6f), w - dp(0.6f), h - dp(0.6f), paint)
-        canvas.drawRect(side - dp(0.6f), bar - dp(0.6f), w - side + dp(0.6f), h - bar + dp(0.6f), paint)
-        paint.strokeWidth = dp(0.8f)
-        canvas.drawLine(k, 0f, 0f, k, paint); canvas.drawLine(w - k, 0f, w, k, paint)
-        canvas.drawLine(w - k, h, w, h - k, paint); canvas.drawLine(k, h, 0f, h - k, paint)
-        // the symbols, carved like the Zen Garden's: a dark line just above and left, then the light one
-        val d = k * 0.33f
+        paint.strokeWidth = line
+        paint.color = frameEdge
+        round.set(line / 2, line / 2, w - line / 2, h - line / 2)
+        canvas.drawRoundRect(round, r - line / 2, r - line / 2, paint)
+        paint.color = frameLine
+        round.set(line * 1.5f, line * 1.5f, w - line * 1.5f, h - line * 1.5f)
+        canvas.drawRoundRect(round, r - line * 1.5f, r - line * 1.5f, paint)
+        // a thin line round the board, just outside its squares, so its edge shows against the frame
+        canvas.drawRect(side - line / 2, bar - line / 2, w - side + line / 2, h - bar + line / 2, paint)
+        // the corner symbols, in the middle of each corner's touch area
+        val d = k * 0.36f
+        val icon = (corner * 0.42f).toInt()
+        // Exit (top left): the back arrow every tool window has
+        back.setBounds((d - icon / 2).toInt(), (d - icon / 2).toInt(), (d + icon / 2).toInt(), (d + icon / 2).toInt())
+        back.draw(canvas)
+        // the arrow (bottom left): up opens the controls, down closes them
+        val ay = h - d
+        chevron.setBounds((d - icon / 2).toInt(), (ay - icon / 2).toInt(), (d + icon / 2).toInt(), (ay + icon / 2).toInt())
+        if (open) chevron.draw(canvas) else canvas.withRotation(180f, d, ay) { chevron.draw(this) }
+        // Close (top right): the ✕ every tool window has
+        val cx = w - d
+        cross.setBounds((cx - icon / 2).toInt(), (d - icon / 2).toInt(), (cx + icon / 2).toInt(), (d + icon / 2).toInt())
+        cross.draw(canvas)
+        // resize (bottom right, grip lines): quieter, as it's dragged
         val s = corner * 0.15f
-        carving.reset()
-        // Exit: a doorway with an arrow walking out of it
-        carving.moveTo(d + 0.2f * s, d - s); carving.lineTo(d - 0.8f * s, d - s); carving.lineTo(d - 0.8f * s, d + s); carving.lineTo(d + 0.2f * s, d + s)
-        carving.moveTo(d - 0.25f * s, d); carving.lineTo(d + 1.05f * s, d)
-        carving.moveTo(d + 0.6f * s, d - 0.45f * s); carving.lineTo(d + 1.05f * s, d); carving.lineTo(d + 0.6f * s, d + 0.45f * s)
-        // move: a four-way arrow
-        val mx = w - d; val my = d
-        carving.moveTo(mx - s, my); carving.lineTo(mx + s, my); carving.moveTo(mx, my - s); carving.lineTo(mx, my + s)
-        for ((ax, ay) in listOf(1f to 0f, -1f to 0f, 0f to 1f, 0f to -1f)) {
-            carving.moveTo(mx + (ax * 0.62f + ay * 0.38f) * s, my + (ay * 0.62f + ax * 0.38f) * s)
-            carving.lineTo(mx + ax * s, my + ay * s)
-            carving.lineTo(mx + (ax * 0.62f - ay * 0.38f) * s, my + (ay * 0.62f - ax * 0.38f) * s)
-        }
-        // resize: three grip lines across the corner
+        symbol.reset()
         val rx = w - d; val ry = h - d
-        for (t in floatArrayOf(-0.9f, -0.2f, 0.5f)) { carving.moveTo(rx + t * s, ry + s); carving.lineTo(rx + s, ry + t * s) }
-        // the arrow: up opens the controls, down closes them
-        val ax = d; val ay = h - d; val f = if (open) -1f else 1f
-        carving.moveTo(ax - 0.85f * s, ay + 0.4f * s * f); carving.lineTo(ax, ay - 0.45f * s * f); carving.lineTo(ax + 0.85f * s, ay + 0.4f * s * f)
+        for (t in floatArrayOf(-0.9f, -0.2f, 0.5f)) { symbol.moveTo(rx + t * s, ry + s); symbol.lineTo(rx + s, ry + t * s) }
         paint.strokeCap = Paint.Cap.ROUND
         paint.strokeJoin = Paint.Join.ROUND
-        paint.strokeWidth = dp(1.9f)
-        paint.color = CARVING_DARK
-        canvas.withTranslation(-dp(0.6f), -dp(0.6f)) { drawPath(carving, paint) }
-        paint.color = CARVING_LIT
-        canvas.drawPath(carving, paint)
+        paint.strokeWidth = dp(1.75f)
+        paint.color = quiet
+        canvas.drawPath(symbol, paint)
         paint.style = Paint.Style.FILL
-        // whose move it is, in the top bar between the corners (shortened with "..." if it doesn't fit)
-        text.textSize = min(dp(13f), bar * 0.42f) * resources.configuration.fontScale.coerceIn(0.8f, 1.4f)
+        // whose move it is, in the top bar between the corners, in the app's writing (shortened with "..." if it
+        // doesn't fit)
+        text.textSize = min(dp(14f), bar * 0.42f) * resources.configuration.fontScale.coerceIn(0.8f, 1.4f)
         text.color = statusColor
         val room = w - 2 * k
         if (room > 0f && status.isNotEmpty()) {
@@ -536,15 +575,12 @@ class ChessScreen(
         val CORNER_DP = SandGardenView.CORNER_DP + SandGardenView.FRAME_DP
         private const val EXIT = 1
         private const val ARROW = 2
-        // fixed colours, like the board's (a plain walnut frame)
-        private val WOOD = "#5A3E1F".toColorInt()
-        private val WOOD_LIT = "#6B4B26".toColorInt()
-        private val BLOCK = "#4A3218".toColorInt()
-        private val EDGE = "#24170A".toColorInt()
-        private val CARVING_DARK = "#1E1308".toColorInt()
-        private val CARVING_LIT = "#E2C796".toColorInt()
-        val TEXT = "#F2E3C0".toColorInt()
-        val GOOD = "#A6E38A".toColorInt()
-        val BAD = "#FF9A80".toColorInt()
+        private const val CLOSE = 3
+        private const val BAR = 4
+        private const val WINDOW_CORNER_DP = 12f   // as rounded as the tool windows (BubbleService.WINDOW_CORNER_DP)
+        // the top bar's writing: normal, a win (green) and a loss or check (red), in the app's colours
+        val TEXT get() = Palette.TEXT
+        val GOOD get() = Palette.OK
+        val BAD get() = Palette.BAD
     }
 }

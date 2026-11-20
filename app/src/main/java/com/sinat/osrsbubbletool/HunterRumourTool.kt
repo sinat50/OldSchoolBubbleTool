@@ -48,6 +48,8 @@ class HunterRumourTool(private val context: Context, private val openSync: () ->
     }
 
     // The window's ◀ button: from a rumour back to the list
+    fun canGoBack() = showing != null
+
     fun goBack() {
         if (showing != null) { showing = null; show() }
     }
@@ -67,13 +69,6 @@ class HunterRumourTool(private val context: Context, private val openSync: () ->
     // ---------------- The list ----------------
 
     private fun list(): View = scrolling {
-        addView(LinearLayout(context).apply {
-            orientation = LinearLayout.HORIZONTAL
-            gravity = Gravity.CENTER_VERTICAL
-            addView(android.view.View(context), LinearLayout.LayoutParams(0, 1, 1f))   // (the window's top bar has the name)
-            addView(SyncBadge.view(context, sync) { openSync() })
-        }, full())
-
         // Your current rumour, one tap away
         current?.let { cur ->
             addView(LinearLayout(context).apply {
@@ -91,7 +86,7 @@ class HunterRumourTool(private val context: Context, private val openSync: () ->
         }
 
         // Tier, then which hunter (Adept and Expert each have two, with different rumours)
-        addView(ui.heading("Your tier"), full(10))
+        addView(SyncBadge.beside(context, sync, ui.heading("Your tier")) { openSync() }, full(10))
         addView(choiceRow(HunterRumours.TIERS, tier) { tier = it; show() }, full(3))
         val hunters = HunterRumours.huntersFor(tier)
         if (hunters.size > 1) {
@@ -204,7 +199,7 @@ class HunterRumourTool(private val context: Context, private val openSync: () ->
 
     // A row of options where each option's name is also its value
     private fun choiceRow(options: List<String>, selected: String, onPick: (String) -> Unit) =
-        ui.choices(options.map { it to it }, selected, onPick)
+        ui.choices(options.map { it to it }, selected, onPick = onPick)
 
     private fun scrolling(build: LinearLayout.() -> Unit): View = ScrollView(context).apply {
         addView(LinearLayout(context).apply {

@@ -6,6 +6,7 @@ import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.edit
@@ -208,27 +209,32 @@ class AccountSync(context: Context) {
     val state: String get() = prefs.getString("code", "") ?: ""
 }
 
-// The little "✓ Synced" (green) or "✗ Not synced" (red) tag shown by the tools that use your account.
-// Tapping it opens the Bubble Sync tool.
+// The little tag shown by the tools that use your account: "✓ Synced" in green, or a quiet grey "Not synced"
+// outline (not syncing isn't a mistake: many players never do). Tapping it opens the Bubble Sync tool.
 object SyncBadge {
 
     fun view(context: Context, sync: AccountSync, onClick: (() -> Unit)?): View = TextView(context).apply {
         val d = context.resources.displayMetrics.density
         val ok = sync.cached != null
-        text = if (ok) "✓ Synced" else "✗ Not synced"
-        textSize = 11f
-        setTextColor(Color.WHITE)
+        text = if (ok) "✓ Synced" else "Not synced"
+        textSize = 12f
+        setTextColor(if (ok) Color.WHITE else Palette.MUTED)
         setTypeface(typeface, Typeface.BOLD)
         gravity = Gravity.CENTER
         setPadding((8 * d).toInt(), (3 * d).toInt(), (8 * d).toInt(), (3 * d).toInt())
-        background = GradientDrawable().apply { setColor(if (ok) Palette.TAG_GREEN else Palette.TAG_RED); cornerRadius = 20 * d }
+        background = GradientDrawable().apply {
+            if (ok) setColor(Palette.TAG_GREEN) else setStroke(d.toInt().coerceAtLeast(1), Palette.MUTED)
+            cornerRadius = 20 * d
+        }
         if (onClick != null) setOnClickListener { onClick() }
     }
 
-    // The tag on its own row, on the right
-    fun row(context: Context, sync: AccountSync, onClick: () -> Unit): View = LinearLayout(context).apply {
+    // The tag at the end of a row, after `first` (a heading, or a row of choices), so it never needs a row of its own
+    fun beside(context: Context, sync: AccountSync, first: View, onClick: (() -> Unit)?): View = LinearLayout(context).apply {
         orientation = LinearLayout.HORIZONTAL
-        gravity = Gravity.END
-        addView(view(context, sync, onClick))
+        gravity = Gravity.CENTER_VERTICAL
+        addView(first, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+        addView(view(context, sync, onClick), LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT).apply { marginStart = (8 * context.resources.displayMetrics.density).toInt() })
     }
 }

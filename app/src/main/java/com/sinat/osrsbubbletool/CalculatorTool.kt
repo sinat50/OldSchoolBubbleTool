@@ -30,12 +30,22 @@ class CalculatorTool(private val context: Context) {
     private lateinit var displayCard: LinearLayout
     private val keys = mutableListOf<TextView>()
 
-    // The whole calculator always fits its window: when the window's height changes, the display and the keys both
-    // grow or shrink to share it, so no key is ever cut off
+    // The whole calculator always fits its window: when the window's size changes, the display and the keys both
+    // grow or shrink to share it, so no key is ever cut off. Worked out while the window is being measured, before
+    // anything is drawn at the new size (done a moment later, a resize drag showed every step at the old sizes first,
+    // so the writing flashed).
     fun buildView(): View = object : LinearLayout(context) {
-        override fun onSizeChanged(w: Int, h: Int, oldW: Int, oldH: Int) {
-            super.onSizeChanged(w, h, oldW, oldH)
-            if (h != oldH) post { fitTo(h - paddingTop - paddingBottom) }
+        private var fittedW = -1   // (the size the writing was last fitted to, for this view)
+        private var fittedH = -1
+
+        override fun onMeasure(widthSpec: Int, heightSpec: Int) {
+            val w = MeasureSpec.getSize(widthSpec) - paddingLeft - paddingRight
+            val h = MeasureSpec.getSize(heightSpec) - paddingTop - paddingBottom
+            if (w > 0 && h > 0 && (w != fittedW || h != fittedH)) {
+                fittedW = w; fittedH = h
+                fitTo(h, w)
+            }
+            super.onMeasure(widthSpec, heightSpec)
         }
     }.apply {
         orientation = LinearLayout.VERTICAL
@@ -74,35 +84,68 @@ class CalculatorTool(private val context: Context) {
     }
 
     // Shares out `height` pixels between the display and the keys, and sizes the writing to fit. A tall display shows
-    // the last sum, what you typed and the answer; a shorter one drops the last sum; a very short one puts what you
-    // typed and the answer side by side on one line.
-    private fun fitTo(height: Int) {
-        val displayHeight = (height * 0.24f).toInt().coerceIn(dp(26), dp(84))
+    // the last sum, what you typed and the answer; a shorter one drops the last sum. What you typed and the answer are
+    // always on two lines (side by side, a narrow window cut both off, and switching between the two made the writing
+    // jump while the window was resized).
+    private fun fitTo(height: Int, width: Int) {
+        val displayHeight = (height * 0.24f).toInt().coerceIn(dp(44), dp(84))
         val roomInside = displayHeight - dp(4)
         val keyHeight = (height - displayHeight - dp(2)) / 5 - dp(2)
 
-        val oneLine = displayHeight < dp(42)
         sumView.visibility = if (displayHeight >= dp(66)) View.VISIBLE else View.GONE
-        displayCard.orientation = if (oneLine) LinearLayout.HORIZONTAL else LinearLayout.VERTICAL
-        expressionView.layoutParams = if (oneLine) LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
-            else LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        resultView.layoutParams = if (oneLine) LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = dp(8) }
-            else LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        displayCard.orientation = LinearLayout.VERTICAL
+        shape(expressionView, ViewGroup.LayoutParams.MATCH_PARENT, 0f, 0)
+        shape(resultView, ViewGroup.LayoutParams.MATCH_PARENT, 0f, 0)
+        // the answer's room across: the display's inside width, known from the window's width (not from the answer
+        // itself), less a little so it's never cut off by rounding
+        answerRoom = width - dp(20) - dp(4)
 
-        when {
-            oneLine -> { writing(expressionView, 14f, roomInside * 0.7f); writing(resultView, 14f, roomInside * 0.7f) }
-            sumView.visibility == View.VISIBLE -> { writing(sumView, 12f, roomInside * 0.24f); writing(expressionView, 14f, roomInside * 0.28f); writing(resultView, 18f, roomInside * 0.36f) }
-            else -> { writing(expressionView, 14f, roomInside * 0.36f); writing(resultView, 18f, roomInside * 0.46f) }
-        }
+        // what you typed (never under 12 sp), then the answer as big as the rest of the display allows (the biggest
+        // thing in the window; fitAnswer shrinks it for a long number)
+        val sumLine = if (sumView.visibility == View.VISIBLE) { writing(sumView, 12f, roomInside * 0.2f); sumView.textSize * 1.2f } else 0f
+        val typed = maxOf(size(12f, 0f), size(14f, roomInside * 0.28f))
+        if (kotlin.math.abs(expressionView.textSize - typed) > 0.5f) expressionView.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, typed)
+        answerMax = maxOf(size(12f, 0f), size(30f, (roomInside - sumLine - typed * 1.2f) * 0.8f))
+        fitAnswer()
         keys.forEach { writing(it, 15f, keyHeight * 0.5f) }
 
-        displayCard.layoutParams = (displayCard.layoutParams as LinearLayout.LayoutParams).apply { this.height = displayHeight }
+        val card = displayCard.layoutParams as LinearLayout.LayoutParams
+        if (card.height != displayHeight) { card.height = displayHeight; displayCard.layoutParams = card }
     }
 
-    // Writing at its normal size, or smaller if it has less than that much height (in pixels) to fit in
-    private fun writing(view: TextView, normalSp: Float, mostPixels: Float) {
+    // A line of the display's width and share of the row, changed only if it's different
+    private fun shape(view: View, width: Int, weight: Float, left: Int) {
+        val p = view.layoutParams as? LinearLayout.LayoutParams
+        if (p != null && p.width == width && p.weight == weight && p.leftMargin == left) return
+        view.layoutParams = LinearLayout.LayoutParams(width, ViewGroup.LayoutParams.WRAP_CONTENT, weight).apply { leftMargin = left }
+    }
+
+    // The answer at its biggest for the display's height (answerMax), made smaller if a long number wouldn't fit across
+    // (answerRoom, worked out from the window's width in fitTo). Worked out in one go, from fixed sizes, so the writing
+    // never jumps between sizes.
+    private var answerMax = 0f
+    private var answerRoom = 0
+    private fun fitAnswer() {
+        val room = answerRoom
+        if (answerMax <= 0f || room <= 0) return
+        val words = resultView.text.toString()
+        val paint = android.graphics.Paint(resultView.paint).apply { textSize = answerMax }
+        val wide = paint.measureText(words)
+        val smallest = android.util.TypedValue.applyDimension(android.util.TypedValue.COMPLEX_UNIT_SP, 12f, context.resources.displayMetrics)
+        val size = if (wide <= room) answerMax else maxOf(smallest, answerMax * room / wide)
+        if (kotlin.math.abs(size - resultView.textSize) > 0.5f) resultView.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, size)
+    }
+
+    // Writing at its normal size, or smaller if it has less than that much height (in pixels) to fit in (changed only
+    // if it's different)
+    private fun size(normalSp: Float, mostPixels: Float): Float {
         val normal = android.util.TypedValue.applyDimension(android.util.TypedValue.COMPLEX_UNIT_SP, normalSp, context.resources.displayMetrics)
-        view.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, minOf(normal, mostPixels))
+        return if (mostPixels <= 0f) normal else minOf(normal, mostPixels)
+    }
+
+    private fun writing(view: TextView, normalSp: Float, mostPixels: Float) {
+        val px = size(normalSp, mostPixels)
+        if (kotlin.math.abs(view.textSize - px) > 0.5f) view.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, px)
     }
 
     private fun text(size: Float, color: Int, weight: Int = 400) = ui.text("", size, color, weight).apply {
@@ -166,6 +209,7 @@ class CalculatorTool(private val context: Context) {
             value == null -> if (justAnswered) "" else "…"
             else -> "= " + pretty(value)
         }
+        fitAnswer()
     }
 
     // What you typed, with proper maths signs

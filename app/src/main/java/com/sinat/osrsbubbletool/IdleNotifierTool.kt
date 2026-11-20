@@ -184,11 +184,9 @@ class IdleNotifierTool(
                 h.addView(button("Set up", Ui.ButtonStyle.GOLD) { setUp() }, full())
                 h.addView(row(
                     soundButton(),
-                    button("Vibrate: " + when {
-                        soundName == SILENT -> "always on"
-                        vibrateSetting -> "on"
-                        else -> "off"
-                    }) {
+                    // ticked in gold while it's on, faded while it's off
+                    ui.toggle(if (soundName == SILENT) "Vibrate (always)" else "Vibrate",
+                        soundName == SILENT || vibrateSetting) {
                         // with Silent chosen the vibration can't be turned off (the alert would do nothing)
                         if (soundName != SILENT) { vibrateSetting = !vibrateSetting; show() }
                     }

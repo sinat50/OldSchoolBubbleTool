@@ -147,8 +147,8 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
                     val where = if (pos[i] > 0) "$ch  (letter ${pos[i]} of 10)" else "$ch isn't on this dial: check the book again"
                     addView(pairRow("Dial ${i + 1}", where), full(3))
                 }
-                addView(label("Each dial's letters, in order:", 11f, bold = true), full(8))
-                S.HOD_DIALS.forEachIndexed { i, d -> addView(label("Dial ${i + 1}: " + d.toList().joinToString(" "), 11f), full(1)) }
+                addView(label("Each dial's letters, in order:", 12f, bold = true), full(8))
+                S.HOD_DIALS.forEachIndexed { i, d -> addView(label("Dial ${i + 1}: " + d.toList().joinToString(" "), 12f), full(1)) }
             })
         }
         c.addView(letterBox("hod_chest", "e.g. RANK") { update(it) }, full(4))
@@ -223,11 +223,11 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
                 val found = prefs.getBoolean("key_found_$i", false)
                 c.addView(button((if (found) "✓ " else "") + spot.name, if (found) GOLD else PLAIN) {
                     prefs.edit { putBoolean("key_found_$i", !found) }; refresh()
-                }.apply { textSize = 11f; gravity = Gravity.START or Gravity.CENTER_VERTICAL }, full(2))
+                }.apply { textSize = 12f; gravity = Gravity.START or Gravity.CENTER_VERTICAL }, full(2))
             }
             spots = S.KEY_SPOTS.filterIndexed { i, _ -> !prefs.getBoolean("key_found_$i", false) }
         } else {
-            c.addView(label("The bosses move about every 25 minutes, so clear the readings when you start looking for the next one.", 11f)
+            c.addView(label("The bosses move about every 25 minutes, so clear the readings when you start looking for the next one.", 12f)
                 .apply { setTextColor(Palette.MUTED) }, full(6))
         }
 
@@ -246,7 +246,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
         if (readings.isNotEmpty()) {
             c.addView(label("Your readings:", 12f, bold = true), full(8))
             readings.forEach { r -> c.addView(label("• ${r.temperature.text} near ${r.place.name}", 12f), full(1)) }
-            c.addView(button("Clear readings") { readings.clear(); refresh() }.apply { textSize = 11f }, full(4))
+            c.addView(button("Clear readings") { readings.clear(); refresh() }.apply { textSize = 12f }, full(4))
         }
 
         val fits = S.hotCold(spots, readings, slack = 12)
@@ -284,7 +284,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
             addView(label(if (order.isEmpty()) "Nothing yet" else order.mapIndexed { i, r -> "${i + 1}. $r" }.joinToString("   "),
                 14f, bold = true).apply { setTextColor(Palette.ACCENT) }, full(3))
             if (order.isNotEmpty() && order.size < runes.size) {
-                addView(label("If it resets, activate these again first, in this order.", 11f), full(4))
+                addView(label("If it resets, activate these again first, in this order.", 12f), full(4))
             }
         }, full(8))
 
@@ -301,26 +301,26 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
                     addView(label(r + if (isWrong) "  (not this one)" else "", 13f, bold = !isWrong)
                         .apply { if (isWrong) setTextColor(Palette.MUTED) }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                     if (!isWrong) {
-                        addView(button("✓ Worked", GOLD) { save(order + r, emptyList()) }.apply { textSize = 11f },
+                        addView(button("✓ Worked", GOLD) { save(order + r, emptyList()) }.apply { textSize = 12f },
                             LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = dp(4) })
-                        addView(button("✗ Reset", DANGER) { save(order, wrong + r) }.apply { textSize = 11f })
+                        addView(button("✗ Reset", DANGER) { save(order, wrong + r) }.apply { textSize = 12f })
                     } else {
                         // tapped ✗ by mistake: put it back, without losing the order found so far
-                        addView(button("Undo") { save(order, wrong - r) }.apply { textSize = 11f })
+                        addView(button("Undo") { save(order, wrong - r) }.apply { textSize = 12f })
                     }
                 }, full(3))
             }
             val left = runes.filter { it !in order && it !in wrong }
             if (left.size == 1) c.addView(label("It must be ${left[0]}.", 13f, bold = true).apply { setTextColor(Palette.OK) }, full(6))
         }
-        c.addView(button("Start over") { save(emptyList(), emptyList()) }.apply { textSize = 11f }, full(10))
+        c.addView(button("Start over") { save(emptyList(), emptyList()) }.apply { textSize = 12f }, full(10))
     }
 
     // Lunar Diplomacy: the safe path across the cloud tiles (4 wide, 8 long, north ledge to south ledge)
     private fun cloudTracker(c: LinearLayout) {
         val cells = (prefs.getString("cloud_tiles", null) ?: "0".repeat(32)).padEnd(32, '0')   // 0 unknown, 1 safe, 2 not safe
         c.addView(label("Tap a tile to mark it: once for safe (green), again for not safe (red), again to clear.", 12f), full(6))
-        c.addView(label("North ledge (start)", 11f, bold = true).apply { gravity = Gravity.CENTER; setTextColor(Palette.MUTED) }, full(8))
+        c.addView(label("North ledge (start)", 12f, bold = true).apply { gravity = Gravity.CENTER; setTextColor(Palette.MUTED) }, full(8))
         for (row in 0 until 8) {
             c.addView(LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
@@ -339,8 +339,8 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
                 }
             })
         }
-        c.addView(label("South ledge (finish)", 11f, bold = true).apply { gravity = Gravity.CENTER; setTextColor(Palette.MUTED) }, full(2))
-        c.addView(label("You can step south, east or west. The path never goes back north.", 11f).apply { setTextColor(Palette.MUTED) }, full(8))
+        c.addView(label("South ledge (finish)", 12f, bold = true).apply { gravity = Gravity.CENTER; setTextColor(Palette.MUTED) }, full(2))
+        c.addView(label("You can step south, east or west. The path never goes back north.", 12f).apply { setTextColor(Palette.MUTED) }, full(8))
         // There are only ten possible paths, so a few marks are usually enough to know the rest
         val fits = S.cloudMatches(cells)
         c.addView(card {
@@ -374,7 +374,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
         }, full(4))
         c.addView(button("Clear the grid") { prefs.edit {
             remove("cloud_tiles")
-        }; refresh() }.apply { textSize = 11f }, full(8))
+        }; refresh() }.apply { textSize = 12f }, full(8))
     }
 
     // The Eyes of Glouphrie and The Path of Glouphrie: which discs make a value
@@ -393,7 +393,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
                 addView(label("To make $t with $count disc" + (if (count > 1) "s" else "") + ":", 13f, bold = true))
                 if (combos.isEmpty()) addView(label("No way to do it with $count disc" + (if (count > 1) "s." else "."), 12f).apply { setTextColor(Palette.BAD) })
                 combos.forEach { combo -> addView(label("• " + combo.joinToString(" + ") { "${it.name} (${it.value})" }, 12f), full(2)) }
-                addView(label("Swap discs at the exchanger if you don't have these.", 11f).apply { setTextColor(Palette.MUTED) }, full(6))
+                addView(label("Swap discs at the exchanger if you don't have these.", 12f).apply { setTextColor(Palette.MUTED) }, full(6))
             })
         }
         c.addView(numberBox("disc_target", "e.g. 24") { update() }, full(2))
@@ -457,7 +457,7 @@ class QuestSolverViews(private val context: Context, private val refresh: () -> 
         c.addView(button("Start over") { prefs.edit {
             remove("kr_heights")
             remove("kr_green")
-        }; refresh() }.apply { textSize = 11f }, full(10))
+        }; refresh() }.apply { textSize = 12f }, full(10))
     }
 
     // ---------------- Small building blocks ----------------

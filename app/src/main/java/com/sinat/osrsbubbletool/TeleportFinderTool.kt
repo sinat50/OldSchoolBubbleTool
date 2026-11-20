@@ -26,6 +26,10 @@ import org.json.JSONObject
 class TeleportFinderTool(private val context: Context, private val openSync: () -> Unit = {}) {
 
     companion object {
+        // where the places, teleports and walking routes come from (shown with the ? button)
+        private const val ABOUT = "Places from the OSRS Wiki. Teleports, the walking map and dungeon entrances from the Shortest Path plugin and RuneLite, and obstacles from the Golems Don't Die plugin. " +
+            "Distances are walking routes, counting walls, doors, ladders and cave entrances. With Bubble Sync, " +
+            "shortcuts you can't use yet are left out."
         private const val USER_AGENT = "OldSchoolBubbleTool/1.0 (personal Android app)"
         private const val API = "https://oldschool.runescape.wiki/api.php"
         private const val RESULTS = 25   // results in the list (it scrolls)
@@ -80,12 +84,16 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
             addView(LinearLayout(context).apply {
                 orientation = LinearLayout.VERTICAL
                 setPadding(dp(8), dp(8), dp(8), dp(4))
+                val top = this
                 addView(LinearLayout(context).apply {
                     orientation = LinearLayout.HORIZONTAL
                     gravity = Gravity.CENTER_VERTICAL
                     addView(ui.note("Type an NPC, monster or place."), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                     badgeSlot = FrameLayout(context)
                     addView(badgeSlot)
+                    // where the places, teleports and routes come from, behind the ? (the full credits are on the
+                    // Legal screen)
+                    addView(ui.helpToggle(ABOUT, top) { 1 })
                 }, full())
                 field = ui.textBox("e.g. Zaff, Barrows, abyssal demon").apply {
                     setSingleLine()
@@ -122,9 +130,6 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
                     setPadding(dp(8), 0, dp(8), dp(12))
                     results = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL }
                     addView(results, full(2))
-                    addView(ui.note("Places from the OSRS Wiki. Teleports, the walking map and dungeon entrances from the Shortest Path plugin and RuneLite, and obstacles from the Golems Don't Die plugin. " +
-                        "Distances are walking routes, counting walls, doors, ladders and cave entrances. With Bubble Sync, " +
-                        "shortcuts you can't use yet are left out."), full(12))
                 })
             }
             addView(resultsScroll, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
@@ -145,6 +150,8 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
     }
 
     // The window's ◀ button: from results back to the search
+    fun canGoBack() = page != null
+
     fun goBack() {
         if (page != null) { page = null; spots = emptyList(); message = null; refresh(); toTop() }
     }
@@ -316,10 +323,11 @@ class TeleportFinderTool(private val context: Context, private val openSync: () 
                     gravity = Gravity.CENTER_VERTICAL
                     minimumHeight = dp(Ui.TAP_SIZE)
                     setPadding(dp(10), dp(6), dp(10), dp(6))
-                    ui.press(this, if (picked) Palette.GOLD else Palette.RAISED, 8)
-                    if (picked) addView(ui.icon("check", Palette.ON_GOLD, 16))
+                    // (picked: gold writing, a tick and a gold outline, like every picked option)
+                    ui.press(this, Palette.RAISED, 8, if (picked) Palette.ACCENT else null)
+                    if (picked) addView(ui.icon("check", Palette.ACCENT, 16))
                     addView(ui.text(if (s.levels.isEmpty()) s.label else "${s.label}  ·  ${s.levels}", 13f,
-                        if (picked) Palette.ON_GOLD else Palette.TEXT, if (picked) 700 else 500).apply {
+                        if (picked) Palette.ACCENT else Palette.TEXT, if (picked) 700 else 500).apply {
                         if (picked) setPadding(dp(6), 0, 0, 0)
                     }, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
                     setOnClickListener { spot = i; refresh(); toTop() }

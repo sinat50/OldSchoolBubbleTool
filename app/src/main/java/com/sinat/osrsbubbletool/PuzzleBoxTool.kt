@@ -118,7 +118,7 @@ class PuzzleBoxTool(
             addView(styleChoice, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
         }
 
-        status = ui.text("Open a puzzle box and tap Scan puzzle. Moves appear on it.", 11f).apply {
+        status = ui.text("Open a puzzle box and tap Scan puzzle. Moves appear on it.", 12f).apply {
             setPadding(0, dp(4), 0, dp(4))
         }
 

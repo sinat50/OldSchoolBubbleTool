@@ -73,7 +73,7 @@ class LightBoxTool(
         startButton = ui.button("Solve light box", Ui.ButtonStyle.GOLD) { if (tracking) stop("Stopped.") else start() }.apply {
             minHeight = dp(40)
         }
-        status = ui.text("Open a light box, then tap Solve. Steps appear on it.", 11f).apply {
+        status = ui.text("Open a light box, then tap Solve. Steps appear on it.", 12f).apply {
             setPadding(0, dp(4), 0, 0)
         }
         return LinearLayout(context).apply {

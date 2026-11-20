@@ -14,11 +14,13 @@ import androidx.core.net.toUri
 import java.util.Calendar
 import java.util.Date
 
-// Farming Timers: tap "Planted" after a run and get a notification when it's ready.
+// Farming Timers: tap "Start Timer" after a run and get a notification when it's ready.
 class FarmingTool(private val context: Context) {
 
     companion object {
         private const val REFRESH_MS = 20_000L
+        private const val UNDO_MS = 6000L   // how long Undo stays after stopping or restarting a timer
+        private const val REMOVE_ASK_MS = 3000L   // how long the bin waits for its second tap
     }
 
     private val ui = Ui(context)
@@ -30,6 +32,21 @@ class FarmingTool(private val context: Context) {
     private var choosingCropFor = -1     // timer whose crop list is open
     private var addingTimer = false      // the list of timers to add is open
     private var showing = false
+
+    // The last running timer stopped or restarted, for a few seconds: its Undo puts its time back
+    private class Undo(val id: Int, val end: Long, val notified: Boolean, val words: String)
+    private var undo: Undo? = null
+    private val forgetUndo = Runnable { undo = null; if (showing) rebuild() }
+
+    // Removing a timer takes two taps on its bin: the first turns the bin red and asks, for a few seconds
+    private var removeAsk = -1
+    private val forgetRemove = Runnable { removeAsk = -1; if (showing) rebuild() }
+
+    private fun offerUndo(t: FarmingTimers.Timer, words: String) {
+        undo = Undo(t.id, t.end, t.notified, words)
+        handler.removeCallbacks(forgetUndo)
+        handler.postDelayed(forgetUndo, UNDO_MS)
+    }
 
     private val ticker = object : Runnable {
         override fun run() {
@@ -105,6 +122,25 @@ class FarmingTool(private val context: Context) {
             })
         }
 
+        // "Herb run stopped. Undo", for a few seconds after a running timer was stopped or restarted
+        undo?.let { u ->
+            list.addView(LinearLayout(context).apply {
+                orientation = LinearLayout.HORIZONTAL
+                gravity = Gravity.CENTER_VERTICAL
+                minimumHeight = dp(Ui.TAP_SIZE)
+                setPadding(dp(12), 0, dp(12), 0)
+                ui.press(this, Palette.RAISED)
+                addView(ui.text(u.words, 13f, Palette.TEXT, 500), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+                addView(ui.text("Undo", 13f, Palette.ACCENT, 700))
+                setOnClickListener {
+                    FarmingTimers.restore(context, u.id, u.end, u.notified)
+                    undo = null
+                    handler.removeCallbacks(forgetUndo)
+                    rebuild()
+                }
+            })
+        }
+
         // Adding timers: the choices come first, so they're in view straight away
         if (addingTimer) {
             list.addView(ui.text("Choose a timer", 12f, Palette.MUTED, 700).apply {
@@ -166,6 +202,7 @@ class FarmingTool(private val context: Context) {
                 addView(ui.icon("down", Palette.MUTED, 16))
             })
             addView(when {
+                removeAsk == t.id -> ui.text("Tap again to remove", 12f, Palette.BAD, 600)
                 ready -> LinearLayout(context).apply {
                     orientation = LinearLayout.HORIZONTAL
                     gravity = Gravity.CENTER_VERTICAL
@@ -191,13 +228,26 @@ class FarmingTool(private val context: Context) {
             setPadding(0, 0, dp(8), 0)
             addView(details, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
             // Gold only when something is waiting for you
-            addView(ui.button(if (running) "Replanted" else "Planted", if (ready) Ui.ButtonStyle.GOLD else Ui.ButtonStyle.PLAIN) {
+            addView(ui.button(if (running) "Restart Timer" else "Start Timer", if (ready) Ui.ButtonStyle.GOLD else Ui.ButtonStyle.PLAIN) {
+                // (restarting a timer that hadn't finished loses its time: it can be undone for a few seconds)
+                if (running && !ready) offerUndo(t, "${kind.label} restarted.")
                 FarmingTimers.start(context, t.id)
                 choosingCropFor = -1
                 rebuild()
-            }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = dp(4) })
-            addView(ui.iconButton(if (running) "stop" else "trash", (if (running) "Stop " else "Remove ") + kind.label, Palette.BAD) {
-                if (running) FarmingTimers.stop(context, t.id) else FarmingTimers.remove(context, t.id)
+            }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = dp(8) })
+            // stop or remove: quiet grey, so it doesn't draw the eye next to the main button (stopping can be undone)
+            addView(ui.iconButton(if (running) "stop" else "trash", (if (running) "Stop " else "Remove ") + kind.label,
+                if (removeAsk == t.id) Palette.BAD else Palette.MUTED) {
+                handler.removeCallbacks(forgetRemove)
+                when {
+                    running -> {
+                        offerUndo(t, "${kind.label} stopped.")
+                        FarmingTimers.stop(context, t.id)
+                        removeAsk = -1
+                    }
+                    removeAsk == t.id -> { FarmingTimers.remove(context, t.id); removeAsk = -1 }
+                    else -> { removeAsk = t.id; handler.postDelayed(forgetRemove, REMOVE_ASK_MS) }
+                }
                 rebuild()
             })
         }

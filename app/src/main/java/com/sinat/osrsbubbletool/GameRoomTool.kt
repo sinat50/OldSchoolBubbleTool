@@ -31,12 +31,16 @@ import java.util.concurrent.Executors
 // The Game Room: small games to play while you wait in the game: 2048, Wing It, the Zen Garden and Chess.
 // (The games are the app's own and use nothing from Old School RuneScape: Jagex's Fan Content Policy
 // doesn't allow games made with its content.)
-// frameless(on): the window shows without its top bar and background (the Zen Garden's zen mode, whose move and
-// resize buttons are carved into its wooden frame). pinCorners: where the tray's corners are in the window.
+// frameless(on, mover): the window shows without its top bar and background (the Zen Garden's zen mode, whose move
+// and resize buttons are carved into its wooden frame, and chess); mover: the window's own move corner answers in the
+// top-right corner (the garden; chess has its ✕ there and moves by its top bar instead, with dragWindow: how far, and
+// true as a drag starts). pinCorners: where the tray's corners are in the window. hideWindow: close the window.
 class GameRoomTool(
     private val context: Context,
-    private val frameless: (Boolean) -> Unit = {},
+    private val frameless: (Boolean, Boolean) -> Unit = { _, _ -> },
     private val pinCorners: (Int, Int, Int, Int) -> Unit = { _, _, _, _ -> },
+    private val hideWindow: () -> Unit = {},
+    private val dragWindow: (Int, Int, Boolean) -> Unit = { _, _, _ -> },
 ) {
 
     private val help2048 = "Swipe up, down, left or right to slide all the tiles. When two tiles with the same number touch, " +
@@ -80,10 +84,10 @@ class GameRoomTool(
         "Nothing can be placed under the corners.\n\n" +
         "Your garden is saved as you go."
 
-    private val helpChess = "You play against the computer, on a board in a plain wooden frame with a button in " +
+    private val helpChess = "You play against the computer, on a board in a slim frame (in the app's colours) with a button in " +
         "each corner:\n" +
-        "• Top left: Exit, back to the Game Room.\n" +
-        "• Top right: drag it to move the board.\n" +
+        "• Top left: the back arrow, to the Game Room.\n" +
+        "• Top right: ✕ closes the window. Drag the top bar to move the board.\n" +
         "• Bottom right: drag it to make the board bigger or smaller.\n" +
         "• Bottom left: the arrow opens the controls over the bottom of the board; tap it again to close them.\n\n" +
         "Tap one of your pieces, then the square to move it to. The bar along the top says whose move it is. " +
@@ -139,6 +143,8 @@ class GameRoomTool(
     }
 
     // The window's ◀ button (and the Zen Garden's exit)
+    fun canGoBack() = screen != Screen.MENU
+
     fun goBack() {
         flyerView?.pauseIfPlaying()
         screen = Screen.MENU
@@ -158,7 +164,7 @@ class GameRoomTool(
         if (!::holder.isInitialized) return
         // the Zen Garden and chess have no window around them: no top bar, no background
         val zen = screen == Screen.SAND || screen == Screen.CHESS
-        frameless(zen)
+        frameless(zen, screen == Screen.SAND)
         holder.background?.alpha = if (zen) 0 else 255
         // leaving the garden: let it go (it saves itself as it comes off the screen, just below), so its sand,
         // light and undo steps don't take up memory while you're elsewhere
@@ -535,13 +541,13 @@ class GameRoomTool(
             gravity = Gravity.CENTER_VERTICAL
             addView(label("Sand", 13f))
             // Each sand's colour on a square of its own: a fixed mid brown, as white and black sand must both show on
-            // it in light and dark mode. The picked one is gold, with a tick.
+            // it in light and dark mode. The picked one has a gold outline and a tick.
             val swatchBack = "#7D6C5B".toColorInt()
             val cells = ArrayList<FrameLayout>()
             val ticks = ArrayList<View>()
             fun mark() = cells.forEachIndexed { i, cell ->
                 val on = i == garden.sand
-                ui.press(cell, if (on) Palette.GOLD else swatchBack, 8)
+                ui.press(cell, swatchBack, 8, if (on) Palette.ACCENT else null)
                 cell.isSelected = on
                 ticks[i].visibility = if (on) View.VISIBLE else View.GONE
             }
@@ -577,9 +583,8 @@ class GameRoomTool(
         addView(label(text, 13f), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
         val b = button("") {}.apply { setPadding(dp(8), 0, dp(8), 0) }
         fun show(on: Boolean) {
-            b.text = if (on) "On" else "Off"
-            b.setTextColor(if (on) Palette.ON_GOLD else Palette.TEXT)
-            ui.press(b, if (on) Palette.GOLD else Palette.RAISED, 8)
+            ui.pickLook(b, if (on) "On" else "Off", on, Palette.RAISED)
+            if (!on) b.setTextColor(Palette.MUTED)
         }
         show(prefs.getBoolean(key, default))
         b.setOnClickListener {
@@ -684,15 +689,27 @@ class GameRoomTool(
         lateinit var screen: ChessScreen
         val size = dp(34)
 
-        // a rounded button with words, like the Zen Garden's Automatic
-        fun pill(text: String, color: Int = iconBack, onClick: () -> Unit) = TextView(context).apply {
+        // A rounded button with words. The controls' buttons sit over the board, so they're the app's plain button
+        // grey with the windows' thin edge round them, to show on both square colours, in light and dark (outline);
+        // Play and Cancel in the frame's bottom bar need no edge.
+        fun pill(text: String, color: Int = Palette.RAISED, ink: Int = Palette.TEXT, outline: Int? = Palette.BORDER,
+                 onClick: () -> Unit) = TextView(context).apply {
             this.text = text
             textSize = 12f
-            setTextColor(Color.WHITE)
+            setTextColor(ink)
             typeface = ui.font(700)
             gravity = Gravity.CENTER
             setPadding(dp(12), 0, dp(12), 0)
-            background = GradientDrawable().apply { setColor(color); cornerRadius = dp(15).toFloat() }
+            ui.press(this, color, 15, outline)
+            setOnClickListener { onClick() }
+        }
+
+        // a round button with one of the app's line icons, the same grey and edge as the pills
+        fun roundIcon(icon: String, label: String, onClick: () -> Unit) = FrameLayout(context).apply {
+            tag = 0f; layoutParams = ViewGroup.LayoutParams(size, size)
+            contentDescription = label
+            ui.press(this, Palette.RAISED, 17, Palette.BORDER)
+            addView(ui.icon(icon, Palette.TEXT, 18), FrameLayout.LayoutParams(dp(18), dp(18), Gravity.CENTER))
             setOnClickListener { onClick() }
         }
 
@@ -707,8 +724,8 @@ class GameRoomTool(
         fun row(v: View, w: Int = ViewGroup.LayoutParams.WRAP_CONTENT) =
             confirm.addView(v, LinearLayout.LayoutParams(w, dp(30)).apply { if (confirm.isNotEmpty()) leftMargin = dp(6) })
 
-        // the controls: New game, Undo, Level, Options, Help (round icons and buttons, like the Zen Garden's)
-        lateinit var undo: ZenIcon
+        // the controls: New game, Undo, Level, Options, Help (round icons and buttons, in the app's colours)
+        lateinit var undo: View
         val level = pill("") { chooseChessLevel { chessRefresh?.invoke() } }.apply {
             tag = 0f; layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, size)
         }
@@ -763,22 +780,21 @@ class GameRoomTool(
                 if (promotion) {
                     for (kind in listOf(Piece.WQUEEN, Piece.WROOK, Piece.WBISHOP, Piece.WKNIGHT)) {
                         val m = moves.first { Piece.makeWhite(it.promoteTo) == kind }
-                        row(PieceButton(context, m.promoteTo, frameGreen).apply {
+                        row(PieceButton(context, m.promoteTo, Palette.BOARD_LIGHT).apply {
                             contentDescription = when (kind) { Piece.WQUEEN -> "Queen"; Piece.WROOK -> "Rook"; Piece.WBISHOP -> "Bishop"; else -> "Knight" }
                             setOnClickListener { play(m) }
                         }, dp(30))
                     }
                 } else {
-                    row(pill("Play", frameGreen) { play(moves[0]) })
+                    // in the bottom bar, like the app's buttons: Play in gold (the main thing to do), Cancel plain
+                    row(pill("Play", Palette.GOLD, Palette.ON_GOLD, null) { play(moves[0]) })
                 }
-                row(pill("Cancel") { hideConfirm(); board.clearSelection(); refresh() })
+                row(pill("Cancel", Palette.BG, Palette.TEXT, null) { hideConfirm(); board.clearSelection(); refresh() })
                 confirm.visibility = View.VISIBLE
             }
         }, onPendingCancelled = { hideConfirm(); refresh() })
 
-        undo = ZenIcon(context, ZenIcon.UNDO, iconBack).apply {
-            tag = 0f; layoutParams = ViewGroup.LayoutParams(size, size)
-            contentDescription = "Undo"
+        undo = roundIcon("reset", "Undo") {}.apply {
             setOnClickListener {
                 if (game.moveCount <= (if (chessPlayerWhite) 0 else 1)) return@setOnClickListener   // (faded: none of your moves yet)
                 stopThinking()
@@ -795,24 +811,23 @@ class GameRoomTool(
             }
         }
         dock.apply {
-            addView(pill("New game", frameRed) {
+            addView(pill("New game", ink = Palette.BAD) {
                 newChessGame { stopThinking(); chessVersion++; hideConfirm(); board.clearSelection() }
             }.apply { tag = 0f; layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, size) })
             addView(undo)
             addView(level)
-            addView(ZenIcon(context, ZenIcon.GEAR, iconBack).apply {
-                tag = 0f; layoutParams = ViewGroup.LayoutParams(size, size); contentDescription = "Options"
-                setOnClickListener { chessOptions { chessRefresh?.invoke() } }
-            })
-            addView(ZenIcon(context, ZenIcon.HELP, iconBack).apply {
-                tag = 0f; layoutParams = ViewGroup.LayoutParams(size, size); contentDescription = "Help"
-                setOnClickListener { showHelp("Chess", helpChess) }
+            addView(roundIcon("gear", "Options") { chessOptions { chessRefresh?.invoke() } })
+            addView(pill("?") { showHelp("Chess", helpChess) }.apply {
+                tag = 0f; layoutParams = ViewGroup.LayoutParams(size, size); setPadding(0, 0, 0, 0); textSize = 15f
+                contentDescription = "Help"
             })
         }
 
         screen = ChessScreen(context, board, confirm, dock).apply {
             onExit = { goBack() }
-            onTrayPlaced = pinCorners                 // the window's move and resize corners go on the frame's corners
+            onClose = hideWindow
+            onDrag = dragWindow                       // the top bar moves the window, as a tool window's does
+            onTrayPlaced = pinCorners                 // the window's resize corner goes on the frame's corner
         }
         chessRefresh = { refresh() }
         refresh()
@@ -877,11 +892,11 @@ class GameRoomTool(
     }
 
     // A score or best score above a game: its name, and the number under it (filled in by the game)
+    // A score and its name, on the window's own colour (no box, so it doesn't look like a button)
     private fun scoreCard(title: String) = LinearLayout(context).apply {
         orientation = LinearLayout.VERTICAL
         gravity = Gravity.CENTER
-        setPadding(dp(8), dp(2), dp(8), dp(3))
-        background = GradientDrawable().apply { setColor(Palette.RAISED); cornerRadius = dp(8).toFloat() }
+        setPadding(dp(6), dp(2), dp(6), dp(3))
         addView(ui.text(title, 12f, Palette.MUTED, 600).apply { gravity = Gravity.CENTER })
         addView(ui.text("", 13f, Palette.TEXT, 700).apply { gravity = Gravity.CENTER })
     }
@@ -1024,7 +1039,7 @@ class GameIcon(context: Context, private val kind: Int) : View(context) {
         val inset = s * 0.08f
         val cell = (s - inset * 2) / 4
         for (r in 0 until 4) for (c in 0 until 4) {
-            paint.color = if ((r + c) % 2 == 0) ChessView.LIGHT_SQUARE else ChessView.DARK_SQUARE
+            paint.color = if ((r + c) % 2 == 0) Palette.BOARD_LIGHT else Palette.BOARD_DARK
             canvas.drawRect(inset + c * cell, inset + r * cell, inset + (c + 1) * cell, inset + (r + 1) * cell, paint)
         }
         ChessPieces.draw(canvas, Piece.BKNIGHT, inset + cell * 0.2f, inset + cell * 0.1f, cell * 1.7f)

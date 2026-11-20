@@ -44,10 +44,15 @@ class Ui(val context: Context) {
         ellipsize = TextUtils.TruncateAt.END
     }
 
-    // A quick ripple where you tap, on top of the view's own colour (fill = null: no colour of its own)
-    fun press(view: View, fill: Int?, radius: Int = 0) {
+    // A quick ripple where you tap, on top of the view's own colour (fill = null: no colour of its own), with a thin
+    // outline in `outline` if given
+    fun press(view: View, fill: Int?, radius: Int = 0, outline: Int? = null) {
         val corner = dp(radius).toFloat()
-        val shape = fill?.let { GradientDrawable().apply { setColor(it); cornerRadius = corner } }
+        val shape = if (fill == null && outline == null) null else GradientDrawable().apply {
+            setColor(fill ?: Color.TRANSPARENT)
+            if (outline != null) setStroke(dp(1), outline)
+            cornerRadius = corner
+        }
         val mask = GradientDrawable().apply { setColor(Color.WHITE); cornerRadius = corner }
         view.background = RippleDrawable(ColorStateList.valueOf(ColorUtils.setAlphaComponent(Palette.TEXT, 0x40)), shape, mask)
         view.isClickable = true
@@ -68,6 +73,31 @@ class Ui(val context: Context) {
         press(this, fill, 8)
         addView(icon(name, colour), FrameLayout.LayoutParams(dp(20), dp(20), Gravity.CENTER))
         setOnClickListener { onClick() }
+    }
+
+    // A "?" button that shows or hides a tool's explanation (`text`, in a card added to `into` just after the button's
+    // row), so the explanation doesn't take room every time the tool opens. Starts hidden.
+    fun helpToggle(text: String, into: LinearLayout, at: () -> Int) = text("?", 15f, Palette.TEXT, 700).apply {
+        gravity = Gravity.CENTER
+        layoutParams = LinearLayout.LayoutParams(dp(TAP_SIZE), dp(TAP_SIZE)).apply { leftMargin = dp(4) }
+        contentDescription = "Show instructions"
+        press(this, Palette.RAISED, 8)
+        var shown: View? = null
+        setOnClickListener {
+            val open = shown
+            if (open != null) {
+                into.removeView(open); shown = null
+                contentDescription = "Show instructions"
+                press(this, Palette.RAISED, 8)
+            } else {
+                val card = card { addView(text(text, 12f)) }
+                into.addView(card, at(), LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(6) })
+                shown = card
+                contentDescription = "Hide instructions"
+                press(this, Palette.RAISED, 8, Palette.ACCENT)
+            }
+        }
     }
 
     // A small heading over a group of things
@@ -96,18 +126,35 @@ class Ui(val context: Context) {
         background = GradientDrawable().apply { setColor(Palette.BG); cornerRadius = dp(8).toFloat() }
     }
 
-    // A row of options to pick one of; the picked one is gold
-    fun <T> choices(options: List<Pair<T, String>>, picked: T, onPick: (T) -> Unit) = LinearLayout(context).apply {
+    // How a picked option looks: gold writing with a tick, in a thin gold outline, on the grey it sits on. (A solid
+    // gold fill is kept for each screen's main button, so gold fill only ever means "do this".) fill: the option's own
+    // grey when it has one, null when it sits on a row of options that's grey already.
+    fun pickLook(cell: TextView, name: String, on: Boolean, fill: Int? = null, tick: Boolean = true) {
+        cell.text = if (on && tick) "✓ $name" else name
+        cell.setTextColor(if (on) Palette.ACCENT else Palette.TEXT)
+        cell.typeface = font(if (on) 700 else 500)
+        press(cell, fill, 8, if (on) Palette.ACCENT else null)
+    }
+
+    // A button that turns something on or off: "✓ name" in gold with a gold outline while it's on, faded while it's off
+    fun toggle(name: String, on: Boolean, onClick: () -> Unit) = text(name, 13f).apply {
+        gravity = Gravity.CENTER
+        minHeight = dp(TAP_SIZE)
+        setPadding(dp(8), 0, dp(8), 0)
+        pickLook(this, name, on, Palette.RAISED)
+        if (!on) setTextColor(Palette.MUTED)
+        contentDescription = "$name: " + if (on) "on" else "off"
+        setOnClickListener { onClick() }
+    }
+
+    // A row of options to pick one of; the picked one has gold writing, a tick and a gold outline (tick = false: no
+    // tick, where the words are already short and tight, like the diary tiers)
+    fun <T> choices(options: List<Pair<T, String>>, picked: T, tick: Boolean = true, onPick: (T) -> Unit) = LinearLayout(context).apply {
         orientation = LinearLayout.HORIZONTAL
         background = GradientDrawable().apply { setColor(Palette.RAISED); cornerRadius = dp(8).toFloat() }
         var now = picked
         val cells = options.map { (_, name) -> oneLine(text(name, 13f)).apply { gravity = Gravity.CENTER; minHeight = dp(TAP_SIZE) } }
-        fun look() = options.forEachIndexed { i, (value, _) ->
-            val on = value == now
-            cells[i].setTextColor(if (on) Palette.ON_GOLD else Palette.TEXT)
-            cells[i].typeface = font(if (on) 700 else 500)
-            press(cells[i], if (on) Palette.GOLD else null, 8)
-        }
+        fun look() = options.forEachIndexed { i, (value, name) -> pickLook(cells[i], name, value == now, tick = tick) }
         options.forEachIndexed { i, (value, _) ->
             cells[i].setOnClickListener {
                 now = value
@@ -123,7 +170,7 @@ class Ui(val context: Context) {
     fun slider(bar: SeekBar) = bar.apply {
         progressTintList = ColorStateList.valueOf(Palette.ACCENT)
         thumbTintList = ColorStateList.valueOf(Palette.GOLD)
-        progressBackgroundTintList = ColorStateList.valueOf(Palette.RAISED)
+        progressBackgroundTintList = ColorStateList.valueOf(Palette.MUTED)   // (the empty part of the line, so it shows)
         minimumHeight = dp(TAP_SIZE)
     }
 

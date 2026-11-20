@@ -173,6 +173,18 @@ object FarmingTimers {
         cancelNotification(context, id)
     }
 
+    // Puts a timer back as it was (Undo after stopping or restarting it by mistake): the same finish time, and its
+    // alarm again if it hasn't gone off yet
+    fun restore(context: Context, id: Int, end: Long, notified: Boolean) {
+        val timers = load(context)
+        val t = timers.firstOrNull { it.id == id } ?: return
+        t.end = end
+        t.notified = notified
+        save(context, timers)
+        cancelAlarm(context, id)
+        if (end > 0 && !notified) schedule(context, t)
+    }
+
     fun remove(context: Context, id: Int) {
         stop(context, id)
         val timers = load(context)

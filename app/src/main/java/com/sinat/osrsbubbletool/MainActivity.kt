@@ -206,6 +206,10 @@ class MainActivity : Activity() {
             addView(ui.text("Start Bubble", 16f, Palette.ON_GOLD, 700).apply { setPadding(dp(8), 0, 0, 0) })
             setOnClickListener { startBubble() }
         }, LinearLayout.LayoutParams(dp(280), dp(56)).apply { topMargin = dp(16) })
+        // while the bubble is on: say so, so nobody wonders whether to tap Start Bubble again
+        if (BubbleService.isRunning) addView(ui.text("The bubble is running", 13f, Palette.MUTED, 500).apply {
+            gravity = Gravity.CENTER
+        }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(6) })
         addView(permissionStatus(), LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(4) })
     }
 
@@ -223,6 +227,8 @@ class MainActivity : Activity() {
             ui.press(this, null, 8)
             addView(ui.icon(if (canShow && allReady) "check" else "warning", colour, 16))
             addView(ui.text(words, 13f, colour, 600).apply { setPadding(dp(6), 0, 0, 0) })
+            // an arrow at the end, so it reads as something to tap (it opens the Permissions page)
+            addView(ui.icon("next", colour, 16).apply { (layoutParams as LinearLayout.LayoutParams).leftMargin = dp(2) })
             setOnClickListener { show(Screen.PERMISSIONS) }
         }
     }
@@ -318,9 +324,16 @@ class MainActivity : Activity() {
             addView(label("Where would you like to tell us about it?", 13f), matchWidth(6))
             addView(button("GitHub") { box?.dismiss(); reportIssue() }, matchWidth(14))
             addView(button("Discord") { box?.dismiss(); openDiscord() }, matchWidth(8))
+            addView(ui.button("Cancel") { box?.dismiss() }, matchWidth(8))
         }
         box = AlertDialog.Builder(this).setView(choices).create().apply {
-            window?.setBackgroundDrawable(GradientDrawable().apply { setColor(Palette.SURFACE); cornerRadius = dp(12).toFloat() })
+            // the box's edge like a tool window's (a dark line outside a lighter one), so it shows on the dimmed
+            // screen behind it in dark mode too
+            window?.setBackgroundDrawable(android.graphics.drawable.LayerDrawable(arrayOf(
+                GradientDrawable().apply { setColor(Palette.EDGE); cornerRadius = dp(12).toFloat() },
+                GradientDrawable().apply { setColor(Palette.BORDER); cornerRadius = dp(11).toFloat() },
+                GradientDrawable().apply { setColor(Palette.SURFACE); cornerRadius = dp(10).toFloat() }
+            )).apply { setLayerInset(1, dp(1), dp(1), dp(1), dp(1)); setLayerInset(2, dp(2), dp(2), dp(2), dp(2)) })
             show()
         }
     }
@@ -373,6 +386,8 @@ class MainActivity : Activity() {
         }
         startForegroundService(Intent(this, BubbleService::class.java))
         Toast.makeText(this, "Bubble started", Toast.LENGTH_SHORT).show()
+        // a moment later, once it's up: the main screen says it's running
+        window.decorView.postDelayed({ if (!isDestroyed && screen == Screen.MAIN) show(Screen.MAIN) }, 600)
     }
 
     // ---------------- Settings screen ----------------

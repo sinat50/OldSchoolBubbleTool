@@ -12,6 +12,7 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
 import android.view.View
+import android.view.Gravity
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.LinearLayout
@@ -181,6 +182,11 @@ class MixologyTool(
             setPadding(dp(6), dp(4), dp(6), dp(4))
         }
 
+    // An on/off button sharing a row with two others (the same narrow fit as button)
+    private fun toggle(label: String, on: Boolean, onClick: () -> Unit) = ui.toggle(label, on, onClick).apply {
+        setPadding(dp(6), dp(4), dp(6), dp(4))
+    }
+
     private fun text(words: String, size: Float = 12f) = ui.text(words, size).apply {
         setPadding(0, dp(4), 0, dp(4))
     }
@@ -199,24 +205,41 @@ class MixologyTool(
         }
     }
 
+    private var introOpen = false   // the explanation under the ? is showing
+
     private fun show() {
         val h = holder ?: return
         h.removeAllViews()
         if (running) {
             h.addView(text(status.ifEmpty { "Starting..." }, 13f), full())
         } else {
-            h.addView(ui.note("Shows each order's recipe, marks the levers and your potions, points to the next " +
-                "station, and tells you when to tap the Alembic or Agitator. Face the camera north or south."), full())
+            // the one thing to remember, with the full explanation behind the ? (so it doesn't push the buttons down)
+            h.addView(LinearLayout(context).apply {
+                orientation = LinearLayout.HORIZONTAL
+                gravity = Gravity.CENTER_VERTICAL
+                addView(ui.note("Face the camera north or south."), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+                addView(ui.text("?", 15f, Palette.TEXT, 700).apply {
+                    gravity = Gravity.CENTER
+                    contentDescription = if (introOpen) "Hide instructions" else "Show instructions"
+                    ui.press(this, Palette.RAISED, 8, if (introOpen) Palette.ACCENT else null)
+                    setOnClickListener { introOpen = !introOpen; show() }
+                }, LinearLayout.LayoutParams(dp(Ui.TAP_SIZE), dp(Ui.TAP_SIZE)).apply { leftMargin = dp(4) })
+            }, full())
+            if (introOpen) h.addView(ui.card {
+                addView(ui.text("Shows each order's recipe, marks the levers and your potions, points to the next " +
+                    "station, and tells you when to tap the Alembic or Agitator.", 12f))
+            }, full())
         }
+        // what it shows: each one ticked in gold while it's on, faded while it's off
         h.addView(row(
-            button("Recipes: " + if (showRecipes) "on" else "off") { showRecipes = !showRecipes; redraw(); show() },
-            button("Lever dots: " + if (showDots) "on" else "off") { showDots = !showDots; redraw(); show() },
-            button("Bag tags: " + if (showTags) "on" else "off") { showTags = !showTags; redraw(); show() }
+            toggle("Recipes", showRecipes) { showRecipes = !showRecipes; redraw(); show() },
+            toggle("Levers", showDots) { showDots = !showDots; redraw(); show() },
+            toggle("Tags", showTags) { showTags = !showTags; redraw(); show() }
         ), full())
         h.addView(row(
-            button("Stations: " + if (showStations) "on" else "off") { showStations = !showStations; redraw(); show() },
-            button("Arrow: " + if (showArrow) "on" else "off") { showArrow = !showArrow; arrow = null; redraw(); show() },
-            button("Buzz: " + if (buzz) "on" else "off") { buzz = !buzz; show() }
+            toggle("Stations", showStations) { showStations = !showStations; redraw(); show() },
+            toggle("Arrow", showArrow) { showArrow = !showArrow; arrow = null; redraw(); show() },
+            toggle("Vibrate", buzz) { buzz = !buzz; show() }
         ), full())
         h.addView(if (running) button("Stop", Ui.ButtonStyle.DANGER) { stop(null) }
                   else button("Start", Ui.ButtonStyle.GOLD) { start() }, full())

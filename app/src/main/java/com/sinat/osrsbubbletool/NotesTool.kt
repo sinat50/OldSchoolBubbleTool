@@ -22,10 +22,13 @@ import org.json.JSONObject
 
 // A notepad: a list of notes, each with a title and text. Notes save by themselves as you type.
 // While you're typing, the keyboard covers about half the screen, so the note sits in the top half.
-class NotesTool(private val context: Context) {
+// onTyping(false): you've stopped writing a note (Done, ◀, deleted, window closed), so the window can go back to its
+// normal size (it's widened while you type: BubbleService.widenNotes)
+class NotesTool(private val context: Context, private val onTyping: (Boolean) -> Unit = {}) {
 
     companion object {
         private const val SAVE_DELAY_MS = 600L
+        private const val TYPING_ROW_DP = 36   // the title row while writing: slimmer than usual, for the note's sake
 
         // How far down the Notepad window sits: below the status bar (or 5% of the screen, whichever is more)
         fun topOffset(context: Context): Int {
@@ -60,6 +63,11 @@ class NotesTool(private val context: Context) {
     }
 
     // The window's ◀ button: from typing back to reading, and from reading back to the list
+    fun canGoBack() = open != null
+
+    // A note is open for writing (the bubble widens the window while the keyboard is up)
+    fun isEditing() = open != null && editing
+
     fun goBack() {
         when {
             open != null && editing -> closeNote()
@@ -81,6 +89,7 @@ class NotesTool(private val context: Context) {
     }
 
     private fun show() {
+        if (!(open != null && editing)) onTyping(false)
         holder.removeAllViews()
         val note = open
         holder.addView(when {
@@ -180,15 +189,20 @@ class NotesTool(private val context: Context) {
         })
     }
 
+    // Writing a note. Slim, as the keyboard leaves only the top of the screen: a low title row, the note filling the
+    // rest (it scrolls inside), and no extra lines (the title's hint says it saves as you type).
     private fun editor(note: Note): View = LinearLayout(context).apply {
         orientation = LinearLayout.VERTICAL
-        setPadding(dp(6), dp(6), dp(6), dp(6))
+        setPadding(dp(4), dp(4), dp(4), dp(4))
+        val row = dp(TYPING_ROW_DP)
 
-        // Title and Done on one row, so the note itself gets as much room as possible
-        val title = ui.textBox("Title").apply {
+        // Title, delete and Done on one row, so the note itself gets as much room as possible
+        val title = ui.textBox("Title (saves as you type)").apply {
             setText(note.title)
             typeface = ui.font(600)
             setSingleLine()
+            minHeight = row
+            setPadding(dp(10), dp(4), dp(10), dp(4))
         }
         // The first tap on the bin asks "Delete?"; the second deletes the note
         val deleteNote: () -> Unit = {
@@ -201,15 +215,15 @@ class NotesTool(private val context: Context) {
             } else { confirmDelete = true; show() }
         }
         val deleteButton: View =
-            if (confirmDelete) ui.button("Delete?", Ui.ButtonStyle.DANGER) { deleteNote() }.apply { minWidth = dp(64) }
+            if (confirmDelete) ui.button("Delete?", Ui.ButtonStyle.DANGER) { deleteNote() }.apply { minWidth = dp(64); minHeight = row }
             else ui.iconButton("trash", "Delete note", Palette.BAD, Palette.RAISED) { deleteNote() }
         addView(LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            addView(title, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-            addView(deleteButton, LinearLayout.LayoutParams(if (confirmDelete) ViewGroup.LayoutParams.WRAP_CONTENT else dp(Ui.TAP_SIZE), dp(Ui.TAP_SIZE)).apply { leftMargin = dp(4) })
-            addView(ui.button("Done", Ui.ButtonStyle.GOLD) { closeNote() }.apply { minWidth = dp(64) },
-                LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, dp(Ui.TAP_SIZE)).apply { leftMargin = dp(4) })
+            addView(title, LinearLayout.LayoutParams(0, row, 1f))
+            addView(deleteButton, LinearLayout.LayoutParams(if (confirmDelete) ViewGroup.LayoutParams.WRAP_CONTENT else row, row).apply { leftMargin = dp(4) })
+            addView(ui.button("Done", Ui.ButtonStyle.GOLD) { closeNote() }.apply { minWidth = dp(64); minHeight = row },
+                LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, row).apply { leftMargin = dp(4) })
         }, full())
 
         // The note. It fills the rest of the window (resize the window to make it bigger) and scrolls inside.
@@ -219,10 +233,10 @@ class NotesTool(private val context: Context) {
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE or InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
             isSingleLine = false
             isVerticalScrollBarEnabled = true
+            minHeight = 0
+            setPadding(dp(10), dp(6), dp(10), dp(6))
         }
-        addView(body, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f).apply { topMargin = dp(5) })
-        // on the left, clear of the window's resize corner at the bottom right
-        addView(ui.note("Saved as you type"), full(2))
+        addView(body, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f).apply { topMargin = dp(4) })
 
         fun changed() {
             note.title = title.text.toString()

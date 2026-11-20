@@ -57,6 +57,8 @@ class ToaPuzzleTool(
 ) {
 
     companion object {
+        // How to hold the camera for the screen reading: in the list's instructions, and again when a reading fails
+        private const val CAMERA_ADVICE = "Camera facing east, looking straight down, with the zoom set to 25%."
         private const val HELP_SIZE_DP = Ui.TAP_SIZE   // the ? button
         private const val SMALL_BUTTON_DP = 28    // how tall the shrunk window's buttons are (every pixel counts in a raid)
         private const val SMALL_ICON_W_DP = 27    // how wide its - and + buttons are
@@ -189,6 +191,8 @@ class ToaPuzzleTool(
     }
 
     // The window's ◀ button: from a puzzle back to the list
+    fun canGoBack() = page != Page.MENU
+
     fun goBack() {
         if (page != Page.MENU) { stopMatchWatch(null); stopHetWatch(null); cancelReading(); leaveOnScreen(); page = Page.MENU; helpOpen = false; show(keepScroll = false) }
     }
@@ -287,7 +291,7 @@ class ToaPuzzleTool(
         help("Pick the puzzle you're in: the first five are on the Path of Scabaras, the mirrors on the Path of Het. " +
             "The light, addition, sequence and matching puzzles and the Path of Het can read the screen; " +
             "you can also tap in what you see, and the answer is marked on the map.\n\nFor the best results " +
-            "reading the screen: camera facing east, looking straight down, with the zoom set to 25%.")
+            "reading the screen: $CAMERA_ADVICE")
         Page.entries.drop(1).forEach { p ->
             addView(LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
@@ -391,7 +395,7 @@ class ToaPuzzleTool(
 
     private fun readLights() = readScreen({ lightNote = it }, ToaReader::readLights) { result ->
         if (result == null) {
-            lightNote = "Couldn't find the plates. Stand still with all eight on screen, then try again."
+            lightNote = "Couldn't find the plates. Stand still with all eight on screen, then try again. $CAMERA_ADVICE"
         } else {
             lightLit = result
             lightEntered = true
@@ -627,7 +631,7 @@ class ToaPuzzleTool(
     // each, about 12 times a second) until five have flashed, or it gives up waiting
     private fun watchSequence() = readScreen({ sequenceNote = it }, ToaReader::findSequenceTiles, "Looking for the tiles...", "sequence") { tiles ->
         if (tiles == null) {
-            endWatch("Couldn't find the tiles. Stand still with all nine on screen, then try again.")
+            endWatch("Couldn't find the tiles. Stand still with all nine on screen, then try again. $CAMERA_ADVICE")
             return@readScreen
         }
         sequence.clear()
@@ -762,7 +766,7 @@ class ToaPuzzleTool(
             smallButton("Done") { leaveOnScreen() }))
         // Only once Watch has stopped: why (so it's clear when Rescan is needed), wrapped to the buttons' width. While
         // it watches, the map says it all (the owner found the room and mirror count clutter).
-        if (!hetWatching) hetNote?.let { addView(smallNote(it).apply { maxWidth = dp(HET_NOTE_MAX_DP) }, full(2)) }
+        if (!hetWatching) hetNote?.let { addView(smallNote(it, dp(HET_NOTE_MAX_DP)), full(2)) }
     }
 
     // Watch: a look about once a second as you walk through the room. The first finds the room; the next ones follow
@@ -1182,7 +1186,7 @@ class ToaPuzzleTool(
             gravity = Gravity.CENTER_HORIZONTAL
             val note = matchNote
             if (page == Page.MATCHING && note != null && note.startsWith("Can't")) {
-                addView(label("Looking for the boards…", 11f, bold = true).apply {
+                addView(label("Looking for the boards…", 12f, bold = true).apply {
                     setTextColor(Color.WHITE)
                     setPadding(dp(6), dp(2), dp(6), dp(2))
                     background = GradientDrawable().apply { setColor("#99000000".toColorInt()); cornerRadius = dp(4).toFloat() }
@@ -1389,8 +1393,19 @@ class ToaPuzzleTool(
     // What the last reading or Watch said, on a full page
     private fun LinearLayout.pageNote(text: String) = addView(ui.text(text, 12f, Palette.ACCENT, 500), full(4))
 
-    // The same on the shrunk window, in small writing so the window stays small
-    private fun smallNote(text: String) = ui.text(text, 9f, Palette.ACCENT)
+    // The same on the shrunk window. A reading that failed ("Couldn't read...") gets the warning sign and plain
+    // writing, as it's the note that matters most; others stay gold. 12 sp, the app's smallest writing.
+    private fun smallNote(text: String, widest: Int? = null): View {
+        val words = ui.text(text, 12f, if (text.startsWith("Couldn't")) Palette.TEXT else Palette.ACCENT)
+        widest?.let { words.maxWidth = it }
+        if (!text.startsWith("Couldn't")) return words
+        return LinearLayout(context).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            addView(ui.icon("warning", Palette.CAUTION, 16))
+            addView(words.apply { setPadding(dp(6), 0, 0, 0) })
+        }
+    }
 
     // The button that shows or hides a page's tap-it-in-yourself controls
     private fun LinearLayout.manualButton(open: Boolean, toggle: () -> Unit) =

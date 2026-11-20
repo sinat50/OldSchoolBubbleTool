@@ -196,19 +196,14 @@ class SettingsTool(private val context: Context, private val wide: Boolean = fal
         }
     }
 
-    // A row of options to pick one of; the picked one is gold
+    // A row of options to pick one of; the picked one has gold writing, a tick and a gold outline
     private fun choices(options: List<Pair<Int, String>>, current: Int, wide: Int? = null, onPick: (Int) -> Unit): View =
         LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             background = GradientDrawable().apply { setColor(Palette.RAISED); cornerRadius = dp(8).toFloat() }
             var picked = current
             val cells = options.map { (_, name) -> ui.oneLine(ui.text(name, 13f)).apply { gravity = Gravity.CENTER; minHeight = dp(Ui.TAP_SIZE) } }
-            fun look() = options.forEachIndexed { i, (value, _) ->
-                val on = value == picked
-                cells[i].setTextColor(if (on) Palette.ON_GOLD else Palette.TEXT)
-                cells[i].typeface = ui.font(if (on) 700 else 500)
-                ui.press(cells[i], if (on) Palette.GOLD else null, 8)
-            }
+            fun look() = options.forEachIndexed { i, (value, name) -> ui.pickLook(cells[i], name, value == picked) }
             options.forEachIndexed { i, (value, _) ->
                 cells[i].setOnClickListener {
                     picked = value
@@ -244,7 +239,8 @@ class SettingsTool(private val context: Context, private val wide: Boolean = fal
         addView(ui.iconButton("plus", "Bigger", fill = Palette.RAISED) { change(AppSettings.TEXT_STEP) })
     }
 
-    private fun LinearLayout.section(title: String) = addView(ui.text(title, 12f, Palette.ACCENT, 700), full(20))
+    // (in quiet grey, like the bubble menu's headings: gold is kept for main buttons and picked options)
+    private fun LinearLayout.section(title: String) = addView(ui.heading(title), full(20))
 
     private fun LinearLayout.heading(text: String) = addView(ui.text(text, 13f, Palette.TEXT, 600), full(12))
 

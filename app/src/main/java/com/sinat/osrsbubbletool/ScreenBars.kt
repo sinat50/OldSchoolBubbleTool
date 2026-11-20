@@ -68,6 +68,25 @@ object ScreenBars {
             y.coerceIn(minOf(bars.top, bottom - size).coerceAtLeast(0), maxOf(0, bottom - size)))
     }
 
+    // Where the bubble (size × size, at x, y) waits while a window opens on top of it: beside the window's top bar
+    // (barH tall), on the right if there's room, else on the left, else just above or below the window, `gap` away
+    // from it, and clear of the bars. null: the bubble isn't on the window (or there's nowhere free), so it stays put.
+    fun bubbleBeside(x: Int, y: Int, size: Int, win: Box, barH: Int, gap: Int, screenW: Int, screenH: Int, bars: Bars): Spot? {
+        val onWindow = x < win.x + win.w && x + size > win.x && y < win.y + win.h && y + size > win.y
+        if (!onWindow) return null
+        val right = bars.clearRight(screenW)
+        val bottom = bars.clearBottom(screenH)
+        val besideBar = win.y + barH / 2 - size / 2   // level with the middle of the top bar
+        val spot = when {
+            win.x + win.w + gap + size <= right -> Spot(win.x + win.w + gap, besideBar)
+            win.x - gap - size >= bars.left -> Spot(win.x - gap - size, besideBar)
+            win.y - gap - size >= bars.top -> Spot(x, win.y - gap - size)
+            win.y + win.h + gap + size <= bottom -> Spot(x, win.y + win.h + gap)
+            else -> return null
+        }
+        return keepBubble(spot.x, spot.y, size, screenW, screenH, bars)
+    }
+
     // A window (w × h) dragged to (x, y), stopped at the bars; up and down too only if `moveY` (otherwise y is left)
     fun drag(x: Int, y: Int, w: Int, h: Int, screenW: Int, screenH: Int, bars: Bars, moveY: Boolean): Spot {
         val maxX = maxOf(0, bars.clearRight(screenW) - w)

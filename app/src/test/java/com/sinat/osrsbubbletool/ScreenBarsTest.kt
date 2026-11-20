@@ -76,6 +76,46 @@ class ScreenBarsTest {
         assertEquals(listOf(2190, 786), ScreenBars.keepBubble(2300, 1000, size, w, h, phone).let { listOf(it.x, it.y) })
     }
 
+    // The bubble (36 dp = 94 px on the phone) stepping aside when a window opens on top of it: beside the 30 dp (79 px)
+    // top bar, 6 dp (16 px) away
+    private fun beside(x: Int, y: Int, win: Box, screenW: Int = w, screenH: Int = h, bars: Bars = none) =
+        ScreenBars.bubbleBeside(x, y, 94, win, 79, 16, screenW, screenH, bars)?.let { listOf(it.x, it.y) }
+
+    @Test
+    fun theBubbleWaitsToTheRightOfAWindowThatOpensOnIt() {
+        // window 838 wide from 21 across: the bubble goes to 21 + 838 + 16 = 875, level with the bar's middle (54 + 39 - 47)
+        assertEquals(listOf(875, 46), beside(21, 262, Box(21, 54, 838, 972)))
+    }
+
+    @Test
+    fun theBubbleWaitsToTheLeftWhenTheWindowIsAgainstTheRightEdge() {
+        // no room on the right (1480 + 860 reaches the edge): 1480 - 16 - 94 = 1370
+        assertEquals(listOf(1370, 46), beside(1500, 300, Box(1480, 54, 860, 972)))
+    }
+
+    @Test
+    fun theBubbleStaysPutWhenItIsNotOnTheWindow() {
+        assertNull(beside(1200, 300, Box(21, 54, 838, 972)))
+    }
+
+    @Test
+    fun theBubbleGoesAboveAWindowWithNoRoomEitherSide() {
+        // upright phone, window 90% of the width: no room beside it, so just above it (117 - 16 - 94 = 7), same x
+        assertEquals(listOf(60, 7), beside(60, 300, Box(54, 117, 972, 2106), screenW = 1080, screenH = 2340))
+    }
+
+    @Test
+    fun theBubbleBesideTheBarStaysBelowTheStatusBar() {
+        // the bar's middle would put it at 46, under the 84 px status bar
+        assertEquals(listOf(875, 84), beside(21, 262, Box(21, 54, 838, 972), bars = phone))
+    }
+
+    @Test
+    fun theBubbleWaitsBesideTheZulrahStrip() {
+        // the strip against the left side, the whole screen tall: beside its top bar, at the top of the screen
+        assertEquals(listOf(316, 0), beside(100, 500, Box(0, 0, 300, 1080)))
+    }
+
     @Test
     fun aDraggedWindowStopsAtTheBars() {
         // dragged up past the status bar and right past the edge: 800 × 500 window

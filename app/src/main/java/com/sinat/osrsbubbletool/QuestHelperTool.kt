@@ -234,6 +234,8 @@ class QuestHelperTool(
     }
 
     // The window's ◀ button: back to the list
+    fun canGoBack() = showHelp || openPuzzle != null || openQuest != null || openDiary != null
+
     fun goBack() {
         if (showHelp) { showHelp = false; show(keepScroll = false); return }
         if (openPuzzle != null) { openPuzzle = null; show(keepScroll = false); return }
@@ -283,10 +285,9 @@ class QuestHelperTool(
     // ---------------- The main list: quests or diaries ----------------
 
     private fun listScreen(): View = page {
-        addView(syncBadge())
-        addView(ui.choices(listOf(Tab.QUESTS to "Quests", Tab.DIARIES to "Diaries"), tab) {
+        addView(syncBadge(ui.choices(listOf(Tab.QUESTS to "Quests", Tab.DIARIES to "Diaries"), tab) {
             tab = it; show(keepScroll = false)
-        }, full(8))
+        }))
         if (tab == Tab.QUESTS) questList(this) else diaryList(this)
     }
 
@@ -377,7 +378,11 @@ class QuestHelperTool(
             addView(label(mark, 13f, bold = true).apply { setTextColor(color); minWidth = dp(20) })
             addView(label(q.name, 13f).apply { if (status == Status.DONE) setTextColor(Palette.MUTED) },
                 LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-            if (note.isNotEmpty()) addView(label(note, 11f).apply { setTextColor(if (status == Status.MISSING) Palette.BAD else Palette.MUTED) })
+            if (note.isNotEmpty()) addView(label(note, 12f).apply { setTextColor(if (status == Status.MISSING) Palette.BAD else Palette.MUTED) })
+            // an arrow at the end, so the row reads as something to tap
+            addView(ui.icon("next", Palette.MUTED, 16).apply {
+                (layoutParams as LinearLayout.LayoutParams).leftMargin = dp(4)
+            })
             setOnClickListener { openQuestPage(q.name) }
         }
     }
@@ -393,21 +398,20 @@ class QuestHelperTool(
         })
         if (info == null) return@page
         helpButton(name)?.let { addView(it, full(6)) }
-        addView(questFacts(info), full(2))
-        addView(syncBadge(), full(6))
+        addView(syncBadge(questFacts(info)), full(2))
         addView(summary(name, info.requirements), full(6))
         addView(card() {
             addView(label("Requirements", 12f, bold = true))
             if (info.requirements.isEmpty()) addView(label("None", 12f), full(2))
             reqRows(this, info.requirements, data, 0, name)
             if (info.requirements.any { it is Req.QuestDone }) {
-                addView(label("Tap a quest with ▸ to see what it needs.", 10f).apply { setTextColor(Palette.MUTED) }, full(6))
+                addView(label("Tap a quest with ▸ to see what it needs.", 12f).apply { setTextColor(Palette.MUTED) }, full(6))
             }
             if (info.enemies.isNotEmpty()) {
                 addView(label("Enemies", 12f, bold = true).apply { setTextColor(Palette.BAD) }, full(10))
                 info.enemies.forEach { addView(label("• $it", 12f), full(1)) }
             } else {
-                addView(label("No required fights listed", 11f).apply { setTextColor(Palette.OK) }, full(10))
+                addView(label("No required fights listed", 12f).apply { setTextColor(Palette.OK) }, full(10))
             }
         }, full(8))
         QuestPuzzles.forQuest(name).takeIf { it.isNotEmpty() }?.let { puzzles ->
@@ -429,7 +433,7 @@ class QuestHelperTool(
     private fun helpScreen(quest: String): View = page {
         val requests = QuestPuzzles.HELP_WANTED[quest].orEmpty()
         addView(titleRow("Help improve this guide", "Guide") { showHelp = false; show(keepScroll = false) })
-        addView(label(quest, 11f).apply { setTextColor(Palette.MUTED) }, full(1))
+        addView(label(quest, 12f).apply { setTextColor(Palette.MUTED) }, full(1))
         addView(label("With a few screenshots from a phone, the app could read this puzzle from your screen and show " +
             "you what to do, like the Puzzle Box and Light Box Solvers. If you're doing this quest, you can help!", 13f), full(8))
 
@@ -468,7 +472,7 @@ class QuestHelperTool(
         // for players without a GitHub account
         addView(label("No GitHub account? Post them in the app's Discord instead, and say which quest and puzzle they're for.", 12f), full(10))
         addView(button("Open Discord to send screenshots") { openInBrowser(MainActivity.DISCORD_INVITE) }, full(6))
-        addView(label("Thank you! Screenshots are only used to build the solver: they're never put in the app.", 11f)
+        addView(label("Thank you! Screenshots are only used to build the solver: they're never put in the app.", 12f)
             .apply { setTextColor(Palette.MUTED) }, full(8))
     }
 
@@ -499,12 +503,12 @@ class QuestHelperTool(
         fun go(i: Int) { prefs.edit { putInt(p.key, i.coerceIn(0, p.steps.size)) }; show() }
 
         addView(titleRow(p.title, "Guide") { openPuzzle = null; show(keepScroll = false) })
-        addView(label(p.quest, 11f).apply { setTextColor(Palette.MUTED) }, full(1))
+        addView(label(p.quest, 12f).apply { setTextColor(Palette.MUTED) }, full(1))
         if (p.intro.isNotEmpty()) addView(label(p.intro, 13f), full(8))
         p.solver?.let { solverViews.build(it, this) }
         p.link?.let { (text, url) ->
             addView(button(text) { openWiki(url) }, full(8))
-            addView(label("Opens in the Wiki window. Tap ◀ there to come back here.", 10f).apply { setTextColor(Palette.MUTED) }, full(2))
+            addView(label("Opens in the Wiki window. Tap ◀ there to come back here.", 12f).apply { setTextColor(Palette.MUTED) }, full(2))
         }
 
         if (p.table.isNotEmpty()) {
@@ -529,7 +533,7 @@ class QuestHelperTool(
                 }, full(8))
             } else {
                 addView(card(current = true) {
-                    addView(label("Step ${at + 1} of ${p.steps.size}", 11f, bold = true).apply { setTextColor(Palette.ACCENT) })
+                    addView(label("Step ${at + 1} of ${p.steps.size}", 12f, bold = true).apply { setTextColor(Palette.ACCENT) })
                     addView(label(p.steps[at], 14f, bold = true), full(2))
                     addView(LinearLayout(context).apply {
                         orientation = LinearLayout.HORIZONTAL
@@ -569,7 +573,7 @@ class QuestHelperTool(
     private fun questFacts(info: QuestBook.QuestInfo): View =
         label(listOfNotNull(if (info.miniquest) "Miniquest" else if (info.members) "Members" else "Free to play",
             info.difficulty, if (info.questPoints > 0) "${info.questPoints} Quest point" + (if (info.questPoints > 1) "s" else "") else null)
-            .filter { it.isNotEmpty() }.joinToString("  ·  "), 11f).apply { setTextColor(Palette.MUTED) }
+            .filter { it.isNotEmpty() }.joinToString("  ·  "), 12f).apply { setTextColor(Palette.MUTED) }
 
     // ---------------- A quest with a step-by-step guide ----------------
 
@@ -585,13 +589,18 @@ class QuestHelperTool(
 
         column.addView(titleRow(q.name, "Wiki guide") { openWiki(q.wikiPage) })
         helpButton(q.name)?.let { column.addView(it, full(6)) }
-        QuestBook.quest(q.name)?.let { column.addView(questFacts(it), full(2)) }
-        column.addView(syncBadge(), full(6))
-        column.addView(summary(q.name, requirements), full(6))
 
-        // Before you start
+        // Before you start: the quest's facts, whether you meet its requirements, and the full list, folded away so
+        // the step you're on comes first
         column.foldOut(showDetails, "Requirements & rewards", "Hide requirements", { showDetails = !showDetails }) {
-            detailsCard(q, requirements)
+            LinearLayout(context).apply {
+                orientation = LinearLayout.VERTICAL
+                // (the sync tag at the end of the quest's facts, or on its own if there are none)
+                val facts = QuestBook.quest(q.name)?.let { questFacts(it) } ?: android.view.View(context)
+                addView(syncBadge(facts), full(2))
+                addView(summary(q.name, requirements), full(6))
+                addView(detailsCard(q, requirements), full(6))
+            }
         }
         val puzzles = QuestPuzzles.forQuest(q.name)
         if (puzzles.isNotEmpty()) {
@@ -605,18 +614,20 @@ class QuestHelperTool(
         }
 
         // The current step, big
+        lateinit var current: View
         if (at >= steps.size) {
-            column.addView(card(current = true) {
+            current = card(current = true) {
                 addView(label("Quest complete! ✓", 15f, bold = true).apply { setTextColor(Palette.OK) })
                 addView(button("Start over") { setPosition(q, 0); show() }, full(6))
-            }, full(8))
+            }
+            column.addView(current, full(8))
         } else {
             val step = steps[at]
             val section = sectionOf(q, at)
-            column.addView(card(current = true) {
-                addView(label(section.title, 11f, bold = true).apply { setTextColor(Palette.MUTED) })
+            current = card(current = true) {
+                addView(label(section.title, 12f, bold = true).apply { setTextColor(Palette.MUTED) })
                 addView(sectionInfo(section), full(2))
-                addView(label("Step ${at + 1} of ${steps.size}" + (if (step.optional) " (optional)" else ""), 11f, bold = true)
+                addView(label("Step ${at + 1} of ${steps.size}" + (if (step.optional) " (optional)" else ""), 12f, bold = true)
                     .apply { setTextColor(Palette.ACCENT) }, full(6))
                 addView(stepBody(step), full(2))
                 QuestPuzzles.forStep(q.name, section.title, step.text).forEach { p ->
@@ -629,7 +640,8 @@ class QuestHelperTool(
                     addView(button("Done", GOLD) { setPosition(q, at + 1); show() },
                         LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 2f).apply { leftMargin = dp(4) })
                 }, full(8))
-            }, full(8))
+            }
+            column.addView(current, full(8))
         }
 
         // Every step, by section. Tap one to jump there.
@@ -673,19 +685,19 @@ class QuestHelperTool(
     private fun sectionInfo(section: Section): View = LinearLayout(context).apply {
         orientation = LinearLayout.VERTICAL
         if (section.items.isNotEmpty()) {
-            addView(label("Items: " + section.items.joinToString(", "), 11f))
+            addView(label("Items: " + section.items.joinToString(", "), 12f))
         }
         if (section.recommended.isNotEmpty()) {
-            addView(label("Recommended: " + section.recommended.joinToString(", "), 11f).apply { setTextColor(Palette.MUTED) }, full(1))
+            addView(label("Recommended: " + section.recommended.joinToString(", "), 12f).apply { setTextColor(Palette.MUTED) }, full(1))
         }
-        section.travel?.let { addView(label("Travel: $it", 11f).apply { setTextColor(Palette.ACCENT) }, full(1)) }
+        section.travel?.let { addView(label("Travel: $it", 12f).apply { setTextColor(Palette.ACCENT) }, full(1)) }
         if (section.combat == true) {
-            addView(label("Combat: bring combat gear", 11f, bold = true).apply { setTextColor(Palette.BAD) }, full(1))
+            addView(label("Combat: bring combat gear", 12f, bold = true).apply { setTextColor(Palette.BAD) }, full(1))
             if (section.enemies.isNotEmpty()) {
-                addView(label("Enemies: " + section.enemies.joinToString(", "), 11f).apply { setTextColor(Palette.BAD) }, full(1))
+                addView(label("Enemies: " + section.enemies.joinToString(", "), 12f).apply { setTextColor(Palette.BAD) }, full(1))
             }
         } else if (section.combat == false) {
-            addView(label("No combat", 11f).apply { setTextColor(Palette.OK) }, full(1))
+            addView(label("No combat", 12f).apply { setTextColor(Palette.OK) }, full(1))
         }
     }
 
@@ -694,7 +706,7 @@ class QuestHelperTool(
         orientation = LinearLayout.VERTICAL
         addView(label(step.text, 14f, bold = true))
         if (step.say.isNotEmpty()) {
-            addView(label("Choose:", 11f, bold = true), full(6))
+            addView(label("Choose:", 12f, bold = true), full(6))
             step.say.forEachIndexed { n, option ->
                 addView(label("${n + 1}. “$option”", 13f).apply { setTextColor(Palette.ACCENT) }, full(1))
             }
@@ -705,9 +717,9 @@ class QuestHelperTool(
             !step.text.lowercase().contains(name)
         }
         if (bring.isNotEmpty()) {
-            addView(label("Bring: " + bring.joinToString(", "), 11f), full(6))
+            addView(label("Bring: " + bring.joinToString(", "), 12f), full(6))
         }
-        step.tip?.let { addView(label("Tip: $it", 11f).apply { setTypeface(Typeface.create(typeface, Typeface.ITALIC)) }, full(6)) }
+        step.tip?.let { addView(label("Tip: $it", 12f).apply { setTypeface(Typeface.create(typeface, Typeface.ITALIC)) }, full(6)) }
     }
 
     private fun detailsCard(q: Quest, requirements: List<Req>): View = card() {
@@ -750,7 +762,7 @@ class QuestHelperTool(
                             count >= total -> "${tierShort[tier.tier]} ✓"
                             else -> "${tierShort[tier.tier]} $count/$total"
                         }
-                        addView(label(text, 11f, bold = done != null && count >= total).apply {
+                        addView(label(text, 12f, bold = done != null && count >= total).apply {
                             setTextColor(when {
                                 done == null -> Palette.MUTED
                                 count >= total -> Palette.OK
@@ -771,34 +783,30 @@ class QuestHelperTool(
                 }
             }, full(4))
         }
-        column.addView(label("E = Easy, M = Medium, H = Hard, El = Elite", 10f).apply { setTextColor(Palette.MUTED) }, full(8))
+        column.addView(label("E = Easy, M = Medium, H = Hard, El = Elite", 12f).apply { setTextColor(Palette.MUTED) }, full(8))
     }
 
     private fun diaryScreen(region: String): View = page {
         val diary = QuestBook.diaries.firstOrNull { it.region == region } ?: return@page
         val data = sync.cached
         addView(titleRow("$region Diary", "Wiki page") { openWiki(QuestBook.wikiUrl("${region}_Diary")) })
-        addView(syncBadge(), full(6))
 
         // Tier buttons
-        addView(ui.choices(diary.tiers.mapIndexed { i, tier ->
-            val done = data?.diaryTasks(region, tier.tier)
-            val finished = done != null && done.count { it } >= tier.tasks.size
-            i to tier.tier + if (finished) " ✓" else ""
-        }, openTier) {
+        // (just the gold frame on the picked tier, no ticks: the list and each tier's "diary complete ✓" say what's done)
+        addView(ui.choices(diary.tiers.mapIndexed { i, tier -> i to tier.tier }, openTier, tick = false) {
             openTier = it; closeSections(); show(keepScroll = false)
         }, full(8))
 
         val tier = diary.tiers[openTier.coerceIn(0, diary.tiers.size - 1)]
         val done = data?.diaryTasks(region, tier.tier)
         val count = done?.count { it } ?: 0
-        addView(label(when {
+        addView(syncBadge(label(when {
             done == null -> "${tier.tasks.size} tasks"
             count >= tier.tasks.size -> "${tier.tier} diary complete ✓"
             else -> "$count of ${tier.tasks.size} tasks done"
         }, 13f, bold = true).apply {
             setTextColor(if (done != null && count >= tier.tasks.size) Palette.OK else Palette.TEXT)
-        }, full(8))
+        }), full(8))
 
         // Everything the tier needs, and its rewards
         foldOut(showDetails, "All requirements & rewards", "Hide requirements", { showDetails = !showDetails }) {
@@ -849,11 +857,11 @@ class QuestHelperTool(
                 if (!isDone) {
                     task.steps.forEach { addView(label(it, 12f), full(3)) }
                     if (task.requirements.isNotEmpty()) {
-                        addView(label("Needs:", 11f, bold = true), full(6))
+                        addView(label("Needs:", 12f, bold = true), full(6))
                         reqRows(this, task.requirements, data, 0, "$region/${tier.tier}/$i")
                     }
                     if (task.items.isNotEmpty()) {
-                        addView(label("Bring: " + task.items.joinToString(", "), 11f), full(6))
+                        addView(label("Bring: " + task.items.joinToString(", "), 12f), full(6))
                     }
                 }
             }, full(5))
@@ -915,7 +923,8 @@ class QuestHelperTool(
     // ---------------- Your account (Bubble Sync) ----------------
 
     // The little ✓/✗ tag; tapping it opens the Bubble Sync tool
-    private fun syncBadge(): View = SyncBadge.row(context, sync) { openSync() }
+    // The ✓/Not synced tag at the end of a row, after `first`
+    private fun syncBadge(first: View): View = SyncBadge.beside(context, sync, first) { openSync() }
 
     // ---------------- Small building blocks ----------------
 

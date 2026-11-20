@@ -68,15 +68,15 @@ class SyncTool(
     }
 
     private fun LinearLayout.build() {
-        addView(LinearLayout(context).apply {
-            orientation = LinearLayout.HORIZONTAL
-            gravity = Gravity.CENTER_VERTICAL
-            // (in the bubble, the window's top bar has the name)
-            addView(ui.text(if (inBubble) "" else "Bubble Sync", 20f, Palette.TEXT, 700), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-            addView(SyncBadge.view(context, sync, onClick = null))
-        }, full())
-        addView(ui.note("Your quests, levels and achievement diaries, for the Quest Helper, Hunter Rumours and " +
-            "Teleport Finder. Scanned from the Bubble Tool Sync plugin in RuneLite: nothing goes over the internet."), full(3))
+        val about = ui.note("Your quests, levels and achievement diaries, for the Quest Helper, Hunter Rumours and " +
+            "Teleport Finder. Scanned from the Bubble Tool Sync plugin in RuneLite: nothing goes over the internet.")
+        if (inBubble) {
+            // (the window's top bar has the name: the tag goes beside the first words, not on a row of its own)
+            addView(SyncBadge.beside(context, sync, about, onClick = null), full())
+        } else {
+            addView(SyncBadge.beside(context, sync, ui.text("Bubble Sync", 20f, Palette.TEXT, 700), onClick = null), full())
+            addView(about, full(3))
+        }
 
         val data = sync.cached
         if (data != null) {

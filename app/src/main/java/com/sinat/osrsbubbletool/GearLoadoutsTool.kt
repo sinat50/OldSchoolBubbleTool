@@ -81,6 +81,8 @@ class GearLoadoutsTool(
     }
 
     // The ◀ button: from a loadout, back to the list
+    fun canGoBack() = current != null
+
     fun goBack() {
         if (current == null) return
         saveTyping()

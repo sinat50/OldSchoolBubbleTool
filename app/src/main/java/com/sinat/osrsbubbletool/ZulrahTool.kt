@@ -75,6 +75,7 @@ class ZulrahTool(private val context: Context) {
         val HEAD_SHADE = "#1F5A10".toColorInt()
         val NOCK = "#6E3A14".toColorInt()
         const val ICON_SIZE = 26f   // in the drawing's units
+        const val NEXT_SCALE = 0.7f // a next phase's map is drawn at most this big next to the current one
 
         // The drawing's colours stay the same in light and dark mode, like a map
         val WATER = "#2B2B2B".toColorInt()
@@ -234,17 +235,17 @@ class ZulrahTool(private val context: Context) {
         }
     }
 
-    // A big button for one thing Zulrah could do next: just its map
+    // A button for one thing Zulrah could do next: just its map (no box round it), zoomed in on the island and that
+    // phase's Zulrah, with the prayer in the water above the island, smaller than the current map (MapView.fitted)
     private fun nextButton(option: ZulrahFight.Option) = FrameLayout(context).apply {
-        setPadding(dp(3), dp(3), dp(3), dp(3))
-        ui.press(this, Palette.RAISED, 8)
+        ui.press(this, null, 6)
         val phase = option.phase
         val name = when {
             option.restart -> "Restart"
             phase.title != null -> phase.title
             else -> phase.form.word
         }
-        addView(MapView().apply { show(phase) }, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+        addView(MapView(fitted = true).apply { show(phase) }, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
         contentDescription = "Next: $name, ${prayerWords(phase)}"
         setOnClickListener {
             val now = SystemClock.uptimeMillis()
@@ -268,15 +269,22 @@ class ZulrahTool(private val context: Context) {
             val mapSize = minOf(bodyH, (bodyW - gap) * 4 / 7)
             (map.layoutParams as LinearLayout.LayoutParams).height = bodyH
             nowColumn.layoutParams = LinearLayout.LayoutParams(mapSize, ViewGroup.LayoutParams.MATCH_PARENT)
-            nextColumn.layoutParams = LinearLayout.LayoutParams(minOf(bodyW - mapSize - gap, mapSize * 3 / 4),
-                ViewGroup.LayoutParams.MATCH_PARENT).apply { leftMargin = gap }
+            val nextW = minOf(bodyW - mapSize - gap, mapSize * 3 / 4)
+            nextColumn.layoutParams = LinearLayout.LayoutParams(nextW, ViewGroup.LayoutParams.MATCH_PARENT).apply { leftMargin = gap }
+            // every next map the same size, whatever the phase and however many there are: as if three shared the row
+            nextScale = minOf(NEXT_SCALE * mapSize / MAP_SIZE, (nextW - gap * 2) / 3f / pictureW(), bodyH.toFloat() / pictureH())
         } else {
             val mapSize = minOf(bodyW, (bodyH - gap) * 4 / 7)
             (map.layoutParams as LinearLayout.LayoutParams).height = mapSize
             nowColumn.layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            // every next map the same size, whatever the phase and however many there are (as if three shared the
+            // row), smaller than the current map; the row is just as tall as they are
+            val room = bodyH - mapSize - gap
+            nextScale = minOf(NEXT_SCALE * mapSize / MAP_SIZE, (bodyW - gap * 2) / 3f / pictureW(), room / pictureH())
             nextColumn.layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                minOf(bodyH - mapSize - gap, mapSize * 3 / 4)).apply { topMargin = gap }
+                minOf(room, (pictureH() * nextScale).toInt() + 1)).apply { topMargin = gap }
         }
+        for (i in 0 until nextColumn.childCount) (nextColumn.getChildAt(i) as? ViewGroup)?.getChildAt(0)?.invalidate()
         body.requestLayout()
     }
 
@@ -288,8 +296,39 @@ class ZulrahTool(private val context: Context) {
 
     // The island's shape with its floor tiles, where to stand (one white tile) and Zulrah (the coloured circle). Original drawing, made
     // from the game's own floor and the plugin's arena layout.
+    // ---------------- Fitting a next phase's map to its button ----------------
+
+    // The part of the drawing a phase needs, in the drawing's units, as turned on screen: the island, and Zulrah's
+    // circle (it can be out in the water beside the island)
+    private fun contentBox(spot: ZulrahFight.Spot): RectF {
+        val r = 7.5f + 0.7f
+        val box = RectF(0f, 0f, 80f, 61f)   // the island's outline
+        box.union(spot.x - r, spot.y - r, spot.x + r, spot.y + r)
+        box.offset(ISLAND_X, ISLAND_Y)
+        // turned with the map, a quarter turn at a time round the drawing's middle
+        val c = MAP_SIZE / 2f
+        var l = box.left; var t = box.top; var rt = box.right; var b = box.bottom
+        repeat(turn) {
+            val nl = c - (b - c); val nr = c - (t - c); val nt = c + (l - c); val nb = c + (rt - c)
+            l = nl; rt = nr; t = nt; b = nb
+        }
+        return RectF(l, t, rt, b)
+    }
+
+    // Every next map's picture is the same size, in the drawing's units, so the buttons never change size: wide and
+    // tall enough for the island with Zulrah in any of its places, plus a band of open water along the top for the prayer
+    // icons (as big as on the current map; left empty when there's no prayer). Nothing of the map is ever under the
+    // icons.
+    private val FIT_PAD = 2f
+    private val BAND = ICON_SIZE + 2 * FIT_PAD
+    private fun pictureW() = ZulrahFight.Spot.entries.maxOf { contentBox(it).width() } + 2 * FIT_PAD
+    private fun pictureH() = BAND + ZulrahFight.Spot.entries.maxOf { contentBox(it).height() } + FIT_PAD
+
+    // How big the next maps are drawn (pixels per drawing unit), set by fit()
+    private var nextScale = 1f
+
     @SuppressLint("ViewConstructor")
-    private inner class MapView : View(context) {
+    private inner class MapView(private val fitted: Boolean = false) : View(context) {
         private var phase: ZulrahFight.Phase? = null
         private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             strokeCap = Paint.Cap.ROUND
@@ -310,6 +349,7 @@ class ZulrahTool(private val context: Context) {
 
         override fun onDraw(canvas: Canvas) {
             val shown = phase ?: return
+            if (fitted) { drawFitted(canvas, shown); return }
             val size = minOf(width, height).toFloat()
             val scale = size / MAP_SIZE
             canvas.save()
@@ -319,7 +359,50 @@ class ZulrahTool(private val context: Context) {
             paint.style = Paint.Style.FILL
             paint.color = WATER
             canvas.drawRoundRect(0f, 0f, MAP_SIZE, MAP_SIZE, 6f, 6f, paint)
+            drawArena(canvas, shown)
 
+            // the prayer icons stay upright in the corners however the map is turned
+            shown.prayers.forEachIndexed { i, pray ->
+                val x = if (i == 0) 2f else MAP_SIZE - ICON_SIZE - 2f
+                canvas.save()
+                canvas.translate(x, 2f)
+                canvas.scale(ICON_SIZE / 24f, ICON_SIZE / 24f)
+                if (pray == ZulrahFight.Pray.MAGIC) magicIcon(canvas) else missilesIcon(canvas)
+                canvas.restore()
+            }
+            canvas.restore()
+        }
+
+        // A next phase's map: the picture (pictureW x pictureH, at nextScale: the same for every next map) in the middle
+        // of the button, the island and its Zulrah in the middle of the picture below the icon band, and the prayer
+        // icons in that band (first top left, Jad's second top right)
+        private fun drawFitted(canvas: Canvas, shown: ZulrahFight.Phase) {
+            val w = width.toFloat(); val h = height.toFloat()
+            val pw = pictureW(); val ph = pictureH()
+            val scale = minOf(nextScale, w / pw, h / ph)
+            if (scale <= 0f) return
+            canvas.save()
+            canvas.translate((w - pw * scale) / 2f, (h - ph * scale) / 2f)
+            canvas.scale(scale, scale)
+            paint.style = Paint.Style.FILL
+            paint.color = WATER
+            canvas.drawRoundRect(0f, 0f, pw, ph, 6f, 6f, paint)
+            shown.prayers.forEachIndexed { i, pray ->
+                canvas.save()
+                canvas.translate(if (i == 0) FIT_PAD else pw - FIT_PAD - ICON_SIZE, FIT_PAD)
+                canvas.scale(ICON_SIZE / 24f, ICON_SIZE / 24f)
+                if (pray == ZulrahFight.Pray.MAGIC) magicIcon(canvas) else missilesIcon(canvas)
+                canvas.restore()
+            }
+            val box = contentBox(shown.spot)
+            canvas.translate((pw - box.width()) / 2f - box.left, BAND + (ph - BAND - FIT_PAD - box.height()) / 2f - box.top)
+            drawArena(canvas, shown)
+            canvas.restore()
+        }
+
+        // The island, its tiles and pillars, where to stand and Zulrah, turned as the player chose (in the drawing's
+        // units, MAP_SIZE square)
+        private fun drawArena(canvas: Canvas, shown: ZulrahFight.Phase) {
             canvas.withRotation(turn * 90f, MAP_SIZE / 2f, MAP_SIZE / 2f) {
                 translate(ISLAND_X, ISLAND_Y)
                 paint.style = Paint.Style.FILL
@@ -363,17 +446,6 @@ class ZulrahTool(private val context: Context) {
                 paint.color = RING
                 drawCircle(shown.spot.x, shown.spot.y, 7.5f, paint)
             }
-
-            // the prayer icons stay upright in the corners however the map is turned
-            shown.prayers.forEachIndexed { i, pray ->
-                val x = if (i == 0) 2f else MAP_SIZE - ICON_SIZE - 2f
-                canvas.save()
-                canvas.translate(x, 2f)
-                canvas.scale(ICON_SIZE / 24f, ICON_SIZE / 24f)
-                if (pray == ZulrahFight.Pray.MAGIC) magicIcon(canvas) else missilesIcon(canvas)
-                canvas.restore()
-            }
-            canvas.restore()
         }
 
         // Shapes on a 24 x 24 grid, pointing up and to the right like the game's icons

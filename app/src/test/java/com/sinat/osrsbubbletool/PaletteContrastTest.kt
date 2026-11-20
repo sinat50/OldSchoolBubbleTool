@@ -53,6 +53,20 @@ class PaletteContrastTest {
 
     @Test fun gold_buttons_read() = inBothModes { check("gold button", Palette.ON_GOLD, Palette.GOLD) }
 
+    // The chess board: its two square colours must read as a board, the black pieces must stand out on the dark
+    // squares (3:1, as for shapes), and so must the letters and numbers along its edge, which are drawn in bold as
+    // part of the board (a dark square can't give both black pieces and white letters 4.5:1)
+    @Test fun the_chess_board_reads() = inBothModes {
+        fun atLeast(what: String, a: Int, b: Int, least: Double) {
+            val r = ratio(a, b)
+            assertTrue("$what (dark = ${Palette.dark}) is only ${"%.2f".format(r)}:1", r >= least)
+        }
+        atLeast("light against dark squares", Palette.BOARD_LIGHT, Palette.BOARD_DARK, 2.0)
+        atLeast("black pieces on dark squares", colour("#2B2118"), Palette.BOARD_DARK, 3.0)
+        atLeast("coordinates on light squares", Palette.BOARD_INK_ON_LIGHT, Palette.BOARD_LIGHT, 4.5)
+        atLeast("coordinates on dark squares", Palette.BOARD_INK_ON_DARK, Palette.BOARD_DARK, 3.0)
+    }
+
     @Test fun white_writing_reads_on_the_green_and_red_tags() = inBothModes {
         check("white on the green tag", colour("#FFFFFF"), Palette.TAG_GREEN)
         check("white on the red tag", colour("#FFFFFF"), Palette.TAG_RED)
