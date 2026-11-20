@@ -59,7 +59,8 @@ class ZulrahTool(private val context: Context) {
     private companion object {
         const val TOOL_ROW_DP = 32
         const val GAP_DP = 3
-        const val FOOTER_DP = 22        // (keeps the next-phase buttons clear of the window's resize corner)
+        const val FOOTER_DP = 10        // a little room under the next-phase buttons for the window's resize corner (taps
+                                        // on the corner reach the buttons under it anyway)
         const val TAP_GUARD_MS = 350L   // a second tap this soon is a slip, not a second phase
         const val RESET_WAIT_MS = 2500L
 
@@ -274,18 +275,37 @@ class ZulrahTool(private val context: Context) {
             // every next map the same size, whatever the phase and however many there are: as if three shared the row
             nextScale = minOf(NEXT_SCALE * mapSize / MAP_SIZE, (nextW - gap * 2) / 3f / pictureW(), bodyH.toFloat() / pictureH())
         } else {
-            val mapSize = minOf(bodyW, (bodyH - gap) * 4 / 7)
+            // the current map as wide as the strip, and the next phases' row under it, just as tall as its maps (the
+            // window is made just tall enough for both: heightFor); squeezed only if the window is shorter than that
+            val nextH = nextRowHeight(bodyW, bodyW)
+            val mapSize = minOf(bodyW, bodyH - gap - nextH)
             (map.layoutParams as LinearLayout.LayoutParams).height = mapSize
             nowColumn.layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             // every next map the same size, whatever the phase and however many there are (as if three shared the
-            // row), smaller than the current map; the row is just as tall as they are
-            val room = bodyH - mapSize - gap
-            nextScale = minOf(NEXT_SCALE * mapSize / MAP_SIZE, (bodyW - gap * 2) / 3f / pictureW(), room / pictureH())
+            // row), smaller than the current map
+            nextScale = nextScaleFor(bodyW, mapSize)
             nextColumn.layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                minOf(room, (pictureH() * nextScale).toInt() + 1)).apply { topMargin = gap }
+                (pictureH() * nextScale).toInt() + 1).apply { topMargin = gap }
         }
         for (i in 0 until nextColumn.childCount) (nextColumn.getChildAt(i) as? ViewGroup)?.getChildAt(0)?.invalidate()
         body.requestLayout()
+    }
+
+    // How big the next phases' maps are drawn (pixels per drawing unit) in a strip bodyW wide under a current map
+    // mapSize across: smaller than the current map, and three to a row
+    private fun nextScaleFor(bodyW: Int, mapSize: Int) =
+        minOf(NEXT_SCALE * mapSize / MAP_SIZE, (bodyW - dp(GAP_DP) * 2) / 3f / pictureW())
+
+    private fun nextRowHeight(bodyW: Int, mapSize: Int) = (pictureH() * nextScaleFor(bodyW, mapSize)).toInt() + 1
+
+    // How tall the strip's contents are when the window is windowW wide: the row of buttons, the current map as wide
+    // as the strip, the next phases' row and the space kept for the resize corner. The window is made this tall
+    // (BubbleService), so there's no empty space at the bottom, and widening the strip makes everything bigger.
+    fun heightFor(windowW: Int): Int {
+        val bodyW = windowW - dp(4) * 2
+        if (bodyW <= 0) return 0
+        val gap = dp(GAP_DP)
+        return dp(3) + dp(TOOL_ROW_DP) + gap + bodyW + gap + nextRowHeight(bodyW, bodyW) + dp(FOOTER_DP)
     }
 
     // The prayer in words, for screen readers

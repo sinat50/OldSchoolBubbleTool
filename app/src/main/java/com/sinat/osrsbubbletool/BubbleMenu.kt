@@ -115,7 +115,10 @@ class BubbleMenu(
         gravity = Gravity.CENTER_VERTICAL
         minimumHeight = ui.dp(HEADING_DP)
         setPadding(ui.dp(12), 0, ui.dp(10), 0)
-        ui.press(this, null)
+        // (no tap ripple: the group folding or unfolding shows the tap worked, and the heading moves as it does,
+        // which left the ripple floating where the heading had been)
+        isClickable = true
+        isFocusable = true
         addView(ui.text(group.label, 12f, Palette.MUTED, 700), LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
         addView(ui.text("$count", 12f, Palette.MUTED, 500).apply { setPadding(0, 0, ui.dp(6), 0) })
         addView(ui.icon("down", Palette.MUTED, 16))

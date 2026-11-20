@@ -56,7 +56,7 @@ class BubbleService : Service() {
         const val PRICES_URL = "https://prices.runescape.wiki/osrs/"
         const val PRICES_ZOOM_PERCENT = 85          // GE Prices text size
         const val ZULRAH_WIDTH_DP = 136      // the Zulrah Helper is a thin strip down the side of the screen
-        const val ZULRAH_MIN_WIDTH_DP = 112
+        const val ZULRAH_MIN_WIDTH_DP = 124  // (narrow enough for the game; wide enough for "Zulrah" in its top bar)
         const val LIGHT_BOX_WIDTH_INCHES = 1.3f  // the Light Box Solver is a small box, top right
         const val PUZZLE_BOX_WIDTH_INCHES = 1.5f // so is the Puzzle Box Solver
         // where a tool's window can shrink to (setWindowCompact)
@@ -284,6 +284,8 @@ class BubbleService : Service() {
         val onRotated: () -> Unit = {},    // the phone turned
         val onDestroy: () -> Unit = {},    // the bubble is closing: tidy up
         val isBusy: () -> Boolean = { false },  // still working with its window closed (a puzzle guide on screen)
+        val heightFor: ((Int) -> Int)? = null,  // the window's contents' height for a window this wide (the window then
+                                                // fits it, and the resize corner only changes the width: Zulrah)
         val canGoBack: () -> Boolean = { true } // ◀ would do something here (it's hidden on a tool's first page)
     )
     // Each tool is only set up the first time you open it, so tools you don't use cost nothing
@@ -513,12 +515,7 @@ class BubbleService : Service() {
         // the headings that are unfolded: as you left them, plus the open tool's own group when the menu opens
         // (shown again after a heading or a favourite changes, it keeps what was showing)
         if (fresh) menuShowing = menuOpenGroups() + listOfNotNull(currentTool.group)
-        val list = BubbleMenu(toolContext, currentTool, AppSettings.hiddenTools(this), AppSettings.favourites(this), menuShowing,
-            onOpen = { tool -> hideMenu(); openTool(tool) },
-            onHold = ::holdMenuTool,
-            onToggleGroup = ::toggleMenuGroup,
-            onCloseBubble = { hideMenu(); stopSelf() }
-        ).build()
+        val list = menuContents()
 
         // The list scrolls when there are more tools than fit on the screen
         val scroll = ScrollView(this).apply {
@@ -593,6 +590,15 @@ class BubbleService : Service() {
 
     private var menuShowing: Set<ToolGroup> = emptySet()   // the headings unfolded in the menu on screen
 
+    // The menu's list: Favourites, the groups (as menuShowing says), Settings and Close bubble
+    private fun menuContents() = BubbleMenu(toolContext, currentTool, AppSettings.hiddenTools(this), AppSettings.favourites(this),
+        menuShowing,
+        onOpen = { tool -> hideMenu(); openTool(tool) },
+        onHold = ::holdMenuTool,
+        onToggleGroup = ::toggleMenuGroup,
+        onCloseBubble = { hideMenu(); stopSelf() }
+    ).build()
+
     // How far down the menu may start and end: clear of the status bar and the navigation bar / gesture strip when
     // they're showing (and of the camera cutout, which the bars don't track), with a small margin
     private fun menuSpace(): Pair<Int, Int> {
@@ -613,6 +619,11 @@ class BubbleService : Service() {
     private fun toggleMenuGroup(group: ToolGroup, open: Boolean) {
         menuShowing = if (open) menuShowing + group else menuShowing - group
         menuPrefs.edit { putStringSet("open_groups", menuShowing.map { it.name }.toSet()) }
+        fitMenuWindow()
+    }
+
+    // The menu's window as tall as its list now is (up to what fits on the screen), changed in place
+    private fun fitMenuWindow() {
         val framed = menu ?: return
         val scroll = menuList ?: return
         val list = scroll.getChildAt(0) ?: return
@@ -639,9 +650,13 @@ class BubbleService : Service() {
         }
         AppSettings.setFavourites(this, changed)
         if (AppSettings.vibrates(this)) bubble.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
-        val scrolledTo = menuList?.scrollY ?: 0
-        showMenu(fresh = false)
-        menuList?.post { menuList?.scrollTo(0, scrolledTo) }
+        // the list changes in place, in the same menu window (built again as a new window, the menu flashed)
+        val scroll = menuList ?: return
+        val scrolledTo = scroll.scrollY
+        scroll.removeAllViews()
+        scroll.addView(menuContents())
+        fitMenuWindow()
+        scroll.post { scroll.scrollTo(0, scrolledTo) }
     }
 
     // The thin frame round the menu and the tool windows, so they stand out from the game: a dark line on the very
@@ -1190,7 +1205,7 @@ class BubbleService : Service() {
         Tool.INVENTORY_SETUPS -> GearLoadoutsTool(toolContext, capture, ::setWindowCompact).let { t ->
             ToolParts(t::buildView, t::goBack, onClosed = t::onWindowClosed, onDestroy = t::destroy, canGoBack = t::canGoBack)
         }
-        Tool.ZULRAH -> ZulrahTool(toolContext).let { t -> ToolParts(t::buildView, t::goBack) }
+        Tool.ZULRAH -> ZulrahTool(toolContext).let { t -> ToolParts(t::buildView, t::goBack, heightFor = t::heightFor) }
         Tool.TOA_PUZZLES -> ToaPuzzleTool(toolContext, capture, ::setOverlaysVisible, ::setWindowCompact).let { t ->
             ToolParts(t::buildView, t::goBack, onClosed = t::onWindowClosed, onRotated = t::onRotated, onDestroy = t::destroy,
                 isBusy = t::isWatching, canGoBack = t::canGoBack)
@@ -1256,6 +1271,16 @@ class BubbleService : Service() {
             layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f)
             // a long name in a narrow window gets smaller instead of being cut off
             setAutoSizeTextTypeUniformWithConfiguration(dp(10), textSize.toInt().coerceAtLeast(dp(11)), 1, android.util.TypedValue.COMPLEX_UNIT_PX)
+            // and if even its smallest size won't fit, just the first word ("Zulrah" for a very thin Zulrah Helper)
+            val short = title.substringBefore(' ')
+            addOnLayoutChangeListener { v, l, _, r, _, _, _, _, _ ->
+                val tv = v as TextView
+                val room = r - l - tv.paddingLeft - tv.paddingRight
+                if (room <= 0) return@addOnLayoutChangeListener
+                val fits = android.graphics.Paint(tv.paint).apply { textSize = dp(10).toFloat() }.measureText(title) <= room
+                val wanted = if (fits) title else short
+                if (tv.text.toString() != wanted) tv.post { tv.text = wanted }
+            }
         }
 
         var downRawX = 0f
@@ -1273,7 +1298,7 @@ class BubbleService : Service() {
                     startWindowY = params.y
                 }
                 MotionEvent.ACTION_MOVE -> moveWindowTo(params, startWindowX + (event.rawX - downRawX).toInt(),
-                    startWindowY + (event.rawY - downRawY).toInt(), moveY = currentTool != Tool.ZULRAH)
+                    startWindowY + (event.rawY - downRawY).toInt(), moveY = true)
                 // the Zulrah Helper settles against whichever side of the screen it was let go nearer to; the Puzzle
                 // Box and Light Box Solvers remember their own spot
                 MotionEvent.ACTION_UP -> when {
@@ -1488,6 +1513,13 @@ class BubbleService : Service() {
         return tool.name + (if (tool == Tool.ZULRAH) "_strip" else "") + if (landscape) "_land" else "_port"
     }
 
+    // The window's height for a tool that fits its contents (the top bar and what's under it), or null
+    private fun fittedHeight(windowW: Int): Int? {
+        val fit = toolParts[currentTool]?.heightFor ?: return null
+        val inside = fit(windowW)
+        return if (inside > 0) dp(BAR_HEIGHT_DP) + inside else null
+    }
+
     private val minWindowWidth get() = dp(if (currentTool == Tool.ZULRAH) ZULRAH_MIN_WIDTH_DP else 150)
     private val minWindowHeight get() = dp(140)
 
@@ -1611,6 +1643,8 @@ class BubbleService : Service() {
                             if (onRight) bars.left else params.x, params.y, minWindowWidth, minWindowHeight, sw, sh, bars)
                         params.width = size.w
                         params.height = size.h
+                        // a window that fits its contents (Zulrah): the drag sets the width, and the height follows
+                        fittedHeight(size.w)?.let { params.height = it.coerceAtMost(maxOf(minWindowHeight, bars.clearBottom(sh) - params.y)) }
                         if (onRight) { params.x = startRight - size.w; shownWantX = params.x }
                         shownWantW = params.width
                         shownWantH = params.height
@@ -1628,6 +1662,7 @@ class BubbleService : Service() {
                             putInt(sizeKey(currentTool) + "_h", params.height)
                         }
                         refitWebPages()
+                        stepBubbleAside(params)   // (grown under the bubble: it moves beside the top bar again)
                     } else if (tag != CARVED) {
                         // a tap, not a drag: it goes to whatever is under the corner, as if the corner weren't there
                         tapThrough(this, tapX, tapY, downAt, e.eventTime)
@@ -1714,7 +1749,7 @@ class BubbleService : Service() {
         // so the keyboard doesn't cover what you're typing
         val notesTop = NotesTool.topOffset(this)
         var h = if (currentTool == Tool.NOTES) ((screenH * 0.48f).toInt() - notesTop).coerceAtLeast(minWindowHeight)
-                else if (currentTool == Tool.ZULRAH) screenH   // the whole height of the screen, leaving the game its width
+                else if (currentTool == Tool.ZULRAH) screenH   // (its height then fits its contents: fittedHeight)
                 else (screenH * 0.9f).toInt()
         // a size you've dragged this tool to
         if (isResizable(currentTool)) {
@@ -1725,6 +1760,7 @@ class BubbleService : Service() {
             }
         }
         windowX = windowX.coerceIn(0, maxOf(0, screenW - w))
+        fittedHeight(w)?.let { h = it.coerceAtMost(screenH) }
 
         return WindowManager.LayoutParams(
             w,
